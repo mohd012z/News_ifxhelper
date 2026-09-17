@@ -120,6 +120,41 @@
     var none = $("#live-filter-none"); if (none) none.onclick = function () { liveFilter = []; saveLiveFilter(); renderLiveFilterGroups(); renderLiveDetail(); };
   }
 
+  /* ---- Auto-computed gauge: xauusd-data.js's tabs[].sentiment (bias/tone/score/confidence/
+   *      netSignal/netPct/summary) was hand-set once and never touched by any refresh script,
+   *      even after ATR/news/calendar/macro all started auto-updating - so the gauge everyone
+   *      looks at was silently frozen next to data that looked live. This recomputes it from
+   *      the tab's own news[]+speakers[] (curated + auto-merged), which already carry a
+   *      signal/impactPct per item either way. Every dirRule in this app states "hawkish =
+   *      SELL <the tab's own instrument>" as the primary framing, so SELL is uniformly the
+   *      hawkish direction across gold/crypto/forex - no per-tab sign flipping needed.
+   *      Falls back to leaving the curated sentiment untouched if there's nothing to score. */
+  function computeAutoSentiment(tab) {
+    var items = (tab.news || []).concat(tab.speakers || []);
+    var scored = items.filter(function (i) { return i.signal && i.signal !== "NEUTRAL" && i.impactPct != null; });
+    if (!scored.length) return null;
+    var netPct = 0, buys = 0, sells = 0;
+    scored.forEach(function (i) { netPct += i.impactPct; if (i.signal === "BUY") buys++; else if (i.signal === "SELL") sells++; });
+    netPct = +netPct.toFixed(2);
+    var netSignal = netPct > 0.05 ? "BUY" : netPct < -0.05 ? "SELL" : "NEUTRAL";
+    var score = +Math.max(-1, Math.min(1, (sells - buys) / scored.length)).toFixed(2); // positive = hawkish (right side of gauge)
+    var confidence = Math.round(Math.min(95, 40 + scored.length * 4));
+    var bias = score > 0.15 ? "HAWKISH" : score < -0.15 ? "DOVISH" : "MIXED";
+    var tone = netSignal === "SELL" ? "BEARISH" : netSignal === "BUY" ? "BULLISH" : "MIXED";
+    return {
+      bias: bias, tone: tone, score: score, confidence: confidence,
+      netSignal: netSignal, netPct: netPct,
+      summary: scored.length + " classified item" + (scored.length === 1 ? "" : "s") + " (" + buys + " bullish, " + sells + " bearish) from real news/speakers.",
+      netNote: "Computed live from classified news/speaker impact% values (curated + auto-collected) — not hand-set."
+    };
+  }
+  function applyAutoSentiment() {
+    (D.tabs || []).forEach(function (tab) {
+      var computed = computeAutoSentiment(tab);
+      if (computed) tab.sentiment = computed;
+    });
+  }
+
   /* ---- Currency strength meter: derived live, not from the analyst bias table.
    *      Each FX pair's % move since connect is credited to its base currency and
    *      debited from its quote currency, then averaged per currency. ---- */
@@ -1626,6 +1661,7 @@
     if (settings.defaultTab && D.tabs.some(function (t) { return t.id === settings.defaultTab; })) {
       activeId = settings.defaultTab; T = D.tabs.filter(function (t) { return t.id === activeId; })[0];
     }
+    applyAutoSentiment();
     renderInst(); renderRanges(); renderAll();
     bindCharts(); bindPalette(); bindLiveControls(); bindBottomNav(); bindTheme(); bindVoice(); bindAssistant(); bindAnalysisScope(); bindPivotInputs(); bindSettings();
     applyFilter("news");
