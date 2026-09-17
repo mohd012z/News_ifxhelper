@@ -5,7 +5,7 @@
  * Regenerate: node build-news.js (run on the same daily cron as build-atr.js).
  */
 window.NEWS_AUTO = {
-  "generatedAt": "2026-09-17 05:16:15Z",
+  "generatedAt": "2026-09-17 05:17:00Z",
   "note": "Auto-collected: economic calendar is real structured data; news/speaker rows are keyword-classified from real headlines (hawkish/dovish lexicon in build-news.js), NOT hand-verified. Treat auto:true rows as a first pass.",
   "incoming": [
     {
