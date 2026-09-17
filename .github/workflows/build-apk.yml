@@ -39,7 +39,7 @@ jobs:
       - uses: actions/setup-java@v4
         with:
           distribution: "temurin"
-          java-version: "17"
+          java-version: "21"
 
       # ubuntu-latest already ships with an Android SDK (ANDROID_HOME preset) - installing just
       # the specific platform/build-tools this project needs directly via sdkmanager, since the
