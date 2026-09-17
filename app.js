@@ -934,10 +934,27 @@
   }
 
   /* top / hero / gauge */
+  /* The header used to show D.updated verbatim - the ORIGINAL hand-curated xauusd-data.js
+   * timestamp, frozen since day one, even after news-auto.js/macro-auto.js started refreshing
+   * real data multiple times a day. That made the header actively misleading: it kept saying
+   * "built <day-old date>" right above a live-ticking price tape. This picks whichever of
+   * D.updated / NEWS_AUTO.generatedAt / MACRO_AUTO.generatedAt is actually the most recent and
+   * shows that instead, so the header never claims to be staler than the data really is. */
+  function latestRefreshLabel() {
+    var candidates = [];
+    if (D.updated) { var d0 = new Date(D.updated.replace(" SGT", "Z").replace(" GMT", "Z")); if (!isNaN(d0.getTime())) candidates.push(d0); }
+    [window.NEWS_AUTO, window.MACRO_AUTO].forEach(function (src) {
+      if (src && src.generatedAt) { var d = new Date(src.generatedAt.replace(" ", "T")); if (!isNaN(d.getTime())) candidates.push(d); }
+    });
+    if (!candidates.length) return D.updated || "\u2014";
+    var latest = new Date(Math.max.apply(null, candidates.map(function (d) { return d.getTime(); })));
+    var myt = new Date(latest.getTime() + 8 * 3600 * 1000);
+    return DAY_NAMES[myt.getUTCDay()] + ", " + myt.getUTCDate() + " " + MONTH_NAMES[myt.getUTCMonth()] + " " + String(myt.getUTCHours()).padStart(2, "0") + ":" + String(myt.getUTCMinutes()).padStart(2, "0") + " MYT";
+  }
   function renderTop() {
     $("#inst-label").textContent = T.label;
     $("#session-label").textContent = D.session || "\u2014";
-    $("#updated-label").textContent = D.updated || "\u2014";
+    $("#updated-label").textContent = latestRefreshLabel();
   }
   function renderHero() {
     var p = T.price;

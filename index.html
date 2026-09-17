@@ -38,6 +38,7 @@
     .status,.pill{display:flex;gap:8px;align-items:center;padding:7px 11px;border:1px solid var(--line);border-radius:999px;background:var(--chip);font-size:11px;color:var(--muted)}
     .dot{width:8px;height:8px;border-radius:999px;background:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 22%,transparent);flex:0 0 auto}
     .controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+    .controls-div{width:1px;align-self:stretch;background:var(--line);margin:0 2px}
     .seg{display:inline-flex;border:1px solid var(--line);background:var(--chip);border-radius:999px;padding:4px}
     .seg button{border:0;background:transparent;color:var(--muted);font-size:11px;font-weight:700;padding:6px 11px;border-radius:999px;cursor:pointer}
     .seg button.active{background:var(--panel);color:var(--text)}
@@ -267,14 +268,16 @@
           <span class="brand-mark">XAU<span style="color:var(--accent)">//</span>DESK</span>
           <div class="inst" id="inst"></div>
         </div>
-        <div class="status"><span class="dot"></span><span><b id="inst-label">&mdash;</b> &middot; <b id="session-label">&mdash;</b> &middot; built <b id="updated-label">&mdash;</b></span></div>
+        <div class="status"><span class="dot"></span><span><b id="inst-label">&mdash;</b> &middot; <b id="session-label">&mdash;</b> &middot; data refreshed <b id="updated-label">&mdash;</b></span></div>
         <div class="controls">
-          <div class="pill" id="live-pill"><span class="dot"></span><b>IDLE</b></div>
+          <div class="pill" id="live-pill" title="Live data connection status"><span class="dot"></span><b>IDLE</b></div>
+          <div class="controls-div"></div>
           <div class="seg" id="theme"><button data-theme="dark" class="active">Dark</button><button data-theme="light">Light</button></div>
           <button class="chip" id="voice-toggle" title="Read incoming alerts aloud">&#128264; Voice off</button>
+          <div class="controls-div"></div>
           <button class="chip" id="settings-btn" title="Settings">&#9881; Settings</button>
           <button class="chip" id="install-btn" hidden>Install app</button>
-          <button class="chip" id="refresh">Reload</button>
+          <button class="chip" id="refresh" title="Reload the page">&#8635; Reload</button>
         </div>
       </div>
 
