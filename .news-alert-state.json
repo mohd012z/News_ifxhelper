@@ -1,0 +1,13 @@
+{
+  "sentKeys": [
+    "evt:FOMC rate decision|16 Sep",
+    "evt:FOMC press conference (Warsh)|16 Sep",
+    "evt:BoJ rate decision|18 Sep",
+    "evt:[CAD] CPI m/m|2026-09-14",
+    "evt:[CAD] Median CPI y/y|2026-09-14",
+    "evt:[CAD] Trimmed CPI y/y|2026-09-14",
+    "evt:[GBP] Claimant Count Change|2026-09-15",
+    "evt:[GBP] CPI y/y|2026-09-16",
+    "evt:[USD] Federal Funds Rate|2026-09-16"
+  ]
+}

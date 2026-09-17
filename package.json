@@ -1,0 +1,25 @@
+{
+  "name": "xau-desk",
+  "version": "1.0.0",
+  "private": true,
+  "description": "XAU//DESK - market news, speaker watch and ATR trade plans for gold, forex, crypto and commodities. Ships as a PWA and as an Android app via Capacitor.",
+  "scripts": {
+    "icons": "node make-icons.js",
+    "atr": "node build-atr.js",
+    "news": "node build-news.js",
+    "serve": "node tools/serve.js",
+    "prepare-web": "node tools/prepare-web.js",
+    "cap:add": "npx cap add android",
+    "cap:sync": "npm run prepare-web && npx cap sync android",
+    "cap:open": "npx cap open android",
+    "apk:debug": "cd android && gradlew.bat assembleDebug",
+    "apk:release": "cd android && gradlew.bat assembleRelease"
+  },
+  "dependencies": {
+    "@capacitor/android": "^7.0.0",
+    "@capacitor/core": "^7.0.0"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^7.0.0"
+  }
+}

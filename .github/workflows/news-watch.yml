@@ -1,0 +1,45 @@
+name: News watch (frequent, Telegram alerts)
+
+# The "bot": checks real news/calendar feeds every 30 minutes and pings Telegram the moment
+# something new and high-signal shows up (high-impact event, or a headline/speaker classified
+# hawkish/dovish). Cheap and frequent - only hits the free RSS/calendar endpoints in build-news.js.
+# Full ATR + a second news pass runs separately once a day (see daily-refresh.yml).
+
+on:
+  schedule:
+    - cron: "*/30 * * * *" # every 30 minutes, UTC
+  workflow_dispatch: {} # lets you trigger a run manually from the Actions tab
+
+permissions:
+  contents: write
+
+concurrency:
+  group: news-watch
+  cancel-in-progress: false # never cancel a run that might be mid-way through sending alerts
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Fetch news + calendar
+        run: node build-news.js
+
+      - name: Send Telegram alerts for anything new
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: node telegram-notify.js
+
+      - name: Commit updated news-auto.js + alert state
+        run: |
+          git config user.name "xau-desk-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add news-auto.js .news-alert-state.json
+          git diff --cached --quiet || git commit -m "bot: refresh news-auto.js [skip ci]"
+          git push

@@ -1,0 +1,22 @@
+{
+  "name": "XAU//DESK - Market News & Trade Plan",
+  "short_name": "XAU//DESK",
+  "description": "Live news, hawkish/dovish speaker watch and ATR-based trade plans for gold, forex, crypto and commodities.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0a0f15",
+  "theme_color": "#0a0f15",
+  "categories": ["finance", "business", "productivity"],
+  "icons": [
+    { "src": "./icons/favicon-32.png", "sizes": "32x32", "type": "image/png" },
+    { "src": "./icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "./icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "./icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Trade Plan", "short_name": "Plan", "url": "./trade-plan.html" },
+    { "name": "News desk", "short_name": "News", "url": "./index.html" }
+  ]
+}

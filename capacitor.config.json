@@ -1,0 +1,18 @@
+{
+  "appId": "ai.autoclaw.xaudesk",
+  "appName": "XAU Desk",
+  "webDir": "www",
+  "bundledWebRuntime": false,
+  "android": {
+    "allowMixedContent": false
+  },
+  "server": {
+    "androidScheme": "https"
+  },
+  "plugins": {
+    "SplashScreen": {
+      "backgroundColor": "#0a0f15",
+      "showSpinner": false
+    }
+  }
+}

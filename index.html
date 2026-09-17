@@ -1,0 +1,672 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>XAU//DESK - Gold, Forex &amp; Crypto News Desk</title>
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="icon" href="./icons/favicon-32.png" />
+  <link rel="apple-touch-icon" href="./icons/apple-touch-icon-180.png" />
+  <meta name="theme-color" content="#0a0f15" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <style>
+    :root{
+      --bg:#0a0f15;--panel:#101821;--panel2:#141f2b;--line:#243444;--text:#e9f0f7;--muted:#8ba0b5;
+      --accent:#e2b04a;--accent2:#6fd3c7;--good:#3ecf8e;--bad:#ff5f7a;--warn:#f0c04a;
+      --hawk:#ff6b6b;--dove:#4bb3ff;--chip:#16222f;
+    }
+    html[data-theme="light"]{
+      --bg:#eef2f6;--panel:#ffffff;--panel2:#f6f9fc;--line:#d7e0ea;--text:#0d1a26;--muted:#5a7086;
+      --accent:#a9781a;--accent2:#158a7d;--good:#12805a;--bad:#c33b56;--warn:#9a6f00;
+      --hawk:#c0334b;--dove:#1f76bd;--chip:#eef3f8;
+    }
+    *{box-sizing:border-box} html,body{min-height:100%}
+    body{margin:0;font-family:var(--ui-font,"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif);background:
+      radial-gradient(900px 380px at 12% -12%,rgba(226,176,74,.10),transparent),
+      radial-gradient(700px 320px at 100% 0%,rgba(111,211,199,.08),transparent),var(--bg);color:var(--text);}
+    .app{min-height:100vh}
+    .brandbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+    .brand-mark{font-weight:800;letter-spacing:.14em;font-size:13px;font-family:"Sora",system-ui,sans-serif;white-space:nowrap}
+    .inst{display:flex;gap:6px;flex-wrap:wrap}
+    .inst button{border:1px solid var(--line);background:var(--chip);color:var(--muted);text-align:left;padding:7px 11px;border-radius:999px;font-weight:700;font-size:11px;cursor:pointer;letter-spacing:.04em;white-space:nowrap}
+    .inst button.active{background:linear-gradient(120deg,color-mix(in srgb,var(--accent) 22%,var(--panel)),var(--panel));color:var(--text);border-color:color-mix(in srgb,var(--accent) 55%,var(--line))}
+    .inst button small{display:none}
+    .main{padding:14px 16px calc(var(--bottomnav-h) + 22px + var(--sab));overflow:auto;max-width:1400px;margin:0 auto}
+    .top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+    .status,.pill{display:flex;gap:8px;align-items:center;padding:7px 11px;border:1px solid var(--line);border-radius:999px;background:var(--chip);font-size:11px;color:var(--muted)}
+    .dot{width:8px;height:8px;border-radius:999px;background:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 22%,transparent);flex:0 0 auto}
+    .controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+    .seg{display:inline-flex;border:1px solid var(--line);background:var(--chip);border-radius:999px;padding:4px}
+    .seg button{border:0;background:transparent;color:var(--muted);font-size:11px;font-weight:700;padding:6px 11px;border-radius:999px;cursor:pointer}
+    .seg button.active{background:var(--panel);color:var(--text)}
+    .chip{border:1px solid var(--line);background:var(--chip);color:var(--text);padding:7px 11px;border-radius:8px;font-size:11px;font-weight:700;cursor:pointer}
+    .chip:hover{border-color:var(--accent)}
+    .chip.go{border-color:color-mix(in srgb,var(--good) 50%,var(--line));color:var(--good)}
+    .chip.stop{border-color:color-mix(in srgb,var(--bad) 50%,var(--line));color:var(--bad)}
+    .row-flex{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:8px}
+    .tinput{padding:7px 10px;border-radius:8px;border:1px solid var(--line);background:var(--chip);color:var(--text);font:12px "JetBrains Mono",monospace;outline:none;min-width:280px;flex:1}
+    .tinput:focus{border-color:var(--accent)}
+    .hero{margin-top:12px;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:10px}
+    .card{border:1px solid var(--line);background:linear-gradient(150deg,color-mix(in srgb,var(--panel) 97%,transparent),color-mix(in srgb,var(--panel2) 95%,transparent));border-radius:13px;padding:12px;position:relative;overflow:hidden}
+    body.compact .card{padding:7px}
+    body.compact section{margin-top:6px !important}
+    body.compact .al{padding:6px;margin-bottom:4px}
+    body.compact table td,body.compact table th{padding:4px 6px}
+    .k{font-size:10px;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);font-weight:600}
+    .v{margin-top:5px;font-size:23px;font-weight:800;font-family:"JetBrains Mono",ui-monospace,monospace;line-height:1.15}
+    .v.sm{font-size:17px}
+    .sub{margin-top:4px;font-size:11px;color:var(--muted)}
+    .good{color:var(--good)} .bad{color:var(--bad)} .acc{color:var(--accent)} .muted{color:var(--muted)}
+    .layout{display:grid;grid-template-columns:1.35fr 1fr;gap:10px;margin-top:10px}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+    .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:10px}
+    .grid4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:10px;margin-top:10px}
+    table{width:100%;border-collapse:collapse;font-size:12px}
+    th,td{padding:8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+    th{font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+    tbody tr:hover{background:color-mix(in srgb,var(--chip) 60%,transparent)}
+    a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+    .badge{font-size:9.5px;padding:2px 7px;border-radius:999px;border:1px solid var(--line);white-space:nowrap;font-weight:700;letter-spacing:.04em}
+    .badge.b-high,.badge.b-med,.badge.b-tf{font-size:11.5px;padding:4px 11px;font-weight:800}
+    .news-time{font-size:13px;font-weight:800;color:var(--text)!important}
+    .b-bear{border-color:color-mix(in srgb,var(--bad) 45%,var(--line));color:var(--bad)}
+    .b-bull{border-color:color-mix(in srgb,var(--good) 45%,var(--line));color:var(--good)}
+    .b-neu{border-color:var(--line);color:var(--muted)}
+    .b-hawk{border-color:color-mix(in srgb,var(--hawk) 50%,var(--line));color:var(--hawk)}
+    .b-dove{border-color:color-mix(in srgb,var(--dove) 50%,var(--line));color:var(--dove)}
+    .b-high{border-color:color-mix(in srgb,var(--bad) 50%,var(--line));color:var(--bad)}
+    .b-med{border-color:color-mix(in srgb,var(--warn) 50%,var(--line));color:var(--warn)}
+    .b-tf{border-color:color-mix(in srgb,var(--accent2) 45%,var(--line));color:var(--accent2)}
+    .sig{font-size:11.5px;padding:4px 11px;border-radius:6px;font-weight:800;letter-spacing:.06em;white-space:nowrap;display:inline-block}
+    .sig-sell{background:color-mix(in srgb,var(--bad) 18%,transparent);color:var(--bad);border:1px solid color-mix(in srgb,var(--bad) 45%,var(--line))}
+    .sig-buy{background:color-mix(in srgb,var(--good) 18%,transparent);color:var(--good);border:1px solid color-mix(in srgb,var(--good) 45%,var(--line))}
+    .sig-neu{background:var(--chip);color:var(--muted);border:1px solid var(--line)}
+    .pct{font-family:"JetBrains Mono",monospace;font-weight:700}
+    td.px{font-family:"JetBrains Mono",monospace;font-weight:700;white-space:nowrap}
+    td.chg{font-family:"JetBrains Mono",monospace;font-weight:600;white-space:nowrap}
+    .spk{border:1px solid var(--line);border-radius:11px;padding:10px;background:var(--chip);margin-bottom:8px;border-left:3px solid var(--line)}
+    .spk.hawk{border-left-color:var(--hawk)} .spk.dove{border-left-color:var(--dove)}
+    .spk .hd,.inc .hd{display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap}
+    .spk .nm,.inc .nm{font-weight:700;font-size:14.5px}
+    .spk .rl,.inc .rl{font-size:12px;color:var(--muted);letter-spacing:.03em;font-weight:600}
+    .spk .qt{margin-top:6px;font-size:11.5px;line-height:1.5}
+    .spk .im,.inc .im{margin-top:6px;font-size:11.5px;color:var(--muted);line-height:1.5}
+    .spk .mt,.inc .mt{margin-top:7px;padding-top:6px;border-top:1px dashed var(--line);font-size:12.5px;color:var(--text);font-weight:700;font-family:"JetBrains Mono",monospace}
+    .inc{border:1px solid var(--line);border-radius:11px;padding:12px;background:var(--chip);margin-bottom:9px;border-left:4px solid var(--accent)}
+    .inc .badge{font-size:12px;padding:4px 11px}
+    .gauge{margin-top:10px}
+    .gbar{height:10px;border-radius:999px;background:linear-gradient(90deg,var(--dove),color-mix(in srgb,var(--muted) 40%,var(--line)),var(--hawk));position:relative}
+    .gmark{position:absolute;top:-5px;width:3px;height:20px;background:var(--text);border-radius:2px;box-shadow:0 0 0 2px var(--panel)}
+    .glab{display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-top:6px;letter-spacing:.06em}
+    .netsig{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:12px;padding:10px;border:1px solid var(--line);border-radius:10px;background:var(--chip)}
+    .netsig .big{font-size:21px;font-weight:800;font-family:"JetBrains Mono",monospace}
+    .alerts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}
+    .al{border:1px solid var(--line);border-radius:9px;padding:9px;background:var(--chip);margin-bottom:7px}
+    .al .hd{display:flex;justify-content:space-between;gap:6px;align-items:center;margin-bottom:5px}
+    .al .tx{font-size:11.5px;line-height:1.5}
+    .chart-shell{position:relative}
+    .chart{margin-top:8px;height:190px;border:1px solid var(--line);border-radius:10px;background:color-mix(in srgb,var(--chip) 45%,transparent);cursor:crosshair}
+    .chart svg{width:100%;height:100%;display:block}
+    .chart svg .axis-text{font:600 9px "JetBrains Mono",ui-monospace,monospace;fill:var(--muted);letter-spacing:.03em}
+    .chart svg .axis-title{font:700 9px "IBM Plex Sans",sans-serif;fill:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+    .legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin-top:7px;font-size:10px;color:var(--muted);letter-spacing:.04em}
+    .legend .lg{display:inline-flex;align-items:center;gap:6px;font-weight:700}
+    .legend .lg::before{content:"";width:11px;height:2px;background:var(--lg-c,var(--accent));border-radius:2px}
+    .cursor{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .12s}
+    .chart-shell.active .cursor{opacity:1}
+    .cursor .vx,.cursor .hy{position:absolute;background:color-mix(in srgb,var(--accent) 85%,transparent)}
+    .cursor .vx{width:1px;top:0;bottom:0;left:50%}
+    .cursor .hy{height:1px;left:0;right:0;top:50%;background:color-mix(in srgb,var(--accent2) 75%,transparent)}
+    .cursor .lb{position:absolute;right:8px;top:8px;background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:4px 7px;font:700 10px "JetBrains Mono",monospace}
+    .ladder{display:grid;gap:6px;margin-top:8px}
+    .rung{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line);border-radius:8px;padding:7px 10px;font-size:12px;background:var(--chip)}
+    .rung .lab{color:var(--muted);font-size:10px;letter-spacing:.06em;text-transform:uppercase}
+    .rung .num{font-family:"JetBrains Mono",monospace;font-weight:700}
+    .cal{display:grid;gap:6px;margin-top:8px}
+    .cal .row{display:flex;justify-content:space-between;gap:8px;align-items:center;border-bottom:1px solid var(--line);padding:7px 2px;font-size:11.5px}
+    .cal .dt{color:var(--muted);min-width:74px;font-size:10.5px}
+    .pres{display:grid;gap:9px;margin-top:8px}
+    .pres .row .hd{display:flex;justify-content:space-between;font-size:11px;margin-bottom:4px}
+    .bar{height:6px;border-radius:999px;background:color-mix(in srgb,var(--line) 80%,transparent);overflow:hidden}
+    .bar>i{display:block;height:100%;width:var(--w,50%);background:linear-gradient(90deg,var(--accent),var(--accent2))}
+    .bar>i.dn{background:linear-gradient(90deg,var(--warn),var(--bad))}
+    .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:8px}
+    .step{border:1px solid var(--line);border-radius:10px;background:var(--chip);padding:10px}
+    .step h4{margin:0 0 5px;font-size:10.5px;letter-spacing:.07em;text-transform:uppercase}
+    .step p{margin:0;font-size:11px;color:var(--muted);line-height:1.5}
+    .formula{margin-top:8px;padding:10px;border:1px dashed var(--line);border-radius:9px;font-family:"JetBrains Mono",monospace;font-size:11.5px;color:var(--accent);background:var(--chip);overflow-x:auto}
+    .mtable{width:100%;border-collapse:collapse;font-size:11px;margin-top:8px}
+    .mtable td{padding:5px 6px;border-bottom:1px solid var(--line)}
+    .mtable td:last-child{text-align:right;font-family:"JetBrains Mono",monospace;color:var(--accent)}
+    .calc{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:8px}
+    .fld label{display:block;font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+    .fld input{width:100%;padding:8px;border-radius:8px;border:1px solid var(--line);background:var(--chip);color:var(--text);font:12px "JetBrains Mono",monospace;outline:none}
+    .fld input:focus{border-color:var(--accent)}
+    .out{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px}
+    .out .o{border:1px solid var(--line);border-radius:10px;padding:10px;background:var(--chip)}
+    .out .o .val{margin-top:4px;font-family:"JetBrains Mono",monospace;font-weight:800;font-size:16px}
+    .palette{position:fixed;inset:0;background:rgba(5,10,18,.5);backdrop-filter:blur(6px);display:none;align-items:flex-start;justify-content:center;padding-top:14vh;z-index:40}
+    .palette.open{display:flex}
+    .palette-card{width:min(660px,92vw);border:1px solid var(--line);border-radius:12px;background:var(--panel);overflow:hidden}
+    .palette input{width:100%;border:0;border-bottom:1px solid var(--line);padding:12px;background:var(--chip);color:var(--text);font:12px "JetBrains Mono",monospace;outline:none}
+    .palette button{width:100%;border:0;border-bottom:1px solid var(--line);padding:10px 12px;background:transparent;color:var(--text);text-align:left;cursor:pointer;font-size:12px}
+    .palette button:hover{background:var(--chip)}
+    .focus{position:fixed;inset:0;background:rgba(4,8,15,.62);backdrop-filter:blur(4px);display:none;z-index:30}
+    .focus.show{display:block}
+    .chart-shell.floating{position:fixed!important;z-index:31!important;box-shadow:0 30px 90px rgba(0,0,0,.5)!important;background:var(--panel)}
+    .note{font-size:10.5px;color:var(--muted);line-height:1.6;margin-top:8px}
+    .hidden{display:none!important}
+    @keyframes flashUp{0%{background:color-mix(in srgb,var(--good) 42%,transparent)}100%{background:transparent}}
+    @keyframes flashDown{0%{background:color-mix(in srgb,var(--bad) 42%,transparent)}100%{background:transparent}}
+    .flash-up{animation:flashUp .7s ease-out}
+    .flash-down{animation:flashDown .7s ease-out}
+    .live-tape{display:flex;gap:18px;overflow:hidden;white-space:nowrap;border:1px solid var(--line);border-radius:10px;background:var(--chip);padding:8px 12px;margin-top:10px;font-family:"JetBrains Mono",ui-monospace,monospace;font-size:12px}
+    .live-tape .ti{display:inline-flex;gap:6px;align-items:baseline}
+    .live-tape .ti b{letter-spacing:.06em}
+    .err{display:none;margin:14px 0;padding:12px;border:1px solid var(--bad);border-radius:10px;background:color-mix(in srgb,var(--bad) 10%,transparent);font-size:12px}
+
+    /* ---------- Watchlist filter ---------- */
+    .wl-groups{display:grid;gap:10px;margin-top:8px}
+    .wl-group .wl-gt{display:flex;align-items:center;gap:8px;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:800;margin-bottom:6px}
+    .wl-group .wl-gt .n{background:var(--chip);border:1px solid var(--line);border-radius:999px;padding:1px 7px;font-size:9.5px}
+    .wl-chips{display:flex;flex-wrap:wrap;gap:6px}
+    .wl-chip{border:1px solid var(--line);background:var(--chip);color:var(--muted);padding:6px 10px;border-radius:999px;font-size:11px;font-weight:700;cursor:pointer;user-select:none;letter-spacing:.02em}
+    .wl-chip.on{background:linear-gradient(120deg,color-mix(in srgb,var(--accent) 24%,var(--panel)),var(--panel));color:var(--text);border-color:color-mix(in srgb,var(--accent) 55%,var(--line))}
+    .wl-chip.commodity.on{border-color:color-mix(in srgb,var(--accent) 65%,var(--line));color:var(--accent)}
+    .wl-chip.crypto.on{border-color:color-mix(in srgb,var(--accent2) 65%,var(--line));color:var(--accent2)}
+
+    /* ---------- Currency strength meter ---------- */
+    .cs-row{display:grid;grid-template-columns:44px 1fr 56px;gap:10px;align-items:center;margin-bottom:7px}
+    .cs-row .cc{font-family:"JetBrains Mono",monospace;font-weight:800;font-size:12px}
+    .cs-track{height:9px;border-radius:999px;background:var(--chip);border:1px solid var(--line);position:relative;overflow:hidden}
+    .cs-fill{position:absolute;top:0;bottom:0;border-radius:999px}
+    .cs-fill.good{background:var(--good);right:50%}
+    .cs-fill.bad{background:var(--bad);left:50%}
+    .cs-track::after{content:"";position:absolute;left:50%;top:-3px;bottom:-3px;width:1px;background:var(--line)}
+    .cs-val{font-family:"JetBrains Mono",monospace;font-size:11px;text-align:right}
+
+    /* ---------- Live detail table + trade-focus click-to-expand ---------- */
+    .tf-item{cursor:pointer}
+    .tf-item:hover{border-color:color-mix(in srgb,var(--accent) 45%,var(--line))}
+    .tf-item .tf-more{margin-top:6px;padding-top:6px;border-top:1px dashed var(--line);display:none}
+    .tf-item.open .tf-more{display:block}
+    .tf-item .tf-caret{float:right;color:var(--muted);font-size:10px}
+
+    /* ---------- Mobile / tablet responsive + safe-area ---------- */
+    :root{ --sat:env(safe-area-inset-top,0px); --sab:env(safe-area-inset-bottom,0px); --sal:env(safe-area-inset-left,0px); --sar:env(safe-area-inset-right,0px); --bottomnav-h:58px; }
+
+    /* ---------- Desk Assistant chat bubble ---------- */
+    .assist-fab{position:fixed;right:calc(16px + var(--sar));bottom:calc(var(--bottomnav-h) + 16px + var(--sab));z-index:42;width:52px;height:52px;border-radius:999px;border:1px solid var(--line);background:linear-gradient(135deg,var(--accent),var(--accent2));color:#0a0f15;font-size:22px;cursor:grab;box-shadow:0 8px 24px rgba(0,0,0,.35);touch-action:none;user-select:none}
+    .assist-fab:active{cursor:grabbing}
+    #assist-mic.go{background:var(--good);color:#04150c;border-color:var(--good)}
+    .toast-wrap{position:fixed;top:calc(12px + var(--sat));right:calc(12px + var(--sar));z-index:50;display:flex;flex-direction:column;gap:8px;max-width:min(320px,calc(100vw - 24px))}
+    .toast{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;padding:10px 12px;font-size:12px;line-height:1.5;box-shadow:0 10px 30px rgba(0,0,0,.35);animation:toastIn .18s ease}
+    .toast b{display:block;margin-bottom:3px}
+    @keyframes toastIn{from{transform:translateX(16px);opacity:0}to{transform:translateX(0);opacity:1}}
+    .assist-panel{position:fixed;right:calc(16px + var(--sar));bottom:calc(var(--bottomnav-h) + 76px + var(--sab));z-index:43;width:min(360px,calc(100vw - 32px));max-height:min(560px,70vh);background:var(--panel);border:1px solid var(--line);border-radius:14px;box-shadow:0 20px 60px rgba(0,0,0,.5);display:none;flex-direction:column;overflow:hidden}
+    .assist-panel.open{display:flex}
+    .assist-hd{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 12px;border-bottom:1px solid var(--line);font-size:12px}
+    .assist-close{border:0;background:transparent;color:var(--muted);font-size:18px;cursor:pointer;line-height:1}
+    .assist-body{flex:1;overflow:auto;padding:10px 12px;display:flex;flex-direction:column;gap:8px}
+    .assist-msg{max-width:88%;padding:8px 11px;border-radius:11px;font-size:12px;line-height:1.5}
+    .assist-msg.bot{align-self:flex-start;background:var(--chip);border:1px solid var(--line)}
+    .assist-msg.user{align-self:flex-end;background:linear-gradient(120deg,color-mix(in srgb,var(--accent) 28%,var(--panel)),var(--panel));border:1px solid color-mix(in srgb,var(--accent) 45%,var(--line))}
+    .assist-tag{display:block;font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:800;margin-bottom:3px}
+    .assist-in{display:flex;gap:6px;padding:10px;border-top:1px solid var(--line)}
+    .assist-in input{flex:1;padding:8px 10px;border-radius:8px;border:1px solid var(--line);background:var(--chip);color:var(--text);font-size:12px;outline:none}
+    .assist-in input:focus{border-color:var(--accent)}
+
+    /* bottom nav: the single, merged View switcher for every screen size */
+    .bottomnav{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:40;background:color-mix(in srgb,var(--panel) 96%,transparent);backdrop-filter:blur(10px);border-top:1px solid var(--line);padding:6px calc(4px + var(--sal)) calc(6px + var(--sab)) calc(4px + var(--sar));gap:2px;justify-content:center}
+    .bottomnav button{flex:0 1 120px;min-width:58px;border:0;background:transparent;color:var(--muted);font-size:10px;font-weight:700;letter-spacing:.03em;padding:7px 4px;border-radius:9px;display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer}
+    .bottomnav button .ic{font-size:16px;line-height:1}
+    .bottomnav button.active{color:var(--accent);background:color-mix(in srgb,var(--accent) 14%,transparent)}
+
+    @media (max-width:1150px){.hero,.layout,.grid2,.grid3,.grid4,.flow,.alerts{grid-template-columns:1fr}.calc,.out{grid-template-columns:1fr 1fr}}
+
+    @media (max-width:860px){
+      body{padding-top:var(--sat)}
+      .top{position:sticky;top:0;z-index:20;background:var(--bg);padding:8px 0;margin:-8px 0 4px}
+      .status{flex:1;min-width:0}
+      .status span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
+      .controls{gap:6px}
+      .hero{grid-template-columns:1fr 1fr;gap:8px}
+      .hero .card:first-child{grid-column:1 / -1}
+      .grid2,.grid3,.grid4,.layout,.flow,.alerts,.calc,.out,.wl-groups{grid-template-columns:1fr}
+      table{font-size:11px}
+      th,td{padding:6px 5px}
+      th:nth-child(n+6),td:nth-child(n+6){display:none} /* trim low-priority columns on phones */
+      .v{font-size:20px}
+      .chart{height:150px}
+      .row-flex{gap:6px}
+      .tinput{min-width:0}
+      .bottomnav{justify-content:flex-start;overflow-x:auto}
+      .bottomnav button{flex:1 0 auto}
+    }
+    @media (max-width:420px){
+      .hero{grid-template-columns:1fr}
+      .v{font-size:19px}
+      th:nth-child(n+5),td:nth-child(n+5){display:none}
+    }
+  </style>
+</head>
+<body>
+  <div class="focus" id="focus"></div>
+  <div class="app">
+    <main class="main">
+      <div class="top">
+        <div class="brandbar">
+          <span class="brand-mark">XAU<span style="color:var(--accent)">//</span>DESK</span>
+          <div class="inst" id="inst"></div>
+        </div>
+        <div class="status"><span class="dot"></span><span><b id="inst-label">&mdash;</b> &middot; <b id="session-label">&mdash;</b> &middot; built <b id="updated-label">&mdash;</b></span></div>
+        <div class="controls">
+          <div class="pill" id="live-pill"><span class="dot"></span><b>IDLE</b></div>
+          <div class="seg" id="theme"><button data-theme="dark" class="active">Dark</button><button data-theme="light">Light</button></div>
+          <button class="chip" id="voice-toggle" title="Read incoming alerts aloud">&#128264; Voice off</button>
+          <button class="chip" id="settings-btn" title="Settings">&#9881; Settings</button>
+          <button class="chip" id="install-btn" hidden>Install app</button>
+          <button class="chip" id="refresh">Reload</button>
+        </div>
+      </div>
+
+      <div class="err" id="load-error"><b>Data file not found.</b> Keep <code>index.html</code>, <code>app.js</code>, <code>live.js</code> and <code>xauusd-data.js</code> in the same folder and open <code>index.html</code> again.</div>
+
+      <div class="live-tape" id="live-tape"></div>
+
+      <section class="card" style="margin-top:12px" data-sec="news">
+        <div class="k">Today's Trade Focus &mdash; best pair per event, and when to watch it</div>
+        <div class="note">Derived automatically: each event is mapped to its driving currency, then matched against the currency-bias signal table to find the pair with the strongest live BUY/SELL score — that is what to focus on, on the timeframe listed.</div>
+        <div id="trade-focus-list" style="margin-top:8px"></div>
+      </section>
+
+      <section class="card" style="margin-top:10px" data-sec="news">
+        <div class="k">Priority Read &mdash; News Incoming <span style="color:var(--accent);font-weight:600">(times in Malaysia time, MYT = GMT+8)</span></div>
+        <div class="grid2" style="margin-top:8px"><div id="incoming-list"></div>
+          <div class="note">Sorted soonest-first. Focus timeframe = the chart resolution where the event's move is usually cleanest &mdash; higher-impact events need a wider timeframe because the first spike often reverses.</div>
+        </div>
+      </section>
+
+      <section class="card" style="margin-top:10px" data-sec="news">
+        <div class="k">News Analysis Alerts</div>
+        <div class="alerts">
+          <div><div class="k" style="margin-bottom:6px">Today</div><div id="alerts-today"></div></div>
+          <div><div class="k" style="margin-bottom:6px">This Week</div><div id="alerts-week"></div></div>
+        </div>
+        <div class="note">Generated from the items retrieved for this instrument. Severity: high = market-moving, med = watch.</div>
+      </section>
+
+      <section class="hero" data-sec="all">
+        <div class="card"><div class="k" id="k-spot-label">Spot</div><div class="v" id="k-spot">&mdash;</div><div class="sub" id="k-spot-sub">&mdash;</div></div>
+        <div class="card"><div class="k" id="k-m1-label">&mdash;</div><div class="v sm" id="k-m1">&mdash;</div><div class="sub" id="k-m1-sub">&mdash;</div></div>
+        <div class="card"><div class="k" id="k-m2-label">&mdash;</div><div class="v sm" id="k-m2">&mdash;</div><div class="sub" id="k-m2-sub">&mdash;</div></div>
+        <div class="card"><div class="k" id="k-m3-label">&mdash;</div><div class="v sm" id="k-m3">&mdash;</div><div class="sub" id="k-m3-sub">&mdash;</div></div>
+      </section>
+
+      <section class="card" style="margin-top:10px" data-sec="news analysis">
+        <div class="k">Hawkish / Dovish Gauge</div>
+        <div class="gauge">
+          <div class="gbar"><span class="gmark" id="gmark" style="left:50%"></span></div>
+          <div class="glab"><span>DOVISH</span><span id="gauge-label">&mdash;</span><span>HAWKISH</span></div>
+        </div>
+        <div class="note" id="gauge-summary">&mdash;</div>
+        <div class="note acc" id="dir-rule">&mdash;</div>
+        <div class="netsig">
+          <div><div class="k">Net speech signal</div><div class="big" id="net-sig">&mdash;</div></div>
+          <div style="flex:1;min-width:200px"><div class="k">Cumulative est. move</div><div class="big" id="net-pct">&mdash;</div><div class="note" id="net-note">&mdash;</div></div>
+        </div>
+      </section>
+
+      <section class="card" style="margin-top:10px" data-sec="live">
+        <div class="k">Live Feed &mdash; connection &amp; control</div>
+        <div class="row-flex">
+          <span class="pill"><span class="dot"></span>State: <b id="live-pill2">see badge above</b></span>
+          <span class="pill">Interval: <b id="live-interval">&mdash;</b></span>
+          <span class="chip go" id="live-go">Start / restart polling</span>
+          <span class="chip stop" id="live-stop">Stop</span>
+        </div>
+        <div class="note">Endpoint: <code id="live-source">&mdash;</code></div>
+        <div class="row-flex">
+          <input class="tinput" id="ws-url" type="text" placeholder="wss:// your streaming endpoint (optional)" />
+          <span class="chip go" id="ws-go">Open stream</span>
+          <span class="chip stop" id="ws-stop">Close stream</span>
+        </div>
+        <div class="note" id="live-note">Starting&hellip;</div>
+        <div class="note"><b>What this is:</b> gold streams tick-by-tick over WebSocket; FX/crypto poll on an interval and rewrite prices in place &mdash; no reload needed. If the network or browser policy blocks the request, the badge turns <b>OFFLINE</b> and the last snapshot stays on screen.</div>
+      </section>
+
+      <section class="card" style="margin-top:10px" data-sec="live">
+        <div class="k">Currency Strength Meter</div>
+        <div class="note">Relative strength since this session connected: for every live FX pair, its % move is credited to the base currency and debited from the quote currency, then averaged per currency. This is live-derived, not the analyst bias table above.</div>
+        <div id="ccy-strength" style="margin-top:10px">Waiting for ticks&hellip;</div>
+        <div class="k" style="margin-top:14px">Which currency is good to trade right now</div>
+        <div id="ccy-strength-advice" style="margin-top:8px"></div>
+      </section>
+
+      <section class="card" style="margin-top:10px" data-sec="live">
+        <div class="k">Live Symbols &mdash; pick what to watch</div>
+        <div class="note">Toggle any symbol on/off. The detail table below shows only what's selected here (independent of the Pairs-page watchlist).</div>
+        <div class="row-flex" style="margin-top:6px">
+          <span class="chip" id="live-filter-all">Select all</span>
+          <span class="chip" id="live-filter-none">Clear</span>
+        </div>
+        <div class="wl-groups" id="live-filter-groups" style="margin-top:8px"></div>
+        <table style="margin-top:12px">
+          <thead><tr><th>Symbol</th><th>Price</th><th>Since connect</th><th>Pips since connect</th><th>Session H/L</th><th>Source</th></tr></thead>
+          <tbody id="live-detail-body"><tr><td colspan="6" style="color:var(--muted)">Waiting for ticks&hellip;</td></tr></tbody>
+        </table>
+      </section>
+
+      <section class="card" style="margin-top:10px" data-sec="pairs">
+        <div class="k" id="pairs-title">Pairs</div>
+        <div class="note" id="pairs-subtitle"></div>
+        <div class="wl-groups" id="wl-groups"></div>
+        <table style="margin-top:12px">
+          <thead><tr id="pairs-head"></tr></thead>
+          <tbody id="pairs-body"></tbody>
+        </table>
+        <div class="note" id="pair-note"></div>
+      </section>
+
+      <section class="card" style="margin-top:10px" data-sec="pairs" id="currency-exposure-card">
+        <div class="k">Currency Exposure &mdash; which currency each event hits, and how</div>
+        <table style="margin-top:8px">
+          <thead><tr><th>Currency</th><th>Central bank</th><th>Stance</th><th>Bias</th><th>Next event</th><th>Why</th></tr></thead>
+          <tbody id="cur-body"></tbody>
+        </table>
+        <div class="k" style="margin-top:14px">Deep-dive analysis (generated from the tables above)</div>
+        <div id="analysis-list" style="margin-top:8px"></div>
+      </section>
+
+      <section class="layout">
+        <article class="card" data-sec="news">
+          <div class="k">News Feed &mdash; analysed by timeframe</div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:8px" id="tf-filter"></div>
+          <table style="margin-top:8px">
+            <thead><tr><th>Date (MYT)</th><th>Timeframe</th><th>Headline</th><th>Signal</th><th>Est. move</th><th>Source</th></tr></thead>
+            <tbody id="news-body"></tbody>
+          </table>
+          <div class="note">Timeframes: Intraday &middot; 1-3D &middot; Weekly &middot; Structural (months+). Signal rule: hawkish/bearish = SELL, dovish/bullish = BUY. Headlines carry a collection date only (no intraday timestamp in the source) &mdash; all dates are already Malaysia-day (GMT+8); for exact clock times see News Incoming, which lists both MYT and GMT.</div>
+        </article>
+        <article class="card" data-sec="news">
+          <div class="k">Speaker Watch &mdash; Hawkish / Dovish Hints</div>
+          <div id="speaker-list" style="margin-top:8px"></div>
+        </article>
+      </section>
+
+      <section class="card" style="margin-top:10px" data-sec="news">
+        <div class="k">Sources &mdash; every link collected for this instrument</div>
+        <div class="note">Every incoming event, news headline and speaker quote links back to where it was collected, so you can verify it yourself.</div>
+        <div id="sources-list" style="margin-top:8px"></div>
+      </section>
+
+      <section class="card" style="margin-top:10px" data-sec="analysis">
+        <div class="k">Analysis scope &mdash; which symbol is being analysed</div>
+        <div class="note">The gauge, model and analysis below are all for the instrument selected here (same as the top-bar tabs).</div>
+        <div class="seg" id="analysis-scope" style="margin-top:8px">
+          <button data-id="gold">Commodity (Gold/Silver)</button>
+          <button data-id="crypto">Crypto</button>
+          <button data-id="forex">Forex</button>
+        </div>
+      </section>
+
+      <section class="card" style="margin-top:10px" data-sec="analysis">
+        <div class="k">Cross-Asset Effects &mdash; gold, forex, oil, commodities, crypto</div>
+        <div class="note" id="cross-note">&mdash;</div>
+        <table style="margin-top:8px">
+          <thead><tr id="cross-head"></tr></thead>
+          <tbody id="cross-body"></tbody>
+        </table>
+        <div class="note" id="cross-oil">&mdash;</div>
+        <div class="out" id="cross-ratios"></div>
+        <div class="note" id="cross-sources">&mdash;</div>
+      </section>
+
+      <section class="card" style="margin-top:10px" data-sec="analysis">
+        <div class="k">Speech Impact Model &mdash; how the % is calculated</div>
+        <div class="formula" id="model-formula">&mdash;</div>
+        <div class="note" id="model-note"></div>
+        <div class="grid4" style="margin-top:10px">
+          <div><div class="k">BASE</div><div class="v sm acc" id="m-base">&mdash;</div><div class="note">Assumed max single-event move.</div></div>
+          <div><div class="k">Speaker weight</div><table class="mtable" id="m-weights"></table></div>
+          <div><div class="k">Signal strength</div><table class="mtable" id="m-strength"></table></div>
+          <div><div class="k">Surprise factor</div><table class="mtable" id="m-surprise"></table></div>
+        </div>
+        <div class="note"><b>Estimate, not measurement.</b> Direction per instrument: see the gauge rule above.</div>
+      </section>
+
+      <section class="card" style="margin-top:10px" data-sec="analysis">
+        <div class="k">Range Calculator &mdash; how far can the news move price?</div>
+        <div class="note" id="ranges-note">&mdash;</div>
+        <div class="calc">
+          <div class="fld"><label>Open</label><input id="c-open" type="number" step="any" /></div>
+          <div class="fld"><label>High</label><input id="c-high" type="number" step="any" /></div>
+          <div class="fld"><label>Low</label><input id="c-low" type="number" step="any" /></div>
+          <div class="fld"><label>Prev close</label><input id="c-prev" type="number" step="any" /></div>
+          <div class="fld"><label>ATR(14)</label><input id="c-atr" type="number" step="any" /></div>
+          <div class="fld"><label>Event k (x ATR)</label><input id="c-k" type="number" step="any" /></div>
+          <div class="fld"><label>Implied vol %</label><input id="c-iv" type="number" step="any" /></div>
+          <div class="fld"><label>Days to expiry</label><input id="c-dte" type="number" step="any" /></div>
+        </div>
+        <div class="out" id="calc-out"></div>
+        <div class="note" id="calc-note">&mdash;</div>
+        <div class="grid2" style="margin-top:12px" id="range-methods"></div>
+      </section>
+
+      <section class="card" style="margin-top:10px" data-sec="charts">
+        <div class="k">Pivot Levels</div>
+        <div class="note">Classic pivot formula (PP = (H+L+C)/3). <b>H1/H4/D1 auto-fill</b> from live ticks collected this session (high/low/last of what has streamed in) &mdash; edit any field to override. <b>W1/M1 have no live weekly/monthly source, so enter those manually.</b> Each symbol+timeframe combination is saved separately on this device.</div>
+        <div class="row-flex" style="margin-top:8px">
+          <span class="note" style="margin:0">Symbol:</span>
+          <div class="wl-chips" id="pivot-symbol-chips"></div>
+        </div>
+        <div class="row-flex" style="margin-top:8px">
+          <span class="note" style="margin:0">Timeframe:</span>
+          <div class="seg" id="pivot-tf-seg">
+            <button data-tf="h1">H1</button>
+            <button data-tf="h4">H4</button>
+            <button data-tf="d1" class="active">D1</button>
+            <button data-tf="w1">W1</button>
+            <button data-tf="mn1">MN1</button>
+          </div>
+        </div>
+        <div class="calc" style="grid-template-columns:1fr 1fr 1fr;margin-top:12px">
+          <div class="fld"><label>High</label><input id="pv-high" type="number" step="any" /></div>
+          <div class="fld"><label>Low</label><input id="pv-low" type="number" step="any" /></div>
+          <div class="fld"><label>Close</label><input id="pv-close" type="number" step="any" /></div>
+        </div>
+        <div class="note" id="pivot-source" style="margin-top:4px">&mdash;</div>
+        <div class="ladder" id="pivot-ladder" style="margin-top:10px"></div>
+      </section>
+
+      <section class="grid2" data-sec="charts">
+        <div class="card" style="grid-column:1 / -1">
+          <div class="k">Now checking</div>
+          <div class="note" id="chart-context" style="margin-top:4px">&mdash;</div>
+        </div>
+        <div class="card chart-shell">
+          <div class="k" id="c1-title">&mdash;</div>
+          <div class="chart" id="chart1"></div>
+          <div class="legend" id="legend1"></div>
+          <div class="cursor"><span class="vx"></span><span class="hy"></span><span class="lb">x:0 y:0</span></div>
+          <div class="note" id="c1-note"></div>
+        </div>
+        <div class="card chart-shell">
+          <div class="k" id="c2-title">&mdash;</div>
+          <div class="chart" id="chart2"></div>
+          <div class="legend" id="legend2"></div>
+          <div class="cursor"><span class="vx"></span><span class="hy"></span><span class="lb">x:0 y:0</span></div>
+          <div class="note" id="c2-note"></div>
+        </div>
+      </section>
+
+      <section class="grid4" data-sec="charts">
+        <div class="card"><div class="k">Resistance</div><div class="note" id="res-title" style="margin-top:4px"></div><div class="ladder" id="res-ladder"></div></div>
+        <div class="card"><div class="k">Support</div><div class="note" id="sup-title" style="margin-top:4px"></div><div class="ladder" id="sup-ladder"></div></div>
+        <div class="card"><div class="k">Macro Pressure</div><div class="pres" id="pressure"></div><div class="note">Qualitative read &mdash; not measured data.</div></div>
+        <div class="card"><div class="k">Event Calendar</div><div class="cal" id="calendar"></div></div>
+      </section>
+
+      <section class="card" style="margin-top:10px" data-sec="analysis">
+        <div class="k">Daily Flow</div>
+        <div class="flow">
+          <div class="step"><h4>1 &middot; Fetch</h4><p id="f1">&mdash;</p></div>
+          <div class="step"><h4>2 &middot; Classify</h4><p id="f2">Tag hawkish / dovish and the timeframe.</p></div>
+          <div class="step"><h4>3 &middot; Score</h4><p id="f3">&mdash;</p></div>
+          <div class="step"><h4>4 &middot; Publish</h4><p id="f4">&mdash;</p></div>
+        </div>
+        <div class="note" id="sources">Sources: &mdash;</div>
+      </section>
+    </main>
+  </div>
+
+  <nav class="bottomnav" id="bottomnav">
+    <button data-filter="news" class="active"><span class="ic">&#128240;</span>News</button>
+    <button data-filter="pairs"><span class="ic">&#128176;</span>Pairs</button>
+    <button data-filter="analysis"><span class="ic">&#129518;</span>Analysis</button>
+    <button data-filter="charts"><span class="ic">&#128200;</span>Charts</button>
+    <button data-filter="live"><span class="ic">&#128225;</span>Live</button>
+  </nav>
+
+  <div class="palette" id="palette">
+    <div class="palette-card">
+      <input id="cmd" value="/" />
+      <button data-cmd="gold">gold</button>
+      <button data-cmd="forex">forex</button>
+      <button data-cmd="crypto">crypto</button>
+      <button data-cmd="theme dark">theme dark</button>
+      <button data-cmd="theme light">theme light</button>
+      <button data-cmd="live on">live on</button>
+      <button data-cmd="live off">live off</button>
+      <button data-cmd="filter news">filter news</button>
+      <button data-cmd="filter pairs">filter pairs</button>
+      <button data-cmd="filter analysis">filter analysis</button>
+      <button data-cmd="filter charts">filter charts</button>
+      <button data-cmd="filter live">filter live</button>
+      <button data-cmd="focus chart">focus chart</button>
+    </div>
+  </div>
+
+  <button class="assist-fab" id="assist-fab" aria-label="Open assistant">&#129302;</button>
+  <div class="assist-panel" id="assist-panel">
+    <div class="assist-hd">
+      <span><b>Desk Assistant</b> <span class="note" style="margin:0">&middot; reads this page's own data, offline</span></span>
+      <button class="assist-close" id="assist-close">&times;</button>
+    </div>
+    <div class="assist-body" id="assist-body"></div>
+    <div class="assist-in">
+      <input id="assist-input" type="text" placeholder="Ask: next event? gauge? EUR/USD signal? summarise news?" />
+      <button class="chip" id="assist-mic" title="Speak your question">&#127908;</button>
+      <button class="chip go" id="assist-send">Send</button>
+    </div>
+  </div>
+
+  <div class="toast-wrap" id="toast-wrap"></div>
+
+  <div class="assist-panel" id="settings-panel">
+    <div class="assist-hd">
+      <span><b>Settings</b></span>
+      <button class="assist-close" id="settings-close">&times;</button>
+    </div>
+    <div class="assist-body" style="gap:16px">
+      <div>
+        <div class="k">Profile name</div>
+        <input class="tinput" id="set-profile" placeholder="Your name (optional)" style="margin-top:6px;width:100%" />
+      </div>
+      <div>
+        <div class="k">Remote data source &mdash; for an installed APK/PWA to pick up bot updates</div>
+        <div class="note">Bundled data is used first for instant, offline-first load. If set, this app then checks the URL below every few minutes for a fresher <code>xauusd-data.js</code> / <code>news-auto.js</code> / <code>atr.js</code> (e.g. your GitHub repo's raw URL) and swaps it in live, no reinstall needed. Leave blank to stay fully offline/bundled-only.</div>
+        <input class="tinput" id="set-remote-url" type="text" style="margin-top:6px;width:100%" placeholder="https://raw.githubusercontent.com/&lt;user&gt;/&lt;repo&gt;/main/" />
+        <div class="row-flex" style="margin-top:6px">
+          <select id="set-remote-min" class="tinput" style="width:auto">
+            <option value="5">Check every 5 min</option>
+            <option value="15">Check every 15 min</option>
+            <option value="30">Check every 30 min</option>
+            <option value="60">Check every hour</option>
+          </select>
+          <span class="chip go" id="set-remote-test">Check now</span>
+        </div>
+        <div class="note" id="set-remote-status" style="margin-top:4px"></div>
+      </div>
+      <div>
+        <div class="k">Accent colour</div>
+        <input type="color" id="set-accent" style="margin-top:6px;width:60px;height:32px;border:1px solid var(--line);background:none;cursor:pointer;border-radius:6px" />
+      </div>
+      <div>
+        <div class="k">Font</div>
+        <select id="set-font" class="tinput" style="margin-top:6px;width:100%">
+          <option value="">System (default)</option>
+          <option value="Georgia, 'Times New Roman', serif">Serif</option>
+          <option value="'JetBrains Mono', ui-monospace, monospace">Monospace</option>
+        </select>
+      </div>
+      <div>
+        <div class="k">Font size</div>
+        <div class="seg" id="set-size" style="margin-top:6px">
+          <button data-size="0.9">Small</button>
+          <button data-size="1">Medium</button>
+          <button data-size="1.15">Large</button>
+        </div>
+      </div>
+      <div>
+        <div class="k">Default tab on open</div>
+        <div class="seg" id="set-deftab" style="margin-top:6px">
+          <button data-tab="gold">Gold</button>
+          <button data-tab="crypto">Crypto</button>
+          <button data-tab="forex">Forex</button>
+        </div>
+      </div>
+      <div>
+        <div class="k">Trading profile &mdash; for pip $ value &amp; risk sizing in the desk assistant</div>
+        <div class="row-flex" style="margin-top:6px">
+          <select id="set-account-ccy" class="tinput" style="width:auto"></select>
+          <input class="tinput" id="set-lot-size" type="number" min="0.01" step="0.01" placeholder="Lot size" style="width:110px" />
+          <input class="tinput" id="set-risk-pct" type="number" min="0.1" step="0.1" placeholder="Risk % / trade" style="width:130px" />
+        </div>
+        <div class="note" style="margin-top:6px">Standard lot = 100,000 units (FX) / 100oz (gold). Pip $ value is only computed for pairs quoted in your account currency &mdash; a transparent approximation, not your broker's exact contract spec.</div>
+      </div>
+      <div>
+        <div class="k">Content</div>
+        <label class="note" style="display:flex;align-items:center;gap:6px;margin:8px 0 0"><input type="checkbox" id="set-show-auto" /> Show auto-collected news/speaker rows (from <code>build-news.js</code>, keyword-classified, unverified)</label>
+        <label class="note" style="display:flex;align-items:center;gap:6px;margin:6px 0 0"><input type="checkbox" id="set-compact" /> Compact density (tighter spacing)</label>
+      </div>
+      <div>
+        <div class="k">Online AI &mdash; optional, bring your own key</div>
+        <div class="note">The desk assistant reads this page's own data first, always &mdash; this is an opt-in extra for open-ended questions the local matcher can't answer. Your key is stored only in this browser's local storage and sent only directly to the provider you pick below, never to any server of ours (there is no server). Anyone with device access to this browser can read the key back out of local storage, same as any other client-only app.</div>
+        <select id="set-ai-mode" class="tinput" style="margin-top:8px;width:100%">
+          <option value="offline">Offline only (default)</option>
+          <option value="hybrid">Hybrid &mdash; online only when local can't answer</option>
+          <option value="always">Always online (skip local matching)</option>
+        </select>
+        <select id="set-ai-provider" class="tinput" style="margin-top:6px;width:100%"></select>
+        <div class="row-flex" style="margin-top:6px">
+          <input class="tinput" id="set-ai-key" type="password" placeholder="API key" style="flex:1;min-width:160px" />
+          <span class="chip" id="set-ai-key-toggle">Show</span>
+        </div>
+        <input class="tinput" id="set-ai-model" type="text" style="margin-top:6px;width:100%" placeholder="Model (optional override)" />
+        <div class="row-flex" style="margin-top:6px">
+          <span class="chip go" id="set-ai-test">Test connection</span>
+        </div>
+        <div class="note" id="set-ai-status" style="margin-top:4px"></div>
+        <div class="note" style="margin-top:6px">Free-tier options: <b>Groq</b> and <b>OpenRouter</b> (free models) need no billing setup. Google <b>Gemini</b> has a free tier via AI Studio. OpenAI and Anthropic are pay-as-you-go.</div>
+      </div>
+      <div>
+        <div class="k">Notifications</div>
+        <label class="note" style="display:flex;align-items:center;gap:6px;margin:8px 0 0"><input type="checkbox" id="set-notif-popup" /> In-app popup alerts</label>
+        <label class="note" style="display:flex;align-items:center;gap:6px;margin:6px 0 0"><input type="checkbox" id="set-notif-os" /> OS / browser notifications (asks permission)</label>
+        <div class="note" style="margin-top:8px">A true WhatsApp/SMS alert needs a backend messaging service (e.g. Twilio) tied to your phone number — a static page like this one cannot send those on its own. These two options fire real in-browser and OS-level notifications instead, which still work if this tab is backgrounded on desktop, or from an installed PWA on Android Chrome.</div>
+      </div>
+      <button class="chip" id="set-reset">Reset to defaults</button>
+    </div>
+  </div>
+
+  <script src="./xauusd-data.js"></script>
+  <script src="./news-auto.js" onerror="console.warn('news-auto.js missing - run: node build-news.js')"></script>
+  <script>window.mergeNewsAuto && window.mergeNewsAuto();</script>
+  <script src="./live.js"></script>
+  <script src="./app.js"></script>
+  <script src="./pwa.js" defer></script>
+</body>
+</html>
