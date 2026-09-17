@@ -1,15 +1,20 @@
-name: Daily digest (morning briefing + evening recap)
+name: Daily digest (morning briefing + evening recap + weekly outlook)
 
-# Two Telegram digests a day, separate from the per-item alerts in news-watch.yml:
-#   - 08:00 MYT (00:00 UTC): morning briefing - sent as TWO messages (summary, then predictions),
-#     right after daily-refresh.yml's data refresh so it reads fresh data.
-#   - 23:00 MYT (15:00 UTC): evening recap - only what was actually published/scheduled today,
-#     using each headline's real MYT timestamp.
+# Three Telegram digests, separate from the per-item alerts in news-watch.yml:
+#   - 08:00 MYT (00:00 UTC), every day: morning briefing - sent as TWO messages (summary, then
+#     predictions), right after daily-refresh.yml's data refresh so it reads fresh data.
+#   - 23:00 MYT (15:00 UTC), every day: evening recap - only what was actually published/
+#     scheduled today, using each headline's real MYT timestamp.
+#   - 08:10 MYT (00:10 UTC), Mondays only: weekly outlook - one message per high-impact event in
+#     ForexFactory's "this week" window (the widest free scope that feed offers - confirmed no
+#     free monthly/next-week variant exists), each with related commentary collected so far and a
+#     hawkish/dovish research verdict, not just the bare forecast.
 
 on:
   schedule:
-    - cron: "5 0 * * *"  # 00:05 UTC = 08:05 MYT - 5 min after daily-refresh.yml's 00:00 UTC run
-    - cron: "0 15 * * *" # 15:00 UTC = 23:00 MYT
+    - cron: "5 0 * * *"  # 00:05 UTC = 08:05 MYT daily - 5 min after daily-refresh.yml's 00:00 UTC run
+    - cron: "0 15 * * *" # 15:00 UTC = 23:00 MYT daily
+    - cron: "10 0 * * 1" # 00:10 UTC Monday = 08:10 MYT Monday
   workflow_dispatch:
     inputs:
       mode:
@@ -20,6 +25,7 @@ on:
         options:
           - daily-summary
           - evening-recap
+          - weekly-outlook
 
 permissions:
   contents: read
@@ -41,6 +47,8 @@ jobs:
             echo "flag=--${{ github.event.inputs.mode }}" >> "$GITHUB_OUTPUT"
           elif [ "${{ github.event.schedule }}" = "5 0 * * *" ]; then
             echo "flag=--daily-summary" >> "$GITHUB_OUTPUT"
+          elif [ "${{ github.event.schedule }}" = "10 0 * * 1" ]; then
+            echo "flag=--weekly-outlook" >> "$GITHUB_OUTPUT"
           else
             echo "flag=--evening-recap" >> "$GITHUB_OUTPUT"
           fi

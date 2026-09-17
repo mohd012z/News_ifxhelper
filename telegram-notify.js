@@ -36,6 +36,7 @@ const PREVIEW = process.argv.includes('--preview');
 const REMINDERS = process.argv.includes('--reminders');
 const DAILY = process.argv.includes('--daily-summary');
 const EVENING = process.argv.includes('--evening-recap');
+const WEEKLY = process.argv.includes('--weekly-outlook');
 
 function loadJsModule(file, globalName) {
   const full = path.join(__dirname, file);
@@ -285,7 +286,7 @@ function chartImageUrl(title, value, signal) {
 }
 
 // ==================== Card builders - each returns { caption, chartUrl } ====================
-function eventCard(MARKET_DATA, atrData, e) {
+function eventCard(MARKET_DATA, atrData, e, pool) {
   const ccy = eventCurrency(e.event + ' ' + (e.note || ''));
   const top = bestPairFor(MARKET_DATA, ccy);
   const hour = mytHourFromString(e.timeMyt);
@@ -314,6 +315,7 @@ function eventCard(MARKET_DATA, atrData, e) {
     `📤 Alert sent (MYT): ${nowMyt()}`,
     e.note ? `📝 ${esc(e.note)}` : null,
     e.play ? `💡 ${esc(e.play)}` : null,
+    pool ? relatedCommentaryBlock(ccy, pool, 2) : null,
     e.url ? `🔗 ${esc(e.source || 'Source')}: ${e.url}` : null,
     CREDIT_LINE
   ].filter(Boolean).join('\n');
@@ -362,8 +364,8 @@ function speakerCard(MARKET_DATA, tab, s) {
 }
 /* Countdown reminder card - same focus/reasoning/price-move fields as eventCard(), just framed
  * as "T-minus" instead of "new event detected". stage is one of REMINDER_STAGES (minutes). */
-function reminderCard(MARKET_DATA, atrData, e, minutesLeft, stage) {
-  const base = eventCard(MARKET_DATA, atrData, e);
+function reminderCard(MARKET_DATA, atrData, e, minutesLeft, stage, pool) {
+  const base = eventCard(MARKET_DATA, atrData, e, pool);
   const header = `⏰ <b>REMINDER — ${stage} min to go</b> (${minutesLeft <= 0 ? 'starting now' : `~${minutesLeft} min left`})`;
   return { caption: header + '\n' + base.caption, chartUrl: base.chartUrl };
 }
@@ -506,12 +508,108 @@ function buildEveningRecap(MARKET_DATA, NEWS_AUTO, MACRO_AUTO) {
   return lines.join('\n');
 }
 
+/* Which real headline/speaker patterns count as "related commentary" for each currency's driving
+ * institution - used to build a research note per calendar event, not just quote its forecast.
+ * ForexFactory's free feed has no monthly variant (checked directly: nextweek/lastweek/thismonth
+ * all 404) - "thisweek" is genuinely the widest free window, refreshed continuously, so a weekly
+ * outlook covers exactly what's available, not an artificial slice of a bigger free feed. */
+const CCY_COMMENTARY_PATTERN = {
+  USD: /\b(fed|fomc|federal reserve|dollar|usd)\b/i,
+  EUR: /\b(ecb|european central bank|euro\b|\beur\b)\b/i,
+  GBP: /\b(boe|bank of england|pound|sterling|\bgbp\b)\b/i,
+  JPY: /\b(boj|bank of japan|\byen\b|\bjpy\b)\b/i,
+  AUD: /\b(rba|aussie|\baud\b)\b/i,
+  NZD: /\b(rbnz|kiwi|\bnzd\b)\b/i,
+  CAD: /\b(boc|bank of canada|loonie|\bcad\b)\b/i,
+  CHF: /\b(snb|swiss franc|\bchf\b)\b/i
+};
+function relatedCommentaryFor(ccy, pool) {
+  const re = CCY_COMMENTARY_PATTERN[ccy];
+  if (!re) return [];
+  return pool.filter(n => re.test(n.title));
+}
+/* Every classified news/speaker item collected across all three tabs, deduped by title - the
+ * shared research pool both the weekly outlook and the regular per-event alert cards search for
+ * "related commentary" on an event's driving currency. */
+function buildCommentaryPool(MARKET_DATA, NEWS_AUTO) {
+  const pool = [];
+  (MARKET_DATA.tabs || []).forEach(tab => {
+    const autoByTab = NEWS_AUTO && NEWS_AUTO.byTab && NEWS_AUTO.byTab[tab.id];
+    (tab.speakers || []).forEach(s => pool.push({ title: s.name + ' ' + s.role + ' ' + s.quote, signal: s.signal }));
+    ((autoByTab && autoByTab.news) || []).forEach(n => pool.push(n));
+    ((autoByTab && autoByTab.speakers) || []).forEach(s => pool.push({ title: s.name + ' ' + s.role + ' ' + s.quote, signal: s.signal }));
+  });
+  const seen = {};
+  return pool.filter(n => { if (seen[n.title]) return false; seen[n.title] = 1; return true; });
+}
+/* Short "related commentary + verdict" block, shared by eventCard() (regular per-event alerts)
+ * and eventResearchNote() (the weekly outlook's fuller per-event write-up). */
+function relatedCommentaryBlock(ccy, pool, maxItems) {
+  const related = ccy ? relatedCommentaryFor(ccy, pool) : [];
+  const scored = related.filter(n => n.signal && n.signal !== 'NEUTRAL');
+  let verdict = 'MIXED / NO CLEAR LEAN', verdictEmoji = '⚪';
+  if (scored.length) {
+    const sells = scored.filter(n => n.signal === 'SELL').length, buys = scored.length - sells;
+    if (sells > buys) { verdict = 'HAWKISH (' + sells + '/' + scored.length + ' related items bearish-for-risk)'; verdictEmoji = '🦅'; }
+    else if (buys > sells) { verdict = 'DOVISH (' + buys + '/' + scored.length + ' related items bullish-for-risk)'; verdictEmoji = '🕊️'; }
+  }
+  const lines = [`${verdictEmoji} Related analysis: <b>${esc(verdict)}</b>`];
+  if (related.length) {
+    lines.push(`📰 Related commentary (${related.length} found):`);
+    related.slice(0, maxItems || 2).forEach(n => lines.push(`  • [${esc(n.signal || 'NEUTRAL')}] ${esc(n.title)}`));
+  } else {
+    lines.push(`📰 No related ${ccy || ''} commentary found in the collected pool yet.`);
+  }
+  return lines.join('\n');
+}
+/* Full per-event research note: forecast/previous (already in e.note), every related classified
+ * headline/speaker item found in this week's collected pool for that event's driving currency,
+ * tallied into a hawkish/dovish verdict - not just the bare event title. */
+function eventResearchNote(MARKET_DATA, allNewsPool, e) {
+  const ccy = eventCurrency(e.event + ' ' + (e.note || ''));
+  const bestPair = bestPairFor(MARKET_DATA, ccy);
+  const lines = [
+    `<b>${esc(e.event)}</b> (${esc((e.importance || '').toUpperCase())})`,
+    `🕒 ${esc(mytDisplay(e.timeMyt))}`,
+    e.note ? `📈 Fundamentals: ${esc(e.note)}` : null,
+    bestPair ? `🎯 Focus: ${esc(bestPair.pair)} ${bestPair.s.signal === 'SELL' ? '🔴' : bestPair.s.signal === 'BUY' ? '🟢' : '⚪'} ${bestPair.s.signal}` : null,
+    `⏱ Reference timeframe: <b>${esc(e.focusTf || '—')}</b>`,
+    relatedCommentaryBlock(ccy, allNewsPool, 3)
+  ];
+  lines.push('', CREDIT_LINE);
+  return lines.filter(Boolean).join('\n');
+}
+/* Weekly outlook: every high-importance event in ForexFactory's "this week" window (the widest
+ * free scope this feed offers), each with its own research note - sent as ONE MESSAGE PER EVENT
+ * (by request: a single combined message reads as one wall of text once several events are in
+ * it, and Telegram groups back-to-back messages from the same bot closely enough that a
+ * multi-chunk split of one giant text didn't feel "separate" either). A short header message
+ * goes out first, then each event gets its own bubble. */
+function buildWeeklyOutlook(MARKET_DATA, NEWS_AUTO) {
+  const header = `📆 <b>WEEKLY OUTLOOK — ${nowMyt()}</b>\nEvery high-impact event this week gets its own message below: fundamentals, related commentary collected so far, and a hawkish/dovish research verdict.`;
+  const dedupedPool = buildCommentaryPool(MARKET_DATA, NEWS_AUTO);
+
+  const weekEvents = (MARKET_DATA.incoming || []).concat((NEWS_AUTO && NEWS_AUTO.incoming) || [])
+    .filter(e => e.importance === 'high')
+    .map(e => ({ e, at: parseMytToUtc(e.timeMyt) }))
+    .sort((a, b) => (a.at ? a.at.getTime() : Infinity) - (b.at ? b.at.getTime() : Infinity));
+
+  const messages = [header + '\n\n' + CREDIT_LINE];
+  if (!weekEvents.length) {
+    messages[0] = header + '\n\nNo high-impact events found in this week\'s calendar.\n\n' + CREDIT_LINE;
+  } else {
+    weekEvents.forEach(x => messages.push(eventResearchNote(MARKET_DATA, dedupedPool, x.e)));
+  }
+  return messages;
+}
+
 (async () => {
   const MARKET_DATA = loadJsModule('xauusd-data.js', 'MARKET_DATA');
   const NEWS_AUTO = loadJsModule('news-auto.js', 'NEWS_AUTO');
   const ATR_DATA = loadJsModule('atr.js', 'ATR_DATA'); // real Wilder ATR(14) per instrument, for the ATR-based price-target line
   const MACRO_AUTO = loadJsModule('macro-auto.js', 'MACRO_AUTO');
   if (!MARKET_DATA) { console.log('No xauusd-data.js found - nothing to check.'); return; }
+  const COMMENTARY_POOL = buildCommentaryPool(MARKET_DATA, NEWS_AUTO); // shared "related commentary" search pool for every event card
 
   if (DAILY) {
     // Two separate messages by request: one plain summary, one dedicated to predictions.
@@ -536,12 +634,26 @@ function buildEveningRecap(MARKET_DATA, NEWS_AUTO, MACRO_AUTO) {
     return;
   }
 
+  if (WEEKLY) {
+    const chunks = buildWeeklyOutlook(MARKET_DATA, NEWS_AUTO);
+    console.log(chunks.map(c => c.replace(/<\/?b>/g, '')).join('\n\n=== next message ===\n\n'));
+    let sentAll = true, anySkipped = false;
+    for (const chunk of chunks) {
+      const r = await sendTelegram(chunk);
+      if (r.skipped) anySkipped = true; else if (!r.ok) sentAll = false;
+      await new Promise(res => setTimeout(res, 1500));
+    }
+    console.log(anySkipped ? '\n(no Telegram credentials - printed above only)' : sentAll ? `\nSENT weekly outlook (${chunks.length} message(s)).` : '\nFAILED to send one or more weekly outlook messages.');
+    if (!sentAll && !anySkipped) process.exitCode = 1;
+    return;
+  }
+
   if (PREVIEW) {
     const sampleEvent = ((MARKET_DATA.incoming || []).find(e => e.importance === 'high')) || (MARKET_DATA.incoming || [])[0];
     const sampleTab = MARKET_DATA.tabs[0];
     const sampleAutoByTab = NEWS_AUTO && NEWS_AUTO.byTab && NEWS_AUTO.byTab[sampleTab.id];
     const sampleNews = ((sampleAutoByTab && sampleAutoByTab.news) || [])[0] || (sampleTab.news || [])[0];
-    const evtCard = sampleEvent ? eventCard(MARKET_DATA, ATR_DATA, sampleEvent) : null;
+    const evtCard = sampleEvent ? eventCard(MARKET_DATA, ATR_DATA, sampleEvent, COMMENTARY_POOL) : null;
     const nwsCard = sampleNews ? newsCard(MARKET_DATA, sampleTab, sampleNews) : null;
     console.log('===== EVENT CARD PREVIEW =====\n' + (evtCard ? evtCard.caption + '\n[chart] ' + evtCard.chartUrl : '(no incoming events loaded)'));
     console.log('\n===== NEWS CARD PREVIEW =====\n' + (nwsCard ? nwsCard.caption + '\n[chart] ' + nwsCard.chartUrl : '(no news loaded)'));
@@ -575,7 +687,7 @@ function buildEveningRecap(MARKET_DATA, NEWS_AUTO, MACRO_AUTO) {
         if (minutesUntil > stage || minutesUntil < 0) continue; // not within this stage's window (or already past)
         const key = `remind:${e.event}|${e.date}:${stage}`;
         if (seen.has(key)) continue;
-        const card = reminderCard(MARKET_DATA, ATR_DATA, e, Math.max(0, minutesUntil), stage);
+        const card = reminderCard(MARKET_DATA, ATR_DATA, e, Math.max(0, minutesUntil), stage, COMMENTARY_POOL);
         const r = await sendTelegramCard(card.caption, card.chartUrl);
         if (r.ok) { seen.add(key); sentCount++; console.log(`SENT reminder (T-${stage}): ${e.event}`); }
         else if (!r.skipped) { failCount++; console.log(`NOT SENT reminder (T-${stage}, will retry): ${e.event}`); }
@@ -621,7 +733,7 @@ function buildEveningRecap(MARKET_DATA, NEWS_AUTO, MACRO_AUTO) {
   incoming.filter(e => e.importance === 'high').forEach(e => {
     const key = 'evt:' + e.event + '|' + e.date;
     if (seen.has(key)) return;
-    toSend.push({ key, card: eventCard(MARKET_DATA, ATR_DATA, e) });
+    toSend.push({ key, card: eventCard(MARKET_DATA, ATR_DATA, e, COMMENTARY_POOL) });
   });
 
   // 2. Auto-classified news/speaker rows with a real hawkish/dovish side (skip NEUTRAL - too noisy)
