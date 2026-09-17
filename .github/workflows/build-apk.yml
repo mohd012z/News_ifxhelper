@@ -1,0 +1,63 @@
+name: Build Android APK
+
+# Builds the debug APK in the cloud (this repo has no local Java/Android SDK to build with).
+# Trigger manually from the Actions tab, or it runs automatically when web/Android source changes.
+# Output: a downloadable "xau-desk-debug-apk" artifact attached to the run (Actions tab -> this
+# run -> Artifacts, bottom of the page). Artifacts expire after 90 days by default on GitHub.
+
+on:
+  workflow_dispatch: {}
+  push:
+    branches: [main]
+    paths:
+      - "index.html"
+      - "app.js"
+      - "live.js"
+      - "trade-plan.html"
+      - "trade-plan.js"
+      - "pwa.js"
+      - "sw.js"
+      - "manifest.webmanifest"
+      - "icons/**"
+      - "android/**"
+      - "capacitor.config.json"
+      - "package.json"
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: "temurin"
+          java-version: "17"
+
+      - uses: android-actions/setup-android@v3
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Copy web assets into www/ and sync the native Android project
+        run: npm run cap:sync
+
+      - name: Build debug APK
+        working-directory: android
+        run: |
+          chmod +x gradlew
+          ./gradlew assembleDebug --no-daemon
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: xau-desk-debug-apk
+          path: android/app/build/outputs/apk/debug/app-debug.apk
+          retention-days: 90
