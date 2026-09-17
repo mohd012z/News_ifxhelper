@@ -539,7 +539,8 @@ function buildEveningRecap(MARKET_DATA, NEWS_AUTO, MACRO_AUTO) {
   if (PREVIEW) {
     const sampleEvent = ((MARKET_DATA.incoming || []).find(e => e.importance === 'high')) || (MARKET_DATA.incoming || [])[0];
     const sampleTab = MARKET_DATA.tabs[0];
-    const sampleNews = (sampleTab.news || [])[0];
+    const sampleAutoByTab = NEWS_AUTO && NEWS_AUTO.byTab && NEWS_AUTO.byTab[sampleTab.id];
+    const sampleNews = ((sampleAutoByTab && sampleAutoByTab.news) || [])[0] || (sampleTab.news || [])[0];
     const evtCard = sampleEvent ? eventCard(MARKET_DATA, ATR_DATA, sampleEvent) : null;
     const nwsCard = sampleNews ? newsCard(MARKET_DATA, sampleTab, sampleNews) : null;
     console.log('===== EVENT CARD PREVIEW =====\n' + (evtCard ? evtCard.caption + '\n[chart] ' + evtCard.chartUrl : '(no incoming events loaded)'));
@@ -578,7 +579,7 @@ function buildEveningRecap(MARKET_DATA, NEWS_AUTO, MACRO_AUTO) {
         const r = await sendTelegramCard(card.caption, card.chartUrl);
         if (r.ok) { seen.add(key); sentCount++; console.log(`SENT reminder (T-${stage}): ${e.event}`); }
         else if (!r.skipped) { failCount++; console.log(`NOT SENT reminder (T-${stage}, will retry): ${e.event}`); }
-        await new Promise(res => setTimeout(res, 400));
+        await new Promise(res => setTimeout(res, 1500)); // Telegram's real limit is ~20 msg/min per chat
       }
 
       // Post-event follow-up: this app has no free source for the actual released figure (checked -
@@ -598,7 +599,7 @@ function buildEveningRecap(MARKET_DATA, NEWS_AUTO, MACRO_AUTO) {
           const r = await sendTelegram(caption);
           if (r.ok) { seen.add(key); sentCount++; console.log(`SENT follow-up: ${e.event}`); }
           else if (!r.skipped) { failCount++; console.log(`NOT SENT follow-up (will retry): ${e.event}`); }
-          await new Promise(res => setTimeout(res, 400));
+          await new Promise(res => setTimeout(res, 1500));
         }
       }
     }
@@ -624,14 +625,19 @@ function buildEveningRecap(MARKET_DATA, NEWS_AUTO, MACRO_AUTO) {
   });
 
   // 2. Auto-classified news/speaker rows with a real hawkish/dovish side (skip NEUTRAL - too noisy)
+  // BUG FIX: this used to read tab.news (MARKET_DATA's static curated array, which never has
+  // .auto set) instead of NEWS_AUTO.byTab[tab.id].news (the freshly-fetched rows this whole
+  // script exists to alert on) - the filter below was therefore always empty, silently. Curated
+  // rows are never candidates here (they were already hand-reviewed before being committed).
   const tabs = MARKET_DATA.tabs || [];
   tabs.forEach(tab => {
-    (tab.news || []).filter(n => n.auto && n.signal && n.signal !== 'NEUTRAL').forEach(n => {
+    const autoByTab = NEWS_AUTO && NEWS_AUTO.byTab && NEWS_AUTO.byTab[tab.id];
+    ((autoByTab && autoByTab.news) || []).filter(n => n.signal && n.signal !== 'NEUTRAL').forEach(n => {
       const key = 'news:' + n.title;
       if (seen.has(key)) return;
       toSend.push({ key, card: newsCard(MARKET_DATA, tab, n) });
     });
-    (tab.speakers || []).filter(s => s.auto && s.side).forEach(s => {
+    ((autoByTab && autoByTab.speakers) || []).filter(s => s.side).forEach(s => {
       const key = 'spk:' + s.name + '|' + s.date;
       if (seen.has(key)) return;
       toSend.push({ key, card: speakerCard(MARKET_DATA, tab, s) });
@@ -646,7 +652,7 @@ function buildEveningRecap(MARKET_DATA, NEWS_AUTO, MACRO_AUTO) {
     if (r.ok) { seen.add(item.key); sentCount++; console.log('SENT: ' + item.card.caption.split('\n')[1]); }
     else if (r.skipped) { skippedNoCreds = true; } // no credentials configured (local/dev run) - don't mark as sent, don't count as a failure
     else { failCount++; console.log('NOT SENT (will retry next run): ' + item.card.caption.split('\n')[1]); }
-    await new Promise(res => setTimeout(res, 400)); // stay well under Telegram's rate limit
+    await new Promise(res => setTimeout(res, 1500)); // Telegram's real limit is ~20 msg/min per chat - 400ms was too tight and caused 429s on the first real catch-up burst
   }
 
   state.sentKeys = Array.from(seen).slice(-2000); // cap growth - only the most recent 2000 keys matter
