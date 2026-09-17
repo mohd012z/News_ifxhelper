@@ -9,7 +9,7 @@ const out = path.join(root, 'www');
 
 const FILES = [
   'index.html', 'trade-plan.html',
-  'app.js', 'trade-plan.js', 'live.js',
+  'app.js', 'trade-plan.js', 'live.js', 'shared-market-logic.js',
   'xauusd-data.js', 'atr.js', 'news-auto.js', 'macro-auto.js',
   'manifest.webmanifest', 'sw.js', 'pwa.js'
 ];

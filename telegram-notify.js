@@ -143,70 +143,14 @@ function sessionAtMyt(sessions, hour) {
   return hits.map(s => s.k).join(' + ') || 'off-session (thin liquidity)';
 }
 
-// ==================== Currency / pair inference (mirrors app.js) ====================
-const EVENT_CCY_MAP = [
-  [/\bFOMC\b|\bFed\b|\bUS\b|United States/i, 'USD'],
-  [/\bBoJ\b|Bank of Japan/i, 'JPY'],
-  [/\bECB\b|European Central Bank/i, 'EUR'],
-  [/\bBoE\b|Bank of England/i, 'GBP'],
-  [/\bRBA\b/i, 'AUD'],
-  [/\bRBNZ\b/i, 'NZD'],
-  [/\bBoC\b|Bank of Canada/i, 'CAD'],
-  [/\bSNB\b/i, 'CHF'],
-  [/\[(\w{3})\]/, null] // "[GBP] CPI y/y" style ForexFactory country-tagged titles - captured group wins below
-];
-function eventCurrency(text) {
-  const tag = /\[(\w{3})\]/.exec(text || '');
-  if (tag) return tag[1];
-  for (const [re, ccy] of EVENT_CCY_MAP) { if (ccy && re.test(text || '')) return ccy; }
-  return null;
-}
-function biasOf(currencies, code) {
-  const c = (currencies || []).find(x => x.code === code);
-  return c ? c.bias : 0;
-}
-function pairSignal(currencies, p) {
-  const s = biasOf(currencies, p.base) - biasOf(currencies, p.quote);
-  const sig = s > 0.15 ? 'BUY' : s < -0.15 ? 'SELL' : 'NEUTRAL';
-  return { score: s, signal: sig, strength: Math.abs(s) };
-}
-/* Picks the "headline" pair for a currency, not just the mathematically widest spread - a
- * NZD/USD cross technically scoring higher than EUR/USD is not what anyone means by "the FOMC
- * pair to watch". Priority: 1) the direct pair against USD (the standard way any single
- * currency's move gets read) 2) for USD itself, the conventional major-pair watch order
- * 3) only then fall back to whichever loaded cross has the strongest bias gap. */
-const USD_MAJOR_ORDER = ['EUR/USD', 'GBP/USD', 'USD/JPY', 'AUD/USD', 'USD/CAD', 'USD/CHF', 'NZD/USD'];
-function bestPairFor(MARKET_DATA, ccy) {
-  if (!ccy) return null;
-  const fxPairs = MARKET_DATA.fxPairs || [];
-  const byPair = name => { const p = fxPairs.find(x => x.pair === name); return p ? { pair: p.pair, s: pairSignal(MARKET_DATA.currencies, p) } : null; };
-
-  if (ccy !== 'USD') {
-    const direct = fxPairs.find(p => (p.base === ccy && p.quote === 'USD') || (p.base === 'USD' && p.quote === ccy));
-    if (direct) return { pair: direct.pair, s: pairSignal(MARKET_DATA.currencies, direct) };
-  } else {
-    const nonNeutral = USD_MAJOR_ORDER.map(byPair).filter(Boolean).find(c => c.s.signal !== 'NEUTRAL');
-    if (nonNeutral) return nonNeutral;
-    const anyMajor = USD_MAJOR_ORDER.map(byPair).find(Boolean);
-    if (anyMajor) return anyMajor;
-  }
-  // fallback: any loaded pair carrying this currency, widest bias gap first
-  const candidates = fxPairs
-    .filter(p => p.base === ccy || p.quote === ccy)
-    .map(p => ({ pair: p.pair, s: pairSignal(MARKET_DATA.currencies, p) }))
-    .sort((a, b) => b.s.strength - a.s.strength);
-  return candidates[0] || null;
-}
+// ==================== Currency / pair inference (shared-market-logic.js - see that file for why) ====================
+const SharedLogic = require('./shared-market-logic.js');
+const eventCurrency = SharedLogic.eventCurrency;
+function bestPairFor(MARKET_DATA, ccy) { return SharedLogic.bestPairFor(MARKET_DATA.fxPairs, MARKET_DATA.currencies, ccy); }
 // ==================== Pip / price-target calculation ====================
-// Same pip-size convention as the dashboard's desk assistant (app.js pipSize()).
+// Same pip-size convention as the dashboard's desk assistant (shared-market-logic.js pipSize()).
 function pipSize(sym) {
-  const s = String(sym || '').toUpperCase();
-  if (s.indexOf('JPY') > -1) return 0.01;
-  if (s.indexOf('XAU') > -1 || s.indexOf('GOLD') > -1) return 0.01;
-  if (s.indexOf('XAG') > -1 || s.indexOf('SILVER') > -1) return 0.001;
-  if (['BTC', 'ETH', 'SOL', 'XRP', 'ADA', 'DOGE'].some(c => s.indexOf(c) > -1)) return 1;
-  if (s.indexOf('/') > -1 || /^[A-Z]{6}$/.test(s)) return 0.0001;
-  return 0.01;
+  return SharedLogic.pipSize(sym);
 }
 function fmtPrice(v) { return v == null ? '—' : (Math.abs(v) >= 20 ? v.toFixed(3) : v.toFixed(5)); }
 /* "pips" only really means something for FX (0.0001/0.01 quoting) - gold/silver/crypto use the

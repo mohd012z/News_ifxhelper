@@ -303,18 +303,9 @@
   function pairFmt(v) { if (v == null) return "\u2014"; return Number(v) >= 20 ? Number(v).toFixed(3) : Number(v).toFixed(5); }
   function pctTxt(v) { if (v == null) return "\u2014"; var n = Number(v); return (n > 0 ? "+" : "") + n.toFixed(2) + "%"; }
   function pctCls(v) { var n = Number(v); return n > 0 ? "good" : n < 0 ? "bad" : ""; }
-  /* ---- pip size: standard FX convention (0.0001, 0.01 for JPY), heuristic "points" for
-   *      metals/crypto since there is no universal pip convention for them. Disclosed in
-   *      every pip answer so the number is auditable, not asserted as broker truth. ---- */
-  function pipSize(sym) {
-    var s = String(sym || "").toUpperCase();
-    if (s.indexOf("JPY") > -1) return 0.01;
-    if (s.indexOf("XAU") > -1 || s.indexOf("GOLD") > -1) return 0.01;
-    if (s.indexOf("XAG") > -1 || s.indexOf("SILVER") > -1) return 0.001;
-    if (["BTC", "ETH", "SOL", "XRP", "ADA", "DOGE"].some(function (c) { return s.indexOf(c) > -1; })) return 1;
-    if (s.indexOf("/") > -1 || /^[A-Z]{6}$/.test(s)) return 0.0001;
-    return 0.01;
-  }
+  // pipSize lives in shared-market-logic.js now - same reasoning as eventCurrency above.
+  // Disclosed in every pip answer so the number is auditable, not asserted as broker truth.
+  function pipSize(sym) { return window.SharedMarketLogic.pipSize(sym); }
   function pipsFor(sym, priceMove) { var p = pipSize(sym); return p ? priceMove / p : null; }
   /* ---- pip $ value: only computed when the pair's quote currency matches the account currency
    *      in Settings (otherwise it would need a live cross-rate conversion this app doesn't do).
@@ -337,31 +328,8 @@
     var sig = s > 0.15 ? "BUY" : s < -0.15 ? "SELL" : "NEUTRAL";
     return { score: s, signal: sig, strength: Math.abs(s) };
   }
-  /* Picks the "headline" pair for a currency, not just whichever loaded cross has the widest bias
-   * gap - a NZD/USD cross technically scoring higher than EUR/USD is not what "the FOMC pair to
-   * watch" means to anyone. Priority: 1) the direct pair against USD (how any single currency's
-   * move is normally read) 2) for USD itself, the conventional major-pair watch order 3) only
-   * then fall back to whichever loaded cross has the strongest bias gap. Mirrors
-   * telegram-notify.js's bestPairFor() exactly so the dashboard and the bot never disagree. */
-  var USD_MAJOR_ORDER = ["EUR/USD", "GBP/USD", "USD/JPY", "AUD/USD", "USD/CAD", "USD/CHF", "NZD/USD"];
-  function bestPairForCurrency(ccy) {
-    if (!ccy) return null;
-    var fxPairs = D.fxPairs || [];
-    function byPair(name) { var p = fxPairs.filter(function (x) { return x.pair === name; })[0]; return p ? { pair: p.pair, s: pairSignal(p) } : null; }
-    if (ccy !== "USD") {
-      var direct = fxPairs.filter(function (p) { return (p.base === ccy && p.quote === "USD") || (p.base === "USD" && p.quote === ccy); })[0];
-      if (direct) return { pair: direct.pair, s: pairSignal(direct) };
-    } else {
-      var majors = USD_MAJOR_ORDER.map(byPair).filter(Boolean);
-      var nonNeutral = majors.filter(function (c) { return c.s.signal !== "NEUTRAL"; })[0];
-      if (nonNeutral) return nonNeutral;
-      if (majors[0]) return majors[0];
-    }
-    var candidates = fxPairs.filter(function (p) { return p.base === ccy || p.quote === ccy; })
-      .map(function (p) { return { pair: p.pair, s: pairSignal(p) }; })
-      .sort(function (a, b) { return b.s.strength - a.s.strength; });
-    return candidates[0] || null;
-  }
+  // bestPairFor lives in shared-market-logic.js now - same reasoning as eventCurrency above.
+  function bestPairForCurrency(ccy) { return window.SharedMarketLogic.bestPairFor(D.fxPairs, D.currencies, ccy); }
 
   /* theme */
   var safeGet = function () { try { return localStorage.getItem("xau-theme"); } catch (e) { return null; } };
@@ -1131,20 +1099,10 @@
       fireAlert(today.length + (today.length === 1 ? " alert" : " alerts") + " today — " + T.label, today[0].text);
     }
   }
-  var EVENT_CCY_MAP = [
-    [/\bFOMC\b|\bFed\b|\bUS\b|United States/i, "USD"],
-    [/\bBoJ\b|Bank of Japan/i, "JPY"],
-    [/\bECB\b|European Central Bank/i, "EUR"],
-    [/\bBoE\b|Bank of England/i, "GBP"],
-    [/\bRBA\b/i, "AUD"],
-    [/\bRBNZ\b/i, "NZD"],
-    [/\bBoC\b|Bank of Canada/i, "CAD"],
-    [/\bSNB\b/i, "CHF"]
-  ];
-  function eventCurrency(text) {
-    for (var i = 0; i < EVENT_CCY_MAP.length; i++) { if (EVENT_CCY_MAP[i][0].test(text)) return EVENT_CCY_MAP[i][1]; }
-    return null;
-  }
+  // eventCurrency lives in shared-market-logic.js now - see that file for why (it had already
+  // silently diverged from telegram-notify.js's copy: this dashboard was missing ForexFactory's
+  // "[GBP] CPI y/y" bracket-tag detection that the bot already had).
+  function eventCurrency(text) { return window.SharedMarketLogic.eventCurrency(text); }
   /* which session (Sydney/Tokyo/London/NY/overlap) is active at a given MYT hour, and the
    * plain-English "when to trade" line combining that with the event's own focus timeframe */
   function sessionAtMyt(hour) {
