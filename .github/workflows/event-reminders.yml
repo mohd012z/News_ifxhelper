@@ -1,0 +1,45 @@
+name: Event reminders (T-30 / T-10 / T-2)
+
+# Countdown reminders for high-importance calendar events, independent of news-watch.yml's
+# "new item detected" alerts. Runs frequently and cheaply - no external fetches, just reads the
+# already-committed xauusd-data.js/news-auto.js and compares each event's MYT time to now.
+#
+# Timing note: GitHub Actions' free scheduler does not guarantee sub-5-minute accuracy (GitHub's
+# own docs warn schedules can be delayed, more so under load). The 30-min and 10-min reminders
+# will be reliable; the 2-min one is best-effort and may occasionally fire a little late.
+
+on:
+  schedule:
+    - cron: "*/5 * * * *" # every 5 minutes, UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: event-reminders
+  cancel-in-progress: false
+
+jobs:
+  remind:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Check for events entering a reminder window
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: node telegram-notify.js --reminders
+
+      - name: Commit updated reminder state
+        run: |
+          git config user.name "xau-desk-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add .news-alert-state.json
+          git diff --cached --quiet || git commit -m "bot: reminder state update [skip ci]"
+          git push
