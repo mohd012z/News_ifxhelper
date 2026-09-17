@@ -1,0 +1,52 @@
+name: Daily digest (morning briefing + evening recap)
+
+# Two Telegram digests a day, separate from the per-item alerts in news-watch.yml:
+#   - 08:00 MYT (00:00 UTC): morning briefing - sent as TWO messages (summary, then predictions),
+#     right after daily-refresh.yml's data refresh so it reads fresh data.
+#   - 23:00 MYT (15:00 UTC): evening recap - only what was actually published/scheduled today,
+#     using each headline's real MYT timestamp.
+
+on:
+  schedule:
+    - cron: "5 0 * * *"  # 00:05 UTC = 08:05 MYT - 5 min after daily-refresh.yml's 00:00 UTC run
+    - cron: "0 15 * * *" # 15:00 UTC = 23:00 MYT
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Which digest to send"
+        required: true
+        default: "daily-summary"
+        type: choice
+        options:
+          - daily-summary
+          - evening-recap
+
+permissions:
+  contents: read
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Pick mode (schedule vs manual dispatch)
+        id: pick
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "flag=--${{ github.event.inputs.mode }}" >> "$GITHUB_OUTPUT"
+          elif [ "${{ github.event.schedule }}" = "5 0 * * *" ]; then
+            echo "flag=--daily-summary" >> "$GITHUB_OUTPUT"
+          else
+            echo "flag=--evening-recap" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Send digest
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: node telegram-notify.js ${{ steps.pick.outputs.flag }}

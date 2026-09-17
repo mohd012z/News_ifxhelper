@@ -34,6 +34,8 @@ const TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 const PREVIEW = process.argv.includes('--preview');
 const REMINDERS = process.argv.includes('--reminders');
+const DAILY = process.argv.includes('--daily-summary');
+const EVENING = process.argv.includes('--evening-recap');
 
 function loadJsModule(file, globalName) {
   const full = path.join(__dirname, file);
@@ -87,6 +89,7 @@ function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').repla
 
 // ==================== Malaysia time + trading session ====================
 const DAY_NAMES = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+const MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 function nowMyt() {
   const d = new Date(Date.now() + 8 * 3600 * 1000); // MYT = UTC+8, fixed offset, no DST
   const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -365,11 +368,173 @@ function reminderCard(MARKET_DATA, atrData, e, minutesLeft, stage) {
   return { caption: header + '\n' + base.caption, chartUrl: base.chartUrl };
 }
 
+/* Aggregates a tab's curated + auto-collected news/speakers into a gauge - same method as
+ * app.js's computeAutoSentiment() (SELL is uniformly the hawkish direction across every tab's
+ * dirRule), duplicated here because this script runs in Node against the raw data files, not
+ * against the browser's already-merged D.tabs. Kept deliberately identical so the daily summary
+ * never disagrees with what the dashboard itself shows. */
+function computeTabSentiment(tab, autoByTab) {
+  const items = (tab.news || []).concat(tab.speakers || [], (autoByTab && autoByTab.news) || [], (autoByTab && autoByTab.speakers) || []);
+  const scored = items.filter(i => i.signal && i.signal !== 'NEUTRAL' && i.impactPct != null);
+  if (!scored.length) return tab.sentiment || null;
+  let netPct = 0, buys = 0, sells = 0;
+  scored.forEach(i => { netPct += i.impactPct; if (i.signal === 'BUY') buys++; else if (i.signal === 'SELL') sells++; });
+  netPct = +netPct.toFixed(2);
+  const netSignal = netPct > 0.05 ? 'BUY' : netPct < -0.05 ? 'SELL' : 'NEUTRAL';
+  const score = +Math.max(-1, Math.min(1, (sells - buys) / scored.length)).toFixed(2);
+  const bias = score > 0.15 ? 'HAWKISH' : score < -0.15 ? 'DOVISH' : 'MIXED';
+  const tone = netSignal === 'SELL' ? 'BEARISH' : netSignal === 'BUY' ? 'BULLISH' : 'MIXED';
+  return { bias, tone, score, confidence: Math.round(Math.min(95, 40 + scored.length * 4)), netSignal, netPct, count: scored.length, buys, sells };
+}
+
+/* One consolidated digest across all three tabs - gauge + top headlines + today's calendar +
+ * macro snapshot. Sent once a day (see daily-refresh.yml), separate from the per-item alerts. */
+/* Message 1 of 2: the summary - macro snapshot + each tab's gauge + top headlines. No calendar,
+ * no predictions - that's the second message (buildDailyPrediction), sent separately per request. */
+function buildDailySummary(MARKET_DATA, NEWS_AUTO, MACRO_AUTO) {
+  const lines = [`☀️ <b>DAILY SUMMARY — ${nowMyt()}</b>`, ''];
+
+  if (MACRO_AUTO) {
+    const m = [];
+    if (MACRO_AUTO.dxy) m.push(`DXY ${MACRO_AUTO.dxy.value} (${MACRO_AUTO.dxy.delta})`);
+    if (MACRO_AUTO.us10y) m.push(`US10Y ${MACRO_AUTO.us10y.value} (${MACRO_AUTO.us10y.delta})`);
+    if (MACRO_AUTO.brent) m.push(`Brent ${MACRO_AUTO.brent.value} (${MACRO_AUTO.brent.delta})`);
+    if (m.length) lines.push(`🌐 ${m.join(' · ')}`, '');
+  }
+
+  (MARKET_DATA.tabs || []).forEach(tab => {
+    const autoByTab = NEWS_AUTO && NEWS_AUTO.byTab && NEWS_AUTO.byTab[tab.id];
+    const s = computeTabSentiment(tab, autoByTab) || {};
+    const allNews = (tab.news || []).concat((autoByTab && autoByTab.news) || []);
+    const top = allNews.slice().sort((a, b) => Math.abs(b.impactPct || 0) - Math.abs(a.impactPct || 0)).slice(0, 3);
+    const dot = s.netSignal === 'SELL' ? '🔴' : s.netSignal === 'BUY' ? '🟢' : '⚪';
+    lines.push(`<b>${esc(tab.label)}</b>`);
+    lines.push(`${dot} <b>${esc(s.netSignal || 'NEUTRAL')}</b> — ${esc(s.bias || '—')}/${esc(s.tone || '—')}, net ${pctFmt(s.netPct)} (${s.count || 0} classified item${s.count === 1 ? '' : 's'})`);
+    if (top.length) {
+      lines.push('Top headlines:');
+      top.forEach(n => lines.push(`  • [${esc(n.signal)}] ${esc(n.title)}`));
+    }
+    lines.push('');
+  });
+
+  lines.push(CREDIT_LINE);
+  return lines.join('\n');
+}
+
+/* Message 2 of 2: next-24h calendar, each event paired with its predicted focus pair/signal -
+ * same bestPairFor() logic the per-event alert cards use, just condensed to one line each. */
+function buildDailyPrediction(MARKET_DATA, NEWS_AUTO) {
+  const lines = [`🔮 <b>TODAY'S PREDICTIONS — ${nowMyt()}</b>`, ''];
+  const now = Date.now();
+  const todayEvents = (MARKET_DATA.incoming || []).concat((NEWS_AUTO && NEWS_AUTO.incoming) || [])
+    .map(e => ({ e, at: parseMytToUtc(e.timeMyt) }))
+    .filter(x => x.at && x.at.getTime() >= now && x.at.getTime() <= now + 24 * 3600000)
+    .sort((a, b) => a.at.getTime() - b.at.getTime());
+  if (todayEvents.length) {
+    lines.push('📅 <b>Next 24h calendar — with prediction:</b>');
+    todayEvents.forEach(x => {
+      const ccy = eventCurrency(x.e.event + ' ' + (x.e.note || ''));
+      const top = bestPairFor(MARKET_DATA, ccy);
+      const pred = top ? `${top.pair} ${top.s.signal === 'SELL' ? '🔴' : top.s.signal === 'BUY' ? '🟢' : '⚪'} ${top.s.signal}` : (ccy ? `${ccy} — watch XAU/USD + DXY` : 'no single driver');
+      lines.push(`  • ${esc(mytDisplay(x.e.timeMyt))} — ${esc(x.e.event)} (${esc((x.e.importance || '').toUpperCase())})`);
+      lines.push(`     → Predicted focus: ${esc(pred)}`);
+    });
+  } else {
+    lines.push('📅 No calendar events in the next 24h.');
+  }
+  lines.push('', CREDIT_LINE);
+  return lines.join('\n');
+}
+function pctFmt(v) { return v == null ? '—' : (v > 0 ? '+' : '') + v.toFixed(2) + '%'; }
+
+/* "Is this today, in MYT?" - compares day+month only (none of these date strings carry a year),
+ * which is exactly right for a same-year recurring digest. Handles both the enriched auto format
+ * ("Thu 17 Sep, 21:36 MYT") and the shorter curated formats ("17 Sep", "17 Sep 02:00"). */
+function todayMytParts() { const d = new Date(Date.now() + 8 * 3600 * 1000); return { day: d.getUTCDate(), month: d.getUTCMonth() }; }
+function isTodayMyt(str) {
+  if (!str) return false;
+  const m = /(\d{1,2})\s+(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)/.exec(str);
+  if (!m) return false;
+  const t = todayMytParts();
+  return +m[1] === t.day && MONTH_NAMES.indexOf(m[2]) === t.month;
+}
+
+/* End-of-day recap - only what actually happened TODAY (real per-item MYT timestamps, now that
+ * build-news.js preserves them), as opposed to the morning briefing's forward-looking mix. */
+function buildEveningRecap(MARKET_DATA, NEWS_AUTO, MACRO_AUTO) {
+  const lines = [`🌙 <b>EVENING RECAP — ${nowMyt()}</b>`, ''];
+
+  if (MACRO_AUTO) {
+    const m = [];
+    if (MACRO_AUTO.dxy) m.push(`DXY ${MACRO_AUTO.dxy.value} (${MACRO_AUTO.dxy.delta})`);
+    if (MACRO_AUTO.us10y) m.push(`US10Y ${MACRO_AUTO.us10y.value} (${MACRO_AUTO.us10y.delta})`);
+    if (MACRO_AUTO.brent) m.push(`Brent ${MACRO_AUTO.brent.value} (${MACRO_AUTO.brent.delta})`);
+    if (m.length) lines.push(`🌐 ${m.join(' · ')}`, '');
+  }
+
+  (MARKET_DATA.tabs || []).forEach(tab => {
+    const autoByTab = NEWS_AUTO && NEWS_AUTO.byTab && NEWS_AUTO.byTab[tab.id];
+    const allNews = (tab.news || []).concat((autoByTab && autoByTab.news) || []);
+    const todayNews = allNews.filter(n => isTodayMyt(n.time));
+    const scored = todayNews.filter(n => n.signal && n.signal !== 'NEUTRAL' && n.impactPct != null);
+    lines.push(`<b>${esc(tab.label)}</b>`);
+    if (!todayNews.length) {
+      lines.push('No classified headlines published today.');
+    } else {
+      let netPct = 0, buys = 0, sells = 0;
+      scored.forEach(n => { netPct += n.impactPct; if (n.signal === 'BUY') buys++; else sells++; });
+      const netSignal = netPct > 0.05 ? 'BUY' : netPct < -0.05 ? 'SELL' : 'NEUTRAL';
+      const dot = netSignal === 'SELL' ? '🔴' : netSignal === 'BUY' ? '🟢' : '⚪';
+      lines.push(`${dot} ${todayNews.length} headline(s) today — net ${pctFmt(+netPct.toFixed(2))} (${buys} bullish, ${sells} bearish)`);
+      todayNews.slice().sort((a, b) => Math.abs(b.impactPct || 0) - Math.abs(a.impactPct || 0)).slice(0, 3)
+        .forEach(n => lines.push(`  • [${esc(n.signal)}] ${esc(n.title)}`));
+    }
+    lines.push('');
+  });
+
+  const todaysEvents = (MARKET_DATA.incoming || []).concat((NEWS_AUTO && NEWS_AUTO.incoming) || [])
+    .filter(e => isTodayMyt(e.timeMyt || e.date));
+  if (todaysEvents.length) {
+    lines.push('📅 <b>Today\'s calendar:</b>');
+    todaysEvents.forEach(e => lines.push(`  • ${esc(mytDisplay(e.timeMyt || e.date))} — ${esc(e.event)} (${esc((e.importance || '').toUpperCase())})`));
+    lines.push('');
+  } else {
+    lines.push('📅 No calendar events scheduled today.', '');
+  }
+
+  lines.push(CREDIT_LINE);
+  return lines.join('\n');
+}
+
 (async () => {
   const MARKET_DATA = loadJsModule('xauusd-data.js', 'MARKET_DATA');
   const NEWS_AUTO = loadJsModule('news-auto.js', 'NEWS_AUTO');
   const ATR_DATA = loadJsModule('atr.js', 'ATR_DATA'); // real Wilder ATR(14) per instrument, for the ATR-based price-target line
+  const MACRO_AUTO = loadJsModule('macro-auto.js', 'MACRO_AUTO');
   if (!MARKET_DATA) { console.log('No xauusd-data.js found - nothing to check.'); return; }
+
+  if (DAILY) {
+    // Two separate messages by request: one plain summary, one dedicated to predictions.
+    const summary = buildDailySummary(MARKET_DATA, NEWS_AUTO, MACRO_AUTO);
+    const prediction = buildDailyPrediction(MARKET_DATA, NEWS_AUTO);
+    console.log(summary.replace(/<\/?b>/g, '') + '\n\n' + prediction.replace(/<\/?b>/g, ''));
+    const r1 = await sendTelegram(summary);
+    await new Promise(res => setTimeout(res, 400));
+    const r2 = await sendTelegram(prediction);
+    console.log('\nSummary: ' + (r1.ok ? 'SENT' : r1.skipped ? 'skipped (no credentials)' : 'FAILED'));
+    console.log('Prediction: ' + (r2.ok ? 'SENT' : r2.skipped ? 'skipped (no credentials)' : 'FAILED'));
+    if ((!r1.ok && !r1.skipped) || (!r2.ok && !r2.skipped)) process.exitCode = 1;
+    return;
+  }
+
+  if (EVENING) {
+    const summary = buildEveningRecap(MARKET_DATA, NEWS_AUTO, MACRO_AUTO);
+    console.log(summary.replace(/<\/?b>/g, ''));
+    const r = await sendTelegram(summary);
+    console.log(r.ok ? '\nSENT evening recap.' : r.skipped ? '\n(no Telegram credentials - printed above only)' : '\nFAILED to send evening recap.');
+    if (!r.ok && !r.skipped) process.exitCode = 1;
+    return;
+  }
 
   if (PREVIEW) {
     const sampleEvent = ((MARKET_DATA.incoming || []).find(e => e.importance === 'high')) || (MARKET_DATA.incoming || [])[0];
