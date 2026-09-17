@@ -240,6 +240,31 @@
     var sig = s > 0.15 ? "BUY" : s < -0.15 ? "SELL" : "NEUTRAL";
     return { score: s, signal: sig, strength: Math.abs(s) };
   }
+  /* Picks the "headline" pair for a currency, not just whichever loaded cross has the widest bias
+   * gap - a NZD/USD cross technically scoring higher than EUR/USD is not what "the FOMC pair to
+   * watch" means to anyone. Priority: 1) the direct pair against USD (how any single currency's
+   * move is normally read) 2) for USD itself, the conventional major-pair watch order 3) only
+   * then fall back to whichever loaded cross has the strongest bias gap. Mirrors
+   * telegram-notify.js's bestPairFor() exactly so the dashboard and the bot never disagree. */
+  var USD_MAJOR_ORDER = ["EUR/USD", "GBP/USD", "USD/JPY", "AUD/USD", "USD/CAD", "USD/CHF", "NZD/USD"];
+  function bestPairForCurrency(ccy) {
+    if (!ccy) return null;
+    var fxPairs = D.fxPairs || [];
+    function byPair(name) { var p = fxPairs.filter(function (x) { return x.pair === name; })[0]; return p ? { pair: p.pair, s: pairSignal(p) } : null; }
+    if (ccy !== "USD") {
+      var direct = fxPairs.filter(function (p) { return (p.base === ccy && p.quote === "USD") || (p.base === "USD" && p.quote === ccy); })[0];
+      if (direct) return { pair: direct.pair, s: pairSignal(direct) };
+    } else {
+      var majors = USD_MAJOR_ORDER.map(byPair).filter(Boolean);
+      var nonNeutral = majors.filter(function (c) { return c.s.signal !== "NEUTRAL"; })[0];
+      if (nonNeutral) return nonNeutral;
+      if (majors[0]) return majors[0];
+    }
+    var candidates = fxPairs.filter(function (p) { return p.base === ccy || p.quote === ccy; })
+      .map(function (p) { return { pair: p.pair, s: pairSignal(p) }; })
+      .sort(function (a, b) { return b.s.strength - a.s.strength; });
+    return candidates[0] || null;
+  }
 
   /* theme */
   var safeGet = function () { try { return localStorage.getItem("xau-theme"); } catch (e) { return null; } };
@@ -921,9 +946,7 @@
     box.innerHTML = items.map(function (it, idx) {
       var e = it.e;
       var ccy = eventCurrency(e.event + " " + (e.note || ""));
-      var candidates = ccy ? (D.fxPairs || []).filter(function (p) { return p.base === ccy || p.quote === ccy; }).map(function (p) { return { pair: p.pair, s: pairSignal(p) }; }) : [];
-      candidates.sort(function (a, b) { return b.s.strength - a.s.strength; });
-      var top = candidates[0];
+      var top = bestPairForCurrency(ccy);
       var hAway = it.t ? Math.round((it.t.getTime() - now.getTime()) / 3600000) : null;
       var pairLine = top
         ? esc(top.pair) + ' <span class="sig ' + sigCls(top.s.signal) + '">' + esc(top.s.signal) + "</span> (score " + (top.s.score > 0 ? "+" : "") + top.s.score.toFixed(2) + ")"

@@ -43,17 +43,36 @@ const MODEL = {
 };
 
 // ---- Hawkish / dovish keyword lexicon (transparent, editable) ----
-const HAWKISH_WORDS = /\b(hike|hikes|hiking|raise rates|rate rise|tighten|tightening|restrictive|inflation concern|hot inflation|sticky inflation|hawkish|higher for longer|rate increase|dissent.*hike|overheating)\b/i;
-const DOVISH_WORDS = /\b(cut|cuts|cutting|lower rates|rate cut|ease|easing|dovish|pause|pausing|stimulus|accommodat|rate decrease|soft landing|slowing inflation|disinflation)\b/i;
+// Two tiers, to fix the biggest source of false positives: a bare "cut" or "hike" matches
+// "oil output cut", "job cuts", "tax hike", "gas price hike" just as readily as a rate move.
+//   STRONG phrases are specific enough to stand alone ("rate hike", "hawkish", ...).
+//   WEAK words (bare "hike"/"cut"/"ease"/"tighten"/"pause") only count when the SAME headline
+//   also contains a monetary-policy context word (Fed, ECB, rate, central bank, ...) - a plain
+//   commodity/labour/tax headline won't have both, so it stays unclassified (shown NEUTRAL).
+const CONTEXT_WORDS = /\b(rate|rates|\bfed\b|federal reserve|fomc|ecb|european central bank|boj|bank of japan|boe|bank of england|rba|rbnz|snb|bank of canada|central bank|interest rate|monetary policy|policymakers?)\b/i;
+const HAWKISH_STRONG = /\b(rate hike|rate increase|rate rise|raised rates|raise rates|hiked rates|hawkish|higher for longer|tightening cycle|restrictive stance)\b/i;
+const HAWKISH_WEAK = /\b(hike|hikes|hiking|tighten|tightening|restrictive|overheating|sticky inflation|hot inflation|inflation concern)\b/i;
+const DOVISH_STRONG = /\b(rate cut|cut rates|cutting rates|lowered rates|lower rates|dovish|rate decrease|easing cycle|accommodative stance)\b/i;
+const DOVISH_WEAK = /\b(cut|cuts|cutting|ease|easing|pause\w*|stimulus|accommodat\w*|soft landing|disinflation|slowing inflation)\b/i;
+// A negation ("won't cut", "ruled out further hikes", "unlikely to ease") right before a
+// directional word flips the real meaning - regex can't reliably tell which way, so the safer
+// move is to strip the negated phrase out before classifying, leaving it unclassified rather
+// than confidently wrong.
+const NEGATED_PHRASE = /\b(no|not|won'?t|will not|unlikely to|doesn'?t|does not|denies?|denied|rules? out|ruled out)\s+(\w+\s+){0,3}(hike|hikes|hiking|cut|cuts|cutting|ease|easing|tighten|tightening|raise|raises|lower|lowers|pause|pausing)\w*/gi;
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
-function classify(text) {
-  const h = HAWKISH_WORDS.test(text);
-  const d = DOVISH_WORDS.test(text);
-  if (h && !d) return 'hawkish';
-  if (d && !h) return 'dovish';
-  return null; // ambiguous / neutral - skip scoring, still shown as NEUTRAL
+function classify(textRaw) {
+  const text = textRaw.replace(NEGATED_PHRASE, ' ');
+  const hStrong = HAWKISH_STRONG.test(text), dStrong = DOVISH_STRONG.test(text);
+  if (hStrong && !dStrong) return 'hawkish';
+  if (dStrong && !hStrong) return 'dovish';
+  if (CONTEXT_WORDS.test(text)) {
+    const hWeak = HAWKISH_WEAK.test(text), dWeak = DOVISH_WEAK.test(text);
+    if (hWeak && !dWeak) return 'hawkish';
+    if (dWeak && !hWeak) return 'dovish';
+  }
+  return null; // ambiguous / no monetary context / neutral - shown NEUTRAL, not scored
 }
 
 function weightFor(text) {
@@ -129,15 +148,27 @@ async function getCalendar() {
     .filter(e => e.date);
 }
 
-// ---- 2. Fed press releases (real, official) ----
-async function getFedReleases(limit) {
-  const xml = await fetchText('https://www.federalreserve.gov/feeds/press_all.xml');
-  return parseRss(xml, limit).map(it => ({ ...it, source: 'Federal Reserve', sourceUrl: 'https://www.federalreserve.gov/newsevents/pressreleases.htm' }));
+// ---- 2. Central-bank press releases (real, official) - the trustworthy hawkish/dovish source ----
+async function getCentralBankReleases(limit) {
+  const feeds = [
+    { url: 'https://www.federalreserve.gov/feeds/press_all.xml', name: 'Federal Reserve' },
+    { url: 'https://www.ecb.europa.eu/rss/press.html', name: 'European Central Bank' }
+  ];
+  const out = [];
+  for (const f of feeds) {
+    try {
+      const xml = await fetchText(f.url);
+      parseRss(xml, limit).forEach(it => out.push({ ...it, source: f.name }));
+    } catch (e) { console.log('WARN central bank: ' + f.name + ' -> ' + e.message); }
+    await sleep(150);
+  }
+  return out;
 }
 
-// ---- 3. Market headlines (real, commodities/metals wire) ----
+// ---- 3. Market headlines (real, forex/commodities/metals wires) ----
 async function getHeadlines(limit) {
   const feeds = [
+    { url: 'https://www.investing.com/rss/news_1.rss', name: 'Investing.com - Forex News' },
     { url: 'https://www.investing.com/rss/news_11.rss', name: 'Investing.com - Commodities & Futures' },
     { url: 'https://www.investing.com/rss/commodities_Metals.rss', name: 'Investing.com - Metals Analysis' },
     { url: 'https://www.fxstreet.com/rss/news', name: 'FXStreet - Forex & Markets News' }
@@ -198,18 +229,18 @@ function buildSpeakerRow(it, instrumentScale) {
 
 (async () => {
   console.log('build-news.js - fetching real calendar + headlines...\n');
-  let calendar = [], fedReleases = [], headlines = [];
+  let calendar = [], centralBankReleases = [], headlines = [];
 
   try { calendar = await getCalendar(); console.log('OK   calendar        rows=' + calendar.length); }
   catch (e) { console.log('FAIL calendar        -> ' + e.message); }
 
-  try { fedReleases = await getFedReleases(15); console.log('OK   fed releases    rows=' + fedReleases.length); }
-  catch (e) { console.log('FAIL fed releases    -> ' + e.message); }
+  try { centralBankReleases = await getCentralBankReleases(15); console.log('OK   central bank    rows=' + centralBankReleases.length); }
+  catch (e) { console.log('FAIL central bank    -> ' + e.message); }
 
   try { headlines = await getHeadlines(15); console.log('OK   headlines       rows=' + headlines.length); }
   catch (e) { console.log('FAIL headlines       -> ' + e.message); }
 
-  const speakerSource = fedReleases; // official releases are the trustworthy hawkish/dovish signal source
+  const speakerSource = centralBankReleases; // official releases are the trustworthy hawkish/dovish signal source
   const newsSource = headlines;      // general commodity/metals wire for the news feed
 
   const byTab = {
