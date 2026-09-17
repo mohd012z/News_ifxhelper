@@ -255,6 +255,24 @@
     var myt = new Date(t.getTime() + 8 * 3600 * 1000);
     return DAY_NAMES[myt.getUTCDay()] + ", " + myt.getUTCDate() + " " + MONTH_NAMES[myt.getUTCMonth()];
   }
+  var MONTH_MAP = { Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5, Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11 };
+  /* News rows carry two shapes of date string: curated ("16 Sep", date only, no time - the source
+   * never had an intraday timestamp) and auto-collected ("Thu 17 Sep, 20:35 MYT", real day+time
+   * from the RSS feed). Parses either into {t: sortable timestamp, day: "Thu, 17 Sep" group label}
+   * treated as a plain MYT calendar date/time - exact UTC offset doesn't matter here, only
+   * relative order and the correct day-of-week for grouping. Missing time defaults to 00:00,
+   * which correctly sorts a date-only row before same-day timed rows, not after. */
+  function parseNewsMeta(str) {
+    if (!str) return { t: -Infinity, day: "Unknown day" };
+    var m = /(\d{1,2})\s+([A-Za-z]{3})(?:,?\s+(\d{1,2}):(\d{2}))?/.exec(str);
+    if (!m || MONTH_MAP[m[2]] == null) return { t: -Infinity, day: "Unknown day" };
+    var day = +m[1], mon = MONTH_MAP[m[2]], hour = m[3] != null ? +m[3] : 0, min = m[4] != null ? +m[4] : 0;
+    var nowMyt = new Date(Date.now() + 8 * 3600 * 1000);
+    var year = nowMyt.getUTCFullYear();
+    var d = new Date(Date.UTC(year, mon, day, hour, min));
+    if (d.getTime() > nowMyt.getTime() + 2 * 86400000) d = new Date(Date.UTC(year - 1, mon, day, hour, min));
+    return { t: d.getTime(), day: DAY_NAMES[d.getUTCDay()] + ", " + day + " " + MONTH_NAMES[mon] };
+  }
   /* Fine-grained countdown text: minutes when close, hours/days once far out. Replaces the old
    * hour-only rounding (which showed "within the hour" for anything from 59 minutes down to the
    * exact second) with an actual live countdown once an event is within reach. */
@@ -1120,8 +1138,16 @@
   }
   function renderNews() {
     var body = $("#news-body"); body.innerHTML = "";
-    var rows = (T.news || []).filter(function (n) { return (tfFilter === "All" || (n.tf || "\u2014") === tfFilter) && (settings.showAuto !== false || !n.auto); });
-    rows.forEach(function (nw) {
+    var rows = (T.news || []).filter(function (n) { return (tfFilter === "All" || (n.tf || "\u2014") === tfFilter) && (settings.showAuto !== false || !n.auto); })
+      .map(function (n) { return { nw: n, meta: parseNewsMeta(n.time) }; })
+      .sort(function (a, b) { return b.meta.t - a.meta.t; }); // latest first
+    var lastDay = null;
+    rows.forEach(function (item) {
+      var nw = item.nw;
+      if (item.meta.day !== lastDay) {
+        lastDay = item.meta.day;
+        body.insertAdjacentHTML("beforeend", '<tr class="day-sep-row"><td colspan="6"><div class="day-sep">' + esc(lastDay) + "</div></td></tr>");
+      }
       var tr = document.createElement("tr");
       tr.innerHTML =
         '<td class="news-time" style="white-space:nowrap">' + esc(nw.time) + "</td>" +
