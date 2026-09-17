@@ -7,6 +7,7 @@
     "icons": "node make-icons.js",
     "atr": "node build-atr.js",
     "news": "node build-news.js",
+    "macro": "node build-macro.js",
     "serve": "node tools/serve.js",
     "prepare-web": "node tools/prepare-web.js",
     "cap:add": "npx cap add android",
