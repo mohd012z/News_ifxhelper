@@ -670,6 +670,15 @@
         <div class="note" style="margin-top:6px">Free-tier options: <b>Groq</b> and <b>OpenRouter</b> (free models) need no billing setup. Google <b>Gemini</b> has a free tier via AI Studio. OpenAI and Anthropic are pay-as-you-go.</div>
       </div>
       <div>
+        <div class="k">Voice &mdash; presenter style &amp; person</div>
+        <div class="note">Uses your browser/OS's own text-to-speech voices &mdash; every voice below is a real installed voice, not a fake label. Voices with "Natural"/"Neural"/"Online" in the name (common on Edge/Windows 11, some Android builds) sound the least robotic. Alerts are also now read sentence-by-sentence instead of as one flat run-on, which reads closer to a presenter's pacing.</div>
+        <select id="set-voice-uri" class="tinput" style="margin-top:8px;width:100%"></select>
+        <select id="set-voice-style" class="tinput" style="margin-top:6px;width:100%"></select>
+        <div class="row-flex" style="margin-top:6px">
+          <span class="chip go" id="set-voice-test">Preview voice</span>
+        </div>
+      </div>
+      <div>
         <div class="k">Notifications</div>
         <label class="note" style="display:flex;align-items:center;gap:6px;margin:8px 0 0"><input type="checkbox" id="set-notif-popup" /> In-app popup alerts</label>
         <label class="note" style="display:flex;align-items:center;gap:6px;margin:6px 0 0"><input type="checkbox" id="set-notif-os" /> OS / browser notifications (asks permission)</label>

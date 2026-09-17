@@ -372,13 +372,56 @@
   /* ---- voice: reads incoming-event and today's-alert changes aloud via the browser's own TTS ---- */
   var safeGetVoice = function () { try { return localStorage.getItem("xau-voice") === "1"; } catch (e) { return false; } };
   var safeSetVoice = function (on) { try { localStorage.setItem("xau-voice", on ? "1" : "0"); } catch (e) {} };
+  /* Presenter-style presets: the Web Speech API has no "sound like a person" knob, but rate/pitch
+   * tuning plus reading sentence-by-sentence (see speak() below) gets meaningfully further from
+   * the flat, one-shot monotone a raw SpeechSynthesisUtterance(text) produces at rate=1/pitch=1.
+   * "Robotic" is kept as an explicit, honest option rather than removed. */
+  var VOICE_STYLES = {
+    presenter: { label: "Presenter (measured, clear)", rate: 0.96, pitch: 1.0 },
+    newsAnchor: { label: "News Anchor (confident, brisk)", rate: 1.05, pitch: 0.96 },
+    calm: { label: "Calm Analyst (slow, low)", rate: 0.85, pitch: 0.9 },
+    energetic: { label: "Energetic (upbeat, faster)", rate: 1.15, pitch: 1.1 },
+    robotic: { label: "Default (flat, robotic)", rate: 1, pitch: 1 }
+  };
+  var availableVoices = [];
+  function refreshVoiceList() {
+    if (!("speechSynthesis" in window)) return;
+    availableVoices = window.speechSynthesis.getVoices() || [];
+    populateVoiceSelect();
+  }
+  /* System voices ARE the "many person templates" - every OS/browser ships several distinct
+   * synthetic voices (different names, genders, accents); this just surfaces the real list
+   * instead of silently taking whatever the browser defaults to. Voices with "Natural"/"Neural"/
+   * "Online" in the name (Edge/Windows 11, some Android builds) sound far less robotic than
+   * legacy SAPI voices, so one of those is preferred as the default pick when available. */
+  function bestDefaultVoiceURI() {
+    if (!availableVoices.length) return "";
+    var en = availableVoices.filter(function (v) { return /^en/i.test(v.lang); });
+    var pool = en.length ? en : availableVoices;
+    var natural = pool.filter(function (v) { return /natural|neural|online/i.test(v.name); })[0];
+    return (natural || pool[0]).voiceURI;
+  }
+  function currentVoiceObj() {
+    var uri = settings.voiceURI || bestDefaultVoiceURI();
+    return availableVoices.filter(function (v) { return v.voiceURI === uri; })[0] || null;
+  }
+  /* Splits into sentences and speaks them as separate queued utterances instead of one long run-
+   * on. The brief natural gap the API leaves between queued utterances reads as sentence pacing -
+   * closer to how a presenter actually pauses between statements than one flat monotone block. */
   function speak(text) {
     if (!voiceEnabled || !text) return;
     if (!("speechSynthesis" in window)) return;
     try {
-      var u = new SpeechSynthesisUtterance(text);
-      u.rate = 1; u.pitch = 1;
-      window.speechSynthesis.speak(u);
+      var style = VOICE_STYLES[settings.voiceStyle] || VOICE_STYLES.presenter;
+      var voice = currentVoiceObj();
+      var sentences = text.replace(/\s+/g, " ").trim().split(/(?<=[.!?])\s+/).filter(Boolean);
+      if (!sentences.length) sentences = [text];
+      sentences.forEach(function (s) {
+        var u = new SpeechSynthesisUtterance(s);
+        u.rate = style.rate; u.pitch = style.pitch;
+        if (voice) u.voice = voice;
+        window.speechSynthesis.speak(u);
+      });
     } catch (e) {}
   }
   function updateVoiceBtn() {
@@ -391,15 +434,41 @@
     updateVoiceBtn();
     var btn = $("#voice-toggle"); if (!btn) return;
     if (!("speechSynthesis" in window)) { btn.title = "Speech synthesis not supported in this browser"; btn.disabled = true; return; }
+    refreshVoiceList();
+    if ("onvoiceschanged" in window.speechSynthesis) window.speechSynthesis.onvoiceschanged = refreshVoiceList;
     if (voiceEnabled) { lastAnnouncedNext = null; lastAnnouncedAlerts = null; renderIncoming(); renderAlerts(); }
     btn.onclick = function () {
       voiceEnabled = !voiceEnabled; safeSetVoice(voiceEnabled); updateVoiceBtn();
       if (voiceEnabled) { speak("Voice alerts on."); lastAnnouncedNext = null; lastAnnouncedAlerts = null; renderIncoming(); renderAlerts(); }
     };
   }
+  function populateVoiceSelect() {
+    var sel = $("#set-voice-uri"); if (!sel) return;
+    var current = settings.voiceURI || bestDefaultVoiceURI();
+    sel.innerHTML = availableVoices.length
+      ? availableVoices.map(function (v) { return '<option value="' + esc(v.voiceURI) + '">' + esc(v.name) + " (" + esc(v.lang) + ")</option>"; }).join("")
+      : '<option value="">No voices found yet — open this panel again in a moment</option>';
+    sel.value = current;
+  }
+  function bindVoiceSettings() {
+    var sel = $("#set-voice-uri"), styleSel = $("#set-voice-style"), testBtn = $("#set-voice-test");
+    if (!sel) return;
+    populateVoiceSelect();
+    sel.onchange = function () { settings.voiceURI = sel.value; safeSetSettings(settings); };
+    if (styleSel) {
+      if (!styleSel.options.length) styleSel.innerHTML = Object.keys(VOICE_STYLES).map(function (id) { return '<option value="' + id + '">' + esc(VOICE_STYLES[id].label) + "</option>"; }).join("");
+      styleSel.value = settings.voiceStyle || "presenter";
+      styleSel.onchange = function () { settings.voiceStyle = styleSel.value; safeSetSettings(settings); };
+    }
+    if (testBtn) testBtn.onclick = function () {
+      var was = voiceEnabled; voiceEnabled = true;
+      speak("Hi, this is your desk assistant. This is how I'll sound reading your alerts.");
+      voiceEnabled = was;
+    };
+  }
 
   /* ---- settings: accent/font/size/profile + notification toggles, all local to this device ---- */
-  var DEFAULT_SETTINGS = { profile: "", accent: "#e2b04a", font: "", fontSize: "1", notifPopup: false, notifOS: false, defaultTab: "", accountCcy: "USD", lotSize: 1, riskPct: 1, showAuto: true, compact: false, aiMode: "offline", aiProvider: "groq", aiKey: "", aiModel: "", remoteUrl: "", remoteMin: "15" };
+  var DEFAULT_SETTINGS = { profile: "", accent: "#e2b04a", font: "", fontSize: "1", notifPopup: false, notifOS: false, defaultTab: "", accountCcy: "USD", lotSize: 1, riskPct: 1, showAuto: true, compact: false, aiMode: "offline", aiProvider: "groq", aiKey: "", aiModel: "", remoteUrl: "", remoteMin: "15", voiceURI: "", voiceStyle: "presenter" };
   var safeGetSettings = function () {
     try { var s = JSON.parse(localStorage.getItem("xau-settings") || "{}"); var out = {}; for (var k in DEFAULT_SETTINGS) out[k] = (s[k] !== undefined ? s[k] : DEFAULT_SETTINGS[k]); return out; }
     catch (e) { var d = {}; for (var k2 in DEFAULT_SETTINGS) d[k2] = DEFAULT_SETTINGS[k2]; return d; }
@@ -445,6 +514,7 @@
     var compact = $("#set-compact"); if (compact) { compact.checked = !!settings.compact; compact.onchange = function () { settings.compact = compact.checked; safeSetSettings(settings); applySettings(); }; }
     bindAiSettings();
     bindRemoteSettings();
+    bindVoiceSettings();
     var np = $("#set-notif-popup"); if (np) { np.checked = settings.notifPopup; np.onchange = function () { settings.notifPopup = np.checked; safeSetSettings(settings); }; }
     var no = $("#set-notif-os"); if (no) {
       no.checked = settings.notifOS;
