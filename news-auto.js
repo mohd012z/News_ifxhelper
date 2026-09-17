@@ -5,13 +5,13 @@
  * Regenerate: node build-news.js (run on the same daily cron as build-atr.js).
  */
 window.NEWS_AUTO = {
-  "generatedAt": "2026-09-17 06:05:53Z",
+  "generatedAt": "2026-09-17 06:30:05Z",
   "note": "Auto-collected: economic calendar is real structured data; news/speaker rows are keyword-classified from real headlines (hawkish/dovish lexicon in build-news.js), NOT hand-verified. Treat auto:true rows as a first pass.",
   "incoming": [
     {
       "date": "2026-09-14",
-      "timeMyt": "2026-09-14 20:30",
-      "timeGmt": "2026-09-14 12:30",
+      "timeMyt": "Mon, 2026-09-14 20:30",
+      "timeGmt": "Mon, 2026-09-14 12:30",
       "event": "[CAD] CPI m/m",
       "importance": "high",
       "note": "Forecast -0.1% - Prev 0.5%",
@@ -23,8 +23,8 @@ window.NEWS_AUTO = {
     },
     {
       "date": "2026-09-14",
-      "timeMyt": "2026-09-14 20:30",
-      "timeGmt": "2026-09-14 12:30",
+      "timeMyt": "Mon, 2026-09-14 20:30",
+      "timeGmt": "Mon, 2026-09-14 12:30",
       "event": "[CAD] Median CPI y/y",
       "importance": "high",
       "note": "Forecast 2.0% - Prev 2.0%",
@@ -36,8 +36,8 @@ window.NEWS_AUTO = {
     },
     {
       "date": "2026-09-14",
-      "timeMyt": "2026-09-14 20:30",
-      "timeGmt": "2026-09-14 12:30",
+      "timeMyt": "Mon, 2026-09-14 20:30",
+      "timeGmt": "Mon, 2026-09-14 12:30",
       "event": "[CAD] Trimmed CPI y/y",
       "importance": "high",
       "note": "Forecast 1.9% - Prev 1.9%",
@@ -49,8 +49,8 @@ window.NEWS_AUTO = {
     },
     {
       "date": "2026-09-14",
-      "timeMyt": "2026-09-14 20:30",
-      "timeGmt": "2026-09-14 12:30",
+      "timeMyt": "Mon, 2026-09-14 20:30",
+      "timeGmt": "Mon, 2026-09-14 12:30",
       "event": "[CAD] Common CPI y/y",
       "importance": "med",
       "note": "Forecast 2.7% - Prev 2.7%",
@@ -62,8 +62,8 @@ window.NEWS_AUTO = {
     },
     {
       "date": "2026-09-14",
-      "timeMyt": "2026-09-14 23:15",
-      "timeGmt": "2026-09-14 15:15",
+      "timeMyt": "Mon, 2026-09-14 23:15",
+      "timeGmt": "Mon, 2026-09-14 15:15",
       "event": "[EUR] ECB President Lagarde Speaks",
       "importance": "med",
       "note": "No consensus figure published.",
@@ -75,8 +75,8 @@ window.NEWS_AUTO = {
     },
     {
       "date": "2026-09-15",
-      "timeMyt": "2026-09-15 14:00",
-      "timeGmt": "2026-09-15 06:00",
+      "timeMyt": "Tue, 2026-09-15 14:00",
+      "timeGmt": "Tue, 2026-09-15 06:00",
       "event": "[GBP] Claimant Count Change",
       "importance": "high",
       "note": "Forecast 8.3K - Prev -11.0K",
@@ -88,8 +88,8 @@ window.NEWS_AUTO = {
     },
     {
       "date": "2026-09-15",
-      "timeMyt": "2026-09-15 14:00",
-      "timeGmt": "2026-09-15 06:00",
+      "timeMyt": "Tue, 2026-09-15 14:00",
+      "timeGmt": "Tue, 2026-09-15 06:00",
       "event": "[GBP] Average Earnings Index 3m/y",
       "importance": "med",
       "note": "Forecast 3.9% - Prev 4.1%",
@@ -101,8 +101,8 @@ window.NEWS_AUTO = {
     },
     {
       "date": "2026-09-15",
-      "timeMyt": "2026-09-15 22:00",
-      "timeGmt": "2026-09-15 14:00",
+      "timeMyt": "Tue, 2026-09-15 22:00",
+      "timeGmt": "Tue, 2026-09-15 14:00",
       "event": "[USD] Treasury Sec Bessent Speaks",
       "importance": "med",
       "note": "No consensus figure published.",
@@ -114,8 +114,8 @@ window.NEWS_AUTO = {
     },
     {
       "date": "2026-09-16",
-      "timeMyt": "2026-09-16 14:00",
-      "timeGmt": "2026-09-16 06:00",
+      "timeMyt": "Wed, 2026-09-16 14:00",
+      "timeGmt": "Wed, 2026-09-16 06:00",
       "event": "[GBP] CPI y/y",
       "importance": "high",
       "note": "Forecast 3.1% - Prev 2.9%",
@@ -127,8 +127,8 @@ window.NEWS_AUTO = {
     },
     {
       "date": "2026-09-16",
-      "timeMyt": "2026-09-16 20:30",
-      "timeGmt": "2026-09-16 12:30",
+      "timeMyt": "Wed, 2026-09-16 20:30",
+      "timeGmt": "Wed, 2026-09-16 12:30",
       "event": "[USD] Core Retail Sales m/m",
       "importance": "med",
       "note": "Forecast 0.6% - Prev -0.3%",
@@ -140,8 +140,8 @@ window.NEWS_AUTO = {
     },
     {
       "date": "2026-09-16",
-      "timeMyt": "2026-09-16 20:30",
-      "timeGmt": "2026-09-16 12:30",
+      "timeMyt": "Wed, 2026-09-16 20:30",
+      "timeGmt": "Wed, 2026-09-16 12:30",
       "event": "[USD] Retail Sales m/m",
       "importance": "med",
       "note": "Forecast 0.8% - Prev -0.6%",
@@ -153,8 +153,8 @@ window.NEWS_AUTO = {
     },
     {
       "date": "2026-09-16",
-      "timeMyt": "2026-09-17 02:00",
-      "timeGmt": "2026-09-16 18:00",
+      "timeMyt": "Thu, 2026-09-17 02:00",
+      "timeGmt": "Wed, 2026-09-16 18:00",
       "event": "[USD] Federal Funds Rate",
       "importance": "high",
       "note": "Forecast 4.00% - Prev 3.75%",
@@ -169,7 +169,7 @@ window.NEWS_AUTO = {
     "gold": {
       "news": [
         {
-          "time": "2026-09-16",
+          "time": "Thu 17 Sep, 13:02 MYT",
           "tf": "Intraday",
           "title": "Asian currencies mixed as dollar holds seven-week high, yen steadies",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -181,7 +181,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-16",
+          "time": "Thu 17 Sep, 02:46 MYT",
           "tf": "Intraday",
           "title": "Loonie weakens after Fed hike as dollar gains on hawkish outlook",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -193,7 +193,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-16",
+          "time": "Thu 17 Sep, 02:28 MYT",
           "tf": "Intraday",
           "title": "Dollar gains after Fed raises interest rates",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -205,7 +205,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-16",
+          "time": "Wed 16 Sep, 17:24 MYT",
           "tf": "Intraday",
           "title": "UBS sees EUR/CHF retest of 0.96 as Swiss franc lags on low yield",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -217,7 +217,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-16",
+          "time": "Wed 16 Sep, 17:07 MYT",
           "tf": "Intraday",
           "title": "Citi sees GBP gains as short-lived ahead of October budget risks",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -229,7 +229,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-16",
+          "time": "Wed 16 Sep, 16:21 MYT",
           "tf": "Intraday",
           "title": "Sterling today: Pound slips as Fed hike bets and UK inflation uptick weigh",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -241,7 +241,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-15",
+          "time": "Wed 16 Sep, 15:43 MYT",
           "tf": "Intraday",
           "title": "Euro zone yields linger at multi-year peaks as traders brace for Fed rate decision",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -253,7 +253,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-15",
+          "time": "Wed 16 Sep, 04:38 MYT",
           "tf": "Intraday",
           "title": "Dollar hits two-week high as traders gear up for anticipated Fed hike on Wednesday",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -265,7 +265,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-15",
+          "time": "Tue 15 Sep, 20:40 MYT",
           "tf": "Intraday",
           "title": "Loonie slips as oil surge fuels rate worries ahead of Fed decision",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -277,7 +277,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-15",
+          "time": "Tue 15 Sep, 16:06 MYT",
           "tf": "Intraday",
           "title": "Sterling today: Pound fall as UK jobs data disappoints, dollar firm",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -289,7 +289,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-16",
+          "time": "Thu 17 Sep, 12:36 MYT",
           "tf": "Intraday",
           "title": "Trump hopes Iran war nearing end as Houthi-Saudi fighting escalates",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -301,7 +301,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-16",
+          "time": "Thu 17 Sep, 10:11 MYT",
           "tf": "Intraday",
           "title": "Oil prices drift lower amid cooling M.East supply jitters",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -313,7 +313,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-16",
+          "time": "Thu 17 Sep, 09:06 MYT",
           "tf": "Intraday",
           "title": "Oil prices extend losses as fears of Middle East supply disruptions ease",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -325,7 +325,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-16",
+          "time": "Thu 17 Sep, 09:06 MYT",
           "tf": "Intraday",
           "title": "US temporarily eases curb on working hours for fuel truck drivers",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -337,7 +337,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-16",
+          "time": "Thu 17 Sep, 05:38 MYT",
           "tf": "Intraday",
           "title": "Oil halts surge after key Saudi pipeline said to restart at half capacity in days",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -349,7 +349,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-16",
+          "time": "Thu 17 Sep, 04:36 MYT",
           "tf": "Intraday",
           "title": "Oil slips as Saudi Arabia offers more crude via Oman",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -361,7 +361,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-16",
+          "time": "Thu 17 Sep, 03:43 MYT",
           "tf": "Intraday",
           "title": "Top Democrat on US House committee will not support Israel bomb sale",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -373,7 +373,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-16",
+          "time": "Thu 17 Sep, 03:42 MYT",
           "tf": "Intraday",
           "title": "Soybean futures rise on US-China trade meeting expectations",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -385,7 +385,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-16",
+          "time": "Thu 17 Sep, 03:37 MYT",
           "tf": "Intraday",
           "title": "Northwest European gasoline margins climb on Wednesday",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -397,7 +397,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-16",
+          "time": "Thu 17 Sep, 03:18 MYT",
           "tf": "Intraday",
           "title": "Crude Oil WTI stalls at $102.42 with bearish reversal forming: Live",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -409,7 +409,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-08-04",
+          "time": "Tue 4 Aug, 16:37 MYT",
           "tf": "Intraday",
           "title": "Gold: The Calm Before the Storm",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -421,7 +421,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-08-03",
+          "time": "Mon 3 Aug, 22:23 MYT",
           "tf": "Intraday",
           "title": "Gold and Silver Under Pressure, But a Technical Rebound May Be Near",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -433,7 +433,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-08-03",
+          "time": "Mon 3 Aug, 22:12 MYT",
           "tf": "Intraday",
           "title": "Gold Caught in Trump’s Negotiation Impasse: Signs of an Impending Breakdown",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -445,7 +445,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-08-03",
+          "time": "Mon 3 Aug, 16:57 MYT",
           "tf": "Intraday",
           "title": "Chile’s Copper Rebound Is the Supply Story Nobody’s Pricing",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -457,7 +457,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-08-02",
+          "time": "Sun 2 Aug, 23:14 MYT",
           "tf": "Intraday",
           "title": "Gold, Oil Outlook: US-Iran Tensions Leave Markets at a Crossroads",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -469,7 +469,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-08-02",
+          "time": "Sun 2 Aug, 20:43 MYT",
           "tf": "Intraday",
           "title": "Can Gold Really Reach $20,000? The Market Conditions Behind the Forecast",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -481,7 +481,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-07-31",
+          "time": "Fri 31 Jul, 23:38 MYT",
           "tf": "Intraday",
           "title": "Gold’s Monthly Close Could Define Its Next Directional Move",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -493,7 +493,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-07-31",
+          "time": "Fri 31 Jul, 15:43 MYT",
           "tf": "Intraday",
           "title": "Gold: Iran Conflict Leaves Bullion Caught Between Risk and Resistance",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -505,7 +505,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-07-30",
+          "time": "Thu 30 Jul, 22:37 MYT",
           "tf": "Intraday",
           "title": "Gold Faces Directional Risk as Trump’s Iran Stance Keeps Shifting",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -517,7 +517,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-07-30",
+          "time": "Thu 30 Jul, 22:26 MYT",
           "tf": "Intraday",
           "title": "Gold Outlook Weakens as Treasury Yields and Inflation Risks Persist",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -529,7 +529,67 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-17",
+          "time": "Thu 17 Sep, 14:28 MYT",
+          "tf": "Intraday",
+          "title": "British Pound: Oversold Sterling still seen weaker against US Dollar – UOB",
+          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/british-pound-oversold-sterling-still-seen-weaker-against-us-dollar-uob-202609170628",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 17 Sep, 14:26 MYT",
+          "tf": "Intraday",
+          "title": "Japanese Yen outperforms as BoJ’s policy takes centre stage",
+          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/japanese-yen-outperforms-as-bojs-policy-takes-centre-stage-202609170626",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 17 Sep, 11:48 MYT",
+          "tf": "Intraday",
+          "title": "Gold retakes $4,300 amid modest USD pullback but hawkish Fed caps upside",
+          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/gold-stalls-recovery-from-six-week-low-as-usd-preserves-post-fed-gains-amid-iran-risks-202609170348",
+          "impact": "bearish",
+          "signal": "SELL",
+          "impactPct": -0.15,
+          "auto": true
+        },
+        {
+          "time": "Thu 17 Sep, 14:17 MYT",
+          "tf": "Intraday",
+          "title": "EUR/GBP Price Forecast: Euro struggles below 0.8570 with all eyes on the BoE",
+          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/eur-gbp-price-forecast-euro-struggles-below-08570-with-all-eyes-on-the-boe-202609170617",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 17 Sep, 14:09 MYT",
+          "tf": "Intraday",
+          "title": "EUR/USD Price Forecast: Holds steady near 1.1450, bearish tone remains intact",
+          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/eur-usd-price-forecast-holds-steady-near-11450-bearish-tone-remains-intact-202609170609",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 17 Sep, 14:00 MYT",
           "tf": "Intraday",
           "title": "Japan’s Kiuchi says aim to balance robust economy with fiscal sustainability",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -541,9 +601,9 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-17",
+          "time": "Thu 17 Sep, 14:00 MYT",
           "tf": "Intraday",
-          "title": "BoE expected to hold interest rate at 3.75",
+          "title": "BoE expected to hold interest rate at 3.75%",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
           "source": "FXStreet - Forex & Markets News",
           "url": "https://www.fxstreet.com/news/boe-expected-to-hold-interest-rate-at-375-202609170600",
@@ -553,7 +613,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-17",
+          "time": "Thu 17 Sep, 13:57 MYT",
           "tf": "Intraday",
           "title": "Indonesian Rupiah weakens amid complicating BI policy outlook",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -565,7 +625,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-17",
+          "time": "Thu 17 Sep, 13:37 MYT",
           "tf": "Intraday",
           "title": "GBP/USD Price Forecast: Trades vulnerable below 1.3400 ahead of BoE’s policy decision",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -577,7 +637,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-17",
+          "time": "Thu 17 Sep, 13:19 MYT",
           "tf": "Intraday",
           "title": "Indian Rupee gains ground despite fears of more Fed interest rate hikes",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -589,7 +649,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-17",
+          "time": "Thu 17 Sep, 13:10 MYT",
           "tf": "Intraday",
           "title": "Swiss Franc remains near 16-month lows against US Dollar",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -601,19 +661,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-17",
-          "tf": "Intraday",
-          "title": "Gold struggles to build on recovery gains as hawkish Fed and Iran risks underpin USD",
-          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/gold-stalls-recovery-from-six-week-low-as-usd-preserves-post-fed-gains-amid-iran-risks-202609170348",
-          "impact": "bearish",
-          "signal": "SELL",
-          "impactPct": -0.15,
-          "auto": true
-        },
-        {
-          "time": "2026-09-17",
+          "time": "Thu 17 Sep, 13:01 MYT",
           "tf": "Intraday",
           "title": "US 10-Year Treasury Yield nears 5% after Fed rate hike, Middle East tensions raise inflation fears",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -625,7 +673,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-17",
+          "time": "Thu 17 Sep, 12:51 MYT",
           "tf": "Intraday",
           "title": "Asian stocks edge higher as hawkish Fed, elevated yields and geopolitical cap upside",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -637,7 +685,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-17",
+          "time": "Thu 17 Sep, 12:35 MYT",
           "tf": "Intraday",
           "title": "India Gold price today: Gold rises, according to FXStreet data",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -649,7 +697,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-17",
+          "time": "Thu 17 Sep, 12:24 MYT",
           "tf": "Intraday",
           "title": "AUD/JPY Price Forecast: Gains ground to near 111.00, but retains a bearish bias below 100-day SMA",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -659,54 +707,6 @@ window.NEWS_AUTO = {
           "signal": "NEUTRAL",
           "impactPct": 0,
           "auto": true
-        },
-        {
-          "time": "2026-09-17",
-          "tf": "Intraday",
-          "title": "NZD/USD Price Forecast: Sticks to GDP-led recovery gains above 0.5700; bearish bias intact",
-          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/nzd-usd-price-forecast-sticks-to-gdp-led-recovery-gains-above-05700-bearish-bias-intact-202609170413",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "2026-09-17",
-          "tf": "Intraday",
-          "title": "Japan’s Katayama says expect BoJ to conduct appropriate monetary policy to achieve 2% price target",
-          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/japans-katayama-says-expect-boj-to-conduct-appropriate-monetary-policy-to-achieve-2-price-target-202609170357",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "2026-09-17",
-          "tf": "Intraday",
-          "title": "EUR/JPY Price Forecast: Slips below 179.00 as bearish bias prevails",
-          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/eur-jpy-price-forecast-slips-below-17900-as-bearish-bias-prevails-202609170343",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "2026-09-17",
-          "tf": "Intraday",
-          "title": "Fed Policy Monitor: Hiking bias and curve reaction – NBC Economics and Strategy",
-          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/fed-policy-monitor-hiking-bias-and-curve-reaction-nbc-economics-and-strategy-202609170322",
-          "impact": "bearish",
-          "signal": "SELL",
-          "impactPct": -0.15,
-          "auto": true
         }
       ],
       "speakers": []
@@ -714,7 +714,7 @@ window.NEWS_AUTO = {
     "crypto": {
       "news": [
         {
-          "time": "2026-09-16",
+          "time": "Thu 17 Sep, 13:02 MYT",
           "tf": "Intraday",
           "title": "Asian currencies mixed as dollar holds seven-week high, yen steadies",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -726,7 +726,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-16",
+          "time": "Thu 17 Sep, 02:46 MYT",
           "tf": "Intraday",
           "title": "Loonie weakens after Fed hike as dollar gains on hawkish outlook",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -738,7 +738,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-16",
+          "time": "Thu 17 Sep, 02:28 MYT",
           "tf": "Intraday",
           "title": "Dollar gains after Fed raises interest rates",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -750,7 +750,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-16",
+          "time": "Wed 16 Sep, 17:24 MYT",
           "tf": "Intraday",
           "title": "UBS sees EUR/CHF retest of 0.96 as Swiss franc lags on low yield",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -762,7 +762,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-16",
+          "time": "Wed 16 Sep, 17:07 MYT",
           "tf": "Intraday",
           "title": "Citi sees GBP gains as short-lived ahead of October budget risks",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -774,7 +774,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-16",
+          "time": "Wed 16 Sep, 16:21 MYT",
           "tf": "Intraday",
           "title": "Sterling today: Pound slips as Fed hike bets and UK inflation uptick weigh",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -786,7 +786,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-15",
+          "time": "Wed 16 Sep, 15:43 MYT",
           "tf": "Intraday",
           "title": "Euro zone yields linger at multi-year peaks as traders brace for Fed rate decision",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -798,7 +798,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-15",
+          "time": "Wed 16 Sep, 04:38 MYT",
           "tf": "Intraday",
           "title": "Dollar hits two-week high as traders gear up for anticipated Fed hike on Wednesday",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -810,7 +810,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-15",
+          "time": "Tue 15 Sep, 20:40 MYT",
           "tf": "Intraday",
           "title": "Loonie slips as oil surge fuels rate worries ahead of Fed decision",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -822,7 +822,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-15",
+          "time": "Tue 15 Sep, 16:06 MYT",
           "tf": "Intraday",
           "title": "Sterling today: Pound fall as UK jobs data disappoints, dollar firm",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -834,7 +834,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-16",
+          "time": "Thu 17 Sep, 12:36 MYT",
           "tf": "Intraday",
           "title": "Trump hopes Iran war nearing end as Houthi-Saudi fighting escalates",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -846,7 +846,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-16",
+          "time": "Thu 17 Sep, 10:11 MYT",
           "tf": "Intraday",
           "title": "Oil prices drift lower amid cooling M.East supply jitters",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -858,7 +858,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-16",
+          "time": "Thu 17 Sep, 09:06 MYT",
           "tf": "Intraday",
           "title": "Oil prices extend losses as fears of Middle East supply disruptions ease",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -870,7 +870,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-16",
+          "time": "Thu 17 Sep, 09:06 MYT",
           "tf": "Intraday",
           "title": "US temporarily eases curb on working hours for fuel truck drivers",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -882,7 +882,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-16",
+          "time": "Thu 17 Sep, 05:38 MYT",
           "tf": "Intraday",
           "title": "Oil halts surge after key Saudi pipeline said to restart at half capacity in days",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -894,7 +894,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-16",
+          "time": "Thu 17 Sep, 04:36 MYT",
           "tf": "Intraday",
           "title": "Oil slips as Saudi Arabia offers more crude via Oman",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -906,7 +906,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-16",
+          "time": "Thu 17 Sep, 03:43 MYT",
           "tf": "Intraday",
           "title": "Top Democrat on US House committee will not support Israel bomb sale",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -918,7 +918,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-16",
+          "time": "Thu 17 Sep, 03:42 MYT",
           "tf": "Intraday",
           "title": "Soybean futures rise on US-China trade meeting expectations",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -930,7 +930,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-16",
+          "time": "Thu 17 Sep, 03:37 MYT",
           "tf": "Intraday",
           "title": "Northwest European gasoline margins climb on Wednesday",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -942,7 +942,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-16",
+          "time": "Thu 17 Sep, 03:18 MYT",
           "tf": "Intraday",
           "title": "Crude Oil WTI stalls at $102.42 with bearish reversal forming: Live",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -954,7 +954,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-08-04",
+          "time": "Tue 4 Aug, 16:37 MYT",
           "tf": "Intraday",
           "title": "Gold: The Calm Before the Storm",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -966,7 +966,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-08-03",
+          "time": "Mon 3 Aug, 22:23 MYT",
           "tf": "Intraday",
           "title": "Gold and Silver Under Pressure, But a Technical Rebound May Be Near",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -978,7 +978,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-08-03",
+          "time": "Mon 3 Aug, 22:12 MYT",
           "tf": "Intraday",
           "title": "Gold Caught in Trump’s Negotiation Impasse: Signs of an Impending Breakdown",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -990,7 +990,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-08-03",
+          "time": "Mon 3 Aug, 16:57 MYT",
           "tf": "Intraday",
           "title": "Chile’s Copper Rebound Is the Supply Story Nobody’s Pricing",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1002,7 +1002,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-08-02",
+          "time": "Sun 2 Aug, 23:14 MYT",
           "tf": "Intraday",
           "title": "Gold, Oil Outlook: US-Iran Tensions Leave Markets at a Crossroads",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1014,7 +1014,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-08-02",
+          "time": "Sun 2 Aug, 20:43 MYT",
           "tf": "Intraday",
           "title": "Can Gold Really Reach $20,000? The Market Conditions Behind the Forecast",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1026,7 +1026,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-07-31",
+          "time": "Fri 31 Jul, 23:38 MYT",
           "tf": "Intraday",
           "title": "Gold’s Monthly Close Could Define Its Next Directional Move",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1038,7 +1038,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-07-31",
+          "time": "Fri 31 Jul, 15:43 MYT",
           "tf": "Intraday",
           "title": "Gold: Iran Conflict Leaves Bullion Caught Between Risk and Resistance",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1050,7 +1050,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-07-30",
+          "time": "Thu 30 Jul, 22:37 MYT",
           "tf": "Intraday",
           "title": "Gold Faces Directional Risk as Trump’s Iran Stance Keeps Shifting",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1062,7 +1062,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-07-30",
+          "time": "Thu 30 Jul, 22:26 MYT",
           "tf": "Intraday",
           "title": "Gold Outlook Weakens as Treasury Yields and Inflation Risks Persist",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1074,7 +1074,67 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-17",
+          "time": "Thu 17 Sep, 14:28 MYT",
+          "tf": "Intraday",
+          "title": "British Pound: Oversold Sterling still seen weaker against US Dollar – UOB",
+          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/british-pound-oversold-sterling-still-seen-weaker-against-us-dollar-uob-202609170628",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 17 Sep, 14:26 MYT",
+          "tf": "Intraday",
+          "title": "Japanese Yen outperforms as BoJ’s policy takes centre stage",
+          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/japanese-yen-outperforms-as-bojs-policy-takes-centre-stage-202609170626",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 17 Sep, 11:48 MYT",
+          "tf": "Intraday",
+          "title": "Gold retakes $4,300 amid modest USD pullback but hawkish Fed caps upside",
+          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/gold-stalls-recovery-from-six-week-low-as-usd-preserves-post-fed-gains-amid-iran-risks-202609170348",
+          "impact": "bearish",
+          "signal": "SELL",
+          "impactPct": -0.2,
+          "auto": true
+        },
+        {
+          "time": "Thu 17 Sep, 14:17 MYT",
+          "tf": "Intraday",
+          "title": "EUR/GBP Price Forecast: Euro struggles below 0.8570 with all eyes on the BoE",
+          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/eur-gbp-price-forecast-euro-struggles-below-08570-with-all-eyes-on-the-boe-202609170617",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 17 Sep, 14:09 MYT",
+          "tf": "Intraday",
+          "title": "EUR/USD Price Forecast: Holds steady near 1.1450, bearish tone remains intact",
+          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/eur-usd-price-forecast-holds-steady-near-11450-bearish-tone-remains-intact-202609170609",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 17 Sep, 14:00 MYT",
           "tf": "Intraday",
           "title": "Japan’s Kiuchi says aim to balance robust economy with fiscal sustainability",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1086,9 +1146,9 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-17",
+          "time": "Thu 17 Sep, 14:00 MYT",
           "tf": "Intraday",
-          "title": "BoE expected to hold interest rate at 3.75",
+          "title": "BoE expected to hold interest rate at 3.75%",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
           "source": "FXStreet - Forex & Markets News",
           "url": "https://www.fxstreet.com/news/boe-expected-to-hold-interest-rate-at-375-202609170600",
@@ -1098,7 +1158,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-17",
+          "time": "Thu 17 Sep, 13:57 MYT",
           "tf": "Intraday",
           "title": "Indonesian Rupiah weakens amid complicating BI policy outlook",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1110,7 +1170,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-17",
+          "time": "Thu 17 Sep, 13:37 MYT",
           "tf": "Intraday",
           "title": "GBP/USD Price Forecast: Trades vulnerable below 1.3400 ahead of BoE’s policy decision",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1122,7 +1182,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-17",
+          "time": "Thu 17 Sep, 13:19 MYT",
           "tf": "Intraday",
           "title": "Indian Rupee gains ground despite fears of more Fed interest rate hikes",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1134,7 +1194,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-17",
+          "time": "Thu 17 Sep, 13:10 MYT",
           "tf": "Intraday",
           "title": "Swiss Franc remains near 16-month lows against US Dollar",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1146,19 +1206,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-17",
-          "tf": "Intraday",
-          "title": "Gold struggles to build on recovery gains as hawkish Fed and Iran risks underpin USD",
-          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/gold-stalls-recovery-from-six-week-low-as-usd-preserves-post-fed-gains-amid-iran-risks-202609170348",
-          "impact": "bearish",
-          "signal": "SELL",
-          "impactPct": -0.2,
-          "auto": true
-        },
-        {
-          "time": "2026-09-17",
+          "time": "Thu 17 Sep, 13:01 MYT",
           "tf": "Intraday",
           "title": "US 10-Year Treasury Yield nears 5% after Fed rate hike, Middle East tensions raise inflation fears",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1170,7 +1218,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-17",
+          "time": "Thu 17 Sep, 12:51 MYT",
           "tf": "Intraday",
           "title": "Asian stocks edge higher as hawkish Fed, elevated yields and geopolitical cap upside",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1182,7 +1230,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-17",
+          "time": "Thu 17 Sep, 12:35 MYT",
           "tf": "Intraday",
           "title": "India Gold price today: Gold rises, according to FXStreet data",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1194,7 +1242,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-17",
+          "time": "Thu 17 Sep, 12:24 MYT",
           "tf": "Intraday",
           "title": "AUD/JPY Price Forecast: Gains ground to near 111.00, but retains a bearish bias below 100-day SMA",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1204,54 +1252,6 @@ window.NEWS_AUTO = {
           "signal": "NEUTRAL",
           "impactPct": 0,
           "auto": true
-        },
-        {
-          "time": "2026-09-17",
-          "tf": "Intraday",
-          "title": "NZD/USD Price Forecast: Sticks to GDP-led recovery gains above 0.5700; bearish bias intact",
-          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/nzd-usd-price-forecast-sticks-to-gdp-led-recovery-gains-above-05700-bearish-bias-intact-202609170413",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "2026-09-17",
-          "tf": "Intraday",
-          "title": "Japan’s Katayama says expect BoJ to conduct appropriate monetary policy to achieve 2% price target",
-          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/japans-katayama-says-expect-boj-to-conduct-appropriate-monetary-policy-to-achieve-2-price-target-202609170357",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "2026-09-17",
-          "tf": "Intraday",
-          "title": "EUR/JPY Price Forecast: Slips below 179.00 as bearish bias prevails",
-          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/eur-jpy-price-forecast-slips-below-17900-as-bearish-bias-prevails-202609170343",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "2026-09-17",
-          "tf": "Intraday",
-          "title": "Fed Policy Monitor: Hiking bias and curve reaction – NBC Economics and Strategy",
-          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/fed-policy-monitor-hiking-bias-and-curve-reaction-nbc-economics-and-strategy-202609170322",
-          "impact": "bearish",
-          "signal": "SELL",
-          "impactPct": -0.2,
-          "auto": true
         }
       ],
       "speakers": []
@@ -1259,7 +1259,7 @@ window.NEWS_AUTO = {
     "forex": {
       "news": [
         {
-          "time": "2026-09-16",
+          "time": "Thu 17 Sep, 13:02 MYT",
           "tf": "Intraday",
           "title": "Asian currencies mixed as dollar holds seven-week high, yen steadies",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1271,7 +1271,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-16",
+          "time": "Thu 17 Sep, 02:46 MYT",
           "tf": "Intraday",
           "title": "Loonie weakens after Fed hike as dollar gains on hawkish outlook",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1283,7 +1283,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-16",
+          "time": "Thu 17 Sep, 02:28 MYT",
           "tf": "Intraday",
           "title": "Dollar gains after Fed raises interest rates",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1295,7 +1295,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-16",
+          "time": "Wed 16 Sep, 17:24 MYT",
           "tf": "Intraday",
           "title": "UBS sees EUR/CHF retest of 0.96 as Swiss franc lags on low yield",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1307,7 +1307,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-16",
+          "time": "Wed 16 Sep, 17:07 MYT",
           "tf": "Intraday",
           "title": "Citi sees GBP gains as short-lived ahead of October budget risks",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1319,7 +1319,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-16",
+          "time": "Wed 16 Sep, 16:21 MYT",
           "tf": "Intraday",
           "title": "Sterling today: Pound slips as Fed hike bets and UK inflation uptick weigh",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1331,7 +1331,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-15",
+          "time": "Wed 16 Sep, 15:43 MYT",
           "tf": "Intraday",
           "title": "Euro zone yields linger at multi-year peaks as traders brace for Fed rate decision",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1343,7 +1343,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-15",
+          "time": "Wed 16 Sep, 04:38 MYT",
           "tf": "Intraday",
           "title": "Dollar hits two-week high as traders gear up for anticipated Fed hike on Wednesday",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1355,7 +1355,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-15",
+          "time": "Tue 15 Sep, 20:40 MYT",
           "tf": "Intraday",
           "title": "Loonie slips as oil surge fuels rate worries ahead of Fed decision",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1367,7 +1367,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-15",
+          "time": "Tue 15 Sep, 16:06 MYT",
           "tf": "Intraday",
           "title": "Sterling today: Pound fall as UK jobs data disappoints, dollar firm",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1379,7 +1379,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-16",
+          "time": "Thu 17 Sep, 12:36 MYT",
           "tf": "Intraday",
           "title": "Trump hopes Iran war nearing end as Houthi-Saudi fighting escalates",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1391,7 +1391,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-16",
+          "time": "Thu 17 Sep, 10:11 MYT",
           "tf": "Intraday",
           "title": "Oil prices drift lower amid cooling M.East supply jitters",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1403,7 +1403,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-16",
+          "time": "Thu 17 Sep, 09:06 MYT",
           "tf": "Intraday",
           "title": "Oil prices extend losses as fears of Middle East supply disruptions ease",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1415,7 +1415,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-16",
+          "time": "Thu 17 Sep, 09:06 MYT",
           "tf": "Intraday",
           "title": "US temporarily eases curb on working hours for fuel truck drivers",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1427,7 +1427,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-16",
+          "time": "Thu 17 Sep, 05:38 MYT",
           "tf": "Intraday",
           "title": "Oil halts surge after key Saudi pipeline said to restart at half capacity in days",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1439,7 +1439,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-16",
+          "time": "Thu 17 Sep, 04:36 MYT",
           "tf": "Intraday",
           "title": "Oil slips as Saudi Arabia offers more crude via Oman",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1451,7 +1451,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-16",
+          "time": "Thu 17 Sep, 03:43 MYT",
           "tf": "Intraday",
           "title": "Top Democrat on US House committee will not support Israel bomb sale",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1463,7 +1463,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-16",
+          "time": "Thu 17 Sep, 03:42 MYT",
           "tf": "Intraday",
           "title": "Soybean futures rise on US-China trade meeting expectations",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1475,7 +1475,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-16",
+          "time": "Thu 17 Sep, 03:37 MYT",
           "tf": "Intraday",
           "title": "Northwest European gasoline margins climb on Wednesday",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1487,7 +1487,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-16",
+          "time": "Thu 17 Sep, 03:18 MYT",
           "tf": "Intraday",
           "title": "Crude Oil WTI stalls at $102.42 with bearish reversal forming: Live",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1499,7 +1499,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-08-04",
+          "time": "Tue 4 Aug, 16:37 MYT",
           "tf": "Intraday",
           "title": "Gold: The Calm Before the Storm",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1511,7 +1511,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-08-03",
+          "time": "Mon 3 Aug, 22:23 MYT",
           "tf": "Intraday",
           "title": "Gold and Silver Under Pressure, But a Technical Rebound May Be Near",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1523,7 +1523,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-08-03",
+          "time": "Mon 3 Aug, 22:12 MYT",
           "tf": "Intraday",
           "title": "Gold Caught in Trump’s Negotiation Impasse: Signs of an Impending Breakdown",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1535,7 +1535,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-08-03",
+          "time": "Mon 3 Aug, 16:57 MYT",
           "tf": "Intraday",
           "title": "Chile’s Copper Rebound Is the Supply Story Nobody’s Pricing",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1547,7 +1547,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-08-02",
+          "time": "Sun 2 Aug, 23:14 MYT",
           "tf": "Intraday",
           "title": "Gold, Oil Outlook: US-Iran Tensions Leave Markets at a Crossroads",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1559,7 +1559,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-08-02",
+          "time": "Sun 2 Aug, 20:43 MYT",
           "tf": "Intraday",
           "title": "Can Gold Really Reach $20,000? The Market Conditions Behind the Forecast",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1571,7 +1571,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-07-31",
+          "time": "Fri 31 Jul, 23:38 MYT",
           "tf": "Intraday",
           "title": "Gold’s Monthly Close Could Define Its Next Directional Move",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1583,7 +1583,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-07-31",
+          "time": "Fri 31 Jul, 15:43 MYT",
           "tf": "Intraday",
           "title": "Gold: Iran Conflict Leaves Bullion Caught Between Risk and Resistance",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1595,7 +1595,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-07-30",
+          "time": "Thu 30 Jul, 22:37 MYT",
           "tf": "Intraday",
           "title": "Gold Faces Directional Risk as Trump’s Iran Stance Keeps Shifting",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1607,7 +1607,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-07-30",
+          "time": "Thu 30 Jul, 22:26 MYT",
           "tf": "Intraday",
           "title": "Gold Outlook Weakens as Treasury Yields and Inflation Risks Persist",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1619,7 +1619,67 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-17",
+          "time": "Thu 17 Sep, 14:28 MYT",
+          "tf": "Intraday",
+          "title": "British Pound: Oversold Sterling still seen weaker against US Dollar – UOB",
+          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/british-pound-oversold-sterling-still-seen-weaker-against-us-dollar-uob-202609170628",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 17 Sep, 14:26 MYT",
+          "tf": "Intraday",
+          "title": "Japanese Yen outperforms as BoJ’s policy takes centre stage",
+          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/japanese-yen-outperforms-as-bojs-policy-takes-centre-stage-202609170626",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 17 Sep, 11:48 MYT",
+          "tf": "Intraday",
+          "title": "Gold retakes $4,300 amid modest USD pullback but hawkish Fed caps upside",
+          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/gold-stalls-recovery-from-six-week-low-as-usd-preserves-post-fed-gains-amid-iran-risks-202609170348",
+          "impact": "bearish",
+          "signal": "SELL",
+          "impactPct": -0.15,
+          "auto": true
+        },
+        {
+          "time": "Thu 17 Sep, 14:17 MYT",
+          "tf": "Intraday",
+          "title": "EUR/GBP Price Forecast: Euro struggles below 0.8570 with all eyes on the BoE",
+          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/eur-gbp-price-forecast-euro-struggles-below-08570-with-all-eyes-on-the-boe-202609170617",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 17 Sep, 14:09 MYT",
+          "tf": "Intraday",
+          "title": "EUR/USD Price Forecast: Holds steady near 1.1450, bearish tone remains intact",
+          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/eur-usd-price-forecast-holds-steady-near-11450-bearish-tone-remains-intact-202609170609",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 17 Sep, 14:00 MYT",
           "tf": "Intraday",
           "title": "Japan’s Kiuchi says aim to balance robust economy with fiscal sustainability",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1631,9 +1691,9 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-17",
+          "time": "Thu 17 Sep, 14:00 MYT",
           "tf": "Intraday",
-          "title": "BoE expected to hold interest rate at 3.75",
+          "title": "BoE expected to hold interest rate at 3.75%",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
           "source": "FXStreet - Forex & Markets News",
           "url": "https://www.fxstreet.com/news/boe-expected-to-hold-interest-rate-at-375-202609170600",
@@ -1643,7 +1703,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-17",
+          "time": "Thu 17 Sep, 13:57 MYT",
           "tf": "Intraday",
           "title": "Indonesian Rupiah weakens amid complicating BI policy outlook",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1655,7 +1715,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-17",
+          "time": "Thu 17 Sep, 13:37 MYT",
           "tf": "Intraday",
           "title": "GBP/USD Price Forecast: Trades vulnerable below 1.3400 ahead of BoE’s policy decision",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1667,7 +1727,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-17",
+          "time": "Thu 17 Sep, 13:19 MYT",
           "tf": "Intraday",
           "title": "Indian Rupee gains ground despite fears of more Fed interest rate hikes",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1679,7 +1739,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-17",
+          "time": "Thu 17 Sep, 13:10 MYT",
           "tf": "Intraday",
           "title": "Swiss Franc remains near 16-month lows against US Dollar",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1691,19 +1751,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-17",
-          "tf": "Intraday",
-          "title": "Gold struggles to build on recovery gains as hawkish Fed and Iran risks underpin USD",
-          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/gold-stalls-recovery-from-six-week-low-as-usd-preserves-post-fed-gains-amid-iran-risks-202609170348",
-          "impact": "bearish",
-          "signal": "SELL",
-          "impactPct": -0.15,
-          "auto": true
-        },
-        {
-          "time": "2026-09-17",
+          "time": "Thu 17 Sep, 13:01 MYT",
           "tf": "Intraday",
           "title": "US 10-Year Treasury Yield nears 5% after Fed rate hike, Middle East tensions raise inflation fears",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1715,7 +1763,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-17",
+          "time": "Thu 17 Sep, 12:51 MYT",
           "tf": "Intraday",
           "title": "Asian stocks edge higher as hawkish Fed, elevated yields and geopolitical cap upside",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1727,7 +1775,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-17",
+          "time": "Thu 17 Sep, 12:35 MYT",
           "tf": "Intraday",
           "title": "India Gold price today: Gold rises, according to FXStreet data",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1739,7 +1787,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-17",
+          "time": "Thu 17 Sep, 12:24 MYT",
           "tf": "Intraday",
           "title": "AUD/JPY Price Forecast: Gains ground to near 111.00, but retains a bearish bias below 100-day SMA",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1748,54 +1796,6 @@ window.NEWS_AUTO = {
           "impact": "neutral",
           "signal": "NEUTRAL",
           "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "2026-09-17",
-          "tf": "Intraday",
-          "title": "NZD/USD Price Forecast: Sticks to GDP-led recovery gains above 0.5700; bearish bias intact",
-          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/nzd-usd-price-forecast-sticks-to-gdp-led-recovery-gains-above-05700-bearish-bias-intact-202609170413",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "2026-09-17",
-          "tf": "Intraday",
-          "title": "Japan’s Katayama says expect BoJ to conduct appropriate monetary policy to achieve 2% price target",
-          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/japans-katayama-says-expect-boj-to-conduct-appropriate-monetary-policy-to-achieve-2-price-target-202609170357",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "2026-09-17",
-          "tf": "Intraday",
-          "title": "EUR/JPY Price Forecast: Slips below 179.00 as bearish bias prevails",
-          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/eur-jpy-price-forecast-slips-below-17900-as-bearish-bias-prevails-202609170343",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "2026-09-17",
-          "tf": "Intraday",
-          "title": "Fed Policy Monitor: Hiking bias and curve reaction – NBC Economics and Strategy",
-          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/fed-policy-monitor-hiking-bias-and-curve-reaction-nbc-economics-and-strategy-202609170322",
-          "impact": "bearish",
-          "signal": "SELL",
-          "impactPct": -0.15,
           "auto": true
         }
       ],

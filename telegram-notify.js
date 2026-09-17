@@ -86,11 +86,23 @@ async function sendTelegramCard(caption, chartUrl) {
 function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
 
 // ==================== Malaysia time + trading session ====================
+const DAY_NAMES = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 function nowMyt() {
   const d = new Date(Date.now() + 8 * 3600 * 1000); // MYT = UTC+8, fixed offset, no DST
   const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   const hh = String(d.getUTCHours()).padStart(2, '0'), mm = String(d.getUTCMinutes()).padStart(2, '0');
-  return `${d.getUTCDate()} ${months[d.getUTCMonth()]} ${hh}:${mm}`;
+  return `${DAY_NAMES[d.getUTCDay()]} ${d.getUTCDate()} ${months[d.getUTCMonth()]} ${hh}:${mm}`;
+}
+/* Prepends the day name to a "DD Mon HH:MM" MYT string that doesn't already start with one
+ * (curated calendar rows) - COMPUTED from the real date via parseMytToUtc, not fabricated.
+ * Auto-collected rows (build-news.js) already start with a day name and pass through unchanged. */
+function mytDisplay(timeMyt) {
+  if (!timeMyt) return '—';
+  if (/^[A-Za-z]{3},?\s/.test(timeMyt)) return timeMyt;
+  const d = parseMytToUtc(timeMyt);
+  if (!d) return timeMyt;
+  const myt = new Date(d.getTime() + 8 * 3600 * 1000);
+  return `${DAY_NAMES[myt.getUTCDay()]}, ${timeMyt}`;
 }
 function mytHourFromString(timeMyt) {
   if (!timeMyt) return null;
@@ -294,7 +306,7 @@ function eventCard(MARKET_DATA, atrData, e) {
     focusLine !== focusSym ? `   ${focusLine}` : null,
     priceLine,
     `⏱ Timeframe: <b>${esc(e.focusTf || '—')}</b>`,
-    `🕒 Time to trade (MYT): <b>${esc(e.timeMyt || '—')}</b>${session ? ` · Session: ${esc(session)}` : ''}`,
+    `🕒 Time to trade (MYT): <b>${esc(mytDisplay(e.timeMyt))}</b>${session ? ` · Session: ${esc(session)}` : ''}`,
     `📤 Alert sent (MYT): ${nowMyt()}`,
     e.note ? `📝 ${esc(e.note)}` : null,
     e.play ? `💡 ${esc(e.play)}` : null,
@@ -408,7 +420,7 @@ function reminderCard(MARKET_DATA, atrData, e, minutesLeft, stage) {
         if (!seen.has(key)) {
           const caption = [
             '🔔 <b>RESULT CHECK</b>',
-            `<b>${esc(e.event)}</b> should be out by now (was due ${esc(e.timeMyt)} MYT).`,
+            `<b>${esc(e.event)}</b> should be out by now (was due ${esc(mytDisplay(e.timeMyt))} MYT).`,
             '⚠️ This bot has no free feed for the actual released figure - go verify it directly:',
             e.url ? `🔗 ${esc(e.source || 'Source')}: ${e.url}` : '(no source link on this event)',
             '💡 Once you see the actual vs forecast, re-check the chart on your predicted focus symbol - a big beat/miss can reverse the pre-event call.'

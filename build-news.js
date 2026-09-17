@@ -104,7 +104,8 @@ function parseRss(xml, limit) {
       .replace(/<!\[CDATA\[|\]\]>/g, '').replace(/&amp;/g, '&').replace(/&#39;/g, "'").trim();
     const link = (block.match(/<link>([\s\S]*?)<\/link>/i) || [, ''])[1]
       .replace(/<!\[CDATA\[|\]\]>/g, '').trim();
-    const pubDate = (block.match(/<pubDate>([\s\S]*?)<\/pubDate>/i) || [, ''])[1].trim();
+    const pubDate = (block.match(/<pubDate>([\s\S]*?)<\/pubDate>/i) || [, ''])[1]
+      .replace(/<!\[CDATA\[|\]\]>/g, '').trim();
     if (title) items.push({ title, link, pubDate });
   }
   return items;
@@ -116,15 +117,47 @@ async function fetchText(url) {
   return r.text();
 }
 
+const DAY_NAMES = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+const MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 function toMyt(dateIso) {
   try {
     const d = new Date(dateIso);
     const myt = new Date(d.getTime() + 8 * 3600 * 1000);
-    return myt.toISOString().slice(0, 16).replace('T', ' ');
+    return DAY_NAMES[myt.getUTCDay()] + ', ' + myt.toISOString().slice(0, 16).replace('T', ' ');
   } catch (e) { return null; }
 }
 function toGmt(dateIso) {
-  try { return new Date(dateIso).toISOString().slice(0, 16).replace('T', ' '); } catch (e) { return null; }
+  try {
+    const d = new Date(dateIso);
+    return DAY_NAMES[d.getUTCDay()] + ', ' + d.toISOString().slice(0, 16).replace('T', ' ');
+  } catch (e) { return null; }
+}
+/* Robust pubDate parsing across the 3 real shapes seen in these feeds:
+ *   - RFC822 with an explicit offset ("Wed, 16 Sep 2026 10:00:00 +0200" - ECB) or GMT suffix
+ *     ("Thu, 17 Sep 2026 06:28:19 GMT" - FXStreet/Fed) - the native Date parser handles these
+ *     correctly and unambiguously regardless of the machine's local timezone.
+ *   - A naive "YYYY-MM-DD HH:MM:SS" with NO timezone marker (Investing.com) - `new Date(...)` on
+ *     this exact shape is a classic JS trap: it's parsed as LOCAL time, so the same string
+ *     produces a different instant depending on where the script runs (fine by luck on GitHub
+ *     Actions' UTC runners, wrong on a machine set to MYT). Checked empirically against feed
+ *     freshness: these timestamps line up with UTC, so they're parsed explicitly as UTC here
+ *     instead of leaving it to chance. */
+function parseFeedDate(str) {
+  if (!str) return null;
+  const naive = /^(\d{4})-(\d{2})-(\d{2})\s+(\d{2}):(\d{2}):(\d{2})$/.exec(str);
+  if (naive) return new Date(Date.UTC(+naive[1], +naive[2] - 1, +naive[3], +naive[4], +naive[5], +naive[6]));
+  const d = new Date(str);
+  return isNaN(d.getTime()) ? null : d;
+}
+/* Full day + date + time for a headline/speaker row, in Malaysia time - what actually shows
+ * next to a news item, not just a bare date. Returns null if the source gave no parseable date
+ * (curated hand-entered rows from before this fix only ever had a date, never a time - this
+ * function is only used for freshly-fetched rows that do carry a real timestamp). */
+function formatMytFull(date) {
+  if (!date) return null;
+  const myt = new Date(date.getTime() + 8 * 3600 * 1000);
+  const hh = String(myt.getUTCHours()).padStart(2, '0'), mm = String(myt.getUTCMinutes()).padStart(2, '0');
+  return DAY_NAMES[myt.getUTCDay()] + ' ' + myt.getUTCDate() + ' ' + MONTH_NAMES[myt.getUTCMonth()] + ', ' + hh + ':' + mm + ' MYT';
 }
 
 // ---- 1. Economic calendar (real, structured, key-free) ----
@@ -192,7 +225,7 @@ function buildNewsRow(it, instrumentScale) {
   const signal = side === 'hawkish' ? 'SELL' : side === 'dovish' ? 'BUY' : 'NEUTRAL';
   const impact = side ? impactPct(instrumentScale, w, s, f, side) : 0;
   return {
-    time: it.pubDate ? new Date(it.pubDate).toISOString().slice(0, 10) : 'unknown',
+    time: formatMytFull(parseFeedDate(it.pubDate)) || 'unknown time',
     tf: 'Intraday',
     title: it.title,
     summary: 'Auto-classified from headline text (keyword heuristic) - verify before trading.',
@@ -218,7 +251,7 @@ function buildSpeakerRow(it, instrumentScale) {
     signal: side === 'hawkish' ? 'SELL' : 'BUY',
     quote: it.title,
     impact: 'Auto-classified from press release headline',
-    date: it.pubDate ? new Date(it.pubDate).toISOString().slice(0, 10) : 'unknown',
+    date: formatMytFull(parseFeedDate(it.pubDate)) || 'unknown time',
     source: it.source,
     url: it.link,
     w, s, f,

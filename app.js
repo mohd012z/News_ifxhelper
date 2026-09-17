@@ -234,6 +234,19 @@
     if (d.getTime() < now.getTime() - 200 * 86400000) d = new Date(Date.UTC(year + 1, months[m[2]], parseInt(m[1], 10), parseInt(m[3], 10), parseInt(m[4], 10)));
     return d;
   }
+  /* Prepends the day name to a "DD Mon HH:MM" MYT string (curated calendar rows, entered before
+   * the auto-collected pipeline started including a day name of its own) - COMPUTED from the
+   * real calendar date, not fabricated: 17 Sep 2026 is a specific, real Thursday regardless of
+   * who typed the string. Auto rows already start with a day name ("Mon, 2026-09-14 20:30") and
+   * are returned unchanged. */
+  var DAY_NAMES = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  function mytDisplay(timeMyt) {
+    if (!timeMyt) return "—";
+    if (/^[A-Za-z]{3},/.test(timeMyt)) return timeMyt; // already has a day name
+    var d = parseEventTime(timeMyt); // same "DD Mon HH:MM" shape parseEventTime already handles
+    if (!d) return timeMyt;
+    return DAY_NAMES[d.getUTCDay()] + ", " + timeMyt;
+  }
 
   function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]; }); }
   function money(v) { return "$" + Number(v).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
@@ -571,7 +584,7 @@
       var nx = nextIncomingEvent();
       if (!nx) return "No upcoming events left in the loaded calendar.";
       var hAway = nx.t ? Math.round((nx.t.getTime() - Date.now()) / 3600000) : null;
-      return "Next event: " + nx.e.event + " (" + (nx.e.importance || "").toUpperCase() + ")" + (hAway != null ? ", in about " + hAway + "h" : "") + ". Time: MYT " + (nx.e.timeMyt || "—") + " / GMT " + (nx.e.timeGmt || "—") + ". Focus timeframe: " + (nx.e.focusTf || "—") + ". " + (nx.e.url ? "Source: " + nx.e.url : "No source linked.");
+      return "Next event: " + nx.e.event + " (" + (nx.e.importance || "").toUpperCase() + ")" + (hAway != null ? ", in about " + hAway + "h" : "") + ". Time: MYT " + mytDisplay(nx.e.timeMyt) + " / GMT " + (nx.e.timeGmt || "—") + ". Focus timeframe: " + (nx.e.focusTf || "—") + ". " + (nx.e.url ? "Source: " + nx.e.url : "No source linked.");
     }
     if (/\balert/.test(lq)) {
       var today = (T.alerts || {}).today || [];
@@ -632,7 +645,7 @@
       var advPairs = (D.fxPairs || []).map(function (p) { return { pair: p.pair, s: pairSignal(p) }; }).sort(function (x, y) { return y.s.strength - x.s.strength; })[0];
       var out = aTab.label + ": " + (as.netSignal || "—") + ", confidence " + (as.confidence || "—") + "%. " + (aTab.dirRule || "");
       if (advPairs && aTab.id === "forex") out += " Cleanest expression: " + advPairs.pair + " " + advPairs.s.signal + " (score " + (advPairs.s.score > 0 ? "+" : "") + advPairs.s.score.toFixed(2) + ").";
-      if (nxA) out += " Next catalyst: " + nxA.e.event + " at MYT " + (nxA.e.timeMyt || "—") + ", focus " + (nxA.e.focusTf || "—") + " — size down or wait through the print if you're not trading the news itself.";
+      if (nxA) out += " Next catalyst: " + nxA.e.event + " at MYT " + mytDisplay(nxA.e.timeMyt) + ", focus " + (nxA.e.focusTf || "—") + " — size down or wait through the print if you're not trading the news itself.";
       out += " Your risk setting: " + (settings.riskPct || 1) + "% per trade, " + settings.lotSize + " lot (Settings → Trading profile) — size the stop distance to that, not the other way round. Not financial advice — a model read of the loaded data only.";
       return out;
     }
@@ -649,7 +662,7 @@
       if (top5.length) lines.push("Top news: " + top5.map(function (n) { return n.title + " [" + n.signal + ", " + pctTxt(n.impactPct) + "] (" + n.source + ")"; }).join(" | "));
       if (spk5.length) lines.push("Key speakers: " + spk5.map(function (s) { return s.name + " (" + s.role + ") " + s.side.toUpperCase() + " " + pctTxt(s.impactPct); }).join(" | "));
       var nxR = nextIncomingEvent();
-      if (nxR) lines.push("Next event: " + nxR.e.event + " — MYT " + (nxR.e.timeMyt || "—") + ", focus " + (nxR.e.focusTf || "—") + ".");
+      if (nxR) lines.push("Next event: " + nxR.e.event + " — MYT " + mytDisplay(nxR.e.timeMyt) + ", focus " + (nxR.e.focusTf || "—") + ".");
       lines.push("References: " + top5.concat(spk5).map(function (x) { return x.url; }).filter(Boolean).join(" , "));
       return lines.join("\n");
     }
@@ -664,14 +677,14 @@
       var hTab = findTabInText(q) || T;
       var hs = hTab.sentiment || {};
       var nxH = nextIncomingEvent();
-      return "How to trade " + hTab.label + ": rule is \"" + (hTab.dirRule || "—") + "\", current read is " + (hs.netSignal || "—") + ". " + (nxH ? "Wait for " + nxH.e.event + " (MYT " + (nxH.e.timeMyt || "—") + ") if you want to trade the catalyst itself, focus timeframe " + (nxH.e.focusTf || "—") + "; the first M1-M5 spike often reverses, so the listed focus timeframe is usually where the real move holds." : "No upcoming catalyst loaded — this would be a positioning trade on the existing gauge only.") + " Size and stops are your call — this desk gives direction and timing, not position sizing.";
+      return "How to trade " + hTab.label + ": rule is \"" + (hTab.dirRule || "—") + "\", current read is " + (hs.netSignal || "—") + ". " + (nxH ? "Wait for " + nxH.e.event + " (MYT " + mytDisplay(nxH.e.timeMyt) + ") if you want to trade the catalyst itself, focus timeframe " + (nxH.e.focusTf || "—") + "; the first M1-M5 spike often reverses, so the listed focus timeframe is usually where the real move holds." : "No upcoming catalyst loaded — this would be a positioning trade on the existing gauge only.") + " Size and stops are your call — this desk gives direction and timing, not position sizing.";
     }
     if (/\bwhat time (should|to|do i)\b.*trade|best (time|session) to trade|when.*trade\b/.test(lq)) {
       var btTab = findTabInText(q) || T;
       var grp = btTab.id === "gold" ? "Commodity" : btTab.id === "crypto" ? "Crypto" : "Forex";
       var bw = (D.bestWindow || {})[grp] || "no session guidance loaded";
       var nxW = nextIncomingEvent();
-      return "Best window for " + btTab.label + ": " + bw + (nxW ? " Next catalyst: " + nxW.e.event + " at MYT " + (nxW.e.timeMyt || "—") + "." : "");
+      return "Best window for " + btTab.label + ": " + bw + (nxW ? " Next catalyst: " + nxW.e.event + " at MYT " + mytDisplay(nxW.e.timeMyt) + "." : "");
     }
     if (/summar|summary|catch me up|recap/.test(lq)) {
       var focusTab = findTabInText(q);
@@ -731,7 +744,7 @@
       "Direction rule: " + (T.dirRule || "—") + "\n" +
       "Top news: " + (news.join(" | ") || "none loaded") + "\n" +
       "Key speakers: " + (spk.join(" | ") || "none loaded") + "\n" +
-      "Next event: " + (nx ? nx.e.event + " at MYT " + (nx.e.timeMyt || "—") + ", focus " + (nx.e.focusTf || "—") : "none loaded") + "\n" +
+      "Next event: " + (nx ? nx.e.event + " at MYT " + mytDisplay(nx.e.timeMyt) + ", focus " + (nx.e.focusTf || "—") : "none loaded") + "\n" +
       "Live currency strength (top movers): " + (strength.join(", ") || "not enough live ticks yet") + "\n" +
       "Data as of: " + (D.updated || "—");
   }
@@ -967,7 +980,7 @@
     var mytHour = null;
     if (e.timeMyt) { var m = /(\d{1,2}):(\d{2})/.exec(e.timeMyt); if (m) mytHour = parseInt(m[1], 10); }
     var sess = mytHour != null ? sessionAtMyt(mytHour) : "unknown session";
-    return "Trade window: MYT " + esc(e.timeMyt || "—") + " (" + esc(sess) + ")" + (hAway != null ? ", in ~" + hAway + "h" : "") + ". Focus timeframe " + esc(e.focusTf || "—") + " — the first spike (M1-M5) is often the least reliable print; the numbers above name the timeframe where the real move tends to hold.";
+    return "Trade window: MYT " + esc(mytDisplay(e.timeMyt)) + " (" + esc(sess) + ")" + (hAway != null ? ", in ~" + hAway + "h" : "") + ". Focus timeframe " + esc(e.focusTf || "—") + " — the first spike (M1-M5) is often the least reliable print; the numbers above name the timeframe where the real move tends to hold.";
   }
   var tradeFocusOpen = {};
   function renderTradeFocus() {
@@ -989,7 +1002,7 @@
       var open = !!tradeFocusOpen[idx];
       var more = '<div class="tf-more">' +
         '<div class="im">' + esc(e.note || "") + "</div>" +
-        '<div class="mt">MYT ' + esc(e.timeMyt || "—") + "  ·  GMT " + esc(e.timeGmt || "—") + "  ·  focus " + esc(e.focusTf || "—") + "</div>" +
+        '<div class="mt">MYT ' + esc(mytDisplay(e.timeMyt)) + "  ·  GMT " + esc(e.timeGmt || "—") + "  ·  focus " + esc(e.focusTf || "—") + "</div>" +
         '<div class="im">' + esc(whenToTradeLine(e, it.t)) + "</div>" +
         '<div class="im">' + esc(e.play || "") + "</div>" +
         '<div class="im">' + (e.url ? '<a href="' + esc(e.url) + '" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Source: ' + esc(e.source || "official release") + "</a>" : '<span style="color:var(--muted)">Source not linked</span>') + "</div></div>";
@@ -1023,7 +1036,7 @@
         '<div class="inc"><div class="hd"><div>' + (i === nextIdx ? '<span class="badge b-hawk" style="margin-right:6px">NEXT</span>' : "") + '<span class="nm">' + esc(e.event) + '</span> <span class="rl">\u00b7 ' + esc(e.date) + (when ? " \u00b7 " + when : "") + "</span></div>" +
         '<div style="display:flex;gap:6px;align-items:center"><span class="badge ' + (e.importance === "high" ? "b-high" : "b-med") + '">' + esc((e.importance || "").toUpperCase()) + '</span><span class="badge b-tf">' + esc(e.focusTf || "") + "</span></div></div>" +
         '<div class="im">' + esc(e.note) + "</div>" +
-        '<div class="mt">MYT ' + esc(e.timeMyt || e.timeSgt) + "  \u00b7  GMT " + esc(e.timeGmt) + "  \u00b7  focus " + esc(e.focusTf) + "</div>" +
+        '<div class="mt">MYT ' + esc(mytDisplay(e.timeMyt || e.timeSgt)) + "  \u00b7  GMT " + esc(e.timeGmt) + "  \u00b7  focus " + esc(e.focusTf) + "</div>" +
         '<div class="im">' + esc(e.play || "") + "</div>" +
         '<div class="im">' + (e.url ? '<a href="' + esc(e.url) + '" target="_blank" rel="noopener">\u2197 Source: ' + esc(e.source || "official release") + "</a>" : '<span style="color:var(--muted)">Source not linked</span>') + "</div></div>");
     });
