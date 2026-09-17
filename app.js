@@ -255,6 +255,22 @@
     var myt = new Date(t.getTime() + 8 * 3600 * 1000);
     return DAY_NAMES[myt.getUTCDay()] + ", " + myt.getUTCDate() + " " + MONTH_NAMES[myt.getUTCMonth()];
   }
+  /* Fine-grained countdown text: minutes when close, hours/days once far out. Replaces the old
+   * hour-only rounding (which showed "within the hour" for anything from 59 minutes down to the
+   * exact second) with an actual live countdown once an event is within reach. */
+  function countdownText(deltaMs) {
+    if (deltaMs == null) return "";
+    var past = deltaMs < 0;
+    var abs = Math.abs(deltaMs);
+    var mins = Math.round(abs / 60000);
+    var suffix = past ? " ago" : "";
+    var prefix = past ? "" : "in ";
+    if (mins < 1) return past ? "just now" : "starting now";
+    if (mins < 60) return prefix + mins + "m" + suffix;
+    var hours = Math.floor(mins / 60), remMins = mins % 60;
+    if (hours < 48) return prefix + hours + "h" + (remMins ? " " + remMins + "m" : "") + suffix;
+    return prefix + Math.round(hours / 24) + "d" + suffix;
+  }
   function mytDisplay(timeMyt) {
     if (!timeMyt) return "—";
     if (/^[A-Za-z]{3},/.test(timeMyt)) return timeMyt; // already has a day name
@@ -1055,10 +1071,10 @@
       var e = it.e;
       var day = mytDayLabel(it.t);
       if (day !== lastDay) { lastDay = day; box.insertAdjacentHTML("beforeend", '<div class="day-sep">' + esc(day) + "</div>"); }
-      var hoursAway = it.t ? Math.round((it.t.getTime() - now.getTime()) / 3600000) : null;
-      var when = hoursAway == null ? "" : hoursAway < 0 ? (hoursAway > -48 ? "~" + Math.abs(hoursAway) + "h ago" : Math.round(Math.abs(hoursAway) / 24) + "d ago") : hoursAway === 0 ? "within the hour" : hoursAway < 48 ? "in ~" + hoursAway + "h" : "in " + Math.round(hoursAway / 24) + "d";
+      var when = countdownText(it.t ? it.t.getTime() - now.getTime() : null);
+      var isSoon = incomingView === "upcoming" && it.t && it.t.getTime() - now.getTime() <= 2 * 3600000 && it.t.getTime() >= now.getTime();
       box.insertAdjacentHTML("beforeend",
-        '<div class="inc"><div class="hd"><div>' + (i === nextIdx ? '<span class="badge b-hawk" style="margin-right:6px">NEXT</span>' : "") + '<span class="nm">' + esc(e.event) + '</span> <span class="rl">\u00b7 ' + esc(when) + "</span></div>" +
+        '<div class="inc"><div class="hd"><div>' + (i === nextIdx ? '<span class="badge b-hawk" style="margin-right:6px">NEXT</span>' : "") + '<span class="nm">' + esc(e.event) + '</span> <span class="rl' + (isSoon ? " countdown-live" : "") + '">\u00b7 ' + esc(when) + "</span></div>" +
         '<div style="display:flex;gap:6px;align-items:center"><span class="badge ' + (e.importance === "high" ? "b-high" : "b-med") + '">' + esc((e.importance || "").toUpperCase()) + '</span><span class="badge b-tf">' + esc(e.focusTf || "") + "</span></div></div>" +
         '<div class="im">' + esc(e.note) + "</div>" +
         '<div class="mt">MYT ' + esc(mytDisplay(e.timeMyt || e.timeSgt)) + "  \u00b7  GMT " + esc(e.timeGmt) + "  \u00b7  focus " + esc(e.focusTf) + "</div>" +
@@ -1715,6 +1731,9 @@
     var wsu = $("#ws-url"); if (wsu && (D.live || {}).wsHint) wsu.value = D.live.wsHint;
     initLive();
     scheduleRemotePolling();
+    // Live countdown: re-render Priority Read every 15s so "in 12m" actually ticks down instead
+    // of only updating on the next unrelated re-render (a live poll tick, a tab switch, etc).
+    setInterval(function () { if ($("#incoming-list")) renderIncoming(); }, 15000);
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
   else boot();
