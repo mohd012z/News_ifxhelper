@@ -5,7 +5,7 @@
  * Regenerate: node build-news.js (run on the same daily cron as build-atr.js).
  */
 window.NEWS_AUTO = {
-  "generatedAt": "2026-09-17 05:19:50Z",
+  "generatedAt": "2026-09-17 05:24:34Z",
   "note": "Auto-collected: economic calendar is real structured data; news/speaker rows are keyword-classified from real headlines (hawkish/dovish lexicon in build-news.js), NOT hand-verified. Treat auto:true rows as a first pass.",
   "incoming": [
     {
@@ -411,6 +411,18 @@ window.NEWS_AUTO = {
         {
           "time": "2026-09-17",
           "tf": "Intraday",
+          "title": "Indian Rupee gains ground despite fears of more Fed interest rate hikes",
+          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/indian-rupee-gains-ground-despite-fears-of-more-fed-interest-rate-hikes-202609170519",
+          "impact": "bearish",
+          "signal": "SELL",
+          "impactPct": -0.15,
+          "auto": true
+        },
+        {
+          "time": "2026-09-17",
+          "tf": "Intraday",
           "title": "Swiss Franc remains near 16-month lows against US Dollar",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
           "source": "FXStreet - Forex & Markets News",
@@ -574,18 +586,6 @@ window.NEWS_AUTO = {
           "impact": "bearish",
           "signal": "SELL",
           "impactPct": -0.15,
-          "auto": true
-        },
-        {
-          "time": "2026-09-17",
-          "tf": "Intraday",
-          "title": "Euro weakens to near 1.1450 as Fed raises rate for first time in three years",
-          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/euro-weakens-to-near-11450-as-fed-raises-rate-for-first-time-in-three-years-202609170226",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "impactPct": 0,
           "auto": true
         }
       ],
@@ -836,6 +836,18 @@ window.NEWS_AUTO = {
         {
           "time": "2026-09-17",
           "tf": "Intraday",
+          "title": "Indian Rupee gains ground despite fears of more Fed interest rate hikes",
+          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/indian-rupee-gains-ground-despite-fears-of-more-fed-interest-rate-hikes-202609170519",
+          "impact": "bearish",
+          "signal": "SELL",
+          "impactPct": -0.2,
+          "auto": true
+        },
+        {
+          "time": "2026-09-17",
+          "tf": "Intraday",
           "title": "Swiss Franc remains near 16-month lows against US Dollar",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
           "source": "FXStreet - Forex & Markets News",
@@ -999,18 +1011,6 @@ window.NEWS_AUTO = {
           "impact": "bearish",
           "signal": "SELL",
           "impactPct": -0.2,
-          "auto": true
-        },
-        {
-          "time": "2026-09-17",
-          "tf": "Intraday",
-          "title": "Euro weakens to near 1.1450 as Fed raises rate for first time in three years",
-          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/euro-weakens-to-near-11450-as-fed-raises-rate-for-first-time-in-three-years-202609170226",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "impactPct": 0,
           "auto": true
         }
       ],
@@ -1261,6 +1261,18 @@ window.NEWS_AUTO = {
         {
           "time": "2026-09-17",
           "tf": "Intraday",
+          "title": "Indian Rupee gains ground despite fears of more Fed interest rate hikes",
+          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/indian-rupee-gains-ground-despite-fears-of-more-fed-interest-rate-hikes-202609170519",
+          "impact": "bearish",
+          "signal": "SELL",
+          "impactPct": -0.15,
+          "auto": true
+        },
+        {
+          "time": "2026-09-17",
+          "tf": "Intraday",
           "title": "Swiss Franc remains near 16-month lows against US Dollar",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
           "source": "FXStreet - Forex & Markets News",
@@ -1424,18 +1436,6 @@ window.NEWS_AUTO = {
           "impact": "bearish",
           "signal": "SELL",
           "impactPct": -0.15,
-          "auto": true
-        },
-        {
-          "time": "2026-09-17",
-          "tf": "Intraday",
-          "title": "Euro weakens to near 1.1450 as Fed raises rate for first time in three years",
-          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/euro-weakens-to-near-11450-as-fed-raises-rate-for-first-time-in-three-years-202609170226",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "impactPct": 0,
           "auto": true
         }
       ],
