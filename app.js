@@ -405,6 +405,49 @@
     var uri = settings.voiceURI || bestDefaultVoiceURI();
     return availableVoices.filter(function (v) { return v.voiceURI === uri; })[0] || null;
   }
+  /* Reads what the text MEANS, not what it literally contains - a presenter says "Euro versus
+   * the US Dollar", never "E U R slash U S D". This only affects what's SPOKEN; the on-screen
+   * text is untouched (traders still want to read "EUR/USD" and "M15" at a glance). Order
+   * matters: currency pairs before lone currency codes, so "EUR/USD" isn't half-converted. */
+  var SPEECH_CCY_NAMES = {
+    USD: "the US Dollar", EUR: "the Euro", GBP: "the British Pound", JPY: "the Japanese Yen",
+    AUD: "the Australian Dollar", NZD: "the New Zealand Dollar", CAD: "the Canadian Dollar", CHF: "the Swiss Franc",
+    XAU: "Gold", XAG: "Silver", BTC: "Bitcoin", ETH: "Ethereum", SOL: "Solana", XRP: "Ripple", ADA: "Cardano", DOGE: "Dogecoin"
+  };
+  var SPEECH_TF_NAMES = {
+    M1: "the one minute chart", M5: "the five minute chart", M15: "the fifteen minute chart", M30: "the thirty minute chart",
+    H1: "the one hour chart", H4: "the four hour chart", D1: "the daily chart", W1: "the weekly chart", MN1: "the monthly chart"
+  };
+  function humanizeForSpeech(text) {
+    var t = " " + text + " ";
+    // currency/metal/crypto pairs: "EUR/USD" -> "the Euro versus the US Dollar"
+    t = t.replace(/\b([A-Z]{3})\/([A-Z]{3})\b/g, function (_, a, b) {
+      var an = SPEECH_CCY_NAMES[a] || a, bn = SPEECH_CCY_NAMES[b] || b;
+      return an + " versus " + bn;
+    });
+    // chart/timeframe shorthand, longest-first so "M15" doesn't get chewed up by an "M1" rule
+    Object.keys(SPEECH_TF_NAMES).sort(function (a, b) { return b.length - a.length; }).forEach(function (k) {
+      t = t.replace(new RegExp("\\b" + k + "\\b", "g"), SPEECH_TF_NAMES[k]);
+    });
+    t = t
+      .replace(/\bMYT\b/g, "Malaysia time")
+      .replace(/\bGMT\b/g, "G M T")
+      .replace(/\bFOMC\b/g, "the Fed")
+      .replace(/\bATR\b/g, "average true range")
+      .replace(/\bDXY\b/g, "the dollar index")
+      .replace(/\bbps\b/gi, "basis points")
+      .replace(/\bBUY\b/g, "buy").replace(/\bSELL\b/g, "sell") // avoid TTS spelling out short all-caps as letters
+      .replace(/~/g, "about ")
+      .replace(/→|->/g, " to ")
+      .replace(/[•·]/g, ",")
+      .replace(/[—–]/g, ", ")
+      .replace(/[()]/g, ", ")
+      .replace(/[\u{1F000}-\u{1FFFF}\u{2190}-\u{2BFF}☀-➿️]/gu, "") // strip emoji/pictographs - TTS either skips or mispronounces these
+      .replace(/[*_`#]/g, "")
+      .replace(/\s{2,}/g, " ")
+      .trim();
+    return t;
+  }
   /* Splits into sentences and speaks them as separate queued utterances instead of one long run-
    * on. The brief natural gap the API leaves between queued utterances reads as sentence pacing -
    * closer to how a presenter actually pauses between statements than one flat monotone block. */
@@ -414,8 +457,9 @@
     try {
       var style = VOICE_STYLES[settings.voiceStyle] || VOICE_STYLES.presenter;
       var voice = currentVoiceObj();
-      var sentences = text.replace(/\s+/g, " ").trim().split(/(?<=[.!?])\s+/).filter(Boolean);
-      if (!sentences.length) sentences = [text];
+      var spoken = humanizeForSpeech(text);
+      var sentences = spoken.replace(/\s+/g, " ").trim().split(/(?<=[.!?])\s+/).filter(Boolean);
+      if (!sentences.length) sentences = [spoken];
       sentences.forEach(function (s) {
         var u = new SpeechSynthesisUtterance(s);
         u.rate = style.rate; u.pitch = style.pitch;
