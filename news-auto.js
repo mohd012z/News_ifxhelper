@@ -5,7 +5,7 @@
  * Regenerate: node build-news.js (run on the same daily cron as build-atr.js).
  */
 window.NEWS_AUTO = {
-  "generatedAt": "2026-09-17 04:19:11Z",
+  "generatedAt": "2026-09-17 05:16:15Z",
   "note": "Auto-collected: economic calendar is real structured data; news/speaker rows are keyword-classified from real headlines (hawkish/dovish lexicon in build-news.js), NOT hand-verified. Treat auto:true rows as a first pass.",
   "incoming": [
     {
@@ -169,7 +169,19 @@ window.NEWS_AUTO = {
     "gold": {
       "news": [
         {
-          "time": "2026-09-16",
+          "time": "2026-09-17",
+          "tf": "Intraday",
+          "title": "Trump hopes Iran war nearing end as Houthi-Saudi fighting escalates",
+          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
+          "source": "Investing.com - Commodities & Futures",
+          "url": "https://www.investing.com/news/commodities-news/trump-hopes-iran-war-nearing-end-as-houthisaudi-fighting-escalates-4904794",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "2026-09-17",
           "tf": "Intraday",
           "title": "Oil prices steady amid cooling M.East supply jitters",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -181,7 +193,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-16",
+          "time": "2026-09-17",
           "tf": "Intraday",
           "title": "Oil prices extend losses as fears of Middle East supply disruptions ease",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -193,7 +205,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-16",
+          "time": "2026-09-17",
           "tf": "Intraday",
           "title": "US temporarily eases curb on working hours for fuel truck drivers",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -271,18 +283,6 @@ window.NEWS_AUTO = {
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
           "source": "Investing.com - Commodities & Futures",
           "url": "https://www.investing.com/news/commodities-news/crude-oil-wti-stalls-near-10446-highs-on-fading-momentum-live-93CH-4898875",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "2026-09-16",
-          "tf": "Intraday",
-          "title": "Natural Gas coils under $2.90 cloud resistance: Live levels",
-          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
-          "source": "Investing.com - Commodities & Futures",
-          "url": "https://www.investing.com/news/commodities-news/natural-gas-tests-2899-resistance-cluster-hourly-levels-93CH-4898874",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "impactPct": 0,
@@ -411,6 +411,78 @@ window.NEWS_AUTO = {
         {
           "time": "2026-09-17",
           "tf": "Intraday",
+          "title": "Swiss Franc remains near 16-month lows against US Dollar",
+          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/swiss-franc-remains-near-16-month-lows-against-us-dollar-202609170510",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "2026-09-17",
+          "tf": "Intraday",
+          "title": "Gold struggles to build on recovery gains as hawkish Fed and Iran risks underpin USD",
+          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/gold-stalls-recovery-from-six-week-low-as-usd-preserves-post-fed-gains-amid-iran-risks-202609170348",
+          "impact": "bearish",
+          "signal": "SELL",
+          "impactPct": -0.15,
+          "auto": true
+        },
+        {
+          "time": "2026-09-17",
+          "tf": "Intraday",
+          "title": "US 10-Year Treasury Yield nears 5% after Fed rate hike, Middle East tensions raise inflation fears",
+          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/us-10-year-treasury-yield-nears-5-after-fed-rate-hike-middle-east-tensions-raise-inflation-fears-202609170501",
+          "impact": "bearish",
+          "signal": "SELL",
+          "impactPct": -0.15,
+          "auto": true
+        },
+        {
+          "time": "2026-09-17",
+          "tf": "Intraday",
+          "title": "Asian stocks edge higher as hawkish Fed, elevated yields and geopolitical cap upside",
+          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/asian-stocks-edge-higher-as-hawkish-fed-elevated-yields-and-geopolitical-cap-upside-202609170451",
+          "impact": "bearish",
+          "signal": "SELL",
+          "impactPct": -0.15,
+          "auto": true
+        },
+        {
+          "time": "2026-09-17",
+          "tf": "Intraday",
+          "title": "India Gold price today: Gold rises, according to FXStreet data",
+          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/india-gold-price-today-gold-rises-according-to-fxstreet-data-202609170435",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "2026-09-17",
+          "tf": "Intraday",
+          "title": "AUD/JPY Price Forecast: Gains ground to near 111.00, but retains a bearish bias below 100-day SMA",
+          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/aud-jpy-price-forecast-gains-ground-to-near-11100-but-retains-a-bearish-bias-below-100-day-sma-202609170424",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "2026-09-17",
+          "tf": "Intraday",
           "title": "NZD/USD Price Forecast: Sticks to GDP-led recovery gains above 0.5700; bearish bias intact",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
           "source": "FXStreet - Forex & Markets News",
@@ -427,18 +499,6 @@ window.NEWS_AUTO = {
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
           "source": "FXStreet - Forex & Markets News",
           "url": "https://www.fxstreet.com/news/japans-katayama-says-expect-boj-to-conduct-appropriate-monetary-policy-to-achieve-2-price-target-202609170357",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "2026-09-17",
-          "tf": "Intraday",
-          "title": "Gold stalls recovery from six-week low as USD preserves post-Fed gains amid Iran risks",
-          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/gold-stalls-recovery-from-six-week-low-as-usd-preserves-post-fed-gains-amid-iran-risks-202609170348",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "impactPct": 0,
@@ -527,66 +587,6 @@ window.NEWS_AUTO = {
           "signal": "NEUTRAL",
           "impactPct": 0,
           "auto": true
-        },
-        {
-          "time": "2026-09-17",
-          "tf": "Intraday",
-          "title": "Silver Price Forecast: XAG/USD rises to near $64.00 as oil prices decline",
-          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/silver-price-forecast-xag-usd-rises-to-near-6400-as-oil-prices-decline-202609170159",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "2026-09-17",
-          "tf": "Intraday",
-          "title": "Japanese Yen edges higher vs bullish USD amid expectations of a more hawkish BoJ",
-          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/japanese-yen-edges-higher-vs-bullish-usd-amid-expectations-of-a-more-hawkish-boj-202609170154",
-          "impact": "bearish",
-          "signal": "SELL",
-          "impactPct": -0.45,
-          "auto": true
-        },
-        {
-          "time": "2026-09-17",
-          "tf": "Intraday",
-          "title": "US President Donald Trump says he told Fed Chair to 'do what you want' ahead of rate hike",
-          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/us-president-donald-trump-says-he-told-fed-chair-to-do-what-you-want-ahead-of-rate-hike-202609170150",
-          "impact": "bearish",
-          "signal": "SELL",
-          "impactPct": -0.31,
-          "auto": true
-        },
-        {
-          "time": "2026-09-17",
-          "tf": "Intraday",
-          "title": "Australian Dollar holds gains near 0.7100 despite Fed rate hike, IMF urges RBA to stay hawkish",
-          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/australian-dollar-holds-gains-near-07100-despite-fed-rate-hike-imf-urges-rba-to-stay-hawkish-202609170119",
-          "impact": "bearish",
-          "signal": "SELL",
-          "impactPct": -0.45,
-          "auto": true
-        },
-        {
-          "time": "2026-09-17",
-          "tf": "Intraday",
-          "title": "WTI remains below $97.50 as Saudi routes recover, US stocks shrink less than expected",
-          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/wti-remains-below-9750-as-saudi-routes-recover-us-stocks-shrink-less-than-expected-202609170118",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "impactPct": 0,
-          "auto": true
         }
       ],
       "speakers": []
@@ -594,7 +594,19 @@ window.NEWS_AUTO = {
     "crypto": {
       "news": [
         {
-          "time": "2026-09-16",
+          "time": "2026-09-17",
+          "tf": "Intraday",
+          "title": "Trump hopes Iran war nearing end as Houthi-Saudi fighting escalates",
+          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
+          "source": "Investing.com - Commodities & Futures",
+          "url": "https://www.investing.com/news/commodities-news/trump-hopes-iran-war-nearing-end-as-houthisaudi-fighting-escalates-4904794",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "2026-09-17",
           "tf": "Intraday",
           "title": "Oil prices steady amid cooling M.East supply jitters",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -606,7 +618,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-16",
+          "time": "2026-09-17",
           "tf": "Intraday",
           "title": "Oil prices extend losses as fears of Middle East supply disruptions ease",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -618,7 +630,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-16",
+          "time": "2026-09-17",
           "tf": "Intraday",
           "title": "US temporarily eases curb on working hours for fuel truck drivers",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -696,18 +708,6 @@ window.NEWS_AUTO = {
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
           "source": "Investing.com - Commodities & Futures",
           "url": "https://www.investing.com/news/commodities-news/crude-oil-wti-stalls-near-10446-highs-on-fading-momentum-live-93CH-4898875",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "2026-09-16",
-          "tf": "Intraday",
-          "title": "Natural Gas coils under $2.90 cloud resistance: Live levels",
-          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
-          "source": "Investing.com - Commodities & Futures",
-          "url": "https://www.investing.com/news/commodities-news/natural-gas-tests-2899-resistance-cluster-hourly-levels-93CH-4898874",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "impactPct": 0,
@@ -836,6 +836,78 @@ window.NEWS_AUTO = {
         {
           "time": "2026-09-17",
           "tf": "Intraday",
+          "title": "Swiss Franc remains near 16-month lows against US Dollar",
+          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/swiss-franc-remains-near-16-month-lows-against-us-dollar-202609170510",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "2026-09-17",
+          "tf": "Intraday",
+          "title": "Gold struggles to build on recovery gains as hawkish Fed and Iran risks underpin USD",
+          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/gold-stalls-recovery-from-six-week-low-as-usd-preserves-post-fed-gains-amid-iran-risks-202609170348",
+          "impact": "bearish",
+          "signal": "SELL",
+          "impactPct": -0.2,
+          "auto": true
+        },
+        {
+          "time": "2026-09-17",
+          "tf": "Intraday",
+          "title": "US 10-Year Treasury Yield nears 5% after Fed rate hike, Middle East tensions raise inflation fears",
+          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/us-10-year-treasury-yield-nears-5-after-fed-rate-hike-middle-east-tensions-raise-inflation-fears-202609170501",
+          "impact": "bearish",
+          "signal": "SELL",
+          "impactPct": -0.2,
+          "auto": true
+        },
+        {
+          "time": "2026-09-17",
+          "tf": "Intraday",
+          "title": "Asian stocks edge higher as hawkish Fed, elevated yields and geopolitical cap upside",
+          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/asian-stocks-edge-higher-as-hawkish-fed-elevated-yields-and-geopolitical-cap-upside-202609170451",
+          "impact": "bearish",
+          "signal": "SELL",
+          "impactPct": -0.2,
+          "auto": true
+        },
+        {
+          "time": "2026-09-17",
+          "tf": "Intraday",
+          "title": "India Gold price today: Gold rises, according to FXStreet data",
+          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/india-gold-price-today-gold-rises-according-to-fxstreet-data-202609170435",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "2026-09-17",
+          "tf": "Intraday",
+          "title": "AUD/JPY Price Forecast: Gains ground to near 111.00, but retains a bearish bias below 100-day SMA",
+          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/aud-jpy-price-forecast-gains-ground-to-near-11100-but-retains-a-bearish-bias-below-100-day-sma-202609170424",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "2026-09-17",
+          "tf": "Intraday",
           "title": "NZD/USD Price Forecast: Sticks to GDP-led recovery gains above 0.5700; bearish bias intact",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
           "source": "FXStreet - Forex & Markets News",
@@ -852,18 +924,6 @@ window.NEWS_AUTO = {
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
           "source": "FXStreet - Forex & Markets News",
           "url": "https://www.fxstreet.com/news/japans-katayama-says-expect-boj-to-conduct-appropriate-monetary-policy-to-achieve-2-price-target-202609170357",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "2026-09-17",
-          "tf": "Intraday",
-          "title": "Gold stalls recovery from six-week low as USD preserves post-Fed gains amid Iran risks",
-          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/gold-stalls-recovery-from-six-week-low-as-usd-preserves-post-fed-gains-amid-iran-risks-202609170348",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "impactPct": 0,
@@ -952,66 +1012,6 @@ window.NEWS_AUTO = {
           "signal": "NEUTRAL",
           "impactPct": 0,
           "auto": true
-        },
-        {
-          "time": "2026-09-17",
-          "tf": "Intraday",
-          "title": "Silver Price Forecast: XAG/USD rises to near $64.00 as oil prices decline",
-          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/silver-price-forecast-xag-usd-rises-to-near-6400-as-oil-prices-decline-202609170159",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "2026-09-17",
-          "tf": "Intraday",
-          "title": "Japanese Yen edges higher vs bullish USD amid expectations of a more hawkish BoJ",
-          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/japanese-yen-edges-higher-vs-bullish-usd-amid-expectations-of-a-more-hawkish-boj-202609170154",
-          "impact": "bearish",
-          "signal": "SELL",
-          "impactPct": -0.59,
-          "auto": true
-        },
-        {
-          "time": "2026-09-17",
-          "tf": "Intraday",
-          "title": "US President Donald Trump says he told Fed Chair to 'do what you want' ahead of rate hike",
-          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/us-president-donald-trump-says-he-told-fed-chair-to-do-what-you-want-ahead-of-rate-hike-202609170150",
-          "impact": "bearish",
-          "signal": "SELL",
-          "impactPct": -0.41,
-          "auto": true
-        },
-        {
-          "time": "2026-09-17",
-          "tf": "Intraday",
-          "title": "Australian Dollar holds gains near 0.7100 despite Fed rate hike, IMF urges RBA to stay hawkish",
-          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/australian-dollar-holds-gains-near-07100-despite-fed-rate-hike-imf-urges-rba-to-stay-hawkish-202609170119",
-          "impact": "bearish",
-          "signal": "SELL",
-          "impactPct": -0.59,
-          "auto": true
-        },
-        {
-          "time": "2026-09-17",
-          "tf": "Intraday",
-          "title": "WTI remains below $97.50 as Saudi routes recover, US stocks shrink less than expected",
-          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/wti-remains-below-9750-as-saudi-routes-recover-us-stocks-shrink-less-than-expected-202609170118",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "impactPct": 0,
-          "auto": true
         }
       ],
       "speakers": []
@@ -1019,7 +1019,19 @@ window.NEWS_AUTO = {
     "forex": {
       "news": [
         {
-          "time": "2026-09-16",
+          "time": "2026-09-17",
+          "tf": "Intraday",
+          "title": "Trump hopes Iran war nearing end as Houthi-Saudi fighting escalates",
+          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
+          "source": "Investing.com - Commodities & Futures",
+          "url": "https://www.investing.com/news/commodities-news/trump-hopes-iran-war-nearing-end-as-houthisaudi-fighting-escalates-4904794",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "2026-09-17",
           "tf": "Intraday",
           "title": "Oil prices steady amid cooling M.East supply jitters",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1031,7 +1043,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-16",
+          "time": "2026-09-17",
           "tf": "Intraday",
           "title": "Oil prices extend losses as fears of Middle East supply disruptions ease",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1043,7 +1055,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "2026-09-16",
+          "time": "2026-09-17",
           "tf": "Intraday",
           "title": "US temporarily eases curb on working hours for fuel truck drivers",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
@@ -1121,18 +1133,6 @@ window.NEWS_AUTO = {
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
           "source": "Investing.com - Commodities & Futures",
           "url": "https://www.investing.com/news/commodities-news/crude-oil-wti-stalls-near-10446-highs-on-fading-momentum-live-93CH-4898875",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "2026-09-16",
-          "tf": "Intraday",
-          "title": "Natural Gas coils under $2.90 cloud resistance: Live levels",
-          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
-          "source": "Investing.com - Commodities & Futures",
-          "url": "https://www.investing.com/news/commodities-news/natural-gas-tests-2899-resistance-cluster-hourly-levels-93CH-4898874",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "impactPct": 0,
@@ -1261,6 +1261,78 @@ window.NEWS_AUTO = {
         {
           "time": "2026-09-17",
           "tf": "Intraday",
+          "title": "Swiss Franc remains near 16-month lows against US Dollar",
+          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/swiss-franc-remains-near-16-month-lows-against-us-dollar-202609170510",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "2026-09-17",
+          "tf": "Intraday",
+          "title": "Gold struggles to build on recovery gains as hawkish Fed and Iran risks underpin USD",
+          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/gold-stalls-recovery-from-six-week-low-as-usd-preserves-post-fed-gains-amid-iran-risks-202609170348",
+          "impact": "bearish",
+          "signal": "SELL",
+          "impactPct": -0.15,
+          "auto": true
+        },
+        {
+          "time": "2026-09-17",
+          "tf": "Intraday",
+          "title": "US 10-Year Treasury Yield nears 5% after Fed rate hike, Middle East tensions raise inflation fears",
+          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/us-10-year-treasury-yield-nears-5-after-fed-rate-hike-middle-east-tensions-raise-inflation-fears-202609170501",
+          "impact": "bearish",
+          "signal": "SELL",
+          "impactPct": -0.15,
+          "auto": true
+        },
+        {
+          "time": "2026-09-17",
+          "tf": "Intraday",
+          "title": "Asian stocks edge higher as hawkish Fed, elevated yields and geopolitical cap upside",
+          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/asian-stocks-edge-higher-as-hawkish-fed-elevated-yields-and-geopolitical-cap-upside-202609170451",
+          "impact": "bearish",
+          "signal": "SELL",
+          "impactPct": -0.15,
+          "auto": true
+        },
+        {
+          "time": "2026-09-17",
+          "tf": "Intraday",
+          "title": "India Gold price today: Gold rises, according to FXStreet data",
+          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/india-gold-price-today-gold-rises-according-to-fxstreet-data-202609170435",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "2026-09-17",
+          "tf": "Intraday",
+          "title": "AUD/JPY Price Forecast: Gains ground to near 111.00, but retains a bearish bias below 100-day SMA",
+          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/aud-jpy-price-forecast-gains-ground-to-near-11100-but-retains-a-bearish-bias-below-100-day-sma-202609170424",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "2026-09-17",
+          "tf": "Intraday",
           "title": "NZD/USD Price Forecast: Sticks to GDP-led recovery gains above 0.5700; bearish bias intact",
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
           "source": "FXStreet - Forex & Markets News",
@@ -1277,18 +1349,6 @@ window.NEWS_AUTO = {
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
           "source": "FXStreet - Forex & Markets News",
           "url": "https://www.fxstreet.com/news/japans-katayama-says-expect-boj-to-conduct-appropriate-monetary-policy-to-achieve-2-price-target-202609170357",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "2026-09-17",
-          "tf": "Intraday",
-          "title": "Gold stalls recovery from six-week low as USD preserves post-Fed gains amid Iran risks",
-          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/gold-stalls-recovery-from-six-week-low-as-usd-preserves-post-fed-gains-amid-iran-risks-202609170348",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "impactPct": 0,
@@ -1373,66 +1433,6 @@ window.NEWS_AUTO = {
           "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
           "source": "FXStreet - Forex & Markets News",
           "url": "https://www.fxstreet.com/news/euro-weakens-to-near-11450-as-fed-raises-rate-for-first-time-in-three-years-202609170226",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "2026-09-17",
-          "tf": "Intraday",
-          "title": "Silver Price Forecast: XAG/USD rises to near $64.00 as oil prices decline",
-          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/silver-price-forecast-xag-usd-rises-to-near-6400-as-oil-prices-decline-202609170159",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "2026-09-17",
-          "tf": "Intraday",
-          "title": "Japanese Yen edges higher vs bullish USD amid expectations of a more hawkish BoJ",
-          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/japanese-yen-edges-higher-vs-bullish-usd-amid-expectations-of-a-more-hawkish-boj-202609170154",
-          "impact": "bearish",
-          "signal": "SELL",
-          "impactPct": -0.45,
-          "auto": true
-        },
-        {
-          "time": "2026-09-17",
-          "tf": "Intraday",
-          "title": "US President Donald Trump says he told Fed Chair to 'do what you want' ahead of rate hike",
-          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/us-president-donald-trump-says-he-told-fed-chair-to-do-what-you-want-ahead-of-rate-hike-202609170150",
-          "impact": "bearish",
-          "signal": "SELL",
-          "impactPct": -0.31,
-          "auto": true
-        },
-        {
-          "time": "2026-09-17",
-          "tf": "Intraday",
-          "title": "Australian Dollar holds gains near 0.7100 despite Fed rate hike, IMF urges RBA to stay hawkish",
-          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/australian-dollar-holds-gains-near-07100-despite-fed-rate-hike-imf-urges-rba-to-stay-hawkish-202609170119",
-          "impact": "bearish",
-          "signal": "SELL",
-          "impactPct": -0.45,
-          "auto": true
-        },
-        {
-          "time": "2026-09-17",
-          "tf": "Intraday",
-          "title": "WTI remains below $97.50 as Saudi routes recover, US stocks shrink less than expected",
-          "summary": "Auto-classified from headline text (keyword heuristic) - verify before trading.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/wti-remains-below-9750-as-saudi-routes-recover-us-stocks-shrink-less-than-expected-202609170118",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "impactPct": 0,
