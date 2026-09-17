@@ -242,6 +242,7 @@ function findAtrRow(atrData, symbolOrPair) {
 }
 
 const TF_CHART = { Intraday: 'M15 - H1', '1-3D': 'H1 - H4', Weekly: 'H4 - D1', Structural: 'D1 - W1' };
+const CREDIT_LINE = '———\n🏷️ ifxhelper_2026';
 const SIGNAL_EMOJI = { BUY: '🟢 BUY', SELL: '🔴 SELL', NEUTRAL: '⚪ NEUTRAL' };
 
 /* One bold, color-coded order-call line, e.g.: "🟢🟢🟢 ORDER CALL: BUY 🟢🟢🟢" - deliberately the
@@ -310,7 +311,8 @@ function eventCard(MARKET_DATA, atrData, e) {
     `📤 Alert sent (MYT): ${nowMyt()}`,
     e.note ? `📝 ${esc(e.note)}` : null,
     e.play ? `💡 ${esc(e.play)}` : null,
-    e.url ? `🔗 ${esc(e.source || 'Source')}: ${e.url}` : null
+    e.url ? `🔗 ${esc(e.source || 'Source')}: ${e.url}` : null,
+    CREDIT_LINE
   ].filter(Boolean).join('\n');
   return { caption, chartUrl: chartImageUrl(top ? top.pair : (ccy || e.event.slice(0, 20)), top ? +top.s.score.toFixed(2) : 0, signal) };
 }
@@ -331,7 +333,8 @@ function newsCard(MARKET_DATA, tab, n) {
     `⏱ Timeframe: ${esc(n.tf || '—')} → chart: <b>${esc(chart)}</b>`,
     `📤 Alert sent (MYT): ${nowMyt()}`,
     `📝 ${esc(n.title)}`,
-    `🔗 ${esc(n.source || 'Source')}${n.url ? ': ' + n.url : ''}`
+    `🔗 ${esc(n.source || 'Source')}${n.url ? ': ' + n.url : ''}`,
+    CREDIT_LINE
   ].filter(Boolean).join('\n');
   return { caption, chartUrl: chartImageUrl(focusSym, n.impactPct || 0, n.signal) };
 }
@@ -349,7 +352,8 @@ function speakerCard(MARKET_DATA, tab, s) {
     priceLine,
     `📤 Alert sent (MYT): ${nowMyt()}`,
     `📝 “${esc(s.quote)}”`,
-    `🔗 ${esc(s.source || 'Source')}${s.url ? ': ' + s.url : ''}`
+    `🔗 ${esc(s.source || 'Source')}${s.url ? ': ' + s.url : ''}`,
+    CREDIT_LINE
   ].filter(Boolean).join('\n');
   return { caption, chartUrl: chartImageUrl(focusSym, s.impactPct || 0, s.signal) };
 }
@@ -423,7 +427,8 @@ function reminderCard(MARKET_DATA, atrData, e, minutesLeft, stage) {
             `<b>${esc(e.event)}</b> should be out by now (was due ${esc(mytDisplay(e.timeMyt))} MYT).`,
             '⚠️ This bot has no free feed for the actual released figure - go verify it directly:',
             e.url ? `🔗 ${esc(e.source || 'Source')}: ${e.url}` : '(no source link on this event)',
-            '💡 Once you see the actual vs forecast, re-check the chart on your predicted focus symbol - a big beat/miss can reverse the pre-event call.'
+            '💡 Once you see the actual vs forecast, re-check the chart on your predicted focus symbol - a big beat/miss can reverse the pre-event call.',
+            CREDIT_LINE
           ].filter(Boolean).join('\n');
           const r = await sendTelegram(caption);
           if (r.ok) { seen.add(key); sentCount++; console.log(`SENT follow-up: ${e.event}`); }
