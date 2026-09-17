@@ -386,9 +386,11 @@ function reminderCard(MARKET_DATA, atrData, e, minutesLeft, stage) {
       const at = parseMytToUtc(e.timeMyt);
       if (!at) continue;
       const minutesUntil = Math.round((at.getTime() - now) / 60000);
-      if (minutesUntil < -5 || minutesUntil > 35) continue; // well outside any stage window - skip without even checking flags
+      if (minutesUntil < -20 || minutesUntil > 35) continue; // well outside any window - skip without even checking flags
+
+      // Pre-event countdown stages
       for (const stage of REMINDER_STAGES) {
-        if (minutesUntil > stage) continue; // not within this stage's window yet
+        if (minutesUntil > stage || minutesUntil < 0) continue; // not within this stage's window (or already past)
         const key = `remind:${e.event}|${e.date}:${stage}`;
         if (seen.has(key)) continue;
         const card = reminderCard(MARKET_DATA, ATR_DATA, e, Math.max(0, minutesUntil), stage);
@@ -396,6 +398,26 @@ function reminderCard(MARKET_DATA, atrData, e, minutesLeft, stage) {
         if (r.ok) { seen.add(key); sentCount++; console.log(`SENT reminder (T-${stage}): ${e.event}`); }
         else if (!r.skipped) { failCount++; console.log(`NOT SENT reminder (T-${stage}, will retry): ${e.event}`); }
         await new Promise(res => setTimeout(res, 400));
+      }
+
+      // Post-event follow-up: this app has no free source for the actual released figure (checked -
+      // the ForexFactory feed we use never populates "actual", even for past events), so rather than
+      // stay silent or invent a number, nudge once to go check the real source and re-read the chart.
+      if (minutesUntil <= -10 && minutesUntil >= -20) {
+        const key = `followup:${e.event}|${e.date}`;
+        if (!seen.has(key)) {
+          const caption = [
+            '🔔 <b>RESULT CHECK</b>',
+            `<b>${esc(e.event)}</b> should be out by now (was due ${esc(e.timeMyt)} MYT).`,
+            '⚠️ This bot has no free feed for the actual released figure - go verify it directly:',
+            e.url ? `🔗 ${esc(e.source || 'Source')}: ${e.url}` : '(no source link on this event)',
+            '💡 Once you see the actual vs forecast, re-check the chart on your predicted focus symbol - a big beat/miss can reverse the pre-event call.'
+          ].filter(Boolean).join('\n');
+          const r = await sendTelegram(caption);
+          if (r.ok) { seen.add(key); sentCount++; console.log(`SENT follow-up: ${e.event}`); }
+          else if (!r.skipped) { failCount++; console.log(`NOT SENT follow-up (will retry): ${e.event}`); }
+          await new Promise(res => setTimeout(res, 400));
+        }
       }
     }
     state.sentKeys = Array.from(seen).slice(-2000);
