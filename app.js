@@ -226,6 +226,12 @@
   /* ---- event-time parsing for soonest-first sort ---- */
   function parseEventTime(gmtStr) {
     if (!gmtStr) return null;
+    // auto-collected rows are "YYYY-MM-DD HH:MM" (optionally with a "Mon, " day-name prefix) -
+    // unambiguous, no year-guessing needed.
+    var iso = /(\d{4})-(\d{2})-(\d{2})\s+(\d{1,2}):(\d{2})/.exec(gmtStr);
+    if (iso) return new Date(Date.UTC(+iso[1], +iso[2] - 1, +iso[3], +iso[4], +iso[5]));
+    // curated rows are "DD Mon HH:MM" with no year - infer the year, rolling forward if the
+    // resulting date would be implausibly far in the past.
     var m = /(\d{1,2})\s+([A-Za-z]{3})\s+(\d{1,2}):(\d{2})/.exec(gmtStr);
     if (!m) return null;
     var months = { Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5, Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11 };
@@ -240,6 +246,15 @@
    * who typed the string. Auto rows already start with a day name ("Mon, 2026-09-14 20:30") and
    * are returned unchanged. */
   var DAY_NAMES = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  var MONTH_NAMES = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  /* The day a moment falls on in MYT, as a section-header label ("Thu, 17 Sep") - computed from
+   * the already-parsed instant (it.t, from timeGmt) rather than re-parsing timeMyt strings, so it
+   * stays correct even right around midnight where GMT and MYT can disagree on the calendar day. */
+  function mytDayLabel(t) {
+    if (!t) return "Unknown day";
+    var myt = new Date(t.getTime() + 8 * 3600 * 1000);
+    return DAY_NAMES[myt.getUTCDay()] + ", " + myt.getUTCDate() + " " + MONTH_NAMES[myt.getUTCMonth()];
+  }
   function mytDisplay(timeMyt) {
     if (!timeMyt) return "—";
     if (/^[A-Za-z]{3},/.test(timeMyt)) return timeMyt; // already has a day name
@@ -1013,11 +1028,12 @@
       el.onclick = function () { var i = el.dataset.idx; tradeFocusOpen[i] = !tradeFocusOpen[i]; renderTradeFocus(); };
     });
   }
+  var incomingView = "upcoming";
   function renderIncoming() {
     var box = $("#incoming-list"); box.innerHTML = "";
     var now = new Date();
-    var items = (D.incoming || []).filter(function (e) { return settings.showAuto !== false || !e.auto; }).map(function (e) { return { e: e, t: parseEventTime(e.timeGmt) }; })
-      .sort(function (a, b) { return (a.t ? a.t.getTime() : Infinity) - (b.t ? b.t.getTime() : Infinity); });
+    var all = (D.incoming || []).filter(function (e) { return settings.showAuto !== false || !e.auto; }).map(function (e) { return { e: e, t: parseEventTime(e.timeGmt) }; });
+    var items = all.slice().sort(function (a, b) { return (a.t ? a.t.getTime() : Infinity) - (b.t ? b.t.getTime() : Infinity); });
     var nextIdx = -1;
     items.forEach(function (it, i) { if (nextIdx === -1 && it.t && it.t.getTime() >= now.getTime()) nextIdx = i; });
     if (nextIdx > -1) {
@@ -1025,22 +1041,38 @@
       if (nkey !== lastAnnouncedNext) {
         lastAnnouncedNext = nkey;
         var hAway = items[nextIdx].t ? Math.round((items[nextIdx].t.getTime() - now.getTime()) / 3600000) : null;
-        fireAlert("Next event — " + T.label, ne.event + ", " + (ne.importance || "") + " impact" + (hAway != null ? ", in about " + hAway + " hours" : "") + ".");
+        fireAlert("Next event - " + T.label, ne.event + ", " + (ne.importance || "") + " impact" + (hAway != null ? ", in about " + hAway + " hours" : "") + ".");
       }
     }
+    if (incomingView === "past") {
+      items = all.filter(function (it) { return it.t && it.t.getTime() < now.getTime(); }).sort(function (a, b) { return b.t.getTime() - a.t.getTime(); });
+      nextIdx = -1;
+    } else {
+      items = items.filter(function (it) { return !it.t || it.t.getTime() >= now.getTime(); });
+    }
+    var lastDay = null;
     items.forEach(function (it, i) {
       var e = it.e;
+      var day = mytDayLabel(it.t);
+      if (day !== lastDay) { lastDay = day; box.insertAdjacentHTML("beforeend", '<div class="day-sep">' + esc(day) + "</div>"); }
       var hoursAway = it.t ? Math.round((it.t.getTime() - now.getTime()) / 3600000) : null;
-      var when = hoursAway == null ? "" : hoursAway < 0 ? "passed" : hoursAway === 0 ? "within the hour" : hoursAway < 48 ? "in ~" + hoursAway + "h" : "in " + Math.round(hoursAway / 24) + "d";
+      var when = hoursAway == null ? "" : hoursAway < 0 ? (hoursAway > -48 ? "~" + Math.abs(hoursAway) + "h ago" : Math.round(Math.abs(hoursAway) / 24) + "d ago") : hoursAway === 0 ? "within the hour" : hoursAway < 48 ? "in ~" + hoursAway + "h" : "in " + Math.round(hoursAway / 24) + "d";
       box.insertAdjacentHTML("beforeend",
-        '<div class="inc"><div class="hd"><div>' + (i === nextIdx ? '<span class="badge b-hawk" style="margin-right:6px">NEXT</span>' : "") + '<span class="nm">' + esc(e.event) + '</span> <span class="rl">\u00b7 ' + esc(e.date) + (when ? " \u00b7 " + when : "") + "</span></div>" +
+        '<div class="inc"><div class="hd"><div>' + (i === nextIdx ? '<span class="badge b-hawk" style="margin-right:6px">NEXT</span>' : "") + '<span class="nm">' + esc(e.event) + '</span> <span class="rl">\u00b7 ' + esc(when) + "</span></div>" +
         '<div style="display:flex;gap:6px;align-items:center"><span class="badge ' + (e.importance === "high" ? "b-high" : "b-med") + '">' + esc((e.importance || "").toUpperCase()) + '</span><span class="badge b-tf">' + esc(e.focusTf || "") + "</span></div></div>" +
         '<div class="im">' + esc(e.note) + "</div>" +
         '<div class="mt">MYT ' + esc(mytDisplay(e.timeMyt || e.timeSgt)) + "  \u00b7  GMT " + esc(e.timeGmt) + "  \u00b7  focus " + esc(e.focusTf) + "</div>" +
         '<div class="im">' + esc(e.play || "") + "</div>" +
         '<div class="im">' + (e.url ? '<a href="' + esc(e.url) + '" target="_blank" rel="noopener">\u2197 Source: ' + esc(e.source || "official release") + "</a>" : '<span style="color:var(--muted)">Source not linked</span>') + "</div></div>");
     });
-    if (!items.length) box.innerHTML = '<div class="note">Nothing scheduled.</div>';
+    if (!items.length) box.innerHTML = '<div class="note">' + (incomingView === "past" ? "No past events loaded." : "Nothing scheduled.") + "</div>";
+  }
+  function bindIncomingView() {
+    var seg = $("#incoming-view-seg"); if (!seg) return;
+    $$("button", seg).forEach(function (b) {
+      b.classList.toggle("active", b.dataset.view === incomingView);
+      b.onclick = function () { incomingView = b.dataset.view; $$("button", seg).forEach(function (x) { x.classList.toggle("active", x === b); }); renderIncoming(); };
+    });
   }
   function renderTfFilter() {
     var set = {}; (T.news || []).forEach(function (n) { set[n.tf || "\u2014"] = 1; });
@@ -1676,7 +1708,7 @@
     }
     applyAutoSentiment();
     renderInst(); renderRanges(); renderAll();
-    bindCharts(); bindPalette(); bindLiveControls(); bindBottomNav(); bindTheme(); bindVoice(); bindAssistant(); bindAnalysisScope(); bindPivotInputs(); bindSettings();
+    bindCharts(); bindPalette(); bindLiveControls(); bindBottomNav(); bindTheme(); bindVoice(); bindAssistant(); bindAnalysisScope(); bindPivotInputs(); bindSettings(); bindIncomingView();
     applyFilter("news");
     var rb = $("#refresh"); if (rb) rb.onclick = function () { location.reload(); };
     ["c-open", "c-high", "c-low", "c-prev", "c-atr", "c-iv", "c-dte", "c-k"].forEach(function (id) { var el = $("#" + id); if (el) el.addEventListener("input", calc); });

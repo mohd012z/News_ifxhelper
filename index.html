@@ -96,6 +96,10 @@
     .spk .mt,.inc .mt{margin-top:7px;padding-top:6px;border-top:1px dashed var(--line);font-size:12.5px;color:var(--text);font-weight:700;font-family:"JetBrains Mono",monospace}
     .inc{border:1px solid var(--line);border-radius:11px;padding:12px;background:var(--chip);margin-bottom:9px;border-left:4px solid var(--accent)}
     .inc .badge{font-size:12px;padding:4px 11px}
+    /* Day separator: the main visual divider between days, deliberately louder than any single
+       headline so the day is never confused for tiny inline text next to a date. */
+    .day-sep{position:sticky;top:0;z-index:2;margin:16px 0 8px;padding:7px 12px;border-radius:9px;background:linear-gradient(120deg,color-mix(in srgb,var(--accent) 22%,var(--panel)),var(--panel));border:1px solid color-mix(in srgb,var(--accent) 45%,var(--line));font-weight:800;font-size:13px;letter-spacing:.04em;color:var(--text)}
+    .day-sep:first-child{margin-top:0}
     .gauge{margin-top:10px}
     .gbar{height:10px;border-radius:999px;background:linear-gradient(90deg,var(--dove),color-mix(in srgb,var(--muted) 40%,var(--line)),var(--hawk));position:relative}
     .gmark{position:absolute;top:-5px;width:3px;height:20px;background:var(--text);border-radius:2px;box-shadow:0 0 0 2px var(--panel)}
@@ -284,8 +288,12 @@
 
       <section class="card" style="margin-top:10px" data-sec="news">
         <div class="k">Priority Read &mdash; News Incoming <span style="color:var(--accent);font-weight:600">(times in Malaysia time, MYT = GMT+8)</span></div>
+        <div class="seg" id="incoming-view-seg" style="margin-top:8px">
+          <button data-view="upcoming" class="active">Upcoming</button>
+          <button data-view="past">Past</button>
+        </div>
         <div class="grid2" style="margin-top:8px"><div id="incoming-list"></div>
-          <div class="note">Sorted soonest-first. Focus timeframe = the chart resolution where the event's move is usually cleanest &mdash; higher-impact events need a wider timeframe because the first spike often reverses.</div>
+          <div class="note">Upcoming = soonest-first. Past = most-recent-first (latest at the top). Grouped by day &mdash; the bold bar is the day, never mistake it for a headline. Focus timeframe = the chart resolution where the event's move is usually cleanest &mdash; higher-impact events need a wider timeframe because the first spike often reverses.</div>
         </div>
       </section>
 
