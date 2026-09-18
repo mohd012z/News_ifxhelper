@@ -763,10 +763,25 @@ function buildWeeklyOutlook(MARKET_DATA, NEWS_AUTO) {
   const toSend = [];
 
   // 1. High-importance calendar events (curated + auto), deduped by event+date
+  // MUST be upcoming in Malaysia time, not already happened - the ForexFactory "thisweek" feed
+  // keeps every day of the week in the same response, so by Friday it still lists Monday's events.
+  // Without this check, an event whose real time already passed (a stale row, a first-ever
+  // dedup-key match, a currency-tag change producing a "new" key for an old event) would fire a
+  // "🚨 HIGH-IMPACT EVENT" / "just detected" alert with a "Time to trade" that's already in the
+  // past - confusing and wrong. Events with no parseable time are let through rather than
+  // silently dropped (better to alert on something un-timestamped than go quiet). A small 5-min
+  // grace window covers events that started moments ago and are still actionable.
+  const nowMs = Date.now();
   const incoming = (MARKET_DATA.incoming || []).concat((NEWS_AUTO && NEWS_AUTO.incoming) || []);
   incoming.filter(e => e.importance === 'high').forEach(e => {
     const key = 'evt:' + e.event + '|' + e.date;
     if (seen.has(key)) return;
+    const at = parseMytToUtc(e.timeMyt);
+    if (at && at.getTime() < nowMs - 5 * 60000) {
+      seen.add(key); // mark as seen anyway so a stale row never gets re-evaluated on every future run
+      console.log(`SKIP past event (already happened, MYT ${mytDisplay(e.timeMyt)}): ${e.event}`);
+      return;
+    }
     toSend.push({ key, card: eventCard(MARKET_DATA, ATR_DATA, e, COMMENTARY_POOL) });
   });
 
