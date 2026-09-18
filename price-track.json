@@ -263,6 +263,39 @@
       "priceAtDetect": 1.1464,
       "createdAt": "2026-09-18T11:59:19.494Z",
       "settleAt": "2026-09-18T12:44:19.494Z"
+    },
+    {
+      "key": "news:gold:Japanese Yen: Cautious BoJ tilt weighs on JPY against US Dollar – BBH",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Japanese Yen: Cautious BoJ tilt weighs on JPY against US Dollar – BBH",
+      "url": "https://www.fxstreet.com/news/japanese-yen-cautious-boj-tilt-weighs-on-jpy-against-us-dollar-bbh-202609181210",
+      "predictedPct": -0.36,
+      "priceAtDetect": 4412.2,
+      "createdAt": "2026-09-18T12:21:10.041Z",
+      "settleAt": "2026-09-18T13:06:10.041Z"
+    },
+    {
+      "key": "news:crypto:Japanese Yen: Cautious BoJ tilt weighs on JPY against US Dollar – BBH",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Japanese Yen: Cautious BoJ tilt weighs on JPY against US Dollar – BBH",
+      "url": "https://www.fxstreet.com/news/japanese-yen-cautious-boj-tilt-weighs-on-jpy-against-us-dollar-bbh-202609181210",
+      "predictedPct": -0.41,
+      "priceAtDetect": 77945.12,
+      "createdAt": "2026-09-18T12:21:10.041Z",
+      "settleAt": "2026-09-18T13:06:10.041Z"
+    },
+    {
+      "key": "news:forex:Japanese Yen: Cautious BoJ tilt weighs on JPY against US Dollar – BBH",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Japanese Yen: Cautious BoJ tilt weighs on JPY against US Dollar – BBH",
+      "url": "https://www.fxstreet.com/news/japanese-yen-cautious-boj-tilt-weighs-on-jpy-against-us-dollar-bbh-202609181210",
+      "predictedPct": -0.45,
+      "priceAtDetect": 1.1461,
+      "createdAt": "2026-09-18T12:21:10.041Z",
+      "settleAt": "2026-09-18T13:06:10.041Z"
     }
   ],
   "results": []
