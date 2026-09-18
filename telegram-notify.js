@@ -75,7 +75,13 @@ async function sendTelegram(text) {
     });
   } catch (e) { console.log('FAIL Telegram send (network): ' + e.message); return { ok: false }; }
   const j = await r.json().catch(() => ({}));
-  if (!r.ok || !j.ok) { console.log('FAIL Telegram send: ' + (j.description || r.status)); return { ok: false }; }
+  if (!r.ok || !j.ok) {
+    console.log('FAIL Telegram send: ' + (j.description || r.status));
+    // Telegram's own rate limit (~20 msg/min/chat) is an EXPECTED outcome on a big catch-up batch,
+    // not a broken integration - the item is correctly left unsent above and retried next run.
+    // Treating it as a hard failure only trains everyone to ignore the real red X's.
+    return { ok: false, rateLimited: /too many requests/i.test(j.description || '') };
+  }
   return { ok: true };
 }
 /* Sends the card as a photo with the full card as its caption (QuickChart.io - free, key-free,
@@ -795,21 +801,27 @@ function buildWeeklyOutlook(MARKET_DATA, NEWS_AUTO) {
 
   console.log(`Checked ${incoming.length} calendar rows, ${tabs.reduce((n, t) => n + (t.news || []).length + (t.speakers || []).length, 0)} news/speaker rows, ${resultsRecent.length} price-track results -> ${toSend.length} new candidate(s).`);
 
-  let sentCount = 0, failCount = 0, skippedNoCreds = false;
+  let sentCount = 0, failCount = 0, rateLimitedCount = 0, skippedNoCreds = false;
   for (const item of toSend) {
     const r = await sendTelegramCard(item.card.caption, item.card.chartUrl);
     if (r.ok) { seen.add(item.key); sentCount++; console.log('SENT: ' + item.card.caption.split('\n')[1]); }
     else if (r.skipped) { skippedNoCreds = true; } // no credentials configured (local/dev run) - don't mark as sent, don't count as a failure
+    else if (r.rateLimited) { rateLimitedCount++; console.log('RATE-LIMITED (will retry next run, not a real failure): ' + item.card.caption.split('\n')[1]); }
     else { failCount++; console.log('NOT SENT (will retry next run): ' + item.card.caption.split('\n')[1]); }
     await new Promise(res => setTimeout(res, 1500)); // Telegram's real limit is ~20 msg/min per chat - 400ms was too tight and caused 429s on the first real catch-up burst
   }
 
   state.sentKeys = Array.from(seen).slice(-2000); // cap growth - only the most recent 2000 keys matter
   saveState(state);
-  console.log(`State saved: ${state.sentKeys.length} confirmed-sent keys. (${sentCount} sent, ${failCount} failed this run.)`);
+  console.log(`State saved: ${state.sentKeys.length} confirmed-sent keys. (${sentCount} sent, ${rateLimitedCount} rate-limited, ${failCount} failed this run.)`);
 
+  // A batch big enough to hit Telegram's own rate limit is an EXPECTED outcome (wider news
+  // coverage means bigger catch-up bursts) - those items are correctly left unsent and retried
+  // next run, same mechanism as any other pending item. Only a GENUINE failure (bad token, malformed
+  // request, real network error) should turn the workflow red - otherwise every busy news day
+  // trains everyone to ignore a red X that doesn't mean anything is actually broken.
   if (failCount > 0 && !skippedNoCreds) {
-    console.error(`${failCount} Telegram send(s) failed - check the TELEGRAM_BOT_TOKEN/TELEGRAM_CHAT_ID secrets and Telegram API errors above.`);
+    console.error(`${failCount} Telegram send(s) genuinely failed (not rate-limiting) - check the TELEGRAM_BOT_TOKEN/TELEGRAM_CHAT_ID secrets and Telegram API errors above.`);
     process.exitCode = 1; // surface as a red X in CI instead of a silent green checkmark
   }
 })();

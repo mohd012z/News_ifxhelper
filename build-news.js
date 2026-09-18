@@ -371,11 +371,20 @@ async function getCalendar() {
 // content (public holidays, a conference hosted on bancaditalia.it) - not a clean press-release
 // source. Checked empirically, not assumed - same discipline as the ForexFactory feed's
 // "thisweek-only" finding. PBoC has no reliable free English RSS at all - a permanent gap.
+// Speech-specific feeds are the real answer to "what hint could move the market that isn't a
+// formal statement" - a Fed governor's Q&A remarks routinely move markets as much as a press
+// release, and unlike social media (X/Instagram have no free RSS - checked live: every public
+// Nitter/RSS-proxy for X is currently dead or blocked, and Instagram's endpoint returns a raw web
+// page, not a feed - scraping either would be fragile and against their ToS), these are the
+// institutions' own OFFICIAL speech transcripts, key-free. ECB has no equivalent speeches.html
+// path (404, checked).
 async function getCentralBankReleases(limit) {
   const feeds = [
     { url: 'https://www.federalreserve.gov/feeds/press_all.xml', name: 'Federal Reserve' },
+    { url: 'https://www.federalreserve.gov/feeds/speeches.xml', name: 'Federal Reserve - Speeches' },
     { url: 'https://www.ecb.europa.eu/rss/press.html', name: 'European Central Bank' },
     { url: 'https://www.bankofengland.co.uk/rss/news', name: 'Bank of England' },
+    { url: 'https://www.bankofengland.co.uk/rss/speeches', name: 'Bank of England - Speeches' },
     { url: 'https://www.boj.or.jp/en/rss/whatsnew.xml', name: 'Bank of Japan' }
   ];
   const out = [];
