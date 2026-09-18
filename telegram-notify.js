@@ -147,6 +147,25 @@ function sessionAtMyt(sessions, hour) {
 const SharedLogic = require('./shared-market-logic.js');
 const eventCurrency = SharedLogic.eventCurrency;
 function bestPairFor(MARKET_DATA, ccy) { return SharedLogic.bestPairFor(MARKET_DATA.fxPairs, MARKET_DATA.currencies, ccy); }
+/* Live snapshot price for a named pair (e.g. "USD/JPY") from fxPairs, or null if not loaded. */
+function pairSnap(MARKET_DATA, pairName) {
+  const p = (MARKET_DATA.fxPairs || []).find(x => x.pair === pairName);
+  return p ? p.snap : null;
+}
+/* Resolves which actual currency pair a piece of forex news/speaker text is about, instead of
+ * the generic "FOREX" tab label. Scans the text for a currency/central-bank mention (eventCurrency)
+ * and picks that currency's clearest pair vs USD (bestPairFor). Falls back to the tab's own
+ * headline pair (EUR/USD, tab.price.spot) when no specific currency is named in the text, so a
+ * broad "dollar gains" headline still resolves to something concrete rather than "FOREX". */
+function resolveForexFocus(MARKET_DATA, tab, text) {
+  const ccy = eventCurrency(text || '');
+  const best = ccy ? bestPairFor(MARKET_DATA, ccy) : null;
+  if (best) {
+    const spot = pairSnap(MARKET_DATA, best.pair);
+    return { sym: best.pair, spot: spot != null ? spot : (tab.price && tab.price.spot) };
+  }
+  return { sym: 'EUR/USD', spot: tab.price && tab.price.spot };
+}
 // ==================== Pip / price-target calculation ====================
 // Same pip-size convention as the dashboard's desk assistant (shared-market-logic.js pipSize()).
 function pipSize(sym) {
@@ -256,22 +275,23 @@ function eventCard(MARKET_DATA, atrData, e, pool) {
     priceLine,
     `⏱ Timeframe: <b>${esc(e.focusTf || '—')}</b>`,
     `🕒 Time to trade (MYT): <b>${esc(mytDisplay(e.timeMyt))}</b>${session ? ` · Session: ${esc(session)}` : ''}`,
-    `📤 Alert sent (MYT): ${nowMyt()}`,
     e.note ? `📝 ${esc(e.note)}` : null,
     e.play ? `💡 ${esc(e.play)}` : null,
     pool ? relatedCommentaryBlock(ccy, pool, 2) : null,
     e.url ? `🔗 ${esc(e.source || 'Source')}: ${e.url}` : null,
-    CREDIT_LINE
+    CREDIT_LINE,
+    `📤 Alert sent (MYT): ${nowMyt()}`
   ].filter(Boolean).join('\n');
   return { caption, chartUrl: chartImageUrl(top ? top.pair : (ccy || e.event.slice(0, 20)), top ? +top.s.score.toFixed(2) : 0, signal) };
 }
 function newsCard(MARKET_DATA, tab, n) {
-  const focusSym = tab.id === 'gold' ? 'XAU/USD' : tab.id === 'crypto' ? 'BTC/USD (+ ETH/USD)' : (tab.label.split('·')[1] || tab.label).trim();
+  const forexFocus = tab.id === 'forex' ? resolveForexFocus(MARKET_DATA, tab, `${n.title || ''} ${n.summary || ''}`) : null;
+  const focusSym = tab.id === 'gold' ? 'XAU/USD' : tab.id === 'crypto' ? 'BTC/USD (+ ETH/USD)' : forexFocus.sym;
   const chart = TF_CHART[n.tf] || n.tf || '—';
   const reasoning = n.impact === 'bearish' ? 'Headline classified bearish (keyword heuristic on real news text) → SELL bias'
     : n.impact === 'bullish' ? 'Headline classified bullish (keyword heuristic on real news text) → BUY bias'
       : 'Headline classified neutral — no clear directional keyword match';
-  const priceLine = priceMoveLine(tab.id === 'gold' ? 'XAU/USD' : tab.id === 'crypto' ? 'BTC' : focusSym, tab.price && tab.price.spot, n.impactPct);
+  const priceLine = priceMoveLine(tab.id === 'gold' ? 'XAU/USD' : tab.id === 'crypto' ? 'BTC' : focusSym, tab.id === 'forex' ? forexFocus.spot : (tab.price && tab.price.spot), n.impactPct);
   const caption = [
     `<b>${esc(tab.label)}</b> — auto-classified news`,
     orderCallLine(n.signal),
@@ -280,17 +300,19 @@ function newsCard(MARKET_DATA, tab, n) {
     `📊 Predicted move: <b>${n.impactPct > 0 ? '+' : ''}${n.impactPct}%</b> (model estimate)`,
     priceLine,
     `⏱ Timeframe: ${esc(n.tf || '—')} → chart: <b>${esc(chart)}</b>`,
-    `📤 Alert sent (MYT): ${nowMyt()}`,
+    `🕒 News time (MYT): <b>${esc(n.time || 'unknown time')}</b>`,
     `📝 ${esc(n.title)}`,
     `🔗 ${esc(n.source || 'Source')}${n.url ? ': ' + n.url : ''}`,
-    CREDIT_LINE
+    CREDIT_LINE,
+    `📤 Alert sent (MYT): ${nowMyt()}`
   ].filter(Boolean).join('\n');
   return { caption, chartUrl: chartImageUrl(focusSym, n.impactPct || 0, n.signal) };
 }
 function speakerCard(MARKET_DATA, tab, s) {
-  const focusSym = tab.id === 'gold' ? 'XAU/USD' : tab.id === 'crypto' ? 'BTC/USD (+ ETH/USD)' : (tab.label.split('·')[1] || tab.label).trim();
+  const forexFocus = tab.id === 'forex' ? resolveForexFocus(MARKET_DATA, tab, `${s.name || ''} ${s.role || ''} ${s.quote || ''}`) : null;
+  const focusSym = tab.id === 'gold' ? 'XAU/USD' : tab.id === 'crypto' ? 'BTC/USD (+ ETH/USD)' : forexFocus.sym;
   const arrow = s.side === 'hawkish' ? '🦅 HAWKISH' : '🕊️ DOVISH';
-  const priceLine = priceMoveLine(tab.id === 'gold' ? 'XAU/USD' : tab.id === 'crypto' ? 'BTC' : focusSym, tab.price && tab.price.spot, s.impactPct);
+  const priceLine = priceMoveLine(tab.id === 'gold' ? 'XAU/USD' : tab.id === 'crypto' ? 'BTC' : focusSym, tab.id === 'forex' ? forexFocus.spot : (tab.price && tab.price.spot), s.impactPct);
   const caption = [
     `<b>${esc(tab.label)}</b> — speaker/central-bank alert`,
     orderCallLine(s.signal),
@@ -299,10 +321,11 @@ function speakerCard(MARKET_DATA, tab, s) {
     `🎯 Focus symbol: <b>${esc(focusSym)}</b>`,
     `📊 Predicted move: <b>${s.impactPct > 0 ? '+' : ''}${s.impactPct}%</b> (weight ${s.w != null ? s.w : '—'} × strength ${s.s != null ? s.s : '—'} × surprise ${s.f != null ? s.f : '—'})`,
     priceLine,
-    `📤 Alert sent (MYT): ${nowMyt()}`,
+    `🕒 Speech time (MYT): <b>${esc(s.date || 'unknown time')}</b>`,
     `📝 “${esc(s.quote)}”`,
     `🔗 ${esc(s.source || 'Source')}${s.url ? ': ' + s.url : ''}`,
-    CREDIT_LINE
+    CREDIT_LINE,
+    `📤 Alert sent (MYT): ${nowMyt()}`
   ].filter(Boolean).join('\n');
   return { caption, chartUrl: chartImageUrl(focusSym, s.impactPct || 0, s.signal) };
 }
