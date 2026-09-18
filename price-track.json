@@ -1,0 +1,225 @@
+{
+  "pending": [
+    {
+      "key": "news:gold:Yen tumbles despite BOJ lifting rates as Ueda pre-empts aggressive tightening",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Yen tumbles despite BOJ lifting rates as Ueda pre-empts aggressive tightening",
+      "url": "https://www.investing.com/news/forex-news/asia-fx-mixed-as-yen-slides-despite-boj-rate-hike-4906678",
+      "predictedPct": -0.23,
+      "priceAtDetect": 4417.7,
+      "createdAt": "2026-09-18T11:50:14.307Z",
+      "settleAt": "2026-09-18T12:35:14.307Z"
+    },
+    {
+      "key": "news:gold:What Fed rate hikes mean for gold prices in 2027, according to Goldman",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "What Fed rate hikes mean for gold prices in 2027, according to Goldman",
+      "url": "https://www.investing.com/news/commodities-news/what-fed-rate-hikes-mean-for-gold-prices-in-2027-according-to-goldman-4907014",
+      "predictedPct": -0.15,
+      "priceAtDetect": 4417.7,
+      "createdAt": "2026-09-18T11:50:14.308Z",
+      "settleAt": "2026-09-18T12:35:14.308Z"
+    },
+    {
+      "key": "news:gold:Australian Dollar strengthens as RBA maintains hawkish stance",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Australian Dollar strengthens as RBA maintains hawkish stance",
+      "url": "https://www.fxstreet.com/news/australian-dollar-strengthens-as-rba-maintains-hawkish-stance-202609181107",
+      "predictedPct": -0.36,
+      "priceAtDetect": 4417.7,
+      "createdAt": "2026-09-18T11:50:14.308Z",
+      "settleAt": "2026-09-18T12:35:14.308Z"
+    },
+    {
+      "key": "news:gold:Bank of Japan: Hawkish path with FX doubts – TD Securities",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Bank of Japan: Hawkish path with FX doubts – TD Securities",
+      "url": "https://www.fxstreet.com/news/bank-of-japan-hawkish-path-with-fx-doubts-td-securities-202609181002",
+      "predictedPct": -0.39,
+      "priceAtDetect": 4417.7,
+      "createdAt": "2026-09-18T11:50:14.308Z",
+      "settleAt": "2026-09-18T12:35:14.308Z"
+    },
+    {
+      "key": "news:gold:Australian Dollar soars against Japanese Yen as BoJ rate hike disappoints hawks",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Australian Dollar soars against Japanese Yen as BoJ rate hike disappoints hawks",
+      "url": "https://www.fxstreet.com/news/australian-dollar-soars-against-japanese-yen-as-boj-rate-hike-disappoints-hawks-202609180955",
+      "predictedPct": -0.36,
+      "priceAtDetect": 4417.7,
+      "createdAt": "2026-09-18T11:50:14.308Z",
+      "settleAt": "2026-09-18T12:35:14.308Z"
+    },
+    {
+      "key": "news:gold:Euro: Hawkish ECB offers limited support against US Dollar - ING",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Euro: Hawkish ECB offers limited support against US Dollar - ING",
+      "url": "https://www.fxstreet.com/news/euro-hawkish-ecb-offers-limited-support-against-us-dollar-ing-202609180907",
+      "predictedPct": -0.36,
+      "priceAtDetect": 4417.7,
+      "createdAt": "2026-09-18T11:50:14.308Z",
+      "settleAt": "2026-09-18T12:35:14.308Z"
+    },
+    {
+      "key": "news:crypto:Yen tumbles despite BOJ lifting rates as Ueda pre-empts aggressive tightening",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Yen tumbles despite BOJ lifting rates as Ueda pre-empts aggressive tightening",
+      "url": "https://www.investing.com/news/forex-news/asia-fx-mixed-as-yen-slides-despite-boj-rate-hike-4906678",
+      "predictedPct": -0.23,
+      "priceAtDetect": 77970.08,
+      "createdAt": "2026-09-18T11:50:14.308Z",
+      "settleAt": "2026-09-18T12:35:14.308Z"
+    },
+    {
+      "key": "news:crypto:Here’s what BoE tightening means for EUR/GBP",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Here’s what BoE tightening means for EUR/GBP",
+      "url": "https://www.investing.com/news/forex-news/heres-what-boe-tightening-means-for-eurgbp-4906839",
+      "predictedPct": -0.23,
+      "priceAtDetect": 77970.08,
+      "createdAt": "2026-09-18T11:50:14.308Z",
+      "settleAt": "2026-09-18T12:35:14.308Z"
+    },
+    {
+      "key": "news:crypto:What Fed rate hikes mean for gold prices in 2027, according to Goldman",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "What Fed rate hikes mean for gold prices in 2027, according to Goldman",
+      "url": "https://www.investing.com/news/commodities-news/what-fed-rate-hikes-mean-for-gold-prices-in-2027-according-to-goldman-4907014",
+      "predictedPct": -0.08,
+      "priceAtDetect": 77970.08,
+      "createdAt": "2026-09-18T11:50:14.308Z",
+      "settleAt": "2026-09-18T12:35:14.308Z"
+    },
+    {
+      "key": "news:crypto:Australian Dollar strengthens as RBA maintains hawkish stance",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Australian Dollar strengthens as RBA maintains hawkish stance",
+      "url": "https://www.fxstreet.com/news/australian-dollar-strengthens-as-rba-maintains-hawkish-stance-202609181107",
+      "predictedPct": -0.41,
+      "priceAtDetect": 77970.08,
+      "createdAt": "2026-09-18T11:50:14.308Z",
+      "settleAt": "2026-09-18T12:35:14.308Z"
+    },
+    {
+      "key": "news:crypto:Bank of Japan: Hawkish path with FX doubts – TD Securities",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Bank of Japan: Hawkish path with FX doubts – TD Securities",
+      "url": "https://www.fxstreet.com/news/bank-of-japan-hawkish-path-with-fx-doubts-td-securities-202609181002",
+      "predictedPct": -0.41,
+      "priceAtDetect": 77970.08,
+      "createdAt": "2026-09-18T11:50:14.308Z",
+      "settleAt": "2026-09-18T12:35:14.308Z"
+    },
+    {
+      "key": "news:crypto:Australian Dollar soars against Japanese Yen as BoJ rate hike disappoints hawks",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Australian Dollar soars against Japanese Yen as BoJ rate hike disappoints hawks",
+      "url": "https://www.fxstreet.com/news/australian-dollar-soars-against-japanese-yen-as-boj-rate-hike-disappoints-hawks-202609180955",
+      "predictedPct": -0.41,
+      "priceAtDetect": 77970.08,
+      "createdAt": "2026-09-18T11:50:14.308Z",
+      "settleAt": "2026-09-18T12:35:14.308Z"
+    },
+    {
+      "key": "news:crypto:Euro: Hawkish ECB offers limited support against US Dollar - ING",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Euro: Hawkish ECB offers limited support against US Dollar - ING",
+      "url": "https://www.fxstreet.com/news/euro-hawkish-ecb-offers-limited-support-against-us-dollar-ing-202609180907",
+      "predictedPct": -0.41,
+      "priceAtDetect": 77970.08,
+      "createdAt": "2026-09-18T11:50:14.308Z",
+      "settleAt": "2026-09-18T12:35:14.308Z"
+    },
+    {
+      "key": "news:forex:Yen tumbles despite BOJ lifting rates as Ueda pre-empts aggressive tightening",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Yen tumbles despite BOJ lifting rates as Ueda pre-empts aggressive tightening",
+      "url": "https://www.investing.com/news/forex-news/asia-fx-mixed-as-yen-slides-despite-boj-rate-hike-4906678",
+      "predictedPct": -0.23,
+      "priceAtDetect": 1.1465,
+      "createdAt": "2026-09-18T11:50:14.308Z",
+      "settleAt": "2026-09-18T12:35:14.308Z"
+    },
+    {
+      "key": "news:forex:Here’s what BoE tightening means for EUR/GBP",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Here’s what BoE tightening means for EUR/GBP",
+      "url": "https://www.investing.com/news/forex-news/heres-what-boe-tightening-means-for-eurgbp-4906839",
+      "predictedPct": -0.45,
+      "priceAtDetect": 1.1465,
+      "createdAt": "2026-09-18T11:50:14.308Z",
+      "settleAt": "2026-09-18T12:35:14.308Z"
+    },
+    {
+      "key": "news:forex:What Fed rate hikes mean for gold prices in 2027, according to Goldman",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "What Fed rate hikes mean for gold prices in 2027, according to Goldman",
+      "url": "https://www.investing.com/news/commodities-news/what-fed-rate-hikes-mean-for-gold-prices-in-2027-according-to-goldman-4907014",
+      "predictedPct": -0.08,
+      "priceAtDetect": 1.1465,
+      "createdAt": "2026-09-18T11:50:14.308Z",
+      "settleAt": "2026-09-18T12:35:14.309Z"
+    },
+    {
+      "key": "news:forex:Australian Dollar strengthens as RBA maintains hawkish stance",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Australian Dollar strengthens as RBA maintains hawkish stance",
+      "url": "https://www.fxstreet.com/news/australian-dollar-strengthens-as-rba-maintains-hawkish-stance-202609181107",
+      "predictedPct": -0.23,
+      "priceAtDetect": 1.1465,
+      "createdAt": "2026-09-18T11:50:14.309Z",
+      "settleAt": "2026-09-18T12:35:14.309Z"
+    },
+    {
+      "key": "news:forex:Bank of Japan: Hawkish path with FX doubts – TD Securities",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Bank of Japan: Hawkish path with FX doubts – TD Securities",
+      "url": "https://www.fxstreet.com/news/bank-of-japan-hawkish-path-with-fx-doubts-td-securities-202609181002",
+      "predictedPct": -0.39,
+      "priceAtDetect": 1.1465,
+      "createdAt": "2026-09-18T11:50:14.309Z",
+      "settleAt": "2026-09-18T12:35:14.309Z"
+    },
+    {
+      "key": "news:forex:Australian Dollar soars against Japanese Yen as BoJ rate hike disappoints hawks",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Australian Dollar soars against Japanese Yen as BoJ rate hike disappoints hawks",
+      "url": "https://www.fxstreet.com/news/australian-dollar-soars-against-japanese-yen-as-boj-rate-hike-disappoints-hawks-202609180955",
+      "predictedPct": -0.23,
+      "priceAtDetect": 1.1465,
+      "createdAt": "2026-09-18T11:50:14.309Z",
+      "settleAt": "2026-09-18T12:35:14.309Z"
+    },
+    {
+      "key": "news:forex:Euro: Hawkish ECB offers limited support against US Dollar - ING",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Euro: Hawkish ECB offers limited support against US Dollar - ING",
+      "url": "https://www.fxstreet.com/news/euro-hawkish-ecb-offers-limited-support-against-us-dollar-ing-202609180907",
+      "predictedPct": -0.23,
+      "priceAtDetect": 1.1465,
+      "createdAt": "2026-09-18T11:50:14.309Z",
+      "settleAt": "2026-09-18T12:35:14.309Z"
+    }
+  ],
+  "results": []
+}

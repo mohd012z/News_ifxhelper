@@ -43,6 +43,6 @@ jobs:
         run: |
           git config user.name "xau-desk-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add news-auto.js macro-auto.js .news-alert-state.json
+          git add news-auto.js macro-auto.js .news-alert-state.json price-track.json
           git diff --cached --quiet || git commit -m "bot: refresh news + macro [skip ci]"
           git push

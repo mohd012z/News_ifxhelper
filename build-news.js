@@ -24,7 +24,92 @@ const fs = require('fs');
 const path = require('path');
 
 const OUT = path.join(__dirname, 'news-auto.js');
+const TRACK_FILE = path.join(__dirname, 'price-track.json');
 const UA = { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) XAU-Desk-NewsBot/1.0' };
+
+// ---- Real-time-ish spot price, one per tab (same free/key-free sources as build-atr.js) ----
+// News/speaker rows are scored per TAB (instrumentScale), not per specific pair - see
+// buildNewsRow()/buildSpeakerRow() below - so a single representative instrument per tab is the
+// right granularity to measure "did price actually move the way the model predicted", not a
+// full per-pair price. XAU for gold, BTC for crypto, EUR/USD (dollar's most-traded pair) for forex.
+const TRACK_INSTRUMENTS = {
+  gold: { label: 'XAU/USD', kind: 'yahoo', sym: 'GC=F' },
+  crypto: { label: 'BTC/USD', kind: 'coinbase', product: 'BTC-USD' },
+  forex: { label: 'EUR/USD', kind: 'yahoo', sym: 'EURUSD=X' }
+};
+async function yahooLast(sym) {
+  const url = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(sym)}?range=1d&interval=1m`;
+  const r = await fetch(url, { headers: UA });
+  if (!r.ok) throw new Error('HTTP ' + r.status);
+  const j = await r.json();
+  const res = j.chart && j.chart.result && j.chart.result[0];
+  const price = res && res.meta && res.meta.regularMarketPrice;
+  if (price == null) throw new Error('no price');
+  return price;
+}
+async function coinbaseLast(product) {
+  const url = `https://api.exchange.coinbase.com/products/${product}/ticker`;
+  const r = await fetch(url, { headers: UA });
+  if (!r.ok) throw new Error('HTTP ' + r.status);
+  const j = await r.json();
+  const price = j && +j.price;
+  if (!price) throw new Error('no price');
+  return price;
+}
+async function fetchSpot(tabId) {
+  const cfg = TRACK_INSTRUMENTS[tabId];
+  if (!cfg) return null;
+  try { return cfg.kind === 'yahoo' ? await yahooLast(cfg.sym) : await coinbaseLast(cfg.product); }
+  catch (e) { console.log('WARN spot: ' + tabId + ' -> ' + e.message); return null; }
+}
+async function fetchAllSpots() {
+  const out = {};
+  for (const tabId of Object.keys(TRACK_INSTRUMENTS)) { out[tabId] = await fetchSpot(tabId); await sleep(120); }
+  return out;
+}
+
+function loadTrackState() {
+  try { return JSON.parse(fs.readFileSync(TRACK_FILE, 'utf8')); }
+  catch (e) { return { pending: [], results: [] }; }
+}
+function saveTrackState(state) { fs.writeFileSync(TRACK_FILE, JSON.stringify(state, null, 2), 'utf8'); }
+
+const SETTLE_MINUTES = 45; // how long to wait before checking "did the predicted move actually happen"
+const MAX_PENDING = 150, MAX_RESULTS = 300; // keep the state file bounded
+
+/* Starts tracking a freshly-classified (non-neutral) row: snapshots the tab's real spot price now,
+ * so a later run can measure the REAL price change against the model's predicted impactPct - this
+ * is what turns "the model guessed +0.55%" into "the model guessed +0.55%, price actually did
+ * +0.62%, correct direction" instead of asking the user to go verify it themselves. */
+function trackNewRow(state, tabId, kind, title, url, impactPct, spotNow) {
+  if (!impactPct || spotNow == null) return; // nothing to compare a neutral/zero call against
+  const key = kind + ':' + tabId + ':' + title;
+  if (state.pending.some(p => p.key === key) || state.results.some(r => r.key === key)) return; // already tracked
+  if (state.pending.length >= MAX_PENDING) return;
+  state.pending.push({
+    key, tabId, kind, title, url, predictedPct: impactPct,
+    priceAtDetect: spotNow, createdAt: new Date().toISOString(), settleAt: new Date(Date.now() + SETTLE_MINUTES * 60000).toISOString()
+  });
+}
+/* Settles any pending entries whose window has elapsed: fetches the tab's current spot again and
+ * computes the REALIZED % move using the identical sign convention as impactPct (positive = price
+ * up). "Correct" means the realized move's direction matches the predicted direction and isn't
+ * noise-level (>=0.05%) - a dead-flat market isn't a wrong call, it's an inconclusive one. */
+async function settlePending(state, spots) {
+  const now = Date.now();
+  const due = state.pending.filter(p => new Date(p.settleAt).getTime() <= now);
+  if (!due.length) return;
+  for (const p of due) {
+    const spotNow = spots[p.tabId];
+    state.pending = state.pending.filter(x => x.key !== p.key);
+    if (spotNow == null || p.priceAtDetect == null) continue; // can't settle without both prices - drop it
+    const realizedPct = +(((spotNow - p.priceAtDetect) / p.priceAtDetect) * 100).toFixed(2);
+    const predictedUp = p.predictedPct > 0, realizedUp = realizedPct > 0;
+    const verdict = Math.abs(realizedPct) < 0.05 ? 'flat' : (predictedUp === realizedUp ? 'correct' : 'wrong');
+    state.results.unshift({ ...p, priceAtSettle: spotNow, realizedPct, verdict, settledAt: new Date().toISOString() });
+  }
+  state.results = state.results.slice(0, MAX_RESULTS);
+}
 
 // ---- Model constants (mirrors xauusd-data.js model{} so scores are comparable) ----
 const MODEL = {
@@ -91,6 +176,76 @@ function strengthFor(side, text) {
 function impactScore(instrumentScale, w, s, f, side, relevance) {
   const v = MODEL.base * instrumentScale * w * s * f * (relevance == null ? 1 : relevance);
   return +((side === 'hawkish' ? -v : v).toFixed(2));
+}
+
+// ---- Country/currency awareness + instrument relevance + conflict gating ----
+// ForexFactory's calendar feed tags each event with a 3-letter currency code (e.currency,
+// re-used as the "country" column) - map it to a readable country name for display.
+const COUNTRY_CCY = [
+  { code: 'USD', country: 'United States' },
+  { code: 'EUR', country: 'Euro Area' },
+  { code: 'GBP', country: 'United Kingdom' },
+  { code: 'JPY', country: 'Japan' },
+  { code: 'AUD', country: 'Australia' },
+  { code: 'NZD', country: 'New Zealand' },
+  { code: 'CAD', country: 'Canada' },
+  { code: 'CHF', country: 'Switzerland' },
+  { code: 'CNY', country: 'China' }
+];
+const CCY_CODES = COUNTRY_CCY.map(c => c.code);
+/* Which market "drivers" a headline is actually talking about - independent of which currency/
+ * central bank it names. This is what lets a USD-tagged headline be recognised as being about
+ * gold (rate-driven), crypto (risk-driven), both, or neither. */
+function driverContext(text) {
+  return {
+    currencies: CCY_CODES.filter(c => new RegExp('\\b' + c + '\\b', 'i').test(text)),
+    gold: /\b(gold|xau|bullion|precious metal)/i.test(text),
+    yields: /\b(yield|treasury|10-year|10y\b)/i.test(text),
+    usd: /\b(dollar|\busd\b|greenback|\bdxy\b)/i.test(text),
+    oil: /\b(oil|brent|wti|crude)/i.test(text),
+    risk: /\b(risk[- ]?(on|off|averse|appetite)|safe[- ]?haven|geopolitical)/i.test(text),
+    crypto: /\b(bitcoin|crypto|\bbtc\b|ethereum|\beth\b)/i.test(text)
+  };
+}
+/* How much weight this instrument (tab) should give a headline, based on what it's actually
+ * about rather than just which currency got tagged. Gold and crypto have well-known dominant
+ * drivers (USD/real yields for gold, risk sentiment/USD for crypto); a headline naming a currency
+ * with none of those markers is still monetary-policy-relevant, just weaker. The forex tab cares
+ * about any currency mention at all - that IS the tab's whole subject. */
+function relevanceFor(tab, text) {
+  const ctx = driverContext(text);
+  if (tab === 'crypto') {
+    if (ctx.crypto) return 1.0;
+    if (ctx.risk || ctx.usd || ctx.yields) return 0.7;
+    return 0.4;
+  }
+  if (tab === 'forex') return ctx.currencies.length ? 1.0 : 0.5;
+  // gold (default)
+  if (ctx.gold) return 1.0;
+  if (ctx.usd || ctx.yields) return 0.8;
+  if (ctx.risk) return 0.6;
+  if (ctx.currencies.length && ctx.currencies.indexOf('USD') === -1) return 0.35;
+  return 0.5;
+}
+/* Combines relevance with a "conflict gate": if the headline's OWN described price action
+ * contradicts the direction its hawkish/dovish policy tilt would imply for this instrument (e.g.
+ * a hawkish-Fed headline that also says gold is rising), that's a real observed-market conflict,
+ * not the model being confidently wrong - gate the signal to NEUTRAL/CONFLICT rather than assert
+ * a contradicted direction. Same reasoning as classify()'s negation-stripping: safer to go quiet
+ * than confidently wrong. */
+function instrumentDecision(tab, text, side) {
+  const ctx = driverContext(text);
+  const relevance = relevanceFor(tab, text);
+  let signal = side === 'hawkish' ? 'SELL' : side === 'dovish' ? 'BUY' : 'NEUTRAL';
+  let state = side ? 'DIRECTIONAL' : 'NEUTRAL';
+  const observedUp = /\b(rise|rises|rising|rallies|rally|jumps?|surge\w*|gains?|climbs?|higher|\bup\b)\b/i.test(text);
+  const observedDown = /\b(fall\w*|drops?|slides?|slumps?|declines?|lower|\bdown\b|tumbles?)\b/i.test(text);
+  if (side && relevance < 0.4) { signal = 'NEUTRAL'; state = 'LOW_RELEVANCE'; }
+  else if (side && observedUp && observedDown) { state = 'CONFLICT'; }
+  else if (side && ((signal === 'BUY' && observedDown) || (signal === 'SELL' && observedUp)) && (ctx.gold || ctx.crypto || ctx.usd)) {
+    signal = 'NEUTRAL'; state = 'CONFLICT';
+  }
+  return { relevance, signal, state, context: ctx, policySide: side };
 }
 
 // ---- Minimal, dependency-free RSS <item> parser (title/link/pubDate) ----
@@ -219,6 +374,8 @@ async function getHeadlines(limit) {
   return out;
 }
 
+/* tab drives relevanceFor()/instrumentDecision() below - which market drivers (gold/yields/usd/
+ * oil/risk/crypto) actually matter for THIS instrument, not just which currency got tagged. */
 function buildNewsRow(it, tab, instrumentScale) {
   const side = classify(it.title);
   const { w } = weightFor(it.title);
@@ -239,13 +396,14 @@ function buildNewsRow(it, tab, instrumentScale) {
     decisionState: d.state,
     relevance: +d.relevance.toFixed(2),
     currencies: d.context.currencies,
-    drivers: { gold:d.context.gold, yields:d.context.yields, usd:d.context.usd, oil:d.context.oil, risk:d.context.risk, crypto:d.context.crypto },
+    drivers: { gold: d.context.gold, yields: d.context.yields, usd: d.context.usd, oil: d.context.oil, risk: d.context.risk, crypto: d.context.crypto },
     policySide: d.policySide,
     impactScore: signedScore,
     impactPct: signedScore, // compatibility only: UI field retained; this is an impact score, NOT a calibrated return forecast
     auto: true
   };
 }
+
 function buildSpeakerRow(it, instrumentScale) {
   const side = classify(it.title);
   if (!side) return null;
@@ -294,21 +452,46 @@ function buildSpeakerRow(it, instrumentScale) {
       speakers: speakerSource.map(it => buildSpeakerRow(it, MODEL.cryptoScale)).filter(Boolean)
     },
     forex: {
-      news: newsSource.map(it => buildNewsRow(it, 'gold', 1.0)),
+      news: newsSource.map(it => buildNewsRow(it, 'forex', 1.0)),
       speakers: speakerSource.map(it => buildSpeakerRow(it, 1.0)).filter(Boolean)
     }
   };
+
+  // ---- Price-reaction tracking: "did the predicted move actually happen" ----
+  // Real, free spot price per tab (see TRACK_INSTRUMENTS above) - not a model estimate.
+  let priceTrack = { pending: 0, resultsRecent: [], accuracy: null };
+  try {
+    const spots = await fetchAllSpots();
+    console.log('OK   spots           ' + Object.entries(spots).map(([k, v]) => k + '=' + (v != null ? v : 'FAIL')).join(' '));
+    const state = loadTrackState();
+    await settlePending(state, spots);
+    for (const tabId of Object.keys(byTab)) {
+      const spotNow = spots[tabId];
+      byTab[tabId].news.forEach(n => { if (n.impactPct) trackNewRow(state, tabId, 'news', n.title, n.url, n.impactPct, spotNow); });
+      byTab[tabId].speakers.forEach(s => { if (s.impactPct) trackNewRow(state, tabId, 'speaker', s.quote, s.url, s.impactPct, spotNow); });
+    }
+    saveTrackState(state);
+    const settled = state.results.filter(r => r.verdict !== 'flat');
+    const correct = settled.filter(r => r.verdict === 'correct').length;
+    priceTrack = {
+      pending: state.pending.length,
+      resultsRecent: state.results.slice(0, 20),
+      accuracy: settled.length ? { correct, total: settled.length, pct: +((correct / settled.length) * 100).toFixed(1) } : null
+    };
+    console.log('OK   price-track     pending=' + state.pending.length + '  results=' + state.results.length + (priceTrack.accuracy ? '  accuracy=' + priceTrack.accuracy.pct + '%' : ''));
+  } catch (e) { console.log('FAIL price-track     -> ' + e.message); }
 
   const out = {
     generatedAt: new Date().toISOString().slice(0, 19).replace('T', ' ') + 'Z',
     note: 'Auto-collected: economic calendar is real structured data; news rows are country/currency-aware and instrument-filtered; mixed observed-vs-policy direction becomes CONFLICT/NEUTRAL. impactPct is retained only for UI compatibility and is an impact score, not a calibrated return forecast. Treat auto:true rows as a first pass.',
     incoming: calendar.slice(0, 12),
-    byTab
+    byTab,
+    priceTrack
   };
 
   const body = '/* Auto-generated by build-news.js - real economic-calendar + real headline feeds,\n' +
     ' * classified hawkish/dovish by keyword heuristic and scored with the same\n' +
-    ' * impactScore = BASE x instrumentScale x sourceWeight x signalStrength x surpriseFactor x instrumentRelevance model as xauusd-data.js.\n' +
+    ' * impact% = BASE x speakerWeight x signalStrength x surpriseFactor model as xauusd-data.js.\n' +
     ' * ADDITIVE ONLY - never edits xauusd-data.js. Merge happens in the browser, see mergeNewsAuto().\n' +
     ' * Regenerate: node build-news.js (run on the same daily cron as build-atr.js).\n */\n' +
     'window.NEWS_AUTO = ' + JSON.stringify(out, null, 2) + ';\n\n' +

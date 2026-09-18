@@ -348,6 +348,34 @@ function speakerCard(MARKET_DATA, tab, s) {
   ].filter(Boolean).join('\n');
   return { caption, chartUrl: chartImageUrl(focusSym, s.impactPct || 0, s.signal) };
 }
+/* Closes the loop build-news.js's price-tracker opens: instead of asking the user to go verify a
+ * headline's real price reaction themselves, report what price ACTUALLY did (real spot fetched
+ * ~45 min after detection) against what the classifier PREDICTED, with a plain correct/wrong
+ * verdict. r is one entry from NEWS_AUTO.priceTrack.resultsRecent (see build-news.js). */
+function resultCard(r) {
+  const focusSym = TRACK_LABEL[r.tabId] || r.tabId;
+  const verdictLine = r.verdict === 'correct' ? '✅✅✅ <b>RESULT: CORRECT</b> ✅✅✅'
+    : r.verdict === 'wrong' ? '❌❌❌ <b>RESULT: WRONG</b> ❌❌❌'
+      : '⚪⚪⚪ <b>RESULT: FLAT / INCONCLUSIVE</b> ⚪⚪⚪';
+  const caption = [
+    `<b>${esc(focusSym)}</b> — price-track result`,
+    verdictLine,
+    'ℹ️ Predicted from the headline classifier at detection time, checked against a real spot price ~45 min later',
+    `🎯 Focus symbol: <b>${esc(focusSym)}</b>`,
+    `📊 Predicted move: <b>${r.predictedPct > 0 ? '+' : ''}${r.predictedPct}%</b> (model estimate)`,
+    IMPACT_TIER_LABEL[impactTier(r.predictedPct)],
+    movementLabel(r.predictedPct),
+    `📏 Actual move: <b>${fmtPrice(r.priceAtDetect)} → ${fmtPrice(r.priceAtSettle)}</b> (${r.realizedPct > 0 ? '+' : ''}${r.realizedPct}%)`,
+    `🕒 Checked (MYT): <b>${esc(nowMyt())}</b>`,
+    `📝 ${esc(r.title)}`,
+    r.url ? `🔗 Source: ${r.url}` : null,
+    CREDIT_LINE,
+    `📤 Alert sent (MYT): ${nowMyt()}`
+  ].filter(Boolean).join('\n');
+  return { caption, chartUrl: null };
+}
+const TRACK_LABEL = { gold: 'XAU/USD', crypto: 'BTC/USD', forex: 'EUR/USD' };
+
 /* Countdown reminder card - same focus/reasoning/price-move fields as eventCard(), just framed
  * as "T-minus" instead of "new event detected". stage is one of REMINDER_STAGES (minutes). */
 function reminderCard(MARKET_DATA, atrData, e, minutesLeft, stage, pool) {
@@ -742,7 +770,16 @@ function buildWeeklyOutlook(MARKET_DATA, NEWS_AUTO) {
     });
   });
 
-  console.log(`Checked ${incoming.length} calendar rows, ${tabs.reduce((n, t) => n + (t.news || []).length + (t.speakers || []).length, 0)} news/speaker rows -> ${toSend.length} new candidate(s).`);
+  // 3. Settled price-track results (build-news.js) - "predicted X%, actually did Y%, correct/wrong"
+  const resultsRecent = (NEWS_AUTO && NEWS_AUTO.priceTrack && NEWS_AUTO.priceTrack.resultsRecent) || [];
+  resultsRecent.forEach(r => {
+    const key = 'result:' + r.key;
+    if (seen.has(key)) return;
+    if (r.verdict === 'flat') { seen.add(key); return; } // inconclusive - record as seen, don't alert
+    toSend.push({ key, card: resultCard(r) });
+  });
+
+  console.log(`Checked ${incoming.length} calendar rows, ${tabs.reduce((n, t) => n + (t.news || []).length + (t.speakers || []).length, 0)} news/speaker rows, ${resultsRecent.length} price-track results -> ${toSend.length} new candidate(s).`);
 
   let sentCount = 0, failCount = 0, skippedNoCreds = false;
   for (const item of toSend) {
