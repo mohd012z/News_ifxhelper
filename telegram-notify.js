@@ -55,14 +55,25 @@ function saveState(state) {
   fs.writeFileSync(STATE_FILE, JSON.stringify(state, null, 2), 'utf8');
 }
 
+/* fetch() itself can THROW (DNS hiccup, connection timeout, transient network failure) - not just
+ * resolve to a non-ok HTTP response. This was previously uncaught here, so a single transient
+ * network blip crashed the whole process with an uncaught rejection - which skipped the "commit
+ * state" step further down, discarding the sent/not-sent status of every alert in that run, not
+ * just the one that failed (confirmed live: a real GitHub Actions run threw ETIMEDOUT connecting
+ * to Telegram after 20 successful sends, and lost all 20 of them back to "unsent" - they would
+ * have been RE-sent as duplicates on the next run). A network throw is treated exactly like a
+ * failed send: not marked as sent, retried next run - same as any other failure path here. */
 async function sendTelegram(text) {
   if (!TOKEN || !CHAT_ID) { console.log('SKIP (no Telegram credentials configured):\n' + text + '\n'); return { ok: false, skipped: true }; }
   const url = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
-  const r = await fetch(url, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ chat_id: CHAT_ID, text, parse_mode: 'HTML', disable_web_page_preview: true })
-  });
+  let r;
+  try {
+    r = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ chat_id: CHAT_ID, text, parse_mode: 'HTML', disable_web_page_preview: true })
+    });
+  } catch (e) { console.log('FAIL Telegram send (network): ' + e.message); return { ok: false }; }
   const j = await r.json().catch(() => ({}));
   if (!r.ok || !j.ok) { console.log('FAIL Telegram send: ' + (j.description || r.status)); return { ok: false }; }
   return { ok: true };
@@ -70,18 +81,21 @@ async function sendTelegram(text) {
 /* Sends the card as a photo with the full card as its caption (QuickChart.io - free, key-free,
  * renders a real PNG bar from a JSON chart spec, no account needed). Falls back to a plain text
  * message if the photo send fails for any reason (bad URL, caption over Telegram's 1024-char
- * photo-caption limit, QuickChart hiccup) so a chart problem never costs you the alert itself. */
+ * photo-caption limit, QuickChart hiccup, or a network-level throw - see sendTelegram() above)
+ * so a chart problem never costs you the alert itself. */
 async function sendTelegramCard(caption, chartUrl) {
   if (!TOKEN || !CHAT_ID) { console.log('SKIP (no Telegram credentials configured):\n' + caption + '\n'); return { ok: false, skipped: true }; }
   if (chartUrl && caption.length <= 1024) {
-    const r = await fetch(`https://api.telegram.org/bot${TOKEN}/sendPhoto`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chat_id: CHAT_ID, photo: chartUrl, caption, parse_mode: 'HTML' })
-    });
-    const j = await r.json().catch(() => ({}));
-    if (r.ok && j.ok) return { ok: true };
-    console.log('Photo send failed (' + (j.description || r.status) + ') - falling back to text.');
+    try {
+      const r = await fetch(`https://api.telegram.org/bot${TOKEN}/sendPhoto`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ chat_id: CHAT_ID, photo: chartUrl, caption, parse_mode: 'HTML' })
+      });
+      const j = await r.json().catch(() => ({}));
+      if (r.ok && j.ok) return { ok: true };
+      console.log('Photo send failed (' + (j.description || r.status) + ') - falling back to text.');
+    } catch (e) { console.log('Photo send failed (network: ' + e.message + ') - falling back to text.'); }
   }
   return sendTelegram(caption);
 }
