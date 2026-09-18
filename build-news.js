@@ -135,6 +135,15 @@ const MODEL = {
 //   also contains a monetary-policy context word (Fed, ECB, rate, central bank, ...) - a plain
 //   commodity/labour/tax headline won't have both, so it stays unclassified (shown NEUTRAL).
 const CONTEXT_WORDS = /\b(rate|rates|\bfed\b|federal reserve|fomc|ecb|european central bank|boj|bank of japan|boe|bank of england|rba|rbnz|snb|bank of canada|central bank|interest rate|monetary policy|policymakers?)\b/i;
+// WEAK-tier's own, stricter gate: naming the institution ("Bank of England", "Monetary Policy
+// Committee") is NOT enough on its own - that phrase appears in nearly every routine release a
+// central bank publishes (technical notices, gilt/bond operations, administrative announcements),
+// regardless of actual policy stance. Found live: widening classify() to title+description surfaced
+// a BoE "Asset Purchase Facility: Gilt Sales" notice - a bond-operations technicality, not a
+// policy signal - that matched DOVISH_WEAK's bare "pause" purely because the notice happened to
+// name the Monetary Policy Committee. WEAK-tier words now require an explicit RATE mention, not
+// just an institution name.
+const RATE_CONTEXT_WORDS = /\b(rate|rates|interest rate|policy rate|benchmark rate|rate decision)\b/i;
 const HAWKISH_STRONG = /\b(rate hike|rate increase|rate rise|raised rates|raise rates|hiked rates|hawkish|higher for longer|tightening cycle|restrictive stance)\b/i;
 const HAWKISH_WEAK = /\b(hike|hikes|hiking|tighten|tightening|restrictive|overheating|sticky inflation|hot inflation|inflation concern)\b/i;
 const DOVISH_STRONG = /\b(rate cut|cut rates|cutting rates|lowered rates|lower rates|dovish|rate decrease|easing cycle|accommodative stance)\b/i;
@@ -152,7 +161,7 @@ function classify(textRaw) {
   const hStrong = HAWKISH_STRONG.test(text), dStrong = DOVISH_STRONG.test(text);
   if (hStrong && !dStrong) return 'hawkish';
   if (dStrong && !hStrong) return 'dovish';
-  if (CONTEXT_WORDS.test(text)) {
+  if (CONTEXT_WORDS.test(text) && RATE_CONTEXT_WORDS.test(text)) {
     const hWeak = HAWKISH_WEAK.test(text), dWeak = DOVISH_WEAK.test(text);
     if (hWeak && !dWeak) return 'hawkish';
     if (dWeak && !hWeak) return 'dovish';
@@ -261,9 +270,25 @@ function parseRss(xml, limit) {
       .replace(/<!\[CDATA\[|\]\]>/g, '').trim();
     const pubDate = (block.match(/<pubDate>([\s\S]*?)<\/pubDate>/i) || [, ''])[1]
       .replace(/<!\[CDATA\[|\]\]>/g, '').trim();
-    if (title) items.push({ title, link, pubDate });
+    // Summary/description text, stripped of any HTML markup - classify() reads title+description
+    // together so a headline with no keyword of its own ("Powell speaks today") but a hawkish/
+    // dovish summary still gets caught, instead of being silently missed.
+    const description = (block.match(/<description>([\s\S]*?)<\/description>/i) || [, ''])[1]
+      .replace(/<!\[CDATA\[|\]\]>/g, '').replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').replace(/&#39;/g, "'").replace(/\s+/g, ' ').trim();
+    if (title) items.push({ title, link, pubDate, description });
   }
   return items;
+}
+/* Defensive staleness guard: at least one candidate feed (Yahoo Finance's general news RSS,
+ * checked and NOT wired in below) was confirmed to interleave genuinely old evergreen articles
+ * (2024/2025 dates) alongside real same-day news with no way to tell from feed order alone. Any
+ * feed doing this would otherwise get treated as "just detected" - drop anything older than this
+ * window regardless of source, rather than trusting every feed's freshness by assumption. */
+const MAX_ITEM_AGE_HOURS = 48;
+function isFresh(pubDate) {
+  const d = parseFeedDate(pubDate);
+  if (!d) return true; // no parseable date - let it through rather than silently drop real content
+  return (Date.now() - d.getTime()) / 3600000 <= MAX_ITEM_AGE_HOURS;
 }
 
 async function fetchText(url) {
@@ -339,16 +364,25 @@ async function getCalendar() {
 }
 
 // ---- 2. Central-bank press releases (real, official) - the trustworthy hawkish/dovish source ----
+// BoE and BoJ added after live-testing every G10 central bank's public feed: RBA returns an
+// Akamai "Access Denied" page dressed up as XML despite HTTP 200, RBNZ's /rss path 404s, SNB's
+// blocks the request outright, and Bank of Canada's general "Posts" feed uses <dc:date> (not
+// <pubDate>, so timestamps would silently come through as "unknown time") and mixes in unrelated
+// content (public holidays, a conference hosted on bancaditalia.it) - not a clean press-release
+// source. Checked empirically, not assumed - same discipline as the ForexFactory feed's
+// "thisweek-only" finding. PBoC has no reliable free English RSS at all - a permanent gap.
 async function getCentralBankReleases(limit) {
   const feeds = [
     { url: 'https://www.federalreserve.gov/feeds/press_all.xml', name: 'Federal Reserve' },
-    { url: 'https://www.ecb.europa.eu/rss/press.html', name: 'European Central Bank' }
+    { url: 'https://www.ecb.europa.eu/rss/press.html', name: 'European Central Bank' },
+    { url: 'https://www.bankofengland.co.uk/rss/news', name: 'Bank of England' },
+    { url: 'https://www.boj.or.jp/en/rss/whatsnew.xml', name: 'Bank of Japan' }
   ];
   const out = [];
   for (const f of feeds) {
     try {
       const xml = await fetchText(f.url);
-      parseRss(xml, limit).forEach(it => out.push({ ...it, source: f.name }));
+      parseRss(xml, limit).filter(it => isFresh(it.pubDate)).forEach(it => out.push({ ...it, source: f.name }));
     } catch (e) { console.log('WARN central bank: ' + f.name + ' -> ' + e.message); }
     await sleep(150);
   }
@@ -356,18 +390,24 @@ async function getCentralBankReleases(limit) {
 }
 
 // ---- 3. Market headlines (real, forex/commodities/metals wires) ----
+// MarketWatch and CNBC added after live-testing: both return clean RFC822 pubDate and genuinely
+// fresh content. Yahoo Finance's general news RSS was tested and REJECTED - it interleaves
+// evergreen explainer articles (confirmed 2024/2025-dated items mixed into today's feed, with no
+// way to tell from feed order alone) - exactly what isFresh() below now guards against generally.
 async function getHeadlines(limit) {
   const feeds = [
     { url: 'https://www.investing.com/rss/news_1.rss', name: 'Investing.com - Forex News' },
     { url: 'https://www.investing.com/rss/news_11.rss', name: 'Investing.com - Commodities & Futures' },
     { url: 'https://www.investing.com/rss/commodities_Metals.rss', name: 'Investing.com - Metals Analysis' },
-    { url: 'https://www.fxstreet.com/rss/news', name: 'FXStreet - Forex & Markets News' }
+    { url: 'https://www.fxstreet.com/rss/news', name: 'FXStreet - Forex & Markets News' },
+    { url: 'https://feeds.content.dowjones.io/public/rss/mw_topstories', name: 'MarketWatch - Top Stories' },
+    { url: 'https://www.cnbc.com/id/20910258/device/rss/rss.html', name: 'CNBC - Markets' }
   ];
   const out = [];
   for (const f of feeds) {
     try {
       const xml = await fetchText(f.url);
-      parseRss(xml, limit).forEach(it => out.push({ ...it, source: f.name }));
+      parseRss(xml, limit).filter(it => isFresh(it.pubDate)).forEach(it => out.push({ ...it, source: f.name }));
     } catch (e) { console.log('WARN headlines: ' + f.name + ' -> ' + e.message); }
     await sleep(150);
   }
@@ -377,11 +417,14 @@ async function getHeadlines(limit) {
 /* tab drives relevanceFor()/instrumentDecision() below - which market drivers (gold/yields/usd/
  * oil/risk/crypto) actually matter for THIS instrument, not just which currency got tagged. */
 function buildNewsRow(it, tab, instrumentScale) {
-  const side = classify(it.title);
+  // Classify on title+description together - a headline like "Powell speaks at Jackson Hole"
+  // carries no hawkish/dovish keyword of its own even when the actual remarks were sharply
+  // hawkish; the RSS summary usually does. Title alone was silently under-detecting this.
+  const side = classify(it.title + ' ' + (it.description || ''));
   const { w } = weightFor(it.title);
   const s = strengthFor(side, it.title);
   const f = MODEL.surprise.default;
-  const d = instrumentDecision(tab, it.title, side);
+  const d = instrumentDecision(tab, it.title + ' ' + (it.description || ''), side);
   const rawScore = side ? impactScore(instrumentScale, w, s, f, side, d.relevance) : 0;
   const signedScore = d.signal === 'BUY' ? Math.abs(rawScore || 0.01) : d.signal === 'SELL' ? -Math.abs(rawScore || 0.01) : 0;
   return {
@@ -405,7 +448,7 @@ function buildNewsRow(it, tab, instrumentScale) {
 }
 
 function buildSpeakerRow(it, instrumentScale) {
-  const side = classify(it.title);
+  const side = classify(it.title + ' ' + (it.description || ''));
   if (!side) return null;
   const { w, role } = weightFor(it.title);
   const s = strengthFor(side, it.title);
