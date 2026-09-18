@@ -84,6 +84,9 @@
     .b-high{border-color:color-mix(in srgb,var(--bad) 50%,var(--line));color:var(--bad)}
     .b-med{border-color:color-mix(in srgb,var(--warn) 50%,var(--line));color:var(--warn)}
     .b-tf{border-color:color-mix(in srgb,var(--accent2) 45%,var(--line));color:var(--accent2)}
+    .mv-high{border-color:color-mix(in srgb,var(--bad) 50%,var(--line));color:var(--bad)}
+    .mv-med{border-color:color-mix(in srgb,var(--warn) 50%,var(--line));color:var(--warn)}
+    .mv-low{border-color:var(--line);color:var(--muted)}
     .sig{font-size:11.5px;padding:4px 11px;border-radius:6px;font-weight:800;letter-spacing:.06em;white-space:nowrap;display:inline-block}
     .sig-sell{background:color-mix(in srgb,var(--bad) 18%,transparent);color:var(--bad);border:1px solid color-mix(in srgb,var(--bad) 45%,var(--line))}
     .sig-buy{background:color-mix(in srgb,var(--good) 18%,transparent);color:var(--good);border:1px solid color-mix(in srgb,var(--good) 45%,var(--line))}
@@ -402,7 +405,7 @@
           <div class="k">News Feed &mdash; analysed by timeframe</div>
           <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:8px" id="tf-filter"></div>
           <table style="margin-top:8px">
-            <thead><tr><th>Date (MYT)</th><th>Timeframe</th><th>Headline</th><th>Signal</th><th>Est. move</th><th>Source</th></tr></thead>
+            <thead><tr><th>Date (MYT)</th><th>Timeframe</th><th>Headline</th><th>Signal</th><th>Est. move</th><th>Movement</th><th>Source</th></tr></thead>
             <tbody id="news-body"></tbody>
           </table>
           <div class="note">Timeframes: Intraday &middot; 1-3D &middot; Weekly &middot; Structural (months+). Signal rule: hawkish/bearish = SELL, dovish/bullish = BUY. Auto-collected headlines show the real publish day/date/time in Malaysia time (MYT, GMT+8) straight from the source feed. Hand-curated headlines predate that fix and still carry a collection date only, with no intraday timestamp &mdash; for those, see News Incoming for exact clock times (MYT and GMT).</div>

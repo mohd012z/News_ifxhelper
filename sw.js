@@ -2,7 +2,7 @@
  * App shell is cached so the app opens offline; live-data endpoints are always network-only.
  * Note: service workers only run on http(s) origins - opening index.html from file:// skips this file.
  */
-const CACHE = "xaudesk-v3";
+const CACHE = "xaudesk-v4";
 const SHELL = [
   "./",
   "./index.html",

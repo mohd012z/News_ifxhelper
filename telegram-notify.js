@@ -208,6 +208,19 @@ function findAtrRow(atrData, symbolOrPair) {
   return (atrData.rows || []).find(r => r.id === id) || null;
 }
 
+/* Impact tiering (High/Med/Low) and the movement label built from it now live in
+ * shared-market-logic.js so the dashboard and this bot can never silently diverge on what "big
+ * move" means - the same failure class as the earlier eventCurrency/forex-focus bugs. */
+const impactTier = SharedLogic.impactTier;
+const impactTierFromImportance = SharedLogic.impactTierFromImportance;
+const IMPACT_TIER_LABEL = { High: '⚡ Impact: <b>High</b>', Med: '⚡ Impact: <b>Med</b>', Low: '⚡ Impact: <b>Low</b>' };
+function movementLabel(pct) { return movementLabelFromTier(impactTier(pct)); }
+function movementLabelFromImportance(importance) { return movementLabelFromTier(impactTierFromImportance(importance)); }
+function movementLabelFromTier(tier) {
+  const m = SharedLogic.MOVEMENT_LABEL[tier];
+  return `${m.emoji} <b>${m.text}</b> expected — ${m.detail}`;
+}
+
 const TF_CHART = { Intraday: 'M15 - H1', '1-3D': 'H1 - H4', Weekly: 'H4 - D1', Structural: 'D1 - W1' };
 const CREDIT_LINE = '———\n🏷️ ifxhelper_2026';
 const SIGNAL_EMOJI = { BUY: '🟢 BUY', SELL: '🔴 SELL', NEUTRAL: '⚪ NEUTRAL' };
@@ -272,6 +285,8 @@ function eventCard(MARKET_DATA, atrData, e, pool) {
     `ℹ️ ${reasoning}`,
     `🎯 Focus symbol: <b>${esc(focusSym)}</b>`,
     focusLine !== focusSym ? `   ${focusLine}` : null,
+    IMPACT_TIER_LABEL[impactTierFromImportance(e.importance)],
+    movementLabelFromImportance(e.importance),
     priceLine,
     `⏱ Timeframe: <b>${esc(e.focusTf || '—')}</b>`,
     `🕒 Time to trade (MYT): <b>${esc(mytDisplay(e.timeMyt))}</b>${session ? ` · Session: ${esc(session)}` : ''}`,
@@ -298,6 +313,8 @@ function newsCard(MARKET_DATA, tab, n) {
     `ℹ️ ${reasoning}`,
     `🎯 Focus symbol: <b>${esc(focusSym)}</b>`,
     `📊 Predicted move: <b>${n.impactPct > 0 ? '+' : ''}${n.impactPct}%</b> (model estimate)`,
+    IMPACT_TIER_LABEL[impactTier(n.impactPct)],
+    movementLabel(n.impactPct),
     priceLine,
     `⏱ Timeframe: ${esc(n.tf || '—')} → chart: <b>${esc(chart)}</b>`,
     `🕒 News time (MYT): <b>${esc(n.time || 'unknown time')}</b>`,
@@ -320,6 +337,8 @@ function speakerCard(MARKET_DATA, tab, s) {
     `🗣 ${arrow}: <b>${esc(s.name)}</b> (${esc(s.role)})`,
     `🎯 Focus symbol: <b>${esc(focusSym)}</b>`,
     `📊 Predicted move: <b>${s.impactPct > 0 ? '+' : ''}${s.impactPct}%</b> (weight ${s.w != null ? s.w : '—'} × strength ${s.s != null ? s.s : '—'} × surprise ${s.f != null ? s.f : '—'})`,
+    IMPACT_TIER_LABEL[impactTier(s.impactPct)],
+    movementLabel(s.impactPct),
     priceLine,
     `🕒 Speech time (MYT): <b>${esc(s.date || 'unknown time')}</b>`,
     `📝 “${esc(s.quote)}”`,

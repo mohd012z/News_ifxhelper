@@ -87,12 +87,37 @@
     return candidates[0] || null;
   }
 
+  /* Classifies expected movement from a predicted-% magnitude so both the dashboard and the
+   * Telegram bot agree on what "big"/"slow" means - previously this only existed inside
+   * telegram-notify.js, which is exactly the kind of thing that silently diverges (see the
+   * eventCurrency/forex-focus history above) if the dashboard ever grows its own copy.
+   * Thresholds sit on the same scale as the BUY/SELL bias threshold (±0.15): 0.7%+ is a genuinely
+   * large single-event move for these instruments, 0.3-0.7% is a normal tradeable move, below
+   * that is noise-level drift. */
+  function impactTier(pct) {
+    var a = Math.abs(pct || 0);
+    return a >= 0.7 ? "High" : a >= 0.3 ? "Med" : "Low";
+  }
+  /* Same tiering for calendar events, which carry a curated high/med importance tag instead of a
+   * numeric % estimate (ForexFactory's own red/orange/yellow impact flag, via build-news.js). */
+  function impactTierFromImportance(importance) {
+    return importance === "high" ? "High" : importance === "med" ? "Med" : "Low";
+  }
+  var MOVEMENT_LABEL = {
+    High: { emoji: "💥", text: "BIG MOVEMENT", detail: "high volatility, watch closely" },
+    Med: { emoji: "📈", text: "MODERATE MOVEMENT", detail: "normal tradeable move" },
+    Low: { emoji: "🐢", text: "SLOW MOVEMENT", detail: "minor drift, low urgency" }
+  };
+
   return {
     EVENT_CCY_MAP: EVENT_CCY_MAP,
     eventCurrency: eventCurrency,
     pipSize: pipSize,
     pairSignalWith: pairSignalWith,
     USD_MAJOR_ORDER: USD_MAJOR_ORDER,
-    bestPairFor: bestPairFor
+    bestPairFor: bestPairFor,
+    impactTier: impactTier,
+    impactTierFromImportance: impactTierFromImportance,
+    MOVEMENT_LABEL: MOVEMENT_LABEL
   };
 });

@@ -303,6 +303,13 @@
   function pairFmt(v) { if (v == null) return "\u2014"; return Number(v) >= 20 ? Number(v).toFixed(3) : Number(v).toFixed(5); }
   function pctTxt(v) { if (v == null) return "\u2014"; var n = Number(v); return (n > 0 ? "+" : "") + n.toFixed(2) + "%"; }
   function pctCls(v) { var n = Number(v); return n > 0 ? "good" : n < 0 ? "bad" : ""; }
+  /* Big/Moderate/Slow movement badge, same thresholds as the Telegram bot (shared-market-logic.js) -
+   * kept in one place so the dashboard and the bot can't drift apart on what "big move" means. */
+  function movementBadge(pct) {
+    var tier = window.SharedMarketLogic.impactTier(pct);
+    var m = window.SharedMarketLogic.MOVEMENT_LABEL[tier];
+    return '<span class="badge mv-' + tier.toLowerCase() + '" title="' + esc(m.text + " \u2014 " + m.detail) + '">' + m.emoji + " " + esc(tier) + "</span>";
+  }
   // pipSize lives in shared-market-logic.js now - same reasoning as eventCurrency above.
   // Disclosed in every pip answer so the number is auditable, not asserted as broker truth.
   function pipSize(sym) { return window.SharedMarketLogic.pipSize(sym); }
@@ -1218,7 +1225,7 @@
       var nw = item.nw;
       if (item.meta.day !== lastDay) {
         lastDay = item.meta.day;
-        body.insertAdjacentHTML("beforeend", '<tr class="day-sep-row"><td colspan="6"><div class="day-sep">' + esc(lastDay) + "</div></td></tr>");
+        body.insertAdjacentHTML("beforeend", '<tr class="day-sep-row"><td colspan="7"><div class="day-sep">' + esc(lastDay) + "</div></td></tr>");
       }
       var tr = document.createElement("tr");
       tr.innerHTML =
@@ -1227,10 +1234,11 @@
         '<td><div style="font-weight:600">' + esc(nw.title) + '</div><div style="color:var(--muted);margin-top:2px">' + esc(nw.summary) + "</div></td>" +
         '<td><span class="sig ' + sigCls(nw.signal) + '">' + esc(nw.signal || "\u2014") + "</span></td>" +
         '<td class="pct ' + pctCls(nw.impactPct) + '">' + pctTxt(nw.impactPct) + "</td>" +
+        '<td>' + movementBadge(nw.impactPct) + "</td>" +
         '<td style="white-space:nowrap">' + (nw.url ? '<a href="' + esc(nw.url) + '" target="_blank" rel="noopener">' + esc(nw.source) + "</a>" : esc(nw.source || "\u2014")) + "</td>";
       body.appendChild(tr);
     });
-    if (!rows.length) body.innerHTML = '<tr><td colspan="6" style="color:var(--muted)">No items for this timeframe.</td></tr>';
+    if (!rows.length) body.innerHTML = '<tr><td colspan="7" style="color:var(--muted)">No items for this timeframe.</td></tr>';
   }
   function renderSpeakers() {
     var box = $("#speaker-list"); box.innerHTML = "";
@@ -1245,7 +1253,7 @@
         '<div style="display:flex;gap:6px;align-items:center"><span class="badge ' + cls + '">' + esc((sp.side || "").toUpperCase()) + '</span><span class="sig ' + sigCls(sp.signal) + '">' + esc(sp.signal) + "</span></div></div>" +
         '<div class="qt">"' + esc(sp.quote) + '"</div>' +
         '<div class="im">' + esc(sp.impact) + " \u00b7 " + esc(sp.date) + (sp.url ? ' \u00b7 <a href="' + esc(sp.url) + '" target="_blank" rel="noopener">' + esc(sp.source) + "</a>" : "") + "</div>" +
-        '<div class="mt">est. impact ' + pctTxt(sp.impactPct) + "  \u00b7  w " + (sp.w != null ? sp.w : "\u2014") + " x s " + (sp.s != null ? sp.s : "\u2014") + " x f " + (sp.f != null ? sp.f : "\u2014") + "</div>";
+        '<div class="mt">est. impact ' + pctTxt(sp.impactPct) + " " + movementBadge(sp.impactPct) + "  \u00b7  w " + (sp.w != null ? sp.w : "\u2014") + " x s " + (sp.s != null ? sp.s : "\u2014") + " x f " + (sp.f != null ? sp.f : "\u2014") + "</div>";
       box.appendChild(el);
     });
   }
