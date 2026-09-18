@@ -782,7 +782,8 @@ function buildWeeklyOutlook(MARKET_DATA, NEWS_AUTO) {
       console.log(`SKIP past event (already happened, MYT ${mytDisplay(e.timeMyt)}): ${e.event}`);
       return;
     }
-    toSend.push({ key, card: eventCard(MARKET_DATA, ATR_DATA, e, COMMENTARY_POOL) });
+    // category 0 (highest), tiebreak = soonest event first - the most time-critical thing to read
+    toSend.push({ key, card: eventCard(MARKET_DATA, ATR_DATA, e, COMMENTARY_POOL), category: 0, tiebreak: at ? at.getTime() : Infinity });
   });
 
   // 2. Auto-classified news/speaker rows with a real hawkish/dovish side (skip NEUTRAL - too noisy)
@@ -793,28 +794,40 @@ function buildWeeklyOutlook(MARKET_DATA, NEWS_AUTO) {
   const tabs = MARKET_DATA.tabs || [];
   tabs.forEach(tab => {
     const autoByTab = NEWS_AUTO && NEWS_AUTO.byTab && NEWS_AUTO.byTab[tab.id];
+    // category 1, tiebreak = impact tier (High=0/Med=1/Low=2) via the same shared thresholds the
+    // card itself displays as "⚡ Impact: High/Med/Low" - so if Telegram's rate limit truncates a
+    // big batch, the items that actually say "BIG MOVEMENT" are the ones guaranteed to go out
+    // first, not whatever happened to be earliest in the RSS fetch order.
+    const IMPACT_RANK = { High: 0, Med: 1, Low: 2 };
     ((autoByTab && autoByTab.news) || []).filter(n => n.signal && n.signal !== 'NEUTRAL').forEach(n => {
       const key = 'news:' + n.title;
       if (seen.has(key)) return;
-      toSend.push({ key, card: newsCard(MARKET_DATA, tab, n) });
+      toSend.push({ key, card: newsCard(MARKET_DATA, tab, n), category: 1, tiebreak: IMPACT_RANK[SharedLogic.impactTier(n.impactPct)] });
     });
     ((autoByTab && autoByTab.speakers) || []).filter(s => s.side).forEach(s => {
       const key = 'spk:' + s.name + '|' + s.date;
       if (seen.has(key)) return;
-      toSend.push({ key, card: speakerCard(MARKET_DATA, tab, s) });
+      toSend.push({ key, card: speakerCard(MARKET_DATA, tab, s), category: 1, tiebreak: IMPACT_RANK[SharedLogic.impactTier(s.impactPct)] });
     });
   });
 
   // 3. Settled price-track results (build-news.js) - "predicted X%, actually did Y%, correct/wrong"
+  // category 2 (lowest) - retrospective, not time-critical the way an upcoming event or fresh
+  // classified headline is, so these never crowd out something actionable in a busy batch.
   const resultsRecent = (NEWS_AUTO && NEWS_AUTO.priceTrack && NEWS_AUTO.priceTrack.resultsRecent) || [];
   resultsRecent.forEach(r => {
     const key = 'result:' + r.key;
     if (seen.has(key)) return;
     if (r.verdict === 'flat') { seen.add(key); return; } // inconclusive - record as seen, don't alert
-    toSend.push({ key, card: resultCard(r) });
+    toSend.push({ key, card: resultCard(r), category: 2, tiebreak: 0 });
   });
 
   console.log(`Checked ${incoming.length} calendar rows, ${tabs.reduce((n, t) => n + (t.news || []).length + (t.speakers || []).length, 0)} news/speaker rows, ${resultsRecent.length} price-track results -> ${toSend.length} new candidate(s).`);
+
+  // Priority order: calendar events first (soonest first), then news/speaker alerts (highest
+  // Impact tier first), then price-track results last - see comments above each push(). A stable
+  // sort so items with an identical priority keep their natural (fetch/detection) order.
+  toSend.sort((a, b) => a.category - b.category || a.tiebreak - b.tiebreak);
 
   let sentCount = 0, failCount = 0, rateLimitedCount = 0, skippedNoCreds = false;
   for (const item of toSend) {
