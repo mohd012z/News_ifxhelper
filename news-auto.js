@@ -5,7 +5,7 @@
  * Regenerate: node build-news.js (run on the same daily cron as build-atr.js).
  */
 window.NEWS_AUTO = {
-  "generatedAt": "2026-09-19 20:55:22Z",
+  "generatedAt": "2026-09-19 22:42:11Z",
   "note": "Auto-collected: economic calendar is real structured data; news rows are country/currency-aware and instrument-filtered; mixed observed-vs-policy direction becomes CONFLICT/NEUTRAL. impactPct is retained only for UI compatibility and is an impact score, not a calibrated return forecast. Treat auto:true rows as a first pass.",
   "incoming": [
     {
@@ -427,7 +427,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Sun 20 Sep, 04:30 MYT",
+          "time": "Sun 20 Sep, 06:06 MYT",
           "tf": "Intraday",
           "title": "Flames, smoke seen near Riyadh airport; Houthis claim attacks on Saudi capital",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
@@ -1617,7 +1617,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Sun 20 Sep, 04:30 MYT",
+          "time": "Sun 20 Sep, 06:06 MYT",
           "tf": "Intraday",
           "title": "Flames, smoke seen near Riyadh airport; Houthis claim attacks on Saudi capital",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
@@ -2807,7 +2807,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Sun 20 Sep, 04:30 MYT",
+          "time": "Sun 20 Sep, 06:06 MYT",
           "tf": "Intraday",
           "title": "Flames, smoke seen near Riyadh airport; Houthis claim attacks on Saudi capital",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
