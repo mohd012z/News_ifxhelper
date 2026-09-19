@@ -1,5 +1,39 @@
 {
-  "pending": [],
+  "pending": [
+    {
+      "key": "news:gold:Taiwan Dollar: Mildly hawkish CBC but flows drive – OCBC",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Taiwan Dollar: Mildly hawkish CBC but flows drive – OCBC",
+      "url": "https://www.fxstreet.com/news/taiwan-dollar-mildly-hawkish-cbc-but-flows-drive-ocbc-202609182355",
+      "predictedPct": -0.12,
+      "priceAtDetect": 4415.9,
+      "createdAt": "2026-09-19T01:30:29.774Z",
+      "settleAt": "2026-09-19T02:15:29.774Z"
+    },
+    {
+      "key": "news:crypto:Taiwan Dollar: Mildly hawkish CBC but flows drive – OCBC",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Taiwan Dollar: Mildly hawkish CBC but flows drive – OCBC",
+      "url": "https://www.fxstreet.com/news/taiwan-dollar-mildly-hawkish-cbc-but-flows-drive-ocbc-202609182355",
+      "predictedPct": -0.14,
+      "priceAtDetect": 81251.11,
+      "createdAt": "2026-09-19T01:30:29.774Z",
+      "settleAt": "2026-09-19T02:15:29.774Z"
+    },
+    {
+      "key": "news:forex:Taiwan Dollar: Mildly hawkish CBC but flows drive – OCBC",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Taiwan Dollar: Mildly hawkish CBC but flows drive – OCBC",
+      "url": "https://www.fxstreet.com/news/taiwan-dollar-mildly-hawkish-cbc-but-flows-drive-ocbc-202609182355",
+      "predictedPct": -0.08,
+      "priceAtDetect": 1.1489,
+      "createdAt": "2026-09-19T01:30:29.774Z",
+      "settleAt": "2026-09-19T02:15:29.774Z"
+    }
+  ],
   "results": [
     {
       "key": "news:forex:My rental property is paid off, but I need cash. Is this a bad time to take out a $50,000 HELOC?",
