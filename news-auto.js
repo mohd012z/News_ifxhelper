@@ -5,7 +5,7 @@
  * Regenerate: node build-news.js (run on the same daily cron as build-atr.js).
  */
 window.NEWS_AUTO = {
-  "generatedAt": "2026-09-19 01:30:29Z",
+  "generatedAt": "2026-09-19 04:02:11Z",
   "note": "Auto-collected: economic calendar is real structured data; news rows are country/currency-aware and instrument-filtered; mixed observed-vs-policy direction becomes CONFLICT/NEUTRAL. impactPct is retained only for UI compatibility and is an impact score, not a calibrated return forecast. Treat auto:true rows as a first pass.",
   "incoming": [
     {
@@ -452,9 +452,9 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Sat 19 Sep, 08:42 MYT",
+          "time": "Sat 19 Sep, 10:12 MYT",
           "tf": "Intraday",
-          "title": "US Treasury’s Bessent to discuss AI, trade, rare earths with China’s He, source says",
+          "title": "US Treasury’s Bessent to discuss AI, rare earths with China’s He, source says",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
           "source": "Investing.com - Commodities & Futures",
           "url": "https://www.investing.com/news/commodities-news/us-treasurys-bessent-plans-to-discuss-ai-and-rare-earths-with-chinas-he-source-says-4907786",
@@ -1692,9 +1692,9 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Sat 19 Sep, 08:42 MYT",
+          "time": "Sat 19 Sep, 10:12 MYT",
           "tf": "Intraday",
-          "title": "US Treasury’s Bessent to discuss AI, trade, rare earths with China’s He, source says",
+          "title": "US Treasury’s Bessent to discuss AI, rare earths with China’s He, source says",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
           "source": "Investing.com - Commodities & Futures",
           "url": "https://www.investing.com/news/commodities-news/us-treasurys-bessent-plans-to-discuss-ai-and-rare-earths-with-chinas-he-source-says-4907786",
@@ -2932,9 +2932,9 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Sat 19 Sep, 08:42 MYT",
+          "time": "Sat 19 Sep, 10:12 MYT",
           "tf": "Intraday",
-          "title": "US Treasury’s Bessent to discuss AI, trade, rare earths with China’s He, source says",
+          "title": "US Treasury’s Bessent to discuss AI, rare earths with China’s He, source says",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
           "source": "Investing.com - Commodities & Futures",
           "url": "https://www.investing.com/news/commodities-news/us-treasurys-bessent-plans-to-discuss-ai-and-rare-earths-with-chinas-he-source-says-4907786",
@@ -3912,8 +3912,53 @@ window.NEWS_AUTO = {
     }
   },
   "priceTrack": {
-    "pending": 3,
+    "pending": 0,
     "resultsRecent": [
+      {
+        "key": "news:forex:Taiwan Dollar: Mildly hawkish CBC but flows drive – OCBC",
+        "tabId": "forex",
+        "kind": "news",
+        "title": "Taiwan Dollar: Mildly hawkish CBC but flows drive – OCBC",
+        "url": "https://www.fxstreet.com/news/taiwan-dollar-mildly-hawkish-cbc-but-flows-drive-ocbc-202609182355",
+        "predictedPct": -0.08,
+        "priceAtDetect": 1.1489,
+        "createdAt": "2026-09-19T01:30:29.774Z",
+        "settleAt": "2026-09-19T02:15:29.774Z",
+        "priceAtSettle": 1.1489,
+        "realizedPct": 0,
+        "verdict": "flat",
+        "settledAt": "2026-09-19T04:02:11.744Z"
+      },
+      {
+        "key": "news:crypto:Taiwan Dollar: Mildly hawkish CBC but flows drive – OCBC",
+        "tabId": "crypto",
+        "kind": "news",
+        "title": "Taiwan Dollar: Mildly hawkish CBC but flows drive – OCBC",
+        "url": "https://www.fxstreet.com/news/taiwan-dollar-mildly-hawkish-cbc-but-flows-drive-ocbc-202609182355",
+        "predictedPct": -0.14,
+        "priceAtDetect": 81251.11,
+        "createdAt": "2026-09-19T01:30:29.774Z",
+        "settleAt": "2026-09-19T02:15:29.774Z",
+        "priceAtSettle": 81091.5,
+        "realizedPct": -0.2,
+        "verdict": "correct",
+        "settledAt": "2026-09-19T04:02:11.744Z"
+      },
+      {
+        "key": "news:gold:Taiwan Dollar: Mildly hawkish CBC but flows drive – OCBC",
+        "tabId": "gold",
+        "kind": "news",
+        "title": "Taiwan Dollar: Mildly hawkish CBC but flows drive – OCBC",
+        "url": "https://www.fxstreet.com/news/taiwan-dollar-mildly-hawkish-cbc-but-flows-drive-ocbc-202609182355",
+        "predictedPct": -0.12,
+        "priceAtDetect": 4415.9,
+        "createdAt": "2026-09-19T01:30:29.774Z",
+        "settleAt": "2026-09-19T02:15:29.774Z",
+        "priceAtSettle": 4415.9,
+        "realizedPct": 0,
+        "verdict": "flat",
+        "settledAt": "2026-09-19T04:02:11.744Z"
+      },
       {
         "key": "news:forex:My rental property is paid off, but I need cash. Is this a bad time to take out a $50,000 HELOC?",
         "tabId": "forex",
@@ -4168,57 +4213,12 @@ window.NEWS_AUTO = {
         "realizedPct": 0.03,
         "verdict": "flat",
         "settledAt": "2026-09-18T21:07:14.971Z"
-      },
-      {
-        "key": "news:forex:Fed’s Schmid supports rate hike as inflation broadens beyond 3%",
-        "tabId": "forex",
-        "kind": "news",
-        "title": "Fed’s Schmid supports rate hike as inflation broadens beyond 3%",
-        "url": "https://www.fxstreet.com/news/feds-schmid-supports-rate-hike-as-inflation-broadens-beyond-3-202609181541",
-        "predictedPct": -0.08,
-        "priceAtDetect": 1.1485,
-        "createdAt": "2026-09-18T18:05:48.177Z",
-        "settleAt": "2026-09-18T18:50:48.177Z",
-        "priceAtSettle": 1.1489,
-        "realizedPct": 0.03,
-        "verdict": "flat",
-        "settledAt": "2026-09-18T21:07:14.971Z"
-      },
-      {
-        "key": "news:forex:Swiss Franc gains against US Dollar, but Fed-SNB divergence weighs",
-        "tabId": "forex",
-        "kind": "news",
-        "title": "Swiss Franc gains against US Dollar, but Fed-SNB divergence weighs",
-        "url": "https://www.fxstreet.com/news/swiss-franc-gains-against-us-dollar-but-fed-snb-divergence-weighs-202609181736",
-        "predictedPct": -0.45,
-        "priceAtDetect": 1.1485,
-        "createdAt": "2026-09-18T18:05:48.177Z",
-        "settleAt": "2026-09-18T18:50:48.177Z",
-        "priceAtSettle": 1.1489,
-        "realizedPct": 0.03,
-        "verdict": "flat",
-        "settledAt": "2026-09-18T21:07:14.971Z"
-      },
-      {
-        "key": "news:crypto:Why investors&#x2019; best move in reaction to Fed&#x2019;s rate hike is doing nothing at all",
-        "tabId": "crypto",
-        "kind": "news",
-        "title": "Why investors&#x2019; best move in reaction to Fed&#x2019;s rate hike is doing nothing at all",
-        "url": "https://www.marketwatch.com/story/why-investors-best-move-in-reaction-to-feds-rate-hike-is-doing-nothing-at-all-6ff56b4c?mod=mw_rss_topstories",
-        "predictedPct": -0.08,
-        "priceAtDetect": 80887.98,
-        "createdAt": "2026-09-18T18:05:48.177Z",
-        "settleAt": "2026-09-18T18:50:48.177Z",
-        "priceAtSettle": 81182.98,
-        "realizedPct": 0.36,
-        "verdict": "wrong",
-        "settledAt": "2026-09-18T21:07:14.971Z"
       }
     ],
     "accuracy": {
-      "correct": 18,
-      "total": 59,
-      "pct": 30.5
+      "correct": 19,
+      "total": 60,
+      "pct": 31.7
     }
   }
 };
