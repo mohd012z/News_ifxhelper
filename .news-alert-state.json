@@ -123,6 +123,17 @@
     "evt:[AUD] Unemployment Rate|2026-09-24",
     "news:Japanese Yen bulls seem hesitant amid BoJ's dovish rate hike as Fed bets support USD",
     "news:British Pound slips as hawkish Fed outlook boosts US Dollar",
-    "news:Australian Dollar edges lower as Fed hike bets grow ahead of Trump-Xi summit"
+    "news:Australian Dollar edges lower as Fed hike bets grow ahead of Trump-Xi summit",
+    "news:United States Dollar Index holds firm on hawkish Fed outlook",
+    "news:Gold edges lower to near $4,350 on Fed hawkish stance, Middle East tensions",
+    "result:news:forex:Australian Dollar edges lower as Fed hike bets grow ahead of Trump-Xi summit",
+    "result:news:forex:British Pound slips as hawkish Fed outlook boosts US Dollar",
+    "result:news:forex:Japanese Yen bulls seem hesitant amid BoJ's dovish rate hike as Fed bets support USD",
+    "result:news:crypto:Australian Dollar edges lower as Fed hike bets grow ahead of Trump-Xi summit",
+    "result:news:crypto:British Pound slips as hawkish Fed outlook boosts US Dollar",
+    "result:news:crypto:Japanese Yen bulls seem hesitant amid BoJ's dovish rate hike as Fed bets support USD",
+    "result:news:gold:Australian Dollar edges lower as Fed hike bets grow ahead of Trump-Xi summit",
+    "result:news:gold:British Pound slips as hawkish Fed outlook boosts US Dollar",
+    "result:news:gold:Japanese Yen bulls seem hesitant amid BoJ's dovish rate hike as Fed bets support USD"
   ]
 }
