@@ -1,48 +1,120 @@
 {
   "pending": [
     {
-      "key": "news:gold:United States Dollar Index holds firm on hawkish Fed outlook",
+      "key": "news:gold:Australian Dollar outperforms its peers on hawkish RBA bets",
       "tabId": "gold",
       "kind": "news",
-      "title": "United States Dollar Index holds firm on hawkish Fed outlook",
-      "url": "https://www.fxstreet.com/news/united-states-dollar-index-holds-firm-on-hawkish-fed-outlook-202609210317",
-      "predictedPct": -0.21,
-      "priceAtDetect": 4395.6,
-      "createdAt": "2026-09-21T04:18:55.581Z",
-      "settleAt": "2026-09-21T05:03:55.581Z"
+      "title": "Australian Dollar outperforms its peers on hawkish RBA bets",
+      "url": "https://www.fxstreet.com/news/australian-dollar-outperforms-its-peers-on-hawkish-rba-bets-202609210643",
+      "predictedPct": -0.36,
+      "priceAtDetect": 4388.8,
+      "createdAt": "2026-09-21T06:48:36.376Z",
+      "settleAt": "2026-09-21T07:33:36.376Z"
     },
     {
-      "key": "news:gold:Gold edges lower to near $4,350 on Fed hawkish stance, Middle East tensions",
+      "key": "news:gold:GBP/USD Price Forecast: Declines below 1.3400 as bearish momentum persists below 100-day SMA",
       "tabId": "gold",
+      "kind": "news",
+      "title": "GBP/USD Price Forecast: Declines below 1.3400 as bearish momentum persists below 100-day SMA",
+      "url": "https://www.fxstreet.com/news/gbp-usd-price-forecast-declines-below-13400-as-bearish-momentum-persists-below-100-day-sma-202609210542",
+      "predictedPct": -0.12,
+      "priceAtDetect": 4388.8,
+      "createdAt": "2026-09-21T06:48:36.376Z",
+      "settleAt": "2026-09-21T07:33:36.376Z"
+    },
+    {
+      "key": "news:gold:Indonesian Rupiah declines as US Dollar remains stronger amid hawkish Fed tone",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Indonesian Rupiah declines as US Dollar remains stronger amid hawkish Fed tone",
+      "url": "https://www.fxstreet.com/news/indonesian-rupiah-declines-as-us-dollar-remains-stronger-amid-hawkish-fed-tone-202609210504",
+      "predictedPct": -0.12,
+      "priceAtDetect": 4388.8,
+      "createdAt": "2026-09-21T06:48:36.376Z",
+      "settleAt": "2026-09-21T07:33:36.376Z"
+    },
+    {
+      "key": "news:crypto:Australian Dollar outperforms its peers on hawkish RBA bets",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Australian Dollar outperforms its peers on hawkish RBA bets",
+      "url": "https://www.fxstreet.com/news/australian-dollar-outperforms-its-peers-on-hawkish-rba-bets-202609210643",
+      "predictedPct": -0.41,
+      "priceAtDetect": 81703.62,
+      "createdAt": "2026-09-21T06:48:36.377Z",
+      "settleAt": "2026-09-21T07:33:36.377Z"
+    },
+    {
+      "key": "news:crypto:GBP/USD Price Forecast: Declines below 1.3400 as bearish momentum persists below 100-day SMA",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "GBP/USD Price Forecast: Declines below 1.3400 as bearish momentum persists below 100-day SMA",
+      "url": "https://www.fxstreet.com/news/gbp-usd-price-forecast-declines-below-13400-as-bearish-momentum-persists-below-100-day-sma-202609210542",
+      "predictedPct": -0.14,
+      "priceAtDetect": 81703.62,
+      "createdAt": "2026-09-21T06:48:36.377Z",
+      "settleAt": "2026-09-21T07:33:36.377Z"
+    },
+    {
+      "key": "news:crypto:Indonesian Rupiah declines as US Dollar remains stronger amid hawkish Fed tone",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Indonesian Rupiah declines as US Dollar remains stronger amid hawkish Fed tone",
+      "url": "https://www.fxstreet.com/news/indonesian-rupiah-declines-as-us-dollar-remains-stronger-amid-hawkish-fed-tone-202609210504",
+      "predictedPct": -0.14,
+      "priceAtDetect": 81703.62,
+      "createdAt": "2026-09-21T06:48:36.377Z",
+      "settleAt": "2026-09-21T07:33:36.377Z"
+    },
+    {
+      "key": "news:forex:Australian Dollar outperforms its peers on hawkish RBA bets",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Australian Dollar outperforms its peers on hawkish RBA bets",
+      "url": "https://www.fxstreet.com/news/australian-dollar-outperforms-its-peers-on-hawkish-rba-bets-202609210643",
+      "predictedPct": -0.45,
+      "priceAtDetect": 1.1481,
+      "createdAt": "2026-09-21T06:48:36.377Z",
+      "settleAt": "2026-09-21T07:33:36.377Z"
+    },
+    {
+      "key": "news:forex:GBP/USD Price Forecast: Declines below 1.3400 as bearish momentum persists below 100-day SMA",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "GBP/USD Price Forecast: Declines below 1.3400 as bearish momentum persists below 100-day SMA",
+      "url": "https://www.fxstreet.com/news/gbp-usd-price-forecast-declines-below-13400-as-bearish-momentum-persists-below-100-day-sma-202609210542",
+      "predictedPct": -0.15,
+      "priceAtDetect": 1.1481,
+      "createdAt": "2026-09-21T06:48:36.377Z",
+      "settleAt": "2026-09-21T07:33:36.377Z"
+    },
+    {
+      "key": "news:forex:Indonesian Rupiah declines as US Dollar remains stronger amid hawkish Fed tone",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Indonesian Rupiah declines as US Dollar remains stronger amid hawkish Fed tone",
+      "url": "https://www.fxstreet.com/news/indonesian-rupiah-declines-as-us-dollar-remains-stronger-amid-hawkish-fed-tone-202609210504",
+      "predictedPct": -0.15,
+      "priceAtDetect": 1.1481,
+      "createdAt": "2026-09-21T06:48:36.377Z",
+      "settleAt": "2026-09-21T07:33:36.377Z"
+    }
+  ],
+  "results": [
+    {
+      "key": "news:forex:Gold edges lower to near $4,350 on Fed hawkish stance, Middle East tensions",
+      "tabId": "forex",
       "kind": "news",
       "title": "Gold edges lower to near $4,350 on Fed hawkish stance, Middle East tensions",
       "url": "https://www.fxstreet.com/news/gold-edges-lower-to-near-4-350-on-fed-hawkish-stance-middle-east-tensions-202609210238",
       "predictedPct": -0.15,
-      "priceAtDetect": 4395.6,
+      "priceAtDetect": 1.148,
       "createdAt": "2026-09-21T04:18:55.581Z",
-      "settleAt": "2026-09-21T05:03:55.581Z"
-    },
-    {
-      "key": "news:crypto:United States Dollar Index holds firm on hawkish Fed outlook",
-      "tabId": "crypto",
-      "kind": "news",
-      "title": "United States Dollar Index holds firm on hawkish Fed outlook",
-      "url": "https://www.fxstreet.com/news/united-states-dollar-index-holds-firm-on-hawkish-fed-outlook-202609210317",
-      "predictedPct": -0.24,
-      "priceAtDetect": 81270,
-      "createdAt": "2026-09-21T04:18:55.581Z",
-      "settleAt": "2026-09-21T05:03:55.581Z"
-    },
-    {
-      "key": "news:crypto:Gold edges lower to near $4,350 on Fed hawkish stance, Middle East tensions",
-      "tabId": "crypto",
-      "kind": "news",
-      "title": "Gold edges lower to near $4,350 on Fed hawkish stance, Middle East tensions",
-      "url": "https://www.fxstreet.com/news/gold-edges-lower-to-near-4-350-on-fed-hawkish-stance-middle-east-tensions-202609210238",
-      "predictedPct": -0.14,
-      "priceAtDetect": 81270,
-      "createdAt": "2026-09-21T04:18:55.581Z",
-      "settleAt": "2026-09-21T05:03:55.581Z"
+      "settleAt": "2026-09-21T05:03:55.581Z",
+      "priceAtSettle": 1.1481,
+      "realizedPct": 0.01,
+      "verdict": "flat",
+      "settledAt": "2026-09-21T06:48:36.376Z"
     },
     {
       "key": "news:forex:United States Dollar Index holds firm on hawkish Fed outlook",
@@ -53,21 +125,72 @@
       "predictedPct": -0.26,
       "priceAtDetect": 1.148,
       "createdAt": "2026-09-21T04:18:55.581Z",
-      "settleAt": "2026-09-21T05:03:55.581Z"
+      "settleAt": "2026-09-21T05:03:55.581Z",
+      "priceAtSettle": 1.1481,
+      "realizedPct": 0.01,
+      "verdict": "flat",
+      "settledAt": "2026-09-21T06:48:36.376Z"
     },
     {
-      "key": "news:forex:Gold edges lower to near $4,350 on Fed hawkish stance, Middle East tensions",
-      "tabId": "forex",
+      "key": "news:crypto:Gold edges lower to near $4,350 on Fed hawkish stance, Middle East tensions",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Gold edges lower to near $4,350 on Fed hawkish stance, Middle East tensions",
+      "url": "https://www.fxstreet.com/news/gold-edges-lower-to-near-4-350-on-fed-hawkish-stance-middle-east-tensions-202609210238",
+      "predictedPct": -0.14,
+      "priceAtDetect": 81270,
+      "createdAt": "2026-09-21T04:18:55.581Z",
+      "settleAt": "2026-09-21T05:03:55.581Z",
+      "priceAtSettle": 81703.62,
+      "realizedPct": 0.53,
+      "verdict": "wrong",
+      "settledAt": "2026-09-21T06:48:36.376Z"
+    },
+    {
+      "key": "news:crypto:United States Dollar Index holds firm on hawkish Fed outlook",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "United States Dollar Index holds firm on hawkish Fed outlook",
+      "url": "https://www.fxstreet.com/news/united-states-dollar-index-holds-firm-on-hawkish-fed-outlook-202609210317",
+      "predictedPct": -0.24,
+      "priceAtDetect": 81270,
+      "createdAt": "2026-09-21T04:18:55.581Z",
+      "settleAt": "2026-09-21T05:03:55.581Z",
+      "priceAtSettle": 81703.62,
+      "realizedPct": 0.53,
+      "verdict": "wrong",
+      "settledAt": "2026-09-21T06:48:36.376Z"
+    },
+    {
+      "key": "news:gold:Gold edges lower to near $4,350 on Fed hawkish stance, Middle East tensions",
+      "tabId": "gold",
       "kind": "news",
       "title": "Gold edges lower to near $4,350 on Fed hawkish stance, Middle East tensions",
       "url": "https://www.fxstreet.com/news/gold-edges-lower-to-near-4-350-on-fed-hawkish-stance-middle-east-tensions-202609210238",
       "predictedPct": -0.15,
-      "priceAtDetect": 1.148,
+      "priceAtDetect": 4395.6,
       "createdAt": "2026-09-21T04:18:55.581Z",
-      "settleAt": "2026-09-21T05:03:55.581Z"
-    }
-  ],
-  "results": [
+      "settleAt": "2026-09-21T05:03:55.581Z",
+      "priceAtSettle": 4388.8,
+      "realizedPct": -0.15,
+      "verdict": "correct",
+      "settledAt": "2026-09-21T06:48:36.376Z"
+    },
+    {
+      "key": "news:gold:United States Dollar Index holds firm on hawkish Fed outlook",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "United States Dollar Index holds firm on hawkish Fed outlook",
+      "url": "https://www.fxstreet.com/news/united-states-dollar-index-holds-firm-on-hawkish-fed-outlook-202609210317",
+      "predictedPct": -0.21,
+      "priceAtDetect": 4395.6,
+      "createdAt": "2026-09-21T04:18:55.581Z",
+      "settleAt": "2026-09-21T05:03:55.581Z",
+      "priceAtSettle": 4388.8,
+      "realizedPct": -0.15,
+      "verdict": "correct",
+      "settledAt": "2026-09-21T06:48:36.376Z"
+    },
     {
       "key": "news:forex:Australian Dollar edges lower as Fed hike bets grow ahead of Trump-Xi summit",
       "tabId": "forex",
