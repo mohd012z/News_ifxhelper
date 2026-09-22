@@ -11,7 +11,7 @@
     "manifest:data": "node build-data-manifest.js",
     "refresh:data": "node build-news.js && node build-macro.js && node build-data-manifest.js",
     "test:evidence": "node test/evidence-engine.test.js",
-    "test": "npm run test:evidence && npm run test:history && npm run test:technical",
+    "test": "npm run test:evidence && npm run test:history && npm run test:technical && npm run test:reaction",
     "serve": "node tools/serve.js",
     "prepare-web": "node build-data-manifest.js && node tools/prepare-web.js",
     "cap:add": "npx cap add android",
@@ -20,7 +20,8 @@
     "apk:debug": "cd android && gradlew.bat assembleDebug",
     "apk:release": "cd android && gradlew.bat assembleRelease",
     "test:history": "node test/history-store.test.js",
-    "test:technical": "node test/technical-context.test.js"
+    "test:technical": "node test/technical-context.test.js",
+    "test:reaction": "node test/reaction-observation.test.js"
   },
   "dependencies": {
     "@capacitor/android": "^7.0.0",
