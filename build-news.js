@@ -75,40 +75,56 @@ function loadTrackState() {
 }
 function saveTrackState(state) { fs.writeFileSync(TRACK_FILE, JSON.stringify(state, null, 2), 'utf8'); }
 
-const SETTLE_MINUTES = 45; // how long to wait before checking "did the predicted move actually happen"
-const MAX_PENDING = 150, MAX_RESULTS = 300; // keep the state file bounded
+const REACTION_WINDOWS = [
+  { key: 'M1', minutes: 1 }, { key: 'M5', minutes: 5 }, { key: 'M15', minutes: 15 },
+  { key: 'M30', minutes: 30 }, { key: 'H1', minutes: 60 }, { key: 'H4', minutes: 240 },
+  { key: 'D1', minutes: 1440 }
+];
+const MAX_PENDING = 150, MAX_RESULTS = 300;
 
-/* Starts tracking a freshly-classified (non-neutral) row: snapshots the tab's real spot price now,
- * so a later run can measure the REAL price change against the model's predicted impactPct - this
- * is what turns "the model guessed +0.55%" into "the model guessed +0.55%, price actually did
- * +0.62%, correct direction" instead of asking the user to go verify it themselves. */
-function trackNewRow(state, tabId, kind, title, url, impactPct, spotNow) {
-  if (!impactPct || spotNow == null) return; // nothing to compare a neutral/zero call against
+function trackNewRow(state, tabId, kind, title, url, impactScore, spotNow) {
+  if (!impactScore || spotNow == null) return;
   const key = kind + ':' + tabId + ':' + title;
-  if (state.pending.some(p => p.key === key) || state.results.some(r => r.key === key)) return; // already tracked
+  if (state.pending.some(p => p.key === key) || state.results.some(r => r.key === key)) return;
   if (state.pending.length >= MAX_PENDING) return;
+  const now = Date.now();
   state.pending.push({
-    key, tabId, kind, title, url, predictedPct: impactPct,
-    priceAtDetect: spotNow, createdAt: new Date().toISOString(), settleAt: new Date(Date.now() + SETTLE_MINUTES * 60000).toISOString()
+    key, tabId, kind, title, url, impactScore,
+    priceAtDetect: spotNow, createdAt: new Date(now).toISOString(),
+    checkpoints: REACTION_WINDOWS.map(w => ({ key: w.key, minutes: w.minutes, dueAt: new Date(now + w.minutes * 60000).toISOString(), capturedAt: null, price: null, realizedPct: null }))
   });
 }
-/* Settles any pending entries whose window has elapsed: fetches the tab's current spot again and
- * computes the REALIZED % move using the identical sign convention as impactPct (positive = price
- * up). "Correct" means the realized move's direction matches the predicted direction and isn't
- * noise-level (>=0.05%) - a dead-flat market isn't a wrong call, it's an inconclusive one. */
+function reactionSummary(p) {
+  const done = (p.checkpoints || []).filter(x => x.realizedPct != null);
+  if (!done.length) return { state: 'PENDING', mfePct: null, maePct: null };
+  const vals = done.map(x => x.realizedPct);
+  return { state: done.length === REACTION_WINDOWS.length ? 'COMPLETE' : 'OBSERVING', mfePct: +Math.max(...vals).toFixed(3), maePct: +Math.min(...vals).toFixed(3) };
+}
+/* Capture observation checkpoints. This intentionally does not label a financial call "correct"
+ * or "wrong": it records what the market actually did after the evidence timestamp. */
 async function settlePending(state, spots) {
-  const now = Date.now();
-  const due = state.pending.filter(p => new Date(p.settleAt).getTime() <= now);
-  if (!due.length) return;
-  for (const p of due) {
+  const now = Date.now(), keep = [];
+  for (const p of state.pending) {
     const spotNow = spots[p.tabId];
-    state.pending = state.pending.filter(x => x.key !== p.key);
-    if (spotNow == null || p.priceAtDetect == null) continue; // can't settle without both prices - drop it
-    const realizedPct = +(((spotNow - p.priceAtDetect) / p.priceAtDetect) * 100).toFixed(2);
-    const predictedUp = p.predictedPct > 0, realizedUp = realizedPct > 0;
-    const verdict = Math.abs(realizedPct) < 0.05 ? 'flat' : (predictedUp === realizedUp ? 'correct' : 'wrong');
-    state.results.unshift({ ...p, priceAtSettle: spotNow, realizedPct, verdict, settledAt: new Date().toISOString() });
+    if (!Array.isArray(p.checkpoints)) {
+      // Migrate legacy 45-minute records without discarding them.
+      p.impactScore = p.impactScore != null ? p.impactScore : p.predictedPct;
+      p.checkpoints = REACTION_WINDOWS.map(w => ({ key:w.key, minutes:w.minutes, dueAt:new Date(new Date(p.createdAt).getTime()+w.minutes*60000).toISOString(), capturedAt:null, price:null, realizedPct:null }));
+    }
+    if (spotNow != null && p.priceAtDetect != null) {
+      for (const cp of p.checkpoints) {
+        if (!cp.capturedAt && new Date(cp.dueAt).getTime() <= now) {
+          cp.capturedAt = new Date().toISOString(); cp.price = spotNow;
+          cp.realizedPct = +(((spotNow - p.priceAtDetect) / p.priceAtDetect) * 100).toFixed(3);
+        }
+      }
+    }
+    p.reaction = reactionSummary(p);
+    if (p.reaction.state === 'COMPLETE') {
+      state.results.unshift({ ...p, completedAt: new Date().toISOString() });
+    } else keep.push(p);
   }
+  state.pending = keep.slice(0, MAX_PENDING);
   state.results = state.results.slice(0, MAX_RESULTS);
 }
 
@@ -556,16 +572,15 @@ function buildSpeakerRow(it, instrumentScale) {
     await settlePending(state, spots);
     for (const tabId of Object.keys(byTab)) {
       const spotNow = spots[tabId];
-      byTab[tabId].news.forEach(n => { if (n.impactPct) trackNewRow(state, tabId, 'news', n.title, n.url, n.impactPct, spotNow); });
-      byTab[tabId].speakers.forEach(s => { if (s.impactPct) trackNewRow(state, tabId, 'speaker', s.quote, s.url, s.impactPct, spotNow); });
+      byTab[tabId].news.forEach(n => { if (n.impactScore || n.impactPct) trackNewRow(state, tabId, 'news', n.title, n.url, n.impactScore || n.impactPct, spotNow); });
+      byTab[tabId].speakers.forEach(s => { if (s.impactScore || s.impactPct) trackNewRow(state, tabId, 'speaker', s.quote, s.url, s.impactScore || s.impactPct, spotNow); });
     }
     saveTrackState(state);
-    const settled = state.results.filter(r => r.verdict !== 'flat');
-    const correct = settled.filter(r => r.verdict === 'correct').length;
     priceTrack = {
       pending: state.pending.length,
       resultsRecent: state.results.slice(0, 20),
-      accuracy: settled.length ? { correct, total: settled.length, pct: +((correct / settled.length) * 100).toFixed(1) } : null
+      observationModel: 'M1/M5/M15/M30/H1/H4/D1',
+      note: 'Observed post-evidence price reactions only; no directional accuracy claim.'
     };
     console.log('OK   price-track     pending=' + state.pending.length + '  results=' + state.results.length + (priceTrack.accuracy ? '  accuracy=' + priceTrack.accuracy.pct + '%' : ''));
   } catch (e) { console.log('FAIL price-track     -> ' + e.message); }
