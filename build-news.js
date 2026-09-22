@@ -340,6 +340,27 @@ function formatMytFull(date) {
   return DAY_NAMES[myt.getUTCDay()] + ' ' + myt.getUTCDate() + ' ' + MONTH_NAMES[myt.getUTCMonth()] + ', ' + hh + ':' + mm + ' MYT';
 }
 
+// ---- Economic-release normalization ----
+// Keep raw strings for auditability and a parsed numeric form for later historical/statistical work.
+// This layer deliberately records surprise; it does not turn a release into a trade instruction.
+function parseEconomicNumber(v) {
+  if (v == null || v === '') return null;
+  const s = String(v).trim().replace(/,/g, '');
+  const m = /^([-+]?\d*\.?\d+)\s*([KMBT%]?)$/i.exec(s);
+  if (!m) return null;
+  let n = Number(m[1]); if (!Number.isFinite(n)) return null;
+  const u = m[2].toUpperCase();
+  if (u === 'K') n *= 1e3; else if (u === 'M') n *= 1e6; else if (u === 'B') n *= 1e9; else if (u === 'T') n *= 1e12;
+  return n;
+}
+function releaseState(actual, forecast) {
+  const a = parseEconomicNumber(actual), f = parseEconomicNumber(forecast);
+  if (a == null) return { state: 'RELEASE_PENDING', actualNumeric: null, forecastNumeric: f, surpriseRaw: null, surprisePct: null };
+  if (f == null) return { state: 'RELEASED_NO_CONSENSUS', actualNumeric: a, forecastNumeric: null, surpriseRaw: null, surprisePct: null };
+  const raw = a - f;
+  return { state: 'RELEASED', actualNumeric: a, forecastNumeric: f, surpriseRaw: raw, surprisePct: f === 0 ? null : +((raw / Math.abs(f)) * 100).toFixed(3) };
+}
+
 // ---- 1. Economic calendar (real, structured, key-free) ----
 async function getCalendar() {
   const j = JSON.parse(await fetchText('https://nfs.faireconomy.media/ff_calendar_thisweek.json'));
@@ -353,10 +374,16 @@ async function getCalendar() {
       currency: e.country || null,
       country: (COUNTRY_CCY.find(x => x.code === e.country) || {}).country || null,
       importance: e.impact === 'High' ? 'high' : 'med',
-      note: [e.forecast ? 'Forecast ' + e.forecast : null, e.previous ? 'Prev ' + e.previous : null].filter(Boolean).join(' - ') || 'No consensus figure published.',
+      actual: e.actual != null && e.actual !== '' ? e.actual : null,
+      forecast: e.forecast != null && e.forecast !== '' ? e.forecast : null,
+      previous: e.previous != null && e.previous !== '' ? e.previous : null,
+      release: releaseState(e.actual, e.forecast),
+      note: [e.actual ? 'Actual ' + e.actual : null, e.forecast ? 'Forecast ' + e.forecast : null, e.previous ? 'Prev ' + e.previous : null].filter(Boolean).join(' - ') || 'No result/consensus figure published.',
       focusTf: e.impact === 'High' ? 'M5 - M15' : 'M15',
-      play: e.impact === 'High' ? 'High-impact release - expect a volatility spike at the print.' : 'Second-tier; matters mainly on a large miss/beat.',
+      play: e.actual ? 'Released - compare actual, consensus and observed reaction before interpretation.' : 'Upcoming/pending - scenario context only until an actual result is available.',
       source: 'ForexFactory calendar feed',
+      sourceClass: 'OFFICIAL_CALENDAR_AGGREGATE',
+      fetchedAt: new Date().toISOString(),
       url: 'https://www.forexfactory.com/calendar',
       auto: true
     }))
