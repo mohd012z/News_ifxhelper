@@ -1,36 +1,16 @@
-/* prepare-web.js - copy the app files into www/ so Capacitor can bundle them.
- * Run: node tools/prepare-web.js   (or npm run prepare-web)
+/* prepare-web.js - build the offline fallback bundle for Capacitor.
+ * Runtime clients should prefer validated remote data, then local cache, then these bundled files.
  */
-const fs = require('fs');
-const path = require('path');
-
-const root = path.resolve(__dirname, '..');
-const out = path.join(root, 'www');
-
-const FILES = [
-  'index.html', 'trade-plan.html',
-  'app.js', 'trade-plan.js', 'live.js', 'shared-market-logic.js',
-  'xauusd-data.js', 'atr.js', 'news-auto.js', 'macro-auto.js',
-  'manifest.webmanifest', 'sw.js', 'pwa.js'
-];
-const DIRS = ['icons'];
-
-fs.rmSync(out, { recursive: true, force: true });
-fs.mkdirSync(out, { recursive: true });
-
-let n = 0;
-for (const f of FILES) {
-  const src = path.join(root, f);
-  if (!fs.existsSync(src)) { console.log('skip (missing): ' + f); continue; }
-  fs.copyFileSync(src, path.join(out, f));
-  n++;
-}
-for (const d of DIRS) {
-  const src = path.join(root, d);
-  if (!fs.existsSync(src)) continue;
-  const dst = path.join(out, d);
-  fs.mkdirSync(dst, { recursive: true });
-  for (const f of fs.readdirSync(src)) { fs.copyFileSync(path.join(src, f), path.join(dst, f)); n++; }
-}
-console.log('www/ ready with ' + n + ' files -> ' + out);
-console.log('Next: npx cap add android   then   npx cap sync android');
+const fs=require('fs'), path=require('path');
+const root=path.resolve(__dirname,'..'), out=path.join(root,'www');
+const FILES=['index.html','trade-plan.html','app.js','trade-plan.js','live.js','shared-market-logic.js',
+  'xauusd-data.js','atr.js','news-auto.js','macro-auto.js','data-manifest.json',
+  'manifest.webmanifest','sw.js','pwa.js'];
+const DIRS=['icons','lib'];
+fs.rmSync(out,{recursive:true,force:true}); fs.mkdirSync(out,{recursive:true});
+let n=0;
+for(const f of FILES){const src=path.join(root,f);if(!fs.existsSync(src)){console.log('skip (missing): '+f);continue;}fs.copyFileSync(src,path.join(out,f));n++;}
+function copyDir(src,dst){fs.mkdirSync(dst,{recursive:true});for(const ent of fs.readdirSync(src,{withFileTypes:true})){const s=path.join(src,ent.name),d=path.join(dst,ent.name);if(ent.isDirectory())copyDir(s,d);else{fs.copyFileSync(s,d);n++;}}}
+for(const d of DIRS){const src=path.join(root,d);if(fs.existsSync(src))copyDir(src,path.join(out,d));}
+console.log('www/ ready with '+n+' files -> '+out);
+console.log('Bundled data is fallback. data-manifest.json identifies exactly what this APK contains.');
