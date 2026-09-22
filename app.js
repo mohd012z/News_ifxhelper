@@ -487,7 +487,7 @@
   }
 
   /* ---- settings: accent/font/size/profile + notification toggles, all local to this device ---- */
-  var DEFAULT_SETTINGS = { profile: "", accent: "#e2b04a", font: "", fontSize: "1", notifPopup: false, notifOS: false, defaultTab: "", accountCcy: "USD", lotSize: 1, riskPct: 1, showAuto: true, compact: false, aiMode: "offline", aiProvider: "groq", aiKey: "", aiModel: "", remoteUrl: "", remoteMin: "15", voiceURI: "", voiceStyle: "presenter" };
+  var DEFAULT_SETTINGS = { profile: "", accent: "#e2b04a", font: "", fontSize: "1", notifPopup: false, notifOS: false, defaultTab: "", accountCcy: "USD", lotSize: 1, riskPct: 1, showAuto: true, compact: false, aiMode: "offline", aiProvider: "groq", aiKey: "", aiModel: "", remoteUrl: "https://raw.githubusercontent.com/mohd012z/News_ifxhelper/main/", remoteMin: "15", voiceURI: "", voiceStyle: "presenter" };
   var safeGetSettings = function () {
     try { var s = JSON.parse(localStorage.getItem("xau-settings") || "{}"); var out = {}; for (var k in DEFAULT_SETTINGS) out[k] = (s[k] !== undefined ? s[k] : DEFAULT_SETTINGS[k]); return out; }
     catch (e) { var d = {}; for (var k2 in DEFAULT_SETTINGS) d[k2] = DEFAULT_SETTINGS[k2]; return d; }
@@ -576,25 +576,50 @@
     };
   }
 
-  /* ================= Remote data refresh (optional) =================
-   * Bundled xauusd-data.js/news-auto.js give an instant, fully offline first paint - that never
-   * changes. This block is an opt-in layer on top: if Settings has a remote base URL (e.g. this
-   * repo's raw.githubusercontent.com path once the daily-refresh.yml / news-watch.yml bot is
-   * pushing to it), the app periodically fetches the live files from there and swaps them in
-   * without a reload, so an already-installed APK/PWA sees the bot's updates without a rebuild.
-   * The fetched files are plain `window.X = {...}` assignments (same as loaded via <script src>),
-   * evaluated in an isolated sandbox function scope - never string-eval'd into this app's own
-   * global scope, and never executed if the fetch/JSON-shape doesn't look right. */
+  /* ================= Manifest-aware remote data sync =================
+   * Priority: validated remote -> last-known-good local cache -> bundled APK snapshot.
+   * A successful APK build is never treated as proof that market data is current. */
   var remoteTimer = null, lastRemoteMarketUpdated = D.updated, lastRemoteNewsGenerated = (window.NEWS_AUTO || {}).generatedAt;
+  var DATA_CACHE_PREFIX = "xau-data-cache:";
   function sandboxEvalDataFile(text, globalName) {
     var win = {};
-    new Function("window", text)(win); // same pattern telegram-notify.js uses server-side
+    new Function("window", text)(win);
     return win[globalName] || null;
   }
   function fetchText(url) {
     return fetch(url, { cache: "no-store" }).then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.text(); });
   }
-  function applyRemoteData(remoteMarket, remoteNewsAuto) {
+  function cachePut(name, text, sha, generatedAt) {
+    try { localStorage.setItem(DATA_CACHE_PREFIX + name, JSON.stringify({ text: text, sha256: sha || null, cachedAt: new Date().toISOString(), generatedAt: generatedAt || null })); } catch (e) {}
+  }
+  function cacheGet(name) {
+    try { return JSON.parse(localStorage.getItem(DATA_CACHE_PREFIX + name) || "null"); } catch (e) { return null; }
+  }
+  function sha256Hex(text) {
+    if (!(window.crypto && crypto.subtle && window.TextEncoder)) return Promise.resolve(null);
+    return crypto.subtle.digest("SHA-256", new TextEncoder().encode(text)).then(function (buf) {
+      return Array.prototype.map.call(new Uint8Array(buf), function (b) { return b.toString(16).padStart(2, "0"); }).join("");
+    });
+  }
+  function manifestFile(m, name) {
+    return m && (m.files || []).filter(function (x) { return x.file === name && x.available !== false; })[0];
+  }
+  function validatedRemoteFile(base, manifest, name) {
+    var meta = manifestFile(manifest, name);
+    if (!meta) return Promise.reject(new Error("Manifest missing " + name));
+    return fetchText(base + name).then(function (txt) {
+      return sha256Hex(txt).then(function (hash) {
+        if (hash && meta.sha256 && hash !== meta.sha256) throw new Error("Checksum mismatch: " + name);
+        cachePut(name, txt, meta.sha256, manifest.generatedAt);
+        return { text: txt, source: "remote", meta: meta };
+      });
+    }).catch(function (err) {
+      var cached = cacheGet(name);
+      if (cached && cached.text) return { text: cached.text, source: "cache", meta: meta, warning: err.message };
+      throw err;
+    });
+  }
+  function applyRemoteData(remoteMarket, remoteNewsAuto, syncInfo) {
     if (remoteMarket) {
       Object.keys(D).forEach(function (k) { delete D[k]; });
       Object.assign(D, remoteMarket);
@@ -613,34 +638,44 @@
         t.speakers = dedupe(t.speakers, by.speakers, "quote");
       });
     }
+    try { localStorage.setItem("xau-last-sync", JSON.stringify(syncInfo || {})); } catch (e) {}
     renderAll(); updateChartContext();
-    showToast("Data refreshed", "Picked up the latest bot update" + (remoteMarket ? " (" + (remoteMarket.updated || "") + ")" : "") + ".");
+    showToast("Data synchronized", "Validated current data; fallback cache remains available offline.");
   }
   function checkRemote(base, statusEl) {
-    if (!base) return Promise.resolve({ changed: false });
+    if (!base) return Promise.resolve({ changed: false, mode: "bundled" });
     var b = base.replace(/\/?$/, "/");
-    return Promise.all([
-      fetchText(b + "xauusd-data.js").then(function (t) { return sandboxEvalDataFile(t, "MARKET_DATA"); }).catch(function () { return null; }),
-      fetchText(b + "news-auto.js").then(function (t) { return sandboxEvalDataFile(t, "NEWS_AUTO"); }).catch(function () { return null; })
-    ]).then(function (res) {
-      var rm = res[0], rn = res[1];
-      var changed = false;
-      if (rm && rm.updated && rm.updated !== lastRemoteMarketUpdated) { lastRemoteMarketUpdated = rm.updated; changed = true; }
-      else rm = null;
-      if (rn && rn.generatedAt && rn.generatedAt !== lastRemoteNewsGenerated) { lastRemoteNewsGenerated = rn.generatedAt; changed = true; }
-      else rn = null;
-      if (changed) applyRemoteData(rm, rn);
-      if (statusEl) statusEl.textContent = changed ? "✓ Updated just now." : "✓ Checked — already up to date.";
-      return { changed: changed };
+    var started = new Date().toISOString();
+    return fetchText(b + "data-manifest.json").then(function (txt) {
+      var manifest = JSON.parse(txt);
+      if (!manifest || manifest.schemaVersion !== 1 || !manifest.generatedAt) throw new Error("Invalid data manifest");
+      return Promise.all([
+        validatedRemoteFile(b, manifest, "xauusd-data.js"),
+        validatedRemoteFile(b, manifest, "news-auto.js")
+      ]).then(function (res) {
+        var rm = sandboxEvalDataFile(res[0].text, "MARKET_DATA");
+        var rn = sandboxEvalDataFile(res[1].text, "NEWS_AUTO");
+        if (!rm || !Array.isArray(rm.tabs) || !rn || !rn.byTab) throw new Error("Dataset shape validation failed");
+        var changed = false;
+        if (rm.updated && rm.updated !== lastRemoteMarketUpdated) { lastRemoteMarketUpdated = rm.updated; changed = true; } else rm = null;
+        if (rn.generatedAt && rn.generatedAt !== lastRemoteNewsGenerated) { lastRemoteNewsGenerated = rn.generatedAt; changed = true; } else rn = null;
+        var mode = res.some(function (x) { return x.source === "cache"; }) ? "cache-fallback" : "remote-current";
+        var info = { checkedAt: started, manifestGeneratedAt: manifest.generatedAt, mode: mode, changed: changed };
+        if (changed) applyRemoteData(rm, rn, info); else try { localStorage.setItem("xau-last-sync", JSON.stringify(info)); } catch (e) {}
+        if (statusEl) statusEl.textContent = "✓ " + mode + " · manifest " + manifest.generatedAt + (changed ? " · updated" : " · current");
+        return info;
+      });
     }).catch(function (e) {
-      if (statusEl) statusEl.textContent = "✗ " + e.message;
-      return { changed: false };
+      if (statusEl) statusEl.textContent = "⚠ Remote sync failed; bundled/last-known data kept · " + e.message;
+      try { localStorage.setItem("xau-last-sync", JSON.stringify({ checkedAt: started, mode: "bundled-fallback", error: e.message })); } catch (x) {}
+      return { changed: false, mode: "bundled-fallback", error: e.message };
     });
   }
   function scheduleRemotePolling() {
     if (remoteTimer) { clearInterval(remoteTimer); remoteTimer = null; }
     if (!settings.remoteUrl) return;
     var ms = Math.max(1, Number(settings.remoteMin) || 15) * 60000;
+    checkRemote(settings.remoteUrl, null);
     remoteTimer = setInterval(function () { checkRemote(settings.remoteUrl, null); }, ms);
   }
   function bindRemoteSettings() {
@@ -648,11 +683,13 @@
     if (!urlIn) return;
     urlIn.value = settings.remoteUrl || "";
     if (minSel) minSel.value = settings.remoteMin || "15";
-    urlIn.onchange = function () { settings.remoteUrl = urlIn.value.trim(); safeSetSettings(settings); scheduleRemotePolling(); if (statusEl) statusEl.textContent = ""; };
+    var last = null; try { last = JSON.parse(localStorage.getItem("xau-last-sync") || "null"); } catch (e) {}
+    if (statusEl && last) statusEl.textContent = (last.mode || "unknown") + (last.manifestGeneratedAt ? " · manifest " + last.manifestGeneratedAt : "");
+    urlIn.onchange = function () { settings.remoteUrl = urlIn.value.trim(); safeSetSettings(settings); scheduleRemotePolling(); };
     if (minSel) minSel.onchange = function () { settings.remoteMin = minSel.value; safeSetSettings(settings); scheduleRemotePolling(); };
     if (testBtn) testBtn.onclick = function () {
       if (!settings.remoteUrl) { if (statusEl) statusEl.textContent = "Enter a remote base URL first."; return; }
-      if (statusEl) statusEl.textContent = "Checking…";
+      if (statusEl) statusEl.textContent = "Checking manifest…";
       checkRemote(settings.remoteUrl, statusEl);
     };
   }
