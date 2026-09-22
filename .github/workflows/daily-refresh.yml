@@ -35,6 +35,6 @@ jobs:
         run: |
           git config user.name "xau-desk-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add atr.js news-auto.js macro-auto.js data-manifest.json .news-alert-state.json price-track.json
+          git add atr.js news-auto.js macro-auto.js data-manifest.json .news-alert-state.json price-track.json data/history
           git diff --cached --quiet || git commit -m "bot: daily evidence + ATR + manifest refresh [skip ci]"
           git push

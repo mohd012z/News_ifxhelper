@@ -21,6 +21,7 @@
  */
 'use strict';
 const fs = require('fs');
+const History = require('./lib/history-store');
 const path = require('path');
 
 const OUT = path.join(__dirname, 'news-auto.js');
@@ -535,6 +536,15 @@ function buildSpeakerRow(it, instrumentScale) {
       speakers: speakerSource.map(it => buildSpeakerRow(it, 1.0)).filter(Boolean)
     }
   };
+
+  // ---- Append-only evidence history (DB-ready file adapter) ----
+  // Failure here is fail-open: current news-auto.js still builds, but the run logs the archive problem.
+  try {
+    calendar.forEach(e => History.append('events', History.eventRecord(e)));
+    // Archive one canonical speaker stream rather than duplicating the same official speech per instrument tab.
+    byTab.forex.speakers.forEach(s => History.append('speeches', History.speechRecord(Object.assign({ sourceClass: 'OFFICIAL_SPEECH' }, s))));
+    console.log('OK   history         events=' + calendar.length + ' speeches=' + byTab.forex.speakers.length);
+  } catch (e) { console.log('FAIL history         -> ' + e.message); }
 
   // ---- Price-reaction tracking: "did the predicted move actually happen" ----
   // Real, free spot price per tab (see TRACK_INSTRUMENTS above) - not a model estimate.
