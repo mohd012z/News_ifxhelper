@@ -1,0 +1,10 @@
+'use strict';
+const assert=require('assert');
+const windows=['M1','M5','M15','M30','H1','H4','D1'];
+assert.equal(windows.length,7);
+const base=100, prices=[101,99,102,98,103,97,104];
+const pct=prices.map(p=>+(((p-base)/base)*100).toFixed(3));
+assert.deepEqual(pct,[1,-1,2,-2,3,-3,4]);
+assert.equal(Math.max(...pct),4);
+assert.equal(Math.min(...pct),-3);
+console.log('reaction observation tests passed');
