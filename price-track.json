@@ -1,48 +1,153 @@
 {
   "pending": [
     {
-      "key": "news:gold:New Zealand Dollar slips amid gradual RBNZ rate hike outlook, geopolitical tensions",
+      "key": "news:gold:US Dollar: Fed support seen fading – Commerzbank",
       "tabId": "gold",
       "kind": "news",
-      "title": "New Zealand Dollar slips amid gradual RBNZ rate hike outlook, geopolitical tensions",
-      "url": "https://www.fxstreet.com/news/new-zealand-dollar-slips-amid-gradual-rbnz-rate-hike-outlook-geopolitical-tensions-202609220218",
-      "predictedPct": -0.63,
-      "priceAtDetect": 4374.1,
-      "createdAt": "2026-09-22T04:14:39.553Z",
-      "settleAt": "2026-09-22T04:59:39.553Z"
+      "title": "US Dollar: Fed support seen fading – Commerzbank",
+      "url": "https://www.fxstreet.com/news/us-dollar-fed-support-seen-fading-commerzbank-202609220614",
+      "predictedPct": -0.12,
+      "priceAtDetect": 4355.6,
+      "createdAt": "2026-09-22T06:41:38.153Z",
+      "settleAt": "2026-09-22T07:26:38.153Z"
     },
     {
-      "key": "news:gold:Japanese Yen weakens on BoJ's lack of hawkish guidance, eyes on potential intervention",
+      "key": "news:gold:Canadian Dollar strengthens on rising oil prices ahead of potential US-Iran talks",
       "tabId": "gold",
+      "kind": "news",
+      "title": "Canadian Dollar strengthens on rising oil prices ahead of potential US-Iran talks",
+      "url": "https://www.fxstreet.com/news/canadian-dollar-strengthens-on-rising-oil-prices-ahead-of-potential-us-iran-talks-202609220552",
+      "predictedPct": -0.12,
+      "priceAtDetect": 4355.6,
+      "createdAt": "2026-09-22T06:41:38.153Z",
+      "settleAt": "2026-09-22T07:26:38.153Z"
+    },
+    {
+      "key": "news:gold:Gold struggles below $4,350 as hawkish Fed offsets sliding bond yields, softer USD",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Gold struggles below $4,350 as hawkish Fed offsets sliding bond yields, softer USD",
+      "url": "https://www.fxstreet.com/news/gold-struggles-to-lure-buyers-amid-hawkish-fed-counters-sliding-us-bond-yields-202609220419",
+      "predictedPct": -0.15,
+      "priceAtDetect": 4355.6,
+      "createdAt": "2026-09-22T06:41:38.153Z",
+      "settleAt": "2026-09-22T07:26:38.153Z"
+    },
+    {
+      "key": "news:gold:Silver Price Forecast: XAG/USD holds losses near $66.00 amid Fed rate hike bets",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Silver Price Forecast: XAG/USD holds losses near $66.00 amid Fed rate hike bets",
+      "url": "https://www.fxstreet.com/news/silver-price-forecast-xag-usd-holds-losses-near-6600-amid-fed-rate-hike-bets-202609220525",
+      "predictedPct": -0.12,
+      "priceAtDetect": 4355.6,
+      "createdAt": "2026-09-22T06:41:38.153Z",
+      "settleAt": "2026-09-22T07:26:38.153Z"
+    },
+    {
+      "key": "news:crypto:US Dollar: Fed support seen fading – Commerzbank",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "US Dollar: Fed support seen fading – Commerzbank",
+      "url": "https://www.fxstreet.com/news/us-dollar-fed-support-seen-fading-commerzbank-202609220614",
+      "predictedPct": -0.14,
+      "priceAtDetect": 85533.19,
+      "createdAt": "2026-09-22T06:41:38.153Z",
+      "settleAt": "2026-09-22T07:26:38.153Z"
+    },
+    {
+      "key": "news:crypto:Canadian Dollar strengthens on rising oil prices ahead of potential US-Iran talks",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Canadian Dollar strengthens on rising oil prices ahead of potential US-Iran talks",
+      "url": "https://www.fxstreet.com/news/canadian-dollar-strengthens-on-rising-oil-prices-ahead-of-potential-us-iran-talks-202609220552",
+      "predictedPct": -0.14,
+      "priceAtDetect": 85533.19,
+      "createdAt": "2026-09-22T06:41:38.153Z",
+      "settleAt": "2026-09-22T07:26:38.153Z"
+    },
+    {
+      "key": "news:crypto:Gold struggles below $4,350 as hawkish Fed offsets sliding bond yields, softer USD",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Gold struggles below $4,350 as hawkish Fed offsets sliding bond yields, softer USD",
+      "url": "https://www.fxstreet.com/news/gold-struggles-to-lure-buyers-amid-hawkish-fed-counters-sliding-us-bond-yields-202609220419",
+      "predictedPct": -0.14,
+      "priceAtDetect": 85533.19,
+      "createdAt": "2026-09-22T06:41:38.153Z",
+      "settleAt": "2026-09-22T07:26:38.153Z"
+    },
+    {
+      "key": "news:crypto:Silver Price Forecast: XAG/USD holds losses near $66.00 amid Fed rate hike bets",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Silver Price Forecast: XAG/USD holds losses near $66.00 amid Fed rate hike bets",
+      "url": "https://www.fxstreet.com/news/silver-price-forecast-xag-usd-holds-losses-near-6600-amid-fed-rate-hike-bets-202609220525",
+      "predictedPct": -0.14,
+      "priceAtDetect": 85533.19,
+      "createdAt": "2026-09-22T06:41:38.153Z",
+      "settleAt": "2026-09-22T07:26:38.153Z"
+    },
+    {
+      "key": "news:forex:US Dollar: Fed support seen fading – Commerzbank",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "US Dollar: Fed support seen fading – Commerzbank",
+      "url": "https://www.fxstreet.com/news/us-dollar-fed-support-seen-fading-commerzbank-202609220614",
+      "predictedPct": -0.08,
+      "priceAtDetect": 1.1464,
+      "createdAt": "2026-09-22T06:41:38.153Z",
+      "settleAt": "2026-09-22T07:26:38.153Z"
+    },
+    {
+      "key": "news:forex:Canadian Dollar strengthens on rising oil prices ahead of potential US-Iran talks",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Canadian Dollar strengthens on rising oil prices ahead of potential US-Iran talks",
+      "url": "https://www.fxstreet.com/news/canadian-dollar-strengthens-on-rising-oil-prices-ahead-of-potential-us-iran-talks-202609220552",
+      "predictedPct": -0.15,
+      "priceAtDetect": 1.1464,
+      "createdAt": "2026-09-22T06:41:38.153Z",
+      "settleAt": "2026-09-22T07:26:38.153Z"
+    },
+    {
+      "key": "news:forex:Gold struggles below $4,350 as hawkish Fed offsets sliding bond yields, softer USD",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Gold struggles below $4,350 as hawkish Fed offsets sliding bond yields, softer USD",
+      "url": "https://www.fxstreet.com/news/gold-struggles-to-lure-buyers-amid-hawkish-fed-counters-sliding-us-bond-yields-202609220419",
+      "predictedPct": -0.15,
+      "priceAtDetect": 1.1464,
+      "createdAt": "2026-09-22T06:41:38.153Z",
+      "settleAt": "2026-09-22T07:26:38.153Z"
+    },
+    {
+      "key": "news:forex:Silver Price Forecast: XAG/USD holds losses near $66.00 amid Fed rate hike bets",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Silver Price Forecast: XAG/USD holds losses near $66.00 amid Fed rate hike bets",
+      "url": "https://www.fxstreet.com/news/silver-price-forecast-xag-usd-holds-losses-near-6600-amid-fed-rate-hike-bets-202609220525",
+      "predictedPct": -0.15,
+      "priceAtDetect": 1.1464,
+      "createdAt": "2026-09-22T06:41:38.153Z",
+      "settleAt": "2026-09-22T07:26:38.153Z"
+    }
+  ],
+  "results": [
+    {
+      "key": "news:forex:Japanese Yen weakens on BoJ's lack of hawkish guidance, eyes on potential intervention",
+      "tabId": "forex",
       "kind": "news",
       "title": "Japanese Yen weakens on BoJ's lack of hawkish guidance, eyes on potential intervention",
       "url": "https://www.fxstreet.com/news/japanese-yen-weakens-on-bojs-lack-of-hawkish-guidance-eyes-on-potential-intervention-202609220205",
-      "predictedPct": -0.63,
-      "priceAtDetect": 4374.1,
+      "predictedPct": -0.79,
+      "priceAtDetect": 1.1478,
       "createdAt": "2026-09-22T04:14:39.553Z",
-      "settleAt": "2026-09-22T04:59:39.553Z"
-    },
-    {
-      "key": "news:crypto:New Zealand Dollar slips amid gradual RBNZ rate hike outlook, geopolitical tensions",
-      "tabId": "crypto",
-      "kind": "news",
-      "title": "New Zealand Dollar slips amid gradual RBNZ rate hike outlook, geopolitical tensions",
-      "url": "https://www.fxstreet.com/news/new-zealand-dollar-slips-amid-gradual-rbnz-rate-hike-outlook-geopolitical-tensions-202609220218",
-      "predictedPct": -0.72,
-      "priceAtDetect": 85617,
-      "createdAt": "2026-09-22T04:14:39.553Z",
-      "settleAt": "2026-09-22T04:59:39.553Z"
-    },
-    {
-      "key": "news:crypto:Japanese Yen weakens on BoJ's lack of hawkish guidance, eyes on potential intervention",
-      "tabId": "crypto",
-      "kind": "news",
-      "title": "Japanese Yen weakens on BoJ's lack of hawkish guidance, eyes on potential intervention",
-      "url": "https://www.fxstreet.com/news/japanese-yen-weakens-on-bojs-lack-of-hawkish-guidance-eyes-on-potential-intervention-202609220205",
-      "predictedPct": -0.72,
-      "priceAtDetect": 85617,
-      "createdAt": "2026-09-22T04:14:39.553Z",
-      "settleAt": "2026-09-22T04:59:39.553Z"
+      "settleAt": "2026-09-22T04:59:39.553Z",
+      "priceAtSettle": 1.1464,
+      "realizedPct": -0.12,
+      "verdict": "correct",
+      "settledAt": "2026-09-22T06:41:38.153Z"
     },
     {
       "key": "news:forex:New Zealand Dollar slips amid gradual RBNZ rate hike outlook, geopolitical tensions",
@@ -53,21 +158,72 @@
       "predictedPct": -0.79,
       "priceAtDetect": 1.1478,
       "createdAt": "2026-09-22T04:14:39.553Z",
-      "settleAt": "2026-09-22T04:59:39.553Z"
+      "settleAt": "2026-09-22T04:59:39.553Z",
+      "priceAtSettle": 1.1464,
+      "realizedPct": -0.12,
+      "verdict": "correct",
+      "settledAt": "2026-09-22T06:41:38.153Z"
     },
     {
-      "key": "news:forex:Japanese Yen weakens on BoJ's lack of hawkish guidance, eyes on potential intervention",
-      "tabId": "forex",
+      "key": "news:crypto:Japanese Yen weakens on BoJ's lack of hawkish guidance, eyes on potential intervention",
+      "tabId": "crypto",
       "kind": "news",
       "title": "Japanese Yen weakens on BoJ's lack of hawkish guidance, eyes on potential intervention",
       "url": "https://www.fxstreet.com/news/japanese-yen-weakens-on-bojs-lack-of-hawkish-guidance-eyes-on-potential-intervention-202609220205",
-      "predictedPct": -0.79,
-      "priceAtDetect": 1.1478,
+      "predictedPct": -0.72,
+      "priceAtDetect": 85617,
       "createdAt": "2026-09-22T04:14:39.553Z",
-      "settleAt": "2026-09-22T04:59:39.553Z"
-    }
-  ],
-  "results": [
+      "settleAt": "2026-09-22T04:59:39.553Z",
+      "priceAtSettle": 85533.19,
+      "realizedPct": -0.1,
+      "verdict": "correct",
+      "settledAt": "2026-09-22T06:41:38.153Z"
+    },
+    {
+      "key": "news:crypto:New Zealand Dollar slips amid gradual RBNZ rate hike outlook, geopolitical tensions",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "New Zealand Dollar slips amid gradual RBNZ rate hike outlook, geopolitical tensions",
+      "url": "https://www.fxstreet.com/news/new-zealand-dollar-slips-amid-gradual-rbnz-rate-hike-outlook-geopolitical-tensions-202609220218",
+      "predictedPct": -0.72,
+      "priceAtDetect": 85617,
+      "createdAt": "2026-09-22T04:14:39.553Z",
+      "settleAt": "2026-09-22T04:59:39.553Z",
+      "priceAtSettle": 85533.19,
+      "realizedPct": -0.1,
+      "verdict": "correct",
+      "settledAt": "2026-09-22T06:41:38.153Z"
+    },
+    {
+      "key": "news:gold:Japanese Yen weakens on BoJ's lack of hawkish guidance, eyes on potential intervention",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Japanese Yen weakens on BoJ's lack of hawkish guidance, eyes on potential intervention",
+      "url": "https://www.fxstreet.com/news/japanese-yen-weakens-on-bojs-lack-of-hawkish-guidance-eyes-on-potential-intervention-202609220205",
+      "predictedPct": -0.63,
+      "priceAtDetect": 4374.1,
+      "createdAt": "2026-09-22T04:14:39.553Z",
+      "settleAt": "2026-09-22T04:59:39.553Z",
+      "priceAtSettle": 4355.6,
+      "realizedPct": -0.42,
+      "verdict": "correct",
+      "settledAt": "2026-09-22T06:41:38.153Z"
+    },
+    {
+      "key": "news:gold:New Zealand Dollar slips amid gradual RBNZ rate hike outlook, geopolitical tensions",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "New Zealand Dollar slips amid gradual RBNZ rate hike outlook, geopolitical tensions",
+      "url": "https://www.fxstreet.com/news/new-zealand-dollar-slips-amid-gradual-rbnz-rate-hike-outlook-geopolitical-tensions-202609220218",
+      "predictedPct": -0.63,
+      "priceAtDetect": 4374.1,
+      "createdAt": "2026-09-22T04:14:39.553Z",
+      "settleAt": "2026-09-22T04:59:39.553Z",
+      "priceAtSettle": 4355.6,
+      "realizedPct": -0.42,
+      "verdict": "correct",
+      "settledAt": "2026-09-22T06:41:38.153Z"
+    },
     {
       "key": "news:forex:NZD/USD Price Forecast: Bears lean on 0.5700 as RSI sinks",
       "tabId": "forex",
