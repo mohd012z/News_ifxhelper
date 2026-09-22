@@ -1,12 +1,8 @@
-name: Daily refresh (ATR + news + Telegram digest)
-
-# Once a day: recompute real ATR(14) from Yahoo/Coinbase OHLC, do a full news/calendar pass, and
-# alert Telegram for anything new. This is the heavier job (ATR pulls ~26 instruments' worth of
-# daily bars) so it runs far less often than news-watch.yml.
+name: Daily refresh (ATR + evidence + Telegram)
 
 on:
   schedule:
-    - cron: "0 0 * * *" # 00:00 UTC = 08:00 Asia/Singapore, matching the app's documented refresh time
+    - cron: "0 0 * * *"
   workflow_dispatch: {}
 
 permissions:
@@ -17,30 +13,28 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
-
       - name: Rebuild ATR(14) from real OHLC
         run: node build-atr.js
-
       - name: Rebuild news + calendar
         run: node build-news.js
-
-      - name: Rebuild macro KPIs (DXY / US10Y / Brent)
+      - name: Rebuild macro KPIs
         run: node build-macro.js
-
+      - name: Build freshness/version manifest
+        run: node build-data-manifest.js
+      - name: Run evidence-engine tests
+        run: npm test
       - name: Send Telegram alerts for anything new
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: node telegram-notify.js
-
       - name: Commit updated data files
         run: |
           git config user.name "xau-desk-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add atr.js news-auto.js macro-auto.js .news-alert-state.json price-track.json
-          git diff --cached --quiet || git commit -m "bot: daily ATR + news + macro refresh [skip ci]"
+          git add atr.js news-auto.js macro-auto.js data-manifest.json .news-alert-state.json price-track.json
+          git diff --cached --quiet || git commit -m "bot: daily evidence + ATR + manifest refresh [skip ci]"
           git push
