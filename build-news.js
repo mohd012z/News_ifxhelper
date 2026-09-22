@@ -78,7 +78,7 @@ function saveTrackState(state) { fs.writeFileSync(TRACK_FILE, JSON.stringify(sta
 const REACTION_WINDOWS = [
   { key: 'M1', minutes: 1 }, { key: 'M5', minutes: 5 }, { key: 'M15', minutes: 15 },
   { key: 'M30', minutes: 30 }, { key: 'H1', minutes: 60 }, { key: 'H4', minutes: 240 },
-  { key: 'D1', minutes: 1440 }
+  { key: 'D1', minutes: 1440 }, { key: 'W1', minutes: 10080 }, { key: 'MN1', minutes: 43200 }
 ];
 const MAX_PENDING = 150, MAX_RESULTS = 300;
 
@@ -579,7 +579,7 @@ function buildSpeakerRow(it, instrumentScale) {
     priceTrack = {
       pending: state.pending.length,
       resultsRecent: state.results.slice(0, 20),
-      observationModel: 'M1/M5/M15/M30/H1/H4/D1',
+      observationModel: 'M1/M5/M15/M30/H1/H4/D1/W1/MN1',
       note: 'Observed post-evidence price reactions only; no directional accuracy claim.'
     };
     console.log('OK   price-track     pending=' + state.pending.length + '  results=' + state.results.length + (priceTrack.accuracy ? '  accuracy=' + priceTrack.accuracy.pct + '%' : ''));
