@@ -2,14 +2,13 @@ from __future__ import annotations
 import argparse, json, sys
 from pathlib import Path
 
-# Permit direct execution: python tools/py/ifx.py ...
 ROOT = Path(__file__).resolve().parents[2]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from tools.py.lib.io import read_json
 from tools.py.lib.result import DiagnosticResult, exit_code, result
-from tools.py import candles, learningcheck
+from tools.py import candles, learningcheck, newscheck, syncdoctor
 
 COMMANDS = ("doctor", "sources", "cron", "candles", "bbma", "news", "learning", "conflicts", "sync", "apk", "walkforward", "benchmark")
 
@@ -33,6 +32,13 @@ def load_rows(root: Path, name: str) -> tuple[list[dict] | None, DiagnosticResul
     return value, None
 
 
+def snapshot(root: Path, name: str) -> dict:
+    value, error = read_json(root / name)
+    if error or not isinstance(value, dict):
+        return {'name': name, 'readError': error or 'expected object'}
+    return {'name': name, **value}
+
+
 def run(args: argparse.Namespace) -> list[DiagnosticResult]:
     root = Path(args.path).resolve()
     if args.command == "learning":
@@ -46,6 +52,18 @@ def run(args: argparse.Namespace) -> list[DiagnosticResult]:
         if not isinstance(rows, list):
             return [result("input.ohlc", "FAIL", details="candles array not found")]
         return candles.inspect(rows, args.tf)
+    if args.command == "news":
+        rows, err = load_rows(root, "news-level-reaction-history.json")
+        return [err] if err else newscheck.inspect(rows or [])
+    if args.command in ("sync", "apk"):
+        names=("data/bbma-watch.json","data/bbma-performance.json","data/agent-health.json","data/intelligence-360.json")
+        return syncdoctor.inspect([snapshot(root,n) for n in names])
+    if args.command == "doctor":
+        out=[]
+        rows, err = load_rows(root, "bbma-learning.json")
+        out += [err] if err else learningcheck.inspect(rows or [])
+        out += syncdoctor.inspect([snapshot(root,n) for n in ("data/bbma-watch.json","data/bbma-performance.json","data/agent-health.json","data/intelligence-360.json")])
+        return out
     return [result(f"command.{args.command}", "UNKNOWN", details="planned diagnostic not implemented yet")]
 
 
