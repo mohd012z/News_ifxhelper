@@ -33,5 +33,6 @@ jobs:
           node test/cron-orchestrator.test.js
           node test/event-orchestrator.test.js
           node test/data-quality-gate.test.js
+          node test/revision-intelligence.test.js
       - name: Independent Python verification
         run: python -m unittest discover -s test/py -p 'test_*.py'
