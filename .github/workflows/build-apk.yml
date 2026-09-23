@@ -1,18 +1,18 @@
 name: Build Android APK
 
-# Builds the debug APK in the cloud (this repo has no local Java/Android SDK to build with).
-# Trigger manually from the Actions tab, or it runs automatically when web/Android source changes.
-# Output: a downloadable "xau-desk-debug-apk" artifact attached to the run (Actions tab -> this
-# run -> Artifacts, bottom of the page). Artifacts expire after 90 days by default on GitHub.
-
+# Cloud debug APK build for XAU//DESK.
 on:
   workflow_dispatch: {}
   push:
-    branches: [main]
+    branches: [main, feature/hybrid-doctor-cli]
     paths:
       - "index.html"
       - "app.js"
       - "live.js"
+      - "bbma-dashboard-ui.js"
+      - "bbma-runtime.js"
+      - "bbma-alert-engine.js"
+      - "bbma-alerts.js"
       - "trade-plan.html"
       - "trade-plan.js"
       - "pwa.js"
@@ -41,10 +41,6 @@ jobs:
           distribution: "temurin"
           java-version: "21"
 
-      # ubuntu-latest already ships with an Android SDK (ANDROID_HOME preset) - installing just
-      # the specific platform/build-tools this project needs directly via sdkmanager, since the
-      # android-actions/setup-android action tries to install a legacy 'tools' package that no
-      # longer exists in Google's repository and fails outright.
       - name: Install required Android SDK packages
         env:
           ANDROID_HOME: /usr/local/lib/android/sdk
@@ -58,8 +54,15 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Copy web assets into www/ and sync the native Android project
+      - name: Copy web assets into www/ and sync native Android project
         run: npm run cap:sync
+
+      - name: Verify BBMA dashboard is packaged
+        run: |
+          test -f bbma-dashboard-ui.js
+          grep -q "BBMA ALERT COMMAND" bbma-dashboard-ui.js
+          grep -q "bbma-dashboard-ui.js" index.html
+          grep -q "xau-desk" android/app/src/main/AndroidManifest.xml
 
       - name: Build debug APK
         working-directory: android
