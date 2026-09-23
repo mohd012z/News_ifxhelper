@@ -29,5 +29,6 @@ jobs:
           node test/js-doctor.test.js
           node test/runtime-integration.test.js
           node test/artifact-publisher.test.js
+          node test/source-fallback.test.js
       - name: Independent Python verification
         run: python -m unittest discover -s test/py -p 'test_*.py'
