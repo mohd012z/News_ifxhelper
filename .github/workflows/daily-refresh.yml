@@ -2,11 +2,16 @@ name: Daily refresh (ATR + evidence + Telegram)
 
 on:
   schedule:
-    - cron: "0 0 * * *"
+    - cron: "13 0 * * *"
   workflow_dispatch: {}
 
 permissions:
   contents: write
+
+concurrency:
+  group: market-data-writer
+  cancel-in-progress: false
+  queue: max
 
 jobs:
   refresh:
@@ -18,23 +23,24 @@ jobs:
           node-version: "20"
       - name: Rebuild ATR(14) from real OHLC
         run: node build-atr.js
-      - name: Rebuild news + calendar
+      - name: Rebuild news + calendar + reaction observations
         run: node build-news.js
       - name: Rebuild macro KPIs
         run: node build-macro.js
       - name: Build freshness/version manifest
         run: node build-data-manifest.js
-      - name: Run evidence-engine tests
+      - name: Validate all analysis primitives
         run: npm test
       - name: Send Telegram alerts for anything new
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: node telegram-notify.js
-      - name: Commit updated data files
+      - name: Commit updated datasets + history + state
         run: |
           git config user.name "xau-desk-bot"
           git config user.email "actions@users.noreply.github.com"
           git add atr.js news-auto.js macro-auto.js data-manifest.json .news-alert-state.json price-track.json data/history
-          git diff --cached --quiet || git commit -m "bot: daily evidence + ATR + manifest refresh [skip ci]"
+          git diff --cached --quiet || git commit -m "bot: daily evidence + ATR + reactions [skip ci]"
+          git pull --rebase origin main
           git push

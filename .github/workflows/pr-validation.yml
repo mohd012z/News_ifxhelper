@@ -1,0 +1,40 @@
+name: PR validation
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "**.js"
+      - "package.json"
+      - ".github/workflows/**"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pr-validation-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Run deterministic tests
+        run: npm test
+      - name: Syntax-check runtime/build scripts
+        run: |
+          node --check build-news.js
+          node --check lib/history-store.js
+          node --check lib/technical-context.js
+          node --check lib/timestamps.js
+      - name: Build data manifest
+        run: node build-data-manifest.js
