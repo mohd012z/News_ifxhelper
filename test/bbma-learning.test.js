@@ -4,4 +4,9 @@ const base={symbol:'GC=F',tf:'M30',candle:{time:'2026-09-23T01:00:00Z',open:100,
 const o=L.createObservation(base);assert.equal(o.status,'PENDING');assert.equal(o.location,'TOP_BB');
 const s=L.settle(o,{time:'2026-09-23T01:30:00Z',open:101,high:102,low:99,close:100});assert.equal(s.actualDirection,'DOWN');assert.equal(s.correct,true);
 const bad=L.settle(L.createObservation({...base,tf:'M15',analysis:{...base.analysis,next:{state:'UP_BIAS',confidence:70,reasons:[]}}}),{time:'2026-09-23T01:15:00Z',open:101,close:100});
-const r=L.report([s,bad]);assert.equal(r.overall.samples,2);assert.equal(r.overall.accuracyPct,50);assert.equal(r.byMarketMode.POST_NEWS.samples,2);console.log('bbma learning tests passed');
+const r=L.report([s,bad]);assert.equal(r.overall.samples,2);assert.equal(r.overall.accuracyPct,50);assert.equal(r.byMarketMode.POST_NEWS.samples,2);
+const many=[];for(let i=0;i<20;i++)many.push({...s,id:'s'+i,confidence:i<10?55:85,correct:i<10?i<5:i<9});
+const cal=L.calibration(many);assert.equal(cal['50-59'].samples,10);assert.equal(cal['80-89'].samples,10);assert.equal(cal['80-89'].accuracyPct,90);
+const ev=L.evidenceFor({...base,analysis:{...base.analysis,next:{state:'DOWN_BIAS',confidence:80,reasons:['top_rejection_candidate']}}},many);assert.equal(ev.sampleSize,20);assert.equal(ev.publishable,true);assert(ev.empiricalAccuracyPct!=null);
+const thin=L.evidenceFor(base,many.slice(0,5));assert.equal(thin.publishable,false);assert.equal(thin.reason,'INSUFFICIENT_SAMPLES');
+console.log('bbma learning tests passed');
