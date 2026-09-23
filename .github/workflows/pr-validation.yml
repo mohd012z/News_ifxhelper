@@ -29,40 +29,8 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: npm ci
-      - name: Evidence tests
-        run: npm run test:evidence
-      - name: History tests
-        run: npm run test:history
-      - name: Technical tests
-        run: npm run test:technical
-      - name: Reaction tests
-        run: npm run test:reaction
-      - name: Timestamp tests
-        run: npm run test:timestamps
-      - name: Intelligence tests
-        run: npm run test:intelligence
-      - name: BBMA engine tests
-        run: npm run test:bbma
-      - name: BBMA dashboard tests
-        run: npm run test:bbma-dashboard
-      - name: Market provider tests
-        run: npm run test:market-provider
-      - name: OHLC backfill tests
-        run: npm run test:ohlc-backfill
-      - name: OHLC resampler tests
-        run: npm run test:ohlc-resampler
-      - name: News level history tests
-        run: npm run test:news-level-history
-      - name: BBMA learning tests
-        run: npm run test:bbma-learning
-      - name: Evidence envelope tests
-        run: npm run test:evidence-envelope
-      - name: Source health tests
-        run: npm run test:source-health
-      - name: Orchestrator tests
-        run: npm run test:orchestrator
-      - name: Learning store tests
-        run: npm run test:learning-store
+      - name: Full Node test suite
+        run: npm test
       - name: Syntax-check runtime/build scripts
         run: |
           node --check build-news.js
@@ -71,6 +39,7 @@ jobs:
           node --check build-intelligence-360.js
           node --check build-agent-health.js
           node --check build-intelligence-aggregate.js
+          node --check build-data-manifest.js
           node --check lib/history-store.js
           node --check lib/technical-context.js
           node --check lib/timestamps.js
@@ -78,12 +47,15 @@ jobs:
           node --check lib/source-health.js
           node --check lib/intelligence-orchestrator.js
           node --check lib/learning-store.js
-      - name: Build data manifest
+      - name: Build expanded data manifest
         run: node build-data-manifest.js
+      - name: Verify intelligence manifest coverage
+        run: |
+          node -e "const m=require('./data-manifest.json');const need=['data/bbma-watch.json','data/bbma-performance.json','data/agent-health.json','data/intelligence-360.json'];for(const f of need)if(!m.files.some(x=>x.file===f))throw Error('manifest missing '+f);if(m.schemaVersion<2)throw Error('manifest schema too old')"
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - name: Python doctor foundation tests
+      - name: Python doctor tests
         run: python -m unittest discover -s test/py -p 'test_*.py' -v
       - name: Python CLI syntax
-        run: python -m py_compile tools/py/ifx.py tools/py/candles.py tools/py/learningcheck.py tools/py/lib/result.py tools/py/lib/timeframes.py tools/py/lib/io.py
+        run: python -m py_compile tools/py/ifx.py tools/py/candles.py tools/py/learningcheck.py tools/py/newscheck.py tools/py/syncdoctor.py tools/py/croncheck.py tools/py/lib/result.py tools/py/lib/timeframes.py tools/py/lib/io.py
