@@ -1,0 +1,31 @@
+name: Hybrid Intelligence Doctor
+on:
+  pull_request:
+  workflow_dispatch:
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Existing Node test suite
+        run: npm test
+      - name: New intelligence unit tests
+        run: |
+          node test/ohlc-resampler.test.js
+          node test/bbma-engine.test.js
+          node test/calendar-context.test.js
+          node test/snapshot-capture.test.js
+          node test/weekly-learning.test.js
+          node test/research-dossier.test.js
+          node test/event-window.test.js
+          node test/background-learning.test.js
+          node test/output-coordinator.test.js
+          node test/js-doctor.test.js
+      - name: Independent Python verification
+        run: python -m unittest discover -s test/py -p 'test_*.py'
