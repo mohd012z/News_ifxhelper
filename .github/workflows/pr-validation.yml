@@ -19,7 +19,7 @@ concurrency:
 jobs:
   validate:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -28,13 +28,54 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: npm ci
-      - name: Run deterministic tests
-        run: npm test
+      - name: Evidence tests
+        run: npm run test:evidence
+      - name: History tests
+        run: npm run test:history
+      - name: Technical tests
+        run: npm run test:technical
+      - name: Reaction tests
+        run: npm run test:reaction
+      - name: Timestamp tests
+        run: npm run test:timestamps
+      - name: Intelligence tests
+        run: npm run test:intelligence
+      - name: BBMA engine tests
+        run: npm run test:bbma
+      - name: BBMA dashboard tests
+        run: npm run test:bbma-dashboard
+      - name: Market provider tests
+        run: npm run test:market-provider
+      - name: OHLC backfill tests
+        run: npm run test:ohlc-backfill
+      - name: OHLC resampler tests
+        run: npm run test:ohlc-resampler
+      - name: News level history tests
+        run: npm run test:news-level-history
+      - name: BBMA learning tests
+        run: npm run test:bbma-learning
+      - name: Evidence envelope tests
+        run: npm run test:evidence-envelope
+      - name: Source health tests
+        run: npm run test:source-health
+      - name: Orchestrator tests
+        run: npm run test:orchestrator
+      - name: Learning store tests
+        run: npm run test:learning-store
       - name: Syntax-check runtime/build scripts
         run: |
           node --check build-news.js
+          node --check build-bbma-watch.js
+          node --check build-bbma-learning.js
+          node --check build-intelligence-360.js
+          node --check build-agent-health.js
+          node --check build-intelligence-aggregate.js
           node --check lib/history-store.js
           node --check lib/technical-context.js
           node --check lib/timestamps.js
+          node --check lib/evidence-envelope.js
+          node --check lib/source-health.js
+          node --check lib/intelligence-orchestrator.js
+          node --check lib/learning-store.js
       - name: Build data manifest
         run: node build-data-manifest.js
