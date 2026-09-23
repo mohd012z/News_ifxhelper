@@ -1,0 +1,12 @@
+'use strict';
+const assert=require('assert'),P=require('../lib/artifact-publisher');
+const now='2026-09-23T09:10:00Z';
+const inputs={market:{sourceAt:'2026-09-23T09:08:00Z',snapshotId:'s50',symbol:'XAUUSD',mtf:{MN1:'UP',W1:'UP',M30:'MIXED'}},news:{sourceAt:'2026-09-23T09:06:00Z',researchVersion:8,nextEvent:{id:'CPI'}},learning:{sourceAt:'2026-09-23T08:30:00Z',settled:130,pending:4}};
+const out=P.publish(inputs,{now});
+assert.equal(out['data/current-snapshot.json'].snapshotId,'s50');
+assert.equal(out['data/current-snapshot.json'].sourceAt,'2026-09-23T09:08:00Z');
+assert.equal(out['data/learning-summary.json'].settled,130);
+assert.equal(out['data/system-health.json'].overall,'GREEN');
+const stale=P.publish({...inputs,news:{...inputs.news,sourceAt:'2026-09-23T07:00:00Z'}},{now});assert.equal(stale['data/system-health.json'].overall,'RED');
+const cached=P.consumerEnvelope(out['data/current-snapshot.json'],{consumer:'apk',cachedAt:'2026-09-23T09:20:00Z'});assert.equal(cached.sourceAt,'2026-09-23T09:08:00Z');assert.equal(cached.cachedAt,'2026-09-23T09:20:00Z');
+console.log('artifact publisher tests passed');
