@@ -11,16 +11,23 @@ concurrency:
 jobs:
   watch:
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Install dependencies
+        run: npm ci
+      - name: Cross-check engines
+        run: npm test
       - name: Build BBMA watch snapshot
         env:
           BBMA_SYMBOL: GC=F
         run: node build-bbma-watch.js
+      - name: Validate generated snapshot
+        run: |
+          node -e "const fs=require('fs');const x=JSON.parse(fs.readFileSync('data/bbma-watch.json'));if(!x.generatedAt||!x.symbol||!x.analysis||!x.dashboard)throw Error('invalid BBMA snapshot');console.log('snapshot OK',x.symbol,x.news&&x.news.state,Object.keys(x.analysis));"
       - name: Commit changed snapshot
         run: |
           if git diff --quiet -- data/bbma-watch.json; then echo 'No BBMA snapshot change'; exit 0; fi
