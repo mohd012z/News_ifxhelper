@@ -1,14 +1,13 @@
 'use strict';
 const assert=require('assert'),L=require('../lib/bbma-learning');
-const base={symbol:'GC=F',tf:'M30',candle:{time:'2026-09-23T01:00:00Z',open:100,close:101},analysis:{bbma:{zone:'TOP_BB',trend:'UP',extreme:'EXTREME_HIGH',momentum:'NONE',reentry:'NONE',csak:'NONE'},squeeze:{squeeze:'NORMAL'},next:{state:'DOWN_BIAS',confidence:60,reasons:['top_rejection_candidate']}},marketMode:'POST_NEWS'};
-const o=L.createObservation(base);assert.equal(o.status,'PENDING');assert.equal(o.location,'TOP_BB');
-const s=L.settle(o,{time:'2026-09-23T01:30:00Z',open:101,high:102,low:99,close:100});assert.equal(s.actualDirection,'DOWN');assert.equal(s.correct,true);
+const base={generationId:'bbma-gen-test-001',sourceGeneratedAt:'2026-09-23T01:00:05Z',symbol:'GC=F',tf:'M30',candle:{time:'2026-09-23T01:00:00Z',open:100,close:101},analysis:{bbma:{zone:'TOP_BB',trend:'UP',extreme:'EXTREME_HIGH',momentum:'NONE',reentry:'NONE',csak:'NONE'},squeeze:{squeeze:'NORMAL'},next:{state:'DOWN_BIAS',confidence:60,reasons:['top_rejection_candidate']}},marketMode:'POST_NEWS'};
+const o=L.createObservation(base);assert.equal(o.status,'PENDING');assert.equal(o.location,'TOP_BB');assert.equal(o.generationId,base.generationId);assert.equal(o.sourceGeneratedAt,base.sourceGeneratedAt);
+const s=L.settle(o,{time:'2026-09-23T01:30:00Z',open:101,high:102,low:99,close:100});assert.equal(s.actualDirection,'DOWN');assert.equal(s.correct,true);assert.equal(s.generationId,base.generationId);
 const bad=L.settle(L.createObservation({...base,tf:'M15',analysis:{...base.analysis,next:{state:'UP_BIAS',confidence:70,reasons:[]}}}),{time:'2026-09-23T01:15:00Z',open:101,close:100});
-const r=L.report([s,bad]);assert.equal(r.overall.samples,2);assert.equal(r.overall.accuracyPct,50);assert.equal(r.byMarketMode.POST_NEWS.samples,2);
-// Ten 50-59 confidence observations at 50% accuracy and ten 80-89 observations at 90% accuracy.
-const many=[];
-for(let i=0;i<20;i++)many.push({...s,id:'s'+i,confidence:i<10?55:85,correct:i<10?i<5:i<19});
+const r=L.report([s,bad]);assert.equal(r.overall.samples,2);assert.equal(r.overall.accuracyPct,50);assert.equal(r.byMarketMode.POST_NEWS.samples,2);assert.equal(r.lineage.status,'CONSISTENT');assert.equal(r.lineage.generationId,base.generationId);
+const mixed=L.report([s,{...bad,generationId:'other-generation'}]);assert.equal(mixed.lineage.status,'MIXED');assert.equal(mixed.lineage.generationId,null);
+const many=[];for(let i=0;i<20;i++)many.push({...s,id:'s'+i,confidence:i<10?55:85,correct:i<10?i<5:i<19});
 const cal=L.calibration(many);assert.equal(cal['50-59'].samples,10);assert.equal(cal['50-59'].accuracyPct,50);assert.equal(cal['80-89'].samples,10);assert.equal(cal['80-89'].accuracyPct,90);
-const ev=L.evidenceFor({...base,analysis:{...base.analysis,next:{state:'DOWN_BIAS',confidence:80,reasons:['top_rejection_candidate']}}},many);assert.equal(ev.sampleSize,20);assert.equal(ev.publishable,true);assert.equal(ev.empiricalAccuracyPct,70);assert.equal(ev.modelConfidence,80);
+const ev=L.evidenceFor({...base,analysis:{...base.analysis,next:{state:'DOWN_BIAS',confidence:80,reasons:['top_rejection_candidate']}}},many);assert.equal(ev.sampleSize,20);assert.equal(ev.publishable,true);assert.equal(ev.empiricalAccuracyPct,70);assert.equal(ev.modelConfidence,80);assert.equal(ev.lineage.status,'CONSISTENT');
 const thin=L.evidenceFor(base,many.slice(0,5));assert.equal(thin.publishable,false);assert.equal(thin.reason,'INSUFFICIENT_SAMPLES');assert.equal(thin.sampleSize,5);
 console.log('bbma learning tests passed');
