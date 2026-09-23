@@ -8,9 +8,12 @@ on:
       - "index.html"
       - "app.js"
       - "live.js"
+      - "bbma-runtime.js"
       - "bbma-dashboard-ui.js"
+      - "bbma-router-fix.js"
       - "bbma-link.js"
       - "tools/prepare-web.js"
+      - "test/bbma-*.test.js"
       - "android/**"
       - "capacitor.config.json"
       - "package.json"
@@ -23,16 +26,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
-
       - uses: actions/setup-java@v5
         with:
           distribution: "temurin"
           java-version: "21"
-
       - name: Install required Android SDK packages
         env:
           ANDROID_HOME: /usr/local/lib/android/sdk
@@ -42,36 +42,30 @@ jobs:
           echo "$ANDROID_HOME/platform-tools" >> "$GITHUB_PATH"
           yes | "$SDKMANAGER" --licenses > /dev/null || true
           "$SDKMANAGER" "platform-tools" "platforms;android-35" "build-tools;35.0.0"
-
       - name: Install dependencies
         run: npm ci
-
+      - name: Verify BBMA contracts
+        run: node test/bbma-apk-router-runtime.test.js
       - name: Copy web assets into www/ and sync native Android project
         run: npm run cap:sync
-
       - name: Verify BBMA dashboard is packaged
         run: |
           set -euxo pipefail
-          test -f bbma-dashboard-ui.js
-          test -f bbma-link.js
+          for f in bbma-runtime.js bbma-dashboard-ui.js bbma-router-fix.js bbma-link.js; do
+            test -f "$f"
+            test -f "www/$f"
+            test -f "android/app/src/main/assets/public/$f"
+            grep -q "$f" www/index.html
+            grep -q "$f" android/app/src/main/assets/public/index.html
+          done
           grep -q "BBMA ALERT COMMAND" bbma-dashboard-ui.js
-          test -f www/bbma-dashboard-ui.js
-          test -f www/bbma-link.js
-          grep -q "bbma-dashboard-ui.js" www/index.html
-          grep -q "bbma-link.js" www/index.html
-          test -f android/app/src/main/assets/public/bbma-dashboard-ui.js
-          test -f android/app/src/main/assets/public/bbma-link.js
-          grep -q "bbma-dashboard-ui.js" android/app/src/main/assets/public/index.html
-          grep -q "bbma-link.js" android/app/src/main/assets/public/index.html
           grep -q "xau-desk" android/app/src/main/AndroidManifest.xml
-          echo "BBMA dashboard + deep-link router packaged successfully"
-
+          echo "BBMA runtime + dashboard + isolated navigation + deep-link router packaged successfully"
       - name: Build debug APK
         working-directory: android
         run: |
           chmod +x gradlew
           ./gradlew assembleDebug --no-daemon
-
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
