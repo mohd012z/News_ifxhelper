@@ -5,7 +5,7 @@
  * Regenerate: node build-news.js (run on the same daily cron as build-atr.js).
  */
 window.NEWS_AUTO = {
-  "generatedAt": "2026-09-23 04:11:44Z",
+  "generatedAt": "2026-09-23 07:25:38Z",
   "note": "Auto-collected: economic calendar is real structured data; news rows are country/currency-aware and instrument-filtered; mixed observed-vs-policy direction becomes CONFLICT/NEUTRAL. impactPct is retained only for UI compatibility and is an impact score, not a calibrated return forecast. Treat auto:true rows as a first pass.",
   "incoming": [
     {
@@ -31,7 +31,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-09-23T04:11:39.157Z",
+      "fetchedAt": "2026-09-23T07:25:33.471Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -58,7 +58,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-09-23T04:11:39.157Z",
+      "fetchedAt": "2026-09-23T07:25:33.471Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -85,7 +85,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-09-23T04:11:39.157Z",
+      "fetchedAt": "2026-09-23T07:25:33.471Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -112,7 +112,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-09-23T04:11:39.157Z",
+      "fetchedAt": "2026-09-23T07:25:33.471Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -139,7 +139,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-09-23T04:11:39.157Z",
+      "fetchedAt": "2026-09-23T07:25:33.471Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -166,7 +166,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-09-23T04:11:39.157Z",
+      "fetchedAt": "2026-09-23T07:25:33.472Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -193,7 +193,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-09-23T04:11:39.157Z",
+      "fetchedAt": "2026-09-23T07:25:33.472Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -220,7 +220,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-09-23T04:11:39.157Z",
+      "fetchedAt": "2026-09-23T07:25:33.472Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -247,7 +247,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-09-23T04:11:39.157Z",
+      "fetchedAt": "2026-09-23T07:25:33.472Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -274,7 +274,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-09-23T04:11:39.157Z",
+      "fetchedAt": "2026-09-23T07:25:33.472Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -301,7 +301,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-09-23T04:11:39.157Z",
+      "fetchedAt": "2026-09-23T07:25:33.472Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -328,7 +328,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-09-23T04:11:39.157Z",
+      "fetchedAt": "2026-09-23T07:25:33.472Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     }
@@ -339,7 +339,7 @@ window.NEWS_AUTO = {
         {
           "time": "Wed 23 Sep, 10:59 MYT",
           "tf": "Intraday",
-          "title": "Asia FX flat, dollar creeps higher ahead of U.S.-China summit",
+          "title": "Dollar creeps higher ahead of U.S.-China summit",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
           "source": "Investing.com - Forex News",
           "url": "https://www.investing.com/news/forex-news/asia-fx-flat-dollar-creeps-higher-ahead-of-uschina-summit-4912043",
@@ -590,9 +590,34 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Wed 23 Sep, 09:48 MYT",
+          "time": "Wed 23 Sep, 14:35 MYT",
           "tf": "Intraday",
-          "title": "Oil falls on increased Gulf supply and hopes for US-Iran talks",
+          "title": "Oil slips for 6th straight day as Trump signals progress in Iran talks",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "Investing.com - Commodities & Futures",
+          "url": "https://www.investing.com/news/commodities-news/oil-extends-losses-as-trump-signals-progress-in-usiran-talks-4911933",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.5,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": true,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Wed 23 Sep, 12:48 MYT",
+          "tf": "Intraday",
+          "title": "Oil falls $1 on better supply outlook, hopes for US-Iran talks",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
           "source": "Investing.com - Commodities & Futures",
           "url": "https://www.investing.com/news/commodities-news/oil-falls-on-increased-gulf-supply-and-hopes-for-usiran-talks-4912001",
@@ -615,12 +640,12 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Wed 23 Sep, 08:38 MYT",
+          "time": "Wed 23 Sep, 12:12 MYT",
           "tf": "Intraday",
-          "title": "Oil extends losses as Trump signals progress in U.S.-Iran talks",
+          "title": "Analysis-Wheat buyers brace for higher costs as Russia-Ukraine war drags on",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
           "source": "Investing.com - Commodities & Futures",
-          "url": "https://www.investing.com/news/commodities-news/oil-extends-losses-as-trump-signals-progress-in-usiran-talks-4911933",
+          "url": "https://www.investing.com/news/commodities-news/analysiswheat-buyers-brace-for-higher-costs-as-russiaukraine-war-drags-on-4912057",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
@@ -630,7 +655,7 @@ window.NEWS_AUTO = {
             "gold": false,
             "yields": false,
             "usd": false,
-            "oil": true,
+            "oil": false,
             "risk": false,
             "crypto": false
           },
@@ -815,196 +840,12 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Wed 23 Sep, 03:18 MYT",
+          "time": "Wed 23 Sep, 15:14 MYT",
           "tf": "Intraday",
-          "title": "Natural Gas tests $3.026 resistance with overbought RSI: Live levels",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "Investing.com - Commodities & Futures",
-          "url": "https://www.investing.com/news/commodities-news/natural-gas-squeezed-near-2878-ahead-of-breakout-live-levels-93CH-4908351",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.5,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Wed 23 Sep, 11:44 MYT",
-          "tf": "Intraday",
-          "title": "USD/IDR Price Forecast: Falls toward moving averages near 17,800 ahead of BI decision",
+          "title": "USD/CAD Price Forecast: Eyes 1.4100 as bulls retain control near July 29 highs",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
           "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/usd-idr-price-forecast-falls-toward-moving-averages-near-17-800-ahead-of-bi-decision-202609230344",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.8,
-          "currencies": [
-            "USD"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Wed 23 Sep, 11:43 MYT",
-          "tf": "Intraday",
-          "title": "Gold edges lower on Fed-driven USD strength as markets await Trump-Xi meeting",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/gold-edges-lower-on-fed-driven-usd-strength-as-markets-await-trump-xi-meeting-202609230343",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 1,
-          "currencies": [
-            "USD"
-          ],
-          "drivers": {
-            "gold": true,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Wed 23 Sep, 11:23 MYT",
-          "tf": "Intraday",
-          "title": "United States Dollar Index jumps to near 100.70 as Fed maintains hawkish rhetoric",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/united-states-dollar-index-jumps-to-near-10070-as-fed-maintains-hawkish-rhetoric-202609230323",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "CONFLICT",
-          "relevance": 0.8,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": "hawkish",
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Wed 23 Sep, 10:58 MYT",
-          "tf": "Intraday",
-          "title": "Asian stocks trade mixed, Taiwan’s Taiex leads on tech boost",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/asian-stocks-trade-mixed-taiwans-taiex-leads-on-tech-boost-202609230258",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.8,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": true,
-            "usd": false,
-            "oil": true,
-            "risk": true,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Wed 23 Sep, 10:39 MYT",
-          "tf": "Intraday",
-          "title": "Silver Price Forecast: XAG/USD falls to near $66.50 as Fed signals further rate hikes",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/silver-price-forecast-xag-usd-falls-to-near-6650-as-fed-signals-further-rate-hikes-202609230239",
-          "impact": "bearish",
-          "signal": "SELL",
-          "decisionState": "CONFLICT",
-          "relevance": 0.8,
-          "currencies": [
-            "USD"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": true,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": "hawkish",
-          "impactScore": -0.12,
-          "impactPct": -0.12,
-          "auto": true
-        },
-        {
-          "time": "Wed 23 Sep, 10:08 MYT",
-          "tf": "Intraday",
-          "title": "Japanese Yen softens on BoJ's lack of hawkish guidance, potential intervention eyed",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/japanese-yen-softens-on-bojs-lack-of-hawkish-guidance-potential-intervention-eyed-202609230208",
-          "impact": "bearish",
-          "signal": "SELL",
-          "decisionState": "DIRECTIONAL",
-          "relevance": 0.8,
-          "currencies": [
-            "USD",
-            "JPY"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": "hawkish",
-          "impactScore": -0.63,
-          "impactPct": -0.63,
-          "auto": true
-        },
-        {
-          "time": "Wed 23 Sep, 09:43 MYT",
-          "tf": "Intraday",
-          "title": "Canadian Dollar seems vulnerable as Iran diplomacy hopes weigh on oil prices",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/canadian-dollar-seems-vulnerable-as-iran-diplomacy-hopes-weigh-on-oil-prices-202609230143",
+          "url": "https://www.fxstreet.com/news/usd-cad-price-forecast-eyes-14100-as-bulls-retain-control-near-july-29-highs-202609230714",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
@@ -1017,34 +858,6 @@ window.NEWS_AUTO = {
             "gold": false,
             "yields": false,
             "usd": true,
-            "oil": true,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Wed 23 Sep, 09:33 MYT",
-          "tf": "Intraday",
-          "title": "Australian Dollar remains under pressure as PMI slows",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/australian-dollar-remains-under-pressure-as-pmi-slows-202609230133",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.8,
-          "currencies": [
-            "USD",
-            "AUD"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
             "oil": false,
             "risk": false,
             "crypto": false
@@ -1055,19 +868,74 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Wed 23 Sep, 09:21 MYT",
+          "time": "Wed 23 Sep, 15:10 MYT",
           "tf": "Intraday",
-          "title": "Euro weakens below 1.1450 on hawkish Fed signals, German political risks",
+          "title": "Euro nudges up against British Pound with Eurozone and UK PMIs in focus",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
           "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/euro-weakens-below-11450-on-hawkish-fed-signals-german-political-risks-202609230121",
+          "url": "https://www.fxstreet.com/news/euro-nudges-up-against-british-pound-with-eurozone-and-uk-pmis-in-focus-202609230710",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.35,
+          "currencies": [
+            "EUR",
+            "GBP"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Wed 23 Sep, 15:02 MYT",
+          "tf": "Intraday",
+          "title": "Brent: Price slide extends on pipeline restart – Danske Bank",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/brent-price-slide-extends-on-pipeline-restart-danske-bank-202609230702",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.8,
+          "currencies": [
+            "USD"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": true,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Wed 23 Sep, 14:54 MYT",
+          "tf": "Intraday",
+          "title": "New Zealand Dollar declines to near 0.5700 on hawkish Fed remarks ahead US PMI data",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/new-zealand-dollar-declines-to-near-05700-on-hawkish-fed-remarks-ahead-us-pmi-data-202609230654",
           "impact": "bearish",
           "signal": "SELL",
           "decisionState": "DIRECTIONAL",
           "relevance": 0.8,
           "currencies": [
             "USD",
-            "EUR"
+            "NZD"
           ],
           "drivers": {
             "gold": false,
@@ -1083,19 +951,18 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Wed 23 Sep, 09:15 MYT",
+          "time": "Wed 23 Sep, 13:26 MYT",
           "tf": "Intraday",
-          "title": "PBOC sets USD/CNY reference rate at 6.7468 vs. 6.7459 previous",
+          "title": "Indian Rupee resumes decline amid hawkish Fed expectations",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
           "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/pboc-sets-usd-cny-reference-rate-at-67468-vs-67459-previous-202609230115",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
+          "url": "https://www.fxstreet.com/news/indian-rupee-comes-under-pressure-amid-hawkish-fed-expectations-202609230526",
+          "impact": "bearish",
+          "signal": "SELL",
+          "decisionState": "CONFLICT",
           "relevance": 0.8,
           "currencies": [
-            "USD",
-            "CNY"
+            "USD"
           ],
           "drivers": {
             "gold": false,
@@ -1105,18 +972,18 @@ window.NEWS_AUTO = {
             "risk": false,
             "crypto": false
           },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
+          "policySide": "hawkish",
+          "impactScore": -0.12,
+          "impactPct": -0.12,
           "auto": true
         },
         {
-          "time": "Wed 23 Sep, 09:07 MYT",
+          "time": "Wed 23 Sep, 14:43 MYT",
           "tf": "Intraday",
-          "title": "British Pound hangs near late July lows vs USD; looks to UK/US PMIs for fresh impetus",
+          "title": "British Pound: Testing support near 1.3300 against US Dollar – UOB",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
           "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/british-pound-hangs-near-late-july-lows-vs-usd-looks-to-uk-us-pmis-for-fresh-impetus-202609230107",
+          "url": "https://www.fxstreet.com/news/british-pound-testing-support-near-13300-against-us-dollar-uob-202609230643",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
@@ -1139,96 +1006,240 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Wed 23 Sep, 09:02 MYT",
+          "time": "Wed 23 Sep, 11:43 MYT",
           "tf": "Intraday",
-          "title": "US Special Envoy Witkoff says mediators completed round of US-Iran talks",
+          "title": "Gold retains intraday bearish bias as hawkish Fed lifts USD to fresh high since July 30",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
           "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/us-special-envoy-witkoff-says-mediators-completed-round-of-us-iran-talks-202609230102",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.5,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Wed 23 Sep, 08:12 MYT",
-          "tf": "Intraday",
-          "title": "WTI slumps to near $89.00 as markets weigh Trump’s UN speech",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/wti-slumps-to-near-8900-as-markets-weigh-trumps-un-speech-202609230012",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.5,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": true,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Wed 23 Sep, 07:37 MYT",
-          "tf": "Intraday",
-          "title": "Explosion heard near Iran’s Qeshm Island",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/explosion-heard-near-irans-qeshm-island-202609222337",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.5,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Wed 23 Sep, 07:22 MYT",
-          "tf": "Intraday",
-          "title": "Gold recovers above $4,350 on US–Iran diplomacy hopes",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/gold-recovers-above-4-350-on-us-iran-diplomacy-hopes-202609222322",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
+          "url": "https://www.fxstreet.com/news/gold-edges-lower-on-fed-driven-usd-strength-as-markets-await-trump-xi-meeting-202609230343",
+          "impact": "bearish",
+          "signal": "SELL",
+          "decisionState": "DIRECTIONAL",
           "relevance": 1,
           "currencies": [
             "USD"
           ],
           "drivers": {
             "gold": true,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": "hawkish",
+          "impactScore": -0.15,
+          "impactPct": -0.15,
+          "auto": true
+        },
+        {
+          "time": "Wed 23 Sep, 14:31 MYT",
+          "tf": "Intraday",
+          "title": "Japanese Yen weakens further against US Dollar as hawkish Fed bets dominate",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/japanese-yen-weakens-further-against-us-dollar-as-hawkish-fed-bets-dominate-202609230631",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "CONFLICT",
+          "relevance": 0.8,
+          "currencies": [
+            "USD",
+            "JPY"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": "hawkish",
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Wed 23 Sep, 14:29 MYT",
+          "tf": "Intraday",
+          "title": "Forex Today: US Dollar continues to gather strength ahead of PMI data",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/forex-today-us-dollar-continues-to-gather-strength-ahead-of-pmi-data-202609230629",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.8,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Wed 23 Sep, 14:29 MYT",
+          "tf": "Intraday",
+          "title": "Euro: De-escalation risk weighs on EUR against US Dollar – Commerzbank",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/euro-de-escalation-risk-weighs-on-eur-against-us-dollar-commerzbank-202609230629",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.8,
+          "currencies": [
+            "USD",
+            "EUR"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Wed 23 Sep, 14:17 MYT",
+          "tf": "Intraday",
+          "title": "Silver Price Forecasts: XAG/USD holds within range with bulls capped below $68.00 area",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/silver-price-forecasts-xag-usd-holds-within-range-with-bulls-capped-below-6800-area-202609230617",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.8,
+          "currencies": [
+            "USD"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Wed 23 Sep, 14:06 MYT",
+          "tf": "Intraday",
+          "title": "British Pound weakens to near 1.3300 as UK fiscal deficit exceeds market expectations",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/british-pound-weakens-to-near-13300-as-uk-fiscal-deficit-exceeds-market-expectations-202609230606",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.8,
+          "currencies": [
+            "USD",
+            "GBP"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Wed 23 Sep, 14:02 MYT",
+          "tf": "Intraday",
+          "title": "United States Dollar Index gains support amid hawkish Fed policy stance",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/united-states-dollar-index-gains-support-amid-hawkish-fed-policy-stance-202609230602",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "CONFLICT",
+          "relevance": 0.8,
+          "currencies": [
+            "USD"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": "hawkish",
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Wed 23 Sep, 13:50 MYT",
+          "tf": "Intraday",
+          "title": "EUR/JPY Price Forecast: Tests 180.00 support near nine-day EMA",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/eur-jpy-price-forecast-tests-18000-support-near-nine-day-ema-202609230550",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.35,
+          "currencies": [
+            "EUR",
+            "JPY"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Wed 23 Sep, 13:42 MYT",
+          "tf": "Intraday",
+          "title": "AUD/USD Price Forecast: 20-day EMA remains key barrier amid firm US Dollar",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/aud-usd-price-forecast-20-day-ema-remains-key-barrier-amid-firm-us-dollar-202609230542",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.8,
+          "currencies": [
+            "USD",
+            "AUD"
+          ],
+          "drivers": {
+            "gold": false,
             "yields": false,
             "usd": true,
             "oil": false,
@@ -1498,7 +1509,7 @@ window.NEWS_AUTO = {
         {
           "time": "Wed 23 Sep, 10:59 MYT",
           "tf": "Intraday",
-          "title": "Asia FX flat, dollar creeps higher ahead of U.S.-China summit",
+          "title": "Dollar creeps higher ahead of U.S.-China summit",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
           "source": "Investing.com - Forex News",
           "url": "https://www.investing.com/news/forex-news/asia-fx-flat-dollar-creeps-higher-ahead-of-uschina-summit-4912043",
@@ -1749,9 +1760,34 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Wed 23 Sep, 09:48 MYT",
+          "time": "Wed 23 Sep, 14:35 MYT",
           "tf": "Intraday",
-          "title": "Oil falls on increased Gulf supply and hopes for US-Iran talks",
+          "title": "Oil slips for 6th straight day as Trump signals progress in Iran talks",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "Investing.com - Commodities & Futures",
+          "url": "https://www.investing.com/news/commodities-news/oil-extends-losses-as-trump-signals-progress-in-usiran-talks-4911933",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.4,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": true,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Wed 23 Sep, 12:48 MYT",
+          "tf": "Intraday",
+          "title": "Oil falls $1 on better supply outlook, hopes for US-Iran talks",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
           "source": "Investing.com - Commodities & Futures",
           "url": "https://www.investing.com/news/commodities-news/oil-falls-on-increased-gulf-supply-and-hopes-for-usiran-talks-4912001",
@@ -1774,12 +1810,12 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Wed 23 Sep, 08:38 MYT",
+          "time": "Wed 23 Sep, 12:12 MYT",
           "tf": "Intraday",
-          "title": "Oil extends losses as Trump signals progress in U.S.-Iran talks",
+          "title": "Analysis-Wheat buyers brace for higher costs as Russia-Ukraine war drags on",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
           "source": "Investing.com - Commodities & Futures",
-          "url": "https://www.investing.com/news/commodities-news/oil-extends-losses-as-trump-signals-progress-in-usiran-talks-4911933",
+          "url": "https://www.investing.com/news/commodities-news/analysiswheat-buyers-brace-for-higher-costs-as-russiaukraine-war-drags-on-4912057",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
@@ -1789,7 +1825,7 @@ window.NEWS_AUTO = {
             "gold": false,
             "yields": false,
             "usd": false,
-            "oil": true,
+            "oil": false,
             "risk": false,
             "crypto": false
           },
@@ -1974,196 +2010,12 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Wed 23 Sep, 03:18 MYT",
+          "time": "Wed 23 Sep, 15:14 MYT",
           "tf": "Intraday",
-          "title": "Natural Gas tests $3.026 resistance with overbought RSI: Live levels",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "Investing.com - Commodities & Futures",
-          "url": "https://www.investing.com/news/commodities-news/natural-gas-squeezed-near-2878-ahead-of-breakout-live-levels-93CH-4908351",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.4,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Wed 23 Sep, 11:44 MYT",
-          "tf": "Intraday",
-          "title": "USD/IDR Price Forecast: Falls toward moving averages near 17,800 ahead of BI decision",
+          "title": "USD/CAD Price Forecast: Eyes 1.4100 as bulls retain control near July 29 highs",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
           "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/usd-idr-price-forecast-falls-toward-moving-averages-near-17-800-ahead-of-bi-decision-202609230344",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.7,
-          "currencies": [
-            "USD"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Wed 23 Sep, 11:43 MYT",
-          "tf": "Intraday",
-          "title": "Gold edges lower on Fed-driven USD strength as markets await Trump-Xi meeting",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/gold-edges-lower-on-fed-driven-usd-strength-as-markets-await-trump-xi-meeting-202609230343",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.7,
-          "currencies": [
-            "USD"
-          ],
-          "drivers": {
-            "gold": true,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Wed 23 Sep, 11:23 MYT",
-          "tf": "Intraday",
-          "title": "United States Dollar Index jumps to near 100.70 as Fed maintains hawkish rhetoric",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/united-states-dollar-index-jumps-to-near-10070-as-fed-maintains-hawkish-rhetoric-202609230323",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "CONFLICT",
-          "relevance": 0.7,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": "hawkish",
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Wed 23 Sep, 10:58 MYT",
-          "tf": "Intraday",
-          "title": "Asian stocks trade mixed, Taiwan’s Taiex leads on tech boost",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/asian-stocks-trade-mixed-taiwans-taiex-leads-on-tech-boost-202609230258",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.7,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": true,
-            "usd": false,
-            "oil": true,
-            "risk": true,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Wed 23 Sep, 10:39 MYT",
-          "tf": "Intraday",
-          "title": "Silver Price Forecast: XAG/USD falls to near $66.50 as Fed signals further rate hikes",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/silver-price-forecast-xag-usd-falls-to-near-6650-as-fed-signals-further-rate-hikes-202609230239",
-          "impact": "bearish",
-          "signal": "SELL",
-          "decisionState": "CONFLICT",
-          "relevance": 0.7,
-          "currencies": [
-            "USD"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": true,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": "hawkish",
-          "impactScore": -0.14,
-          "impactPct": -0.14,
-          "auto": true
-        },
-        {
-          "time": "Wed 23 Sep, 10:08 MYT",
-          "tf": "Intraday",
-          "title": "Japanese Yen softens on BoJ's lack of hawkish guidance, potential intervention eyed",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/japanese-yen-softens-on-bojs-lack-of-hawkish-guidance-potential-intervention-eyed-202609230208",
-          "impact": "bearish",
-          "signal": "SELL",
-          "decisionState": "DIRECTIONAL",
-          "relevance": 0.7,
-          "currencies": [
-            "USD",
-            "JPY"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": "hawkish",
-          "impactScore": -0.72,
-          "impactPct": -0.72,
-          "auto": true
-        },
-        {
-          "time": "Wed 23 Sep, 09:43 MYT",
-          "tf": "Intraday",
-          "title": "Canadian Dollar seems vulnerable as Iran diplomacy hopes weigh on oil prices",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/canadian-dollar-seems-vulnerable-as-iran-diplomacy-hopes-weigh-on-oil-prices-202609230143",
+          "url": "https://www.fxstreet.com/news/usd-cad-price-forecast-eyes-14100-as-bulls-retain-control-near-july-29-highs-202609230714",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
@@ -2176,34 +2028,6 @@ window.NEWS_AUTO = {
             "gold": false,
             "yields": false,
             "usd": true,
-            "oil": true,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Wed 23 Sep, 09:33 MYT",
-          "tf": "Intraday",
-          "title": "Australian Dollar remains under pressure as PMI slows",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/australian-dollar-remains-under-pressure-as-pmi-slows-202609230133",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.7,
-          "currencies": [
-            "USD",
-            "AUD"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
             "oil": false,
             "risk": false,
             "crypto": false
@@ -2214,19 +2038,74 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Wed 23 Sep, 09:21 MYT",
+          "time": "Wed 23 Sep, 15:10 MYT",
           "tf": "Intraday",
-          "title": "Euro weakens below 1.1450 on hawkish Fed signals, German political risks",
+          "title": "Euro nudges up against British Pound with Eurozone and UK PMIs in focus",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
           "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/euro-weakens-below-11450-on-hawkish-fed-signals-german-political-risks-202609230121",
+          "url": "https://www.fxstreet.com/news/euro-nudges-up-against-british-pound-with-eurozone-and-uk-pmis-in-focus-202609230710",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.4,
+          "currencies": [
+            "EUR",
+            "GBP"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Wed 23 Sep, 15:02 MYT",
+          "tf": "Intraday",
+          "title": "Brent: Price slide extends on pipeline restart – Danske Bank",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/brent-price-slide-extends-on-pipeline-restart-danske-bank-202609230702",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.7,
+          "currencies": [
+            "USD"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": true,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Wed 23 Sep, 14:54 MYT",
+          "tf": "Intraday",
+          "title": "New Zealand Dollar declines to near 0.5700 on hawkish Fed remarks ahead US PMI data",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/new-zealand-dollar-declines-to-near-05700-on-hawkish-fed-remarks-ahead-us-pmi-data-202609230654",
           "impact": "bearish",
           "signal": "SELL",
           "decisionState": "DIRECTIONAL",
           "relevance": 0.7,
           "currencies": [
             "USD",
-            "EUR"
+            "NZD"
           ],
           "drivers": {
             "gold": false,
@@ -2242,19 +2121,18 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Wed 23 Sep, 09:15 MYT",
+          "time": "Wed 23 Sep, 13:26 MYT",
           "tf": "Intraday",
-          "title": "PBOC sets USD/CNY reference rate at 6.7468 vs. 6.7459 previous",
+          "title": "Indian Rupee resumes decline amid hawkish Fed expectations",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
           "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/pboc-sets-usd-cny-reference-rate-at-67468-vs-67459-previous-202609230115",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
+          "url": "https://www.fxstreet.com/news/indian-rupee-comes-under-pressure-amid-hawkish-fed-expectations-202609230526",
+          "impact": "bearish",
+          "signal": "SELL",
+          "decisionState": "CONFLICT",
           "relevance": 0.7,
           "currencies": [
-            "USD",
-            "CNY"
+            "USD"
           ],
           "drivers": {
             "gold": false,
@@ -2264,18 +2142,18 @@ window.NEWS_AUTO = {
             "risk": false,
             "crypto": false
           },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
+          "policySide": "hawkish",
+          "impactScore": -0.14,
+          "impactPct": -0.14,
           "auto": true
         },
         {
-          "time": "Wed 23 Sep, 09:07 MYT",
+          "time": "Wed 23 Sep, 14:43 MYT",
           "tf": "Intraday",
-          "title": "British Pound hangs near late July lows vs USD; looks to UK/US PMIs for fresh impetus",
+          "title": "British Pound: Testing support near 1.3300 against US Dollar – UOB",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
           "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/british-pound-hangs-near-late-july-lows-vs-usd-looks-to-uk-us-pmis-for-fresh-impetus-202609230107",
+          "url": "https://www.fxstreet.com/news/british-pound-testing-support-near-13300-against-us-dollar-uob-202609230643",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
@@ -2298,21 +2176,76 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Wed 23 Sep, 09:02 MYT",
+          "time": "Wed 23 Sep, 11:43 MYT",
           "tf": "Intraday",
-          "title": "US Special Envoy Witkoff says mediators completed round of US-Iran talks",
+          "title": "Gold retains intraday bearish bias as hawkish Fed lifts USD to fresh high since July 30",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
           "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/us-special-envoy-witkoff-says-mediators-completed-round-of-us-iran-talks-202609230102",
+          "url": "https://www.fxstreet.com/news/gold-edges-lower-on-fed-driven-usd-strength-as-markets-await-trump-xi-meeting-202609230343",
+          "impact": "bearish",
+          "signal": "SELL",
+          "decisionState": "DIRECTIONAL",
+          "relevance": 0.7,
+          "currencies": [
+            "USD"
+          ],
+          "drivers": {
+            "gold": true,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": "hawkish",
+          "impactScore": -0.14,
+          "impactPct": -0.14,
+          "auto": true
+        },
+        {
+          "time": "Wed 23 Sep, 14:31 MYT",
+          "tf": "Intraday",
+          "title": "Japanese Yen weakens further against US Dollar as hawkish Fed bets dominate",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/japanese-yen-weakens-further-against-us-dollar-as-hawkish-fed-bets-dominate-202609230631",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "CONFLICT",
+          "relevance": 0.7,
+          "currencies": [
+            "USD",
+            "JPY"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": "hawkish",
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Wed 23 Sep, 14:29 MYT",
+          "tf": "Intraday",
+          "title": "Forex Today: US Dollar continues to gather strength ahead of PMI data",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/forex-today-us-dollar-continues-to-gather-strength-ahead-of-pmi-data-202609230629",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
-          "relevance": 0.4,
+          "relevance": 0.7,
           "currencies": [],
           "drivers": {
             "gold": false,
             "yields": false,
-            "usd": false,
+            "usd": true,
             "oil": false,
             "risk": false,
             "crypto": false
@@ -2323,46 +2256,24 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Wed 23 Sep, 08:12 MYT",
+          "time": "Wed 23 Sep, 14:29 MYT",
           "tf": "Intraday",
-          "title": "WTI slumps to near $89.00 as markets weigh Trump’s UN speech",
+          "title": "Euro: De-escalation risk weighs on EUR against US Dollar – Commerzbank",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
           "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/wti-slumps-to-near-8900-as-markets-weigh-trumps-un-speech-202609230012",
+          "url": "https://www.fxstreet.com/news/euro-de-escalation-risk-weighs-on-eur-against-us-dollar-commerzbank-202609230629",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
-          "relevance": 0.4,
-          "currencies": [],
+          "relevance": 0.7,
+          "currencies": [
+            "USD",
+            "EUR"
+          ],
           "drivers": {
             "gold": false,
             "yields": false,
-            "usd": false,
-            "oil": true,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Wed 23 Sep, 07:37 MYT",
-          "tf": "Intraday",
-          "title": "Explosion heard near Iran’s Qeshm Island",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/explosion-heard-near-irans-qeshm-island-202609222337",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.4,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
+            "usd": true,
             "oil": false,
             "risk": false,
             "crypto": false
@@ -2373,12 +2284,12 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Wed 23 Sep, 07:22 MYT",
+          "time": "Wed 23 Sep, 14:17 MYT",
           "tf": "Intraday",
-          "title": "Gold recovers above $4,350 on US–Iran diplomacy hopes",
+          "title": "Silver Price Forecasts: XAG/USD holds within range with bulls capped below $68.00 area",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
           "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/gold-recovers-above-4-350-on-us-iran-diplomacy-hopes-202609222322",
+          "url": "https://www.fxstreet.com/news/silver-price-forecasts-xag-usd-holds-within-range-with-bulls-capped-below-6800-area-202609230617",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
@@ -2387,7 +2298,118 @@ window.NEWS_AUTO = {
             "USD"
           ],
           "drivers": {
-            "gold": true,
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Wed 23 Sep, 14:06 MYT",
+          "tf": "Intraday",
+          "title": "British Pound weakens to near 1.3300 as UK fiscal deficit exceeds market expectations",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/british-pound-weakens-to-near-13300-as-uk-fiscal-deficit-exceeds-market-expectations-202609230606",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.7,
+          "currencies": [
+            "USD",
+            "GBP"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Wed 23 Sep, 14:02 MYT",
+          "tf": "Intraday",
+          "title": "United States Dollar Index gains support amid hawkish Fed policy stance",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/united-states-dollar-index-gains-support-amid-hawkish-fed-policy-stance-202609230602",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "CONFLICT",
+          "relevance": 0.7,
+          "currencies": [
+            "USD"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": "hawkish",
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Wed 23 Sep, 13:50 MYT",
+          "tf": "Intraday",
+          "title": "EUR/JPY Price Forecast: Tests 180.00 support near nine-day EMA",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/eur-jpy-price-forecast-tests-18000-support-near-nine-day-ema-202609230550",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.4,
+          "currencies": [
+            "EUR",
+            "JPY"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Wed 23 Sep, 13:42 MYT",
+          "tf": "Intraday",
+          "title": "AUD/USD Price Forecast: 20-day EMA remains key barrier amid firm US Dollar",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/aud-usd-price-forecast-20-day-ema-remains-key-barrier-amid-firm-us-dollar-202609230542",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.7,
+          "currencies": [
+            "USD",
+            "AUD"
+          ],
+          "drivers": {
+            "gold": false,
             "yields": false,
             "usd": true,
             "oil": false,
@@ -2657,7 +2679,7 @@ window.NEWS_AUTO = {
         {
           "time": "Wed 23 Sep, 10:59 MYT",
           "tf": "Intraday",
-          "title": "Asia FX flat, dollar creeps higher ahead of U.S.-China summit",
+          "title": "Dollar creeps higher ahead of U.S.-China summit",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
           "source": "Investing.com - Forex News",
           "url": "https://www.investing.com/news/forex-news/asia-fx-flat-dollar-creeps-higher-ahead-of-uschina-summit-4912043",
@@ -2908,9 +2930,34 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Wed 23 Sep, 09:48 MYT",
+          "time": "Wed 23 Sep, 14:35 MYT",
           "tf": "Intraday",
-          "title": "Oil falls on increased Gulf supply and hopes for US-Iran talks",
+          "title": "Oil slips for 6th straight day as Trump signals progress in Iran talks",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "Investing.com - Commodities & Futures",
+          "url": "https://www.investing.com/news/commodities-news/oil-extends-losses-as-trump-signals-progress-in-usiran-talks-4911933",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.5,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": true,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Wed 23 Sep, 12:48 MYT",
+          "tf": "Intraday",
+          "title": "Oil falls $1 on better supply outlook, hopes for US-Iran talks",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
           "source": "Investing.com - Commodities & Futures",
           "url": "https://www.investing.com/news/commodities-news/oil-falls-on-increased-gulf-supply-and-hopes-for-usiran-talks-4912001",
@@ -2933,12 +2980,12 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Wed 23 Sep, 08:38 MYT",
+          "time": "Wed 23 Sep, 12:12 MYT",
           "tf": "Intraday",
-          "title": "Oil extends losses as Trump signals progress in U.S.-Iran talks",
+          "title": "Analysis-Wheat buyers brace for higher costs as Russia-Ukraine war drags on",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
           "source": "Investing.com - Commodities & Futures",
-          "url": "https://www.investing.com/news/commodities-news/oil-extends-losses-as-trump-signals-progress-in-usiran-talks-4911933",
+          "url": "https://www.investing.com/news/commodities-news/analysiswheat-buyers-brace-for-higher-costs-as-russiaukraine-war-drags-on-4912057",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
@@ -2948,7 +2995,7 @@ window.NEWS_AUTO = {
             "gold": false,
             "yields": false,
             "usd": false,
-            "oil": true,
+            "oil": false,
             "risk": false,
             "crypto": false
           },
@@ -3133,196 +3180,12 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Wed 23 Sep, 03:18 MYT",
+          "time": "Wed 23 Sep, 15:14 MYT",
           "tf": "Intraday",
-          "title": "Natural Gas tests $3.026 resistance with overbought RSI: Live levels",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "Investing.com - Commodities & Futures",
-          "url": "https://www.investing.com/news/commodities-news/natural-gas-squeezed-near-2878-ahead-of-breakout-live-levels-93CH-4908351",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.5,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Wed 23 Sep, 11:44 MYT",
-          "tf": "Intraday",
-          "title": "USD/IDR Price Forecast: Falls toward moving averages near 17,800 ahead of BI decision",
+          "title": "USD/CAD Price Forecast: Eyes 1.4100 as bulls retain control near July 29 highs",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
           "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/usd-idr-price-forecast-falls-toward-moving-averages-near-17-800-ahead-of-bi-decision-202609230344",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 1,
-          "currencies": [
-            "USD"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Wed 23 Sep, 11:43 MYT",
-          "tf": "Intraday",
-          "title": "Gold edges lower on Fed-driven USD strength as markets await Trump-Xi meeting",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/gold-edges-lower-on-fed-driven-usd-strength-as-markets-await-trump-xi-meeting-202609230343",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 1,
-          "currencies": [
-            "USD"
-          ],
-          "drivers": {
-            "gold": true,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Wed 23 Sep, 11:23 MYT",
-          "tf": "Intraday",
-          "title": "United States Dollar Index jumps to near 100.70 as Fed maintains hawkish rhetoric",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/united-states-dollar-index-jumps-to-near-10070-as-fed-maintains-hawkish-rhetoric-202609230323",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "CONFLICT",
-          "relevance": 0.5,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": "hawkish",
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Wed 23 Sep, 10:58 MYT",
-          "tf": "Intraday",
-          "title": "Asian stocks trade mixed, Taiwan’s Taiex leads on tech boost",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/asian-stocks-trade-mixed-taiwans-taiex-leads-on-tech-boost-202609230258",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.5,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": true,
-            "usd": false,
-            "oil": true,
-            "risk": true,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Wed 23 Sep, 10:39 MYT",
-          "tf": "Intraday",
-          "title": "Silver Price Forecast: XAG/USD falls to near $66.50 as Fed signals further rate hikes",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/silver-price-forecast-xag-usd-falls-to-near-6650-as-fed-signals-further-rate-hikes-202609230239",
-          "impact": "bearish",
-          "signal": "SELL",
-          "decisionState": "CONFLICT",
-          "relevance": 1,
-          "currencies": [
-            "USD"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": true,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": "hawkish",
-          "impactScore": -0.15,
-          "impactPct": -0.15,
-          "auto": true
-        },
-        {
-          "time": "Wed 23 Sep, 10:08 MYT",
-          "tf": "Intraday",
-          "title": "Japanese Yen softens on BoJ's lack of hawkish guidance, potential intervention eyed",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/japanese-yen-softens-on-bojs-lack-of-hawkish-guidance-potential-intervention-eyed-202609230208",
-          "impact": "bearish",
-          "signal": "SELL",
-          "decisionState": "DIRECTIONAL",
-          "relevance": 1,
-          "currencies": [
-            "USD",
-            "JPY"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": "hawkish",
-          "impactScore": -0.79,
-          "impactPct": -0.79,
-          "auto": true
-        },
-        {
-          "time": "Wed 23 Sep, 09:43 MYT",
-          "tf": "Intraday",
-          "title": "Canadian Dollar seems vulnerable as Iran diplomacy hopes weigh on oil prices",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/canadian-dollar-seems-vulnerable-as-iran-diplomacy-hopes-weigh-on-oil-prices-202609230143",
+          "url": "https://www.fxstreet.com/news/usd-cad-price-forecast-eyes-14100-as-bulls-retain-control-near-july-29-highs-202609230714",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
@@ -3335,34 +3198,6 @@ window.NEWS_AUTO = {
             "gold": false,
             "yields": false,
             "usd": true,
-            "oil": true,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Wed 23 Sep, 09:33 MYT",
-          "tf": "Intraday",
-          "title": "Australian Dollar remains under pressure as PMI slows",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/australian-dollar-remains-under-pressure-as-pmi-slows-202609230133",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 1,
-          "currencies": [
-            "USD",
-            "AUD"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
             "oil": false,
             "risk": false,
             "crypto": false
@@ -3373,19 +3208,74 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Wed 23 Sep, 09:21 MYT",
+          "time": "Wed 23 Sep, 15:10 MYT",
           "tf": "Intraday",
-          "title": "Euro weakens below 1.1450 on hawkish Fed signals, German political risks",
+          "title": "Euro nudges up against British Pound with Eurozone and UK PMIs in focus",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
           "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/euro-weakens-below-11450-on-hawkish-fed-signals-german-political-risks-202609230121",
+          "url": "https://www.fxstreet.com/news/euro-nudges-up-against-british-pound-with-eurozone-and-uk-pmis-in-focus-202609230710",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 1,
+          "currencies": [
+            "EUR",
+            "GBP"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Wed 23 Sep, 15:02 MYT",
+          "tf": "Intraday",
+          "title": "Brent: Price slide extends on pipeline restart – Danske Bank",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/brent-price-slide-extends-on-pipeline-restart-danske-bank-202609230702",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 1,
+          "currencies": [
+            "USD"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": true,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Wed 23 Sep, 14:54 MYT",
+          "tf": "Intraday",
+          "title": "New Zealand Dollar declines to near 0.5700 on hawkish Fed remarks ahead US PMI data",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/new-zealand-dollar-declines-to-near-05700-on-hawkish-fed-remarks-ahead-us-pmi-data-202609230654",
           "impact": "bearish",
           "signal": "SELL",
           "decisionState": "DIRECTIONAL",
           "relevance": 1,
           "currencies": [
             "USD",
-            "EUR"
+            "NZD"
           ],
           "drivers": {
             "gold": false,
@@ -3401,19 +3291,18 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Wed 23 Sep, 09:15 MYT",
+          "time": "Wed 23 Sep, 13:26 MYT",
           "tf": "Intraday",
-          "title": "PBOC sets USD/CNY reference rate at 6.7468 vs. 6.7459 previous",
+          "title": "Indian Rupee resumes decline amid hawkish Fed expectations",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
           "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/pboc-sets-usd-cny-reference-rate-at-67468-vs-67459-previous-202609230115",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
+          "url": "https://www.fxstreet.com/news/indian-rupee-comes-under-pressure-amid-hawkish-fed-expectations-202609230526",
+          "impact": "bearish",
+          "signal": "SELL",
+          "decisionState": "CONFLICT",
           "relevance": 1,
           "currencies": [
-            "USD",
-            "CNY"
+            "USD"
           ],
           "drivers": {
             "gold": false,
@@ -3423,18 +3312,18 @@ window.NEWS_AUTO = {
             "risk": false,
             "crypto": false
           },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
+          "policySide": "hawkish",
+          "impactScore": -0.15,
+          "impactPct": -0.15,
           "auto": true
         },
         {
-          "time": "Wed 23 Sep, 09:07 MYT",
+          "time": "Wed 23 Sep, 14:43 MYT",
           "tf": "Intraday",
-          "title": "British Pound hangs near late July lows vs USD; looks to UK/US PMIs for fresh impetus",
+          "title": "British Pound: Testing support near 1.3300 against US Dollar – UOB",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
           "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/british-pound-hangs-near-late-july-lows-vs-usd-looks-to-uk-us-pmis-for-fresh-impetus-202609230107",
+          "url": "https://www.fxstreet.com/news/british-pound-testing-support-near-13300-against-us-dollar-uob-202609230643",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
@@ -3457,12 +3346,67 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Wed 23 Sep, 09:02 MYT",
+          "time": "Wed 23 Sep, 11:43 MYT",
           "tf": "Intraday",
-          "title": "US Special Envoy Witkoff says mediators completed round of US-Iran talks",
+          "title": "Gold retains intraday bearish bias as hawkish Fed lifts USD to fresh high since July 30",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
           "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/us-special-envoy-witkoff-says-mediators-completed-round-of-us-iran-talks-202609230102",
+          "url": "https://www.fxstreet.com/news/gold-edges-lower-on-fed-driven-usd-strength-as-markets-await-trump-xi-meeting-202609230343",
+          "impact": "bearish",
+          "signal": "SELL",
+          "decisionState": "DIRECTIONAL",
+          "relevance": 1,
+          "currencies": [
+            "USD"
+          ],
+          "drivers": {
+            "gold": true,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": "hawkish",
+          "impactScore": -0.15,
+          "impactPct": -0.15,
+          "auto": true
+        },
+        {
+          "time": "Wed 23 Sep, 14:31 MYT",
+          "tf": "Intraday",
+          "title": "Japanese Yen weakens further against US Dollar as hawkish Fed bets dominate",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/japanese-yen-weakens-further-against-us-dollar-as-hawkish-fed-bets-dominate-202609230631",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "CONFLICT",
+          "relevance": 1,
+          "currencies": [
+            "USD",
+            "JPY"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": "hawkish",
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Wed 23 Sep, 14:29 MYT",
+          "tf": "Intraday",
+          "title": "Forex Today: US Dollar continues to gather strength ahead of PMI data",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/forex-today-us-dollar-continues-to-gather-strength-ahead-of-pmi-data-202609230629",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
@@ -3471,7 +3415,7 @@ window.NEWS_AUTO = {
           "drivers": {
             "gold": false,
             "yields": false,
-            "usd": false,
+            "usd": true,
             "oil": false,
             "risk": false,
             "crypto": false
@@ -3482,46 +3426,24 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Wed 23 Sep, 08:12 MYT",
+          "time": "Wed 23 Sep, 14:29 MYT",
           "tf": "Intraday",
-          "title": "WTI slumps to near $89.00 as markets weigh Trump’s UN speech",
+          "title": "Euro: De-escalation risk weighs on EUR against US Dollar – Commerzbank",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
           "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/wti-slumps-to-near-8900-as-markets-weigh-trumps-un-speech-202609230012",
+          "url": "https://www.fxstreet.com/news/euro-de-escalation-risk-weighs-on-eur-against-us-dollar-commerzbank-202609230629",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
-          "relevance": 0.5,
-          "currencies": [],
+          "relevance": 1,
+          "currencies": [
+            "USD",
+            "EUR"
+          ],
           "drivers": {
             "gold": false,
             "yields": false,
-            "usd": false,
-            "oil": true,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Wed 23 Sep, 07:37 MYT",
-          "tf": "Intraday",
-          "title": "Explosion heard near Iran’s Qeshm Island",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/explosion-heard-near-irans-qeshm-island-202609222337",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.5,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
+            "usd": true,
             "oil": false,
             "risk": false,
             "crypto": false
@@ -3532,12 +3454,12 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Wed 23 Sep, 07:22 MYT",
+          "time": "Wed 23 Sep, 14:17 MYT",
           "tf": "Intraday",
-          "title": "Gold recovers above $4,350 on US–Iran diplomacy hopes",
+          "title": "Silver Price Forecasts: XAG/USD holds within range with bulls capped below $68.00 area",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
           "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/gold-recovers-above-4-350-on-us-iran-diplomacy-hopes-202609222322",
+          "url": "https://www.fxstreet.com/news/silver-price-forecasts-xag-usd-holds-within-range-with-bulls-capped-below-6800-area-202609230617",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
@@ -3546,7 +3468,118 @@ window.NEWS_AUTO = {
             "USD"
           ],
           "drivers": {
-            "gold": true,
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Wed 23 Sep, 14:06 MYT",
+          "tf": "Intraday",
+          "title": "British Pound weakens to near 1.3300 as UK fiscal deficit exceeds market expectations",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/british-pound-weakens-to-near-13300-as-uk-fiscal-deficit-exceeds-market-expectations-202609230606",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 1,
+          "currencies": [
+            "USD",
+            "GBP"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Wed 23 Sep, 14:02 MYT",
+          "tf": "Intraday",
+          "title": "United States Dollar Index gains support amid hawkish Fed policy stance",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/united-states-dollar-index-gains-support-amid-hawkish-fed-policy-stance-202609230602",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "CONFLICT",
+          "relevance": 1,
+          "currencies": [
+            "USD"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": "hawkish",
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Wed 23 Sep, 13:50 MYT",
+          "tf": "Intraday",
+          "title": "EUR/JPY Price Forecast: Tests 180.00 support near nine-day EMA",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/eur-jpy-price-forecast-tests-18000-support-near-nine-day-ema-202609230550",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 1,
+          "currencies": [
+            "EUR",
+            "JPY"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Wed 23 Sep, 13:42 MYT",
+          "tf": "Intraday",
+          "title": "AUD/USD Price Forecast: 20-day EMA remains key barrier amid firm US Dollar",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/aud-usd-price-forecast-20-day-ema-remains-key-barrier-amid-firm-us-dollar-202609230542",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 1,
+          "currencies": [
+            "USD",
+            "AUD"
+          ],
+          "drivers": {
+            "gold": false,
             "yields": false,
             "usd": true,
             "oil": false,
@@ -3813,8 +3846,98 @@ window.NEWS_AUTO = {
     }
   },
   "priceTrack": {
-    "pending": 6,
+    "pending": 9,
     "resultsRecent": [
+      {
+        "key": "news:forex:Japanese Yen softens on BoJ's lack of hawkish guidance, potential intervention eyed",
+        "tabId": "forex",
+        "kind": "news",
+        "title": "Japanese Yen softens on BoJ's lack of hawkish guidance, potential intervention eyed",
+        "url": "https://www.fxstreet.com/news/japanese-yen-softens-on-bojs-lack-of-hawkish-guidance-potential-intervention-eyed-202609230208",
+        "predictedPct": -0.79,
+        "priceAtDetect": 1.1429,
+        "createdAt": "2026-09-23T04:11:44.361Z",
+        "settleAt": "2026-09-23T04:56:44.361Z",
+        "priceAtSettle": 1.1429,
+        "realizedPct": 0,
+        "verdict": "flat",
+        "settledAt": "2026-09-23T07:25:38.777Z"
+      },
+      {
+        "key": "news:forex:Silver Price Forecast: XAG/USD falls to near $66.50 as Fed signals further rate hikes",
+        "tabId": "forex",
+        "kind": "news",
+        "title": "Silver Price Forecast: XAG/USD falls to near $66.50 as Fed signals further rate hikes",
+        "url": "https://www.fxstreet.com/news/silver-price-forecast-xag-usd-falls-to-near-6650-as-fed-signals-further-rate-hikes-202609230239",
+        "predictedPct": -0.15,
+        "priceAtDetect": 1.1429,
+        "createdAt": "2026-09-23T04:11:44.361Z",
+        "settleAt": "2026-09-23T04:56:44.361Z",
+        "priceAtSettle": 1.1429,
+        "realizedPct": 0,
+        "verdict": "flat",
+        "settledAt": "2026-09-23T07:25:38.777Z"
+      },
+      {
+        "key": "news:crypto:Japanese Yen softens on BoJ's lack of hawkish guidance, potential intervention eyed",
+        "tabId": "crypto",
+        "kind": "news",
+        "title": "Japanese Yen softens on BoJ's lack of hawkish guidance, potential intervention eyed",
+        "url": "https://www.fxstreet.com/news/japanese-yen-softens-on-bojs-lack-of-hawkish-guidance-potential-intervention-eyed-202609230208",
+        "predictedPct": -0.72,
+        "priceAtDetect": 86836.68,
+        "createdAt": "2026-09-23T04:11:44.361Z",
+        "settleAt": "2026-09-23T04:56:44.361Z",
+        "priceAtSettle": 86330.66,
+        "realizedPct": -0.58,
+        "verdict": "correct",
+        "settledAt": "2026-09-23T07:25:38.777Z"
+      },
+      {
+        "key": "news:crypto:Silver Price Forecast: XAG/USD falls to near $66.50 as Fed signals further rate hikes",
+        "tabId": "crypto",
+        "kind": "news",
+        "title": "Silver Price Forecast: XAG/USD falls to near $66.50 as Fed signals further rate hikes",
+        "url": "https://www.fxstreet.com/news/silver-price-forecast-xag-usd-falls-to-near-6650-as-fed-signals-further-rate-hikes-202609230239",
+        "predictedPct": -0.14,
+        "priceAtDetect": 86836.68,
+        "createdAt": "2026-09-23T04:11:44.361Z",
+        "settleAt": "2026-09-23T04:56:44.361Z",
+        "priceAtSettle": 86330.66,
+        "realizedPct": -0.58,
+        "verdict": "correct",
+        "settledAt": "2026-09-23T07:25:38.777Z"
+      },
+      {
+        "key": "news:gold:Japanese Yen softens on BoJ's lack of hawkish guidance, potential intervention eyed",
+        "tabId": "gold",
+        "kind": "news",
+        "title": "Japanese Yen softens on BoJ's lack of hawkish guidance, potential intervention eyed",
+        "url": "https://www.fxstreet.com/news/japanese-yen-softens-on-bojs-lack-of-hawkish-guidance-potential-intervention-eyed-202609230208",
+        "predictedPct": -0.63,
+        "priceAtDetect": 4380.1,
+        "createdAt": "2026-09-23T04:11:44.361Z",
+        "settleAt": "2026-09-23T04:56:44.361Z",
+        "priceAtSettle": 4363.4,
+        "realizedPct": -0.38,
+        "verdict": "correct",
+        "settledAt": "2026-09-23T07:25:38.777Z"
+      },
+      {
+        "key": "news:gold:Silver Price Forecast: XAG/USD falls to near $66.50 as Fed signals further rate hikes",
+        "tabId": "gold",
+        "kind": "news",
+        "title": "Silver Price Forecast: XAG/USD falls to near $66.50 as Fed signals further rate hikes",
+        "url": "https://www.fxstreet.com/news/silver-price-forecast-xag-usd-falls-to-near-6650-as-fed-signals-further-rate-hikes-202609230239",
+        "predictedPct": -0.12,
+        "priceAtDetect": 4380.1,
+        "createdAt": "2026-09-23T04:11:44.361Z",
+        "settleAt": "2026-09-23T04:56:44.361Z",
+        "priceAtSettle": 4363.4,
+        "realizedPct": -0.38,
+        "verdict": "correct",
+        "settledAt": "2026-09-23T07:25:38.777Z"
+      },
       {
         "key": "news:forex:Euro weakens below 1.1450 on hawkish Fed signals, German political risks",
         "tabId": "forex",
@@ -4024,102 +4147,12 @@ window.NEWS_AUTO = {
         "realizedPct": -0.01,
         "verdict": "flat",
         "settledAt": "2026-09-22T23:09:25.460Z"
-      },
-      {
-        "key": "news:forex:Gold losses altitude as peace hopes meet hawkish Fed bets",
-        "tabId": "forex",
-        "kind": "news",
-        "title": "Gold losses altitude as peace hopes meet hawkish Fed bets",
-        "url": "https://www.fxstreet.com/news/gold-losses-altitude-as-peace-hopes-meet-hawkish-fed-bets-202609221936",
-        "predictedPct": -0.15,
-        "priceAtDetect": 1.1451,
-        "createdAt": "2026-09-22T20:22:49.119Z",
-        "settleAt": "2026-09-22T21:07:49.119Z",
-        "priceAtSettle": 1.145,
-        "realizedPct": -0.01,
-        "verdict": "flat",
-        "settledAt": "2026-09-22T23:09:25.460Z"
-      },
-      {
-        "key": "news:crypto:Canadian Dollar dips as Oil slump, dovish BoC outlook underpin USD",
-        "tabId": "crypto",
-        "kind": "news",
-        "title": "Canadian Dollar dips as Oil slump, dovish BoC outlook underpin USD",
-        "url": "https://www.fxstreet.com/news/canadian-dollar-dips-as-oil-slump-dovish-boc-outlook-underpin-usd-strength-202609221557",
-        "predictedPct": 0.24,
-        "priceAtDetect": 86293.57,
-        "createdAt": "2026-09-22T20:22:49.119Z",
-        "settleAt": "2026-09-22T21:07:49.119Z",
-        "priceAtSettle": 86467.16,
-        "realizedPct": 0.2,
-        "verdict": "correct",
-        "settledAt": "2026-09-22T23:09:25.460Z"
-      },
-      {
-        "key": "news:crypto:Fed’s Barkin backs rate hike, stays unsure on more increases",
-        "tabId": "crypto",
-        "kind": "news",
-        "title": "Fed’s Barkin backs rate hike, stays unsure on more increases",
-        "url": "https://www.fxstreet.com/news/feds-barkin-backs-rate-hike-stays-unsure-on-more-increases-202609221715",
-        "predictedPct": -0.08,
-        "priceAtDetect": 86293.57,
-        "createdAt": "2026-09-22T20:22:49.119Z",
-        "settleAt": "2026-09-22T21:07:49.119Z",
-        "priceAtSettle": 86467.16,
-        "realizedPct": 0.2,
-        "verdict": "wrong",
-        "settledAt": "2026-09-22T23:09:25.460Z"
-      },
-      {
-        "key": "news:crypto:Gold losses altitude as peace hopes meet hawkish Fed bets",
-        "tabId": "crypto",
-        "kind": "news",
-        "title": "Gold losses altitude as peace hopes meet hawkish Fed bets",
-        "url": "https://www.fxstreet.com/news/gold-losses-altitude-as-peace-hopes-meet-hawkish-fed-bets-202609221936",
-        "predictedPct": -0.14,
-        "priceAtDetect": 86293.57,
-        "createdAt": "2026-09-22T20:22:49.119Z",
-        "settleAt": "2026-09-22T21:07:49.119Z",
-        "priceAtSettle": 86467.16,
-        "realizedPct": 0.2,
-        "verdict": "wrong",
-        "settledAt": "2026-09-22T23:09:25.460Z"
-      },
-      {
-        "key": "news:gold:Canadian Dollar dips as Oil slump, dovish BoC outlook underpin USD",
-        "tabId": "gold",
-        "kind": "news",
-        "title": "Canadian Dollar dips as Oil slump, dovish BoC outlook underpin USD",
-        "url": "https://www.fxstreet.com/news/canadian-dollar-dips-as-oil-slump-dovish-boc-outlook-underpin-usd-strength-202609221557",
-        "predictedPct": 0.21,
-        "priceAtDetect": 4398.2,
-        "createdAt": "2026-09-22T20:22:49.119Z",
-        "settleAt": "2026-09-22T21:07:49.119Z",
-        "priceAtSettle": 4400.8,
-        "realizedPct": 0.06,
-        "verdict": "correct",
-        "settledAt": "2026-09-22T23:09:25.460Z"
-      },
-      {
-        "key": "news:gold:Fed’s Barkin backs rate hike, stays unsure on more increases",
-        "tabId": "gold",
-        "kind": "news",
-        "title": "Fed’s Barkin backs rate hike, stays unsure on more increases",
-        "url": "https://www.fxstreet.com/news/feds-barkin-backs-rate-hike-stays-unsure-on-more-increases-202609221715",
-        "predictedPct": -0.08,
-        "priceAtDetect": 4398.2,
-        "createdAt": "2026-09-22T20:22:49.119Z",
-        "settleAt": "2026-09-22T21:07:49.119Z",
-        "priceAtSettle": 4400.8,
-        "realizedPct": 0.06,
-        "verdict": "wrong",
-        "settledAt": "2026-09-22T23:09:25.460Z"
       }
     ],
     "accuracy": {
-      "correct": 79,
-      "total": 180,
-      "pct": 43.9
+      "correct": 83,
+      "total": 184,
+      "pct": 45.1
     }
   }
 };

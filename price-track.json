@@ -1,48 +1,120 @@
 {
   "pending": [
     {
-      "key": "news:gold:Silver Price Forecast: XAG/USD falls to near $66.50 as Fed signals further rate hikes",
+      "key": "news:gold:New Zealand Dollar declines to near 0.5700 on hawkish Fed remarks ahead US PMI data",
       "tabId": "gold",
       "kind": "news",
-      "title": "Silver Price Forecast: XAG/USD falls to near $66.50 as Fed signals further rate hikes",
-      "url": "https://www.fxstreet.com/news/silver-price-forecast-xag-usd-falls-to-near-6650-as-fed-signals-further-rate-hikes-202609230239",
+      "title": "New Zealand Dollar declines to near 0.5700 on hawkish Fed remarks ahead US PMI data",
+      "url": "https://www.fxstreet.com/news/new-zealand-dollar-declines-to-near-05700-on-hawkish-fed-remarks-ahead-us-pmi-data-202609230654",
       "predictedPct": -0.12,
-      "priceAtDetect": 4380.1,
-      "createdAt": "2026-09-23T04:11:44.361Z",
-      "settleAt": "2026-09-23T04:56:44.361Z"
+      "priceAtDetect": 4363.4,
+      "createdAt": "2026-09-23T07:25:38.777Z",
+      "settleAt": "2026-09-23T08:10:38.777Z"
     },
     {
-      "key": "news:gold:Japanese Yen softens on BoJ's lack of hawkish guidance, potential intervention eyed",
+      "key": "news:gold:Indian Rupee resumes decline amid hawkish Fed expectations",
       "tabId": "gold",
       "kind": "news",
-      "title": "Japanese Yen softens on BoJ's lack of hawkish guidance, potential intervention eyed",
-      "url": "https://www.fxstreet.com/news/japanese-yen-softens-on-bojs-lack-of-hawkish-guidance-potential-intervention-eyed-202609230208",
-      "predictedPct": -0.63,
-      "priceAtDetect": 4380.1,
-      "createdAt": "2026-09-23T04:11:44.361Z",
-      "settleAt": "2026-09-23T04:56:44.361Z"
+      "title": "Indian Rupee resumes decline amid hawkish Fed expectations",
+      "url": "https://www.fxstreet.com/news/indian-rupee-comes-under-pressure-amid-hawkish-fed-expectations-202609230526",
+      "predictedPct": -0.12,
+      "priceAtDetect": 4363.4,
+      "createdAt": "2026-09-23T07:25:38.777Z",
+      "settleAt": "2026-09-23T08:10:38.777Z"
     },
     {
-      "key": "news:crypto:Silver Price Forecast: XAG/USD falls to near $66.50 as Fed signals further rate hikes",
+      "key": "news:gold:Gold retains intraday bearish bias as hawkish Fed lifts USD to fresh high since July 30",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Gold retains intraday bearish bias as hawkish Fed lifts USD to fresh high since July 30",
+      "url": "https://www.fxstreet.com/news/gold-edges-lower-on-fed-driven-usd-strength-as-markets-await-trump-xi-meeting-202609230343",
+      "predictedPct": -0.15,
+      "priceAtDetect": 4363.4,
+      "createdAt": "2026-09-23T07:25:38.777Z",
+      "settleAt": "2026-09-23T08:10:38.777Z"
+    },
+    {
+      "key": "news:crypto:New Zealand Dollar declines to near 0.5700 on hawkish Fed remarks ahead US PMI data",
       "tabId": "crypto",
       "kind": "news",
-      "title": "Silver Price Forecast: XAG/USD falls to near $66.50 as Fed signals further rate hikes",
-      "url": "https://www.fxstreet.com/news/silver-price-forecast-xag-usd-falls-to-near-6650-as-fed-signals-further-rate-hikes-202609230239",
+      "title": "New Zealand Dollar declines to near 0.5700 on hawkish Fed remarks ahead US PMI data",
+      "url": "https://www.fxstreet.com/news/new-zealand-dollar-declines-to-near-05700-on-hawkish-fed-remarks-ahead-us-pmi-data-202609230654",
       "predictedPct": -0.14,
-      "priceAtDetect": 86836.68,
-      "createdAt": "2026-09-23T04:11:44.361Z",
-      "settleAt": "2026-09-23T04:56:44.361Z"
+      "priceAtDetect": 86330.66,
+      "createdAt": "2026-09-23T07:25:38.777Z",
+      "settleAt": "2026-09-23T08:10:38.777Z"
     },
     {
-      "key": "news:crypto:Japanese Yen softens on BoJ's lack of hawkish guidance, potential intervention eyed",
+      "key": "news:crypto:Indian Rupee resumes decline amid hawkish Fed expectations",
       "tabId": "crypto",
+      "kind": "news",
+      "title": "Indian Rupee resumes decline amid hawkish Fed expectations",
+      "url": "https://www.fxstreet.com/news/indian-rupee-comes-under-pressure-amid-hawkish-fed-expectations-202609230526",
+      "predictedPct": -0.14,
+      "priceAtDetect": 86330.66,
+      "createdAt": "2026-09-23T07:25:38.777Z",
+      "settleAt": "2026-09-23T08:10:38.777Z"
+    },
+    {
+      "key": "news:crypto:Gold retains intraday bearish bias as hawkish Fed lifts USD to fresh high since July 30",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Gold retains intraday bearish bias as hawkish Fed lifts USD to fresh high since July 30",
+      "url": "https://www.fxstreet.com/news/gold-edges-lower-on-fed-driven-usd-strength-as-markets-await-trump-xi-meeting-202609230343",
+      "predictedPct": -0.14,
+      "priceAtDetect": 86330.66,
+      "createdAt": "2026-09-23T07:25:38.777Z",
+      "settleAt": "2026-09-23T08:10:38.777Z"
+    },
+    {
+      "key": "news:forex:New Zealand Dollar declines to near 0.5700 on hawkish Fed remarks ahead US PMI data",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "New Zealand Dollar declines to near 0.5700 on hawkish Fed remarks ahead US PMI data",
+      "url": "https://www.fxstreet.com/news/new-zealand-dollar-declines-to-near-05700-on-hawkish-fed-remarks-ahead-us-pmi-data-202609230654",
+      "predictedPct": -0.15,
+      "priceAtDetect": 1.1429,
+      "createdAt": "2026-09-23T07:25:38.777Z",
+      "settleAt": "2026-09-23T08:10:38.777Z"
+    },
+    {
+      "key": "news:forex:Indian Rupee resumes decline amid hawkish Fed expectations",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Indian Rupee resumes decline amid hawkish Fed expectations",
+      "url": "https://www.fxstreet.com/news/indian-rupee-comes-under-pressure-amid-hawkish-fed-expectations-202609230526",
+      "predictedPct": -0.15,
+      "priceAtDetect": 1.1429,
+      "createdAt": "2026-09-23T07:25:38.777Z",
+      "settleAt": "2026-09-23T08:10:38.777Z"
+    },
+    {
+      "key": "news:forex:Gold retains intraday bearish bias as hawkish Fed lifts USD to fresh high since July 30",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Gold retains intraday bearish bias as hawkish Fed lifts USD to fresh high since July 30",
+      "url": "https://www.fxstreet.com/news/gold-edges-lower-on-fed-driven-usd-strength-as-markets-await-trump-xi-meeting-202609230343",
+      "predictedPct": -0.15,
+      "priceAtDetect": 1.1429,
+      "createdAt": "2026-09-23T07:25:38.777Z",
+      "settleAt": "2026-09-23T08:10:38.777Z"
+    }
+  ],
+  "results": [
+    {
+      "key": "news:forex:Japanese Yen softens on BoJ's lack of hawkish guidance, potential intervention eyed",
+      "tabId": "forex",
       "kind": "news",
       "title": "Japanese Yen softens on BoJ's lack of hawkish guidance, potential intervention eyed",
       "url": "https://www.fxstreet.com/news/japanese-yen-softens-on-bojs-lack-of-hawkish-guidance-potential-intervention-eyed-202609230208",
-      "predictedPct": -0.72,
-      "priceAtDetect": 86836.68,
+      "predictedPct": -0.79,
+      "priceAtDetect": 1.1429,
       "createdAt": "2026-09-23T04:11:44.361Z",
-      "settleAt": "2026-09-23T04:56:44.361Z"
+      "settleAt": "2026-09-23T04:56:44.361Z",
+      "priceAtSettle": 1.1429,
+      "realizedPct": 0,
+      "verdict": "flat",
+      "settledAt": "2026-09-23T07:25:38.777Z"
     },
     {
       "key": "news:forex:Silver Price Forecast: XAG/USD falls to near $66.50 as Fed signals further rate hikes",
@@ -53,21 +125,72 @@
       "predictedPct": -0.15,
       "priceAtDetect": 1.1429,
       "createdAt": "2026-09-23T04:11:44.361Z",
-      "settleAt": "2026-09-23T04:56:44.361Z"
+      "settleAt": "2026-09-23T04:56:44.361Z",
+      "priceAtSettle": 1.1429,
+      "realizedPct": 0,
+      "verdict": "flat",
+      "settledAt": "2026-09-23T07:25:38.777Z"
     },
     {
-      "key": "news:forex:Japanese Yen softens on BoJ's lack of hawkish guidance, potential intervention eyed",
-      "tabId": "forex",
+      "key": "news:crypto:Japanese Yen softens on BoJ's lack of hawkish guidance, potential intervention eyed",
+      "tabId": "crypto",
       "kind": "news",
       "title": "Japanese Yen softens on BoJ's lack of hawkish guidance, potential intervention eyed",
       "url": "https://www.fxstreet.com/news/japanese-yen-softens-on-bojs-lack-of-hawkish-guidance-potential-intervention-eyed-202609230208",
-      "predictedPct": -0.79,
-      "priceAtDetect": 1.1429,
+      "predictedPct": -0.72,
+      "priceAtDetect": 86836.68,
       "createdAt": "2026-09-23T04:11:44.361Z",
-      "settleAt": "2026-09-23T04:56:44.361Z"
-    }
-  ],
-  "results": [
+      "settleAt": "2026-09-23T04:56:44.361Z",
+      "priceAtSettle": 86330.66,
+      "realizedPct": -0.58,
+      "verdict": "correct",
+      "settledAt": "2026-09-23T07:25:38.777Z"
+    },
+    {
+      "key": "news:crypto:Silver Price Forecast: XAG/USD falls to near $66.50 as Fed signals further rate hikes",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Silver Price Forecast: XAG/USD falls to near $66.50 as Fed signals further rate hikes",
+      "url": "https://www.fxstreet.com/news/silver-price-forecast-xag-usd-falls-to-near-6650-as-fed-signals-further-rate-hikes-202609230239",
+      "predictedPct": -0.14,
+      "priceAtDetect": 86836.68,
+      "createdAt": "2026-09-23T04:11:44.361Z",
+      "settleAt": "2026-09-23T04:56:44.361Z",
+      "priceAtSettle": 86330.66,
+      "realizedPct": -0.58,
+      "verdict": "correct",
+      "settledAt": "2026-09-23T07:25:38.777Z"
+    },
+    {
+      "key": "news:gold:Japanese Yen softens on BoJ's lack of hawkish guidance, potential intervention eyed",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Japanese Yen softens on BoJ's lack of hawkish guidance, potential intervention eyed",
+      "url": "https://www.fxstreet.com/news/japanese-yen-softens-on-bojs-lack-of-hawkish-guidance-potential-intervention-eyed-202609230208",
+      "predictedPct": -0.63,
+      "priceAtDetect": 4380.1,
+      "createdAt": "2026-09-23T04:11:44.361Z",
+      "settleAt": "2026-09-23T04:56:44.361Z",
+      "priceAtSettle": 4363.4,
+      "realizedPct": -0.38,
+      "verdict": "correct",
+      "settledAt": "2026-09-23T07:25:38.777Z"
+    },
+    {
+      "key": "news:gold:Silver Price Forecast: XAG/USD falls to near $66.50 as Fed signals further rate hikes",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Silver Price Forecast: XAG/USD falls to near $66.50 as Fed signals further rate hikes",
+      "url": "https://www.fxstreet.com/news/silver-price-forecast-xag-usd-falls-to-near-6650-as-fed-signals-further-rate-hikes-202609230239",
+      "predictedPct": -0.12,
+      "priceAtDetect": 4380.1,
+      "createdAt": "2026-09-23T04:11:44.361Z",
+      "settleAt": "2026-09-23T04:56:44.361Z",
+      "priceAtSettle": 4363.4,
+      "realizedPct": -0.38,
+      "verdict": "correct",
+      "settledAt": "2026-09-23T07:25:38.777Z"
+    },
     {
       "key": "news:forex:Euro weakens below 1.1450 on hawkish Fed signals, German political risks",
       "tabId": "forex",
