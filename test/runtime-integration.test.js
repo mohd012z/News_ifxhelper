@@ -1,0 +1,12 @@
+'use strict';
+const assert=require('assert'),R=require('../lib/runtime-integration');
+const now='2026-09-23T09:00:00Z';
+const state=R.build({now,market:{sourceAt:'2026-09-23T08:58:00Z',snapshotId:'s42'},news:{sourceAt:'2026-09-23T08:55:00Z',researchVersion:7},learning:{sourceAt:'2026-09-23T08:00:00Z',settled:120},web:{snapshotId:'s42',sourceAt:'2026-09-23T08:58:00Z'},apk:{snapshotId:'s42',sourceAt:'2026-09-23T08:58:00Z'}});
+assert.equal(state.health,'GREEN');assert.equal(state.sync.web,'LIVE');assert.equal(state.sync.apk,'LIVE');
+const staleApk=R.build({now,market:{sourceAt:'2026-09-23T08:58:00Z',snapshotId:'s43'},news:{sourceAt:'2026-09-23T08:55:00Z'},learning:{sourceAt:'2026-09-23T08:00:00Z'},web:{snapshotId:'s43',sourceAt:'2026-09-23T08:58:00Z'},apk:{snapshotId:'s42',sourceAt:'2026-09-23T08:20:00Z'}});
+assert.equal(staleApk.sync.apk,'STALE');assert.equal(staleApk.health,'YELLOW');
+const staleNews=R.build({now,market:{sourceAt:'2026-09-23T08:58:00Z',snapshotId:'s43'},news:{sourceAt:'2026-09-23T07:00:00Z'},learning:{sourceAt:'2026-09-23T08:00:00Z'},web:{snapshotId:'s43',sourceAt:'2026-09-23T08:58:00Z'},apk:{snapshotId:'s43',sourceAt:'2026-09-23T08:58:00Z'}});
+assert.equal(staleNews.health,'RED');
+assert.throws(()=>R.acquire({'current-snapshot':'market'},'current-snapshot','research'),/LOCK_OWNER_MISMATCH/);
+assert.equal(R.acquire({},'current-snapshot','market')['current-snapshot'],'market');
+console.log('runtime integration tests passed');

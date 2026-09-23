@@ -1,0 +1,10 @@
+'use strict';
+const assert=require('assert'),S=require('../lib/snapshot-capture');
+const input={symbol:'XAUUSD',timeframe:'M30',candleTime:'2026-09-23T06:00:00Z',sourceAt:'2026-09-23T06:30:01Z',marketState:{bbma:'TOP_BB'},newsState:{mode:'PRE_NEWS'},contextState:{dxy:'UP'},predictionState:{direction:'MIXED'},quality:'EXACT'};
+const a=S.capture('MARKET',input,{capturedAt:'2026-09-23T06:30:03Z',dataVersion:'v1'});
+const b=S.capture('MARKET',input,{capturedAt:'2026-09-23T06:31:00Z',dataVersion:'v1'});
+assert.equal(a.snapshotId,b.snapshotId);assert.equal(a.kind,'MARKET');assert(Object.isFrozen(a));assert(Object.isFrozen(a.marketState));
+assert.throws(()=>S.capture('BAD',input),/Unsupported snapshot kind/);
+const outcome=S.outcome(a.snapshotId,{checkpoint:'M30',candleTime:'2026-09-23T06:30:00Z',close:2700},{capturedAt:'2026-09-23T07:00:00Z'});
+assert.equal(outcome.snapshotId,a.snapshotId);assert.equal(outcome.kind,'OUTCOME');assert.equal(a.outcome,undefined);
+console.log('snapshot capture tests passed');

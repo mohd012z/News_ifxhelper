@@ -1,24 +1,19 @@
 name: Build Android APK
 
-# Builds the debug APK in the cloud (this repo has no local Java/Android SDK to build with).
-# Trigger manually from the Actions tab, or it runs automatically when web/Android source changes.
-# Output: a downloadable "xau-desk-debug-apk" artifact attached to the run (Actions tab -> this
-# run -> Artifacts, bottom of the page). Artifacts expire after 90 days by default on GitHub.
-
 on:
   workflow_dispatch: {}
   push:
-    branches: [main]
+    branches: [main, feature/hybrid-doctor-cli]
     paths:
       - "index.html"
       - "app.js"
       - "live.js"
-      - "trade-plan.html"
-      - "trade-plan.js"
-      - "pwa.js"
-      - "sw.js"
-      - "manifest.webmanifest"
-      - "icons/**"
+      - "bbma-runtime.js"
+      - "bbma-dashboard-ui.js"
+      - "bbma-router-fix.js"
+      - "bbma-link.js"
+      - "tools/prepare-web.js"
+      - "test/bbma-*.test.js"
       - "android/**"
       - "capacitor.config.json"
       - "package.json"
@@ -31,20 +26,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
-
-      - uses: actions/setup-java@v4
+      - uses: actions/setup-java@v5
         with:
           distribution: "temurin"
           java-version: "21"
-
-      # ubuntu-latest already ships with an Android SDK (ANDROID_HOME preset) - installing just
-      # the specific platform/build-tools this project needs directly via sdkmanager, since the
-      # android-actions/setup-android action tries to install a legacy 'tools' package that no
-      # longer exists in Google's repository and fails outright.
       - name: Install required Android SDK packages
         env:
           ANDROID_HOME: /usr/local/lib/android/sdk
@@ -54,19 +42,30 @@ jobs:
           echo "$ANDROID_HOME/platform-tools" >> "$GITHUB_PATH"
           yes | "$SDKMANAGER" --licenses > /dev/null || true
           "$SDKMANAGER" "platform-tools" "platforms;android-35" "build-tools;35.0.0"
-
       - name: Install dependencies
         run: npm ci
-
-      - name: Copy web assets into www/ and sync the native Android project
+      - name: Verify BBMA contracts
+        run: node test/bbma-apk-router-runtime.test.js
+      - name: Copy web assets into www/ and sync native Android project
         run: npm run cap:sync
-
+      - name: Verify BBMA dashboard is packaged
+        run: |
+          set -euxo pipefail
+          for f in bbma-runtime.js bbma-dashboard-ui.js bbma-router-fix.js bbma-link.js; do
+            test -f "$f"
+            test -f "www/$f"
+            test -f "android/app/src/main/assets/public/$f"
+            grep -q "$f" www/index.html
+            grep -q "$f" android/app/src/main/assets/public/index.html
+          done
+          grep -q "BBMA ALERT COMMAND" bbma-dashboard-ui.js
+          grep -q "xau-desk" android/app/src/main/AndroidManifest.xml
+          echo "BBMA runtime + dashboard + isolated navigation + deep-link router packaged successfully"
       - name: Build debug APK
         working-directory: android
         run: |
           chmod +x gradlew
           ./gradlew assembleDebug --no-daemon
-
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:

@@ -1,10 +1,10 @@
 apply plugin: 'com.android.application'
 
 android {
-    namespace "ai.autoclaw.xaudesk"
+    namespace "com.news.ifxhelper"
     compileSdk rootProject.ext.compileSdkVersion
     defaultConfig {
-        applicationId "ai.autoclaw.xaudesk"
+        applicationId "com.news.ifxhelper"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
