@@ -1,6 +1,5 @@
 name: Build Android APK
 
-# Cloud debug APK build for XAU//DESK.
 on:
   workflow_dispatch: {}
   push:
@@ -10,15 +9,8 @@ on:
       - "app.js"
       - "live.js"
       - "bbma-dashboard-ui.js"
-      - "bbma-runtime.js"
-      - "bbma-alert-engine.js"
-      - "bbma-alerts.js"
-      - "trade-plan.html"
-      - "trade-plan.js"
-      - "pwa.js"
-      - "sw.js"
-      - "manifest.webmanifest"
-      - "icons/**"
+      - "bbma-link.js"
+      - "tools/prepare-web.js"
       - "android/**"
       - "capacitor.config.json"
       - "package.json"
@@ -36,7 +28,7 @@ jobs:
         with:
           node-version: "20"
 
-      - uses: actions/setup-java@v4
+      - uses: actions/setup-java@v5
         with:
           distribution: "temurin"
           java-version: "21"
@@ -59,10 +51,20 @@ jobs:
 
       - name: Verify BBMA dashboard is packaged
         run: |
+          set -euxo pipefail
           test -f bbma-dashboard-ui.js
+          test -f bbma-link.js
           grep -q "BBMA ALERT COMMAND" bbma-dashboard-ui.js
-          grep -q "bbma-dashboard-ui.js" index.html
+          test -f www/bbma-dashboard-ui.js
+          test -f www/bbma-link.js
+          grep -q "bbma-dashboard-ui.js" www/index.html
+          grep -q "bbma-link.js" www/index.html
+          test -f android/app/src/main/assets/public/bbma-dashboard-ui.js
+          test -f android/app/src/main/assets/public/bbma-link.js
+          grep -q "bbma-dashboard-ui.js" android/app/src/main/assets/public/index.html
+          grep -q "bbma-link.js" android/app/src/main/assets/public/index.html
           grep -q "xau-desk" android/app/src/main/AndroidManifest.xml
+          echo "BBMA dashboard + deep-link router packaged successfully"
 
       - name: Build debug APK
         working-directory: android
