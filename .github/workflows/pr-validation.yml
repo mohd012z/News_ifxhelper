@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - "**.js"
+      - "**.py"
       - "package.json"
       - ".github/workflows/**"
   workflow_dispatch: {}
@@ -19,7 +20,7 @@ concurrency:
 jobs:
   validate:
     runs-on: ubuntu-latest
-    timeout-minutes: 12
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -79,3 +80,10 @@ jobs:
           node --check lib/learning-store.js
       - name: Build data manifest
         run: node build-data-manifest.js
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Python doctor foundation tests
+        run: python -m unittest discover -s test/py -p 'test_*.py' -v
+      - name: Python CLI syntax
+        run: python -m py_compile tools/py/ifx.py tools/py/candles.py tools/py/learningcheck.py tools/py/lib/result.py tools/py/lib/timeframes.py tools/py/lib/io.py
