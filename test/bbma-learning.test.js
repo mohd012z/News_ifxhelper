@@ -1,0 +1,7 @@
+'use strict';
+const assert=require('assert'),L=require('../lib/bbma-learning');
+const base={symbol:'GC=F',tf:'M30',candle:{time:'2026-09-23T01:00:00Z',open:100,close:101},analysis:{bbma:{zone:'TOP_BB',trend:'UP',extreme:'EXTREME_HIGH',momentum:'NONE',reentry:'NONE',csak:'NONE'},squeeze:{squeeze:'NORMAL'},next:{state:'DOWN_BIAS',confidence:60,reasons:['top_rejection_candidate']}},marketMode:'POST_NEWS'};
+const o=L.createObservation(base);assert.equal(o.status,'PENDING');assert.equal(o.location,'TOP_BB');
+const s=L.settle(o,{time:'2026-09-23T01:30:00Z',open:101,high:102,low:99,close:100});assert.equal(s.actualDirection,'DOWN');assert.equal(s.correct,true);
+const bad=L.settle(L.createObservation({...base,tf:'M15',analysis:{...base.analysis,next:{state:'UP_BIAS',confidence:70,reasons:[]}}}),{time:'2026-09-23T01:15:00Z',open:101,close:100});
+const r=L.report([s,bad]);assert.equal(r.overall.samples,2);assert.equal(r.overall.accuracyPct,50);assert.equal(r.byMarketMode.POST_NEWS.samples,2);console.log('bbma learning tests passed');
