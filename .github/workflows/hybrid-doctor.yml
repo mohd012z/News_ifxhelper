@@ -31,5 +31,6 @@ jobs:
           node test/artifact-publisher.test.js
           node test/source-fallback.test.js
           node test/cron-orchestrator.test.js
+          node test/event-orchestrator.test.js
       - name: Independent Python verification
         run: python -m unittest discover -s test/py -p 'test_*.py'
