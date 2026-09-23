@@ -6,8 +6,8 @@ on:
 permissions:
   contents: write
 concurrency:
-  group: learning-health
-  cancel-in-progress: true
+  group: market-data-writer
+  cancel-in-progress: false
 jobs:
   health:
     runs-on: ubuntu-latest
@@ -27,4 +27,5 @@ jobs:
           git add data/bbma-learning.json data/bbma-performance.json data/agent-health.json
           git diff --cached --quiet && exit 0
           git commit -m 'data: refresh learning and agent health'
+          git pull --rebase origin main
           git push
