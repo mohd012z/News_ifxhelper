@@ -49,9 +49,9 @@ jobs:
           node --check lib/learning-store.js
       - name: Build expanded data manifest
         run: node build-data-manifest.js
-      - name: Verify intelligence manifest coverage
+      - name: Verify intelligence manifest coverage and lineage policy
         run: |
-          node -e "const m=require('./data-manifest.json');const need=['data/bbma-watch.json','data/bbma-performance.json','data/agent-health.json','data/intelligence-360.json'];for(const f of need)if(!m.files.some(x=>x.file===f))throw Error('manifest missing '+f);if(m.schemaVersion<2)throw Error('manifest schema too old')"
+          node -e "const m=require('./data-manifest.json');const need=['data/bbma-watch.json','data/bbma-performance.json','data/agent-health.json','data/intelligence-360.json'];for(const f of need)if(!m.files.some(x=>x.file===f))throw Error('manifest missing '+f);if(m.schemaVersion<3)throw Error('manifest schema too old');if(!m.lineage||!['CONSISTENT','MIXED','UNKNOWN'].includes(m.lineage.status))throw Error('manifest lineage missing');if(m.lineage.status==='MIXED'&&m.generationId)throw Error('mixed lineage must not expose unified generationId')"
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
