@@ -1,15 +1,87 @@
 {
   "pending": [
     {
-      "key": "news:gold:Euro weakens below 1.1450 on hawkish Fed signals, German political risks",
+      "key": "news:gold:Silver Price Forecast: XAG/USD falls to near $66.50 as Fed signals further rate hikes",
       "tabId": "gold",
+      "kind": "news",
+      "title": "Silver Price Forecast: XAG/USD falls to near $66.50 as Fed signals further rate hikes",
+      "url": "https://www.fxstreet.com/news/silver-price-forecast-xag-usd-falls-to-near-6650-as-fed-signals-further-rate-hikes-202609230239",
+      "predictedPct": -0.12,
+      "priceAtDetect": 4380.1,
+      "createdAt": "2026-09-23T04:11:44.361Z",
+      "settleAt": "2026-09-23T04:56:44.361Z"
+    },
+    {
+      "key": "news:gold:Japanese Yen softens on BoJ's lack of hawkish guidance, potential intervention eyed",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Japanese Yen softens on BoJ's lack of hawkish guidance, potential intervention eyed",
+      "url": "https://www.fxstreet.com/news/japanese-yen-softens-on-bojs-lack-of-hawkish-guidance-potential-intervention-eyed-202609230208",
+      "predictedPct": -0.63,
+      "priceAtDetect": 4380.1,
+      "createdAt": "2026-09-23T04:11:44.361Z",
+      "settleAt": "2026-09-23T04:56:44.361Z"
+    },
+    {
+      "key": "news:crypto:Silver Price Forecast: XAG/USD falls to near $66.50 as Fed signals further rate hikes",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Silver Price Forecast: XAG/USD falls to near $66.50 as Fed signals further rate hikes",
+      "url": "https://www.fxstreet.com/news/silver-price-forecast-xag-usd-falls-to-near-6650-as-fed-signals-further-rate-hikes-202609230239",
+      "predictedPct": -0.14,
+      "priceAtDetect": 86836.68,
+      "createdAt": "2026-09-23T04:11:44.361Z",
+      "settleAt": "2026-09-23T04:56:44.361Z"
+    },
+    {
+      "key": "news:crypto:Japanese Yen softens on BoJ's lack of hawkish guidance, potential intervention eyed",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Japanese Yen softens on BoJ's lack of hawkish guidance, potential intervention eyed",
+      "url": "https://www.fxstreet.com/news/japanese-yen-softens-on-bojs-lack-of-hawkish-guidance-potential-intervention-eyed-202609230208",
+      "predictedPct": -0.72,
+      "priceAtDetect": 86836.68,
+      "createdAt": "2026-09-23T04:11:44.361Z",
+      "settleAt": "2026-09-23T04:56:44.361Z"
+    },
+    {
+      "key": "news:forex:Silver Price Forecast: XAG/USD falls to near $66.50 as Fed signals further rate hikes",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Silver Price Forecast: XAG/USD falls to near $66.50 as Fed signals further rate hikes",
+      "url": "https://www.fxstreet.com/news/silver-price-forecast-xag-usd-falls-to-near-6650-as-fed-signals-further-rate-hikes-202609230239",
+      "predictedPct": -0.15,
+      "priceAtDetect": 1.1429,
+      "createdAt": "2026-09-23T04:11:44.361Z",
+      "settleAt": "2026-09-23T04:56:44.361Z"
+    },
+    {
+      "key": "news:forex:Japanese Yen softens on BoJ's lack of hawkish guidance, potential intervention eyed",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Japanese Yen softens on BoJ's lack of hawkish guidance, potential intervention eyed",
+      "url": "https://www.fxstreet.com/news/japanese-yen-softens-on-bojs-lack-of-hawkish-guidance-potential-intervention-eyed-202609230208",
+      "predictedPct": -0.79,
+      "priceAtDetect": 1.1429,
+      "createdAt": "2026-09-23T04:11:44.361Z",
+      "settleAt": "2026-09-23T04:56:44.361Z"
+    }
+  ],
+  "results": [
+    {
+      "key": "news:forex:Euro weakens below 1.1450 on hawkish Fed signals, German political risks",
+      "tabId": "forex",
       "kind": "news",
       "title": "Euro weakens below 1.1450 on hawkish Fed signals, German political risks",
       "url": "https://www.fxstreet.com/news/euro-weakens-below-11450-on-hawkish-fed-signals-german-political-risks-202609230121",
-      "predictedPct": -0.12,
-      "priceAtDetect": 4379.9,
+      "predictedPct": -0.15,
+      "priceAtDetect": 1.1446,
       "createdAt": "2026-09-23T01:39:28.008Z",
-      "settleAt": "2026-09-23T02:24:28.008Z"
+      "settleAt": "2026-09-23T02:24:28.008Z",
+      "priceAtSettle": 1.1429,
+      "realizedPct": -0.15,
+      "verdict": "correct",
+      "settledAt": "2026-09-23T04:11:44.361Z"
     },
     {
       "key": "news:crypto:Euro weakens below 1.1450 on hawkish Fed signals, German political risks",
@@ -20,21 +92,27 @@
       "predictedPct": -0.14,
       "priceAtDetect": 86438.99,
       "createdAt": "2026-09-23T01:39:28.008Z",
-      "settleAt": "2026-09-23T02:24:28.008Z"
+      "settleAt": "2026-09-23T02:24:28.008Z",
+      "priceAtSettle": 86836.68,
+      "realizedPct": 0.46,
+      "verdict": "wrong",
+      "settledAt": "2026-09-23T04:11:44.361Z"
     },
     {
-      "key": "news:forex:Euro weakens below 1.1450 on hawkish Fed signals, German political risks",
-      "tabId": "forex",
+      "key": "news:gold:Euro weakens below 1.1450 on hawkish Fed signals, German political risks",
+      "tabId": "gold",
       "kind": "news",
       "title": "Euro weakens below 1.1450 on hawkish Fed signals, German political risks",
       "url": "https://www.fxstreet.com/news/euro-weakens-below-11450-on-hawkish-fed-signals-german-political-risks-202609230121",
-      "predictedPct": -0.15,
-      "priceAtDetect": 1.1446,
+      "predictedPct": -0.12,
+      "priceAtDetect": 4379.9,
       "createdAt": "2026-09-23T01:39:28.008Z",
-      "settleAt": "2026-09-23T02:24:28.008Z"
-    }
-  ],
-  "results": [
+      "settleAt": "2026-09-23T02:24:28.008Z",
+      "priceAtSettle": 4380.1,
+      "realizedPct": 0,
+      "verdict": "flat",
+      "settledAt": "2026-09-23T04:11:44.361Z"
+    },
     {
       "key": "news:forex:Banxico expected to stay put as inflation risks block easing – Reuters",
       "tabId": "forex",
