@@ -1,16 +1,17 @@
-name: News watch (frequent, evidence refresh)
+name: News watch (evidence refresh)
 
 on:
   schedule:
-    - cron: "*/30 * * * *"
+    - cron: "7,37 * * * *"
   workflow_dispatch: {}
 
 permissions:
   contents: write
 
 concurrency:
-  group: news-watch
+  group: market-data-writer
   cancel-in-progress: false
+  queue: max
 
 jobs:
   watch:
@@ -20,23 +21,24 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
-      - name: Fetch news + calendar
+      - name: Fetch news + calendar + reaction observations
         run: node build-news.js
       - name: Refresh macro KPIs
         run: node build-macro.js
       - name: Build freshness/version manifest
         run: node build-data-manifest.js
-      - name: Run evidence-engine tests
+      - name: Validate evidence, history, technical and timestamp layers
         run: npm test
       - name: Send Telegram alerts for anything new
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: node telegram-notify.js
-      - name: Commit refreshed datasets + manifest + state
+      - name: Commit refreshed datasets + history + state
         run: |
           git config user.name "xau-desk-bot"
           git config user.email "actions@users.noreply.github.com"
           git add news-auto.js macro-auto.js data-manifest.json .news-alert-state.json price-track.json data/history
-          git diff --cached --quiet || git commit -m "bot: refresh evidence + manifest [skip ci]"
+          git diff --cached --quiet || git commit -m "bot: refresh evidence + reactions + manifest [skip ci]"
+          git pull --rebase origin main
           git push

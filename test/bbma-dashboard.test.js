@@ -1,0 +1,12 @@
+'use strict';
+const assert=require('assert'),D=require('../lib/bbma-dashboard');
+assert.equal(D.role('M30'),'BRIDGE');
+assert.equal(D.role('M15'),'TRIGGER');
+assert(D.CHAINS.some(x=>x.join('/')==='H4/H1/M30'));
+assert(D.CHAINS.some(x=>x.join('/')==='H1/M30/M15'));
+assert(D.CHAINS.some(x=>x.join('/')==='M30/M15/M5'));
+const frames={H4:{state:'READY',trend:'UP'},H1:{state:'READY',trend:'UP'},M30:{state:'READY',trend:'UP'}};
+assert.equal(D.chainState(frames,['H4','H1','M30']).alignment,'UP_ALIGNED');
+frames.M30.trend='DOWN';
+assert.equal(D.chainState(frames,['H4','H1','M30']).alignment,'MIXED');
+console.log('bbma dashboard tests passed');

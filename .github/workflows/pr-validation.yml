@@ -1,0 +1,61 @@
+name: PR validation
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "**.js"
+      - "**.py"
+      - "package.json"
+      - ".github/workflows/**"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pr-validation-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Full Node test suite
+        run: npm test
+      - name: Syntax-check runtime/build scripts
+        run: |
+          node --check build-news.js
+          node --check build-bbma-watch.js
+          node --check build-bbma-learning.js
+          node --check build-intelligence-360.js
+          node --check build-agent-health.js
+          node --check build-intelligence-aggregate.js
+          node --check build-data-manifest.js
+          node --check lib/history-store.js
+          node --check lib/technical-context.js
+          node --check lib/timestamps.js
+          node --check lib/evidence-envelope.js
+          node --check lib/source-health.js
+          node --check lib/intelligence-orchestrator.js
+          node --check lib/learning-store.js
+      - name: Build expanded data manifest
+        run: node build-data-manifest.js
+      - name: Verify intelligence manifest coverage and lineage policy
+        run: |
+          node -e "const m=require('./data-manifest.json');const need=['data/bbma-watch.json','data/bbma-performance.json','data/agent-health.json','data/intelligence-360.json'];for(const f of need)if(!m.files.some(x=>x.file===f))throw Error('manifest missing '+f);if(m.schemaVersion<3)throw Error('manifest schema too old');if(!m.lineage||!['CONSISTENT','MIXED','UNKNOWN'].includes(m.lineage.status))throw Error('manifest lineage missing');if(m.lineage.status==='MIXED'&&m.generationId)throw Error('mixed lineage must not expose unified generationId')"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Python doctor tests
+        run: python -m unittest discover -s test/py -p 'test_*.py' -v
+      - name: Python CLI syntax
+        run: python -m py_compile tools/py/ifx.py tools/py/candles.py tools/py/learningcheck.py tools/py/newscheck.py tools/py/syncdoctor.py tools/py/croncheck.py tools/py/lib/result.py tools/py/lib/timeframes.py tools/py/lib/io.py
