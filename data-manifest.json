@@ -1,34 +1,34 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-24T04:06:59.605Z",
+  "generatedAt": "2026-09-24T08:42:28.369Z",
   "files": [
     {
       "file": "news-auto.js",
       "available": true,
-      "bytes": 161323,
-      "sha256": "c400140929afe21cb92fd9e8da262dbdec9107a89aa99f72f328b865f525e410",
-      "modifiedAt": "2026-09-24T04:06:59.264Z"
+      "bytes": 174448,
+      "sha256": "9c6fd3a114347747013a7e2246e7f4234d2d2bf2c8d80b18f8d8d8d94da8ccbb",
+      "modifiedAt": "2026-09-24T08:42:28.088Z"
     },
     {
       "file": "macro-auto.js",
       "available": true,
-      "bytes": 1533,
-      "sha256": "a83021f6e2e057c48c00cbafe4d178063aa5fdea9cf4d83ff71395c162248a5a",
-      "modifiedAt": "2026-09-24T04:06:59.568Z"
+      "bytes": 1548,
+      "sha256": "a994f6ac47924102528004c476b63e11db63d0076644ea362e9f5ad5c0ba6ae1",
+      "modifiedAt": "2026-09-24T08:42:28.304Z"
     },
     {
       "file": "atr.js",
       "available": true,
       "bytes": 5808,
       "sha256": "d9642ac430de15321441f43925e909305668324671572dbb1d7f1d5f6399599e",
-      "modifiedAt": "2026-09-24T04:06:53.623Z"
+      "modifiedAt": "2026-09-24T08:42:19.205Z"
     },
     {
       "file": "xauusd-data.js",
       "available": true,
       "bytes": 38201,
       "sha256": "5a308431b2e833b1b18a0fdd1cd6bd0a7e2d352276aecca147ff4a21eb444ba6",
-      "modifiedAt": "2026-09-24T04:06:45.431Z"
+      "modifiedAt": "2026-09-24T08:42:19.209Z"
     }
   ],
   "freshness": {
