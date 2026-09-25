@@ -1,5 +1,39 @@
 {
-  "pending": [],
+  "pending": [
+    {
+      "key": "news:gold:Swiss Franc: Still a low-yield funding currency – OCBC",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Swiss Franc: Still a low-yield funding currency – OCBC",
+      "url": "https://www.fxstreet.com/news/swiss-franc-still-a-low-yield-funding-currency-ocbc-202609250929",
+      "predictedPct": -0.12,
+      "priceAtDetect": 4349.4,
+      "createdAt": "2026-09-25T11:18:06.595Z",
+      "settleAt": "2026-09-25T12:03:06.595Z"
+    },
+    {
+      "key": "news:crypto:Swiss Franc: Still a low-yield funding currency – OCBC",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Swiss Franc: Still a low-yield funding currency – OCBC",
+      "url": "https://www.fxstreet.com/news/swiss-franc-still-a-low-yield-funding-currency-ocbc-202609250929",
+      "predictedPct": -0.14,
+      "priceAtDetect": 85154.31,
+      "createdAt": "2026-09-25T11:18:06.595Z",
+      "settleAt": "2026-09-25T12:03:06.595Z"
+    },
+    {
+      "key": "news:forex:Swiss Franc: Still a low-yield funding currency – OCBC",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Swiss Franc: Still a low-yield funding currency – OCBC",
+      "url": "https://www.fxstreet.com/news/swiss-franc-still-a-low-yield-funding-currency-ocbc-202609250929",
+      "predictedPct": -0.08,
+      "priceAtDetect": 1.141,
+      "createdAt": "2026-09-25T11:18:06.595Z",
+      "settleAt": "2026-09-25T12:03:06.595Z"
+    }
+  ],
   "results": [
     {
       "key": "news:forex:Japan’s Katayama says BoJ's latest rate hike was done to achieve inflation target",
