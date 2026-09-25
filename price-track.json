@@ -1,15 +1,186 @@
 {
   "pending": [
     {
-      "key": "news:gold:Swiss Franc: Still a low-yield funding currency – OCBC",
+      "key": "news:gold:Gold struggles below $4,300, heads for weekly decline on hawkish Fed outlook",
       "tabId": "gold",
+      "kind": "news",
+      "title": "Gold struggles below $4,300, heads for weekly decline on hawkish Fed outlook",
+      "url": "https://www.fxstreet.com/news/gold-gains-as-us-dollar-and-yields-pause-but-weekly-loss-remains-in-sight-202609251106",
+      "predictedPct": -0.26,
+      "priceAtDetect": 4312.7,
+      "createdAt": "2026-09-25T15:53:06.935Z",
+      "settleAt": "2026-09-25T16:38:06.935Z"
+    },
+    {
+      "key": "news:gold:Euro set for third weekly decline as hawkish Federal Reserve outlook weighs",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Euro set for third weekly decline as hawkish Federal Reserve outlook weighs",
+      "url": "https://www.fxstreet.com/news/euro-set-for-third-weekly-decline-as-hawkish-federal-reserve-outlook-weighs-202609251451",
+      "predictedPct": -0.21,
+      "priceAtDetect": 4312.7,
+      "createdAt": "2026-09-25T15:53:06.935Z",
+      "settleAt": "2026-09-25T16:38:06.935Z"
+    },
+    {
+      "key": "news:gold:Australian Dollar: RBA hike expectations shape outlook – ING",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Australian Dollar: RBA hike expectations shape outlook – ING",
+      "url": "https://www.fxstreet.com/news/australian-dollar-rba-hike-expectations-shape-outlook-ing-202609251433",
+      "predictedPct": -0.63,
+      "priceAtDetect": 4312.7,
+      "createdAt": "2026-09-25T15:53:06.935Z",
+      "settleAt": "2026-09-25T16:38:06.935Z"
+    },
+    {
+      "key": "news:gold:Mexican Peso: Banxico stance keeps bar high for hikes – BBH",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Mexican Peso: Banxico stance keeps bar high for hikes – BBH",
+      "url": "https://www.fxstreet.com/news/mexican-peso-banxico-stance-keeps-bar-high-for-hikes-bbh-202609251356",
+      "predictedPct": -0.08,
+      "priceAtDetect": 4312.7,
+      "createdAt": "2026-09-25T15:53:06.935Z",
+      "settleAt": "2026-09-25T16:38:06.935Z"
+    },
+    {
+      "key": "news:gold:Euro: Credibility restored supports Dollar – Commerzbank",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Euro: Credibility restored supports Dollar – Commerzbank",
+      "url": "https://www.fxstreet.com/news/euro-credibility-restored-supports-dollar-commerzbank-202609251336",
+      "predictedPct": -0.12,
+      "priceAtDetect": 4312.7,
+      "createdAt": "2026-09-25T15:53:06.935Z",
+      "settleAt": "2026-09-25T16:38:06.935Z"
+    },
+    {
+      "key": "news:crypto:Gold struggles below $4,300, heads for weekly decline on hawkish Fed outlook",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Gold struggles below $4,300, heads for weekly decline on hawkish Fed outlook",
+      "url": "https://www.fxstreet.com/news/gold-gains-as-us-dollar-and-yields-pause-but-weekly-loss-remains-in-sight-202609251106",
+      "predictedPct": -0.24,
+      "priceAtDetect": 83425.52,
+      "createdAt": "2026-09-25T15:53:06.935Z",
+      "settleAt": "2026-09-25T16:38:06.935Z"
+    },
+    {
+      "key": "news:crypto:Euro set for third weekly decline as hawkish Federal Reserve outlook weighs",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Euro set for third weekly decline as hawkish Federal Reserve outlook weighs",
+      "url": "https://www.fxstreet.com/news/euro-set-for-third-weekly-decline-as-hawkish-federal-reserve-outlook-weighs-202609251451",
+      "predictedPct": -0.24,
+      "priceAtDetect": 83425.52,
+      "createdAt": "2026-09-25T15:53:06.935Z",
+      "settleAt": "2026-09-25T16:38:06.935Z"
+    },
+    {
+      "key": "news:crypto:Australian Dollar: RBA hike expectations shape outlook – ING",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Australian Dollar: RBA hike expectations shape outlook – ING",
+      "url": "https://www.fxstreet.com/news/australian-dollar-rba-hike-expectations-shape-outlook-ing-202609251433",
+      "predictedPct": -0.72,
+      "priceAtDetect": 83425.52,
+      "createdAt": "2026-09-25T15:53:06.935Z",
+      "settleAt": "2026-09-25T16:38:06.935Z"
+    },
+    {
+      "key": "news:crypto:Mexican Peso: Banxico stance keeps bar high for hikes – BBH",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Mexican Peso: Banxico stance keeps bar high for hikes – BBH",
+      "url": "https://www.fxstreet.com/news/mexican-peso-banxico-stance-keeps-bar-high-for-hikes-bbh-202609251356",
+      "predictedPct": -0.08,
+      "priceAtDetect": 83425.52,
+      "createdAt": "2026-09-25T15:53:06.935Z",
+      "settleAt": "2026-09-25T16:38:06.935Z"
+    },
+    {
+      "key": "news:crypto:Euro: Credibility restored supports Dollar – Commerzbank",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Euro: Credibility restored supports Dollar – Commerzbank",
+      "url": "https://www.fxstreet.com/news/euro-credibility-restored-supports-dollar-commerzbank-202609251336",
+      "predictedPct": -0.14,
+      "priceAtDetect": 83425.52,
+      "createdAt": "2026-09-25T15:53:06.935Z",
+      "settleAt": "2026-09-25T16:38:06.935Z"
+    },
+    {
+      "key": "news:forex:Gold struggles below $4,300, heads for weekly decline on hawkish Fed outlook",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Gold struggles below $4,300, heads for weekly decline on hawkish Fed outlook",
+      "url": "https://www.fxstreet.com/news/gold-gains-as-us-dollar-and-yields-pause-but-weekly-loss-remains-in-sight-202609251106",
+      "predictedPct": -0.26,
+      "priceAtDetect": 1.139,
+      "createdAt": "2026-09-25T15:53:06.935Z",
+      "settleAt": "2026-09-25T16:38:06.935Z"
+    },
+    {
+      "key": "news:forex:Euro set for third weekly decline as hawkish Federal Reserve outlook weighs",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Euro set for third weekly decline as hawkish Federal Reserve outlook weighs",
+      "url": "https://www.fxstreet.com/news/euro-set-for-third-weekly-decline-as-hawkish-federal-reserve-outlook-weighs-202609251451",
+      "predictedPct": -0.26,
+      "priceAtDetect": 1.139,
+      "createdAt": "2026-09-25T15:53:06.935Z",
+      "settleAt": "2026-09-25T16:38:06.935Z"
+    },
+    {
+      "key": "news:forex:Australian Dollar: RBA hike expectations shape outlook – ING",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Australian Dollar: RBA hike expectations shape outlook – ING",
+      "url": "https://www.fxstreet.com/news/australian-dollar-rba-hike-expectations-shape-outlook-ing-202609251433",
+      "predictedPct": -0.39,
+      "priceAtDetect": 1.139,
+      "createdAt": "2026-09-25T15:53:06.935Z",
+      "settleAt": "2026-09-25T16:38:06.935Z"
+    },
+    {
+      "key": "news:forex:Mexican Peso: Banxico stance keeps bar high for hikes – BBH",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Mexican Peso: Banxico stance keeps bar high for hikes – BBH",
+      "url": "https://www.fxstreet.com/news/mexican-peso-banxico-stance-keeps-bar-high-for-hikes-bbh-202609251356",
+      "predictedPct": -0.08,
+      "priceAtDetect": 1.139,
+      "createdAt": "2026-09-25T15:53:06.935Z",
+      "settleAt": "2026-09-25T16:38:06.935Z"
+    },
+    {
+      "key": "news:forex:Euro: Credibility restored supports Dollar – Commerzbank",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Euro: Credibility restored supports Dollar – Commerzbank",
+      "url": "https://www.fxstreet.com/news/euro-credibility-restored-supports-dollar-commerzbank-202609251336",
+      "predictedPct": -0.15,
+      "priceAtDetect": 1.139,
+      "createdAt": "2026-09-25T15:53:06.935Z",
+      "settleAt": "2026-09-25T16:38:06.935Z"
+    }
+  ],
+  "results": [
+    {
+      "key": "news:forex:Swiss Franc: Still a low-yield funding currency – OCBC",
+      "tabId": "forex",
       "kind": "news",
       "title": "Swiss Franc: Still a low-yield funding currency – OCBC",
       "url": "https://www.fxstreet.com/news/swiss-franc-still-a-low-yield-funding-currency-ocbc-202609250929",
-      "predictedPct": -0.12,
-      "priceAtDetect": 4349.4,
+      "predictedPct": -0.08,
+      "priceAtDetect": 1.141,
       "createdAt": "2026-09-25T11:18:06.595Z",
-      "settleAt": "2026-09-25T12:03:06.595Z"
+      "settleAt": "2026-09-25T12:03:06.595Z",
+      "priceAtSettle": 1.139,
+      "realizedPct": -0.18,
+      "verdict": "correct",
+      "settledAt": "2026-09-25T15:53:06.935Z"
     },
     {
       "key": "news:crypto:Swiss Franc: Still a low-yield funding currency – OCBC",
@@ -20,21 +191,27 @@
       "predictedPct": -0.14,
       "priceAtDetect": 85154.31,
       "createdAt": "2026-09-25T11:18:06.595Z",
-      "settleAt": "2026-09-25T12:03:06.595Z"
+      "settleAt": "2026-09-25T12:03:06.595Z",
+      "priceAtSettle": 83425.52,
+      "realizedPct": -2.03,
+      "verdict": "correct",
+      "settledAt": "2026-09-25T15:53:06.935Z"
     },
     {
-      "key": "news:forex:Swiss Franc: Still a low-yield funding currency – OCBC",
-      "tabId": "forex",
+      "key": "news:gold:Swiss Franc: Still a low-yield funding currency – OCBC",
+      "tabId": "gold",
       "kind": "news",
       "title": "Swiss Franc: Still a low-yield funding currency – OCBC",
       "url": "https://www.fxstreet.com/news/swiss-franc-still-a-low-yield-funding-currency-ocbc-202609250929",
-      "predictedPct": -0.08,
-      "priceAtDetect": 1.141,
+      "predictedPct": -0.12,
+      "priceAtDetect": 4349.4,
       "createdAt": "2026-09-25T11:18:06.595Z",
-      "settleAt": "2026-09-25T12:03:06.595Z"
-    }
-  ],
-  "results": [
+      "settleAt": "2026-09-25T12:03:06.595Z",
+      "priceAtSettle": 4312.7,
+      "realizedPct": -0.84,
+      "verdict": "correct",
+      "settledAt": "2026-09-25T15:53:06.935Z"
+    },
     {
       "key": "news:forex:Japan’s Katayama says BoJ's latest rate hike was done to achieve inflation target",
       "tabId": "forex",
@@ -4488,51 +4665,6 @@
       "priceAtSettle": 1.1489,
       "realizedPct": 0,
       "verdict": "flat",
-      "settledAt": "2026-09-18T23:29:38.249Z"
-    },
-    {
-      "key": "news:forex:NZD/USD Price Forecast: Kiwi reversal puts 0.5700 under pressure",
-      "tabId": "forex",
-      "kind": "news",
-      "title": "NZD/USD Price Forecast: Kiwi reversal puts 0.5700 under pressure",
-      "url": "https://www.fxstreet.com/news/nzd-usd-price-forecast-kiwi-reversal-puts-05700-under-pressure-202609182044",
-      "predictedPct": -0.15,
-      "priceAtDetect": 1.1489,
-      "createdAt": "2026-09-18T21:07:14.972Z",
-      "settleAt": "2026-09-18T21:52:14.972Z",
-      "priceAtSettle": 1.1489,
-      "realizedPct": 0,
-      "verdict": "flat",
-      "settledAt": "2026-09-18T23:29:38.249Z"
-    },
-    {
-      "key": "news:forex:Gold heads for slight weekly gain as decline in oil prices offset Fed rate hike",
-      "tabId": "forex",
-      "kind": "news",
-      "title": "Gold heads for slight weekly gain as decline in oil prices offset Fed rate hike",
-      "url": "https://www.investing.com/news/commodities-news/gold-rises-as-lower-oil-treasury-yields-ease-inflation-pressure-4906609",
-      "predictedPct": -0.08,
-      "priceAtDetect": 1.1489,
-      "createdAt": "2026-09-18T21:07:14.972Z",
-      "settleAt": "2026-09-18T21:52:14.972Z",
-      "priceAtSettle": 1.1489,
-      "realizedPct": 0,
-      "verdict": "flat",
-      "settledAt": "2026-09-18T23:29:38.249Z"
-    },
-    {
-      "key": "news:crypto:My rental property is paid off, but I need cash. Is this a bad time to take out a $50,000 HELOC?",
-      "tabId": "crypto",
-      "kind": "news",
-      "title": "My rental property is paid off, but I need cash. Is this a bad time to take out a $50,000 HELOC?",
-      "url": "https://www.marketwatch.com/story/my-rental-property-is-paid-off-but-i-need-cash-is-this-a-bad-time-to-take-out-a-50-000-heloc-d094bbc5?mod=mw_rss_topstories",
-      "predictedPct": -0.08,
-      "priceAtDetect": 81182.98,
-      "createdAt": "2026-09-18T21:07:14.972Z",
-      "settleAt": "2026-09-18T21:52:14.972Z",
-      "priceAtSettle": 80991.44,
-      "realizedPct": -0.24,
-      "verdict": "correct",
       "settledAt": "2026-09-18T23:29:38.249Z"
     }
   ]
