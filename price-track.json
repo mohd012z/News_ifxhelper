@@ -1,15 +1,20 @@
 {
-  "pending": [
+  "pending": [],
+  "results": [
     {
-      "key": "news:gold:ECB’s Vujcic warns energy shock could keep inflation hot",
-      "tabId": "gold",
+      "key": "news:forex:ECB’s Vujcic warns energy shock could keep inflation hot",
+      "tabId": "forex",
       "kind": "news",
       "title": "ECB’s Vujcic warns energy shock could keep inflation hot",
       "url": "https://www.fxstreet.com/news/ecbs-vujcic-warns-energy-shock-could-keep-inflation-hot-202609251834",
       "predictedPct": -0.23,
-      "priceAtDetect": 4328.6,
+      "priceAtDetect": 1.1401,
       "createdAt": "2026-09-25T19:51:38.769Z",
-      "settleAt": "2026-09-25T20:36:38.769Z"
+      "settleAt": "2026-09-25T20:36:38.769Z",
+      "priceAtSettle": 1.1392,
+      "realizedPct": -0.08,
+      "verdict": "correct",
+      "settledAt": "2026-09-25T23:07:24.692Z"
     },
     {
       "key": "news:crypto:ECB’s Vujcic warns energy shock could keep inflation hot",
@@ -20,21 +25,27 @@
       "predictedPct": -0.23,
       "priceAtDetect": 84009.82,
       "createdAt": "2026-09-25T19:51:38.769Z",
-      "settleAt": "2026-09-25T20:36:38.769Z"
+      "settleAt": "2026-09-25T20:36:38.769Z",
+      "priceAtSettle": 84096.21,
+      "realizedPct": 0.1,
+      "verdict": "wrong",
+      "settledAt": "2026-09-25T23:07:24.692Z"
     },
     {
-      "key": "news:forex:ECB’s Vujcic warns energy shock could keep inflation hot",
-      "tabId": "forex",
+      "key": "news:gold:ECB’s Vujcic warns energy shock could keep inflation hot",
+      "tabId": "gold",
       "kind": "news",
       "title": "ECB’s Vujcic warns energy shock could keep inflation hot",
       "url": "https://www.fxstreet.com/news/ecbs-vujcic-warns-energy-shock-could-keep-inflation-hot-202609251834",
       "predictedPct": -0.23,
-      "priceAtDetect": 1.1401,
+      "priceAtDetect": 4328.6,
       "createdAt": "2026-09-25T19:51:38.769Z",
-      "settleAt": "2026-09-25T20:36:38.769Z"
-    }
-  ],
-  "results": [
+      "settleAt": "2026-09-25T20:36:38.769Z",
+      "priceAtSettle": 4320.5,
+      "realizedPct": -0.19,
+      "verdict": "correct",
+      "settledAt": "2026-09-25T23:07:24.692Z"
+    },
     {
       "key": "news:forex:Euro: Credibility restored supports Dollar – Commerzbank",
       "tabId": "forex",
@@ -4488,51 +4499,6 @@
       "priceAtSettle": 81703.62,
       "realizedPct": 0.53,
       "verdict": "wrong",
-      "settledAt": "2026-09-21T06:48:36.376Z"
-    },
-    {
-      "key": "news:crypto:United States Dollar Index holds firm on hawkish Fed outlook",
-      "tabId": "crypto",
-      "kind": "news",
-      "title": "United States Dollar Index holds firm on hawkish Fed outlook",
-      "url": "https://www.fxstreet.com/news/united-states-dollar-index-holds-firm-on-hawkish-fed-outlook-202609210317",
-      "predictedPct": -0.24,
-      "priceAtDetect": 81270,
-      "createdAt": "2026-09-21T04:18:55.581Z",
-      "settleAt": "2026-09-21T05:03:55.581Z",
-      "priceAtSettle": 81703.62,
-      "realizedPct": 0.53,
-      "verdict": "wrong",
-      "settledAt": "2026-09-21T06:48:36.376Z"
-    },
-    {
-      "key": "news:gold:Gold edges lower to near $4,350 on Fed hawkish stance, Middle East tensions",
-      "tabId": "gold",
-      "kind": "news",
-      "title": "Gold edges lower to near $4,350 on Fed hawkish stance, Middle East tensions",
-      "url": "https://www.fxstreet.com/news/gold-edges-lower-to-near-4-350-on-fed-hawkish-stance-middle-east-tensions-202609210238",
-      "predictedPct": -0.15,
-      "priceAtDetect": 4395.6,
-      "createdAt": "2026-09-21T04:18:55.581Z",
-      "settleAt": "2026-09-21T05:03:55.581Z",
-      "priceAtSettle": 4388.8,
-      "realizedPct": -0.15,
-      "verdict": "correct",
-      "settledAt": "2026-09-21T06:48:36.376Z"
-    },
-    {
-      "key": "news:gold:United States Dollar Index holds firm on hawkish Fed outlook",
-      "tabId": "gold",
-      "kind": "news",
-      "title": "United States Dollar Index holds firm on hawkish Fed outlook",
-      "url": "https://www.fxstreet.com/news/united-states-dollar-index-holds-firm-on-hawkish-fed-outlook-202609210317",
-      "predictedPct": -0.21,
-      "priceAtDetect": 4395.6,
-      "createdAt": "2026-09-21T04:18:55.581Z",
-      "settleAt": "2026-09-21T05:03:55.581Z",
-      "priceAtSettle": 4388.8,
-      "realizedPct": -0.15,
-      "verdict": "correct",
       "settledAt": "2026-09-21T06:48:36.376Z"
     }
   ]
