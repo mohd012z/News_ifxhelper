@@ -1,0 +1,37 @@
+name: Reaction watch (timestamp checkpoints)
+
+on:
+  schedule:
+    - cron: "3,13,23,33,43,53 * * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: market-data-writer
+  cancel-in-progress: false
+  queue: max
+
+jobs:
+  observe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Capture due M1-MN1 observations
+        run: node build-news.js
+      - name: Refresh manifest after observation
+        run: node build-data-manifest.js
+      - name: Validate observation pipeline
+        run: npm test
+      - name: Commit observation state and evidence history
+        run: |
+          git config user.name "xau-desk-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add news-auto.js data-manifest.json price-track.json data/history
+          git diff --cached --quiet || git commit -m "bot: capture reaction checkpoints [skip ci]"
+          git pull --rebase origin main
+          git push

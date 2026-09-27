@@ -1,0 +1,11 @@
+'use strict';
+const assert=require('assert'),L=require('../lib/intelligence-lineage');
+let x=L.evaluate({watchGenerationId:'G25',performanceGenerationId:'G25',watchGeneratedAt:'2026-09-23T06:00:00Z',performanceGeneratedAt:'2026-09-23T06:05:00Z'});
+assert.equal(x.status,'CONSISTENT');assert.equal(x.learningUsable,true);assert.equal(x.confidenceBoostAllowed,true);
+x=L.evaluate({watchGenerationId:'G25',performanceGenerationId:'G24',watchGeneratedAt:'2026-09-23T06:00:00Z',performanceGeneratedAt:'2026-09-23T06:05:00Z'});
+assert.equal(x.status,'MISMATCH');assert.equal(x.learningUsable,false);assert.equal(x.confidenceBoostAllowed,false);
+x=L.evaluate({watchGenerationId:'G25',performanceGenerationId:null,watchGeneratedAt:'2026-09-23T06:00:00Z'});
+assert.equal(x.status,'UNKNOWN');assert.equal(x.learningUsable,false);
+x=L.evaluate({watchGenerationId:'G25',performanceGenerationId:'G25',watchGeneratedAt:'2026-09-23T06:00:00Z',performanceGeneratedAt:'2026-09-23T03:00:00Z',maxAgeMinutes:90,now:'2026-09-23T06:10:00Z'});
+assert.equal(x.status,'STALE');assert.equal(x.learningUsable,false);assert.equal(x.confidenceBoostAllowed,false);
+console.log('intelligence lineage tests passed');

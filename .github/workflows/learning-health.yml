@@ -1,0 +1,31 @@
+name: Learning and Agent Health
+on:
+  schedule:
+    - cron: '37 1 * * 1-5'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: market-data-writer
+  cancel-in-progress: false
+jobs:
+  health:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - run: npm ci
+      - run: npm test
+      - run: node build-bbma-learning.js
+      - run: node build-agent-health.js
+      - run: node -e "for(const f of ['data/bbma-performance.json','data/agent-health.json'])JSON.parse(require('fs').readFileSync(f))"
+      - run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/bbma-learning.json data/bbma-performance.json data/agent-health.json
+          git diff --cached --quiet && exit 0
+          git commit -m 'data: refresh learning and agent health'
+          git pull --rebase origin main
+          git push

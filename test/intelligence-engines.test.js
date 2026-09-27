@@ -1,0 +1,10 @@
+'use strict';
+const assert=require('assert'),Ids=require('../lib/entity-id'),S=require('../lib/surprise-engine'),R=require('../lib/reaction-engine'),X=require('../lib/cross-asset-engine'),C=require('../lib/conflict-engine');
+assert.equal(Ids.eventKey({source:'x',currency:'USD',event:'CPI',scheduledAt:'2026-01-01T00:00:00Z'}),Ids.eventKey({source:'x',currency:'USD',event:' CPI ',scheduledAt:'2026-01-01T00:00:00Z'}));
+assert.equal(S.evaluate({event:'CPI',actual:'3.1%',forecast:'2.9%',previous:'3.0%'}).macroDirection,'UP');
+assert.equal(S.evaluate({event:'Unemployment Rate',actual:'4.5',forecast:'4.2'}).macroDirection,'DOWN');
+const sch=R.schedule('2026-01-01T00:00:00Z'); assert.equal(sch[0].targetAt,'2026-01-01T00:01:00.000Z'); assert.equal(sch.at(-1).key,'MN1');
+const near=R.nearestAtOrAfter([{time:'2026-01-01T00:06:00Z',close:101}],'2026-01-01T00:05:00Z',2);assert.equal(near.quality,'NEAR');
+assert.equal(X.evaluate({instrumentPct:1,dxyPct:-.2,yieldPct:-.1}).state,'ALIGNED');
+assert.equal(C.evaluate([{direction:'UP',confidence:80},{direction:'DOWN',confidence:80}]).state,'CONFLICT');
+console.log('intelligence engine tests passed');

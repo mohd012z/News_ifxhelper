@@ -12,9 +12,9 @@ name: Daily digest (morning briefing + evening recap + weekly outlook)
 
 on:
   schedule:
-    - cron: "5 0 * * *"  # 00:05 UTC = 08:05 MYT daily - 5 min after daily-refresh.yml's 00:00 UTC run
-    - cron: "0 15 * * *" # 15:00 UTC = 23:00 MYT daily
-    - cron: "10 0 * * 1" # 00:10 UTC Monday = 08:10 MYT Monday
+    - cron: "27 0 * * *" # 00:27 UTC = 08:27 MYT; after the offset daily refresh
+    - cron: "17 15 * * *" # 15:17 UTC = 23:17 MYT daily; avoids top-of-hour load
+    - cron: "31 0 * * 1" # 00:31 UTC Monday = 08:31 MYT Monday
   workflow_dispatch:
     inputs:
       mode:
@@ -45,9 +45,9 @@ jobs:
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             echo "flag=--${{ github.event.inputs.mode }}" >> "$GITHUB_OUTPUT"
-          elif [ "${{ github.event.schedule }}" = "5 0 * * *" ]; then
+          elif [ "${{ github.event.schedule }}" = "27 0 * * *" ]; then
             echo "flag=--daily-summary" >> "$GITHUB_OUTPUT"
-          elif [ "${{ github.event.schedule }}" = "10 0 * * 1" ]; then
+          elif [ "${{ github.event.schedule }}" = "31 0 * * 1" ]; then
             echo "flag=--weekly-outlook" >> "$GITHUB_OUTPUT"
           else
             echo "flag=--evening-recap" >> "$GITHUB_OUTPUT"
