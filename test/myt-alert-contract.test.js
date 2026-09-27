@@ -1,0 +1,13 @@
+'use strict';
+const assert=require('assert');
+const T=require('../lib/myt-alert-contract');
+const e={eventId:'AUD-EMP-20260924',name:'AUD Employment Change',utc:'2026-09-24T01:30:00Z',impact:'HIGH'};
+const x=T.normalize(e,new Date('2026-09-23T17:30:00Z'));
+assert.equal(x.myt,'Thu, 24 Sep 2026 09:30 MYT');
+assert.equal(x.utcLabel,'Thu, 24 Sep 2026 01:30 UTC');
+assert.equal(x.dayOfWeek,'THURSDAY');assert.equal(x.minutesTo,480);
+const midnight=T.normalize({eventId:'X',name:'Test',utc:'2026-09-23T17:00:00Z'},new Date('2026-09-23T16:00:00Z'));
+assert.equal(midnight.myt,'Thu, 24 Sep 2026 01:00 MYT');assert.equal(midnight.dayOfWeek,'THURSDAY');
+const c=T.alertCard(x,{signal:'MIXED',blocked:false,alerts:[]});
+assert(c.title.includes('AUD Employment Change'));assert(c.time.includes('MYT'));assert(!c.time.includes('GMT'));
+console.log('MYT alert contract tests passed');

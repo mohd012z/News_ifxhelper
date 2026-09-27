@@ -1,0 +1,15 @@
+'use strict';
+const assert=require('assert'),E=require('../lib/event-orchestrator');
+const event={id:'US-CPI-2026-10',scheduledAt:'2026-10-14T12:30:00Z'};
+let ledger={};
+let r=E.due(event,'2026-10-14T12:00:30Z',ledger);assert(r.jobs.some(x=>x.stage==='T-30M'));
+const j=r.jobs.find(x=>x.stage==='T-30M');ledger=E.complete(ledger,j,{snapshotId:'pre30'});
+r=E.due(event,'2026-10-14T12:01:00Z',ledger);assert(!r.jobs.some(x=>x.stage==='T-30M'));
+let post=E.due(event,'2026-10-14T13:00:30Z',ledger);assert(post.jobs.some(x=>x.stage==='M30'));
+const m30=post.jobs.find(x=>x.stage==='M30');assert.equal(m30.key,'US-CPI-2026-10:POST:M30');
+const claimed=E.claim(ledger,m30,'worker-a','2026-10-14T13:00:31Z',5);assert.equal(claimed.state,'CLAIMED');
+const duplicate=E.claim(claimed.ledger,m30,'worker-b','2026-10-14T13:01:00Z',5);assert.equal(duplicate.state,'LOCKED');
+const expired=E.claim(claimed.ledger,m30,'worker-b','2026-10-14T13:06:00Z',5);assert.equal(expired.state,'CLAIMED');
+ledger=E.complete(expired.ledger,m30,{outcomeId:'o30'});assert.equal(E.due(event,'2026-10-14T13:10:00Z',ledger).jobs.some(x=>x.stage==='M30'),false);
+const normal=E.normalCronAllowed('publish',event,'2026-10-14T12:29:30Z');assert.equal(normal.allowed,false);assert.equal(normal.reason,'EVENT_FREEZE_GUARD');
+console.log('event orchestrator tests passed');

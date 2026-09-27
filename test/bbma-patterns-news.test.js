@@ -1,0 +1,14 @@
+'use strict';
+const assert=require('assert');
+const P=require('../lib/bbma-patterns-news');
+const mtf={M5:{trend:'UP',reentry:'REENTRY_UP_ZONE',csak:'CSAK_UP',extreme:'NONE',momentum:'MOMENTUM_UP'},M15:{trend:'UP',reentry:'NONE',csak:'CSAK_UP',extreme:'NONE',momentum:'MOMENTUM_UP'},M30:{trend:'UP',reentry:'NONE',csak:'NONE',extreme:'EXTREME_HIGH',momentum:'NONE'},H1:{trend:'UP',reentry:'NONE',csak:'NONE',extreme:'EXTREME_HIGH',momentum:'NONE'}};
+let r=P.analyze({mtf,event:{name:'US CPI',impact:'HIGH',minutesTo:8}});
+assert(r.patterns.some(x=>x.type==='REENTRY'));
+assert(r.patterns.some(x=>x.type==='CSA'));
+assert(r.patterns.some(x=>x.type==='EXTREME'));
+assert(r.alerts.some(x=>x.code==='NEWS_BBMA_SETUP'));
+assert.equal(r.newsWindow,'PRE_EVENT');
+r=P.analyze({mtf:{M5:{trend:'DOWN',extreme:'EXTREME_LOW',momentum:'MOMENTUM_UP'}},event:{name:'NFP',impact:'HIGH',minutesTo:-3,actual:100,forecast:150}});
+assert(r.patterns.some(x=>x.type==='MHV'));
+assert.equal(r.newsWindow,'POST_EVENT');
+console.log('bbma patterns news tests passed');
