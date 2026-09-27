@@ -11,6 +11,7 @@
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="stylesheet" href="./bbma-news-dashboard.css" />
   <style>
     :root{
       --bg:#0a0f15;--panel:#101821;--panel2:#141f2b;--line:#243444;--text:#e9f0f7;--muted:#8ba0b5;
@@ -292,6 +293,60 @@
 
       <div class="live-tape" id="live-tape"></div>
 
+      <!-- BBMA Live Alert Dashboard Section -->
+      <section id="bbma-dashboard" class="bbx hidden" data-sec="bbma">
+        <div class="bbx-card bbma-alert-hero" id="bbma-alert-hero"></div>
+        <div class="bbx-card">
+          <div class="bbx-head">
+            <div class="bbx-title">LIVE BBMA ALERTS</div>
+            <div class="bbx-sub">MYT (UTC+8)</div>
+          </div>
+          <div class="bbma-alert-strip" id="bbma-alert-strip"></div>
+        </div>
+        <div class="bbx-card">
+          <div class="bbx-head">
+            <div>
+              <div class="bbx-title">BBMA CHART</div>
+              <div class="bbx-sub">runtime OHLC &middot; BB(20,2) &middot; EMA50</div>
+            </div>
+            <div id="bbma-chart-status"></div>
+          </div>
+          <div class="bbx-tabs" id="bbma-tfs"></div>
+          <div class="bbma-chart" id="bbma-chart"></div>
+        </div>
+        <div class="bbx-card" style="overflow:auto">
+          <div class="bbx-title">MULTI-TIMEFRAME BBMA MATRIX</div>
+          <div class="bbx-table" id="bbma-matrix"></div>
+        </div>
+        <div class="bbx-two">
+          <div class="bbx-card">
+            <div class="bbx-title">BBMA &times; NEWS</div>
+            <div id="bbma-news"></div>
+          </div>
+          <div class="bbx-card">
+            <div class="bbx-title">BB LEVEL PROXIMITY</div>
+            <div id="bbma-proximity"></div>
+          </div>
+        </div>
+        <div class="bbx-card">
+          <div class="bbx-title">ALERT EVIDENCE</div>
+          <div class="bbma-alert-evidence" id="bbma-alert-evidence"></div>
+        </div>
+        <div class="bbx-card bbma-alert-action" id="bbma-alert-action"></div>
+        <div class="bbx-card">
+          <div class="bbx-title">PATTERN FILTER</div>
+          <div class="bbx-filters" id="bbma-filter"></div>
+        </div>
+        <div class="bbx-card">
+          <div class="bbx-title">QUICK ALERTS</div>
+          <div class="bbx-alertgrid" id="bbma-alerts"></div>
+        </div>
+        <div class="bbx-card bbma-alert-history">
+          <div class="bbx-title">ALERT HISTORY</div>
+          <div id="bbma-alert-history"></div>
+        </div>
+      </section>
+
       <section class="card" style="margin-top:12px" data-sec="news">
         <div class="k">Today's Trade Focus &mdash; best pair per event, and when to watch it</div>
         <div class="note">Derived automatically: each event is mapped to its driving currency, then matched against the currency-bias signal table to find the pair with the strongest live BUY/SELL score — that is what to focus on, on the timeframe listed.</div>
@@ -544,6 +599,7 @@
 
   <nav class="bottomnav" id="bottomnav">
     <button data-filter="news" class="active"><span class="ic">&#128240;</span>News</button>
+    <button data-filter="bbma"><span class="ic">&#9638;</span>BBMA</button>
     <button data-filter="pairs"><span class="ic">&#128176;</span>Pairs</button>
     <button data-filter="analysis"><span class="ic">&#129518;</span>Analysis</button>
     <button data-filter="charts"><span class="ic">&#128200;</span>Charts</button>
@@ -699,6 +755,10 @@
   <script src="./shared-market-logic.js"></script>
   <script src="./live.js"></script>
   <script src="./app.js"></script>
+  <script src="./bbma-runtime.js"></script>
+  <script src="./bbma-dashboard-ui.js"></script>
+  <script src="./bbma-router-fix.js"></script>
+  <script src="./bbma-link.js"></script>
   <script src="./pwa.js" defer></script>
 </body>
 </html>

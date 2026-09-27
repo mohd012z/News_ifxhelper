@@ -33,6 +33,12 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: node telegram-notify.js
+      - name: Send BBMA Alert to Channel
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHANNEL_ID: ${{ secrets.TELEGRAM_CHANNEL_ID || secrets.TELEGRAM_CHAT_ID }}
+        run: node send-bbma-telegram.js
+
       - name: Commit refreshed datasets + manifest + state
         run: |
           git config user.name "xau-desk-bot"
