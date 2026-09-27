@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-22T17:09:32.203Z",
+  "files": [
+    {
+      "file": "news-auto.js",
+      "available": true,
+      "bytes": 165945,
+      "sha256": "0a9ffd4d15b1404f2e50f200afb47db0a737976bf57e6c533f30190f6334c9fe",
+      "modifiedAt": "2026-09-22T17:09:31.863Z"
+    },
+    {
+      "file": "macro-auto.js",
+      "available": true,
+      "bytes": 1534,
+      "sha256": "c4313f9e23ac6a39d72341e6dae7f15de1a59d1d7db1b0c1dd0616fbb6523778",
+      "modifiedAt": "2026-09-22T17:09:32.155Z"
+    },
+    {
+      "file": "atr.js",
+      "available": true,
+      "bytes": 5809,
+      "sha256": "2fd23fd29d02e4aed02784fa43263977fcac79b5ba9b5ee636379d0d49799f84",
+      "modifiedAt": "2026-09-22T17:09:23.193Z"
+    },
+    {
+      "file": "xauusd-data.js",
+      "available": true,
+      "bytes": 38201,
+      "sha256": "5a308431b2e833b1b18a0fdd1cd6bd0a7e2d352276aecca147ff4a21eb444ba6",
+      "modifiedAt": "2026-09-22T17:09:23.196Z"
+    }
+  ],
+  "freshness": {
+    "newsMaxMinutes": 45,
+    "macroMaxMinutes": 45,
+    "atrMaxMinutes": 1560
+  },
+  "fallbackOrder": [
+    "remote-current",
+    "local-cache",
+    "bundled-snapshot"
+  ],
+  "policy": "Remote data must validate before replacing local cache. Bundled data is fallback only."
+}

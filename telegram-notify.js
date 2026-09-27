@@ -37,6 +37,7 @@ const REMINDERS = process.argv.includes('--reminders');
 const DAILY = process.argv.includes('--daily-summary');
 const EVENING = process.argv.includes('--evening-recap');
 const WEEKLY = process.argv.includes('--weekly-outlook');
+const BBMA_MODE = process.argv.includes('--bbma');
 
 function loadJsModule(file, globalName) {
   const full = path.join(__dirname, file);
@@ -679,6 +680,16 @@ function buildWeeklyOutlook(MARKET_DATA, NEWS_AUTO) {
     }
     console.log(anySkipped ? '\n(no Telegram credentials - printed above only)' : sentAll ? `\nSENT weekly outlook (${chunks.length} message(s)).` : '\nFAILED to send one or more weekly outlook messages.');
     if (!sentAll && !anySkipped) process.exitCode = 1;
+    return;
+  }
+
+  if (BBMA_MODE) {
+    const bbmaSender = require('./send-bbma-telegram.js');
+    const box = bbmaSender.formatBbmaAlertBox();
+    console.log(box.text);
+    const r = await bbmaSender.sendTelegramBox(box);
+    console.log(r.ok ? '\nSENT BBMA alert box.' : r.skipped ? '\n(no Telegram credentials - printed above only)' : '\nFAILED to send BBMA alert.');
+    if (!r.ok && !r.skipped) process.exitCode = 1;
     return;
   }
 
