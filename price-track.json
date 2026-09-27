@@ -14,33 +14,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-27T17:10:34.700Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-27T17:55:27.522Z",
+          "price": 4321.2,
+          "realizedPct": 0
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-27T17:14:34.700Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-27T17:55:27.522Z",
+          "price": 4321.2,
+          "realizedPct": 0
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-27T17:24:34.700Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-27T17:55:27.522Z",
+          "price": 4321.2,
+          "realizedPct": 0
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-09-27T17:39:34.700Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-27T17:55:27.522Z",
+          "price": 4321.2,
+          "realizedPct": 0
         },
         {
           "key": "H1",
@@ -82,7 +82,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0,
+        "maePct": 0
+      }
     },
     {
       "key": "news:crypto:Look closer, and Wall Street&#x2019;s rally is showing cracks",
@@ -98,33 +103,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-27T17:10:34.700Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-27T17:55:27.522Z",
+          "price": 84559.98,
+          "realizedPct": 0.229
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-27T17:14:34.700Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-27T17:55:27.522Z",
+          "price": 84559.98,
+          "realizedPct": 0.229
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-27T17:24:34.700Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-27T17:55:27.522Z",
+          "price": 84559.98,
+          "realizedPct": 0.229
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-09-27T17:39:34.700Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-27T17:55:27.522Z",
+          "price": 84559.98,
+          "realizedPct": 0.229
         },
         {
           "key": "H1",
@@ -166,7 +171,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.229,
+        "maePct": 0.229
+      }
     },
     {
       "key": "news:forex:Look closer, and Wall Street&#x2019;s rally is showing cracks",
@@ -182,33 +192,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-27T17:10:34.700Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-27T17:55:27.522Z",
+          "price": 1.1401,
+          "realizedPct": 0
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-27T17:14:34.700Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-27T17:55:27.522Z",
+          "price": 1.1401,
+          "realizedPct": 0
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-27T17:24:34.700Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-27T17:55:27.522Z",
+          "price": 1.1401,
+          "realizedPct": 0
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-09-27T17:39:34.700Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-27T17:55:27.522Z",
+          "price": 1.1401,
+          "realizedPct": 0
         },
         {
           "key": "H1",
@@ -250,7 +260,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0,
+        "maePct": 0
+      }
     }
   ],
   "results": [
