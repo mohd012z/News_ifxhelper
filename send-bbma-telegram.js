@@ -23,7 +23,7 @@ function getDashboardUrl() {
   if (arg) return arg.split('=')[1].trim();
   const idx = process.argv.indexOf('--url');
   if (idx > -1 && process.argv[idx + 1]) return process.argv[idx + 1].trim();
-  return process.env.DASHBOARD_URL || 'https://myifxhelperbbma.com/';
+  return process.env.DASHBOARD_URL || 'https://mohd012z.github.io/News_ifxhelper/';
 }
 const DASHBOARD_URL = getDashboardUrl();
 const PREVIEW = process.argv.includes('--preview');
