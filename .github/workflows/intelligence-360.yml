@@ -1,0 +1,30 @@
+name: Intelligence 360
+on:
+  schedule:
+    - cron: '7 * * * 1-5'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: market-data-writer
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - run: npm ci
+      - run: npm test
+      - run: node build-intelligence-360.js
+      - run: node -e "const x=require('./data/intelligence-360.json');if(!x.generatedAt||!x.status)throw Error('invalid intelligence snapshot')"
+      - run: |
+          if git diff --quiet -- data/intelligence-360.json; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/intelligence-360.json
+          git commit -m 'data: refresh intelligence 360'
+          git pull --rebase origin main
+          git push
