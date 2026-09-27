@@ -17,6 +17,8 @@ on:
       - "android/**"
       - "capacitor.config.json"
       - "package.json"
+      - "bbma*"
+      - "lib/**"
 
 permissions:
   contents: read
