@@ -149,6 +149,17 @@ async function sendTelegramBox(messageObj) {
 }
 
 (async () => {
+  // Guard: never broadcast a demo/placeholder box to a real channel.
+  // When there is no live BBMA runtime (loadRuntime() -> null), the box falls back
+  // to fabricated sample data (e.g. gold 3012.50 / "RE-ENTRY (Armed)") and posting
+  // it would send false signals to subscribers. Suppress the broadcast in that case;
+  // an explicit --preview still prints the demo box for layout inspection.
+  const hasRuntime = !!loadRuntime();
+  if (!hasRuntime && !PREVIEW) {
+    console.log('⏭️  No live BBMA runtime data (loadRuntime() null) — suppressing Telegram post to avoid sending demo values.');
+    console.log('   (Use --preview to inspect the box layout with sample data.)');
+    return { ok: false, skipped: true, reason: 'no_runtime' };
+  }
   const box = formatBbmaAlertBox();
 
   if (PREVIEW || TEST) {
