@@ -18,8 +18,14 @@ const fs = require('fs');
 const path = require('path');
 
 const TOKEN = process.env.TELEGRAM_BOT_TOKEN;
-const CHANNEL_ID = process.env.TELEGRAM_CHANNEL_ID || process.env.TELEGRAM_CHAT_ID;
-const DASHBOARD_URL = process.env.DASHBOARD_URL || 'https://mohd012z.github.io/News_ifxhelper/';
+function getDashboardUrl() {
+  const arg = process.argv.find(a => a.startsWith('--url='));
+  if (arg) return arg.split('=')[1].trim();
+  const idx = process.argv.indexOf('--url');
+  if (idx > -1 && process.argv[idx + 1]) return process.argv[idx + 1].trim();
+  return process.env.DASHBOARD_URL || 'https://mifxhelpertradingbbma.com/';
+}
+const DASHBOARD_URL = getDashboardUrl();
 const PREVIEW = process.argv.includes('--preview');
 const TEST = process.argv.includes('--test');
 
