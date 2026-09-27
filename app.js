@@ -1821,8 +1821,13 @@
     $$("[data-sec]").forEach(function (sec) {
       var tags = (sec.getAttribute("data-sec") || "").split(/\s+/);
       /* "all" marks a pinned section (e.g. the hero) that stays visible under every view */
-      sec.classList.toggle("hidden", tags.indexOf("all") === -1 && tags.indexOf(f) === -1);
+      var show = tags.indexOf("all") > -1 || tags.indexOf(f) > -1;
+      sec.classList.toggle("hidden", !show);
+      sec.style.display = show ? "" : "none";
     });
+    if (f === "bbma" && window.BBMADashboardUI && window.BBMADashboardUI.render) {
+      window.BBMADashboardUI.render();
+    }
     var main = $(".main"); if (main) main.scrollTop = 0; window.scrollTo(0, 0);
   }
   function bindBottomNav() {
