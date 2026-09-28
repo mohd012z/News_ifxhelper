@@ -10,22 +10,36 @@
  *    INSUFFICIENT_DATA / "waiting for validated OHLC" states until REAL ticks
  *    arrive (LiveFeed metals poll and/or Twelve Data WS) and enough bars
  *    accumulate per timeframe (20+ for READY).
+ *  - HISTORY BACKFILL (real data, not fabrication): on a cold load the runtime
+ *    may seed each timeframe with the last 240 REAL XAU/USD bars fetched from
+ *    the Twelve Data time_series REST endpoint (same provider + key the live
+ *    WS uses). Every backfilled candle carries source:'TWELVEDATA_BACKFILL'.
+ *    Live ticks always win: if a live candle already exists in a bucket, the
+ *    backfill never overwrites it — it only prepends strictly-older bars. If
+ *    the key is missing or the fetch fails, the runtime stays honestly empty.
  *  - window.BBMA_RUNTIME.publishable === false whenever state cannot be backed
  *    by fresh real ticks AND real (externally supplied) alerts.
  *    send-bbma-telegram.js refuses to broadcast anything not publishable.
+ *    (Backfilled history NEVER makes a snapshot publishable by itself.)
  *  - Node-safe: this file MUST stay loadable with a bare `window` object (no
- *    addEventListener, no document) because send-bbma-telegram.js evaluates it
- *    in Node. The old revision crashed there on window.addEventListener, which
- *    made loadRuntime() permanently return null — the guard then suppressed
- *    every post by accident, and a naive "fix" would have started posting demos.
+ *    addEventListener, no document, no fetch) because send-bbma-telegram.js
+ *    evaluates it in Node. The old revision crashed there on
+ *    window.addEventListener, which made loadRuntime() permanently return
+ *    null — the guard then suppressed every post by accident, and a naive
+ *    "fix" would have started posting demos. Backfill is browser-only.
  */
 (function(){'use strict';
 var TFS={M5:300000,M15:900000,M30:1800000,H1:3600000,H4:14400000,D1:86400000,W1:604800000,MN1:2592000000};
+var TF_INTERVAL={M5:'5min',M15:'15min',M30:'30min',H1:'1h',H4:'4h',D1:'1day',W1:'1week',MN1:'1month'};
+var BACKFILL_BARS=240;   /* real bars kept per TF (M5=2d ... MN1=20y) */
+var BACKFILL_DELAY_MS=250; /* gentle pacing: free tier = 8 REST calls/min */
 var FRESH_WINDOW_MS=5*60*1000;   /* publishable while a real tick landed < 5 min ago */
 var STALE_AFTER_MS=10*60*1000;   /* surface STALE after 10 min without a tick */
 var frames={},lastPrice=null,lastAt=null,max=240;
 var _externalAlerts=[],_externalAlertHistory=[];
 var _nodePollTimer=null;
+var _backfill={at:null,lastPrice:null,tfs:{},errors:[]};
+var _backfillPromise=null;
 
 function bucket(t,ms){return Math.floor(t/ms)*ms;}
 
@@ -39,6 +53,83 @@ function add(tf,p,t){
   }else{
     c.high=Math.max(c.high,p);c.low=Math.min(c.low,p);c.close=p;
   }
+}
+
+/* COLD-LOAD HISTORY BACKFILL (browser only). Fetches the last BACKFILL_BARS
+ * REAL XAU/USD bars per timeframe from Twelve Data time_series (same provider
+ * + key as the live WS — xauusd-data.js D.live.twelveDataApiKey) and seeds the
+ * frames. Merge rule: LIVE TICKS ALWAYS WIN — a backfill bar never touches a
+ * bucket that already holds a candle (live or earlier backfill); it only
+ * extends the history strictly behind it. Backfill candles are labeled
+ * source:'TWELVEDATA_BACKFILL' + backfilled:true so no renderer can present
+ * them as live evidence. Any missing key / failed fetch / malformed bar
+ * leaves the runtime honestly empty — it can only ADD real data, never
+ * invent it. */
+function backfillHistory(){
+  var w=typeof window!=='undefined'?window:globalThis;
+  if(!w||typeof w.fetch!=='function')return Promise.resolve(null);
+  if(_backfillPromise)return _backfillPromise;
+  var MD=w.MARKET_DATA||{};
+  var liveCfg=MD.live||{};
+  var key=liveCfg.twelveDataApiKey;
+  if(!key||!/^https:\/\/api\.twelvedata\.com$/i.test(liveCfg.twelveDataHost||'https://api.twelvedata.com'))return Promise.resolve(null);
+  _backfillPromise=(async function(){
+    var tfs=Object.keys(TF_INTERVAL);
+    for(var i=0;i<tfs.length;i++){
+      var tf=tfs[i];
+      try{
+        var url='https://api.twelvedata.com/time_series?symbol=XAU/USD&interval='+TF_INTERVAL[tf]+'&outputsize='+BACKFILL_BARS+'&timezone=UTC&apikey='+encodeURIComponent(key);
+        var ctrl=(typeof AbortController!=='undefined')?new AbortController():null;
+        var timer=ctrl?setTimeout(function(){ctrl.abort();},15000):null;
+        var resp=await w.fetch(url,{signal:ctrl?ctrl.signal:undefined,headers:{'User-Agent':'XAU-Desk-BBMA/1.0'}});
+        if(timer)clearTimeout(timer);
+        if(!resp.ok)throw new Error('HTTP '+resp.status);
+        var j=await resp.json();
+        if(!j||!Array.isArray(j.values))throw new Error('no values');
+        var bars=[];
+        for(var k=j.values.length-1;k>=0;k--){ /* values arrive newest-first */
+          var v=j.values[k];
+          var o=Number(v.open),h=Number(v.high),l=Number(v.low),c=Number(v.close);
+          var t=Date.parse(v.datetime.replace(' ','T')+'Z');
+          if(![o,h,l,c].every(Number.isFinite)||h<l||h<Math.max(o,c)||l>Math.min(o,c))continue; /* malformed bar: skip, never coerce */
+          if(!Number.isFinite(t)||t>Date.now()+5*60*1000)continue; /* impossible/future: reject */
+          bars.push({time:t,o:o,h:h,l:l,c:c});
+        }
+        if(!bars.length)continue;
+        /* UNION-BY-BUCKET merge: live/tick candles are never touched or
+         * replaced — a backfill bar only fills a bucket that is EMPTY. This
+         * is race-safe no matter when ticks arrive (poll or WS). The
+         * CURRENT (still-forming) bucket is never seeded by backfill: the
+         * forming candle is created by the first live tick, so its open is
+         * the real first tick price, not a partial API bar. */
+        var a=frames[tf]||(frames[tf]=[]);
+        var byB={};a.forEach(function(c){byB[c._b]=1;});
+        var curB=bucket(Date.now(),TFS[tf]);
+        var added=0;
+        for(var m=0;m<bars.length;m++){
+          var b=bars[m],bk=bucket(b.time,TFS[tf]);
+          if(bk===curB)continue;                 /* forming candle: live ticks only */
+          if(byB[bk])continue; /* live tick already owns this bucket */
+          a.push({_b:bk,time:new Date(bk).toISOString(),open:b.o,high:b.h,low:b.l,close:b.c,source:'TWELVEDATA_BACKFILL',backfilled:true});
+          byB[bk]=1;added++;
+        }
+        if(added){
+          a.sort(function(x,y){return x._b-y._b;}); /* restore time order */
+          while(a.length>max)a.shift();              /* keep the newest `max` */
+          _backfill.tfs[tf]={added:added,firstBar:bars[0].time,lastBar:bars[bars.length-1].time};
+          if(lastPrice==null){_backfill.lastPrice=bars[bars.length-1].c;_backfill.lastPriceTime=bars[bars.length-1].time;} /* history baseline until a real tick lands */
+        }
+        _backfill.at=new Date().toISOString();
+        if(added)publish(); /* chart + matrix fill in as each timeframe lands */
+      }catch(e){
+        _backfill.errors.push(tf+': '+(e&&e.message||e));
+        _backfill.at=new Date().toISOString();
+      }
+      if(i<tfs.length-1)await new Promise(function(r){setTimeout(r,BACKFILL_DELAY_MS);});
+    }
+    return _backfill;
+  })();
+  return _backfillPromise;
 }
 
 function sma(a,n){if(a.length<n)return null;return a.slice(-n).reduce(function(s,v){return s+v;},0)/n;}
@@ -144,7 +235,13 @@ function publish(){
     frames:{},
     alerts:_externalAlerts,
     alertHistory:_externalAlertHistory,
-    event:null
+    event:null,
+    backfill:{
+      at:_backfill.at||null,
+      lastPrice:_backfill.lastPrice!=null?_backfill.lastPrice.toFixed(2):null,
+      tfs:_backfill.tfs,
+      errors:_backfill.errors
+    }
   };
 
   Object.keys(frames).forEach(function(tf){out.frames[tf]=classify(frames[tf]);});
@@ -168,6 +265,8 @@ function ingest(p,at){
   if(t<now-60*1000||t>now+5*60*1000)return;
   lastPrice=p;
   lastAt=new Date(t).toISOString();
+  /* First real tick: the backfill is done (live data wins from here on). */
+  _backfill.liveOverride=true;
   Object.keys(TFS).forEach(function(tf){add(tf,p,t);});
   publish();
 }
@@ -219,4 +318,10 @@ if(typeof w.addEventListener!=='function'&&typeof setInterval==='function'){
 }
 
 publish();
+/* Browser only: start the cold-load history backfill (real Twelve Data bars)
+ * after the initial empty publish. No-op in Node (no fetch) and no-op when the
+ * key/host is not configured. */
+if(typeof w.addEventListener==='function'&&typeof w.fetch==='function'){
+  backfillHistory().then(function(){ if(!lastPrice) publish(); }).catch(function(){ /* stays honestly empty */ });
+}
 })();
