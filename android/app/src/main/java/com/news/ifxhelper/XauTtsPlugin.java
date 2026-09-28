@@ -1,6 +1,8 @@
 package com.news.ifxhelper;
 
 import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.Voice;
 
@@ -9,10 +11,7 @@ import com.getcapacitor.JSObject;
 import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
-import com.getcapacitor.annotation.ActivityCallback;
 import com.getcapacitor.annotation.CapacitorPlugin;
-
-import org.json.JSONObject;
 
 import java.util.Locale;
 import java.util.UUID;
@@ -21,29 +20,46 @@ import java.util.UUID;
  * Native TTS for XAU//DESK (Android).
  *
  * WHY THIS EXISTS: Android WebView exposes window.speechSynthesis (so the web
- * app cannot feature-detect the gap), but the WebView TTS implementation is a
- * no-op on essentially all devices: utterances are "queued" and never audibly
- * spoken. Result was the "Voice on/off" toggle that visibly worked but never
- * produced sound. This plugin speaks through the OS TextToSpeech service
- * (the same engine Android uses for accessibility), which reliably plays
- * audio. The web app routes speak() through here on native platforms and keeps
- * the Web Speech API for desktop/mobile browsers.
+ * app cannot feature-detect the gap) but its TTS implementation is a no-op on
+ * essentially all devices: utterances are "queued" and never audibly spoken.
+ * Result was the "Voice on/off" toggle that visibly worked but never produced
+ * sound. This plugin speaks through the OS TextToSpeech service (the same
+ * engine Android uses for accessibility), which reliably plays audio. The web
+ * app routes speak() through here on native platforms and keeps the Web Speech
+ * API for desktop/mobile browsers.
+ *
+ * Every failure path rejects or no-ops — it never reports a fake success.
  */
 @CapacitorPlugin(name = "XauTts")
 public class XauTtsPlugin extends Plugin implements TextToSpeech.OnInitListener {
 
+    private final Handler main = new Handler(Looper.getMainLooper());
     private TextToSpeech tts;
     private boolean ready = false;
     private boolean initFailed = false;
+    private volatile boolean initStarted = false;
 
     @Override
-    protected void load() {
-        Context ctx = getActivity() == null ? null : getActivity().getApplicationContext();
+    public void load() {
+        Context ctx = getContext();
         if (ctx == null) {
             initFailed = true;
             return;
         }
-        tts = new TextToSpeech(ctx, this);
+        // TextToSpeech must be constructed on the main thread (Android docs);
+        // load() runs on the bridge's plugin thread, so hop.
+        main.post(new Runnable() {
+            @Override
+            public void run() {
+                if (initStarted) return;
+                initStarted = true;
+                try {
+                    tts = new TextToSpeech(ctx.getApplicationContext(), XauTtsPlugin.this);
+                } catch (Throwable t) {
+                    initFailed = true;
+                }
+            }
+        });
     }
 
     @Override
@@ -79,8 +95,9 @@ public class XauTtsPlugin extends Plugin implements TextToSpeech.OnInitListener 
             return;
         }
         if (!ready) {
-            // Engine still loading: retry briefly, then report honestly.
-            getBridge().getMainThreadHandler().postDelayed(new Runnable() {
+            // Engine still loading: retry once on the main thread shortly, then
+            // report honestly. Plugin calls arrive on the bridge thread.
+            main.postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     if (ready) speak(call);
@@ -102,11 +119,9 @@ public class XauTtsPlugin extends Plugin implements TextToSpeech.OnInitListener 
 
     @PluginMethod
     public void cancel(PluginCall call) {
-        if (tts == null) {
-            call.resolve();
-            return;
+        if (tts != null) {
+            tts.stop();
         }
-        tts.stop();
         call.resolve();
     }
 
@@ -117,22 +132,13 @@ public class XauTtsPlugin extends Plugin implements TextToSpeech.OnInitListener 
             for (Voice v : tts.getVoices()) {
                 JSObject vo = new JSObject();
                 vo.put("name", v.getName());
-                vo.put("lang", v.getLanguage().getISO3Language() + "-" + v.getLanguage().getISO3Country());
+                Locale loc = v.getLocale();
+                vo.put("lang", loc != null ? loc.getISO3Language() + "-" + loc.getISO3Country() : "unknown");
                 arr.put(vo);
             }
         }
         JSObject j = new JSObject();
         j.put("voices", arr);
         call.resolve(j);
-    }
-
-    @ActivityCallback
-    public void onDestroy() {
-        if (tts != null) {
-            tts.stop();
-            tts.shutdown();
-            tts = null;
-        }
-        ready = false;
     }
 }
