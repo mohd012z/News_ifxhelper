@@ -298,6 +298,10 @@ function publish(){
   Object.keys(frames).forEach(function(tf){out.frames[tf]=classify(frames[tf]);});
   out.mtf=out.frames;
   out.timeframes=out.frames;
+  /* Derived technical monitoring signals (real readings only). Kept SEPARATE
+   * from out.alerts: publishability (send-bbma-telegram.js) depends on
+   * out.alerts, which stays externally-supplied only. */
+  out.techAlerts=technicalAlerts(out.frames);
 
   var w=typeof window!=='undefined'?window:globalThis;
   w.BBMA_RUNTIME=out;
@@ -326,6 +330,38 @@ function setAlerts(alerts,history){
   _externalAlerts=Array.isArray(alerts)?alerts:[];
   _externalAlertHistory=Array.isArray(history)?history:[];
   publish();
+}
+
+/* LIVE technical alerts derived from the current REAL MTF readings (the same
+ * canonical classifier the CI watch runs). These are monitoring signals shown
+ * in the dashboard ALERT OBSERVATION / LIVE BBMA ALERTS panels — NOT external
+ * validated evidence: publishability still requires BBMARuntime.setAlerts()
+ * from an external source (HELIX core / news-shadow pipeline) plus fresh ticks. */
+function technicalAlerts(framesObj){
+  var out=[];
+  var P1=['H1','M15','H4'],P2=['M5','M30','D1'];
+  var seen={};
+  function push(id,level,tf,pattern,summary){
+    if(seen[id])return;seen[id]=1;
+    out.push({id:'tech-'+id,symbol:'XAU/USD',timeframe:tf,pattern:pattern,level:level,timeMYT:framesObj[tf]&&framesObj[tf].lastTime?new Date(Date.parse(framesObj[tf].lastTime)+8*3600000).toISOString().slice(11,16)+' MYT':'—',summary:summary,technical:true});
+  }
+  function scan(list,level,tfOrder){
+    list.forEach(function(tf){
+      var x=framesObj[tf];if(!x||x.state!=='READY')return;
+      if(x.momentum==='MOMENTUM_UP')push('mom_up_'+tf,level,tf,'MOMENTUM','Momentum: close beyond the upper BB(20,2) band — extended move; chase risk.');
+      if(x.momentum==='MOMENTUM_DOWN')push('mom_dn_'+tf,level,tf,'MOMENTUM','Momentum: close beyond the lower BB(20,2) band — extended move; fade risk.');
+      if(x.extreme==='EXTREME_HIGH')push('ext_hi_'+tf,level,tf,'EXTREME','Extreme: LWMA-5 of highs printed above the upper band.');
+      if(x.extreme==='EXTREME_LOW')push('ext_lo_'+tf,level,tf,'EXTREME','Extreme: LWMA-5 of lows printed below the lower band.');
+      if(x.reentry==='REENTRY_UP_ZONE')push('re_up_'+tf,level,tf,'RE-ENTRY','Re-entry zone (UP): pullback into LWMA support while trend is up.');
+      if(x.reentry==='REENTRY_DOWN_ZONE')push('re_dn_'+tf,level,tf,'RE-ENTRY','Re-entry zone (DOWN): push into LWMA resistance while trend is down.');
+      if(x.csak==='CSAK_UP')push('csak_up_'+tf,level,tf,'CSA','CSA up: strong bullish close beyond the 5- and 10-bar high and above the mid band.');
+      if(x.csak==='CSAK_DOWN')push('csak_dn_'+tf,level,tf,'CSA','CSA down: strong bearish close beyond the 5- and 10-bar low and below the mid band.');
+    });
+  }
+  scan(P1,'HIGH');scan(P2,'MEDIUM');
+  var order={HIGH:0,MEDIUM:1,LOW:2};
+  out.sort(function(a,b){return order[a.level]-order[b.level];});
+  return out.slice(0,8);
 }
 
 var w=typeof window!=='undefined'?window:globalThis;
