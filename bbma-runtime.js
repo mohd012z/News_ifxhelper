@@ -42,6 +42,22 @@ var BACKFILL_429_RETRY_MS=65000;
 var FRESH_WINDOW_MS=5*60*1000;   /* publishable while a real tick landed < 5 min ago */
 var STALE_AFTER_MS=10*60*1000;   /* surface STALE after 10 min without a tick */
 var frames={},lastPrice=null,lastAt=null,max=240;
+/* CANONICAL FEED STATE MACHINE (spec: CONNECTING/LIVE/DEGRADED/RECONNECTING/
+ * BACKFILL) + metrics. Derived from REAL conditions only — the state is a
+ * function of tick age, source health, and the backfill stage. The UI renders
+ * this object; it never re-derives feed health itself.
+ *   provider        last real source that moved a tick (stream | poll | backfill)
+ *   connected       source transport is up (setFeedStatus from LiveFeed)
+ *   lastTickAt      ISO of last accepted tick
+ *   latencyMs       age of the last tick (we have no server timestamp)
+ *   tickCount       accepted ticks this session
+ *   reconnectCount  transport offline->up transitions observed
+ *   droppedTicks    ticks rejected by the freshness guard (stale/future)
+ *   outOfOrderTicks ticks with a timestamp older than the last accepted
+ *   gapDetected     a completed M1 bucket skipped by the last tick
+ *   backfillRequired history still missing (cold load, no ticks yet) */
+var _feed={provider:null,connected:false,lastTickAt:null,tickCount:0,reconnectCount:0,droppedTicks:0,outOfOrderTicks:0,gapDetected:false};
+function _lastTickTimeMs(){return lastAt?Date.parse(lastAt):null;}
 var _externalAlerts=[],_externalAlertHistory=[];
 var _nodePollTimer=null;
 var _backfill={at:null,lastPrice:null,tfs:{},errors:[]};
@@ -302,6 +318,35 @@ function publish(){
    * from out.alerts: publishability (send-bbma-telegram.js) depends on
    * out.alerts, which stays externally-supplied only. */
   out.techAlerts=technicalAlerts(out.frames);
+  /* Canonical feed state + metrics (single derivation; UI only renders). */
+  var _lastMs=_lastTickTimeMs();
+  var _tickAge=_lastMs!=null?Math.max(0,now-_lastMs):null;
+  var _bfActive=!!_backfillPromise&&_backfill.at==null;
+  var _bfDone=_backfill.at!=null; /* backfill ran and finished (may be empty) */
+  var _feedState;
+  if(_tickAge==null){
+    if(_bfActive){_feedState='BACKFILL';}
+    else if(_bfDone&&_backfill.liveOverride!==true){_feedState='BACKFILL';} /* history loaded, still no live tick */
+    else{_feedState=_feed.connected?'CONNECTING':'DEGRADED';}
+  }else{
+    if(_tickAge<=FRESH_WINDOW_MS){_feedState='LIVE';}
+    else if(_tickAge<=STALE_AFTER_MS){_feedState='DEGRADED';}
+    else if(_feed.connected){_feedState='RECONNECTING';}
+    else{_feedState='BACKFILL';}
+  }
+  out.feed={
+    state:_feedState,
+    provider:_feed.provider||(hasTicks?'none':'—'),
+    connected:_feed.connected,
+    lastTickAt:_feed.lastTickAt||null,
+    latencyMs:_tickAge,
+    tickCount:_feed.tickCount,
+    reconnectCount:_feed.reconnectCount,
+    droppedTicks:_feed.droppedTicks,
+    outOfOrderTicks:_feed.outOfOrderTicks,
+    gapDetected:_feed.gapDetected,
+    backfillRequired:!hasTicks
+  };
 
   var w=typeof window!=='undefined'?window:globalThis;
   w.BBMA_RUNTIME=out;
@@ -309,20 +354,43 @@ function publish(){
   try{if(typeof w.dispatchEvent==='function')w.dispatchEvent(new CustomEvent('bbma-runtime-updated',{detail:out}));}catch(e){}
 }
 
-function ingest(p,at){
+function ingest(p,at,provider){
   p=Number(p);
   if(!isFinite(p)||p<=0)return;
   var t=at?new Date(at).getTime():Date.now();
   if(!isFinite(t))t=Date.now();
+  var now=Date.now();
+  var _prevMs=_lastTickTimeMs();
+  if(_prevMs!=null&&t<_prevMs-1500){_feed.outOfOrderTicks++;} /* >1.5s behind last accepted */
   /* Reject out-of-window ticks (clock skew / stale poller / a device clock
    * running ahead) so an old or impossible price can never move a candle. */
-  var now=Date.now();
-  if(t<now-60*1000||t>now+5*60*1000)return;
+  if(t<now-60*1000||t>now+5*60*1000){_feed.droppedTicks++;publish();return;} /* surface the drop; state recomputes from the last ACCEPTED tick */
   lastPrice=p;
   lastAt=new Date(t).toISOString();
+  _feed.lastTickAt=lastAt;
+  _feed.tickCount++;
+  if(provider){_feed.provider=provider;}
+  /* M1 gap detection: a completed 1-minute bucket skipped by this tick. */
+  if(_prevMs!=null){
+    var prevBucket=Math.floor(_prevMs/60000)*60000;
+    var curBucket=Math.floor(t/60000)*60000;
+    if(curBucket-prevBucket>60000){_feed.gapDetected=true;}
+  }
   /* First real tick: the backfill is done (live data wins from here on). */
   _backfill.liveOverride=true;
   Object.keys(TFS).forEach(function(tf){add(tf,p,t);});
+  publish();
+}
+
+/* Feed transport status is reported by LiveFeed (REST poll + WS) — the runtime
+ * only stores it; the feed STATE (CONNECTING/LIVE/…) is derived in publish()
+ * from tick age + this, so two sources can never disagree about liveness. */
+function setFeedStatus(state,message){
+  var up=(state==='live'||state==='streaming'||state==='connecting');
+  if(up&&!_feed.connected){_feed.reconnectCount++;} /* offline->up transition */
+  _feed.connected=up;
+  if(state==='streaming'&&!_feed.provider){_feed.provider='stream';}
+  if(state==='live'&&!_feed.provider){_feed.provider='poll';}
   publish();
 }
 
@@ -367,6 +435,7 @@ function technicalAlerts(framesObj){
 var w=typeof window!=='undefined'?window:globalThis;
 w.BBMARuntime={
   ingest:ingest,
+  setFeedStatus:setFeedStatus,
   setAlerts:setAlerts,
   snapshot:function(){return w.BBMA_RUNTIME||null;},
   frames:frames

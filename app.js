@@ -1775,7 +1775,7 @@
     var iv = $("#live-interval"); if (iv) iv.textContent = ((D.live || {}).intervalSec || 5) + "s";
     var p2 = $("#live-pill2"); if (p2) p2.textContent = m[0] + " \u00b7 " + liveState.ticks + " ticks";
   }
-  function onStatus(st) { liveState = st; setBadge(); }
+  function onStatus(st) { liveState = st; setBadge(); if (window.BBMARuntime && window.BBMARuntime.setFeedStatus) window.BBMARuntime.setFeedStatus(st.state || st, st.message); }
   function onTick(p) {
     var changed = 0;
     if (p.rates) {
@@ -1823,7 +1823,7 @@
         var px = p.metals[m];
         if (px != null && String(m).indexOf("XAU") === 0) {
           updateMetalHero(px, m, "poll");
-          if (window.BBMARuntime && px) window.BBMARuntime.ingest(px, new Date(p.at));
+          if (window.BBMARuntime && px) window.BBMARuntime.ingest(px, new Date(p.at), "poll");
         }
       });
     }
@@ -1924,7 +1924,7 @@
         setBadge();
         /* Route real WS ticks into the BBMA runtime (it builds live OHLC;
          * it never fabricates, and it is Node-safe). */
-        if (window.BBMARuntime && q && q.price) window.BBMARuntime.ingest(q.price, new Date());
+        if (window.BBMARuntime && q && q.price) window.BBMARuntime.ingest(q.price, new Date(), "stream");
       });
     }
   }

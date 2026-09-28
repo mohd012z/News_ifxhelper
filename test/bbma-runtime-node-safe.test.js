@@ -27,10 +27,15 @@ assert.strictEqual(rt.event,null,'cold load must have no event card');
 Object.keys(rt.ohlc).forEach(tf=>assert(rt.ohlc[tf].length===0,tf+' must start empty'));
 Object.keys(rt.frames).forEach(tf=>assert.strictEqual(rt.frames[tf].state,'INSUFFICIENT_DATA'));
 
-// 2) Real ticks build real OHLC; still not publishable without alerts
-const t0=Date.now();
+// 2) Real ticks build real OHLC; still not publishable without alerts.
+// Anchor the 25-tick (25s) span immediately BEFORE the next M5 boundary:
+// all ticks are future-but-fresh (accepted by the 60s guard) AND fall inside a
+// single M5 bucket, so M5.length is deterministically 1 (a wall-clock span would
+// straddle the boundary ~8% of the time and flake).
+var nextM5=Math.floor(Date.now()/300000)*300000+300000;
+var base=nextM5-25*1000;
 for(let i=0;i<25;i++){
-  win.BBMARuntime.ingest(4200+i*0.1,Date.now()+i*1000);
+  win.BBMARuntime.ingest(4200+i*0.1,base+i*1000);
 }
 rt=win.BBMA_RUNTIME;
 assert.strictEqual(rt.source,'LIVE_TICK_DERIVED');
