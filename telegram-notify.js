@@ -50,10 +50,42 @@ function loadJsModule(file, globalName) {
 }
 
 function loadState() {
-  try { return JSON.parse(fs.readFileSync(STATE_FILE, 'utf8')); } catch (e) { return { sentKeys: [] }; }
+  try {
+    const s = JSON.parse(fs.readFileSync(STATE_FILE, 'utf8'));
+    /* History may already contain legacy entries from older runs (no timestamps) —
+     * normalise shape once on load so recordHistory can always assume the array exists. */
+    if (!Array.isArray(s.history)) s.history = [];
+    return s;
+  } catch (e) { return { sentKeys: [], history: [] }; }
 }
 function saveState(state) {
   fs.writeFileSync(STATE_FILE, JSON.stringify(state, null, 2), 'utf8');
+}
+/* Structured ALERT HISTORY: recorded ONLY on confirmed delivery, same rule as
+ * sentKeys (a queued-but-undelivered alert must never appear in history).
+ * build-alert-history.js turns state.history into NEWS_AUTO.alertHistory for
+ * the dashboard; entries are capped at 500 to keep the committed state small. */
+function recordHistory(state, key) {
+  /* Thrown-safe by contract: history recording is a nice-to-have on the LIVE
+   * alert hot path and must NEVER break or delay real Telegram delivery. */
+  try {
+    const k = String(key);
+    const type = k.split(':')[0] || 'alert';
+    const rest = k.slice(k.indexOf(':') + 1);
+    const parts = rest.split('|');
+    /* name lives in parts[0] for evt/remind/followup/spk; in the key tail for
+     * news/result. Mirror build-alert-history.titleOf so both agree. */
+    let title = '';
+    if (type === 'evt' || type === 'followup' || type === 'remind' || type === 'spk') title = parts[0] || '';
+    else title = parts[1] || parts[0] || rest;
+    const entry = {
+      key: k,
+      type: type === 'evt' ? 'EVENT' : type === 'remind' ? 'REMINDER' : type === 'followup' ? 'RESULT_CHECK' : type === 'news' ? 'NEWS' : type === 'spk' ? 'SPEAKER' : type === 'result' ? 'PRICE_TRACK' : type.toUpperCase(),
+      title: title.replace(/^\[?[A-Z]{1,3}\]\s*/, '').slice(0, 120) || k.slice(0, 120),
+      generatedAt: new Date().toISOString()
+    };
+    state.history = (state.history || []).concat(entry).slice(-500);
+  } catch (e) { console.log('WARN: history recording failed (ignored, delivery unaffected): ' + e.message); }
 }
 
 /* fetch() itself can THROW (DNS hiccup, connection timeout, transient network failure) - not just
@@ -734,7 +766,7 @@ function buildWeeklyOutlook(MARKET_DATA, NEWS_AUTO) {
         if (seen.has(key)) continue;
         const card = reminderCard(MARKET_DATA, ATR_DATA, e, Math.max(0, minutesUntil), stage, COMMENTARY_POOL);
         const r = await sendTelegramCard(card.caption, card.chartUrl);
-        if (r.ok) { seen.add(key); sentCount++; console.log(`SENT reminder (T-${stage}): ${e.event}`); }
+        if (r.ok) { seen.add(key); sentCount++; recordHistory(state, key); console.log(`SENT reminder (T-${stage}): ${e.event}`); }
         else if (!r.skipped) { failCount++; console.log(`NOT SENT reminder (T-${stage}, will retry): ${e.event}`); }
         await new Promise(res => setTimeout(res, 1500)); // Telegram's real limit is ~20 msg/min per chat
       }
@@ -754,7 +786,7 @@ function buildWeeklyOutlook(MARKET_DATA, NEWS_AUTO) {
             CREDIT_LINE
           ].filter(Boolean).join('\n');
           const r = await sendTelegram(caption);
-          if (r.ok) { seen.add(key); sentCount++; console.log(`SENT follow-up: ${e.event}`); }
+          if (r.ok) { seen.add(key); sentCount++; recordHistory(state, key); console.log(`SENT follow-up: ${e.event}`); }
           else if (!r.skipped) { failCount++; console.log(`NOT SENT follow-up (will retry): ${e.event}`); }
           await new Promise(res => setTimeout(res, 1500));
         }
@@ -843,7 +875,7 @@ function buildWeeklyOutlook(MARKET_DATA, NEWS_AUTO) {
   let sentCount = 0, failCount = 0, rateLimitedCount = 0, skippedNoCreds = false;
   for (const item of toSend) {
     const r = await sendTelegramCard(item.card.caption, item.card.chartUrl);
-    if (r.ok) { seen.add(item.key); sentCount++; console.log('SENT: ' + item.card.caption.split('\n')[1]); }
+    if (r.ok) { seen.add(item.key); sentCount++; recordHistory(state, item.key); console.log('SENT: ' + item.card.caption.split('\n')[1]); }
     else if (r.skipped) { skippedNoCreds = true; } // no credentials configured (local/dev run) - don't mark as sent, don't count as a failure
     else if (r.rateLimited) { rateLimitedCount++; console.log('RATE-LIMITED (will retry next run, not a real failure): ' + item.card.caption.split('\n')[1]); }
     else { failCount++; console.log('NOT SENT (will retry next run): ' + item.card.caption.split('\n')[1]); }

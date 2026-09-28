@@ -35,7 +35,7 @@ function getDashboardUrl() {
   if (arg) return arg.split('=')[1].trim();
   const idx = process.argv.indexOf('--url');
   if (idx > -1 && process.argv[idx + 1]) return process.argv[idx + 1].trim();
-  return process.env.DASHBOARD_URL || 'https://restless-fire-7ed6.ifxhelper.workers.dev/';
+  return process.env.DASHBOARD_URL || 'https://gentle-violet-4a79.ifxhelper.workers.dev/';
 }
 const DASHBOARD_URL = getDashboardUrl();
 const PREVIEW = process.argv.includes('--preview');
@@ -46,6 +46,24 @@ const TEST = process.argv.includes('--test');
  * weekday daily post finds a ~15-minute-old snapshot; weekends fall outside
  * the window and are honestly suppressed. */
 const WATCH_MAX_AGE_MS = 6 * 60 * 60 * 1000;
+/* Channel-box delivery history: recorded ONLY after a confirmed Telegram
+ * delivery, into .news-alert-state.json (same state file the news alerts use).
+ * build-alert-history.js folds boxHistory into NEWS_AUTO.alertHistory so the
+ * dashboard's ALERT HISTORY shows real box posts with real times. */
+const STATE_FILE = path.join(__dirname, '.news-alert-state.json');
+function loadState() { try { const s = JSON.parse(fs.readFileSync(STATE_FILE, 'utf8')); if (!Array.isArray(s.boxHistory)) s.boxHistory = []; return s; } catch (e) { return { sentKeys: [], boxHistory: [] }; } }
+function saveState(state) { fs.writeFileSync(STATE_FILE, JSON.stringify(state, null, 2), 'utf8'); }
+function recordBoxHistory(d) {
+  try {
+  const state = loadState();
+  const key = 'bbma:' + (d.generationId || 'unknown') + '|' + (d.signal || '');
+  if (state.boxHistory.some(h => h.key === key)) return; // one history row per generation+signal
+  state.boxHistory = state.boxHistory.concat([{
+    key, type: 'BBMA_BOX', title: `${d.signal || 'BBMA'} · ${d.summary || ''} · ${d.event ? d.event.name : 'no event'} [${d.event ? d.event.state : ''}]`, generatedAt: new Date().toISOString()
+  }]).slice(-200);
+  saveState(state);
+  } catch (e) { console.log('WARN: box history recording failed (ignored): ' + e.message); }
+}
 
 function esc(s) {
   return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -99,9 +117,12 @@ function boxDataFromWatch(watch, Signal = require('./lib/bbma-alert-signal')) {
     };
   }
   const news = watch.news || { state: 'NO_EVENT', event: null, minutes: null };
+  /* Impact lives on the EVENT, not on news (bug: the old code read news.impact,
+   * which never exists -> the HIGH-impact flag could never fire). */
+  const impactRaw = (news.event && news.event.impact) || (news.event && news.event.importance) || '';
   const event = news.event ? {
     name: news.event.title,
-    impact: /HIGH|VERY/.test(news.impact) ? 'HIGH' : news.impact,
+    impact: /HIGH|VERY/.test(String(impactRaw).toUpperCase()) ? 'HIGH' : (String(impactRaw).toUpperCase() || null),
     minutesTo: news.minutes,
     currency: news.event.currency,
     actual: news.event.actual ?? undefined,
@@ -247,6 +268,7 @@ async function sendTelegramBox(messageObj) {
     const j = await r.json().catch(() => ({}));
     if (r.ok && j.ok) {
       console.log(`✅ BBMA Alert Box posted to channel/chat: ${CHANNEL_ID} (data: ${messageObj.source})`);
+      if (messageObj.boxData) recordBoxHistory(messageObj.boxData);
       return { ok: true, data: j };
     }
     console.error(`❌ Telegram send error:`, j.description || r.statusText);
@@ -270,6 +292,7 @@ if (require.main === module) {
 
   const message = formatBbmaAlertBox(d);
   message.source = d.source;
+  message.boxData = d;
 
   if (PREVIEW || TEST) {
     console.log('================ BBMA TELEGRAM CHANNEL ALERT BOX ================');

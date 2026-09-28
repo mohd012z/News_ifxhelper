@@ -661,6 +661,7 @@
         var changed = false;
         if (rm.updated && rm.updated !== lastRemoteMarketUpdated) { lastRemoteMarketUpdated = rm.updated; changed = true; } else rm = null;
         if (rn.generatedAt && rn.generatedAt !== lastRemoteNewsGenerated) { lastRemoteNewsGenerated = rn.generatedAt; changed = true; } else rn = null;
+        if (rn && Array.isArray(rn.alertHistory)) { try { var na=window.NEWS_AUTO; if (na) na.alertHistory=rn.alertHistory; else window.NEWS_AUTO=rn; } catch(e){} }
         var mode = res.some(function (x) { return x.source === "cache"; }) ? "cache-fallback" : "remote-current";
         var info = { checkedAt: started, manifestGeneratedAt: manifest.generatedAt, mode: mode, changed: changed };
         if (changed) applyRemoteData(rm, rn, info); else try { localStorage.setItem("xau-last-sync", JSON.stringify(info)); } catch (e) {}
