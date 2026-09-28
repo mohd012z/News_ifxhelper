@@ -44,7 +44,7 @@ function makeWindow({key=true,fetchFails=false,malformed=false,withFetch=true,ra
       }
       if(!key)throw new Error('no key');
       if(fetchFails)throw new Error('network down');
-      const count=40;
+      const count=60;
       const bucketNow=Math.floor(now/step)*step;
       const vals=[];
       for(let i=0;i<count;i++){

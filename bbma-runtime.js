@@ -9,7 +9,7 @@
  *  - A cold load has ZERO candles and ZERO alerts. The dashboard shows its
  *    INSUFFICIENT_DATA / "waiting for validated OHLC" states until REAL ticks
  *    arrive (LiveFeed metals poll and/or Twelve Data WS) and enough bars
- *    accumulate per timeframe (20+ for READY).
+ *    accumulate per timeframe (50+ for READY — canonical values() gate).
  *  - HISTORY BACKFILL (real data, not fabrication): on a cold load the runtime
  *    may seed each timeframe with the last 240 REAL XAU/USD bars fetched from
  *    the Twelve Data time_series REST endpoint (same provider + key the live
@@ -158,10 +158,14 @@ function sma(a,n){if(a.length<n)return null;return a.slice(-n).reduce(function(s
 function ema(a,n){if(a.length<n)return null;var k=2/(n+1),e=a.slice(0,n).reduce(function(s,v){return s+v;},0)/n;for(var i=n;i<a.length;i++)e=a[i]*k+e*(1-k);return e;}
 function lwma(a,n){if(!a.length)return null;var x=a.slice(-n),d=n*(n+1)/2;return x.reduce(function(s,v,i){return s+v*(i+1);},0)/d;}
 
-/* BB(20,2) + EMA50 + LWMA5/10 fractal classification. Returns INSUFFICIENT_DATA
- * until at least 20 REAL candles exist — no partial readings are invented. */
+/* BB(20,2) + EMA50 + LWMA5/10 classification. CANONICAL PARITY: trend /
+ * momentum / extreme / csak / reentry / (zone via the location overlay) use
+ * the EXACT formulas of lib/bbma-engine.js classify() + lib/bbma-candle-watch.js
+ * location() — the same code the CI watch (build-bbma-watch.js) and the Telegram
+ * box run — so the app and the channel can never disagree on a reading.
+ * Minimum 50 REAL candles (canonical values() gate) — no partial readings. */
 function classify(a){
-  if(!a||a.length<20)return{state:'INSUFFICIENT_DATA',candles:a?a.length:0,trend:'—',momentum:'—',reentry:'—',csak:'—',mhv:'—',extreme:'—',zone:'—',location:'—',ema50Position:'—',emaGap:'—',upperProximity:0,midProximity:0,lowerProximity:0,ema50Proximity:0};
+  if(!a||a.length<50)return{state:'INSUFFICIENT_DATA',candles:a?a.length:0,trend:'—',momentum:'—',reentry:'—',csak:'—',mhv:'—',extreme:'—',zone:'—',location:'—',ema50Position:'—',emaGap:'—',upperProximity:0,midProximity:0,lowerProximity:0,ema50Proximity:0};
   var closes=a.map(function(x){return x.close;}),highs=a.map(function(x){return x.high;}),lows=a.map(function(x){return x.low;});
   var nCloses=Math.min(20,closes.length);
   var mid=sma(closes,nCloses)||closes[closes.length-1];
@@ -179,10 +183,32 @@ function classify(a){
   var momentum=last.close>upper?'MOMENTUM_UP':last.close<lower?'MOMENTUM_DOWN':'NONE';
   var extreme=m5h>upper?'EXTREME_HIGH':m5l<lower?'EXTREME_LOW':'NONE';
   var dir=last.close>=last.open?'UP':'DOWN';
-  var csak=dir==='UP'&&last.close>m5h&&last.close>mid?'CSAK_UP':dir==='DOWN'&&last.close<m5l&&last.close<mid?'CSAK_DOWN':'NONE';
+  /* BB location — canonical 7-state model (matches lib/bbma-candle-watch.js
+   * location(): tolerance = max(3% of band width, 0.015% of price),
+   * precedence ABOVE -> BELOW -> near band -> near mid -> near EMA50). */
+  var tol=Math.max((upper-lower)*0.03,Math.abs(last.close)*0.00015);
+  var nearB=function(x,y){return Math.abs(x-y)<=tol;};
+  var zone='INSIDE_BB';
+  if(last.close>upper)zone='ABOVE_TOP_BB';
+  else if(last.close<lower)zone='BELOW_LOW_BB';
+  else if(nearB(last.high,upper)||nearB(last.close,upper))zone='TOP_BB';
+  else if(nearB(last.low,lower)||nearB(last.close,lower))zone='LOW_BB';
+  else if(nearB(last.close,mid)||last.low<=mid&&last.high>=mid)zone='MID_BB';
+  else if(nearB(last.close,e50)||last.low<=e50&&last.high>=e50)zone='EMA50';
+  /* Candle geometry (canonical lib/bbma-candle-watch.js candle{}): direction,
+   * body ratio, and wick ratios — this is what the matrix LOC/EVT column shows
+   * (distinct from the BB zone). */
+  var body=Math.abs(last.close-last.open),range=Math.max(1e-12,last.high-last.low),bodyRatio=body/range;
+  var candle={direction:dir,bodyRatio:+bodyRatio.toFixed(3),upperWick:+((last.high-Math.max(last.open,last.close))/range).toFixed(3),lowerWick:+((Math.min(last.open,last.close)-last.low)/range).toFixed(3)};
+  var candleTag=candle.direction+(candle.upperWick>.45?' \u2191wick':candle.lowerWick>.45?' \u2193wick':'')+(candle.bodyRatio<.3?' \u00b7 doji':'');
+  var mhv=trend==='UP'&&last.high<upper&&last.close>mid&&zone!=='ABOVE_TOP_BB'?'VALID_MHV':'NONE';
+  /* csak + reentry: EXACT canonical lib/bbma-engine.js formulas (the old
+   * runtime revision used weaker variants — a close>ma5High alone, and reentry
+   * without the ma5Low/ma5High guard — so the app and CI disagreed). */
+  var csak=dir==='UP'&&last.close>m5h&&last.close>m10h&&last.close>mid?'CSAK_UP':dir==='DOWN'&&last.close<m5l&&last.close<m10l&&last.close<mid?'CSAK_DOWN':'NONE';
   var re='NONE';
-  if(trend==='UP'&&last.low<=Math.max(m5l,m10l)&&last.close>mid)re='REENTRY_UP_ZONE';
-  if(trend==='DOWN'&&last.high>=Math.min(m5h,m10h)&&last.close<mid)re='REENTRY_DOWN_ZONE';
+  if(trend==='UP'&&last.low<=Math.max(m5l,m10l)&&last.close>mid&&last.close>m5l)re='REENTRY_UP_ZONE';
+  if(trend==='DOWN'&&last.high>=Math.min(m5h,m10h)&&last.close<mid&&last.close<m5h)re='REENTRY_DOWN_ZONE';
   var bandWidth=upper-lower||1;
   var upperProx=Math.max(0,Math.min(100,((upper-last.close)/bandWidth)*100));
   var midProx=Math.max(0,Math.min(100,(1-Math.abs(last.close-mid)/(bandWidth/2))*100));
@@ -212,9 +238,12 @@ function classify(a){
     csak:csak,
     csa:csak,
     reentry:re,
-    mhv:trend==='UP'&&last.high<upper&&last.close>mid?'VALID_MHV':'NONE',
-    zone:last.close>mid?'UPPER_BAND':'LOWER_BAND',
-    location:last.close>mid?'MID_BB_BOUNCE':'LOWER_BB_REJECT',
+    mhv:mhv,
+    zone:zone,
+    candle:candle,
+    candleEvent:candleTag,
+    location:candleTag, /* matrix LOC/EVT column: candle direction + wick event (zone is the BB state) */
+    tolerance:tol,
     ema50Position:last.close>e50?'ABOVE_EMA50':'BELOW_EMA50',
     emaGap:(((last.close-e50)/e50)*100).toFixed(2)+'%',
     upperProximity:upperProx,
