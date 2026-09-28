@@ -68,6 +68,7 @@ window.MARKET_DATA = {
     intervalSec: 5,
     fxEndpoint: "https://api.coinbase.com/v2/exchange-rates?currency=EUR",
     cryptoEndpoint: "https://api.coinbase.com/v2/exchange-rates?currency=BTC",
+    metals: ["https://api.gold-api.com/price/XAU"],
     note: "Key-free public endpoints, both verified reachable: Coinbase exchange-rates for FX (EUR table) and for crypto (BTC table). This is real network polling on an interval, not tick-by-tick streaming.",
     caveat: "If the browser blocks the request (CORS) or the machine is offline, the desk falls back to the last snapshot and the badge shows OFFLINE.",
     wsHint: "wss://stream.binance.com:9443/ws/btcusdt@trade",

@@ -12,6 +12,6 @@ async function calendar(){try{const r=await fetch(CAL,{headers:{'User-Agent':'Mo
  const news=N.proximity(events,{currencies:['USD'],preMinutes:60,releaseMinutes:5,postMinutes:120});
  for(const x of Object.values(analysis)){x.marketMode=news.state;x.next.newsState=news.state;if(news.state==='NEWS_RELEASE')x.next.confidence=Math.min(x.next.confidence,55);else if(news.state==='PRE_NEWS')x.next.confidence=Math.min(x.next.confidence,65);}
  const dash=D.build(frames,Object.fromEntries(Object.keys(frames).map(tf=>[tf,s.gaps.length?'NEAR':'EXACT']))),generatedAt=new Date().toISOString();
- const out={schemaVersion:3,generationId:generationId(SYMBOL,clean,events),generatedAt,sourceGeneratedAt:generatedAt,symbol:SYMBOL,provider:r.provider,httpMs:r.httpMs,source:{candles:r.candles.length,valid:clean.length,gaps:s.gaps.length,duplicates:s.duplicates.length},news,analysis,dashboard:dash};
+ const out={schemaVersion:3,generationId:generationId(SYMBOL,clean,events),generatedAt,sourceGeneratedAt:generatedAt,symbol:SYMBOL,provider:r.provider,httpMs:r.httpMs,source:{candles:r.candles.length,valid:clean.length,gaps:s.gaps.length,duplicates:s.duplicates.length},last:clean.length?{time:clean.at(-1).time,close:clean.at(-1).close,bar:'M1'}:null,news,analysis,dashboard:dash};
  fs.mkdirSync(path.dirname(OUT),{recursive:true});fs.writeFileSync(OUT,JSON.stringify(out,null,2));console.log('BBMA watch',SYMBOL,news.state,out.generationId,OUT,Object.keys(analysis).join(','));
 })().catch(e=>{console.error(e);process.exit(1);});

@@ -1783,7 +1783,7 @@
       return;
     }
     if (note) note.textContent = "Connecting to live endpoints\u2026";
-    window.LiveFeed.start({ intervalSec: cfg.intervalSec || 5, fxEndpoint: cfg.fxEndpoint, cryptoEndpoint: cfg.cryptoEndpoint }, onTick, onStatus);
+    window.LiveFeed.start({ intervalSec: cfg.intervalSec || 5, fxEndpoint: cfg.fxEndpoint, cryptoEndpoint: cfg.cryptoEndpoint, metals: cfg.metals }, onTick, onStatus);
     if (cfg.twelveDataApiKey && cfg.twelveDataSymbols && cfg.twelveDataSymbols.length) {
       window.LiveFeed.streamTwelveData(cfg.twelveDataApiKey, cfg.twelveDataSymbols, function (q) {
         updateMetalHero(q.price, q.symbol);
@@ -1792,6 +1792,9 @@
         if (activeId === "gold") renderPairs();
         renderLiveDetail();
         setBadge();
+        /* Route real WS ticks into the BBMA runtime (it builds live OHLC;
+         * it never fabricates, and it is Node-safe). */
+        if (window.BBMARuntime && q && q.price) window.BBMARuntime.ingest(q.price, new Date());
       });
     }
   }

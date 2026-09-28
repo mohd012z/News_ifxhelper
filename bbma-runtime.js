@@ -1,31 +1,37 @@
-/* BBMA runtime bridge: validated XAU ticks -> rolling OHLC -> BBMA MTF context. */
+/* BBMA runtime bridge: validated XAU ticks -> rolling OHLC -> BBMA MTF context.
+ *
+ * HONESTY CONTRACT (P0 defuse, branch p0/bbma-runtime-honest-state):
+ *  - NEVER fabricate candles, alerts, events, or prices. The previous revision
+ *    seeded 60 sine-wave candles per timeframe around a hardcoded $2,658.50 base
+ *    and shipped hardcoded demo alerts + a fake event card into the public
+ *    dashboard — and the Telegram poster was one broken step from posting them
+ *    to the real channel. That is gone.
+ *  - A cold load has ZERO candles and ZERO alerts. The dashboard shows its
+ *    INSUFFICIENT_DATA / "waiting for validated OHLC" states until REAL ticks
+ *    arrive (LiveFeed metals poll and/or Twelve Data WS) and enough bars
+ *    accumulate per timeframe (20+ for READY).
+ *  - window.BBMA_RUNTIME.publishable === false whenever state cannot be backed
+ *    by fresh real ticks AND real (externally supplied) alerts.
+ *    send-bbma-telegram.js refuses to broadcast anything not publishable.
+ *  - Node-safe: this file MUST stay loadable with a bare `window` object (no
+ *    addEventListener, no document) because send-bbma-telegram.js evaluates it
+ *    in Node. The old revision crashed there on window.addEventListener, which
+ *    made loadRuntime() permanently return null — the guard then suppressed
+ *    every post by accident, and a naive "fix" would have started posting demos.
+ */
 (function(){'use strict';
 var TFS={M5:300000,M15:900000,M30:1800000,H1:3600000,H4:14400000,D1:86400000,W1:604800000,MN1:2592000000};
+var FRESH_WINDOW_MS=5*60*1000;   /* publishable while a real tick landed < 5 min ago */
+var STALE_AFTER_MS=10*60*1000;   /* surface STALE after 10 min without a tick */
 var frames={},lastPrice=null,lastAt=null,max=240;
+var _externalAlerts=[],_externalAlertHistory=[];
+var _nodePollTimer=null;
 
 function bucket(t,ms){return Math.floor(t/ms)*ms;}
 
-// Generate baseline candles so chart, MTF matrix, and BBMA indicators populate immediately on startup
-var now=Date.now(),basePrice=2658.50;
-Object.keys(TFS).forEach(function(tf){
-  frames[tf]=[];
-  var stepMs=TFS[tf];
-  for(var i=59;i>=0;i--){
-    var ct=now-i*stepMs;
-    var dev=(Math.sin(i*0.35)+Math.cos(i*0.18))*(tf==='D1'||tf==='H4'?12:3.5);
-    var o=basePrice+dev-0.4;
-    var c=basePrice+dev+(i%2===0?0.9:-0.7);
-    var h=Math.max(o,c)+1.3;
-    var l=Math.min(o,c)-1.2;
-    var b=bucket(ct,stepMs);
-    frames[tf].push({_b:b,time:new Date(ct).toISOString(),open:o,high:h,low:l,close:c,source:'BASELINE_CACHE'});
-  }
-});
-lastPrice=basePrice;
-lastAt=new Date(now).toISOString();
-
+/* Build/extend a candle from a REAL tick (tick-derived, never fabricated). */
 function add(tf,p,t){
-  var a=frames[tf],b=bucket(t,TFS[tf]),c=a[a.length-1];
+  var a=frames[tf]||(frames[tf]=[]),b=bucket(t,TFS[tf]),c=a[a.length-1];
   if(!c||c._b!==b){
     c={_b:b,time:new Date(b).toISOString(),open:p,high:p,low:p,close:p,source:'LIVE_TICK_DERIVED'};
     a.push(c);
@@ -37,10 +43,12 @@ function add(tf,p,t){
 
 function sma(a,n){if(a.length<n)return null;return a.slice(-n).reduce(function(s,v){return s+v;},0)/n;}
 function ema(a,n){if(a.length<n)return null;var k=2/(n+1),e=a.slice(0,n).reduce(function(s,v){return s+v;},0)/n;for(var i=n;i<a.length;i++)e=a[i]*k+e*(1-k);return e;}
-function lwma(a,n){if(a.length<n)return null;var x=a.slice(-n),d=n*(n+1)/2;return x.reduce(function(s,v,i){return s+v*(i+1);},0)/d;}
+function lwma(a,n){if(!a.length)return null;var x=a.slice(-n),d=n*(n+1)/2;return x.reduce(function(s,v,i){return s+v*(i+1);},0)/d;}
 
+/* BB(20,2) + EMA50 + LWMA5/10 fractal classification. Returns INSUFFICIENT_DATA
+ * until at least 20 REAL candles exist — no partial readings are invented. */
 function classify(a){
-  if(!a||a.length<20)return{state:'INSUFFICIENT_DATA',candles:a?a.length:0,trend:'—',momentum:'—',reentry:'—',csa:'—',csak:'—',mhv:'—',extreme:'—',zone:'—',location:'—',ema50Position:'—',emaGap:'—',upperProximity:0,midProximity:0,lowerProximity:0,ema50Proximity:0};
+  if(!a||a.length<20)return{state:'INSUFFICIENT_DATA',candles:a?a.length:0,trend:'—',momentum:'—',reentry:'—',csak:'—',mhv:'—',extreme:'—',zone:'—',location:'—',ema50Position:'—',emaGap:'—',upperProximity:0,midProximity:0,lowerProximity:0,ema50Proximity:0};
   var closes=a.map(function(x){return x.close;}),highs=a.map(function(x){return x.high;}),lows=a.map(function(x){return x.low;});
   var nCloses=Math.min(20,closes.length);
   var mid=sma(closes,nCloses)||closes[closes.length-1];
@@ -58,7 +66,7 @@ function classify(a){
   var momentum=last.close>upper?'MOMENTUM_UP':last.close<lower?'MOMENTUM_DOWN':'NONE';
   var extreme=m5h>upper?'EXTREME_HIGH':m5l<lower?'EXTREME_LOW':'NONE';
   var dir=last.close>=last.open?'UP':'DOWN';
-  var csa=dir==='UP'&&last.close>m5h&&last.close>mid?'CSAK_UP':dir==='DOWN'&&last.close<m5l&&last.close<mid?'CSAK_DOWN':'NONE';
+  var csak=dir==='UP'&&last.close>m5h&&last.close>mid?'CSAK_UP':dir==='DOWN'&&last.close<m5l&&last.close<mid?'CSAK_DOWN':'NONE';
   var re='NONE';
   if(trend==='UP'&&last.low<=Math.max(m5l,m10l)&&last.close>mid)re='REENTRY_UP_ZONE';
   if(trend==='DOWN'&&last.high>=Math.min(m5h,m10h)&&last.close<mid)re='REENTRY_DOWN_ZONE';
@@ -68,13 +76,28 @@ function classify(a){
   var lowerProx=Math.max(0,Math.min(100,((last.close-lower)/bandWidth)*100));
   var emaProx=Math.max(0,Math.min(100,(1-Math.abs(last.close-e50)/(bandWidth/2))*100));
 
+  /* Per-candle BB(20,2) mid/upper/lower + EMA50 series — consumed by the
+   * dashboard SVG chart to draw its band polylines from REAL candles only. */
+  var bbMiddle=[],bbUpper=[],bbLower=[],ema50ser=[];
+  for(var i2=0;i2<a.length;i2++){
+    var cc=closes.slice(Math.max(0,i2-19),i2+1);
+    var m2=sma(cc,20),sd2=null;
+    if(m2!=null){var sq2=cc.reduce(function(t,v){return t+Math.pow(v-m2,2);},0)/cc.length;sd2=Math.sqrt(sq2);}
+    bbMiddle.push(sd2!=null?m2:(cc.length?cc[cc.length-1]:null));
+    bbUpper.push(sd2!=null?m2+2*sd2:null);
+    bbLower.push(sd2!=null?m2-2*sd2:null);
+    var ee=closes.slice(Math.max(0,i2-49),i2+1);
+    ema50ser.push(ema(ee,50));
+  }
+  a.forEach(function(c,i2){c.bbMiddle=bbMiddle[i2];c.bbUpper=bbUpper[i2];c.bbLower=bbLower[i2];c.ema50=ema50ser[i2];});
+
   return{
     state:'READY',
     trend:trend,
     momentum:momentum,
     extreme:extreme,
-    csak:csa,
-    csa:csa,
+    csak:csak,
+    csa:csak,
     reentry:re,
     mhv:trend==='UP'&&last.high<upper&&last.close>mid?'VALID_MHV':'NONE',
     zone:last.close>mid?'UPPER_BAND':'LOWER_BAND',
@@ -93,49 +116,45 @@ function classify(a){
   };
 }
 
+/* Publish the CURRENT real state — or the honest empty state on a cold load.
+ * Alerts are NEVER invented: they are populated only by an external validated
+ * source (HELIX core / news-shadow pipeline) via BBMARuntime.setAlerts(). */
 function publish(){
-  var mytTime=new Date().toLocaleTimeString('en-GB',{timeZone:'Asia/Kuala_Lumpur',hour:'2-digit',minute:'2-digit'})+' MYT';
+  var now=Date.now();
+  var ageMs=lastAt!=null?Math.max(0,now-Date.parse(lastAt)):null;
+  var fresh=ageMs!=null&&ageMs<=FRESH_WINDOW_MS;
+  var stale=ageMs!=null&&ageMs>STALE_AFTER_MS;
+  var hasTicks=lastPrice!=null;
+  var mytTime=hasTicks?new Date(Date.parse(lastAt)+8*3600*1000).toISOString().slice(11,16)+' MYT':'—';
   var out={
     symbol:'XAU/USD',
-    price:lastPrice?lastPrice.toFixed(2):'2658.50',
-    last:lastPrice?lastPrice.toFixed(2):'2658.50',
-    at:lastAt||new Date().toISOString(),
+    price:hasTicks?lastPrice.toFixed(2):null,
+    last:hasTicks?lastPrice.toFixed(2):null,
+    at:lastAt||null,
     updatedMYT:mytTime,
-    alertState:'PRE-EVENT',
-    fresh:true,
-    freshness:'FRESH_SNAPSHOT',
-    source:'LIVE_TICK_DERIVED',
+    alertState:stale?'STALE':'PRE-EVENT',
+    fresh:fresh,
+    freshness:stale?'STALE_SNAPSHOT':fresh?'FRESH_SNAPSHOT':'NO_LIVE_TICKS',
+    source:hasTicks?'LIVE_TICK_DERIVED':'NONE',
+    liveTicks:hasTicks?1:0,
+    publishable:hasTicks&&fresh===true&&_externalAlerts.length>0,
+    demo:false,
     ohlc:frames,
     candles:frames,
     frames:{},
-    alerts:[
-      {id:'bbma-1',symbol:'XAU/USD',tf:'H4',timeframe:'H4',pattern:'MHV',type:'SETUP',level:'HIGH',impact:'HIGH',timeMYT:mytTime,summary:'H4 MHV confirmed rejection of Lower BB. MTF Trend aligned UP.'},
-      {id:'bbma-2',symbol:'XAU/USD',tf:'M15',timeframe:'M15',pattern:'RE-ENTRY',type:'CONFIRMED',level:'HIGH',impact:'HIGH',timeMYT:mytTime,summary:'M15 Re-entry armed inside mid-BB bounce zone with lower-wick rejection.'},
-      {id:'bbma-3',symbol:'XAU/USD',tf:'M5',timeframe:'M5',pattern:'EXTREME',type:'WATCH',level:'MEDIUM',impact:'MED',timeMYT:mytTime,summary:'M5 Extreme lower-band exhaustion reached.'}
-    ],
-    alertHistory:[
-      {id:'bbma-hist-1',symbol:'XAU/USD',tf:'H4',pattern:'MHV (Validated)',timeMYT:mytTime},
-      {id:'bbma-hist-2',symbol:'XAU/USD',tf:'M15',pattern:'RE-ENTRY (Armed)',timeMYT:mytTime},
-      {id:'bbma-hist-3',symbol:'XAU/USD',tf:'H1',pattern:'MOMENTUM (Breakout)',timeMYT:mytTime}
-    ],
-    event:{
-      name:'US Core PCE / Fed Policy Runway',
-      event:'US Core PCE / Fed Policy Runway',
-      timeMYT:mytTime,
-      mytDisplay:mytTime,
-      previous:'0.2%',
-      forecast:'0.2%',
-      actual:'Pending',
-      summary:'Runway clear for technical BBMA setups. No high-impact release within current session window.'
-    }
+    alerts:_externalAlerts,
+    alertHistory:_externalAlertHistory,
+    event:null
   };
 
   Object.keys(frames).forEach(function(tf){out.frames[tf]=classify(frames[tf]);});
   out.mtf=out.frames;
   out.timeframes=out.frames;
-  window.BBMA_RUNTIME=out;
-  window.BBMA_DASHBOARD=out;
-  try{window.dispatchEvent(new CustomEvent('bbma-runtime-updated',{detail:out}));}catch(e){}
+
+  var w=typeof window!=='undefined'?window:globalThis;
+  w.BBMA_RUNTIME=out;
+  w.BBMA_DASHBOARD=out;
+  try{if(typeof w.dispatchEvent==='function')w.dispatchEvent(new CustomEvent('bbma-runtime-updated',{detail:out}));}catch(e){}
 }
 
 function ingest(p,at){
@@ -143,22 +162,61 @@ function ingest(p,at){
   if(!isFinite(p)||p<=0)return;
   var t=at?new Date(at).getTime():Date.now();
   if(!isFinite(t))t=Date.now();
+  /* Reject out-of-window ticks (clock skew / stale poller / a device clock
+   * running ahead) so an old or impossible price can never move a candle. */
+  var now=Date.now();
+  if(t<now-60*1000||t>now+5*60*1000)return;
   lastPrice=p;
   lastAt=new Date(t).toISOString();
   Object.keys(TFS).forEach(function(tf){add(tf,p,t);});
   publish();
 }
 
-window.BBMARuntime={ingest:ingest,snapshot:function(){return window.BBMA_RUNTIME||null;},frames:frames};
-window.addEventListener('xau-live-tick',function(e){var d=e.detail||{};ingest(d.price,d.at);});
+function setAlerts(alerts,history){
+  _externalAlerts=Array.isArray(alerts)?alerts:[];
+  _externalAlertHistory=Array.isArray(history)?history:[];
+  publish();
+}
 
-setInterval(function(){
-  try{
-    if(!window.LiveFeed||!window.LiveFeed.snapshot)return;
-    var s=window.LiveFeed.snapshot(),p=s&&s.metals&&(s.metals.XAU||s.metals['XAU/USD']);
-    if(p&&p!==lastPrice)ingest(p,new Date());
-  }catch(e){}
-},2000);
+var w=typeof window!=='undefined'?window:globalThis;
+w.BBMARuntime={
+  ingest:ingest,
+  setAlerts:setAlerts,
+  snapshot:function(){return w.BBMA_RUNTIME||null;},
+  frames:frames
+};
+
+/* Browser only: explicit tick events (dispatched by the live feed wiring). */
+if(typeof w.addEventListener==='function'){
+  w.addEventListener('xau-live-tick',function(e){var d=e&&e.detail||{};ingest(d.price,d.at);});
+}
+
+/* Browser only: poll LiveFeed metals every 2s. The previous revision called
+ * the nonexistent LiveFeed.snapshot() and therefore never delivered a tick;
+ * LiveFeed.metal('XAU') is the real accessor (gold-api.com primary,
+ * CoinGecko tether-gold fallback). The Twelve Data WS stream (dispatched as
+ * xau-live-tick by app.js) is a second REAL source; ingesting both is safe —
+ * they observe the same spot price and candle updates are idempotent. */
+if(typeof w.addEventListener==='function'&&typeof w.setInterval==='function'){
+  w.setInterval(function(){
+    try{
+      var LF=w.LiveFeed;
+      if(!LF||typeof LF.metal!=='function')return;
+      /* gold-api poll keys it "XAU"; the Twelve Data WS keys it "XAU/USD". */
+      var p=null;
+      ['XAU','XAU/USD','XAUUSD'].forEach(function(k){ if(p==null) p=LF.metal(k); });
+      if(p==null)return;
+      if(p!==lastPrice)ingest(p,new Date());
+    }catch(e){}
+  },2000);
+}
+/* Node: the poster is a short-lived CLI. The old revision's bare setInterval
+ * would have kept the process alive forever once loading succeeded; install an
+ * inert unref'd timer so `node send-bbma-telegram.js` still exits. */
+if(typeof w.addEventListener!=='function'&&typeof setInterval==='function'){
+  _nodePollTimer=setInterval(function(){},1<<30);
+  if(typeof _nodePollTimer.unref==='function')_nodePollTimer.unref();
+}
 
 publish();
 })();
