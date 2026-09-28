@@ -1,13 +1,30 @@
 'use strict';
 const fs=require('fs'),path=require('path'),crypto=require('crypto');
-const P=require('./lib/market-provider'),V=require('./lib/ohlc-validator'),R=require('./lib/ohlc-resampler'),W=require('./lib/bbma-candle-watch'),D=require('./lib/bbma-dashboard'),N=require('./lib/news-proximity'),I=require('./lib/instrument'),C=require('./lib/bbma-confidence'),L=require('./lib/alert-lifecycle');
+const P=require('./lib/market-provider'),V=require('./lib/ohlc-validator'),R=require('./lib/ohlc-resampler'),W=require('./lib/bbma-candle-watch'),D=require('./lib/bbma-dashboard'),N=require('./lib/news-proximity'),I=require('./lib/instrument'),C=require('./lib/bbma-confidence'),L=require('./lib/alert-lifecycle'),FS=require('./lib/ai/feature-snapshot'),OS=require('./lib/ai/one-step-engine'),GS=require('./lib/ai/consensus-engine'),DC=require('./lib/ai/data-class');
 const SYMBOL=process.env.BBMA_SYMBOL||'GC=F',OUT=process.env.BBMA_OUT||path.join('data','bbma-watch.json');
 const CAL='https://nfs.faireconomy.media/ff_calendar_thisweek.json';
 function generationId(symbol,candles,events){const last=candles.at(-1);const basis=JSON.stringify({symbol,last:last&&last.time,count:candles.length,events:(events||[]).slice(0,20).map(e=>[e.date||e.scheduledAt||e.time,e.title||e.event,e.actual,e.forecast])});return 'bbma-'+crypto.createHash('sha256').update(basis).digest('hex').slice(0,20);}
 async function calendar(){try{const r=await fetch(CAL,{headers:{'User-Agent':'Mozilla/5.0 XAU-Desk-BBMA/1.0'}});if(!r.ok)throw new Error('HTTP '+r.status);const j=await r.json();return Array.isArray(j)?j:[];}catch(e){console.warn('calendar unavailable:',e.message);return [];}}
+function buildOneStep(frames,news,instrument,dataClass,closedOk){
+ if(!closedOk||!frames||!frames.M15||frames.M15.length<50)return{status:'NOT_READY',reason:'insufficient closed candles or gate failed'};
+ const closed=frames.M15.filter(c=>Date.parse(c.time)+900000<=Date.now());
+ if(closed.length<50)return{status:'NOT_READY',reason:'<50 closed M15'};
+ const asOf=closed[closed.length-1];const win=closed;
+ const loc=W.location(win);const snap=FS.build({candles:win,asOf:asOf.time,tf:'M15',analysis:loc,squeeze:null,news:news,instrument:instrument,dataClass:dataClass,mtf:Object.fromEntries(Object.entries(frames).map(function(t){return [t[0],{trend:t[1].bbma&&t[1].bbma.trend||null}];}))});
+ const cand=OS.predict(snap,{candles:win,analysis:loc,corpus:[],minSamples:8});
+ const gate=GS.verify(cand,snap,{shadow:true});
+ return{status:gate.status,direction:cand.direction,movementClass:cand.movementClass,regime:cand.regime.regime,heuristicScore:cand.heuristicScore,bbContext:cand.bbContext,invalidation:cand.invalidation,empirical:cand.empirical,publishable:gate.publishable,shadow:gate.shadow,drivers:gate.drivers,asOf:asOf.time,tf:'M15',newsMode:news.state};
+}
 (async()=>{
  const [r,events]=await Promise.all([P.yahoo(SYMBOL,{interval:'1m',range:'5d',timeoutMs:12000}),calendar()]);
  const s=V.validateSeries(r.candles,{timeframeMinutes:1}),clean=s.candles.filter(x=>x.valid).map(x=>({time:x.time,open:x.open,high:x.high,low:x.low,close:x.close,volume:x.volume}));
+ /* P0-B/C: the PREDICTION path uses the SAME closed-only + clean-source rule as the
+    settlement path (build-bbma-learning: x.valid && x.isClosed). The forming candle and
+    any synthetic/demo source are excluded BEFORE any model runs. */
+ const nowMs=Date.now();const stepMs=60000;
+ const closedM1=clean.filter(x=>Date.parse(x.time)+stepMs<=nowMs);
+ const dataClassGate=DC.gate(clean.length?'REAL_GC=F':'NONE'); /* P0-C: reject synthetic/demo from prediction */
+ const closedOk=closedM1.length>0&&dataClassGate.allowed;
  const frames=R.buildFrames(clean),analysis={};for(const [tf,c] of Object.entries(frames)){if(c.length<50)continue;analysis[tf]={bbma:W.location(c),squeeze:W.squeezeHistory(c),next:W.oneStepAhead(c)};}
  const news=N.proximity(events,{currencies:['USD'],preMinutes:60,releaseMinutes:5,postMinutes:120});
  for(const x of Object.values(analysis)){x.marketMode=news.state;x.next.newsState=news.state;if(news.state==='NEWS_RELEASE')x.next.confidence=Math.min(x.next.confidence,55);else if(news.state==='PRE_NEWS')x.next.confidence=Math.min(x.next.confidence,65);}
@@ -36,6 +53,9 @@ async function calendar(){try{const r=await fetch(CAL,{headers:{'User-Agent':'Mo
     carry REAL numeric features (ATR band, body/wick ratios, trend strength) and
     settlement can compare consecutive CLOSED M15 candles. 120 bars ~= 3 days;
     the builder's forming candle is included, the consumer filters to closed. */
-memoryContext:{tf:'M15',generatedAt:generatedAt,candles:(frames.M15||[]).slice(-120)}};
+memoryContext:{tf:'M15',generatedAt:generatedAt,candles:(frames.M15||[]).slice(-120)},
+ /* 1-step-ahead RESEARCH (shadow, §21): deterministic candidate + verification gate.
+    NEVER used for alert direction; settled by the exact next closed M15 later. */
+oneStep:buildOneStep(frames,news,instrument,dataClassGate.dataClass,closedOk)};
  fs.mkdirSync(path.dirname(OUT),{recursive:true});fs.writeFileSync(OUT,JSON.stringify(out,null,2));console.log('BBMA watch',SYMBOL,news.state,out.generationId,OUT,Object.keys(analysis).join(','));
 })().catch(e=>{console.error(e);process.exit(1);});
