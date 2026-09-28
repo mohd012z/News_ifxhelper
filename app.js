@@ -410,7 +410,7 @@
       .replace(/\bFOMC\b/g, "the Fed")
       .replace(/\bATR\b/g, "average true range")
       .replace(/\bDXY\b/g, "the dollar index")
-      .replace(/\bbps\b/gi, "basis points")
+      .replace(/\b(\d*)\s*bps\b/gi, "$1 basis points") // "+12bps" -> "+12 basis points" (keep the number)
       .replace(/\bBUY\b/g, "buy").replace(/\bSELL\b/g, "sell") // avoid TTS spelling out short all-caps as letters
       .replace(/~/g, "about ")
       .replace(/→|->/g, " to ")
@@ -428,6 +428,9 @@
    * closer to how a presenter actually pauses between statements than one flat monotone block. */
   function speak(text) {
     if (!voiceEnabled || !text) return;
+    /* Native path first (Android APK): WebView's Web Speech TTS is a silent
+     * no-op, so on native platforms the OS engine speaks instead. */
+    if (nativeSpeak(text)) return;
     if (!("speechSynthesis" in window)) return;
     try {
       var style = VOICE_STYLES[settings.voiceStyle] || VOICE_STYLES.presenter;
@@ -443,22 +446,76 @@
       });
     } catch (e) {}
   }
+  /* ---- Native TTS bridge (Android APK) -----------------------------------
+   * Root cause of "voice on/off not working": Android WebView EXPOSES
+   * window.speechSynthesis (so feature-detection cannot see the gap) but its
+   * implementation is a silent no-op — utterances queue and never make sound.
+   * The app therefore speaks through the OS TextToSpeech engine via the
+   * XauTts Capacitor plugin on native platforms, and keeps Web Speech for
+   * desktop/mobile browsers. All failure paths are silent+safe: if the
+   * plugin/engine is unavailable we fall back to the Web Speech path (and the
+   * toggle still reflects the user's choice). */
+  var nativeTts = { supported: false };
+  function probeNativeTts() {
+    try {
+      var C = window.Capacitor;
+      if (!C || !C.Plugins || !C.Plugins.XauTts) return;
+      var isAndroid = C.getPlatform && C.getPlatform() === 'android';
+      var isNative = C.isNativePlatform && C.isNativePlatform();
+      if (!isAndroid && !isNative) return;
+      C.Plugins.XauTts.isReady().then(function (r) {
+        nativeTts.supported = !!(r && r.ready);
+      }).catch(function () { nativeTts.supported = false; });
+    } catch (e) { nativeTts.supported = false; }
+  }
+  function nativeSpeak(text) {
+    /* Returns true if the native engine took the call (we must NOT also use
+     * Web Speech, or the line is read twice). */
+    try {
+      var C = window.Capacitor;
+      if (!C || !C.Plugins || !C.Plugins.XauTts) return false;
+      var isAndroid = C.getPlatform && C.getPlatform() === 'android';
+      var isNative = C.isNativePlatform && C.isNativePlatform();
+      if (!isAndroid && !isNative) return false;
+      var spoken = humanizeForSpeech(text);
+      if (!spoken) return false;
+      C.Plugins.XauTts.speak({ text: spoken }).catch(function () {});
+      return true;
+    } catch (e) { return false; }
+  }
   function updateVoiceBtn() {
     var btn = $("#voice-toggle"); if (!btn) return;
     btn.textContent = voiceEnabled ? "🔊 Voice on" : "🔈 Voice off";
     btn.classList.toggle("go", voiceEnabled);
   }
   function bindVoice() {
-    voiceEnabled = safeGetVoice() && ("speechSynthesis" in window);
+    /* On native (Android APK) the OS TTS plugin speaks, so the Web Speech
+     * API is NOT a prerequisite there. In browsers, Web Speech is required. */
+    var isNativeNow = (function () {
+      try {
+        var C = window.Capacitor;
+        if (!C) return false;
+        return !!(C.getPlatform && C.getPlatform() === 'android') || !!(C.isNativePlatform && C.isNativePlatform());
+      } catch (e) { return false; }
+    })();
+    var hasEngine = isNativeNow || ("speechSynthesis" in window);
+    voiceEnabled = safeGetVoice() && hasEngine;
+    probeNativeTts();
     updateVoiceBtn();
     var btn = $("#voice-toggle"); if (!btn) return;
-    if (!("speechSynthesis" in window)) { btn.title = "Speech synthesis not supported in this browser"; btn.disabled = true; return; }
+    if (!hasEngine) { btn.title = "Speech synthesis not supported on this platform"; btn.disabled = true; return; }
     refreshVoiceList();
     if ("onvoiceschanged" in window.speechSynthesis) window.speechSynthesis.onvoiceschanged = refreshVoiceList;
     if (voiceEnabled) { lastAnnouncedNext = null; lastAnnouncedAlerts = null; renderIncoming(); renderAlerts(); }
     btn.onclick = function () {
       voiceEnabled = !voiceEnabled; safeSetVoice(voiceEnabled); updateVoiceBtn();
-      if (voiceEnabled) { speak("Voice alerts on."); lastAnnouncedNext = null; lastAnnouncedAlerts = null; renderIncoming(); renderAlerts(); }
+      if (voiceEnabled) {
+        speak("Voice alerts on.");
+        /* Native engine may still be initialising on first use — the plugin
+         * retries once; nudge again shortly in case both calls landed pre-init. */
+        if (isNativeNow) setTimeout(function () { if (voiceEnabled) speak("Voice on."); }, 900);
+        lastAnnouncedNext = null; lastAnnouncedAlerts = null; renderIncoming(); renderAlerts();
+      }
     };
   }
   function populateVoiceSelect() {
@@ -472,10 +529,22 @@
   function bindVoiceSettings() {
     var sel = $("#set-voice-uri"), styleSel = $("#set-voice-style"), testBtn = $("#set-voice-test");
     if (!sel) return;
-    populateVoiceSelect();
-    sel.onchange = function () { settings.voiceURI = sel.value; safeSetSettings(settings); };
+    /* On native the OS engine's voice is used (XauTtsPlugin), not the Web
+     * Speech voice list — label the control accordingly instead of listing
+     * Web voices that won't actually be heard in the APK. */
+    var nativeNow = (function () { try { var C = window.Capacitor; if (!C) return false; return !!(C.getPlatform && C.getPlatform() === 'android') || !!(C.isNativePlatform && C.isNativePlatform()); } catch (e) { return false; } })();
+    if (nativeNow) {
+      sel.innerHTML = '<option value="">Device default (Android TTS)</option>';
+      sel.value = "";
+      sel.disabled = true;
+      if (styleSel) { styleSel.disabled = true; styleSel.title = "Preset applies to browser voice; Android uses the device engine."; }
+    } else {
+      populateVoiceSelect();
+      sel.value = settings.voiceURI || bestDefaultVoiceURI();
+      sel.onchange = function () { settings.voiceURI = sel.value; safeSetSettings(settings); };
+    }
     if (styleSel) {
-      if (!styleSel.options.length) styleSel.innerHTML = Object.keys(VOICE_STYLES).map(function (id) { return '<option value="' + id + '">' + esc(VOICE_STYLES[id].label) + "</option>"; }).join("");
+      if (!styleSel.options.length) styleSel.innerHTML = Object.keys(VOICE_STYLES).map(function (id) { return '<option value="' + id + '">' + esc(VOICE_STYLES[id].label) + '</option>'; }).join('');
       styleSel.value = settings.voiceStyle || "presenter";
       styleSel.onchange = function () { settings.voiceStyle = styleSel.value; safeSetSettings(settings); };
     }
@@ -1906,6 +1975,16 @@
     // of only updating on the next unrelated re-render (a live poll tick, a tab switch, etc).
     setInterval(function () { if ($("#incoming-list")) renderIncoming(); }, 15000);
   }
+  /* Test seam: expose the voice routing internals so a Node contract test can
+   * assert native-vs-Web-Speech selection without a browser. Not used in prod. */
+  window.__XAU_VOICE_TEST = {
+    isNative: function () { try { var C = window.Capacitor; if (!C) return false; return !!(C.getPlatform && C.getPlatform() === 'android') || !!(C.isNativePlatform && C.isNativePlatform()); } catch (e) { return false; } },
+    speak: speak,
+    nativeSpeak: nativeSpeak,
+    setEnabled: function (b) { voiceEnabled = !!b; },
+    isEnabled: function () { return voiceEnabled; },
+    humanize: humanizeForSpeech
+  };
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
   else boot();
 })();

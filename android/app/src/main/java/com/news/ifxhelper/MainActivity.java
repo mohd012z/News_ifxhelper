@@ -12,6 +12,11 @@ public class MainActivity extends BridgeActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        /* Register the in-app TTS plugin BEFORE the bridge is created.
+         * (BridgeActivity.registerPlugin adds it to the builder; load() happens
+         * in super.onCreate(). No annotation processor needed — the
+         * @CapacitorPlugin name is read at runtime.) */
+        registerPlugin(XauTtsPlugin.class);
         super.onCreate(savedInstanceState);
         pendingDeepLink = getIntent();
         routeWhenReady();
