@@ -3663,33 +3663,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-28T22:26:25.179Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T23:19:25.482Z",
+          "price": 4155,
+          "realizedPct": -0.014
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-28T22:30:25.179Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T23:19:25.482Z",
+          "price": 4155,
+          "realizedPct": -0.014
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-28T22:40:25.179Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T23:19:25.482Z",
+          "price": 4155,
+          "realizedPct": -0.014
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-09-28T22:55:25.179Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T23:19:25.482Z",
+          "price": 4155,
+          "realizedPct": -0.014
         },
         {
           "key": "H1",
@@ -3731,7 +3731,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.014,
+        "maePct": -0.014
+      }
     },
     {
       "key": "news:crypto:Japanese Yen trades cautiously as intervention risk clashes with Fed rate hike bets",
@@ -3747,33 +3752,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-28T22:26:25.179Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T23:19:25.482Z",
+          "price": 83470.12,
+          "realizedPct": 0.385
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-28T22:30:25.179Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T23:19:25.482Z",
+          "price": 83470.12,
+          "realizedPct": 0.385
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-28T22:40:25.179Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T23:19:25.482Z",
+          "price": 83470.12,
+          "realizedPct": 0.385
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-09-28T22:55:25.179Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T23:19:25.482Z",
+          "price": 83470.12,
+          "realizedPct": 0.385
         },
         {
           "key": "H1",
@@ -3815,7 +3820,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.385,
+        "maePct": 0.385
+      }
     },
     {
       "key": "news:forex:Japanese Yen trades cautiously as intervention risk clashes with Fed rate hike bets",
@@ -3831,33 +3841,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-28T22:26:25.179Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T23:19:25.482Z",
+          "price": 1.1375,
+          "realizedPct": -0.018
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-28T22:30:25.179Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T23:19:25.482Z",
+          "price": 1.1375,
+          "realizedPct": -0.018
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-28T22:40:25.179Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T23:19:25.482Z",
+          "price": 1.1375,
+          "realizedPct": -0.018
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-09-28T22:55:25.179Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T23:19:25.482Z",
+          "price": 1.1375,
+          "realizedPct": -0.018
         },
         {
           "key": "H1",
@@ -3895,6 +3905,263 @@
           "key": "MN1",
           "minutes": 43200,
           "dueAt": "2026-10-28T22:25:25.179Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.018,
+        "maePct": -0.018
+      }
+    },
+    {
+      "key": "news:gold:Pound Sterling edges higher as the BoE's deputy governors lean toward a hike",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Pound Sterling edges higher as the BoE's deputy governors lean toward a hike",
+      "url": "https://www.fxstreet.com/news/pound-sterling-edges-higher-as-the-boes-deputy-governors-lean-toward-a-hike-202609282308",
+      "impactScore": -0.23,
+      "priceAtDetect": 4155,
+      "createdAt": "2026-09-28T23:19:25.482Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-28T23:20:25.482Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-28T23:24:25.482Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-28T23:34:25.482Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-28T23:49:25.482Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-29T00:19:25.482Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-29T03:19:25.482Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-29T23:19:25.482Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-05T23:19:25.482Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-28T23:19:25.482Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:crypto:Pound Sterling edges higher as the BoE's deputy governors lean toward a hike",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Pound Sterling edges higher as the BoE's deputy governors lean toward a hike",
+      "url": "https://www.fxstreet.com/news/pound-sterling-edges-higher-as-the-boes-deputy-governors-lean-toward-a-hike-202609282308",
+      "impactScore": -0.23,
+      "priceAtDetect": 83470.12,
+      "createdAt": "2026-09-28T23:19:25.482Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-28T23:20:25.482Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-28T23:24:25.482Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-28T23:34:25.482Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-28T23:49:25.482Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-29T00:19:25.482Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-29T03:19:25.482Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-29T23:19:25.482Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-05T23:19:25.482Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-28T23:19:25.482Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:forex:Pound Sterling edges higher as the BoE's deputy governors lean toward a hike",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Pound Sterling edges higher as the BoE's deputy governors lean toward a hike",
+      "url": "https://www.fxstreet.com/news/pound-sterling-edges-higher-as-the-boes-deputy-governors-lean-toward-a-hike-202609282308",
+      "impactScore": -0.23,
+      "priceAtDetect": 1.1375,
+      "createdAt": "2026-09-28T23:19:25.482Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-28T23:20:25.482Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-28T23:24:25.482Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-28T23:34:25.482Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-28T23:49:25.482Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-29T00:19:25.482Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-29T03:19:25.482Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-29T23:19:25.482Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-05T23:19:25.482Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-28T23:19:25.482Z",
           "capturedAt": null,
           "price": null,
           "realizedPct": null
