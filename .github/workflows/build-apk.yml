@@ -46,7 +46,9 @@ jobs:
           "$SDKMANAGER" "platform-tools" "platforms;android-35" "build-tools;35.0.0"
       - name: Install dependencies
         run: npm ci
-      - name: Verify BBMA contracts
+      - name: Verify BBMA contracts (full regression suite)
+        run: npm test
+      - name: Verify APK router + runtime contract
         run: node test/bbma-apk-router-runtime.test.js
       - name: Copy web assets into www/ and sync native Android project
         run: npm run cap:sync
