@@ -56,7 +56,9 @@
     "test:signal-provenance": "node test/bbma-signal-provenance.test.js",
     "test:fastload": "node test/bbma-fastload.test.js",
     "test:instrument": "node test/bbma-instrument.test.js",
-    "test:confidence": "node test/bbma-confidence.test.js"
+    "test:confidence": "node test/bbma-confidence.test.js",
+    "test:alert-lifecycle": "node test/bbma-alert-lifecycle.test.js",
+    "test:demo-segregation": "node test/bbma-demo-segregation.test.js"
   },
   "dependencies": {
     "@capacitor/android": "^7.0.0",

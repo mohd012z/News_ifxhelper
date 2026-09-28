@@ -164,8 +164,10 @@ win.document=documentStub; win.window=win; win.globalThis=win;
   const anchors=win.__anchors(M15);
   assert.ok(anchors.some(a=>a.kind==='TOKYO'),'session anchors include TOKYO open');
   assert.ok(anchors.some(a=>a.kind==='US'),'session anchors include US open');
-  const aTok=anchors.filter(a=>a.kind==='TOKYO')[0], aUs=anchors.filter(a=>a.kind==='US')[0];
-  assert.ok(win.__V.span.M15.a===aTok.i&&win.__V.span.M15.b===aUs.i,'span endpoints are the Tokyo-1st and US-1st candle indexes');
+  const aTok=anchors.filter(a=>a.kind==='TOKYO')[0];
+  const aUs=anchors.find(a=>a.kind==='US'&&a.ts>aTok.ts); /* same-session US open (after this Tokyo 00:00) */
+  assert.ok(aUs,'window contains a US open after the Tokyo open');
+  assert.ok(win.__V.span.M15.a===aTok.i&&win.__V.span.M15.b===aUs.i,'span endpoints are the Tokyo-1st and same-session US-1st candle indexes');
 
   /* ---- span box + first-candle dots drawn ---- */
   const opsAfter=cv._ctx._ops;

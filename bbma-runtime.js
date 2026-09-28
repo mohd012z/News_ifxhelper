@@ -323,11 +323,6 @@ function publish(){
      consumer can silently treat them as the same instrument. */
   out.instrument= (typeof BBMAInstrument!=='undefined')?BBMAInstrument.spotXau({source:_feed.provider==='stream'||_feed.provider==='poll'?'twelvedata':(_backfill.liveOverride?'twelvedata':'none')})
     :{display:'XAU/USD',analysisSymbol:'XAUUSD',providerSymbol:'XAU/USD',asset:'GOLD',marketType:'SPOT',proxyFor:null,source:'twelvedata'};
-  /* /calculate: evidence-weighted confidence (NOT an arbitrary number). The
-     hard rule — synthetic>0 / stale / continuityBroken / instrumentMismatch /
-     requiredEvidenceMissing => CONFIRMABLE prohibited — is enforced here so the
-     UI + publisher can never present a prohibited snapshot as confirmable. */
-  out.confidence= (typeof BBMACConfidence!=='undefined')?BBMACConfidence.fromSnapshot(out):{score:null,confirmable:false,verdict:'WAIT',prohibitions:['EVIDENCE_ENGINE_UNAVAILABLE'],note:'lib/bbma-confidence.js not loaded'};
   /* Canonical feed state + metrics (single derivation; UI only renders). */
   var _lastMs=_lastTickTimeMs();
   var _tickAge=_lastMs!=null?Math.max(0,now-_lastMs):null;
@@ -357,6 +352,25 @@ function publish(){
     gapDetected:_feed.gapDetected,
     backfillRequired:!hasTicks
   };
+  /* /calculate: evidence-weighted confidence (NOT an arbitrary number). The
+     hard rule — synthetic>0 / stale / continuityBroken / instrumentMismatch /
+     requiredEvidenceMissing => CONFIRMABLE prohibited — is enforced here so the
+     UI + publisher can never present a prohibited snapshot as confirmable.
+     (Computed AFTER out.feed exists, so latencyMs feeds EVIDENCE_COMPLETE.) */
+  out.confidence= (typeof BBMACConfidence!=='undefined')?BBMACConfidence.fromSnapshot(out):{score:null,confirmable:false,verdict:'WAIT',prohibitions:['EVIDENCE_ENGINE_UNAVAILABLE'],note:'lib/bbma-confidence.js not loaded'};
+  /* /alerts §6 + §7-P2: ONE canonical lifecycle evaluated here, read by BOTH the
+     dashboard UI and the Telegram publisher. This is the single authority —
+     neither consumer re-derives stage/payload, so they cannot diverge. */
+  if(typeof BBMALifecycle!=='undefined'){
+    out.lifecycle=BBMALifecycle.evaluateStage({
+      signalPattern:out.techAlerts&&out.techAlerts[0]?out.techAlerts[0].pattern:null,
+      signalDirection:out.techAlerts&&out.techAlerts[0]?out.techAlerts[0].direction:null,
+      source:out.source, fresh:out.fresh, freshness:out.freshness,
+      mtf:out.mtf, newsState:out.event?out.event.state:null,
+      feed:out.feed, instrument:out.instrument, confidence:out.confidence,
+      externalAlert:out.alerts&&out.alerts.length>0
+    });
+  }
 
   var w=typeof window!=='undefined'?window:globalThis;
   w.BBMA_RUNTIME=out;

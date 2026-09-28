@@ -7,11 +7,15 @@ const FILES=['index.html','trade-plan.html','app.js','bbma-runtime.js','bbma-das
   'xauusd-data.js','atr.js','news-auto.js','macro-auto.js','data-manifest.json',
   'manifest.webmanifest','sw.js','pwa.js'];
 const DIRS=['icons','lib'];
+/* lib/bbma-demo.js is DEMO/INITIALIZING-only (synthetic 2658.50 sine bootstrap).
+   It must NEVER ship in the production bundle/APK — the evidence path must not
+   be able to reach synthetic data, so exclude it from the lib copy. */
+const LIB_EXCLUDE=new Set(['bbma-demo.js']);
 fs.rmSync(out,{recursive:true,force:true}); fs.mkdirSync(out,{recursive:true});
 let n=0;
 for(const f of FILES){const src=path.join(root,f);if(!fs.existsSync(src)){console.log('skip (missing): '+f);continue;}fs.copyFileSync(src,path.join(out,f));n++;}
-function copyDir(src,dst){fs.mkdirSync(dst,{recursive:true});for(const ent of fs.readdirSync(src,{withFileTypes:true})){const s=path.join(src,ent.name),d=path.join(dst,ent.name);if(ent.isDirectory())copyDir(s,d);else{fs.copyFileSync(s,d);n++;}}}
-for(const d of DIRS){const src=path.join(root,d);if(fs.existsSync(src))copyDir(src,path.join(out,d));}
+function copyDir(src,dst,skip){fs.mkdirSync(dst,{recursive:true});for(const ent of fs.readdirSync(src,{withFileTypes:true})){if(skip&&ent.isFile()&&skip.has(ent.name)){continue;}const s=path.join(src,ent.name),d=path.join(dst,ent.name);if(ent.isDirectory())copyDir(s,d);else{fs.copyFileSync(s,d);n++;}}}
+for(const d of DIRS){const src=path.join(root,d);if(fs.existsSync(src))copyDir(src,path.join(out,d),d==='lib'?LIB_EXCLUDE:null);}
 const indexOut=path.join(out,'index.html');if(fs.existsSync(indexOut)){let html=fs.readFileSync(indexOut,'utf8');const needle='<script src="./app.js"></script>';if(!html.includes(needle))throw new Error('prepare-web: app.js script marker missing');let extra='';['bbma-runtime.js','bbma-dashboard-ui.js','bbma-router-fix.js','bbma-link.js'].forEach(function(f){if(!html.includes(f))extra+='\n  <script src="./'+f+'"></script>';});html=html.replace(needle,needle+extra);fs.writeFileSync(indexOut,html);}
 console.log('www/ ready with '+n+' files -> '+out);
 console.log('Bundled data is fallback. data-manifest.json identifies exactly what this APK contains.');

@@ -1,6 +1,6 @@
 'use strict';
 const fs=require('fs'),path=require('path'),crypto=require('crypto');
-const P=require('./lib/market-provider'),V=require('./lib/ohlc-validator'),R=require('./lib/ohlc-resampler'),W=require('./lib/bbma-candle-watch'),D=require('./lib/bbma-dashboard'),N=require('./lib/news-proximity'),I=require('./lib/instrument'),C=require('./lib/bbma-confidence');
+const P=require('./lib/market-provider'),V=require('./lib/ohlc-validator'),R=require('./lib/ohlc-resampler'),W=require('./lib/bbma-candle-watch'),D=require('./lib/bbma-dashboard'),N=require('./lib/news-proximity'),I=require('./lib/instrument'),C=require('./lib/bbma-confidence'),L=require('./lib/alert-lifecycle');
 const SYMBOL=process.env.BBMA_SYMBOL||'GC=F',OUT=process.env.BBMA_OUT||path.join('data','bbma-watch.json');
 const CAL='https://nfs.faireconomy.media/ff_calendar_thisweek.json';
 function generationId(symbol,candles,events){const last=candles.at(-1);const basis=JSON.stringify({symbol,last:last&&last.time,count:candles.length,events:(events||[]).slice(0,20).map(e=>[e.date||e.scheduledAt||e.time,e.title||e.event,e.actual,e.forecast])});return 'bbma-'+crypto.createHash('sha256').update(basis).digest('hex').slice(0,20);}
@@ -31,6 +31,6 @@ async function calendar(){try{const r=await fetch(CAL,{headers:{'User-Agent':'Mo
    feed: {droppedTicks:0,gapDetected:s.gaps.length>0,outOfOrderTicks:0,latencyMs:r.httpMs||null},
    instrument: instrument
  });
- const out={schemaVersion:4,generationId:generationId(SYMBOL,clean,events),generatedAt,sourceGeneratedAt:generatedAt,symbol:SYMBOL,provider:r.provider,instrument:instrument,confidence:confidence,httpMs:r.httpMs,source:{candles:r.candles.length,valid:clean.length,gaps:s.gaps.length,duplicates:s.duplicates.length},last:clean.length?{time:clean.at(-1).time,close:clean.at(-1).close,bar:'M1'}:null,news,analysis,dashboard:dash};
+ const out={schemaVersion:4,generationId:generationId(SYMBOL,clean,events),generatedAt,sourceGeneratedAt:generatedAt,symbol:SYMBOL,provider:r.provider,instrument:instrument,confidence:confidence,lifecycle:L.evaluateStage({source:clean.length?'REAL_GC=F':'NONE',fresh:true,freshness:'FRESH_SNAPSHOT',mtf:mtfView,newsState:news.state,feed:{droppedTicks:0,gapDetected:s.gaps.length>0,outOfOrderTicks:0,latencyMs:r.httpMs||null},instrument:instrument,confidence:confidence,externalAlert:false}),httpMs:r.httpMs,source:{candles:r.candles.length,valid:clean.length,gaps:s.gaps.length,duplicates:s.duplicates.length},last:clean.length?{time:clean.at(-1).time,close:clean.at(-1).close,bar:'M1'}:null,news,analysis,dashboard:dash};
  fs.mkdirSync(path.dirname(OUT),{recursive:true});fs.writeFileSync(OUT,JSON.stringify(out,null,2));console.log('BBMA watch',SYMBOL,news.state,out.generationId,OUT,Object.keys(analysis).join(','));
 })().catch(e=>{console.error(e);process.exit(1);});
