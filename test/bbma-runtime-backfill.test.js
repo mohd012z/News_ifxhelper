@@ -22,11 +22,13 @@ function ohlcSeries(interval,tf,count){
   return out;
 }
 const TFS={M5:300000,M15:900000,M30:1800000,H1:3600000,H4:14400000,D1:86400000,W1:604800000,MN1:2592000000};
-function makeWindow({key=true,fetchFails=false,malformed=false,withFetch=true}={}){
+function makeWindow({key=true,fetchFails=false,malformed=false,withFetch=true,ratelimitBefore=null,paceMs=20}={}){
   const win={MARKET_DATA:key?{live:{twelveDataApiKey:'test-key-123',twelveDataHost:'https://api.twelvedata.com'}}:{live:{}}};
   win.addEventListener=function(){};
   win.dispatchEvent=function(){};
   win.setInterval=function(fn,ms){const t=setTimeout(()=>{},1<<30);return t;}; /* inert */
+  win.__bbmaBackfillPaceMs=2; /* tests run the backfill fast (real app paces 10s) */
+  win.__bbmaBackfillRetryMs=2;
   if(withFetch){
     let calls=0;
     const TFMS={M5:300000,M15:900000,M30:1800000,H1:3600000,H4:14400000,D1:86400000,W1:604800000,MN1:2592000000};
@@ -37,6 +39,9 @@ function makeWindow({key=true,fetchFails=false,malformed=false,withFetch=true}={
       const rev={'5min':'M5','15min':'M15','30min':'M30','1h':'H1','4h':'H4','1day':'D1','1week':'W1','1month':'MN1'};
       const tf=rev[iv]||'M5';
       const step=TFMS[tf];
+      if(ratelimitBefore!=null&&calls>ratelimitBefore){
+        return {status:429,ok:false,json:async()=>({message:'rate limit'})};
+      }
       if(!key)throw new Error('no key');
       if(fetchFails)throw new Error('network down');
       const count=40;
@@ -49,7 +54,7 @@ function makeWindow({key=true,fetchFails=false,malformed=false,withFetch=true}={
       }
       if(malformed&&vals.length)vals[2]={datetime:vals[2].datetime,open:'NaN',high:'1',low:'2',close:'3'};
       vals.reverse(); /* newest first, like the real API */
-      return {ok:true,json:async()=>({values:vals})};
+      return {status:200,ok:true,json:async()=>({values:vals})};
     };
     win.__fetchCalls=function(){return calls;};
   }
@@ -122,6 +127,18 @@ rt5.ohlc.M5.forEach(function(c){
   assert(c.high>=Math.max(c.open,c.close)&&c.low<=Math.min(c.open,c.close),'stored OHLC must be internally consistent');
 });
 assert(rt5.ohlc.M5.length>0,'valid bars must still backfill around the malformed one');
+
+/* 5b) rate limit: early TFs backfill, later ones 429 (persistent) -> skipped
+ *     honestly, earlier TFs keep their data, error is recorded. */
+const w5b=makeWindow({ratelimitBefore:2});
+evalRuntime(w5b);
+await sleep(200);
+const rt5b=w5b.BBMA_RUNTIME;
+assert(rt5b.ohlc.H1.length>0,'H1 (first) must backfill before the limit');
+assert(rt5b.ohlc.M5.length>0,'M5 (second) must backfill before the limit');
+assert((rt5b.ohlc.M15||[]).length===0,'M15 hit the 429 -> must stay empty (honest)');
+assert(rt5b.backfill.errors.some(x=>/rate limit/i.test(x)),'429 must be recorded in backfill.errors');
+assert.strictEqual(rt5b.publishable,false);
 
 /* 6) no fetch (bare window, Node poster path) -> no backfill, no crash.
  * In Node the runtime's `var w = window || globalThis` IS the real global, so

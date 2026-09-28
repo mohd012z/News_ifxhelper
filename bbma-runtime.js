@@ -30,9 +30,15 @@
  */
 (function(){'use strict';
 var TFS={M5:300000,M15:900000,M30:1800000,H1:3600000,H4:14400000,D1:86400000,W1:604800000,MN1:2592000000};
-var TF_INTERVAL={M5:'5min',M15:'15min',M30:'30min',H1:'1h',H4:'4h',D1:'1day',W1:'1week',MN1:'1month'};
+var TF_INTERVAL={H1:'1h',M5:'5min',M15:'15min',M30:'30min',H4:'4h',D1:'1day',W1:'1week',MN1:'1month'};
+/* ORDER = call order: the dashboard's default view (H1) fills FIRST, then the
+ * rest. One REST call per timeframe; the free tier allows 8 credits/MINUTE, so
+ * the default pace is 10s between calls (8 calls over ~70s ≈ 7 credits/min).
+ * A 429 (limit hit) backs off 65s and retries the timeframe once. Tests
+ * override the pace via window.__bbmaBackfillPaceMs (e.g. 20ms). */
 var BACKFILL_BARS=240;   /* real bars kept per TF (M5=2d ... MN1=20y) */
-var BACKFILL_DELAY_MS=250; /* gentle pacing: free tier = 8 REST calls/min */
+var BACKFILL_PACE_MS=10000;   /* 8 calls over ~70s keeps us well under 8 credits/min */
+var BACKFILL_429_RETRY_MS=65000;
 var FRESH_WINDOW_MS=5*60*1000;   /* publishable while a real tick landed < 5 min ago */
 var STALE_AFTER_MS=10*60*1000;   /* surface STALE after 10 min without a tick */
 var frames={},lastPrice=null,lastAt=null,max=240;
@@ -75,6 +81,8 @@ function backfillHistory(){
   if(!key||!/^https:\/\/api\.twelvedata\.com$/i.test(liveCfg.twelveDataHost||'https://api.twelvedata.com'))return Promise.resolve(null);
   _backfillPromise=(async function(){
     var tfs=Object.keys(TF_INTERVAL);
+    var pace=(w.__bbmaBackfillPaceMs!=null)?w.__bbmaBackfillPaceMs:BACKFILL_PACE_MS;
+    var retryMs=(w.__bbmaBackfillRetryMs!=null)?w.__bbmaBackfillRetryMs:BACKFILL_429_RETRY_MS;
     for(var i=0;i<tfs.length;i++){
       var tf=tfs[i];
       try{
@@ -83,7 +91,21 @@ function backfillHistory(){
         var timer=ctrl?setTimeout(function(){ctrl.abort();},15000):null;
         var resp=await w.fetch(url,{signal:ctrl?ctrl.signal:undefined,headers:{'User-Agent':'XAU-Desk-BBMA/1.0'}});
         if(timer)clearTimeout(timer);
-        if(!resp.ok)throw new Error('HTTP '+resp.status);
+        if(resp.status===429){
+          /* Free tier = 8 credits/min: we paced to stay under, but the key may
+           * be shared. Wait 65s and retry THIS timeframe once; if it 429s
+           * again, record it and move on (that TF stays empty — honest). */
+          await new Promise(function(r){setTimeout(r,retryMs);});
+          var ctrl2=(typeof AbortController!=='undefined')?new AbortController():null;
+          var timer2=ctrl2?setTimeout(function(){ctrl2.abort();},15000):null;
+          resp=await w.fetch(url,{signal:ctrl2?ctrl2.signal:undefined,headers:{'User-Agent':'XAU-Desk-BBMA/1.0'}});
+          if(timer2)clearTimeout(timer2);
+          if(resp.status===429||!resp.ok){
+            _backfill.errors.push(tf+': rate limit (HTTP 429) — skipped, retry on next cold load');
+            _backfill.at=new Date().toISOString();
+            continue;
+          }
+        }
         var j=await resp.json();
         if(!j||!Array.isArray(j.values))throw new Error('no values');
         var bars=[];
@@ -125,7 +147,7 @@ function backfillHistory(){
         _backfill.errors.push(tf+': '+(e&&e.message||e));
         _backfill.at=new Date().toISOString();
       }
-      if(i<tfs.length-1)await new Promise(function(r){setTimeout(r,BACKFILL_DELAY_MS);});
+      if(i<tfs.length-1)await new Promise(function(r){setTimeout(r,pace);});
     }
     return _backfill;
   })();
