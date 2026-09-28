@@ -38,6 +38,7 @@ public class XauTtsPlugin extends Plugin implements TextToSpeech.OnInitListener 
     private boolean ready = false;
     private boolean initFailed = false;
     private volatile boolean initStarted = false;
+    private volatile PluginCall pending = null;
 
     @Override
     public void load() {
@@ -71,8 +72,14 @@ public class XauTtsPlugin extends Plugin implements TextToSpeech.OnInitListener 
             if (lang == TextToSpeech.LANG_MISSING_DATA || lang == TextToSpeech.LANG_NOT_SUPPORTED) {
                 tts.setLanguage(Locale.getDefault());
             }
+            final PluginCall queued = pending;
+            pending = null;
+            if (queued != null) speak(queued);
         } else {
             initFailed = true;
+            final PluginCall queued = pending;
+            pending = null;
+            if (queued != null) queued.reject("no text-to-speech engine on this device");
         }
     }
 
@@ -91,7 +98,10 @@ public class XauTtsPlugin extends Plugin implements TextToSpeech.OnInitListener 
             return;
         }
         if (initFailed || tts == null) {
-            call.reject("tts unavailable");
+            // Engine still constructing (load() hops to the main thread): queue
+            // this call and fire it from onInit, instead of rejecting the
+            // user's very first "voice on" confirmation.
+            pending = call;
             return;
         }
         if (!ready) {

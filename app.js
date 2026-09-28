@@ -455,18 +455,42 @@
    * desktop/mobile browsers. All failure paths are silent+safe: if the
    * plugin/engine is unavailable we fall back to the Web Speech path (and the
    * toggle still reflects the user's choice). */
-  var nativeTts = { supported: false };
+  var nativeTts = { supported: false, status: 'pending' };
   function probeNativeTts() {
+    var st = (function () {
+      try {
+        var C = window.Capacitor;
+        if (!C || !C.Plugins || !C.Plugins.XauTts) return 'no-plugin';
+        var isAndroid = C.getPlatform && C.getPlatform() === 'android';
+        var isNative = C.isNativePlatform && C.isNativePlatform();
+        if (!isAndroid && !isNative) return 'browser';
+        return 'pending';
+      } catch (e) { return 'no-plugin'; }
+    })();
+    if (st === 'browser') { nativeTts.status = 'browser'; updateVoiceStatus(); return; }
+    if (st === 'no-plugin') { nativeTts.status = 'no-plugin'; updateVoiceStatus(); return; }
+    nativeTts.status = 'pending';
     try {
-      var C = window.Capacitor;
-      if (!C || !C.Plugins || !C.Plugins.XauTts) return;
-      var isAndroid = C.getPlatform && C.getPlatform() === 'android';
-      var isNative = C.isNativePlatform && C.isNativePlatform();
-      if (!isAndroid && !isNative) return;
-      C.Plugins.XauTts.isReady().then(function (r) {
+      window.Capacitor.Plugins.XauTts.isReady().then(function (r) {
         nativeTts.supported = !!(r && r.ready);
-      }).catch(function () { nativeTts.supported = false; });
-    } catch (e) { nativeTts.supported = false; }
+        nativeTts.status = nativeTts.supported ? 'ready' : 'no-engine';
+        updateVoiceStatus();
+      }).catch(function () { nativeTts.status = 'no-engine'; updateVoiceStatus(); });
+    } catch (e) { nativeTts.status = 'no-engine'; updateVoiceStatus(); }
+  }
+  function updateVoiceStatus() {
+    var el = $("#set-voice-status"); if (!el) return;
+    var map = {
+      'browser': ['Browser TTS', ''],
+      'ready': ['Native TTS ready', 'go'],
+      'pending': ['TTS starting…', ''],
+      'no-engine': ['No TTS engine', 'stop'],
+      'no-plugin': ['TTS bridge missing', 'stop']
+    };
+    var m = map[nativeTts.status] || map['pending'];
+    el.textContent = m[0];
+    el.classList.toggle('go', m[1] === 'go');
+    el.classList.toggle('stop', m[1] === 'stop');
   }
   function nativeSpeak(text) {
     /* Returns true if the native engine took the call (we must NOT also use
@@ -479,7 +503,14 @@
       if (!isAndroid && !isNative) return false;
       var spoken = humanizeForSpeech(text);
       if (!spoken) return false;
-      C.Plugins.XauTts.speak({ text: spoken }).catch(function () {});
+      C.Plugins.XauTts.speak({ text: spoken }).catch(function (err) {
+        nativeTts.status = 'no-engine';
+        updateVoiceStatus();
+        var msg = String((err && err.message) || err);
+        if (/not ready|unavailable|no text-to-speech/i.test(msg)) {
+          showToast("No TTS engine on this device. Enable 'Text-to-speech' in Android system settings (Settings → System → Languages → Text-to-speech output), then reopen the app.", "Voice");
+        }
+      });
       return true;
     } catch (e) { return false; }
   }
@@ -549,9 +580,14 @@
       styleSel.onchange = function () { settings.voiceStyle = styleSel.value; safeSetSettings(settings); };
     }
     if (testBtn) testBtn.onclick = function () {
+      probeNativeTts();
       var was = voiceEnabled; voiceEnabled = true;
       speak("Hi, this is your desk assistant. This is how I'll sound reading your alerts.");
       voiceEnabled = was;
+      if (nativeTts.status === 'no-engine') {
+        testBtn.textContent = "No TTS engine found";
+        setTimeout(function () { testBtn.textContent = "Preview voice"; }, 2500);
+      }
     };
   }
 
@@ -1775,6 +1811,22 @@
       if (p.crypto.BTC) updateCryptoHero(p.crypto.BTC, "BTC");
       if (p.crypto.ETH) updateCryptoHero(p.crypto.ETH, "ETH");
     }
+    /* The 5s REST poll IS the realtime path for metals in the APK: gold-api
+     * updates XAU every few seconds. Previously only the Twelve Data WS
+     * callback updated the gold hero / BBMA runtime, so if the WS was down
+     * (or never connected) the poll kept running but the price LOOKED frozen
+     * — the user's "not live" report. Feed every polled metal into the hero
+     * and the BBMA runtime too (WS still wins when both are alive: it arrives
+     * more often and both are just the same ingest pipeline). */
+    if (p.metals) {
+      Object.keys(p.metals).forEach(function (m) {
+        var px = p.metals[m];
+        if (px != null && String(m).indexOf("XAU") === 0) {
+          updateMetalHero(px, m, "poll");
+          if (window.BBMARuntime && px) window.BBMARuntime.ingest(px, new Date(p.at));
+        }
+      });
+    }
     var note = $("#live-note");
     if (note) note.textContent = "Last poll " + fmtClock(p.at) + " \u00b7 " + changed + " FX pairs refreshed" + (p.crypto ? " \u00b7 crypto updated" : "") + ".";
     lastTick = p;
@@ -1834,17 +1886,19 @@
       $("#k-spot-sub").innerHTML = '<span class="' + (pc >= 0 ? "good" : "bad") + '">' + (pc >= 0 ? "+" : "") + pc.toFixed(3) + '%</span> since connect';
     }
   }
-  function updateMetalHero(px, sym) {
+  function updateMetalHero(px, sym, src) {
     var tab = D.tabs.filter(function (t) { return t.id === "gold"; })[0];
-    if (!tab || sym.indexOf("XAU") === -1) return;
+    if (!tab || !px || String(sym).indexOf("XAU") === -1) return;
     tab.price.spot = px;
+    lastMetalSrc = src || "live";
     if (activeId === "gold") {
       $("#k-spot").textContent = money(px);
       if (firstPrices.__xau == null) firstPrices.__xau = px;
       var pc = ((px - firstPrices.__xau) / firstPrices.__xau) * 100;
-      $("#k-spot-sub").innerHTML = '<span class="' + (pc >= 0 ? "good" : "bad") + '">' + (pc >= 0 ? "+" : "") + pc.toFixed(3) + '%</span> live \u00b7 real-time stream';
+      $("#k-spot-sub").innerHTML = '<span class="' + (pc >= 0 ? "good" : "bad") + '">' + (pc >= 0 ? "+" : "") + pc.toFixed(3) + '%</span> live \u00b7 ' + (lastMetalSrc === "stream" ? "real-time stream" : "polled every " + ((D.live || {}).intervalSec || 5) + "s");
     }
   }
+  var lastMetalSrc = "snapshot";
   function initLive() {
     var cfg = D.live || {};
     var note = $("#live-note");
@@ -1858,7 +1912,11 @@
     window.LiveFeed.start({ intervalSec: cfg.intervalSec || 5, fxEndpoint: cfg.fxEndpoint, cryptoEndpoint: cfg.cryptoEndpoint, metals: cfg.metals }, onTick, onStatus);
     if (cfg.twelveDataApiKey && cfg.twelveDataSymbols && cfg.twelveDataSymbols.length) {
       window.LiveFeed.streamTwelveData(cfg.twelveDataApiKey, cfg.twelveDataSymbols, function (q) {
-        updateMetalHero(q.price, q.symbol);
+        /* WS pushes lastMetals["XAU/USD"] inside LiveFeed; mirror it under the
+         * same key the REST poll uses ("XAU") so one symbol = one history. */
+        var mk = String(q.symbol).replace(/\/USD$/, "");
+        try { if (window.LiveFeed && window.LiveFeed.prices) { var pr = window.LiveFeed.prices(); if (pr.metals) pr.metals[mk] = q.price; } } catch (e) {}
+        updateMetalHero(q.price, q.symbol, "stream");
         var n = $("#live-note"); if (n) n.textContent = "Realtime " + q.symbol + " " + money(q.price) + " \u00b7 tick @ " + fmtClock(new Date());
         renderTape(lastTick || {});
         if (activeId === "gold") renderPairs();
