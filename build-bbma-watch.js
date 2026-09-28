@@ -31,6 +31,11 @@ async function calendar(){try{const r=await fetch(CAL,{headers:{'User-Agent':'Mo
    feed: {droppedTicks:0,gapDetected:s.gaps.length>0,outOfOrderTicks:0,latencyMs:r.httpMs||null},
    instrument: instrument
  });
- const out={schemaVersion:4,generationId:generationId(SYMBOL,clean,events),generatedAt,sourceGeneratedAt:generatedAt,symbol:SYMBOL,provider:r.provider,instrument:instrument,confidence:confidence,lifecycle:L.evaluateStage({source:clean.length?'REAL_GC=F':'NONE',fresh:true,freshness:'FRESH_SNAPSHOT',mtf:mtfView,newsState:news.state,feed:{droppedTicks:0,gapDetected:s.gaps.length>0,outOfOrderTicks:0,latencyMs:r.httpMs||null},instrument:instrument,confidence:confidence,externalAlert:false}),httpMs:r.httpMs,source:{candles:r.candles.length,valid:clean.length,gaps:s.gaps.length,duplicates:s.duplicates.length},last:clean.length?{time:clean.at(-1).time,close:clean.at(-1).close,bar:'M1'}:null,news,analysis,dashboard:dash};
+ const out={schemaVersion:4,generationId:generationId(SYMBOL,clean,events),generatedAt,sourceGeneratedAt:generatedAt,symbol:SYMBOL,provider:r.provider,instrument:instrument,confidence:confidence,lifecycle:L.evaluateStage({source:clean.length?'REAL_GC=F':'NONE',fresh:true,freshness:'FRESH_SNAPSHOT',mtf:mtfView,newsState:news.state,feed:{droppedTicks:0,gapDetected:s.gaps.length>0,outOfOrderTicks:0,latencyMs:r.httpMs||null},instrument:instrument,confidence:confidence,externalAlert:false}),httpMs:r.httpMs,source:{candles:r.candles.length,valid:clean.length,gaps:s.gaps.length,duplicates:s.duplicates.length},last:clean.length?{time:clean.at(-1).time,close:clean.at(-1).close,bar:'M1'}:null,news,analysis,dashboard:dash,
+ /* Memory Brain (spec /mindbrains): compact M15 candle history so episodes can
+    carry REAL numeric features (ATR band, body/wick ratios, trend strength) and
+    settlement can compare consecutive CLOSED M15 candles. 120 bars ~= 3 days;
+    the builder's forming candle is included, the consumer filters to closed. */
+memoryContext:{tf:'M15',generatedAt:generatedAt,candles:(frames.M15||[]).slice(-120)}};
  fs.mkdirSync(path.dirname(OUT),{recursive:true});fs.writeFileSync(OUT,JSON.stringify(out,null,2));console.log('BBMA watch',SYMBOL,news.state,out.generationId,OUT,Object.keys(analysis).join(','));
 })().catch(e=>{console.error(e);process.exit(1);});

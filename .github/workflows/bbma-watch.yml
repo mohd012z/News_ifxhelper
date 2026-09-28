@@ -28,18 +28,25 @@ jobs:
       - name: Validate generated snapshot
         run: |
           node -e "const fs=require('fs');const x=JSON.parse(fs.readFileSync('data/bbma-watch.json'));if(!x.generatedAt||!x.symbol||!x.analysis||!x.dashboard)throw Error('invalid BBMA snapshot');console.log('snapshot OK',x.symbol,x.news&&x.news.state,Object.keys(x.analysis));"
+      - name: Learn from snapshot (Memory Brain)
+        # Append-only ledger + value-scored episodes + settle the prior
+        # generation against this snapshot's last M15 candle. Real data only.
+        run: node tools/bbma-memory.js
       - name: Commit changed snapshot
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add data/bbma-watch.json
+          git add memory/ 2>/dev/null || true
           # `git diff --quiet` (worktree vs index) never sees a file that is
           # staged but absent from HEAD — so the very first build silently said
           # "no change" and the snapshot was never committed. Compare the
           # STAGED blob against HEAD instead: identical -> skip, otherwise
-          # (new file OR changed content) -> commit and push.
-          if git diff --cached --quiet -- data/bbma-watch.json; then
-            echo 'No BBMA snapshot change'
+          # (new file OR changed content) -> commit and push. The memory
+          # brain's committed artifacts (reports/patterns/READMEs) count too,
+          # so a memory-only change is still persisted.
+          if git diff --cached --quiet -- data/bbma-watch.json memory/; then
+            echo 'No BBMA snapshot or memory change'
             exit 0
           fi
           git commit -m 'data: refresh BBMA candle watch'
