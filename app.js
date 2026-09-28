@@ -487,7 +487,7 @@
   }
 
   /* ---- settings: accent/font/size/profile + notification toggles, all local to this device ---- */
-  var DEFAULT_SETTINGS = { profile: "", accent: "#e2b04a", font: "", fontSize: "1", notifPopup: false, notifOS: false, defaultTab: "", accountCcy: "USD", lotSize: 1, riskPct: 1, showAuto: true, compact: false, aiMode: "offline", aiProvider: "groq", aiKey: "", aiModel: "", remoteUrl: "https://raw.githubusercontent.com/mohd012z/News_ifxhelper/main/", remoteMin: "15", voiceURI: "", voiceStyle: "presenter" };
+  var DEFAULT_SETTINGS = { profile: "", accent: "#e2b04a", font: "", fontSize: "1", notifPopup: false, notifOS: false, defaultTab: "", accountCcy: "USD", lotSize: 1, riskPct: 1, showAuto: true, compact: false, aiMode: "offline", aiProvider: "groq", aiKey: "", aiModel: "", remoteUrl: "https://gentle-violet-4a79.ifxhelper.workers.dev/", remoteMin: "15", voiceURI: "", voiceStyle: "presenter" };
   var safeGetSettings = function () {
     try { var s = JSON.parse(localStorage.getItem("xau-settings") || "{}"); var out = {}; for (var k in DEFAULT_SETTINGS) out[k] = (s[k] !== undefined ? s[k] : DEFAULT_SETTINGS[k]); return out; }
     catch (e) { var d = {}; for (var k2 in DEFAULT_SETTINGS) d[k2] = DEFAULT_SETTINGS[k2]; return d; }
@@ -648,7 +648,9 @@
     var started = new Date().toISOString();
     return fetchText(b + "data-manifest.json").then(function (txt) {
       var manifest = JSON.parse(txt);
-      if (!manifest || manifest.schemaVersion !== 1 || !manifest.generatedAt) throw new Error("Invalid data manifest");
+      /* Manifest schema has moved 1 -> 3 (lineage + freshness policy). Accept the
+       * current v3; the per-file sha256 + shape validation below is the real gate. */
+      if (!manifest || !manifest.generatedAt || typeof manifest.schemaVersion !== 'number' || manifest.schemaVersion < 1 || manifest.schemaVersion > 3) throw new Error("Invalid data manifest");
       return Promise.all([
         validatedRemoteFile(b, manifest, "xauusd-data.js"),
         validatedRemoteFile(b, manifest, "news-auto.js")
