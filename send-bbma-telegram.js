@@ -150,6 +150,8 @@ function boxDataFromWatch(watch, Signal = require('./lib/bbma-alert-signal')) {
     source: `data/bbma-watch.json (${watch.symbol} · ${watch.provider || 'yahoo'} · snapshot ${mytFromIso(watch.generatedAt)} · ${Math.round(ageMs / 60000)} min old)`,
     price: price,
     priceNote: 'GC=F last close (futures proxy, not spot)',
+    instrument: watch.instrument || null,
+    confidence: watch.confidence || null,
     alignment: aligned,
     signal: res.signal,
     summary: `${aligned.bullish} of ${aligned.total} timeframes UP · ${aligned.bearish} DOWN (signal ${res.signal})`,
@@ -210,7 +212,8 @@ function formatBbmaAlertBox(d) {
   const box = [
     `📊 <b>XAU/USD BBMA ALERT COMMAND</b> ${dirEmoji}`,
     `━━━━━━━━━━━━━━━━━━━━━━`,
-    `📍 <b>Instrument:</b> XAU/USD (GC=F last close: <b>$${esc(d.price.toFixed(2))}</b> — ${esc(d.priceNote || '')})`,
+    `📍 <b>Instrument:</b> ${esc(d.instrument ? d.instrument.display : 'XAU/USD')} — ${esc(d.instrument && d.instrument.isProxy ? (d.instrument.providerSymbol+' ('+d.instrument.marketType.toLowerCase()+') proxy, not direct spot') : 'direct spot feed')} (last close: <b>$${esc(d.price.toFixed(2))}</b> — ${esc(d.priceNote || '')})`,
+    d.confidence ? `🧮 <b>Evidence score:</b> ${esc(d.confidence.score)} / 100 · verdict <b>${esc(d.confidence.verdict)}</b>${d.confidence.prohibitions && d.confidence.prohibitions.length ? ' · <b>prohibited:</b> '+esc(d.confidence.prohibitions.join(', ')) : ''}` : null,
     `⚡ <b>MTF Alignment:</b> <b>${esc(d.alignment.bullish)} UP / ${esc(d.alignment.bearish)} DOWN of ${esc(d.alignment.total)} timeframes</b> · <b>${esc(d.signal)}</b>`,
     `🕒 <b>Time:</b> <code>${nowMyt()} (UTC+8)</code> · data: ${esc(d.source)}`,
     ``,

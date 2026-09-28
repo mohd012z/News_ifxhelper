@@ -318,6 +318,16 @@ function publish(){
    * from out.alerts: publishability (send-bbma-telegram.js) depends on
    * out.alerts, which stays externally-supplied only. */
   out.techAlerts=technicalAlerts(out.frames);
+  /* /realtime: instrument provenance — the live runtime is a SPOT XAU/USD feed
+     (Twelve Data), NOT the CI's GC=F futures proxy. Surfaced explicitly so no
+     consumer can silently treat them as the same instrument. */
+  out.instrument= (typeof BBMAInstrument!=='undefined')?BBMAInstrument.spotXau({source:_feed.provider==='stream'||_feed.provider==='poll'?'twelvedata':(_backfill.liveOverride?'twelvedata':'none')})
+    :{display:'XAU/USD',analysisSymbol:'XAUUSD',providerSymbol:'XAU/USD',asset:'GOLD',marketType:'SPOT',proxyFor:null,source:'twelvedata'};
+  /* /calculate: evidence-weighted confidence (NOT an arbitrary number). The
+     hard rule — synthetic>0 / stale / continuityBroken / instrumentMismatch /
+     requiredEvidenceMissing => CONFIRMABLE prohibited — is enforced here so the
+     UI + publisher can never present a prohibited snapshot as confirmable. */
+  out.confidence= (typeof BBMACConfidence!=='undefined')?BBMACConfidence.fromSnapshot(out):{score:null,confirmable:false,verdict:'WAIT',prohibitions:['EVIDENCE_ENGINE_UNAVAILABLE'],note:'lib/bbma-confidence.js not loaded'};
   /* Canonical feed state + metrics (single derivation; UI only renders). */
   var _lastMs=_lastTickTimeMs();
   var _tickAge=_lastMs!=null?Math.max(0,now-_lastMs):null;
