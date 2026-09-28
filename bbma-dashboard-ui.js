@@ -263,6 +263,7 @@ function chart(x,f){
   +'<button data-ct="out" title="Zoom out">&#8722;</button>'
   +'<button data-ct="tokus" title="Tokyo open \u2192 US open span">T\u2192U</button>'
   +'<button data-ct="clr" title="Reset view / clear span">CLR</button>'
+  +'<button data-ct="live" title="Jump to latest candle">Live</button>'
   +'</div><canvas class="bbma-cv"></canvas><div class="bbma-axis"><span class="ll">&nbsp;</span></div>';
  var el=document.getElementById('bbma-chart');
  el.innerHTML=html;

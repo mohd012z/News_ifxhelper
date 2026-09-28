@@ -140,11 +140,19 @@ win.document=documentStub; win.window=win; win.globalThis=win;
   assert.ok(win.__V,'V view-state exposed for testing');
   assert.ok(win.__V.vis.M15!==visBefore,'wheel zoom changed vis (before='+visBefore+' after='+win.__V.vis.M15+')');
 
-  /* ---- PAN (pointer drag) must shift the right edge (reveal older candles) ---- */
+  /* ---- PAN (pointer drag) must shift the right edge (reveal older candles).
+     Data-robust: the anchor tolerance (14px) can grab the Tokyo/US first-candle
+     marker and switch to SPAN mode instead of PAN, so pick a drag start that is
+     >20px from every session anchor, computed from the same geometry anchorAt uses. */
   const rightBefore=win.__V.right.M15;
-  cv._fire('pointerdown',{pointerId:1,offsetX:150,offsetY:170});
-  cv._fire('pointermove',{pointerId:1,offsetX:320,offsetY:170}); /* drag right -> older -> right decreases */
-  cv._fire('pointerup',{pointerId:1,offsetX:320,offsetY:170});
+  const plotW=(420)-16, slot=plotW/win.__V.vis.M15;
+  const anchorXs=win.__anchors(M15).map(a=>8+(a.i-(win.__V.right.M15-win.__V.vis.M15))*slot);
+  let startX=null;
+  for(let x=60;x<=230 && startX===null;x+=4){ if(anchorXs.every(ax=>Math.abs(ax-x)>20)) startX=x; }
+  assert.ok(startX!==null,'found a pan start X clear of every session anchor');
+  cv._fire('pointerdown',{pointerId:1,offsetX:startX,offsetY:170});
+  cv._fire('pointermove',{pointerId:1,offsetX:startX+170,offsetY:170}); /* drag right -> older -> right decreases */
+  cv._fire('pointerup',{pointerId:1,offsetX:startX+170,offsetY:170});
   assert.ok(win.__V.right.M15<rightBefore,'drag panned to older candles (right '+rightBefore+' -> '+win.__V.right.M15+')');
 
   /* ---- Tokyo -> US open span: the T->U button must set a real span ---- */
