@@ -32,23 +32,37 @@ jobs:
         # Append-only ledger + value-scored episodes + settle the prior
         # generation against this snapshot's last M15 candle. Real data only.
         run: node tools/bbma-memory.js
-      - name: Commit changed snapshot
+      - name: Settle + learn (PredictionContract ledger)
+        # Settle the prior M15 observation against the exact next closed
+        # candle, link it to the immutable PredictionContract (FEATURE
+        # snapshot + heuristic-bbma-v1 model) that predicted it, and append
+        # the outcome to the durable JSONL ledger. This is what makes the
+        # operational learning data (bbma-learning.json, bbma-performance.json,
+        # data/history/{prediction,outcome}.jsonl) durable on the branch — the
+        # DATA CHAIN fix (F3): the 15-min cron now settles every cycle, so the
+        # ledger grows with real evidence instead of being discarded.
+        env:
+          BBMA_SYMBOL: GC=F
+        run: node build-bbma-learning.js
+      - name: Commit changed snapshot + learning ledger
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add data/bbma-watch.json
+          git add data/bbma-learning.json data/bbma-performance.json 2>/dev/null || true
+          git add data/history/ 2>/dev/null || true
           git add memory/ 2>/dev/null || true
           # `git diff --quiet` (worktree vs index) never sees a file that is
           # staged but absent from HEAD — so the very first build silently said
           # "no change" and the snapshot was never committed. Compare the
           # STAGED blob against HEAD instead: identical -> skip, otherwise
           # (new file OR changed content) -> commit and push. The memory
-          # brain's committed artifacts (reports/patterns/READMEs) count too,
-          # so a memory-only change is still persisted.
-          if git diff --cached --quiet -- data/bbma-watch.json memory/; then
-            echo 'No BBMA snapshot or memory change'
+          # brain's committed artifacts + the prediction/outcome ledger count
+          # too, so a learning-only change is still persisted.
+          if git diff --cached --quiet -- data/bbma-watch.json data/bbma-learning.json data/bbma-performance.json data/history/ memory/; then
+            echo 'No BBMA snapshot, learning, or ledger change'
             exit 0
           fi
-          git commit -m 'data: refresh BBMA candle watch'
+          git commit -m 'data: refresh BBMA candle watch + settle learning ledger'
           git pull --rebase origin main
           git push

@@ -1,6 +1,6 @@
 'use strict';
 const fs=require('fs'),path=require('path'),crypto=require('crypto');
-const P=require('./lib/market-provider'),V=require('./lib/ohlc-validator'),R=require('./lib/ohlc-resampler'),W=require('./lib/bbma-candle-watch'),D=require('./lib/bbma-dashboard'),N=require('./lib/news-proximity'),I=require('./lib/instrument'),C=require('./lib/bbma-confidence'),L=require('./lib/alert-lifecycle'),FS=require('./lib/ai/feature-snapshot'),OS=require('./lib/ai/one-step-engine'),GS=require('./lib/ai/consensus-engine'),DC=require('./lib/ai/data-class'),CAP=require('./lib/snapshot-capture'),PC=require('./lib/ai/prediction-contract');
+const P=require('./lib/market-provider'),V=require('./lib/ohlc-validator'),R=require('./lib/ohlc-resampler'),W=require('./lib/bbma-candle-watch'),D=require('./lib/bbma-dashboard'),N=require('./lib/news-proximity'),I=require('./lib/instrument'),C=require('./lib/bbma-confidence'),L=require('./lib/alert-lifecycle'),FS=require('./lib/ai/feature-snapshot'),OS=require('./lib/ai/one-step-engine'),GS=require('./lib/ai/consensus-engine'),DC=require('./lib/ai/data-class'),CAP=require('./lib/snapshot-capture'),PC=require('./lib/ai/prediction-contract'),HS=require('./lib/history-store');
 const SYMBOL=process.env.BBMA_SYMBOL||'GC=F',OUT=process.env.BBMA_OUT||path.join('data','bbma-watch.json');
 const CAL='https://nfs.faireconomy.media/ff_calendar_thisweek.json';
 function generationId(symbol,candles,events){const last=candles.at(-1);const basis=JSON.stringify({symbol,last:last&&last.time,count:candles.length,events:(events||[]).slice(0,20).map(e=>[e.date||e.scheduledAt||e.time,e.title||e.event,e.actual,e.forecast])});return 'bbma-'+crypto.createHash('sha256').update(basis).digest('hex').slice(0,20);}
@@ -20,6 +20,12 @@ function buildOneStep(frames,news,instrument,dataClass,closedOk){
     settlement later APPENDS a separate outcome record that references them. */
  const feat=CAP.capture('FEATURE',Object.assign({timeframe:'M15',candleTime:snap.candleClose},snap),{dataVersion:'v2',capturedAt:new Date().toISOString()});
  const contract=PC.build({snapshotId:feat.snapshotId,tf:'M15',instrumentId:instrument?instrument.analysisSymbol:null,asOf:asOf.time,forecast:cand,createdAt:new Date().toISOString(),evidenceRefs:[]});
+ /* C3: the contract is IMMUTABLE but it must survive the next watch build —
+    bbma-watch.json is overwritten every cycle. Persist it to the durable
+    append-only prediction ledger (content-hash deduped: rebuilding the same
+    contract is a no-op). The learning builder later links the observation for
+    the contract's TARGET candle to it by time. */
+ HS.append('prediction',{rowType:'PREDICTION',predictionId:contract.predictionId,snapshotId:feat.snapshotId,timeframe:contract.timeframe,sourceCandleTime:contract.sourceCandleTime,targetTime:contract.targetTime,direction:contract.hypothesis.direction,model:contract.model.id,modelVersion:contract.model.version,heuristicScore:contract.heuristicScore,status:contract.status,generationId:null,createdAt:contract.createdAt});
  return{status:gate.status,direction:cand.direction,movementClass:cand.movementClass,regime:cand.regime.regime,heuristicScore:cand.heuristicScore,bbContext:cand.bbContext,invalidation:cand.invalidation,empirical:cand.empirical,publishable:gate.publishable,shadow:gate.shadow,drivers:gate.drivers,asOf:asOf.time,tf:'M15',newsMode:news.state,featureSnapshot:feat,prediction:contract};
 }
 (async()=>{

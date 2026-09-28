@@ -68,10 +68,27 @@
     "reasons": [
       "trend_down"
     ],
-    "status": "PENDING",
+    "status": "SETTLED",
     "id": "a372cdde6f1c73e783ee",
     "algoGenerationId": "gen-a0080007b822d56bd93f",
-    "instrumentId": "GC_FUTURES"
+    "instrumentId": "GC_FUTURES",
+    "settledAt": "2026-09-28T22:19:19.230Z",
+    "nextCandleTime": "2026-09-28T20:30:00.000Z",
+    "actualDirection": "DOWN",
+    "predictedDirection": "DOWN",
+    "correct": true,
+    "nextReturnPct": -0.0482,
+    "mfePct": 0.0145,
+    "maePct": -0.0602,
+    "excursion": {
+      "highExcursionPct": 0.0145,
+      "lowExcursionPct": -0.0602,
+      "favorableExcursionPct": -0.0602,
+      "adverseExcursionPct": 0.0145,
+      "note": "DOWN-call: favorable = low side"
+    },
+    "rangePct": 0.0747,
+    "closeLocationPct": 16.13
   },
   {
     "schemaVersion": 3,
@@ -106,10 +123,27 @@
       "trend_down",
       "squeeze_pre_breakout"
     ],
-    "status": "PENDING",
+    "status": "SETTLED",
     "id": "409bd3e973f965a64602",
     "algoGenerationId": "gen-a0080007b822d56bd93f",
-    "instrumentId": "GC_FUTURES"
+    "instrumentId": "GC_FUTURES",
+    "settledAt": "2026-09-28T22:19:19.230Z",
+    "nextCandleTime": "2026-09-28T20:30:00.000Z",
+    "actualDirection": "DOWN",
+    "predictedDirection": "FLAT",
+    "correct": false,
+    "nextReturnPct": -0.0964,
+    "mfePct": 0.0145,
+    "maePct": -0.1036,
+    "excursion": {
+      "highExcursionPct": 0.0145,
+      "lowExcursionPct": -0.1036,
+      "favorableExcursionPct": 0.0145,
+      "adverseExcursionPct": -0.1036,
+      "note": "FLAT-call: favorable = high side"
+    },
+    "rangePct": 0.118,
+    "closeLocationPct": 6.12
   },
   {
     "schemaVersion": 3,
@@ -143,10 +177,27 @@
     "reasons": [
       "trend_down"
     ],
-    "status": "PENDING",
+    "status": "SETTLED",
     "id": "7a68393ba793df8c2e96",
     "algoGenerationId": "gen-a0080007b822d56bd93f",
-    "instrumentId": "GC_FUTURES"
+    "instrumentId": "GC_FUTURES",
+    "settledAt": "2026-09-28T22:19:19.230Z",
+    "nextCandleTime": "2026-09-28T20:30:00.000Z",
+    "actualDirection": "DOWN",
+    "predictedDirection": "DOWN",
+    "correct": true,
+    "nextReturnPct": -0.0578,
+    "mfePct": 0.0145,
+    "maePct": -0.1614,
+    "excursion": {
+      "highExcursionPct": 0.0145,
+      "lowExcursionPct": -0.1614,
+      "favorableExcursionPct": -0.1614,
+      "adverseExcursionPct": 0.0145,
+      "note": "DOWN-call: favorable = low side"
+    },
+    "rangePct": 0.1759,
+    "closeLocationPct": 58.9
   },
   {
     "schemaVersion": 3,
@@ -180,9 +231,683 @@
     "reasons": [
       "trend_down"
     ],
-    "status": "PENDING",
+    "status": "SETTLED",
     "id": "0232cc48f56f65351651",
     "algoGenerationId": "gen-a0080007b822d56bd93f",
+    "instrumentId": "GC_FUTURES",
+    "settledAt": "2026-09-28T22:19:19.231Z",
+    "nextCandleTime": "2026-09-28T20:00:00.000Z",
+    "actualDirection": "DOWN",
+    "predictedDirection": "DOWN",
+    "correct": true,
+    "nextReturnPct": -0.1829,
+    "mfePct": 0.0192,
+    "maePct": -0.2863,
+    "excursion": {
+      "highExcursionPct": 0.0192,
+      "lowExcursionPct": -0.2863,
+      "favorableExcursionPct": -0.2863,
+      "adverseExcursionPct": 0.0192,
+      "note": "DOWN-call: favorable = low side"
+    },
+    "rangePct": 0.3056,
+    "closeLocationPct": 33.86
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-a45f021fff37040ef1a5",
+    "sourceGeneratedAt": "2026-09-28T22:19:18.901Z",
+    "symbol": "GC=F",
+    "tf": "M1",
+    "candleTime": "2026-09-28T22:09:09.000Z",
+    "createdAt": "2026-09-28T22:19:19.233Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Barkin Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-09-28T17:30:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "UP",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "UP_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_up"
+    ],
+    "status": "PENDING",
+    "id": "4dfe2cfebf407819b0fa",
+    "algoGenerationId": "gen-b5d29cc3961171703dcf",
+    "instrumentId": "GC_FUTURES"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-a45f021fff37040ef1a5",
+    "sourceGeneratedAt": "2026-09-28T22:19:18.901Z",
+    "symbol": "GC=F",
+    "tf": "M5",
+    "candleTime": "2026-09-28T22:05:00.000Z",
+    "createdAt": "2026-09-28T22:19:19.233Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Barkin Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-09-28T17:30:00.000Z"
+    },
+    "location": "MID_BB",
+    "bbma": {
+      "trend": "MIXED",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "CSAK_UP"
+    },
+    "squeeze": "TIGHT",
+    "state": "RANGE_OR_BREAKOUT_WATCH",
+    "confidence": 100,
+    "reasons": [],
+    "status": "SETTLED",
+    "id": "8d9f15629ed4deedaea9",
+    "algoGenerationId": "gen-b5d29cc3961171703dcf",
+    "instrumentId": "GC_FUTURES",
+    "settledAt": "2026-09-28T22:23:06.643Z",
+    "nextCandleTime": "2026-09-28T22:10:00.000Z",
+    "actualDirection": "DOWN",
+    "predictedDirection": "FLAT",
+    "correct": false,
+    "nextReturnPct": -0.0361,
+    "mfePct": 0,
+    "maePct": -0.0626,
+    "excursion": {
+      "highExcursionPct": 0,
+      "lowExcursionPct": -0.0626,
+      "favorableExcursionPct": 0,
+      "adverseExcursionPct": -0.0626,
+      "note": "FLAT-call: favorable = high side"
+    },
+    "rangePct": 0.0626,
+    "closeLocationPct": 42.31
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-a45f021fff37040ef1a5",
+    "sourceGeneratedAt": "2026-09-28T22:19:18.901Z",
+    "symbol": "GC=F",
+    "tf": "M15",
+    "candleTime": "2026-09-28T20:45:00.000Z",
+    "createdAt": "2026-09-28T22:19:19.233Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Barkin Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-09-28T17:30:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "DOWN_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_down"
+    ],
+    "status": "PENDING",
+    "id": "fce60d48a8f347cbdb83",
+    "algoGenerationId": "gen-b5d29cc3961171703dcf",
+    "instrumentId": "GC_FUTURES"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-a45f021fff37040ef1a5",
+    "sourceGeneratedAt": "2026-09-28T22:19:18.901Z",
+    "symbol": "GC=F",
+    "tf": "M30",
+    "candleTime": "2026-09-28T20:30:00.000Z",
+    "createdAt": "2026-09-28T22:19:19.233Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Barkin Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-09-28T17:30:00.000Z"
+    },
+    "location": "LOW_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "CSAK_DOWN"
+    },
+    "squeeze": "NORMAL",
+    "state": "DOWN_BIAS",
+    "confidence": 67,
+    "reasons": [
+      "trend_down",
+      "low_rejection_candidate"
+    ],
+    "status": "PENDING",
+    "id": "9faf040acd930a7e77b1",
+    "algoGenerationId": "gen-b5d29cc3961171703dcf",
+    "instrumentId": "GC_FUTURES"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-a45f021fff37040ef1a5",
+    "sourceGeneratedAt": "2026-09-28T22:19:18.901Z",
+    "symbol": "GC=F",
+    "tf": "H1",
+    "candleTime": "2026-09-28T20:00:00.000Z",
+    "createdAt": "2026-09-28T22:19:19.233Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Barkin Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-09-28T17:30:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "CSAK_DOWN"
+    },
+    "squeeze": "SQUEEZE",
+    "state": "RANGE_OR_BREAKOUT_WATCH",
+    "confidence": 50,
+    "reasons": [
+      "trend_down",
+      "squeeze_pre_breakout"
+    ],
+    "status": "PENDING",
+    "id": "7e3effa0498d0b849979",
+    "algoGenerationId": "gen-b5d29cc3961171703dcf",
+    "instrumentId": "GC_FUTURES"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-a45f021fff37040ef1a5",
+    "sourceGeneratedAt": "2026-09-28T22:19:18.901Z",
+    "symbol": "GC=F",
+    "tf": "M1",
+    "candleTime": "2026-09-28T22:13:02.000Z",
+    "createdAt": "2026-09-28T22:23:06.644Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Barkin Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-09-28T17:30:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "UP",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "UP_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_up"
+    ],
+    "status": "PENDING",
+    "id": "ef65694d30260404c1a0",
+    "algoGenerationId": "gen-b5d29cc3961171703dcf",
+    "instrumentId": "GC_FUTURES"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-a45f021fff37040ef1a5",
+    "sourceGeneratedAt": "2026-09-28T22:19:18.901Z",
+    "symbol": "GC=F",
+    "tf": "M5",
+    "candleTime": "2026-09-28T22:10:00.000Z",
+    "createdAt": "2026-09-28T22:23:06.644Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Barkin Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-09-28T17:30:00.000Z"
+    },
+    "location": "MID_BB",
+    "bbma": {
+      "trend": "MIXED",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "CSAK_UP"
+    },
+    "squeeze": "TIGHT",
+    "state": "RANGE_OR_BREAKOUT_WATCH",
+    "confidence": 100,
+    "reasons": [],
+    "status": "SETTLED",
+    "id": "549136dadc8349412dd4",
+    "algoGenerationId": "gen-b5d29cc3961171703dcf",
+    "instrumentId": "GC_FUTURES",
+    "settledAt": "2026-09-28T22:28:41.857Z",
+    "nextCandleTime": "2026-09-28T22:15:00.000Z",
+    "actualDirection": "UP",
+    "predictedDirection": "FLAT",
+    "correct": false,
+    "nextReturnPct": 0.0096,
+    "mfePct": 0.0241,
+    "maePct": -0.0168,
+    "excursion": {
+      "highExcursionPct": 0.0241,
+      "lowExcursionPct": -0.0168,
+      "favorableExcursionPct": 0.0241,
+      "adverseExcursionPct": -0.0168,
+      "note": "FLAT-call: favorable = high side"
+    },
+    "rangePct": 0.0409,
+    "closeLocationPct": 64.72
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-a45f021fff37040ef1a5",
+    "sourceGeneratedAt": "2026-09-28T22:19:18.901Z",
+    "symbol": "GC=F",
+    "tf": "M15",
+    "candleTime": "2026-09-28T22:00:00.000Z",
+    "createdAt": "2026-09-28T22:23:06.644Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Barkin Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-09-28T17:30:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "DOWN_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_down"
+    ],
+    "status": "SETTLED",
+    "id": "7420b90462b4d22dd2bd",
+    "algoGenerationId": "gen-b5d29cc3961171703dcf",
+    "instrumentId": "GC_FUTURES",
+    "predictionId": "pred-7e63b139b64d2ecc13802e91",
+    "snapshotId": "d4c4cf31b793dac2e8b39d95",
+    "settledAt": "2026-09-28T22:40:22.602Z",
+    "nextCandleTime": "2026-09-28T22:15:00.000Z",
+    "actualDirection": "UP",
+    "predictedDirection": "DOWN",
+    "correct": false,
+    "nextReturnPct": 0.0602,
+    "mfePct": 0.0939,
+    "maePct": -0.0168,
+    "excursion": {
+      "highExcursionPct": 0.0939,
+      "lowExcursionPct": -0.0168,
+      "favorableExcursionPct": -0.0168,
+      "adverseExcursionPct": 0.0939,
+      "note": "DOWN-call: favorable = low side"
+    },
+    "rangePct": 0.1107,
+    "closeLocationPct": 69.56
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-ae9cb17f5a5903192729",
+    "sourceGeneratedAt": "2026-09-28T22:23:35.034Z",
+    "symbol": "GC=F",
+    "tf": "M1",
+    "candleTime": "2026-09-28T22:13:30.000Z",
+    "createdAt": "2026-09-28T22:23:35.374Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Barkin Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-09-28T17:30:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "UP",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "UP_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_up"
+    ],
+    "status": "PENDING",
+    "id": "7aca7ddd27f2040dfa69",
+    "algoGenerationId": "gen-b5d29cc3961171703dcf",
+    "instrumentId": "GC_FUTURES"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-52357593aa40a3b1036a",
+    "sourceGeneratedAt": "2026-09-28T22:27:00.990Z",
+    "symbol": "GC=F",
+    "tf": "M1",
+    "candleTime": "2026-09-28T22:16:35.000Z",
+    "createdAt": "2026-09-28T22:27:01.528Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Barkin Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-09-28T17:30:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "UP",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "TIGHT",
+    "state": "UP_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_up"
+    ],
+    "status": "PENDING",
+    "id": "3976f7016beb3aafe2ef",
+    "algoGenerationId": "gen-b5d29cc3961171703dcf",
+    "instrumentId": "GC_FUTURES"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-52357593aa40a3b1036a",
+    "sourceGeneratedAt": "2026-09-28T22:27:00.990Z",
+    "symbol": "GC=F",
+    "tf": "M1",
+    "candleTime": "2026-09-28T22:18:26.000Z",
+    "createdAt": "2026-09-28T22:28:41.871Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Barkin Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-09-28T17:30:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "UP",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "TIGHT",
+    "state": "UP_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_up"
+    ],
+    "status": "PENDING",
+    "id": "4751d6e4ddc3d754c894",
+    "algoGenerationId": "gen-b5d29cc3961171703dcf",
+    "instrumentId": "GC_FUTURES"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-52357593aa40a3b1036a",
+    "sourceGeneratedAt": "2026-09-28T22:27:00.990Z",
+    "symbol": "GC=F",
+    "tf": "M5",
+    "candleTime": "2026-09-28T22:15:00.000Z",
+    "createdAt": "2026-09-28T22:28:41.871Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Barkin Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-09-28T17:30:00.000Z"
+    },
+    "location": "MID_BB",
+    "bbma": {
+      "trend": "MIXED",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "CSAK_UP"
+    },
+    "squeeze": "TIGHT",
+    "state": "RANGE_OR_BREAKOUT_WATCH",
+    "confidence": 100,
+    "reasons": [],
+    "status": "SETTLED",
+    "id": "1f0c309ca4178ccdc7ec",
+    "algoGenerationId": "gen-b5d29cc3961171703dcf",
+    "instrumentId": "GC_FUTURES",
+    "settledAt": "2026-09-28T22:40:22.617Z",
+    "nextCandleTime": "2026-09-28T22:20:00.000Z",
+    "actualDirection": "UP",
+    "predictedDirection": "FLAT",
+    "correct": false,
+    "nextReturnPct": 0.0481,
+    "mfePct": 0.0818,
+    "maePct": 0,
+    "excursion": {
+      "highExcursionPct": 0.0818,
+      "lowExcursionPct": 0,
+      "favorableExcursionPct": 0.0818,
+      "adverseExcursionPct": 0,
+      "note": "FLAT-call: favorable = high side"
+    },
+    "rangePct": 0.0818,
+    "closeLocationPct": 58.82
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-52357593aa40a3b1036a",
+    "sourceGeneratedAt": "2026-09-28T22:27:00.990Z",
+    "symbol": "GC=F",
+    "tf": "M1",
+    "candleTime": "2026-09-28T22:30:20.000Z",
+    "createdAt": "2026-09-28T22:40:22.625Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Barkin Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-09-28T17:30:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "UP",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "TIGHT",
+    "state": "UP_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_up"
+    ],
+    "status": "PENDING",
+    "id": "aa7e4c1051e7dde24c61",
+    "algoGenerationId": "gen-b5d29cc3961171703dcf",
+    "instrumentId": "GC_FUTURES"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-52357593aa40a3b1036a",
+    "sourceGeneratedAt": "2026-09-28T22:27:00.990Z",
+    "symbol": "GC=F",
+    "tf": "M5",
+    "candleTime": "2026-09-28T22:25:00.000Z",
+    "createdAt": "2026-09-28T22:40:22.625Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Barkin Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-09-28T17:30:00.000Z"
+    },
+    "location": "MID_BB",
+    "bbma": {
+      "trend": "MIXED",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "CSAK_UP"
+    },
+    "squeeze": "TIGHT",
+    "state": "RANGE_OR_BREAKOUT_WATCH",
+    "confidence": 100,
+    "reasons": [],
+    "status": "PENDING",
+    "id": "23a8d0cde3453674acdf",
+    "algoGenerationId": "gen-b5d29cc3961171703dcf",
+    "instrumentId": "GC_FUTURES"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-52357593aa40a3b1036a",
+    "sourceGeneratedAt": "2026-09-28T22:27:00.990Z",
+    "symbol": "GC=F",
+    "tf": "M15",
+    "candleTime": "2026-09-28T22:15:00.000Z",
+    "createdAt": "2026-09-28T22:40:22.626Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Barkin Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-09-28T17:30:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "TIGHT",
+    "state": "DOWN_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_down"
+    ],
+    "status": "PENDING",
+    "id": "4ddaff011f6ccb62a68d",
+    "algoGenerationId": "gen-b5d29cc3961171703dcf",
+    "instrumentId": "GC_FUTURES"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-52357593aa40a3b1036a",
+    "sourceGeneratedAt": "2026-09-28T22:27:00.990Z",
+    "symbol": "GC=F",
+    "tf": "M30",
+    "candleTime": "2026-09-28T22:00:00.000Z",
+    "createdAt": "2026-09-28T22:40:22.626Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Barkin Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-09-28T17:30:00.000Z"
+    },
+    "location": "LOW_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "CSAK_DOWN"
+    },
+    "squeeze": "NORMAL",
+    "state": "DOWN_BIAS",
+    "confidence": 67,
+    "reasons": [
+      "trend_down",
+      "low_rejection_candidate"
+    ],
+    "status": "PENDING",
+    "id": "f52a0f508180fea5b3fe",
+    "algoGenerationId": "gen-b5d29cc3961171703dcf",
     "instrumentId": "GC_FUTURES"
   }
 ]

@@ -1,21 +1,21 @@
 {
   "overall": {
-    "samples": 0,
-    "correct": 0,
-    "accuracyPct": null
+    "samples": 8,
+    "correct": 3,
+    "accuracyPct": 37.5
   },
   "lineage": {
-    "liveGenerationId": "bbma-f3006cbd7f8db7c1eb62",
+    "liveGenerationId": "bbma-52357593aa40a3b1036a",
     "history": {
-      "status": "CONSISTENT",
-      "generationId": "bbma-f3006cbd7f8db7c1eb62",
-      "generations": 1,
+      "status": "MIXED",
+      "generationId": null,
+      "generations": 4,
       "missing": 0
     },
     "algorithm": {
-      "status": "CONSISTENT",
-      "algoGenerationId": "gen-a0080007b822d56bd93f",
-      "generations": 1,
+      "status": "MIXED",
+      "algoGenerationId": null,
+      "generations": 2,
       "missing": 0
     },
     "status": "LIVE_LINKED"
@@ -27,81 +27,102 @@
       "accuracyPct": null
     },
     "M5": {
-      "samples": 0,
-      "correct": 0,
-      "accuracyPct": null
+      "samples": 4,
+      "correct": 1,
+      "accuracyPct": 25
     },
     "M15": {
-      "samples": 0,
+      "samples": 2,
       "correct": 0,
-      "accuracyPct": null
+      "accuracyPct": 0
     },
     "M30": {
-      "samples": 0,
-      "correct": 0,
-      "accuracyPct": null
+      "samples": 1,
+      "correct": 1,
+      "accuracyPct": 100
     },
     "H1": {
-      "samples": 0,
-      "correct": 0,
-      "accuracyPct": null
+      "samples": 1,
+      "correct": 1,
+      "accuracyPct": 100
     }
   },
   "byMarketMode": {
     "NORMAL": {
-      "samples": 0,
-      "correct": 0,
-      "accuracyPct": null
+      "samples": 8,
+      "correct": 3,
+      "accuracyPct": 37.5
     }
   },
   "byLocation": {
     "INSIDE_BB": {
-      "samples": 0,
-      "correct": 0,
-      "accuracyPct": null
+      "samples": 3,
+      "correct": 2,
+      "accuracyPct": 66.7
     },
     "LOW_BB": {
-      "samples": 0,
-      "correct": 0,
-      "accuracyPct": null
+      "samples": 1,
+      "correct": 1,
+      "accuracyPct": 100
     },
     "MID_BB": {
-      "samples": 0,
+      "samples": 4,
       "correct": 0,
-      "accuracyPct": null
+      "accuracyPct": 0
     }
   },
   "bySqueeze": {
     "NORMAL": {
-      "samples": 0,
-      "correct": 0,
-      "accuracyPct": null
+      "samples": 2,
+      "correct": 1,
+      "accuracyPct": 50
     },
     "SQUEEZE": {
-      "samples": 0,
+      "samples": 1,
       "correct": 0,
-      "accuracyPct": null
+      "accuracyPct": 0
     },
     "TIGHT": {
-      "samples": 0,
-      "correct": 0,
-      "accuracyPct": null
+      "samples": 5,
+      "correct": 2,
+      "accuracyPct": 40
     }
   },
   "byPattern": {
     "DOWN": {
+      "samples": 5,
+      "correct": 3,
+      "accuracyPct": 60
+    },
+    "UP": {
       "samples": 0,
       "correct": 0,
       "accuracyPct": null
+    },
+    "MIXED": {
+      "samples": 3,
+      "correct": 0,
+      "accuracyPct": 0
     }
   },
-  "calibration": {},
-  "generatedAt": "2026-09-28T20:39:19.475Z",
-  "pending": 5,
-  "settled": 0,
+  "calibration": {
+    "100-99": {
+      "samples": 7,
+      "correct": 3,
+      "accuracyPct": 42.9
+    },
+    "50-59": {
+      "samples": 1,
+      "correct": 0,
+      "accuracyPct": 0
+    }
+  },
+  "generatedAt": "2026-09-28T22:40:22.626Z",
+  "pending": 13,
+  "settled": 8,
   "schemaVersion": 3,
-  "generationId": "bbma-f3006cbd7f8db7c1eb62",
-  "algoGenerationId": "gen-a0080007b822d56bd93f",
+  "generationId": "bbma-52357593aa40a3b1036a",
+  "algoGenerationId": "gen-b5d29cc3961171703dcf",
   "instrumentId": "GC_FUTURES",
-  "sourceGeneratedAt": "2026-09-28T19:56:41.634Z"
+  "sourceGeneratedAt": "2026-09-28T22:27:00.990Z"
 }
