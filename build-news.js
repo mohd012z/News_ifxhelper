@@ -256,22 +256,38 @@ function relevanceFor(tab, text) {
 /* Combines relevance with a "conflict gate": if the headline's OWN described price action
  * contradicts the direction its hawkish/dovish policy tilt would imply for this instrument (e.g.
  * a hawkish-Fed headline that also says gold is rising), that's a real observed-market conflict,
- * not the model being confidently wrong - gate the signal to NEUTRAL/CONFLICT rather than assert
- * a contradicted direction. Same reasoning as classify()'s negation-stripping: safer to go quiet
- * than confidently wrong. */
+ * not the model being confidently wrong - gate the bias context to CONTEXT_NEUTRAL/CONFLICT
+ * rather than assert a contradicted tilt. Same reasoning as classify()'s negation-stripping:
+ * safer to go quiet than confidently wrong. The output is CONTEXT (bias_context + gate_hint),
+ * never a BUY/SELL direction — only the BBMA engine decides direction. */
+/* P0 architecture (BBMA cluster): news is CONTEXT, not DIRECTION. A hawkish/dovish
+ * policy read maps to a *bias context* for the relevant instrument (USD-supportive,
+ * gold-headwind ...) — it never becomes a BUY/SELL signal. Only the HELIX BBMA
+ * engine (xau-desk-daily MTF alignment) produces a direction; every downstream
+ * renderer (Telegram cards, dashboard, APK) must treat these fields as
+ * permission/context, never as an order. */
+function biasContextFor(side, tab) {
+  if (!side) return 'CONTEXT_NEUTRAL';
+  if (tab === 'gold') return side === 'hawkish' ? 'XAU_HEADWIND' : 'XAU_SUPPORTIVE';
+  if (tab === 'crypto') return side === 'hawkish' ? 'CRYPTO_HEADWIND' : 'CRYPTO_SUPPORTIVE';
+  return side === 'hawkish' ? 'USD_SUPPORTIVE' : 'USD_HEADWIND';
+}
+
 function instrumentDecision(tab, text, side) {
   const ctx = driverContext(text);
   const relevance = relevanceFor(tab, text);
-  let signal = side === 'hawkish' ? 'SELL' : side === 'dovish' ? 'BUY' : 'NEUTRAL';
-  let state = side ? 'DIRECTIONAL' : 'NEUTRAL';
+  // A hawkish/dovish read becomes a bias context; gate_hint stays WATCH_ONLY so no
+  // consumer can upgrade news into a directional order.
+  let biasContext = biasContextFor(side, tab);
+  let state = side ? 'DIRECTIONAL_CONTEXT' : 'NEUTRAL';
   const observedUp = /\b(rise|rises|rising|rallies|rally|jumps?|surge\w*|gains?|climbs?|higher|\bup\b)\b/i.test(text);
   const observedDown = /\b(fall\w*|drops?|slides?|slumps?|declines?|lower|\bdown\b|tumbles?)\b/i.test(text);
-  if (side && relevance < 0.4) { signal = 'NEUTRAL'; state = 'LOW_RELEVANCE'; }
+  if (side && relevance < 0.4) { biasContext = 'CONTEXT_NEUTRAL'; state = 'LOW_RELEVANCE'; }
   else if (side && observedUp && observedDown) { state = 'CONFLICT'; }
-  else if (side && ((signal === 'BUY' && observedDown) || (signal === 'SELL' && observedUp)) && (ctx.gold || ctx.crypto || ctx.usd)) {
-    signal = 'NEUTRAL'; state = 'CONFLICT';
+  else if (side && ((biasContext === 'XAU_SUPPORTIVE' && observedDown) || (biasContext === 'XAU_HEADWIND' && observedUp)) && (ctx.gold || ctx.crypto || ctx.usd)) {
+    biasContext = 'CONTEXT_NEUTRAL'; state = 'CONFLICT';
   }
-  return { relevance, signal, state, context: ctx, policySide: side };
+  return { relevance, biasContext, state, context: ctx, policySide: side, gate_hint: 'WATCH_ONLY' };
 }
 
 // ---- Minimal, dependency-free RSS <item> parser (title/link/pubDate) ----
@@ -479,16 +495,18 @@ function buildNewsRow(it, tab, instrumentScale) {
   const f = MODEL.surprise.default;
   const d = instrumentDecision(tab, it.title + ' ' + (it.description || ''), side);
   const rawScore = side ? impactScore(instrumentScale, w, s, f, side, d.relevance) : 0;
-  const signedScore = d.signal === 'BUY' ? Math.abs(rawScore || 0.01) : d.signal === 'SELL' ? -Math.abs(rawScore || 0.01) : 0;
+  const signedScore = d.biasContext === 'XAU_SUPPORTIVE' || d.biasContext === 'CRYPTO_SUPPORTIVE' || d.biasContext === 'USD_HEADWIND' ? Math.abs(rawScore || 0.01)
+    : d.biasContext === 'XAU_HEADWIND' || d.biasContext === 'CRYPTO_HEADWIND' || d.biasContext === 'USD_SUPPORTIVE' ? -Math.abs(rawScore || 0.01) : 0;
   return {
     time: formatMytFull(parseFeedDate(it.pubDate)) || 'unknown time',
     tf: 'Intraday',
     title: it.title,
-    summary: 'Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.',
+    summary: 'Country/currency-aware classification. Output is bias context + impact score only — direction authority belongs to the BBMA engine, never to news.',
     source: it.source,
     url: it.link,
-    impact: d.signal === 'BUY' ? 'bullish' : d.signal === 'SELL' ? 'bearish' : 'neutral',
-    signal: d.signal,
+    impact: d.biasContext.endsWith('_SUPPORTIVE') || d.biasContext === 'USD_HEADWIND' ? 'bullish-context' : d.biasContext.endsWith('_HEADWIND') || d.biasContext === 'USD_SUPPORTIVE' ? 'bearish-context' : 'neutral-context',
+    bias_context: d.biasContext,
+    gate_hint: d.gate_hint,
     decisionState: d.state,
     relevance: +d.relevance.toFixed(2),
     currencies: d.context.currencies,
@@ -510,9 +528,10 @@ function buildSpeakerRow(it, instrumentScale) {
     name: role === 'Fed Chair' ? 'Federal Reserve' : role,
     role,
     side,
-    signal: side === 'hawkish' ? 'SELL' : 'BUY',
+    bias_context: biasContextFor(side, 'forex'),
+    gate_hint: 'WATCH_ONLY',
     quote: it.title,
-    impact: 'Auto-classified from press release headline',
+    impact: 'Auto-classified from press release headline (context only — no direction)',
     date: formatMytFull(parseFeedDate(it.pubDate)) || 'unknown time',
     source: it.source,
     url: it.link,
