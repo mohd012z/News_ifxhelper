@@ -2724,9 +2724,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-09-28T20:54:18.656Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T22:25:25.179Z",
+          "price": 4155.6,
+          "realizedPct": -0.23
         },
         {
           "key": "D1",
@@ -2756,7 +2756,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.038,
-        "maePct": 0.038
+        "maePct": -0.23
       }
     },
     {
@@ -2813,9 +2813,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-09-28T20:54:18.656Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T22:25:25.179Z",
+          "price": 4155.6,
+          "realizedPct": -0.23
         },
         {
           "key": "D1",
@@ -2845,7 +2845,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.038,
-        "maePct": 0.038
+        "maePct": -0.23
       }
     },
     {
@@ -2902,9 +2902,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-09-28T20:54:18.656Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T22:25:25.179Z",
+          "price": 4155.6,
+          "realizedPct": -0.23
         },
         {
           "key": "D1",
@@ -2934,7 +2934,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.038,
-        "maePct": 0.038
+        "maePct": -0.23
       }
     },
     {
@@ -2991,9 +2991,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-09-28T20:54:18.656Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T22:25:25.179Z",
+          "price": 83149.76,
+          "realizedPct": -0.63
         },
         {
           "key": "D1",
@@ -3023,7 +3023,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.298,
-        "maePct": 0.298
+        "maePct": -0.63
       }
     },
     {
@@ -3080,9 +3080,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-09-28T20:54:18.656Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T22:25:25.179Z",
+          "price": 83149.76,
+          "realizedPct": -0.63
         },
         {
           "key": "D1",
@@ -3112,7 +3112,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.298,
-        "maePct": 0.298
+        "maePct": -0.63
       }
     },
     {
@@ -3169,9 +3169,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-09-28T20:54:18.656Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T22:25:25.179Z",
+          "price": 83149.76,
+          "realizedPct": -0.63
         },
         {
           "key": "D1",
@@ -3201,7 +3201,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.298,
-        "maePct": 0.298
+        "maePct": -0.63
       }
     },
     {
@@ -3258,9 +3258,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-09-28T20:54:18.656Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T22:25:25.179Z",
+          "price": 83149.76,
+          "realizedPct": -0.63
         },
         {
           "key": "D1",
@@ -3290,7 +3290,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.298,
-        "maePct": 0.298
+        "maePct": -0.63
       }
     },
     {
@@ -3347,9 +3347,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-09-28T20:54:18.656Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T22:25:25.179Z",
+          "price": 1.1377,
+          "realizedPct": 0
         },
         {
           "key": "D1",
@@ -3379,7 +3379,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.026,
-        "maePct": 0.026
+        "maePct": 0
       }
     },
     {
@@ -3436,9 +3436,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-09-28T20:54:18.656Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T22:25:25.179Z",
+          "price": 1.1377,
+          "realizedPct": 0
         },
         {
           "key": "D1",
@@ -3468,7 +3468,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.026,
-        "maePct": 0.026
+        "maePct": 0
       }
     },
     {
@@ -3525,9 +3525,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-09-28T20:54:18.656Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T22:25:25.179Z",
+          "price": 1.1377,
+          "realizedPct": 0
         },
         {
           "key": "D1",
@@ -3557,7 +3557,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.026,
-        "maePct": 0.026
+        "maePct": 0
       }
     },
     {
@@ -3614,9 +3614,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-09-28T20:54:18.656Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T22:25:25.179Z",
+          "price": 1.1377,
+          "realizedPct": 0
         },
         {
           "key": "D1",
@@ -3646,8 +3646,260 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.026,
-        "maePct": 0.026
+        "maePct": 0
       }
+    },
+    {
+      "key": "news:gold:Japanese Yen trades cautiously as intervention risk clashes with Fed rate hike bets",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Japanese Yen trades cautiously as intervention risk clashes with Fed rate hike bets",
+      "url": "https://www.fxstreet.com/news/japanese-yen-trades-cautiously-as-intervention-risk-clashes-with-fed-rate-hike-bets-202609281816",
+      "impactScore": -0.12,
+      "priceAtDetect": 4155.6,
+      "createdAt": "2026-09-28T22:25:25.179Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-28T22:26:25.179Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-28T22:30:25.179Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-28T22:40:25.179Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-28T22:55:25.179Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-28T23:25:25.179Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-29T02:25:25.179Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-29T22:25:25.179Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-05T22:25:25.179Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-28T22:25:25.179Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:crypto:Japanese Yen trades cautiously as intervention risk clashes with Fed rate hike bets",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Japanese Yen trades cautiously as intervention risk clashes with Fed rate hike bets",
+      "url": "https://www.fxstreet.com/news/japanese-yen-trades-cautiously-as-intervention-risk-clashes-with-fed-rate-hike-bets-202609281816",
+      "impactScore": -0.14,
+      "priceAtDetect": 83149.76,
+      "createdAt": "2026-09-28T22:25:25.179Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-28T22:26:25.179Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-28T22:30:25.179Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-28T22:40:25.179Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-28T22:55:25.179Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-28T23:25:25.179Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-29T02:25:25.179Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-29T22:25:25.179Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-05T22:25:25.179Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-28T22:25:25.179Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:forex:Japanese Yen trades cautiously as intervention risk clashes with Fed rate hike bets",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Japanese Yen trades cautiously as intervention risk clashes with Fed rate hike bets",
+      "url": "https://www.fxstreet.com/news/japanese-yen-trades-cautiously-as-intervention-risk-clashes-with-fed-rate-hike-bets-202609281816",
+      "impactScore": -0.15,
+      "priceAtDetect": 1.1377,
+      "createdAt": "2026-09-28T22:25:25.179Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-28T22:26:25.179Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-28T22:30:25.179Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-28T22:40:25.179Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-28T22:55:25.179Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-28T23:25:25.179Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-29T02:25:25.179Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-29T22:25:25.179Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-05T22:25:25.179Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-28T22:25:25.179Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
     }
   ],
   "results": [
