@@ -5,7 +5,7 @@
  * Regenerate: node build-news.js (run on the same daily cron as build-atr.js).
  */
 window.NEWS_AUTO = {
-  "generatedAt": "2026-09-28 03:25:42Z",
+  "generatedAt": "2026-09-28 04:44:26Z",
   "note": "Auto-collected: economic calendar is real structured data; news rows are country/currency-aware and instrument-filtered; mixed observed-vs-policy direction becomes CONFLICT/NEUTRAL. impactPct is retained only for UI compatibility and is an impact score, not a calibrated return forecast. Treat auto:true rows as a first pass.",
   "incoming": [
     {
@@ -31,7 +31,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-09-28T03:25:36.936Z",
+      "fetchedAt": "2026-09-28T04:44:22.385Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -58,7 +58,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-09-28T03:25:36.936Z",
+      "fetchedAt": "2026-09-28T04:44:22.385Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -85,7 +85,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-09-28T03:25:36.936Z",
+      "fetchedAt": "2026-09-28T04:44:22.385Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -112,7 +112,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-09-28T03:25:36.936Z",
+      "fetchedAt": "2026-09-28T04:44:22.385Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -139,7 +139,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-09-28T03:25:36.936Z",
+      "fetchedAt": "2026-09-28T04:44:22.385Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -166,7 +166,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-09-28T03:25:36.936Z",
+      "fetchedAt": "2026-09-28T04:44:22.385Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -193,7 +193,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-09-28T03:25:36.936Z",
+      "fetchedAt": "2026-09-28T04:44:22.385Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -220,7 +220,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-09-28T03:25:36.936Z",
+      "fetchedAt": "2026-09-28T04:44:22.385Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -247,7 +247,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-09-28T03:25:36.936Z",
+      "fetchedAt": "2026-09-28T04:44:22.385Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -274,7 +274,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-09-28T03:25:36.936Z",
+      "fetchedAt": "2026-09-28T04:44:22.385Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -301,7 +301,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-09-28T03:25:36.936Z",
+      "fetchedAt": "2026-09-28T04:44:22.385Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -328,7 +328,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-09-28T03:25:36.936Z",
+      "fetchedAt": "2026-09-28T04:44:22.385Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     }
@@ -336,6 +336,31 @@ window.NEWS_AUTO = {
   "byTab": {
     "gold": {
       "news": [
+        {
+          "time": "Mon 28 Sep, 11:12 MYT",
+          "tf": "Intraday",
+          "title": "China says US trade truce extension creates space to advance talks",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "Investing.com - Commodities & Futures",
+          "url": "https://www.investing.com/news/commodities-news/china-says-us-trade-truce-extension-creates-space-to-advance-talks-4919293",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.5,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
         {
           "time": "Mon 28 Sep, 09:25 MYT",
           "tf": "Intraday",
@@ -562,21 +587,105 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Sat 26 Sep, 22:54 MYT",
+          "time": "Mon 28 Sep, 12:44 MYT",
           "tf": "Intraday",
-          "title": "Trump says he spoke with Venezuela’s Rodriguez about elections",
+          "title": "India Gold price today: Gold falls, according to FXStreet data",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "Investing.com - Commodities & Futures",
-          "url": "https://www.investing.com/news/commodities-news/trump-says-he-spoke-with-venezuelas-rodriguez-about-elections-4918595",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/india-gold-price-today-gold-falls-according-to-fxstreet-data-202609280444",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
-          "relevance": 0.5,
+          "relevance": 1,
           "currencies": [],
+          "drivers": {
+            "gold": true,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Mon 28 Sep, 12:36 MYT",
+          "tf": "Intraday",
+          "title": "AUD/JPY Price Forecast: Recovers above 110.50, but technical outlook stays bearish",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/aud-jpy-price-forecast-recovers-above-11050-but-technical-outlook-stays-bearish-202609280436",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.35,
+          "currencies": [
+            "JPY",
+            "AUD"
+          ],
           "drivers": {
             "gold": false,
             "yields": false,
             "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Mon 28 Sep, 12:22 MYT",
+          "tf": "Intraday",
+          "title": "EUR/JPY Price Forecast: Eyes nine-day EMA barrier near 180.00",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/eur-jpy-price-forecast-eyes-nine-day-ema-barrier-near-18000-202609280422",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.35,
+          "currencies": [
+            "EUR",
+            "JPY"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Mon 28 Sep, 11:29 MYT",
+          "tf": "Intraday",
+          "title": "Swiss Franc hits fresh low since May 2025, near 0.8300 vs USD amid Fed-SNB divergence",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/swiss-franc-hits-fresh-low-since-may-2025-near-08300-vs-usd-amid-fed-snb-divergence-202609280329",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.8,
+          "currencies": [
+            "USD",
+            "CHF"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
             "oil": false,
             "risk": false,
             "crypto": false
@@ -885,112 +994,6 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Mon 28 Sep, 09:10 MYT",
-          "tf": "Intraday",
-          "title": "Japanese Yen drifts lower vs bullish USD after BoJ Minutes as intervention risks loom",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/japanese-yen-drifts-lower-vs-bullish-usd-after-boj-minutes-as-intervention-risks-loom-202609280110",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.8,
-          "currencies": [
-            "USD",
-            "JPY"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Mon 28 Sep, 08:53 MYT",
-          "tf": "Intraday",
-          "title": "Euro declines below 1.1400 on hawkish Fed stance, ongoing Middle East tensions",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/euro-declines-below-11400-on-hawkish-fed-stance-ongoing-middle-east-tensions-202609280053",
-          "impact": "bearish",
-          "signal": "SELL",
-          "decisionState": "DIRECTIONAL",
-          "relevance": 0.8,
-          "currencies": [
-            "USD",
-            "EUR"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": "hawkish",
-          "impactScore": -0.12,
-          "impactPct": -0.12,
-          "auto": true
-        },
-        {
-          "time": "Mon 28 Sep, 08:19 MYT",
-          "tf": "Intraday",
-          "title": "US President Donald Trump says he will not rule out more Iran strikes",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/us-president-donald-trump-says-he-will-not-rule-out-more-iran-strikes-202609280019",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.5,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Mon 28 Sep, 07:53 MYT",
-          "tf": "Intraday",
-          "title": "BoJ Minutes: Members agree financial conditions remain accommodative",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/boj-minutes-members-agree-financial-conditions-remain-accommodative-202609272353",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.5,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
           "time": "Mon 28 Sep, 06:00 MYT",
           "tf": "Intraday",
           "title": "&#x2018;I want to make her proud&#x2019;: My mother, a divorc&#xe9;e, died and I&#x2019;m her executor. Do I need to file for probate?",
@@ -1241,7 +1244,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Mon 28 Sep, 10:15 MYT",
+          "time": "Mon 28 Sep, 12:04 MYT",
           "tf": "Intraday",
           "title": "China posts weakest industrial profit growth this year, expanding 4.2% in August",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
@@ -1271,6 +1274,31 @@ window.NEWS_AUTO = {
     "crypto": {
       "news": [
         {
+          "time": "Mon 28 Sep, 11:12 MYT",
+          "tf": "Intraday",
+          "title": "China says US trade truce extension creates space to advance talks",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "Investing.com - Commodities & Futures",
+          "url": "https://www.investing.com/news/commodities-news/china-says-us-trade-truce-extension-creates-space-to-advance-talks-4919293",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.4,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
           "time": "Mon 28 Sep, 09:25 MYT",
           "tf": "Intraday",
           "title": "Oil prices rise as Iran, U.S. remain at odds over Hormuz reopening",
@@ -1496,21 +1524,105 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Sat 26 Sep, 22:54 MYT",
+          "time": "Mon 28 Sep, 12:44 MYT",
           "tf": "Intraday",
-          "title": "Trump says he spoke with Venezuela’s Rodriguez about elections",
+          "title": "India Gold price today: Gold falls, according to FXStreet data",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "Investing.com - Commodities & Futures",
-          "url": "https://www.investing.com/news/commodities-news/trump-says-he-spoke-with-venezuelas-rodriguez-about-elections-4918595",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/india-gold-price-today-gold-falls-according-to-fxstreet-data-202609280444",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
           "relevance": 0.4,
           "currencies": [],
           "drivers": {
+            "gold": true,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Mon 28 Sep, 12:36 MYT",
+          "tf": "Intraday",
+          "title": "AUD/JPY Price Forecast: Recovers above 110.50, but technical outlook stays bearish",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/aud-jpy-price-forecast-recovers-above-11050-but-technical-outlook-stays-bearish-202609280436",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.4,
+          "currencies": [
+            "JPY",
+            "AUD"
+          ],
+          "drivers": {
             "gold": false,
             "yields": false,
             "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Mon 28 Sep, 12:22 MYT",
+          "tf": "Intraday",
+          "title": "EUR/JPY Price Forecast: Eyes nine-day EMA barrier near 180.00",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/eur-jpy-price-forecast-eyes-nine-day-ema-barrier-near-18000-202609280422",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.4,
+          "currencies": [
+            "EUR",
+            "JPY"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Mon 28 Sep, 11:29 MYT",
+          "tf": "Intraday",
+          "title": "Swiss Franc hits fresh low since May 2025, near 0.8300 vs USD amid Fed-SNB divergence",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/swiss-franc-hits-fresh-low-since-may-2025-near-08300-vs-usd-amid-fed-snb-divergence-202609280329",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.7,
+          "currencies": [
+            "USD",
+            "CHF"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
             "oil": false,
             "risk": false,
             "crypto": false
@@ -1809,112 +1921,6 @@ window.NEWS_AUTO = {
             "gold": false,
             "yields": false,
             "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Mon 28 Sep, 09:10 MYT",
-          "tf": "Intraday",
-          "title": "Japanese Yen drifts lower vs bullish USD after BoJ Minutes as intervention risks loom",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/japanese-yen-drifts-lower-vs-bullish-usd-after-boj-minutes-as-intervention-risks-loom-202609280110",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.7,
-          "currencies": [
-            "USD",
-            "JPY"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Mon 28 Sep, 08:53 MYT",
-          "tf": "Intraday",
-          "title": "Euro declines below 1.1400 on hawkish Fed stance, ongoing Middle East tensions",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/euro-declines-below-11400-on-hawkish-fed-stance-ongoing-middle-east-tensions-202609280053",
-          "impact": "bearish",
-          "signal": "SELL",
-          "decisionState": "DIRECTIONAL",
-          "relevance": 0.7,
-          "currencies": [
-            "USD",
-            "EUR"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": "hawkish",
-          "impactScore": -0.14,
-          "impactPct": -0.14,
-          "auto": true
-        },
-        {
-          "time": "Mon 28 Sep, 08:19 MYT",
-          "tf": "Intraday",
-          "title": "US President Donald Trump says he will not rule out more Iran strikes",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/us-president-donald-trump-says-he-will-not-rule-out-more-iran-strikes-202609280019",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.4,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Mon 28 Sep, 07:53 MYT",
-          "tf": "Intraday",
-          "title": "BoJ Minutes: Members agree financial conditions remain accommodative",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/boj-minutes-members-agree-financial-conditions-remain-accommodative-202609272353",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.4,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
             "oil": false,
             "risk": false,
             "crypto": false
@@ -2175,7 +2181,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Mon 28 Sep, 10:15 MYT",
+          "time": "Mon 28 Sep, 12:04 MYT",
           "tf": "Intraday",
           "title": "China posts weakest industrial profit growth this year, expanding 4.2% in August",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
@@ -2204,6 +2210,31 @@ window.NEWS_AUTO = {
     },
     "forex": {
       "news": [
+        {
+          "time": "Mon 28 Sep, 11:12 MYT",
+          "tf": "Intraday",
+          "title": "China says US trade truce extension creates space to advance talks",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "Investing.com - Commodities & Futures",
+          "url": "https://www.investing.com/news/commodities-news/china-says-us-trade-truce-extension-creates-space-to-advance-talks-4919293",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.5,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
         {
           "time": "Mon 28 Sep, 09:25 MYT",
           "tf": "Intraday",
@@ -2430,21 +2461,105 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Sat 26 Sep, 22:54 MYT",
+          "time": "Mon 28 Sep, 12:44 MYT",
           "tf": "Intraday",
-          "title": "Trump says he spoke with Venezuela’s Rodriguez about elections",
+          "title": "India Gold price today: Gold falls, according to FXStreet data",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "Investing.com - Commodities & Futures",
-          "url": "https://www.investing.com/news/commodities-news/trump-says-he-spoke-with-venezuelas-rodriguez-about-elections-4918595",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/india-gold-price-today-gold-falls-according-to-fxstreet-data-202609280444",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
           "relevance": 0.5,
           "currencies": [],
           "drivers": {
+            "gold": true,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Mon 28 Sep, 12:36 MYT",
+          "tf": "Intraday",
+          "title": "AUD/JPY Price Forecast: Recovers above 110.50, but technical outlook stays bearish",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/aud-jpy-price-forecast-recovers-above-11050-but-technical-outlook-stays-bearish-202609280436",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 1,
+          "currencies": [
+            "JPY",
+            "AUD"
+          ],
+          "drivers": {
             "gold": false,
             "yields": false,
             "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Mon 28 Sep, 12:22 MYT",
+          "tf": "Intraday",
+          "title": "EUR/JPY Price Forecast: Eyes nine-day EMA barrier near 180.00",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/eur-jpy-price-forecast-eyes-nine-day-ema-barrier-near-18000-202609280422",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 1,
+          "currencies": [
+            "EUR",
+            "JPY"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Mon 28 Sep, 11:29 MYT",
+          "tf": "Intraday",
+          "title": "Swiss Franc hits fresh low since May 2025, near 0.8300 vs USD amid Fed-SNB divergence",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/swiss-franc-hits-fresh-low-since-may-2025-near-08300-vs-usd-amid-fed-snb-divergence-202609280329",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 1,
+          "currencies": [
+            "USD",
+            "CHF"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
             "oil": false,
             "risk": false,
             "crypto": false
@@ -2743,112 +2858,6 @@ window.NEWS_AUTO = {
             "gold": false,
             "yields": false,
             "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Mon 28 Sep, 09:10 MYT",
-          "tf": "Intraday",
-          "title": "Japanese Yen drifts lower vs bullish USD after BoJ Minutes as intervention risks loom",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/japanese-yen-drifts-lower-vs-bullish-usd-after-boj-minutes-as-intervention-risks-loom-202609280110",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 1,
-          "currencies": [
-            "USD",
-            "JPY"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Mon 28 Sep, 08:53 MYT",
-          "tf": "Intraday",
-          "title": "Euro declines below 1.1400 on hawkish Fed stance, ongoing Middle East tensions",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/euro-declines-below-11400-on-hawkish-fed-stance-ongoing-middle-east-tensions-202609280053",
-          "impact": "bearish",
-          "signal": "SELL",
-          "decisionState": "DIRECTIONAL",
-          "relevance": 1,
-          "currencies": [
-            "USD",
-            "EUR"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": "hawkish",
-          "impactScore": -0.15,
-          "impactPct": -0.15,
-          "auto": true
-        },
-        {
-          "time": "Mon 28 Sep, 08:19 MYT",
-          "tf": "Intraday",
-          "title": "US President Donald Trump says he will not rule out more Iran strikes",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/us-president-donald-trump-says-he-will-not-rule-out-more-iran-strikes-202609280019",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.5,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Mon 28 Sep, 07:53 MYT",
-          "tf": "Intraday",
-          "title": "BoJ Minutes: Members agree financial conditions remain accommodative",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/boj-minutes-members-agree-financial-conditions-remain-accommodative-202609272353",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.5,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
             "oil": false,
             "risk": false,
             "crypto": false
@@ -3109,7 +3118,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Mon 28 Sep, 10:15 MYT",
+          "time": "Mon 28 Sep, 12:04 MYT",
           "tf": "Intraday",
           "title": "China posts weakest industrial profit growth this year, expanding 4.2% in August",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
   "generationId": null,
-  "generatedAt": "2026-09-28T03:25:43.008Z",
+  "generatedAt": "2026-09-28T04:44:26.748Z",
   "lineage": {
     "status": "UNKNOWN",
     "generationId": null,
@@ -12,30 +12,30 @@
     {
       "file": "news-auto.js",
       "available": true,
-      "bytes": 137413,
-      "sha256": "22f092dbce636d0119aa23800c9de5a5467036340052dafedccc4df362a30069",
-      "modifiedAt": "2026-09-28T03:25:42.957Z"
+      "bytes": 137456,
+      "sha256": "a881546bf1a36a76daab2fdf7f1bbe768bbcf567d5ba27a38d81f59284b00f42",
+      "modifiedAt": "2026-09-28T04:44:26.436Z"
     },
     {
       "file": "macro-auto.js",
       "available": true,
       "bytes": 1551,
-      "sha256": "798229acf3abae7a24d293643c3dab11887705f4fc02db69d4998788a68515a6",
-      "modifiedAt": "2026-09-28T03:25:31.158Z"
+      "sha256": "266876f804c7f6fed1a6280fe767a1497749963ca902e6adb57c6c531545d0e7",
+      "modifiedAt": "2026-09-28T04:44:26.696Z"
     },
     {
       "file": "atr.js",
       "available": true,
-      "bytes": 5804,
-      "sha256": "47d315e5f73c9273c30e424d8e38bbdcd9aca98a58fa9669f30830c3d59f5857",
-      "modifiedAt": "2026-09-28T03:25:31.154Z"
+      "bytes": 5795,
+      "sha256": "10dea6c5142cc86b22a66c548a7d3b56050d9a75db4f6ab0a3a7bfe46fe1e8db",
+      "modifiedAt": "2026-09-28T04:44:22.227Z"
     },
     {
       "file": "xauusd-data.js",
       "available": true,
       "bytes": 38201,
       "sha256": "5a308431b2e833b1b18a0fdd1cd6bd0a7e2d352276aecca147ff4a21eb444ba6",
-      "modifiedAt": "2026-09-28T03:25:31.162Z"
+      "modifiedAt": "2026-09-28T04:44:13.768Z"
     },
     {
       "file": "data/bbma-watch.json",

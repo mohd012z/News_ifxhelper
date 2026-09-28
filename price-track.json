@@ -815,41 +815,41 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-28T03:26:42.955Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T04:44:26.435Z",
+          "price": 4230.5,
+          "realizedPct": -0.069
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-28T03:30:42.955Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T04:44:26.435Z",
+          "price": 4230.5,
+          "realizedPct": -0.069
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-28T03:40:42.955Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T04:44:26.435Z",
+          "price": 4230.5,
+          "realizedPct": -0.069
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-09-28T03:55:42.955Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T04:44:26.435Z",
+          "price": 4230.5,
+          "realizedPct": -0.069
         },
         {
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-09-28T04:25:42.955Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T04:44:26.435Z",
+          "price": 4230.5,
+          "realizedPct": -0.069
         },
         {
           "key": "H4",
@@ -883,7 +883,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.069,
+        "maePct": -0.069
+      }
     },
     {
       "key": "news:crypto:Silver Price Forecast: XAG/USD falls to near $62.00 amid Fed rate hike odds",
@@ -899,41 +904,41 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-28T03:26:42.955Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T04:44:26.435Z",
+          "price": 83476.8,
+          "realizedPct": 0.168
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-28T03:30:42.955Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T04:44:26.435Z",
+          "price": 83476.8,
+          "realizedPct": 0.168
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-28T03:40:42.955Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T04:44:26.435Z",
+          "price": 83476.8,
+          "realizedPct": 0.168
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-09-28T03:55:42.955Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T04:44:26.435Z",
+          "price": 83476.8,
+          "realizedPct": 0.168
         },
         {
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-09-28T04:25:42.955Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T04:44:26.435Z",
+          "price": 83476.8,
+          "realizedPct": 0.168
         },
         {
           "key": "H4",
@@ -967,7 +972,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.168,
+        "maePct": 0.168
+      }
     },
     {
       "key": "news:forex:Silver Price Forecast: XAG/USD falls to near $62.00 amid Fed rate hike odds",
@@ -983,41 +993,41 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-28T03:26:42.955Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T04:44:26.435Z",
+          "price": 1.1393,
+          "realizedPct": 0.009
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-28T03:30:42.955Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T04:44:26.435Z",
+          "price": 1.1393,
+          "realizedPct": 0.009
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-28T03:40:42.955Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T04:44:26.435Z",
+          "price": 1.1393,
+          "realizedPct": 0.009
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-09-28T03:55:42.955Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T04:44:26.435Z",
+          "price": 1.1393,
+          "realizedPct": 0.009
         },
         {
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-09-28T04:25:42.955Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T04:44:26.435Z",
+          "price": 1.1393,
+          "realizedPct": 0.009
         },
         {
           "key": "H4",
@@ -1051,7 +1061,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.009,
+        "maePct": 0.009
+      }
     }
   ],
   "results": [
