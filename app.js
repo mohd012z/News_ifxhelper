@@ -121,31 +121,38 @@
   }
 
   /* ---- Auto-computed gauge: xauusd-data.js's tabs[].sentiment (bias/tone/score/confidence/
-   *      netSignal/netPct/summary) was hand-set once and never touched by any refresh script,
-   *      even after ATR/news/calendar/macro all started auto-updating - so the gauge everyone
-   *      looks at was silently frozen next to data that looked live. This recomputes it from
-   *      the tab's own news[]+speakers[] (curated + auto-merged), which already carry a
-   *      signal/impactPct per item either way. Every dirRule in this app states "hawkish =
-   *      SELL <the tab's own instrument>" as the primary framing, so SELL is uniformly the
-   *      hawkish direction across gold/crypto/forex - no per-tab sign flipping needed.
-   *      Falls back to leaving the curated sentiment untouched if there's nothing to score. */
+   *      netPct/summary) was hand-set once and never touched by any refresh script, even after
+   *      ATR/news/calendar/macro all started auto-updating - so the gauge everyone looks at was
+   *      silently frozen next to data that looked live. This recomputes it from the tab's own
+   *      news[]+speakers[] (curated + auto-merged), which carry a bias_context + impactPct per
+   *      item. P0 architecture: the gauge shows POLICY TILT (hawkish/dovish) and impact — a
+   *      context reading, NOT a buy/sell direction. Only the BBMA engine produces direction;
+   *      tone here is descriptive (bullish-context / bearish-context / mixed), never an order. */
   function computeAutoSentiment(tab) {
     var items = (tab.news || []).concat(tab.speakers || []);
-    var scored = items.filter(function (i) { return i.signal && i.signal !== "NEUTRAL" && i.impactPct != null; });
+    var scored = items.filter(function (i) {
+      var bc = i.bias_context;
+      return (bc && bc !== "CONTEXT_NEUTRAL") || (i.signal && i.signal !== "NEUTRAL") || (i.side && (i.side === "hawkish" || i.side === "dovish"));
+    }).filter(function (i) { return i.impactPct != null; });
     if (!scored.length) return null;
-    var netPct = 0, buys = 0, sells = 0;
-    scored.forEach(function (i) { netPct += i.impactPct; if (i.signal === "BUY") buys++; else if (i.signal === "SELL") sells++; });
+    var netPct = 0, bulls = 0, bears = 0;
+    scored.forEach(function (i) {
+      netPct += i.impactPct;
+      var bc = i.bias_context;
+      var isBull = bc ? bc.endsWith("_SUPPORTIVE") || bc === "USD_HEADWIND" : (i.side ? i.side === "dovish" : (i.signal === "BUY"));
+      var isBear = bc ? bc.endsWith("_HEADWIND") || bc === "USD_SUPPORTIVE" : (i.side ? i.side === "hawkish" : (i.signal === "SELL"));
+      if (isBull) bulls++; else if (isBear) bears++;
+    });
     netPct = +netPct.toFixed(2);
-    var netSignal = netPct > 0.05 ? "BUY" : netPct < -0.05 ? "SELL" : "NEUTRAL";
-    var score = +Math.max(-1, Math.min(1, (sells - buys) / scored.length)).toFixed(2); // positive = hawkish (right side of gauge)
+    var score = +Math.max(-1, Math.min(1, (bears - bulls) / scored.length)).toFixed(2); // positive = hawkish (right side of gauge)
     var confidence = Math.round(Math.min(95, 40 + scored.length * 4));
     var bias = score > 0.15 ? "HAWKISH" : score < -0.15 ? "DOVISH" : "MIXED";
-    var tone = netSignal === "SELL" ? "BEARISH" : netSignal === "BUY" ? "BULLISH" : "MIXED";
+    var tone = netPct > 0.05 ? "BULLISH-CONTEXT" : netPct < -0.05 ? "BEARISH-CONTEXT" : "MIXED";
     return {
       bias: bias, tone: tone, score: score, confidence: confidence,
-      netSignal: netSignal, netPct: netPct,
-      summary: scored.length + " classified item" + (scored.length === 1 ? "" : "s") + " (" + buys + " bullish, " + sells + " bearish) from real news/speakers.",
-      netNote: "Computed live from classified news/speaker impact% values (curated + auto-collected) — not hand-set."
+      netPct: netPct,
+      summary: scored.length + " classified item" + (scored.length === 1 ? "" : "s") + " (" + bulls + " bullish-context, " + bears + " bearish-context) from real news/speakers — context only, direction belongs to the BBMA engine.",
+      netNote: "Computed live from classified news/speaker impact scores (curated + auto-collected) — not hand-set. Context reading, not a trade signal."
     };
   }
   function applyAutoSentiment() {
@@ -200,7 +207,7 @@
     function pairFor(a, b) {
       var found = (D.fxPairs || []).filter(function (p) { return (p.base === a && p.quote === b) || (p.base === b && p.quote === a); })[0];
       if (!found) return null;
-      var dir = found.base === a ? "BUY " + found.pair : "SELL " + found.pair;
+      var dir = found.base === a ? a + " stronger" : b + " stronger";
       return { pair: found.pair, dir: dir };
     }
     function biasAgrees(code, liveUp) {
@@ -326,6 +333,26 @@
     return pipSize(s) * contract * lot;
   }
   function sigCls(s) { return s === "SELL" ? "sig-sell" : s === "BUY" ? "sig-buy" : "sig-neu"; }
+  // P0 architecture: a currency-bias spread is a STRENGTH READING, not a direction.
+  // "USD +0.90" = USD reading 0.90 stronger — never "BUY EUR/USD". The BBMA engine
+  // (xau-desk-daily) is the only component allowed to produce a direction.
+  function strengthReading(score, pair) {
+    var parts = String(pair || "").split("/");
+    if (score > 0.15 && parts[0]) return parts[0] + " +" + score.toFixed(2);
+    if (score < -0.15 && parts[1]) return parts[1] + " +" + Math.abs(score).toFixed(2);
+    return "balanced " + score.toFixed(2);
+  }
+  // Short context tag for a news/speaker row: its bias_context (or legacy side) as a
+  // reading — never a BUY/SELL. "XAU headwind", "USD supportive", "neutral".
+  function contextTag(item) {
+    var bc = item && item.bias_context;
+    if (bc && bc !== "CONTEXT_NEUTRAL") return bc.replace(/^(XAU|USD|CRYPTO|EUR|GBP|JPY|AUD|NZD|CAD)_/, "").toLowerCase().replace("_", " ");
+    var side = item && item.side;
+    if (side === "hawkish") return "hawkish";
+    if (side === "dovish") return "dovish";
+    if (item && item.signal) return item.signal.toLowerCase();
+    return "neutral";
+  }
   function dirGlyph(d) { return d === "up" ? "UP" : d === "down" ? "DOWN" : d === "mixed" ? "MIXED" : "-"; }
   function dirCls(d) { return d === "up" ? "good" : d === "down" ? "bad" : "muted"; }
   function biasOf(code) { var c = (D.currencies || []).filter(function (x) { return x.code === code; })[0]; return c ? c.bias : 0; }
@@ -749,7 +776,7 @@
     var lq = q.toLowerCase();
     if (!q) return "Ask me something — try \"next event\", \"gauge\", \"EUR/USD signal\", \"switch to crypto\", or \"sources\".";
     if (/\bhelp\b|what can you do/.test(lq)) {
-      return "I read this page's own loaded data (no internet, no external AI) and can answer: next event / when / what time to trade, today's alerts, the hawkish/dovish gauge, spot price, a pair's BUY/SELL signal, a speaker's stance, \"summarise\", \"report\" (multi-section with references), \"why\", \"how to trade\", \"predict\" / \"outlook\", \"advice\", \"pivot [symbol]\", \"pips EUR/USD 1.1050 to 1.1100\", \"sources\", or \"switch to gold/crypto/forex\".";
+      return "I read this page's own loaded data (no internet, no external AI) and can answer: next event / when / what time to trade, today's alerts, the hawkish/dovish gauge, spot price, a pair's currency-strength reading, a speaker's stance, \"summarise\", \"report\" (multi-section with references), \"why\", \"how to trade\", \"predict\" / \"outlook\", \"advice\", \"pivot [symbol]\", \"pips EUR/USD 1.1050 to 1.1100\", \"sources\", or \"switch to gold/crypto/forex\". Trade direction comes from the BBMA engine, not this dashboard.";
     }
     if (/^(switch to|open|go to|show)\s/.test(lq) || /^(gold|crypto|forex)$/.test(lq)) {
       var swTab = findTabInText(q);
@@ -810,7 +837,7 @@
       var pTab = findTabInText(q) || T;
       var ps = pTab.sentiment || {};
       var confWord = (ps.confidence || 0) >= 80 ? "high" : (ps.confidence || 0) >= 60 ? "medium" : "low";
-      return "Model-implied bias for " + pTab.label + ": " + (ps.netSignal || "—") + " (" + (ps.bias || "—") + "/" + (ps.tone || "—") + "), cumulative est. move " + pctTxt(ps.netPct) + ", " + confWord + " confidence (" + (ps.confidence || "—") + "%). Basis: " + (ps.summary || "loaded news/speaker set") + " This is a heuristic read of already-priced news, not a guaranteed forecast — events overlap and surprises are not in this number.";
+      return "Model-implied bias for " + pTab.label + ": " + (ps.bias || "—") + " tilt, " + (ps.tone || "—") + ", cumulative impact " + pctTxt(ps.netPct) + ", " + confWord + " confidence (" + (ps.confidence || "—") + "%). Basis: " + (ps.summary || "loaded news/speaker set") + " This is a context read of already-priced news, not a direction — the BBMA engine decides trade direction, not headlines.";
     }
     /* ---- advice: gauge + best pair + timing, combined into one actionable line ---- */
     if (/\badvice|recommend|what should i (do|trade)|trade idea|what.?s the trade\b/.test(lq)) {
@@ -818,8 +845,8 @@
       var as = aTab.sentiment || {};
       var nxA = nextIncomingEvent();
       var advPairs = (D.fxPairs || []).map(function (p) { return { pair: p.pair, s: pairSignal(p) }; }).sort(function (x, y) { return y.s.strength - x.s.strength; })[0];
-      var out = aTab.label + ": " + (as.netSignal || "—") + ", confidence " + (as.confidence || "—") + "%. " + (aTab.dirRule || "");
-      if (advPairs && aTab.id === "forex") out += " Cleanest expression: " + advPairs.pair + " " + advPairs.s.signal + " (score " + (advPairs.s.score > 0 ? "+" : "") + advPairs.s.score.toFixed(2) + ").";
+      var out = aTab.label + ": " + (aTab.dirRule || "") + " — gauge " + (as.bias || "—") + " tilt / " + (as.tone || "—") + ", confidence " + (as.confidence || "—") + "%.";
+      if (advPairs && aTab.id === "forex") out += " Strongest bias spread: " + strengthReading(advPairs.s.score, advPairs.pair) + ".";
       if (nxA) out += " Next catalyst: " + nxA.e.event + " at MYT " + mytDisplay(nxA.e.timeMyt) + ", focus " + (nxA.e.focusTf || "—") + " — size down or wait through the print if you're not trading the news itself.";
       out += " Your risk setting: " + (settings.riskPct || 1) + "% per trade, " + settings.lotSize + " lot (Settings → Trading profile) — size the stop distance to that, not the other way round. Not financial advice — a model read of the loaded data only.";
       return out;
@@ -832,9 +859,9 @@
       var spk5 = (rTab.speakers || []).slice(0, 3);
       var lines = [];
       lines.push("REPORT — " + rTab.label + " (" + (D.updated || "—") + ")");
-      lines.push("Gauge: " + (rs.bias || "—") + "/" + (rs.tone || "—") + ", " + (rs.netSignal || "—") + " " + pctTxt(rs.netPct) + ", confidence " + (rs.confidence || "—") + "%.");
+      lines.push("Gauge: " + (rs.bias || "—") + " tilt / " + (rs.tone || "—") + ", cumulative impact " + pctTxt(rs.netPct) + ", confidence " + (rs.confidence || "—") + "%.");
       lines.push("Why: " + (rs.summary || "—"));
-      if (top5.length) lines.push("Top news: " + top5.map(function (n) { return n.title + " [" + n.signal + ", " + pctTxt(n.impactPct) + "] (" + n.source + ")"; }).join(" | "));
+      if (top5.length) lines.push("Top news: " + top5.map(function (n) { return n.title + " [" + contextTag(n) + ", " + pctTxt(n.impactPct) + "] (" + n.source + ")"; }).join(" | "));
       if (spk5.length) lines.push("Key speakers: " + spk5.map(function (s) { return s.name + " (" + s.role + ") " + s.side.toUpperCase() + " " + pctTxt(s.impactPct); }).join(" | "));
       var nxR = nextIncomingEvent();
       if (nxR) lines.push("Next event: " + nxR.e.event + " — MYT " + mytDisplay(nxR.e.timeMyt) + ", focus " + (nxR.e.focusTf || "—") + ".");
@@ -845,14 +872,14 @@
     if (/^\s*why\b/.test(lq)) {
       var wTab = findTabInText(q) || T;
       var ws = wTab.sentiment || {};
-      return "Why " + wTab.label + " is " + (ws.netSignal || "—") + ": " + (ws.summary || "no summary loaded") + " " + (ws.netNote || "");
+      return "Why " + wTab.label + " shows a " + (ws.bias || "—") + " policy tilt: " + (ws.summary || "no summary loaded") + " " + (ws.netNote || "") + " (Context only — direction comes from the BBMA engine, not news.)";
     }
     /* ---- how: what to actually do with the current read ---- */
     if (/^\s*how\b.*(trade|play)|how to trade/.test(lq)) {
       var hTab = findTabInText(q) || T;
       var hs = hTab.sentiment || {};
       var nxH = nextIncomingEvent();
-      return "How to trade " + hTab.label + ": rule is \"" + (hTab.dirRule || "—") + "\", current read is " + (hs.netSignal || "—") + ". " + (nxH ? "Wait for " + nxH.e.event + " (MYT " + mytDisplay(nxH.e.timeMyt) + ") if you want to trade the catalyst itself, focus timeframe " + (nxH.e.focusTf || "—") + "; the first M1-M5 spike often reverses, so the listed focus timeframe is usually where the real move holds." : "No upcoming catalyst loaded — this would be a positioning trade on the existing gauge only.") + " Size and stops are your call — this desk gives direction and timing, not position sizing.";
+      return "How to time " + hTab.label + ": the news gauge reads " + (hs.bias || "—") + " tilt / " + (hs.tone || "—") + " (context, not direction — the BBMA engine decides entry side). " + (nxH ? "Wait for " + nxH.e.event + " (MYT " + mytDisplay(nxH.e.timeMyt) + ") if you want to trade the catalyst itself, focus timeframe " + (nxH.e.focusTf || "—") + "; the first M1-M5 spike often reverses, so the listed focus timeframe is usually where the real move holds." : "No upcoming catalyst loaded — watch the session structure only.") + " Size and stops are your call — this desk gives context and timing, not direction or position sizing.";
     }
     if (/\bwhat time (should|to|do i)\b.*trade|best (time|session) to trade|when.*trade\b/.test(lq)) {
       var btTab = findTabInText(q) || T;
@@ -866,16 +893,16 @@
       var tgt = focusTab || T;
       var items2 = (focusTab ? focusTab.news : T.news) || [];
       if (!items2.length) return "No news loaded for " + tgt.label + " to summarise.";
-      var buys = items2.filter(function (n) { return n.signal === "BUY"; }).length;
-      var sells = items2.filter(function (n) { return n.signal === "SELL"; }).length;
-      var lead = tgt.label + " summary — " + items2.length + " headlines (" + buys + " bullish, " + sells + " bearish). Gauge: " + ((tgt.sentiment || {}).bias || "—") + "/" + ((tgt.sentiment || {}).tone || "—") + ". ";
-      var top3 = items2.slice(0, 3).map(function (n) { return n.title + " [" + n.signal + "]"; }).join(" · ");
+      var bulls = items2.filter(function (n) { var bc = n.bias_context; return bc ? bc.endsWith("_SUPPORTIVE") : n.signal === "BUY"; }).length;
+      var bears = items2.filter(function (n) { var bc = n.bias_context; return bc ? bc.endsWith("_HEADWIND") : n.signal === "SELL"; }).length;
+      var lead = tgt.label + " summary — " + items2.length + " headlines (" + bulls + " bullish-context, " + bears + " bearish-context). Gauge: " + ((tgt.sentiment || {}).bias || "—") + " tilt. ";
+      var top3 = items2.slice(0, 3).map(function (n) { return n.title + " [" + contextTag(n) + "]"; }).join(" · ");
       return lead + "Top headlines: " + top3;
     }
     var pair = findPairInText(q);
     if (pair) {
       var sig = pairSignal(pair);
-      return pair.pair + ": " + sig.signal + " (score " + (sig.score > 0 ? "+" : "") + sig.score.toFixed(2) + "), snapshot " + pairFmt(pair.snap) + ". Derived from the currency-bias table, base minus quote.";
+      return pair.pair + ": " + strengthReading(sig.score, pair.pair) + " (score " + (sig.score > 0 ? "+" : "") + sig.score.toFixed(2) + "), snapshot " + pairFmt(pair.snap) + ". A currency-strength reading from the bias table — not a trade direction (that's the BBMA engine's job).";
     }
     var spk = findSpeakerInText(q);
     if (spk) {
@@ -910,13 +937,13 @@
   };
   function aiContextSnapshot() {
     var s = T.sentiment || {};
-    var news = (T.news || []).slice(0, 6).map(function (n) { return n.title + " [" + n.signal + ", " + pctTxt(n.impactPct) + "]"; });
+    var news = (T.news || []).slice(0, 6).map(function (n) { return n.title + " [" + contextTag(n) + ", " + pctTxt(n.impactPct) + "]"; });
     var spk = (T.speakers || []).slice(0, 4).map(function (sp) { return sp.name + " (" + sp.role + ") " + sp.side; });
     var nx = nextIncomingEvent();
     var strength = computeCurrencyStrength().filter(function (r) { return r.n > 0; }).slice(0, 3).map(function (r) { return r.code + " " + (r.v > 0 ? "+" : "") + r.v.toFixed(2) + "%"; });
     return "Instrument: " + T.label + " | Spot: " + money(T.price.spot) + " (" + pctTxt(T.price.changePct) + ")\n" +
-      "Gauge: " + (s.bias || "—") + "/" + (s.tone || "—") + ", " + (s.netSignal || "—") + " " + pctTxt(s.netPct) + ", confidence " + (s.confidence || "—") + "%\n" +
-      "Direction rule: " + (T.dirRule || "—") + "\n" +
+      "Gauge: " + (s.bias || "—") + " tilt / " + (s.tone || "—") + ", cumulative impact " + pctTxt(s.netPct) + ", confidence " + (s.confidence || "—") + "%\n" +
+      "Direction rule: " + (T.dirRule || "—") + " (context framing — the BBMA engine decides actual trade direction)\n" +
       "Top news: " + (news.join(" | ") || "none loaded") + "\n" +
       "Key speakers: " + (spk.join(" | ") || "none loaded") + "\n" +
       "Next event: " + (nx ? nx.e.event + " at MYT " + mytDisplay(nx.e.timeMyt) + ", focus " + (nx.e.focusTf || "—") : "none loaded") + "\n" +
@@ -1119,7 +1146,7 @@
     $("#gauge-label").textContent = s.bias + " / " + s.tone + " \u00b7 confidence " + (s.confidence || "\u2014") + "%";
     $("#gauge-summary").textContent = s.summary || "";
     $("#dir-rule").textContent = T.dirRule || "";
-    $("#net-sig").innerHTML = '<span class="sig ' + sigCls(s.netSignal) + '">' + esc(s.netSignal) + "</span>";
+    $("#net-sig").innerHTML = '<span class="sig sig-neu">' + esc(s.bias + " tilt") + '</span>';
     $("#net-pct").textContent = pctTxt(s.netPct);
     $("#net-pct").style.color = s.netPct > 0 ? "var(--good)" : "var(--bad)";
     $("#net-sig").style.color = s.netPct > 0 ? "var(--good)" : "var(--bad)";
@@ -1179,7 +1206,7 @@
       var top = bestPairForCurrency(ccy);
       var hAway = it.t ? Math.round((it.t.getTime() - now.getTime()) / 3600000) : null;
       var pairLine = top
-        ? esc(top.pair) + ' <span class="sig ' + sigCls(top.s.signal) + '">' + esc(top.s.signal) + "</span> (score " + (top.s.score > 0 ? "+" : "") + top.s.score.toFixed(2) + ")"
+        ? esc(top.pair) + ' <span class="badge b-neu">' + esc(strengthReading(top.s.score, top.pair)) + '</span>'
         : (ccy ? "No loaded FX pair carries " + esc(ccy) + " — watch it via a related cross or XAU/USD." : "No single currency driver — treat as a broad risk/USD event; watch XAU/USD and DXY directly.");
       var open = !!tradeFocusOpen[idx];
       var more = '<div class="tf-more">' +
@@ -1269,7 +1296,7 @@
         '<td class="news-time" style="white-space:nowrap">' + esc(nw.time) + "</td>" +
         '<td><span class="badge b-tf">' + esc(nw.tf || "\u2014") + "</span></td>" +
         '<td><div style="font-weight:600">' + esc(nw.title) + '</div><div style="color:var(--muted);margin-top:2px">' + esc(nw.summary) + "</div></td>" +
-        '<td><span class="sig ' + sigCls(nw.signal) + '">' + esc(nw.signal || "\u2014") + "</span></td>" +
+        '<td><span class="badge b-neu">' + esc(contextTag(nw)) + '</span></td>' +
         '<td class="pct ' + pctCls(nw.impactPct) + '">' + pctTxt(nw.impactPct) + "</td>" +
         '<td>' + movementBadge(nw.impactPct) + "</td>" +
         '<td style="white-space:nowrap">' + (nw.url ? '<a href="' + esc(nw.url) + '" target="_blank" rel="noopener">' + esc(nw.source) + "</a>" : esc(nw.source || "\u2014")) + "</td>";
@@ -1287,7 +1314,7 @@
       el.className = "spk " + side;
       el.innerHTML =
         '<div class="hd"><div><span class="nm">' + esc(sp.name) + '</span> <span class="rl">\u00b7 ' + esc(sp.role) + "</span></div>" +
-        '<div style="display:flex;gap:6px;align-items:center"><span class="badge ' + cls + '">' + esc((sp.side || "").toUpperCase()) + '</span><span class="sig ' + sigCls(sp.signal) + '">' + esc(sp.signal) + "</span></div></div>" +
+        '<div style="display:flex;gap:6px;align-items:center"><span class="badge ' + cls + '">' + esc((sp.side || "").toUpperCase()) + '</span><span class="badge b-neu">' + esc(contextTag(sp)) + '</span></div></div>' +
         '<div class="qt">"' + esc(sp.quote) + '"</div>' +
         '<div class="im">' + esc(sp.impact) + " \u00b7 " + esc(sp.date) + (sp.url ? ' \u00b7 <a href="' + esc(sp.url) + '" target="_blank" rel="noopener">' + esc(sp.source) + "</a>" : "") + "</div>" +
         '<div class="mt">est. impact ' + pctTxt(sp.impactPct) + " " + movementBadge(sp.impactPct) + "  \u00b7  w " + (sp.w != null ? sp.w : "\u2014") + " x s " + (sp.s != null ? sp.s : "\u2014") + " x f " + (sp.f != null ? sp.f : "\u2014") + "</div>";
@@ -1401,8 +1428,8 @@
       if (pn) pn.textContent = "Add or remove symbols with the Crypto chips above; picks are saved on this device.";
     } else {
       if (title) title.textContent = "FX Pair List \u2014 selected pairs only";
-      if (sub) sub.textContent = "Shows every FX pair toggled on above. Signal rule: BUY = base currency stronger than quote.";
-      head.innerHTML = "<th>Pair</th><th>Price</th><th>Since connect</th><th>Signal</th><th>Score</th><th>Driver events</th><th>Source</th>";
+      if (sub) sub.textContent = "Shows every FX pair toggled on above. Reading rule: base-stronger = base currency bias above quote bias (a strength reading, not a trade direction).";
+      head.innerHTML = "<th>Pair</th><th>Price</th><th>Since connect</th><th>Strength reading</th><th>Score</th><th>Driver events</th><th>Source</th>";
       var selected = (D.fxPairs || []).filter(function (p) { return watchlist.fx.indexOf(p.pair) > -1; });
       if (!selected.length) { body.innerHTML = '<tr><td colspan="7" style="color:var(--muted)">No FX pairs selected \u2014 tap one above.</td></tr>'; }
       selected.forEach(function (p) {
@@ -1414,7 +1441,7 @@
           "<td><b>" + esc(p.pair) + '</b> <span class="badge b-neu">' + esc(p.group) + "</span></td>" +
           '<td class="px">' + pairFmt(p.snap) + "</td>" +
           '<td class="chg muted">\u2014</td>' +
-          '<td><span class="sig ' + sigCls(s.signal) + '">' + esc(s.signal) + "</span></td>" +
+          '<td><span class="badge b-neu">' + esc(strengthReading(s.score, p.pair)) + '</span></td>' +
           '<td class="pct ' + (s.score > 0 ? "good" : s.score < 0 ? "bad" : "") + '">' + (s.score > 0 ? "+" : "") + s.score.toFixed(2) + "</td>" +
           '<td style="color:var(--muted)">' + esc(b.next || "-") + " / " + esc(q.next || "-") + "</td>" +
           '<td style="color:var(--muted)">' + (p.derived ? "derived" : "quoted") + "</td>";
@@ -1429,17 +1456,17 @@
     var box = $("#analysis-list"); if (!box) return;
     var cs = (D.currencies || []).slice().sort(function (a, b) { return b.bias - a.bias; });
     var pairs = (D.fxPairs || []).map(function (p) { var s = pairSignal(p); return { pair: p.pair, s: s }; });
-    var buys = pairs.filter(function (x) { return x.s.signal === "BUY"; });
-    var sells = pairs.filter(function (x) { return x.s.signal === "SELL"; });
+    var baseSide = pairs.filter(function (x) { return x.s.score > 0.15; });
+    var quoteSide = pairs.filter(function (x) { return x.s.score < -0.15; });
     var top = pairs.slice().sort(function (a, b) { return b.s.strength - a.s.strength; })[0];
     var jpy = pairs.filter(function (p) { return p.pair.indexOf("JPY") > -1 && p.s.signal !== "NEUTRAL"; });
     var out = [];
     if (cs.length) out.push("<b>Strongest currency:</b> " + cs[0].code + " (" + cs[0].stance + ", bias +" + cs[0].bias.toFixed(2) + ") - " + cs[0].note + ".");
     if (cs.length) out.push("<b>Weakest currency:</b> " + cs[cs.length - 1].code + " (" + cs[cs.length - 1].stance + ", bias " + cs[cs.length - 1].bias.toFixed(2) + ") - " + cs[cs.length - 1].note + ".");
-    out.push("<b>Signal split:</b> " + buys.length + " BUY, " + sells.length + " SELL, " + (pairs.length - buys.length - sells.length) + " NEUTRAL across " + pairs.length + " pairs. A dollar-heavy SELL skew means the same trade (long USD) expressed many ways.");
-    if (top) out.push("<b>Cleanest expression:</b> " + top.pair + " at " + top.s.signal + " (score " + (top.s.score > 0 ? "+" : "") + top.s.score.toFixed(2) + ") - the widest gap between the two currencies involved.");
-    if (jpy.length) out.push("<b>Yen crosses:</b> " + jpy.map(function (p) { return p.pair + " " + p.s.signal; }).join(", ") + " - these carry the most event risk into Friday's BoJ decision.");
-    out.push("<b>Event map:</b> FOMC drives every USD leg (16 Sep 18:00 GMT); ECB sets the EUR leg; BoJ sets the JPY leg (18 Sep). Trade the pair whose two currencies are both moving on the same news.");
+    out.push("<b>Strength split:</b> " + baseSide.length + " pairs read base-stronger, " + quoteSide.length + " quote-stronger, " + (pairs.length - baseSide.length - quoteSide.length) + " balanced across " + pairs.length + " pairs. A dollar-heavy skew means USD is strong against most majors — a strength reading, not a trade signal (the BBMA engine decides direction).");
+    if (top) out.push("<b>Widest spread:</b> " + strengthReading(top.s.score, top.pair) + " (" + top.pair + ") - the largest gap between the two currencies involved.");
+    if (jpy.length) out.push("<b>Yen crosses:</b> " + jpy.map(function (p) { return strengthReading(p.s.score, p.pair); }).join(", ") + " - these carry the most event risk into Friday's BoJ decision.");
+    out.push("<b>Event map:</b> FOMC drives every USD leg (16 Sep 18:00 GMT); ECB sets the EUR leg; BoJ sets the JPY leg (18 Sep). Context for sizing/timing only — direction comes from the BBMA engine.");
     box.innerHTML = out.map(function (t) { return '<div class="al"><div class="tx">' + t + "</div></div>"; }).join("");
   }
 
@@ -1642,7 +1669,7 @@
   }
   function renderFlow() {
     $("#f1").textContent = "Retrieved " + (T.news || []).length + " news items and " + (T.speakers || []).length + " speaker items.";
-    $("#f3").textContent = (T.dirRule || "") + " \u00b7 net " + (T.sentiment.netSignal || "\u2014") + " " + pctTxt(T.sentiment.netPct) + ".";
+    $("#f3").textContent = "Gauge reads " + (T.sentiment.bias || "\u2014") + " policy tilt, cumulative impact " + pctTxt(T.sentiment.netPct) + " — context only; the BBMA engine decides direction.";
     $("#f4").textContent = "Snapshot built " + (D.updated || "\u2014") + "; live prices polled on a " + ((D.live || {}).intervalSec || 5) + "s interval.";
     $("#sources").textContent = "Sources: " + (D.sources || []).join(" \u00b7 ");
   }

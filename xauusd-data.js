@@ -148,7 +148,7 @@ window.MARKET_DATA = {
   tabs: [
     {
       id: "gold", label: "GOLD · XAU/USD", subtitle: "Spot gold vs USD",
-      dirRule: "hawkish = SELL gold, dovish = BUY gold",
+      dirRule: "hawkish = XAU headwind context, dovish = XAU supportive context (direction: BBMA engine only)",
       price: { spot: 4281.08, change: -11.18, changePct: -0.26, dayRange: "4,265 - 4,315", note: "Below $4,300 into the FOMC; 5-week low $4,282 hit 14 Sep" },
       macro: [
         { label: "DXY", value: "99.50", delta: "+0.39%", note: "Fifth session of dollar gains" },
@@ -199,7 +199,7 @@ window.MARKET_DATA = {
 
     {
       id: "crypto", label: "CRYPTO", subtitle: "BTC / ETH majors",
-      dirRule: "hawkish = SELL crypto, dovish = BUY crypto",
+      dirRule: "hawkish = crypto headwind context, dovish = crypto supportive context (direction: BBMA engine only)",
       price: { spot: 77700, change: -200, changePct: -0.26, dayRange: "76,800 - 78,000", note: "BTC holding near $77,700 into the FOMC; ETH reported down ~4.3% on the day" },
       macro: [
         { label: "BTC", value: "$77,700", delta: "holding", note: "Holds into the FOMC (ET Markets, 16 Sep)" },
@@ -244,7 +244,7 @@ window.MARKET_DATA = {
 
     {
       id: "forex", label: "FOREX", subtitle: "Majors vs USD",
-      dirRule: "hawkish Fed = BUY USD (SELL EURUSD / GBPUSD, BUY USDJPY) ; dovish Fed = the inverse",
+      dirRule: "hawkish Fed = USD-supportive context (dollar strength reading) ; dovish Fed = the inverse (direction: BBMA engine only)",
       price: { spot: 1.15484, change: -0.0051, changePct: -0.44, dayRange: "1.1520 - 1.1610", note: "EUR/USD pressured by a firmer dollar ahead of the FOMC" },
       macro: [
         { label: "DXY", value: "99.50", delta: "+0.39%", note: "Fifth session of gains - the FX master signal" },

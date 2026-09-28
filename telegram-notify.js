@@ -2,10 +2,17 @@
  * build-news.js have run, so a scheduled GitHub Action can alert you the moment something
  * changes instead of you having to open the app.
  *
- * Each alert is a small "trade card": what happened, which symbol to focus on, the model's
- * predicted direction, what timeframe/chart to read it on, and the Malaysia-time trade window -
- * the same fields the dashboard itself shows in News Incoming / Trade Focus, reusing the exact
- * same currency-bias and session logic as app.js so the numbers always agree with the app.
+ * Each alert is a small "context card": what happened, which symbol to focus on, the
+ * bias context (hawkish/dovish tilt as a reading, NOT a direction), the impact magnitude,
+ * what timeframe/chart to read it on, and the Malaysia-time trade window - the same fields
+ * the dashboard itself shows in News Incoming / Trade Focus, reusing the exact same
+ * currency-bias and session logic as app.js so the numbers always agree with the app.
+ *
+ * P0 architecture (BBMA cluster): news/calendar/speakers are CONTEXT + RISK, never a
+ * direction. These cards no longer carry an "ORDER CALL: BUY/SELL" — that authority
+ * belongs exclusively to the HELIX BBMA engine (xau-desk-daily MTF alignment, surfaced
+ * by send-bbma-telegram.js). The cards show bias context, impact magnitude, and
+ * WATCH_ONLY gating so a reader is never led to trade on a headline.
  *
  * What it alerts on (kept deliberately narrow to avoid spamming every poll):
  *   - New high-importance calendar events (from D.incoming, xauusd-data.js + news-auto.js)
@@ -203,25 +210,15 @@ function unitLabel(sym) {
   const isMetalOrCrypto = s.indexOf('XAU') > -1 || s.indexOf('XAG') > -1 || ['BTC', 'ETH', 'SOL', 'XRP', 'ADA', 'DOGE'].some(c => s.indexOf(c) > -1);
   return (isFxPair && !isMetalOrCrypto) ? 'pips' : 'points';
 }
-/* Builds "current price -> predicted target price (N pips)" from a spot price and a signed %
- * move (positive = up/BUY, negative = down/SELL - matches impactPct's existing sign convention).
- * Returns null if no spot price is available so callers can omit the line instead of showing junk. */
+/* Builds a BIDIRECTIONAL impact range around spot from the |impact score| —
+ * deliberately no "→" arrow and no up/down, because news context carries a
+ * magnitude, not a direction. (Positive/negative impactPct is the policy-tilt
+ * sign, kept for the impact score, but never rendered as a price move.) */
 function priceMoveLine(sym, spot, pct) {
   if (spot == null || pct == null) return null;
-  const target = spot * (1 + pct / 100);
-  const pips = Math.abs(target - spot) / pipSize(sym);
-  return `📏 Price move: <b>${fmtPrice(spot)} → ${fmtPrice(target)}</b> (≈${pips.toFixed(1)} ${unitLabel(sym)})`;
-}
-/* For calendar events (no direct % estimate): real measured ATR(14) from atr.js x an event
- * multiplier (1.5 for high-impact, matching the dashboard's Range Calc "k" convention), applied
- * in the predicted direction. This is the same "ATR expected range" method as Range Calc method 2. */
-function priceMoveLineFromAtr(atrRow, spot, signal, importance) {
-  if (!atrRow || spot == null || signal === 'NEUTRAL') return null;
-  const k = importance === 'high' ? 1.5 : 1.0;
-  const move = atrRow.atr * k;
-  const target = signal === 'BUY' ? spot + move : spot - move;
-  const pips = move / pipSize(atrRow.id);
-  return `📏 Expected move (ATR14 × ${k}): <b>${fmtPrice(spot)} → ${fmtPrice(target)}</b> (≈${pips.toFixed(1)} ${unitLabel(atrRow.id)})`;
+  const move = spot * (Math.abs(pct) / 100);
+  const pts = move / pipSize(sym);
+  return `📏 Impact range: <b>± ${fmtPrice(move)}</b> around ${fmtPrice(spot)} (≈±${pts.toFixed(1)} ${unitLabel(sym)} — magnitude, no direction)`;
 }
 function findAtrRow(atrData, symbolOrPair) {
   if (!atrData || !symbolOrPair) return null;
@@ -244,38 +241,91 @@ function movementLabelFromTier(tier) {
 
 const TF_CHART = { Intraday: 'M15 - H1', '1-3D': 'H1 - H4', Weekly: 'H4 - D1', Structural: 'D1 - W1' };
 const CREDIT_LINE = '———\n🏷️ ifxhelper_2026';
-const SIGNAL_EMOJI = { BUY: '🟢 BUY', SELL: '🔴 SELL', NEUTRAL: '⚪ NEUTRAL' };
 
-/* One bold, color-coded order-call line, e.g.: "🟢🟢🟢 ORDER CALL: BUY 🟢🟢🟢" - deliberately the
- * loudest line in the card since it's the single thing meant to be readable at a glance. */
-function orderCallLine(signal) {
-  if (signal === 'BUY') return '🟢🟢🟢 <b>ORDER CALL: BUY</b> 🟢🟢🟢';
-  if (signal === 'SELL') return '🔴🔴🔴 <b>ORDER CALL: SELL</b> 🔴🔴🔴';
-  return '⚪⚪⚪ <b>ORDER CALL: NEUTRAL / NO TRADE</b> ⚪⚪⚪';
+/* P0 architecture (BBMA cluster): news/calendar are CONTEXT + RISK, not direction.
+ * The loudest line in a card is therefore a WATCH_ONLY context line, never an
+ * "ORDER CALL: BUY/SELL". Only the HELIX BBMA engine (xau-desk-daily MTF
+ * alignment, surfaced by send-bbma-telegram.js) produces a direction. */
+function contextLine(item) {
+  const bc = item && item.bias_context ? String(item.bias_context) : 'CONTEXT_NEUTRAL';
+  const hint = (item && item.gate_hint) || 'WATCH_ONLY';
+  if (bc === 'CONTEXT_NEUTRAL' || !bc) return '⚪⚪⚪ <b>CONTEXT: NEUTRAL · GATE: ' + esc(hint) + '</b> ⚪⚪⚪';
+  const short = bc.replace(/_(SUPPORTIVE|HEADWIND)$/, '');
+  const dir = bc.endsWith('SUPPORTIVE') ? 'SUPPORTIVE' : 'HEADWIND';
+  return '🔵🔵🔵 <b>CONTEXT: ' + esc(short) + ' ' + dir + ' · GATE: ' + esc(hint) + '</b> 🔵🔵🔵';
 }
-/* Spells out WHY - ties the order call back to the actual hawkish/dovish speech-direction rule
- * for this instrument (T.dirRule in the dashboard), so the alert reads as reasoning, not a
- * bare signal. */
+/* A currency-bias spread rendered as a STRENGTH READING ("USD +0.90 stronger"), never a
+ * BUY/SELL order. Mirrors app.js's strengthReading() so the bot and dashboard agree. */
+function strengthReading(score, pair) {
+  const parts = String(pair || '').split('/');
+  if (score > 0.15 && parts[0]) return parts[0] + ' +' + score.toFixed(2) + ' stronger';
+  if (score < -0.15 && parts[1]) return parts[1] + ' +' + Math.abs(score).toFixed(2) + ' stronger';
+  return 'balanced ' + score.toFixed(2);
+}
+/* A net-tilt aggregation (from summed impact scores) as a CONTEXT word, never a bare
+ * BUY/SELL order. netSignal stays an internal label (BUY/SELL/NEUTRAL) but is only ever
+ * rendered through these helpers. */
+function netTiltWord(netSignal) {
+  if (netSignal === 'SELL') return 'net bearish-context';
+  if (netSignal === 'BUY') return 'net bullish-context';
+  return 'mixed (no net tilt)';
+}
+function tiltDot(netSignal) { return netSignal === 'SELL' ? '🔴' : netSignal === 'BUY' ? '🟢' : '⚪'; }
+/* True when an item carries a real (non-neutral) policy context — new rows via
+ * bias_context, legacy curated rows via side, and any pre-migration row via signal. */
+function hasContext(item) {
+  const bc = item && item.bias_context;
+  if (bc && bc !== 'CONTEXT_NEUTRAL') return true;
+  if (item && item.side && (item.side === 'hawkish' || item.side === 'dovish')) return true;
+  if (item && item.signal && item.signal !== 'NEUTRAL') return true;
+  return false;
+}
+/* Whether an item reads as a risk-asset headwind (hawkish-for-XAU) vs supportive —
+ * used only for tallies and the hawkish/dovish research verdict, never as a direction. */
+function isHeadwind(item) {
+  const bc = item && item.bias_context;
+  if (bc) return bc.endsWith('_HEADWIND') || bc === 'USD_SUPPORTIVE';
+  if (item && item.side) return item.side === 'hawkish';
+  return item && item.signal === 'SELL';
+}
+/* Short per-item context tag (mirrors app.js contextTag): bias_context as a reading. */
+function contextTag(item) {
+  const bc = item && item.bias_context;
+  if (bc && bc !== 'CONTEXT_NEUTRAL') return bc.replace(/^[A-Z]+_/, '').toLowerCase().replace('_', ' ');
+  const side = item && item.side;
+  if (side === 'hawkish') return 'hawkish';
+  if (side === 'dovish') return 'dovish';
+  if (item && item.signal) return item.signal.toLowerCase();
+  return 'neutral';
+}
+/* Spells out WHY - ties the context line back to the actual hawkish/dovish
+ * policy-tilt reading for this instrument, framed explicitly as context only. */
 function reasonFromDirRule(tab, side) {
-  const sym = tab.id === 'gold' ? 'gold' : tab.id === 'crypto' ? 'crypto' : 'the dollar';
-  if (tab.id === 'forex') {
-    return side === 'hawkish'
-      ? 'Hawkish Fed speech → BUY USD (SELL EUR/USD, BUY USD/JPY)'
-      : 'Dovish Fed speech → SELL USD (BUY EUR/USD, SELL USD/JPY)';
+  const sym = tab.id === 'gold' ? 'XAU/USD' : tab.id === 'crypto' ? 'crypto' : 'USD';
+  if (side === 'hawkish') {
+    return tab.id === 'forex'
+      ? 'Hawkish Fed speech → USD-supportive context (direction: BBMA engine only)'
+      : `Hawkish speech → ${sym} headwind context (direction: BBMA engine only)`;
   }
-  return side === 'hawkish' ? `Hawkish speech → SELL ${sym}` : `Dovish speech → BUY ${sym}`;
+  if (side === 'dovish') {
+    return tab.id === 'forex'
+      ? 'Dovish Fed speech → USD-headwind context (direction: BBMA engine only)'
+      : `Dovish speech → ${sym} supportive context (direction: BBMA engine only)`;
+  }
+  return 'No clear hawkish/dovish tilt — neutral context';
 }
-/* QuickChart.io - free, key-free chart-image renderer (POST-less GET API, just a URL). One
- * horizontal bar showing the predicted move, colored to match the order call so the image alone
- * (visible even with notifications collapsed) already tells you BUY or SELL at a glance. */
-function chartImageUrl(title, value, signal) {
-  const color = signal === 'BUY' ? '#16a34a' : signal === 'SELL' ? '#dc2626' : '#9ca3af';
+/* QuickChart.io - free, key-free chart-image renderer (POST-less GET API, just a URL).
+ * Shows the model's impact MAGNITUDE (not a direction): a single neutral bar of
+ * |impact score|. Colour is fixed grey because a colour-coded green/red bar would
+ * read as a BUY/SELL signal, which news is no longer allowed to be. */
+function chartImageUrl(title, value) {
+  const color = '#64748b';
   const spec = {
     type: 'bar',
-    data: { labels: [title], datasets: [{ label: 'Predicted move %', data: [value], backgroundColor: [color] }] },
+    data: { labels: [title], datasets: [{ label: 'Impact score (context only)', data: [Math.abs(value)], backgroundColor: [color] }] },
     options: {
       indexAxis: 'y',
-      plugins: { legend: { display: false }, title: { display: true, text: `${title} — ${signal}`, color, font: { size: 16 } } },
+      plugins: { legend: { display: false }, title: { display: true, text: `${title} — impact (no direction)`, color, font: { size: 16 } } },
       scales: { x: { grid: { color: '#e5e7eb' } } }
     }
   };
@@ -289,20 +339,21 @@ function eventCard(MARKET_DATA, atrData, e, pool) {
   const hour = mytHourFromString(e.timeMyt);
   const session = sessionAtMyt(MARKET_DATA.sessions, hour);
   const badge = e.importance === 'high' ? '🚨 <b>HIGH-IMPACT EVENT</b>' : '🔔 <b>Event</b>';
-  const signal = top ? top.s.signal : 'NEUTRAL';
   const focusSym = top ? top.pair : (ccy ? `${ccy} exposure (XAU/USD + DXY)` : 'XAU/USD + DXY (broad risk)');
+  // P0: the currency-bias spread is a STRENGTH READING, not a direction.
+  // "USD reading 0.85 stronger" — never "🟢 BUY EURUSD".
   const focusLine = top
-    ? `${esc(top.pair)} — ${SIGNAL_EMOJI[top.s.signal] || top.s.signal} (score ${top.s.score > 0 ? '+' : ''}${top.s.score.toFixed(2)})`
+    ? (() => { const parts = top.pair.split('/'); const strong = top.s.score > 0 ? parts[0] : parts[1]; const weak = top.s.score > 0 ? parts[1] : parts[0]; return `${esc(top.pair)} — ${strong} reading ${Math.abs(top.s.score).toFixed(2)} stronger than ${weak} (bias spread ${top.s.score > 0 ? '+' : ''}${top.s.score.toFixed(2)})`; })()
     : (ccy ? `${esc(ccy)} exposure — no single loaded pair, watch XAU/USD + DXY` : 'Broad risk event — watch XAU/USD + DXY directly');
   const reasoning = ccy === 'USD' ? 'Fed-driven event → currency-bias model applied to the standard USD headline pair'
     : ccy ? `${esc(ccy)}-driven event → currency-bias model applied to ${esc(ccy)}'s direct pair against USD`
       : 'No single currency driver — gauge via gold/DXY instead';
   const atrRow = top ? findAtrRow(atrData, top.pair) : null;
-  const priceLine = atrRow ? priceMoveLineFromAtr(atrRow, atrRow.last, signal, e.importance) : null;
+  const priceLine = atrRow ? atrRangeLine(atrRow) : null;
   const caption = [
     badge,
     `<b>${esc(e.event)}</b>`,
-    orderCallLine(signal),
+    `🟣🟣🟣 <b>EVENT WINDOW · GATE: WATCH_ONLY</b> 🟣🟣🟣`,
     `ℹ️ ${reasoning}`,
     `🎯 Focus symbol: <b>${esc(focusSym)}</b>`,
     focusLine !== focusSym ? `   ${focusLine}` : null,
@@ -318,22 +369,30 @@ function eventCard(MARKET_DATA, atrData, e, pool) {
     CREDIT_LINE,
     `📤 Alert sent (MYT): ${nowMyt()}`
   ].filter(Boolean).join('\n');
-  return { caption, chartUrl: chartImageUrl(top ? top.pair : (ccy || e.event.slice(0, 20)), top ? +top.s.score.toFixed(2) : 0, signal) };
+  return { caption, chartUrl: chartImageUrl(top ? top.pair : (ccy || e.event.slice(0, 20)), top ? +top.s.score.toFixed(2) : 0) };
+}
+/* ATR(14) expected RANGE around spot — deliberately bidirectional (no predicted
+ * direction), because an event is a volatility window, not a signal. */
+function atrRangeLine(atrRow) {
+  if (!atrRow || atrRow.last == null || !atrRow.atr) return null;
+  const half = atrRow.atr * 1.5;
+  const lo = atrRow.last - half, hi = atrRow.last + half;
+  return `📏 Expected range (ATR14 × 1.5): <b>${fmtPrice(lo)} – ${fmtPrice(hi)}</b> around ${fmtPrice(atrRow.last)}`;
 }
 function newsCard(MARKET_DATA, tab, n) {
   const forexFocus = tab.id === 'forex' ? resolveForexFocus(MARKET_DATA, tab, `${n.title || ''} ${n.summary || ''}`) : null;
   const focusSym = tab.id === 'gold' ? 'XAU/USD' : tab.id === 'crypto' ? 'BTC/USD (+ ETH/USD)' : forexFocus.sym;
   const chart = TF_CHART[n.tf] || n.tf || '—';
-  const reasoning = n.impact === 'bearish' ? 'Headline classified bearish (keyword heuristic on real news text) → SELL bias'
-    : n.impact === 'bullish' ? 'Headline classified bullish (keyword heuristic on real news text) → BUY bias'
+  const reasoning = n.impact === 'bearish-context' ? 'Headline tilt is bearish-context (hawkish policy read) — context only, no direction'
+    : n.impact === 'bullish-context' ? 'Headline tilt is bullish-context (dovish policy read) — context only, no direction'
       : 'Headline classified neutral — no clear directional keyword match';
   const priceLine = priceMoveLine(tab.id === 'gold' ? 'XAU/USD' : tab.id === 'crypto' ? 'BTC' : focusSym, tab.id === 'forex' ? forexFocus.spot : (tab.price && tab.price.spot), n.impactPct);
   const caption = [
     `<b>${esc(tab.label)}</b> — auto-classified news`,
-    orderCallLine(n.signal),
+    contextLine(n),
     `ℹ️ ${reasoning}`,
     `🎯 Focus symbol: <b>${esc(focusSym)}</b>`,
-    `📊 Predicted move: <b>${n.impactPct > 0 ? '+' : ''}${n.impactPct}%</b> (model estimate)`,
+    `📊 Impact score: <b>${n.impactPct > 0 ? '+' : ''}${n.impactPct}</b> (magnitude only — not a return forecast, not a direction)`,
     IMPACT_TIER_LABEL[impactTier(n.impactPct)],
     movementLabel(n.impactPct),
     priceLine,
@@ -344,7 +403,7 @@ function newsCard(MARKET_DATA, tab, n) {
     CREDIT_LINE,
     `📤 Alert sent (MYT): ${nowMyt()}`
   ].filter(Boolean).join('\n');
-  return { caption, chartUrl: chartImageUrl(focusSym, n.impactPct || 0, n.signal) };
+  return { caption, chartUrl: chartImageUrl(focusSym, n.impactPct || 0) };
 }
 function speakerCard(MARKET_DATA, tab, s) {
   const forexFocus = tab.id === 'forex' ? resolveForexFocus(MARKET_DATA, tab, `${s.name || ''} ${s.role || ''} ${s.quote || ''}`) : null;
@@ -353,11 +412,11 @@ function speakerCard(MARKET_DATA, tab, s) {
   const priceLine = priceMoveLine(tab.id === 'gold' ? 'XAU/USD' : tab.id === 'crypto' ? 'BTC' : focusSym, tab.id === 'forex' ? forexFocus.spot : (tab.price && tab.price.spot), s.impactPct);
   const caption = [
     `<b>${esc(tab.label)}</b> — speaker/central-bank alert`,
-    orderCallLine(s.signal),
+    contextLine(s),
     `ℹ️ ${esc(reasonFromDirRule(tab, s.side))}`,
     `🗣 ${arrow}: <b>${esc(s.name)}</b> (${esc(s.role)})`,
     `🎯 Focus symbol: <b>${esc(focusSym)}</b>`,
-    `📊 Predicted move: <b>${s.impactPct > 0 ? '+' : ''}${s.impactPct}%</b> (weight ${s.w != null ? s.w : '—'} × strength ${s.s != null ? s.s : '—'} × surprise ${s.f != null ? s.f : '—'})`,
+    `📊 Impact score: <b>${s.impactPct > 0 ? '+' : ''}${s.impactPct}</b> (weight ${s.w != null ? s.w : '—'} × strength ${s.s != null ? s.s : '—'} × surprise ${s.f != null ? s.f : '—'})`,
     IMPACT_TIER_LABEL[impactTier(s.impactPct)],
     movementLabel(s.impactPct),
     priceLine,
@@ -367,23 +426,25 @@ function speakerCard(MARKET_DATA, tab, s) {
     CREDIT_LINE,
     `📤 Alert sent (MYT): ${nowMyt()}`
   ].filter(Boolean).join('\n');
-  return { caption, chartUrl: chartImageUrl(focusSym, s.impactPct || 0, s.signal) };
+  return { caption, chartUrl: chartImageUrl(focusSym, s.impactPct || 0) };
 }
 /* Closes the loop build-news.js's price-tracker opens: instead of asking the user to go verify a
  * headline's real price reaction themselves, report what price ACTUALLY did (real spot fetched
- * ~45 min after detection) against what the classifier PREDICTED, with a plain correct/wrong
- * verdict. r is one entry from NEWS_AUTO.priceTrack.resultsRecent (see build-news.js). */
+ * ~45 min after detection) against the direction the classifier IMPLIED, as a plain
+ * classifier-accuracy check. r is one entry from NEWS_AUTO.priceTrack.resultsRecent (see
+ * build-news.js). This measures the keyword classifier's calibration only — it is NOT a trade
+ * signal; the BBMA engine is the sole direction authority. */
 function resultCard(r) {
   const focusSym = TRACK_LABEL[r.tabId] || r.tabId;
-  const verdictLine = r.verdict === 'correct' ? '✅✅✅ <b>RESULT: CORRECT</b> ✅✅✅'
-    : r.verdict === 'wrong' ? '❌❌❌ <b>RESULT: WRONG</b> ❌❌❌'
-      : '⚪⚪⚪ <b>RESULT: FLAT / INCONCLUSIVE</b> ⚪⚪⚪';
+  const verdictLine = r.verdict === 'correct' ? '✅ <b>CLASSIFIER MATCHED</b> the implied direction'
+    : r.verdict === 'wrong' ? '❌ <b>CLASSIFIER MISMATCHED</b> the implied direction'
+      : '⚪ <b>INCONCLUSIVE</b> — no clear price reaction to grade';
   const caption = [
-    `<b>${esc(focusSym)}</b> — price-track result`,
+    `<b>${esc(focusSym)}</b> — classifier accuracy check (research, not a signal)`,
     verdictLine,
-    'ℹ️ Predicted from the headline classifier at detection time, checked against a real spot price ~45 min later',
+    'ℹ️ Compared the classifier implied tilt at detection time against a real spot price ~45 min later — calibrates the keyword heuristic only',
     `🎯 Focus symbol: <b>${esc(focusSym)}</b>`,
-    `📊 Predicted move: <b>${r.predictedPct > 0 ? '+' : ''}${r.predictedPct}%</b> (model estimate)`,
+    `📊 Implied move: <b>${r.predictedPct > 0 ? '+' : ''}${r.predictedPct}%</b> (classifier estimate, not a forecast)`,
     IMPACT_TIER_LABEL[impactTier(r.predictedPct)],
     movementLabel(r.predictedPct),
     `📏 Actual move: <b>${fmtPrice(r.priceAtDetect)} → ${fmtPrice(r.priceAtSettle)}</b> (${r.realizedPct > 0 ? '+' : ''}${r.realizedPct}%)`,
@@ -406,22 +467,33 @@ function reminderCard(MARKET_DATA, atrData, e, minutesLeft, stage, pool) {
 }
 
 /* Aggregates a tab's curated + auto-collected news/speakers into a gauge - same method as
- * app.js's computeAutoSentiment() (SELL is uniformly the hawkish direction across every tab's
- * dirRule), duplicated here because this script runs in Node against the raw data files, not
- * against the browser's already-merged D.tabs. Kept deliberately identical so the daily summary
- * never disagrees with what the dashboard itself shows. */
+ * app.js's computeAutoSentiment() (hawkish is uniformly the risk-asset headwind context
+ * across every tab), duplicated here because this script runs in Node against the raw data
+ * files, not against the browser's already-merged D.tabs. Kept deliberately identical so the
+ * daily summary never disagrees with what the dashboard itself shows. P0: the aggregate is a
+ * POLICY TILT + impact reading, not a direction — netSignal is an internal label rendered
+ * only through netTiltWord()/tiltDot(). */
 function computeTabSentiment(tab, autoByTab) {
   const items = (tab.news || []).concat(tab.speakers || [], (autoByTab && autoByTab.news) || [], (autoByTab && autoByTab.speakers) || []);
-  const scored = items.filter(i => i.signal && i.signal !== 'NEUTRAL' && i.impactPct != null);
+  const scored = items.filter(i => {
+    const bc = i.bias_context;
+    return (bc && bc !== 'CONTEXT_NEUTRAL') || (i.signal && i.signal !== 'NEUTRAL') || (i.side && (i.side === 'hawkish' || i.side === 'dovish'));
+  }).filter(i => i.impactPct != null);
   if (!scored.length) return tab.sentiment || null;
-  let netPct = 0, buys = 0, sells = 0;
-  scored.forEach(i => { netPct += i.impactPct; if (i.signal === 'BUY') buys++; else if (i.signal === 'SELL') sells++; });
+  let netPct = 0, bulls = 0, bears = 0;
+  scored.forEach(i => {
+    netPct += i.impactPct;
+    const bc = i.bias_context;
+    const isBull = bc ? bc.endsWith('_SUPPORTIVE') || bc === 'USD_HEADWIND' : (i.side ? i.side === 'dovish' : (i.signal === 'BUY'));
+    const isBear = bc ? bc.endsWith('_HEADWIND') || bc === 'USD_SUPPORTIVE' : (i.side ? i.side === 'hawkish' : (i.signal === 'SELL'));
+    if (isBull) bulls++; else if (isBear) bears++;
+  });
   netPct = +netPct.toFixed(2);
   const netSignal = netPct > 0.05 ? 'BUY' : netPct < -0.05 ? 'SELL' : 'NEUTRAL';
-  const score = +Math.max(-1, Math.min(1, (sells - buys) / scored.length)).toFixed(2);
+  const score = +Math.max(-1, Math.min(1, (bears - bulls) / scored.length)).toFixed(2);
   const bias = score > 0.15 ? 'HAWKISH' : score < -0.15 ? 'DOVISH' : 'MIXED';
-  const tone = netSignal === 'SELL' ? 'BEARISH' : netSignal === 'BUY' ? 'BULLISH' : 'MIXED';
-  return { bias, tone, score, confidence: Math.round(Math.min(95, 40 + scored.length * 4)), netSignal, netPct, count: scored.length, buys, sells };
+  const tone = netSignal === 'SELL' ? 'BEARISH-CONTEXT' : netSignal === 'BUY' ? 'BULLISH-CONTEXT' : 'MIXED';
+  return { bias, tone, score, confidence: Math.round(Math.min(95, 40 + scored.length * 4)), netSignal, netPct, count: scored.length, bulls, bears };
 }
 
 /* One consolidated digest across all three tabs - gauge + top headlines + today's calendar +
@@ -444,12 +516,13 @@ function buildDailySummary(MARKET_DATA, NEWS_AUTO, MACRO_AUTO) {
     const s = computeTabSentiment(tab, autoByTab) || {};
     const allNews = (tab.news || []).concat((autoByTab && autoByTab.news) || []);
     const top = allNews.slice().sort((a, b) => Math.abs(b.impactPct || 0) - Math.abs(a.impactPct || 0)).slice(0, 3);
-    const dot = s.netSignal === 'SELL' ? '🔴' : s.netSignal === 'BUY' ? '🟢' : '⚪';
+    const dot = tiltDot(s.netSignal);
+    const countWord = (s.count || 0) + ' classified item' + (s.count === 1 ? '' : 's');
     lines.push(`<b>${esc(tab.label)}</b>`);
-    lines.push(`${dot} <b>${esc(s.netSignal || 'NEUTRAL')}</b> — ${esc(s.bias || '—')}/${esc(s.tone || '—')}, net ${pctFmt(s.netPct)} (${s.count || 0} classified item${s.count === 1 ? '' : 's'})`);
+    lines.push(`${dot} <b>${esc(s.bias || '—')} tilt</b> — ${esc(s.tone || '—')} · ${esc(netTiltWord(s.netSignal))}, net impact ${pctFmt(s.netPct)} (${countWord})`);
     if (top.length) {
-      lines.push('Top headlines:');
-      top.forEach(n => lines.push(`  • [${esc(n.signal)}] ${esc(n.title)}`));
+      lines.push('Top headlines (context):');
+      top.forEach(n => lines.push(`  • [${esc(contextTag(n))}] ${esc(n.title)}`));
     }
     lines.push('');
   });
@@ -461,25 +534,25 @@ function buildDailySummary(MARKET_DATA, NEWS_AUTO, MACRO_AUTO) {
 /* Message 2 of 2: next-24h calendar, each event paired with its predicted focus pair/signal -
  * same bestPairFor() logic the per-event alert cards use, just condensed to one line each. */
 function buildDailyPrediction(MARKET_DATA, NEWS_AUTO) {
-  const lines = [`🔮 <b>TODAY'S PREDICTIONS — ${nowMyt()}</b>`, ''];
+  const lines = [`🔮 <b>TODAY'S EVENT FOCUS — ${nowMyt()}</b>`, ''];
   const now = Date.now();
   const todayEvents = (MARKET_DATA.incoming || []).concat((NEWS_AUTO && NEWS_AUTO.incoming) || [])
     .map(e => ({ e, at: parseMytToUtc(e.timeMyt) }))
     .filter(x => x.at && x.at.getTime() >= now && x.at.getTime() <= now + 24 * 3600000)
     .sort((a, b) => a.at.getTime() - b.at.getTime());
   if (todayEvents.length) {
-    lines.push('📅 <b>Next 24h calendar — with prediction:</b>');
+    lines.push('📅 <b>Next 24h calendar — focus + strength reading (context, not a direction):</b>');
     todayEvents.forEach(x => {
       const ccy = eventCurrency(x.e.event + ' ' + (x.e.note || ''));
       const top = bestPairFor(MARKET_DATA, ccy);
-      const pred = top ? `${top.pair} ${top.s.signal === 'SELL' ? '🔴' : top.s.signal === 'BUY' ? '🟢' : '⚪'} ${top.s.signal}` : (ccy ? `${ccy} — watch XAU/USD + DXY` : 'no single driver');
+      const pred = top ? `${top.pair} — ${strengthReading(top.s.score, top.pair)}` : (ccy ? `${ccy} — watch XAU/USD + DXY` : 'no single driver');
       lines.push(`  • ${esc(mytDisplay(x.e.timeMyt))} — ${esc(x.e.event)} (${esc((x.e.importance || '').toUpperCase())})`);
-      lines.push(`     → Predicted focus: ${esc(pred)}`);
+      lines.push(`     → Focus: ${esc(pred)}`);
     });
   } else {
     lines.push('📅 No calendar events in the next 24h.');
   }
-  lines.push('', CREDIT_LINE);
+  lines.push('', 'Direction and entry belong to the BBMA engine (xau-desk-daily) — this is context and focus only.', CREDIT_LINE);
   return lines.join('\n');
 }
 function pctFmt(v) { return v == null ? '—' : (v > 0 ? '+' : '') + v.toFixed(2) + '%'; }
@@ -513,18 +586,27 @@ function buildEveningRecap(MARKET_DATA, NEWS_AUTO, MACRO_AUTO) {
     const autoByTab = NEWS_AUTO && NEWS_AUTO.byTab && NEWS_AUTO.byTab[tab.id];
     const allNews = (tab.news || []).concat((autoByTab && autoByTab.news) || []);
     const todayNews = allNews.filter(n => isTodayMyt(n.time));
-    const scored = todayNews.filter(n => n.signal && n.signal !== 'NEUTRAL' && n.impactPct != null);
+    const scored = todayNews.filter(n => {
+      const bc = n.bias_context;
+      return (bc && bc !== 'CONTEXT_NEUTRAL') || (n.signal && n.signal !== 'NEUTRAL') || (n.side && (n.side === 'hawkish' || n.side === 'dovish'));
+    }).filter(n => n.impactPct != null);
     lines.push(`<b>${esc(tab.label)}</b>`);
     if (!todayNews.length) {
       lines.push('No classified headlines published today.');
     } else {
-      let netPct = 0, buys = 0, sells = 0;
-      scored.forEach(n => { netPct += n.impactPct; if (n.signal === 'BUY') buys++; else sells++; });
+      let netPct = 0, bulls = 0, bears = 0;
+      scored.forEach(n => {
+        netPct += n.impactPct;
+        const bc = n.bias_context;
+        const isBull = bc ? bc.endsWith('_SUPPORTIVE') : n.signal === 'BUY';
+        const isBear = bc ? bc.endsWith('_HEADWIND') : n.signal === 'SELL';
+        if (isBull) bulls++; else if (isBear) bears++;
+      });
       const netSignal = netPct > 0.05 ? 'BUY' : netPct < -0.05 ? 'SELL' : 'NEUTRAL';
-      const dot = netSignal === 'SELL' ? '🔴' : netSignal === 'BUY' ? '🟢' : '⚪';
-      lines.push(`${dot} ${todayNews.length} headline(s) today — net ${pctFmt(+netPct.toFixed(2))} (${buys} bullish, ${sells} bearish)`);
+      const dot = tiltDot(netSignal);
+      lines.push(`${dot} ${todayNews.length} headline(s) today — net impact ${pctFmt(+netPct.toFixed(2))} (${bulls} bullish-context, ${bears} bearish-context) · ${netTiltWord(netSignal)}`);
       todayNews.slice().sort((a, b) => Math.abs(b.impactPct || 0) - Math.abs(a.impactPct || 0)).slice(0, 3)
-        .forEach(n => lines.push(`  • [${esc(n.signal)}] ${esc(n.title)}`));
+        .forEach(n => lines.push(`  • [${esc(contextTag(n))}] ${esc(n.title)}`));
     }
     lines.push('');
   });
@@ -581,17 +663,17 @@ function buildCommentaryPool(MARKET_DATA, NEWS_AUTO) {
  * and eventResearchNote() (the weekly outlook's fuller per-event write-up). */
 function relatedCommentaryBlock(ccy, pool, maxItems) {
   const related = ccy ? relatedCommentaryFor(ccy, pool) : [];
-  const scored = related.filter(n => n.signal && n.signal !== 'NEUTRAL');
+  const scored = related.filter(hasContext);
   let verdict = 'MIXED / NO CLEAR LEAN', verdictEmoji = '⚪';
   if (scored.length) {
-    const sells = scored.filter(n => n.signal === 'SELL').length, buys = scored.length - sells;
-    if (sells > buys) { verdict = 'HAWKISH (' + sells + '/' + scored.length + ' related items bearish-for-risk)'; verdictEmoji = '🦅'; }
-    else if (buys > sells) { verdict = 'DOVISH (' + buys + '/' + scored.length + ' related items bullish-for-risk)'; verdictEmoji = '🕊️'; }
+    const heads = scored.filter(isHeadwind).length, sups = scored.length - heads;
+    if (heads > sups) { verdict = 'HAWKISH (' + heads + '/' + scored.length + ' related items = risk headwind context)'; verdictEmoji = '🦅'; }
+    else if (sups > heads) { verdict = 'DOVISH (' + sups + '/' + scored.length + ' related items = risk supportive context)'; verdictEmoji = '🕊️'; }
   }
   const lines = [`${verdictEmoji} Related analysis: <b>${esc(verdict)}</b>`];
   if (related.length) {
     lines.push(`📰 Related commentary (${related.length} found):`);
-    related.slice(0, maxItems || 2).forEach(n => lines.push(`  • [${esc(n.signal || 'NEUTRAL')}] ${esc(n.title)}`));
+    related.slice(0, maxItems || 2).forEach(n => lines.push(`  • [${esc(contextTag(n))}] ${esc(n.title)}`));
   } else {
     lines.push(`📰 No related ${ccy || ''} commentary found in the collected pool yet.`);
   }
@@ -607,7 +689,7 @@ function eventResearchNote(MARKET_DATA, allNewsPool, e) {
     `<b>${esc(e.event)}</b> (${esc((e.importance || '').toUpperCase())})`,
     `🕒 ${esc(mytDisplay(e.timeMyt))}`,
     e.note ? `📈 Fundamentals: ${esc(e.note)}` : null,
-    bestPair ? `🎯 Focus: ${esc(bestPair.pair)} ${bestPair.s.signal === 'SELL' ? '🔴' : bestPair.s.signal === 'BUY' ? '🟢' : '⚪'} ${bestPair.s.signal}` : null,
+    bestPair ? `🎯 Focus: ${esc(bestPair.pair)} — ${strengthReading(bestPair.s.score, bestPair.pair)} (context, not a direction)` : null,
     `⏱ Reference timeframe: <b>${esc(e.focusTf || '—')}</b>`,
     relatedCommentaryBlock(ccy, allNewsPool, 3)
   ];
@@ -810,7 +892,7 @@ function buildWeeklyOutlook(MARKET_DATA, NEWS_AUTO) {
     // big batch, the items that actually say "BIG MOVEMENT" are the ones guaranteed to go out
     // first, not whatever happened to be earliest in the RSS fetch order.
     const IMPACT_RANK = { High: 0, Med: 1, Low: 2 };
-    ((autoByTab && autoByTab.news) || []).filter(n => n.signal && n.signal !== 'NEUTRAL').forEach(n => {
+    ((autoByTab && autoByTab.news) || []).filter(hasContext).forEach(n => {
       const key = 'news:' + n.title;
       if (seen.has(key)) return;
       toSend.push({ key, card: newsCard(MARKET_DATA, tab, n), category: 1, tiebreak: IMPACT_RANK[SharedLogic.impactTier(n.impactPct)] });

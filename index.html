@@ -349,7 +349,7 @@
 
       <section class="card" style="margin-top:12px" data-sec="news">
         <div class="k">Today's Trade Focus &mdash; best pair per event, and when to watch it</div>
-        <div class="note">Derived automatically: each event is mapped to its driving currency, then matched against the currency-bias signal table to find the pair with the strongest live BUY/SELL score — that is what to focus on, on the timeframe listed.</div>
+        <div class="note">Derived automatically: each event is mapped to its driving currency, then matched against the currency-bias table to find the pair with the strongest live strength reading — that is the symbol to focus on, on the timeframe listed. Focus only; trade direction comes from the BBMA engine.</div>
         <div id="trade-focus-list" style="margin-top:8px"></div>
       </section>
 
@@ -389,8 +389,8 @@
         <div class="note" id="gauge-summary">&mdash;</div>
         <div class="note acc" id="dir-rule">&mdash;</div>
         <div class="netsig">
-          <div><div class="k">Net speech signal</div><div class="big" id="net-sig">&mdash;</div></div>
-          <div style="flex:1;min-width:200px"><div class="k">Cumulative est. move</div><div class="big" id="net-pct">&mdash;</div><div class="note" id="net-note">&mdash;</div></div>
+          <div><div class="k">Net policy tilt</div><div class="big" id="net-sig">&mdash;</div></div>
+          <div style="flex:1;min-width:200px"><div class="k">Cumulative impact (context only)</div><div class="big" id="net-pct">&mdash;</div><div class="note" id="net-note">&mdash;</div></div>
         </div>
       </section>
 
@@ -460,10 +460,10 @@
           <div class="k">News Feed &mdash; analysed by timeframe</div>
           <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:8px" id="tf-filter"></div>
           <table style="margin-top:8px">
-            <thead><tr><th>Date (MYT)</th><th>Timeframe</th><th>Headline</th><th>Signal</th><th>Est. move</th><th>Movement</th><th>Source</th></tr></thead>
+            <thead><tr><th>Date (MYT)</th><th>Timeframe</th><th>Headline</th><th>Context</th><th>Impact score</th><th>Movement</th><th>Source</th></tr></thead>
             <tbody id="news-body"></tbody>
           </table>
-          <div class="note">Timeframes: Intraday &middot; 1-3D &middot; Weekly &middot; Structural (months+). Signal rule: hawkish/bearish = SELL, dovish/bullish = BUY. Auto-collected headlines show the real publish day/date/time in Malaysia time (MYT, GMT+8) straight from the source feed. Hand-curated headlines predate that fix and still carry a collection date only, with no intraday timestamp &mdash; for those, see News Incoming for exact clock times (MYT and GMT).</div>
+          <div class="note">Timeframes: Intraday &middot; 1-3D &middot; Weekly &middot; Structural (months+). Context rule: hawkish = supportive-USD / headwind-XAU context, dovish = headwind-USD / supportive-XAU context &mdash; a reading, never a trade direction (the BBMA engine decides direction). Auto-collected headlines show the real publish day/date/time in Malaysia time (MYT, GMT+8) straight from the source feed. Hand-curated headlines predate that fix and still carry a collection date only, with no intraday timestamp &mdash; for those, see News Incoming for exact clock times (MYT and GMT).</div>
         </article>
         <article class="card" data-sec="news">
           <div class="k">Speaker Watch &mdash; Hawkish / Dovish Hints</div>
