@@ -174,6 +174,11 @@ function loadBrowserRuntime() {
     const full = path.join(__dirname, 'bbma-runtime.js');
     if (!fs.existsSync(full)) return null;
     const win = {};
+    /* PHASE B: the runtime delegates classify() to the CANONICAL engine.
+     * In a Node eval, bare globals resolve to globalThis (like its other
+     * injected libs), so inject there — the browser <script> tag is the
+     * browser-side equivalent. */
+    globalThis.BBMAEngine = globalThis.BBMAEngine || require('./lib/bbma-engine.js');
     new Function('window', fs.readFileSync(full, 'utf8'))(win);
     const rt = win.BBMA_RUNTIME || null;
     if (!rt || rt.publishable !== true || rt.demo === true) return null;

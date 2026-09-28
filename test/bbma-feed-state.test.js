@@ -17,6 +17,8 @@ function loadRuntime(){
   win.addEventListener=function(){};win.dispatchEvent=function(){};
   win.setInterval=function(){return 0;};win.setTimeout=function(){return 0;};win.clearTimeout=function(){};
   win.localStorage={getItem:()=>null,setItem:()=>{}};win.fetch=async()=>({status:444,json:async()=>({})});
+  /* PHASE B: canonical engine injected before the runtime (browser <script> parity). */
+  win.BBMAEngine=require('../lib/bbma-engine.js');
   vm.createContext(win);
   vm.runInContext(`
     (function(){
@@ -46,11 +48,13 @@ const vmIso=(win,ago)=>vm.runInContext('new __Date(Date.now()-('+(ago)+')).toISO
 function forcePublish(win){ win.BBMARuntime.setAlerts([],[]); return win.BBMA_RUNTIME; }
 
 (async()=>{
-  /* 1. Cold load, no ticks, transport connecting -> CONNECTING, backfillRequired */
+  /* 1. Cold load, no ticks, no history yet -> NO_DATA (honest: the runtime
+     WAITs for validated market data instead of showing a fake state),
+     backfillRequired */
   let win=loadRuntime();
   win.BBMARuntime.setFeedStatus('connecting','first request');
   let s=win.BBMA_RUNTIME.feed;
-  assert.strictEqual(s.state,'CONNECTING','no ticks + connected -> CONNECTING');
+  assert.strictEqual(s.state,'NO_DATA','no ticks + no history -> NO_DATA (waiting for validated market data)');
   assert.strictEqual(s.backfillRequired,true,'no ticks -> backfillRequired');
   assert.strictEqual(s.tickCount,0,'tickCount 0');
 

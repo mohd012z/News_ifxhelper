@@ -1,6 +1,6 @@
 'use strict';
 const fs=require('fs'),path=require('path'),crypto=require('crypto');
-const P=require('./lib/market-provider'),V=require('./lib/ohlc-validator'),R=require('./lib/ohlc-resampler'),W=require('./lib/bbma-candle-watch'),D=require('./lib/bbma-dashboard'),N=require('./lib/news-proximity'),I=require('./lib/instrument'),C=require('./lib/bbma-confidence'),L=require('./lib/alert-lifecycle'),FS=require('./lib/ai/feature-snapshot'),OS=require('./lib/ai/one-step-engine'),GS=require('./lib/ai/consensus-engine'),DC=require('./lib/ai/data-class');
+const P=require('./lib/market-provider'),V=require('./lib/ohlc-validator'),R=require('./lib/ohlc-resampler'),W=require('./lib/bbma-candle-watch'),D=require('./lib/bbma-dashboard'),N=require('./lib/news-proximity'),I=require('./lib/instrument'),C=require('./lib/bbma-confidence'),L=require('./lib/alert-lifecycle'),FS=require('./lib/ai/feature-snapshot'),OS=require('./lib/ai/one-step-engine'),GS=require('./lib/ai/consensus-engine'),DC=require('./lib/ai/data-class'),CAP=require('./lib/snapshot-capture'),PC=require('./lib/ai/prediction-contract');
 const SYMBOL=process.env.BBMA_SYMBOL||'GC=F',OUT=process.env.BBMA_OUT||path.join('data','bbma-watch.json');
 const CAL='https://nfs.faireconomy.media/ff_calendar_thisweek.json';
 function generationId(symbol,candles,events){const last=candles.at(-1);const basis=JSON.stringify({symbol,last:last&&last.time,count:candles.length,events:(events||[]).slice(0,20).map(e=>[e.date||e.scheduledAt||e.time,e.title||e.event,e.actual,e.forecast])});return 'bbma-'+crypto.createHash('sha256').update(basis).digest('hex').slice(0,20);}
@@ -13,7 +13,14 @@ function buildOneStep(frames,news,instrument,dataClass,closedOk){
  const loc=W.location(win);const snap=FS.build({candles:win,asOf:asOf.time,tf:'M15',analysis:loc,squeeze:null,news:news,instrument:instrument,dataClass:dataClass,mtf:Object.fromEntries(Object.entries(frames).map(function(t){return [t[0],{trend:t[1].bbma&&t[1].bbma.trend||null}];}))});
  const cand=OS.predict(snap,{candles:win,analysis:loc,corpus:[],minSamples:8});
  const gate=GS.verify(cand,snap,{shadow:true});
- return{status:gate.status,direction:cand.direction,movementClass:cand.movementClass,regime:cand.regime.regime,heuristicScore:cand.heuristicScore,bbContext:cand.bbContext,invalidation:cand.invalidation,empirical:cand.empirical,publishable:gate.publishable,shadow:gate.shadow,drivers:gate.drivers,asOf:asOf.time,tf:'M15',newsMode:news.state};
+ /* PHASE C: freeze the immutable truth boundary + the prediction contract.
+    The FEATURE snapshot is captured through snapshot-capture (deterministic
+    id + deepFreeze); the PredictionContract links to it by snapshotId and
+    carries pre-candle falsifiers. Neither is editable after this point —
+    settlement later APPENDS a separate outcome record that references them. */
+ const feat=CAP.capture('FEATURE',Object.assign({timeframe:'M15',candleTime:snap.candleClose},snap),{dataVersion:'v2',capturedAt:new Date().toISOString()});
+ const contract=PC.build({snapshotId:feat.snapshotId,tf:'M15',instrumentId:instrument?instrument.analysisSymbol:null,asOf:asOf.time,forecast:cand,createdAt:new Date().toISOString(),evidenceRefs:[]});
+ return{status:gate.status,direction:cand.direction,movementClass:cand.movementClass,regime:cand.regime.regime,heuristicScore:cand.heuristicScore,bbContext:cand.bbContext,invalidation:cand.invalidation,empirical:cand.empirical,publishable:gate.publishable,shadow:gate.shadow,drivers:gate.drivers,asOf:asOf.time,tf:'M15',newsMode:news.state,featureSnapshot:feat,prediction:contract};
 }
 (async()=>{
  const [r,events]=await Promise.all([P.yahoo(SYMBOL,{interval:'1m',range:'5d',timeoutMs:12000}),calendar()]);

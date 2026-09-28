@@ -1,0 +1,107 @@
+{
+  "overall": {
+    "samples": 0,
+    "correct": 0,
+    "accuracyPct": null
+  },
+  "lineage": {
+    "liveGenerationId": "bbma-f3006cbd7f8db7c1eb62",
+    "history": {
+      "status": "CONSISTENT",
+      "generationId": "bbma-f3006cbd7f8db7c1eb62",
+      "generations": 1,
+      "missing": 0
+    },
+    "algorithm": {
+      "status": "CONSISTENT",
+      "algoGenerationId": "gen-a0080007b822d56bd93f",
+      "generations": 1,
+      "missing": 0
+    },
+    "status": "LIVE_LINKED"
+  },
+  "byTimeframe": {
+    "M1": {
+      "samples": 0,
+      "correct": 0,
+      "accuracyPct": null
+    },
+    "M5": {
+      "samples": 0,
+      "correct": 0,
+      "accuracyPct": null
+    },
+    "M15": {
+      "samples": 0,
+      "correct": 0,
+      "accuracyPct": null
+    },
+    "M30": {
+      "samples": 0,
+      "correct": 0,
+      "accuracyPct": null
+    },
+    "H1": {
+      "samples": 0,
+      "correct": 0,
+      "accuracyPct": null
+    }
+  },
+  "byMarketMode": {
+    "NORMAL": {
+      "samples": 0,
+      "correct": 0,
+      "accuracyPct": null
+    }
+  },
+  "byLocation": {
+    "INSIDE_BB": {
+      "samples": 0,
+      "correct": 0,
+      "accuracyPct": null
+    },
+    "LOW_BB": {
+      "samples": 0,
+      "correct": 0,
+      "accuracyPct": null
+    },
+    "MID_BB": {
+      "samples": 0,
+      "correct": 0,
+      "accuracyPct": null
+    }
+  },
+  "bySqueeze": {
+    "NORMAL": {
+      "samples": 0,
+      "correct": 0,
+      "accuracyPct": null
+    },
+    "SQUEEZE": {
+      "samples": 0,
+      "correct": 0,
+      "accuracyPct": null
+    },
+    "TIGHT": {
+      "samples": 0,
+      "correct": 0,
+      "accuracyPct": null
+    }
+  },
+  "byPattern": {
+    "DOWN": {
+      "samples": 0,
+      "correct": 0,
+      "accuracyPct": null
+    }
+  },
+  "calibration": {},
+  "generatedAt": "2026-09-28T20:39:19.475Z",
+  "pending": 5,
+  "settled": 0,
+  "schemaVersion": 3,
+  "generationId": "bbma-f3006cbd7f8db7c1eb62",
+  "algoGenerationId": "gen-a0080007b822d56bd93f",
+  "instrumentId": "GC_FUTURES",
+  "sourceGeneratedAt": "2026-09-28T19:56:41.634Z"
+}

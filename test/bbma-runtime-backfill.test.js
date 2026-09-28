@@ -62,7 +62,9 @@ function makeWindow({key=true,fetchFails=false,malformed=false,withFetch=true,ra
 }
 function evalRuntime(win){
   /* Shadow BOTH window and globalThis: the runtime reads globalThis when
-   * window is absent, and in Node globalThis is the real (networked) global. */
+   * window is absent, and in Node globalThis is the real (networked) global.
+   * PHASE B: inject the canonical engine (the runtime delegates classify()). */
+  win.BBMAEngine=require('../lib/bbma-engine.js');
   new Function('window','globalThis','CustomEvent',fs.readFileSync('bbma-runtime.js','utf8'))(win,win,function(){},win);
   return win;
 }

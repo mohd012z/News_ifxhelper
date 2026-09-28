@@ -49,7 +49,7 @@ const target=m15[N-2];
 const loc=W.location(upto);
 const inp={candles:m15,asOf:anchor.time,tf:'M15',analysis:loc,squeeze:null,news:{state:'CLEAR'},instrument:INST,dataClass:'OBSERVED',mtf:{H1:{trend:'UP'},H4:{trend:'UP'}}};
 const snap=FS.build(inp);
-ok(snap.schema==='FeatureSnapshot/v1','snapshot schema');
+ok(snap.schema==='FeatureSnapshot/v2','snapshot schema (v2: promoted snapshot-capture primitive, deterministic id)');
 ok(snap.candleClose===anchor.time,'anchored to the closed candle (asOf)');
 ok(snap.dataClass==='OBSERVED','dataClass carried');
 ok(snap.volatility.atrBand&&snap.volatility.atrPct!=null,'real ATR band+pct present');

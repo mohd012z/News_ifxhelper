@@ -21,8 +21,19 @@ assert(s.includes('LOC/EVT'),'matrix must split zone vs location into own column
 assert(!s.includes("z.zone||z.location"),'matrix must not conflate zone and location again');
 // Canonical 7-state zone model lives in the RUNTIME (parity with lib/bbma-candle-watch.js)
 const r=fs.readFileSync('bbma-runtime.js','utf8');
-['ABOVE_TOP_BB','BELOW_LOW_BB','TOP_BB','LOW_BB','MID_BB','INSIDE_BB','EMA50'].forEach(z=>assert(r.includes(z),'canonical zone state missing: '+z));
+/* The canonical 7-state zone model lives ONCE in lib/bbma-engine.js (the
+ * authority); the runtime DELEGATES to it (PHASE B). The runtime source no
+ * longer carries the full zone literal table — engine==builder==runtime zone
+ * agreement is proven by test/bbma-zone-parity.test.js +
+ * test/bbma-parity-fixtures.test.js. Here we assert the DELEGATION, which is
+ * the stronger guarantee (one implementation, not two that must match). */
+const engSrc=fs.readFileSync('lib/bbma-engine.js','utf8');
+['ABOVE_TOP_BB','BELOW_LOW_BB','TOP_BB','LOW_BB','MID_BB','INSIDE_BB','EMA50'].forEach(z=>assert(engSrc.includes(z),'canonical zone state missing in engine: '+z));
+assert(r.includes('canon.zone'),'runtime must READ the canonical engine zone (delegation, not a second table)');
 assert(!r.includes("'UPPER_BAND'"),'old crude UPPER_BAND/LOWER_BAND zone must be gone');
 assert(!r.includes('MID_BB_BOUNCE'),'old tautological location labels must be gone');
-assert(r.includes('0.00015')&&r.includes('0.03'),'tolerance must match the canonical model (3% band width / 0.015% price)');
+/* PHASE B: the tolerance constants now live ONCE in the canonical engine;
+ * the runtime must delegate, not re-define them. */
+assert(engSrc.includes('0.00015')&&engSrc.includes('0.03'),'tolerance constants live in the canonical engine (3% band width / 0.015% price)');
+assert(!r.includes('0.00015'),'runtime must not carry its own tolerance constant (single authority)');
 console.log('interactive BBMA dashboard contract passed');

@@ -756,6 +756,9 @@
   <script src="./shared-market-logic.js"></script>
   <script src="./live.js"></script>
   <script src="./app.js"></script>
+  <!-- PHASE B: canonical BBMA authority — must load BEFORE bbma-runtime.js,
+       which delegates classify() to BBMAEngine (no third implementation). -->
+  <script src="./lib/bbma-engine.js" onerror="console.warn('bbma-engine missing')"></script>
   <script src="./bbma-runtime.js"></script>
   <script src="./lib/label-layout-engine.js" onerror="console.warn('label-layout-engine missing')"></script>
   <script src="./lib/bbma-chart-zones.js" onerror="console.warn('bbma-chart-zones missing')"></script>

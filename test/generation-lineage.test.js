@@ -27,7 +27,7 @@ const a=GF.fingerprint({provider:'yahoo',instrument:'GC_FUTURES',extraConfig:{ra
 const b=GF.fingerprint({provider:'yahoo',instrument:'GC_FUTURES',extraConfig:{range:'5d'}});
 ok(a.algoGenerationId===b.algoGenerationId,'same config -> same algoGenerationId (deterministic)');
 ok(a.algoGenerationId.indexOf('gen-')===0,'id prefix gen-');
-ok(a.components.featureSchemaVersion==='FeatureSnapshot/v1','fingerprint pins the feature schema version');
+ok(a.components.featureSchemaVersion==='FeatureSnapshot/v2','fingerprint pins the feature schema version');
 ok(a.components.bbmaRuleVersion.indexOf('rules')>=0,'fingerprint pins the BBMA rule version');
 const c=GF.fingerprint({provider:'yahoo',instrument:'GC_FUTURES',extraConfig:{range:'5d'}});
 const d=GF.fingerprint({provider:'twelvedata',instrument:'GC_FUTURES',extraConfig:{range:'5d'}});

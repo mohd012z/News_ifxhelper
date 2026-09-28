@@ -8,6 +8,10 @@ const fs=require('fs'),assert=require('assert');
 
 function evalRuntime(){
   const win={};
+  /* PHASE B: inject the canonical engine before the runtime — it now
+   * delegates classify() to BBMAEngine instead of carrying a 3rd copy.
+   * Node eval: bare globals resolve to globalThis, so set it there. */
+  globalThis.BBMAEngine=require('../lib/bbma-engine.js');
   new Function('window', fs.readFileSync('bbma-runtime.js','utf8'))(win);
   return win;
 }

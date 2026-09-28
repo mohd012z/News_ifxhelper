@@ -31,6 +31,8 @@ win.dispatchEvent=function(){};
 win.setInterval=function(){return 0;};
 win.__bbmaBackfillPaceMs=2;
 win.__bbmaBackfillRetryMs=2;
+/* PHASE B: the runtime delegates classify() to the canonical engine. */
+win.BBMAEngine=require('../lib/bbma-engine.js');
 win.fetch=async function(url){
   const m=String(url).match(/interval=([^&]+)/);
   const iv=m?m[1]:null;

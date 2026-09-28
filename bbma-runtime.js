@@ -98,6 +98,7 @@ function backfillHistory(){
   _backfillPromise=(async function(){
     var tfs=Object.keys(TF_INTERVAL);
     var pace=(w.__bbmaBackfillPaceMs!=null)?w.__bbmaBackfillPaceMs:BACKFILL_PACE_MS;
+    _backfill.inflight=true; /* cold-load history fetch running (feeds NO_DATA vs BACKFILL) */
     var retryMs=(w.__bbmaBackfillRetryMs!=null)?w.__bbmaBackfillRetryMs:BACKFILL_429_RETRY_MS;
     for(var i=0;i<tfs.length;i++){
       var tf=tfs[i];
@@ -170,105 +171,68 @@ function backfillHistory(){
   return _backfillPromise;
 }
 
-function sma(a,n){if(a.length<n)return null;return a.slice(-n).reduce(function(s,v){return s+v;},0)/n;}
-function ema(a,n){if(a.length<n)return null;var k=2/(n+1),e=a.slice(0,n).reduce(function(s,v){return s+v;},0)/n;for(var i=n;i<a.length;i++)e=a[i]*k+e*(1-k);return e;}
-function lwma(a,n){if(!a.length)return null;var x=a.slice(-n),d=n*(n+1)/2;return x.reduce(function(s,v,i){return s+v*(i+1);},0)/d;}
-
-/* BB(20,2) + EMA50 + LWMA5/10 classification. CANONICAL PARITY: trend /
- * momentum / extreme / csak / reentry / (zone via the location overlay) use
- * the EXACT formulas of lib/bbma-engine.js classify() + lib/bbma-candle-watch.js
- * location() — the same code the CI watch (build-bbma-watch.js) and the Telegram
- * box run — so the app and the channel can never disagree on a reading.
- * Minimum 50 REAL candles (canonical values() gate) — no partial readings. */
+/* PHASE B (single canonical BBMA authority): the runtime NO LONGER computes
+ * sma/ema/lwma or its own classification. It DELEGATES to
+ * lib/bbma-engine.js classify() — the exact code the CI watch
+ * (build-bbma-watch.js) and the Telegram box run — and adds only
+ * PRESENTATION overlays (proximity values, per-candle band series for the
+ * SVG, candle geometry tags). Parity is PROVEN by
+ * test/bbma-parity-fixtures.test.js (fixtures) + test/bbma-zone-parity.test.js. */
 function classify(a){
+  var E=(typeof BBMAEngine!=='undefined')?BBMAEngine:((typeof globalThis!=='undefined'&&globalThis.BBMAEngine)||null);
   if(!a||a.length<50)return{state:'INSUFFICIENT_DATA',candles:a?a.length:0,trend:'—',momentum:'—',reentry:'—',csak:'—',mhv:'—',extreme:'—',zone:'—',location:'—',ema50Position:'—',emaGap:'—',upperProximity:0,midProximity:0,lowerProximity:0,ema50Proximity:0};
-  var closes=a.map(function(x){return x.close;}),highs=a.map(function(x){return x.high;}),lows=a.map(function(x){return x.low;});
-  var nCloses=Math.min(20,closes.length);
-  var mid=sma(closes,nCloses)||closes[closes.length-1];
-  var sq=closes.slice(-nCloses).reduce(function(s,x){return s+Math.pow(x-mid,2);},0)/nCloses;
-  var sd=Math.sqrt(sq)||1;
-  var upper=mid+2*sd,lower=mid-2*sd;
-  var nEma=Math.min(50,closes.length);
-  var e50=ema(closes,nEma)||mid;
-  var m5h=lwma(highs,Math.min(5,highs.length))||highs[highs.length-1];
-  var m10h=lwma(highs,Math.min(10,highs.length))||m5h;
-  var m5l=lwma(lows,Math.min(5,lows.length))||lows[lows.length-1];
-  var m10l=lwma(lows,Math.min(10,lows.length))||m5l;
-  var last=a[a.length-1];
-  var trend=last.close>mid&&last.close>e50?'UP':last.close<mid&&last.close<e50?'DOWN':'MIXED';
-  var momentum=last.close>upper?'MOMENTUM_UP':last.close<lower?'MOMENTUM_DOWN':'NONE';
-  var extreme=m5h>upper?'EXTREME_HIGH':m5l<lower?'EXTREME_LOW':'NONE';
-  var dir=last.close>=last.open?'UP':'DOWN';
-  /* BB location — canonical 7-state model (matches lib/bbma-candle-watch.js
-   * location(): tolerance = max(3% of band width, 0.015% of price),
-   * precedence ABOVE -> BELOW -> near band -> near mid -> near EMA50). */
-  var tol=Math.max((upper-lower)*0.03,Math.abs(last.close)*0.00015);
-  var nearB=function(x,y){return Math.abs(x-y)<=tol;};
-  var zone='INSIDE_BB';
-  if(last.close>upper)zone='ABOVE_TOP_BB';
-  else if(last.close<lower)zone='BELOW_LOW_BB';
-  else if(nearB(last.high,upper)||nearB(last.close,upper))zone='TOP_BB';
-  else if(nearB(last.low,lower)||nearB(last.close,lower))zone='LOW_BB';
-  else if(nearB(last.close,mid)||last.low<=mid&&last.high>=mid)zone='MID_BB';
-  else if(nearB(last.close,e50)||last.low<=e50&&last.high>=e50)zone='EMA50';
-  /* Candle geometry (canonical lib/bbma-candle-watch.js candle{}): direction,
-   * body ratio, and wick ratios — this is what the matrix LOC/EVT column shows
-   * (distinct from the BB zone). */
+  var canon=E?E.classify(a):null;
+  if(!canon)return{state:'BBMA_ENGINE_MISSING',candles:a.length,trend:'—',momentum:'—',reentry:'—',csak:'—',mhv:'—',extreme:'—',zone:'—',location:'—',ema50Position:'—',emaGap:'—',upperProximity:0,midProximity:0,lowerProximity:0,ema50Proximity:0,note:'lib/bbma-engine.js not loaded — the browser must include it before bbma-runtime.js'};
+  var last=a[a.length-1],closes=a.map(function(x){return x.close;}),highs=a.map(function(x){return x.high;}),lows=a.map(function(x){return x.low;});
+  var bb=canon.values.bb,e50=canon.values.ema50,v=canon.values;
   var body=Math.abs(last.close-last.open),range=Math.max(1e-12,last.high-last.low),bodyRatio=body/range;
-  var candle={direction:dir,bodyRatio:+bodyRatio.toFixed(3),upperWick:+((last.high-Math.max(last.open,last.close))/range).toFixed(3),lowerWick:+((Math.min(last.open,last.close)-last.low)/range).toFixed(3)};
+  var candle={direction:last.close>last.open?'UP':last.close<last.open?'DOWN':'FLAT',bodyRatio:+bodyRatio.toFixed(3),upperWick:+((last.high-Math.max(last.open,last.close))/range).toFixed(3),lowerWick:+((Math.min(last.open,last.close)-last.low)/range).toFixed(3)};
   var candleTag=candle.direction+(candle.upperWick>.45?' \u2191wick':candle.lowerWick>.45?' \u2193wick':'')+(candle.bodyRatio<.3?' \u00b7 doji':'');
-  var mhv=trend==='UP'&&last.high<upper&&last.close>mid&&zone!=='ABOVE_TOP_BB'?'VALID_MHV':'NONE';
-  /* csak + reentry: EXACT canonical lib/bbma-engine.js formulas (the old
-   * runtime revision used weaker variants — a close>ma5High alone, and reentry
-   * without the ma5Low/ma5High guard — so the app and CI disagreed). */
-  var csak=dir==='UP'&&last.close>m5h&&last.close>m10h&&last.close>mid?'CSAK_UP':dir==='DOWN'&&last.close<m5l&&last.close<m10l&&last.close<mid?'CSAK_DOWN':'NONE';
-  var re='NONE';
-  if(trend==='UP'&&last.low<=Math.max(m5l,m10l)&&last.close>mid&&last.close>m5l)re='REENTRY_UP_ZONE';
-  if(trend==='DOWN'&&last.high>=Math.min(m5h,m10h)&&last.close<mid&&last.close<m5h)re='REENTRY_DOWN_ZONE';
-  var bandWidth=upper-lower||1;
-  var upperProx=Math.max(0,Math.min(100,((upper-last.close)/bandWidth)*100));
-  var midProx=Math.max(0,Math.min(100,(1-Math.abs(last.close-mid)/(bandWidth/2))*100));
-  var lowerProx=Math.max(0,Math.min(100,((last.close-lower)/bandWidth)*100));
+  var mhv=canon.trend==='UP'&&last.high<bb.upper&&last.close>bb.mid&&canon.zone!=='ABOVE_TOP_BB'?'VALID_MHV':'NONE';
+  var bandWidth=(bb.upper-bb.lower)||1;
+  var upperProx=Math.max(0,Math.min(100,((bb.upper-last.close)/bandWidth)*100));
+  var midProx=Math.max(0,Math.min(100,(1-Math.abs(last.close-bb.mid)/(bandWidth/2))*100));
+  var lowerProx=Math.max(0,Math.min(100,((last.close-bb.lower)/bandWidth)*100));
   var emaProx=Math.max(0,Math.min(100,(1-Math.abs(last.close-e50)/(bandWidth/2))*100));
-
-  /* Per-candle BB(20,2) mid/upper/lower + EMA50 series — consumed by the
-   * dashboard SVG chart to draw its band polylines from REAL candles only. */
+  /* Per-candle BB(20,2) mid/upper/lower + EMA50 series — CONSUMED BY THE
+   * DASHBOARD SVG CHART to draw band polylines (rendering data, not a
+   * second interpretation: classification itself is 100% canon). */
   var bbMiddle=[],bbUpper=[],bbLower=[],ema50ser=[];
+  var EE=E.ema;
   for(var i2=0;i2<a.length;i2++){
     var cc=closes.slice(Math.max(0,i2-19),i2+1);
-    var m2=sma(cc,20),sd2=null;
-    if(m2!=null){var sq2=cc.reduce(function(t,v){return t+Math.pow(v-m2,2);},0)/cc.length;sd2=Math.sqrt(sq2);}
-    bbMiddle.push(sd2!=null?m2:(cc.length?cc[cc.length-1]:null));
+    var m2=E.sma(cc,20),sd2=null;
+    if(m2!=null){sd2=E.sd(cc,20);}
+    bbMiddle.push(m2!=null?m2:(cc.length?cc[cc.length-1]:null));
     bbUpper.push(sd2!=null?m2+2*sd2:null);
     bbLower.push(sd2!=null?m2-2*sd2:null);
     var ee=closes.slice(Math.max(0,i2-49),i2+1);
-    ema50ser.push(ema(ee,50));
+    ema50ser.push(EE(ee,50));
   }
   a.forEach(function(c,i2){c.bbMiddle=bbMiddle[i2];c.bbUpper=bbUpper[i2];c.bbLower=bbLower[i2];c.ema50=ema50ser[i2];});
-
   return{
     state:'READY',
-    trend:trend,
-    momentum:momentum,
-    extreme:extreme,
-    csak:csak,
-    csa:csak,
-    reentry:re,
+    trend:canon.trend,
+    momentum:canon.momentum,
+    extreme:canon.extreme,
+    csak:canon.csak,
+    csa:canon.csak,
+    reentry:canon.reentry,
     mhv:mhv,
-    zone:zone,
+    zone:canon.zone,
+    band:canon.band,
     candle:candle,
     candleEvent:candleTag,
     location:candleTag, /* matrix LOC/EVT column: candle direction + wick event (zone is the BB state) */
-    tolerance:tol,
+    tolerance:canon.tolerance,
     ema50Position:last.close>e50?'ABOVE_EMA50':'BELOW_EMA50',
     emaGap:(((last.close-e50)/e50)*100).toFixed(2)+'%',
     upperProximity:upperProx,
     midProximity:midProx,
     lowerProximity:lowerProx,
     ema50Proximity:emaProx,
-    bb:{upper:upper,mid:mid,lower:lower},
-    ema50:e50,
-    close:last.close,
+    bb:{upper:bb.upper,mid:bb.mid,lower:bb.lower},
+    values:{ma5High:v.ma5High,ma10High:v.ma10High,ma5Low:v.ma5Low,ma10Low:v.ma10Low,ema50:e50,close:last.close},
     lastTime:last.time,
     candles:a.length
   };
@@ -330,7 +294,9 @@ function publish(){
   var _bfDone=_backfill.at!=null; /* backfill ran and finished (may be empty) */
   var _feedState;
   if(_tickAge==null){
-    if(_bfActive){_feedState='BACKFILL';}
+    var _allEmpty=!Object.keys(frames).some(function(tf){return frames[tf]&&frames[tf].length>0;});
+    if(_allEmpty&&_backfill.at==null){_feedState='NO_DATA';} /* WAITING_FOR_VALIDATED_MARKET_DATA: nothing to show, nothing fabricated */
+    else if(_bfActive){_feedState='BACKFILL';}
     else if(_bfDone&&_backfill.liveOverride!==true){_feedState='BACKFILL';} /* history loaded, still no live tick */
     else{_feedState=_feed.connected?'CONNECTING':'DEGRADED';}
   }else{
@@ -510,7 +476,10 @@ w.BBMARuntime={
   withProvenance:withProvenance,
   SIGNAL_VERSION:BBMA_SIGNAL_VERSION,
   snapshot:function(){return w.BBMA_RUNTIME||null;},
-  frames:frames
+  frames:frames,
+  /* test hook — parity tests drive the runtime's classify (which now
+   * delegates to the canonical engine) without string-scraping source. */
+  classify:classify
 };
 
 /* Browser only: explicit tick events (dispatched by the live feed wiring). */
