@@ -1122,9 +1122,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-09-28T12:17:53.529Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T16:54:18.655Z",
+          "price": 4165.2,
+          "realizedPct": -0.537
         },
         {
           "key": "D1",
@@ -1154,7 +1154,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.033,
-        "maePct": -0.033
+        "maePct": -0.537
       }
     },
     {
@@ -1211,9 +1211,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-09-28T12:17:53.530Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T16:54:18.655Z",
+          "price": 4165.2,
+          "realizedPct": -0.537
         },
         {
           "key": "D1",
@@ -1243,7 +1243,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.033,
-        "maePct": -0.033
+        "maePct": -0.537
       }
     },
     {
@@ -1300,9 +1300,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-09-28T12:17:53.530Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T16:54:18.655Z",
+          "price": 4165.2,
+          "realizedPct": -0.537
         },
         {
           "key": "D1",
@@ -1332,7 +1332,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.033,
-        "maePct": -0.033
+        "maePct": -0.537
       }
     },
     {
@@ -1389,9 +1389,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-09-28T12:17:53.530Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T16:54:18.655Z",
+          "price": 4165.2,
+          "realizedPct": -0.537
         },
         {
           "key": "D1",
@@ -1421,7 +1421,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.033,
-        "maePct": -0.033
+        "maePct": -0.537
       }
     },
     {
@@ -1478,9 +1478,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-09-28T12:17:53.530Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T16:54:18.655Z",
+          "price": 4165.2,
+          "realizedPct": -0.537
         },
         {
           "key": "D1",
@@ -1510,7 +1510,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.033,
-        "maePct": -0.033
+        "maePct": -0.537
       }
     },
     {
@@ -1567,9 +1567,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-09-28T12:17:53.530Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T16:54:18.655Z",
+          "price": 83677.09,
+          "realizedPct": 0.862
         },
         {
           "key": "D1",
@@ -1598,7 +1598,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": -0.274,
+        "mfePct": 0.862,
         "maePct": -0.274
       }
     },
@@ -1656,9 +1656,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-09-28T12:17:53.530Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T16:54:18.655Z",
+          "price": 83677.09,
+          "realizedPct": 0.862
         },
         {
           "key": "D1",
@@ -1687,7 +1687,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": -0.274,
+        "mfePct": 0.862,
         "maePct": -0.274
       }
     },
@@ -1745,9 +1745,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-09-28T12:17:53.530Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T16:54:18.655Z",
+          "price": 83677.09,
+          "realizedPct": 0.862
         },
         {
           "key": "D1",
@@ -1776,7 +1776,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": -0.274,
+        "mfePct": 0.862,
         "maePct": -0.274
       }
     },
@@ -1834,9 +1834,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-09-28T12:17:53.530Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T16:54:18.655Z",
+          "price": 83677.09,
+          "realizedPct": 0.862
         },
         {
           "key": "D1",
@@ -1865,7 +1865,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": -0.274,
+        "mfePct": 0.862,
         "maePct": -0.274
       }
     },
@@ -1923,9 +1923,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-09-28T12:17:53.530Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T16:54:18.655Z",
+          "price": 83677.09,
+          "realizedPct": 0.862
         },
         {
           "key": "D1",
@@ -1954,7 +1954,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": -0.274,
+        "mfePct": 0.862,
         "maePct": -0.274
       }
     },
@@ -2012,9 +2012,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-09-28T12:17:53.530Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T16:54:18.655Z",
+          "price": 1.1377,
+          "realizedPct": -0.079
         },
         {
           "key": "D1",
@@ -2101,9 +2101,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-09-28T12:17:53.530Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T16:54:18.655Z",
+          "price": 1.1377,
+          "realizedPct": -0.079
         },
         {
           "key": "D1",
@@ -2190,9 +2190,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-09-28T12:17:53.530Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T16:54:18.655Z",
+          "price": 1.1377,
+          "realizedPct": -0.079
         },
         {
           "key": "D1",
@@ -2279,9 +2279,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-09-28T12:17:53.530Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T16:54:18.655Z",
+          "price": 1.1377,
+          "realizedPct": -0.079
         },
         {
           "key": "D1",
@@ -2368,9 +2368,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-09-28T12:17:53.530Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T16:54:18.655Z",
+          "price": 1.1377,
+          "realizedPct": -0.079
         },
         {
           "key": "D1",
@@ -2417,49 +2417,49 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-28T10:08:47.895Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T16:54:18.655Z",
+          "price": 4165.2,
+          "realizedPct": -0.504
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-28T10:12:47.895Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T16:54:18.655Z",
+          "price": 4165.2,
+          "realizedPct": -0.504
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-28T10:22:47.895Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T16:54:18.655Z",
+          "price": 4165.2,
+          "realizedPct": -0.504
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-09-28T10:37:47.895Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T16:54:18.655Z",
+          "price": 4165.2,
+          "realizedPct": -0.504
         },
         {
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-09-28T11:07:47.895Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T16:54:18.655Z",
+          "price": 4165.2,
+          "realizedPct": -0.504
         },
         {
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-09-28T14:07:47.895Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T16:54:18.655Z",
+          "price": 4165.2,
+          "realizedPct": -0.504
         },
         {
           "key": "D1",
@@ -2485,7 +2485,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.504,
+        "maePct": -0.504
+      }
     },
     {
       "key": "news:crypto:S&P 500: Equities resilient despite rates selloff – Deutsche Bank",
@@ -2501,49 +2506,49 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-28T10:08:47.895Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T16:54:18.655Z",
+          "price": 83677.09,
+          "realizedPct": 1.139
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-28T10:12:47.895Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T16:54:18.655Z",
+          "price": 83677.09,
+          "realizedPct": 1.139
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-28T10:22:47.895Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T16:54:18.655Z",
+          "price": 83677.09,
+          "realizedPct": 1.139
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-09-28T10:37:47.895Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T16:54:18.655Z",
+          "price": 83677.09,
+          "realizedPct": 1.139
         },
         {
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-09-28T11:07:47.895Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T16:54:18.655Z",
+          "price": 83677.09,
+          "realizedPct": 1.139
         },
         {
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-09-28T14:07:47.895Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T16:54:18.655Z",
+          "price": 83677.09,
+          "realizedPct": 1.139
         },
         {
           "key": "D1",
@@ -2569,7 +2574,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 1.139,
+        "maePct": 1.139
+      }
     },
     {
       "key": "news:forex:S&P 500: Equities resilient despite rates selloff – Deutsche Bank",
@@ -2585,49 +2595,49 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-28T10:08:47.895Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T16:54:18.655Z",
+          "price": 1.1377,
+          "realizedPct": 0
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-28T10:12:47.895Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T16:54:18.655Z",
+          "price": 1.1377,
+          "realizedPct": 0
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-28T10:22:47.895Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T16:54:18.655Z",
+          "price": 1.1377,
+          "realizedPct": 0
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-09-28T10:37:47.895Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T16:54:18.655Z",
+          "price": 1.1377,
+          "realizedPct": 0
         },
         {
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-09-28T11:07:47.895Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T16:54:18.655Z",
+          "price": 1.1377,
+          "realizedPct": 0
         },
         {
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-09-28T14:07:47.895Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-28T16:54:18.655Z",
+          "price": 1.1377,
+          "realizedPct": 0
         },
         {
           "key": "D1",
@@ -2649,6 +2659,935 @@
           "key": "MN1",
           "minutes": 43200,
           "dueAt": "2026-10-28T10:07:47.895Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0,
+        "maePct": 0
+      }
+    },
+    {
+      "key": "news:gold:U.S. debt sell-off extends on $106 crude oil and hawkish central bank outlooks",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "U.S. debt sell-off extends on $106 crude oil and hawkish central bank outlooks",
+      "url": "https://www.investing.com/news/forex-news/german-yields-pause-traders-weigh-sticky-energy-inflation-in-data-packed-week-4919522",
+      "impactScore": -0.08,
+      "priceAtDetect": 4165.2,
+      "createdAt": "2026-09-28T16:54:18.656Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-28T16:55:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-28T16:59:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-28T17:09:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-28T17:24:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-28T17:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-28T20:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-29T16:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-05T16:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-28T16:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:gold:Gold tumbles over 3.5% as Fed rate-hike bets, surging US Treasury yields weigh",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Gold tumbles over 3.5% as Fed rate-hike bets, surging US Treasury yields weigh",
+      "url": "https://www.fxstreet.com/news/gold-slides-nearly-3-as-fed-hike-bets-rising-treasury-yields-weigh-202609281103",
+      "impactScore": -0.15,
+      "priceAtDetect": 4165.2,
+      "createdAt": "2026-09-28T16:54:18.656Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-28T16:55:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-28T16:59:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-28T17:09:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-28T17:24:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-28T17:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-28T20:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-29T16:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-05T16:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-28T16:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:gold:Australian Dollar holds steady as RBA rate hike expectations balance elevated US yields",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Australian Dollar holds steady as RBA rate hike expectations balance elevated US yields",
+      "url": "https://www.fxstreet.com/news/australian-dollar-holds-steady-as-rba-rate-hike-expectations-balance-elevated-us-yields-202609281248",
+      "impactScore": -0.36,
+      "priceAtDetect": 4165.2,
+      "createdAt": "2026-09-28T16:54:18.656Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-28T16:55:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-28T16:59:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-28T17:09:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-28T17:24:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-28T17:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-28T20:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-29T16:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-05T16:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-28T16:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:crypto:U.S. debt sell-off extends on $106 crude oil and hawkish central bank outlooks",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "U.S. debt sell-off extends on $106 crude oil and hawkish central bank outlooks",
+      "url": "https://www.investing.com/news/forex-news/german-yields-pause-traders-weigh-sticky-energy-inflation-in-data-packed-week-4919522",
+      "impactScore": -0.08,
+      "priceAtDetect": 83677.09,
+      "createdAt": "2026-09-28T16:54:18.656Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-28T16:55:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-28T16:59:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-28T17:09:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-28T17:24:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-28T17:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-28T20:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-29T16:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-05T16:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-28T16:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:crypto:Gold tumbles over 3.5% as Fed rate-hike bets, surging US Treasury yields weigh",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Gold tumbles over 3.5% as Fed rate-hike bets, surging US Treasury yields weigh",
+      "url": "https://www.fxstreet.com/news/gold-slides-nearly-3-as-fed-hike-bets-rising-treasury-yields-weigh-202609281103",
+      "impactScore": -0.14,
+      "priceAtDetect": 83677.09,
+      "createdAt": "2026-09-28T16:54:18.656Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-28T16:55:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-28T16:59:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-28T17:09:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-28T17:24:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-28T17:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-28T20:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-29T16:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-05T16:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-28T16:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:crypto:British Pound gains against the Euro as traders assess central bank signals",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "British Pound gains against the Euro as traders assess central bank signals",
+      "url": "https://www.fxstreet.com/news/british-pound-gains-against-the-euro-as-traders-assess-central-bank-signals-202609281410",
+      "impactScore": -0.08,
+      "priceAtDetect": 83677.09,
+      "createdAt": "2026-09-28T16:54:18.656Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-28T16:55:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-28T16:59:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-28T17:09:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-28T17:24:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-28T17:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-28T20:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-29T16:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-05T16:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-28T16:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:crypto:Australian Dollar holds steady as RBA rate hike expectations balance elevated US yields",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Australian Dollar holds steady as RBA rate hike expectations balance elevated US yields",
+      "url": "https://www.fxstreet.com/news/australian-dollar-holds-steady-as-rba-rate-hike-expectations-balance-elevated-us-yields-202609281248",
+      "impactScore": -0.41,
+      "priceAtDetect": 83677.09,
+      "createdAt": "2026-09-28T16:54:18.656Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-28T16:55:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-28T16:59:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-28T17:09:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-28T17:24:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-28T17:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-28T20:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-29T16:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-05T16:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-28T16:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:forex:U.S. debt sell-off extends on $106 crude oil and hawkish central bank outlooks",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "U.S. debt sell-off extends on $106 crude oil and hawkish central bank outlooks",
+      "url": "https://www.investing.com/news/forex-news/german-yields-pause-traders-weigh-sticky-energy-inflation-in-data-packed-week-4919522",
+      "impactScore": -0.08,
+      "priceAtDetect": 1.1377,
+      "createdAt": "2026-09-28T16:54:18.656Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-28T16:55:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-28T16:59:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-28T17:09:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-28T17:24:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-28T17:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-28T20:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-29T16:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-05T16:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-28T16:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:forex:Gold tumbles over 3.5% as Fed rate-hike bets, surging US Treasury yields weigh",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Gold tumbles over 3.5% as Fed rate-hike bets, surging US Treasury yields weigh",
+      "url": "https://www.fxstreet.com/news/gold-slides-nearly-3-as-fed-hike-bets-rising-treasury-yields-weigh-202609281103",
+      "impactScore": -0.15,
+      "priceAtDetect": 1.1377,
+      "createdAt": "2026-09-28T16:54:18.656Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-28T16:55:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-28T16:59:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-28T17:09:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-28T17:24:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-28T17:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-28T20:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-29T16:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-05T16:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-28T16:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:forex:British Pound gains against the Euro as traders assess central bank signals",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "British Pound gains against the Euro as traders assess central bank signals",
+      "url": "https://www.fxstreet.com/news/british-pound-gains-against-the-euro-as-traders-assess-central-bank-signals-202609281410",
+      "impactScore": -0.15,
+      "priceAtDetect": 1.1377,
+      "createdAt": "2026-09-28T16:54:18.656Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-28T16:55:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-28T16:59:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-28T17:09:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-28T17:24:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-28T17:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-28T20:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-29T16:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-05T16:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-28T16:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:forex:Australian Dollar holds steady as RBA rate hike expectations balance elevated US yields",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Australian Dollar holds steady as RBA rate hike expectations balance elevated US yields",
+      "url": "https://www.fxstreet.com/news/australian-dollar-holds-steady-as-rba-rate-hike-expectations-balance-elevated-us-yields-202609281248",
+      "impactScore": -0.45,
+      "priceAtDetect": 1.1377,
+      "createdAt": "2026-09-28T16:54:18.656Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-28T16:55:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-28T16:59:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-28T17:09:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-28T17:24:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-28T17:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-28T20:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-29T16:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-05T16:54:18.656Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-28T16:54:18.656Z",
           "capturedAt": null,
           "price": null,
           "realizedPct": null
