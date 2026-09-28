@@ -405,13 +405,59 @@ function setAlerts(alerts,history){
  * in the dashboard ALERT OBSERVATION / LIVE BBMA ALERTS panels — NOT external
  * validated evidence: publishability still requires BBMARuntime.setAlerts()
  * from an external source (HELIX core / news-shadow pipeline) plus fresh ticks. */
+/* Canonical BBMASignal schema version — bumped on any classification change so
+ * a chart marker can be audited against the engine version that produced it. */
+var BBMA_SIGNAL_VERSION='v1';
+/* Wrap a technical reading in a provenance envelope (spec /calculate):
+ *   { id, symbol, timeframe, candleId, candleTime, pattern, direction, status,
+ *     evidence[], calculatedAt, source, version }
+ * The envelope carries the EXACT candle + indicator values that triggered the
+ * signal, so a chart marker is auditable — the UI never re-derives the logic. */
+function withProvenance(sig,framesObj,tf){
+  /* framesObj[tf] is the CANONICAL classify() RESULT for that TF:
+  * { state, trend, momentum, extreme, csak, reentry, zone, band, values,
+  *   lastTime, ... }. We read the exact trigger values from there so the
+  *   marker is auditable and the UI never re-derives anything. */
+  var fr=framesObj[tf]||{};
+  var v=fr.values||null;
+  var lastTime=fr.lastTime||null;
+  function ev(name,value){return {name:name,value:value==null?null:(Math.round(value*100)/100)};}
+  var evidence=[];
+  if(v){
+    evidence.push(ev('close',v.close),ev('bbUpper',v.bb&&v.bb.upper),ev('bbMid',v.bb&&v.bb.mid),ev('bbLower',v.bb&&v.bb.lower),ev('ema50',v.ema50));
+    if(sig.pattern==='MOMENTUM')evidence.push(ev('momentum',fr.momentum));
+    if(sig.pattern==='EXTREME')evidence.push(ev('ma5High',v.ma5High),ev('ma5Low',v.ma5Low));
+    if(sig.pattern==='RE-ENTRY')evidence.push(ev('ma5High',v.ma5High),ev('ma10High',v.ma10High),ev('ma5Low',v.ma5Low),ev('ma10Low',v.ma10Low),ev('trend',fr.trend));
+    if(sig.pattern==='CSA')evidence.push(ev('ma5High',v.ma5High),ev('ma10High',v.ma10High),ev('ma5Low',v.ma5Low),ev('ma10Low',v.ma10Low));
+  }
+  sig.candleId=lastTime;
+  sig.candleTime=lastTime;
+  sig.status=fr.state==='READY'?'READY':'INSUFFICIENT';
+  /* Direction comes from the CANONICAL frame reading, not the signal id:
+     momentum -> its UP/DOWN; CSA/reentry -> their UP/DOWN zone; otherwise the
+     TF trend. This keeps the marker direction == the engine's. */
+  var dir='NEUTRAL';
+  if(sig.pattern==='MOMENTUM')dir=/UP/.test(fr.momentum||'')?'UP':/DOWN/.test(fr.momentum||'')?'DOWN':'NEUTRAL';
+  else if(sig.pattern==='CSA')dir=/UP/.test(fr.csak||'')?'UP':/DOWN/.test(fr.csak||'')?'DOWN':'NEUTRAL';
+  else if(sig.pattern==='RE-ENTRY')dir=/UP/.test(fr.reentry||'')?'UP':/DOWN/.test(fr.reentry||'')?'DOWN':'NEUTRAL';
+  else if(sig.pattern==='EXTREME')dir=/HIGH/.test(fr.extreme||'')?'UP':/LOW/.test(fr.extreme||'')?'DOWN':'NEUTRAL';
+  else dir=(fr.trend==='UP')?'UP':(fr.trend==='DOWN')?'DOWN':'NEUTRAL';
+  sig.direction=dir;
+  sig.evidence=evidence;
+  sig.calculatedAt=new Date().toISOString();
+  sig.source='LIVE_TICK_DERIVED';
+  sig.version=BBMA_SIGNAL_VERSION;
+  return sig;
+}
 function technicalAlerts(framesObj){
   var out=[];
   var P1=['H1','M15','H4'],P2=['M5','M30','D1'];
   var seen={};
   function push(id,level,tf,pattern,summary){
     if(seen[id])return;seen[id]=1;
-    out.push({id:'tech-'+id,symbol:'XAU/USD',timeframe:tf,pattern:pattern,level:level,timeMYT:framesObj[tf]&&framesObj[tf].lastTime?new Date(Date.parse(framesObj[tf].lastTime)+8*3600000).toISOString().slice(11,16)+' MYT':'—',summary:summary,technical:true});
+    var sig={id:'tech-'+id,symbol:'XAU/USD',timeframe:tf,pattern:pattern,level:level,timeMYT:framesObj[tf]&&framesObj[tf].lastTime?new Date(Date.parse(framesObj[tf].lastTime)+8*3600000).toISOString().slice(11,16)+' MYT':'—',summary:summary,technical:true};
+    withProvenance(sig,framesObj,tf);
+    out.push(sig);
   }
   function scan(list,level,tfOrder){
     list.forEach(function(tf){
@@ -437,6 +483,8 @@ w.BBMARuntime={
   ingest:ingest,
   setFeedStatus:setFeedStatus,
   setAlerts:setAlerts,
+  withProvenance:withProvenance,
+  SIGNAL_VERSION:BBMA_SIGNAL_VERSION,
   snapshot:function(){return w.BBMA_RUNTIME||null;},
   frames:frames
 };

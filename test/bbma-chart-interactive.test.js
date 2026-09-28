@@ -12,7 +12,7 @@ function makeCtx(cv){
   const ops={fillRect:0,lineTo:0,moveTo:0,strokeRect:0,arc:0,fillText:0};
   return {
     _ops:ops,
-    clearRect(){}, fillRect(x,y,w,h){ops.fillRect++;},
+    clearRect(){}, drawImage(){}, fillRect(x,y,w,h){ops.fillRect++;},
     strokeRect(x,y,w,h){ops.strokeRect++;}, beginPath(){}, moveTo(x,y){ops.moveTo++;},
     lineTo(x,y){ops.lineTo++;}, stroke(){}, fill(){},
     arc(x,y,r){ops.arc++;}, setLineDash(){}, closePath(){}, save(){},restore(){},

@@ -10,7 +10,7 @@
     "macro": "node build-macro.js",
     "manifest:data": "node build-data-manifest.js",
     "refresh:data": "node build-news.js && node build-macro.js && node build-data-manifest.js",
-    "test": "npm run test:evidence && npm run test:history && npm run test:technical && npm run test:reaction && npm run test:timestamps && npm run test:intelligence && npm run test:bbma && npm run test:bbma-dashboard && npm run test:bbma-chart-ohlc && npm run test:bbma-alert-ui && npm run test:bbma-deeplink && npm run test:bbma-runtime && npm run test:bbma-backfill && npm run test:bbma-tech-alerts && npm run test:bbma-alert-history && npm run test:bbma-voice && npm run test:bbma-publisher && npm run test:market-provider && npm run test:ohlc-backfill && npm run test:ohlc-resampler && npm run test:news-level-history && npm run test:bbma-learning && npm run test:evidence-envelope && npm run test:source-health && npm run test:orchestrator && npm run test:learning-store && npm run test:bbma-zone-parity && npm run test:bbma-chart-interactive && npm run test:feed-state",
+    "test": "npm run test:evidence && npm run test:history && npm run test:technical && npm run test:reaction && npm run test:timestamps && npm run test:intelligence && npm run test:bbma && npm run test:bbma-dashboard && npm run test:bbma-chart-ohlc && npm run test:bbma-alert-ui && npm run test:bbma-deeplink && npm run test:bbma-runtime && npm run test:bbma-backfill && npm run test:bbma-tech-alerts && npm run test:bbma-alert-history && npm run test:bbma-voice && npm run test:bbma-publisher && npm run test:market-provider && npm run test:ohlc-backfill && npm run test:ohlc-resampler && npm run test:news-level-history && npm run test:bbma-learning && npm run test:evidence-envelope && npm run test:source-health && npm run test:orchestrator && npm run test:learning-store && npm run test:bbma-zone-parity && npm run test:bbma-chart-interactive && npm run test:feed-state && npm run test:label-layout && npm run test:chart-zones && npm run test:signal-provenance && npm run test:fastload",
     "test:evidence": "node test/evidence-engine.test.js",
     "test:history": "node test/history-store.test.js",
     "test:technical": "node test/technical-context.test.js",
@@ -50,7 +50,11 @@
     "test:bbma-voice": "node test/bbma-voice-routing.test.js",
     "test:bbma-zone-parity": "node test/bbma-zone-parity.test.js",
     "test:bbma-chart-interactive": "node test/bbma-chart-interactive.test.js",
-    "test:feed-state": "node test/bbma-feed-state.test.js"
+    "test:feed-state": "node test/bbma-feed-state.test.js",
+    "test:label-layout": "node test/bbma-label-layout.test.js",
+    "test:chart-zones": "node test/bbma-chart-zones.test.js",
+    "test:signal-provenance": "node test/bbma-signal-provenance.test.js",
+    "test:fastload": "node test/bbma-fastload.test.js"
   },
   "dependencies": {
     "@capacitor/android": "^7.0.0",
