@@ -3711,9 +3711,9 @@
           "key": "D1",
           "minutes": 1440,
           "dueAt": "2026-09-29T22:25:25.179Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 4212.1,
+          "realizedPct": 1.36
         },
         {
           "key": "W1",
@@ -3734,7 +3734,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.262,
+        "mfePct": 1.36,
         "maePct": -0.014
       }
     },
@@ -3800,9 +3800,9 @@
           "key": "D1",
           "minutes": 1440,
           "dueAt": "2026-09-29T22:25:25.179Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 83647.52,
+          "realizedPct": 0.599
         },
         {
           "key": "W1",
@@ -3823,7 +3823,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.385,
+        "mfePct": 0.599,
         "maePct": -0.308
       }
     },
@@ -3889,9 +3889,9 @@
           "key": "D1",
           "minutes": 1440,
           "dueAt": "2026-09-29T22:25:25.179Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 1.1343,
+          "realizedPct": -0.299
         },
         {
           "key": "W1",
@@ -3913,7 +3913,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.018,
-        "maePct": -0.053
+        "maePct": -0.299
       }
     },
     {
@@ -3978,9 +3978,9 @@
           "key": "D1",
           "minutes": 1440,
           "dueAt": "2026-09-29T23:19:25.482Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 4212.1,
+          "realizedPct": 1.374
         },
         {
           "key": "W1",
@@ -4001,7 +4001,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.277,
+        "mfePct": 1.374,
         "maePct": 0.07
       }
     },
@@ -4067,9 +4067,9 @@
           "key": "D1",
           "minutes": 1440,
           "dueAt": "2026-09-29T23:19:25.482Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 83647.52,
+          "realizedPct": 0.213
         },
         {
           "key": "W1",
@@ -4090,7 +4090,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": -0.363,
+        "mfePct": 0.213,
         "maePct": -0.69
       }
     },
@@ -4156,9 +4156,9 @@
           "key": "D1",
           "minutes": 1440,
           "dueAt": "2026-09-29T23:19:25.482Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 1.1343,
+          "realizedPct": -0.281
         },
         {
           "key": "W1",
@@ -4180,7 +4180,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.035,
-        "maePct": -0.097
+        "maePct": -0.281
       }
     },
     {
@@ -7692,17 +7692,17 @@
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-09-29T20:38:19.361Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 4212.1,
+          "realizedPct": 0.155
         },
         {
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-09-29T21:08:19.361Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 4212.1,
+          "realizedPct": 0.155
         },
         {
           "key": "H4",
@@ -7739,7 +7739,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.007,
+        "mfePct": 0.155,
         "maePct": 0.007
       }
     },
@@ -7781,17 +7781,17 @@
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-09-29T20:38:19.362Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 4212.1,
+          "realizedPct": 0.155
         },
         {
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-09-29T21:08:19.362Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 4212.1,
+          "realizedPct": 0.155
         },
         {
           "key": "H4",
@@ -7828,7 +7828,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.007,
+        "mfePct": 0.155,
         "maePct": 0.007
       }
     },
@@ -7870,17 +7870,17 @@
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-09-29T20:38:19.362Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 4212.1,
+          "realizedPct": 0.155
         },
         {
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-09-29T21:08:19.362Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 4212.1,
+          "realizedPct": 0.155
         },
         {
           "key": "H4",
@@ -7917,7 +7917,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.007,
+        "mfePct": 0.155,
         "maePct": 0.007
       }
     },
@@ -7959,17 +7959,17 @@
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-09-29T20:38:19.362Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 83647.52,
+          "realizedPct": 0.102
         },
         {
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-09-29T21:08:19.362Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 83647.52,
+          "realizedPct": 0.102
         },
         {
           "key": "H4",
@@ -8006,7 +8006,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.055,
+        "mfePct": 0.102,
         "maePct": 0.055
       }
     },
@@ -8048,17 +8048,17 @@
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-09-29T20:38:19.362Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 83647.52,
+          "realizedPct": 0.102
         },
         {
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-09-29T21:08:19.362Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 83647.52,
+          "realizedPct": 0.102
         },
         {
           "key": "H4",
@@ -8095,7 +8095,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.055,
+        "mfePct": 0.102,
         "maePct": 0.055
       }
     },
@@ -8137,17 +8137,17 @@
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-09-29T20:38:19.362Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 83647.52,
+          "realizedPct": 0.102
         },
         {
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-09-29T21:08:19.362Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 83647.52,
+          "realizedPct": 0.102
         },
         {
           "key": "H4",
@@ -8184,7 +8184,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.055,
+        "mfePct": 0.102,
         "maePct": 0.055
       }
     },
@@ -8226,17 +8226,17 @@
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-09-29T20:38:19.362Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 1.1343,
+          "realizedPct": 0
         },
         {
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-09-29T21:08:19.362Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 1.1343,
+          "realizedPct": 0
         },
         {
           "key": "H4",
@@ -8273,7 +8273,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": -0.035,
+        "mfePct": 0,
         "maePct": -0.035
       }
     },
@@ -8315,17 +8315,17 @@
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-09-29T20:38:19.362Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 1.1343,
+          "realizedPct": 0
         },
         {
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-09-29T21:08:19.362Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 1.1343,
+          "realizedPct": 0
         },
         {
           "key": "H4",
@@ -8362,7 +8362,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": -0.035,
+        "mfePct": 0,
         "maePct": -0.035
       }
     },
@@ -8404,17 +8404,17 @@
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-09-29T20:38:19.362Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 1.1343,
+          "realizedPct": 0
         },
         {
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-09-29T21:08:19.362Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 1.1343,
+          "realizedPct": 0
         },
         {
           "key": "H4",
@@ -8451,7 +8451,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": -0.035,
+        "mfePct": 0,
         "maePct": -0.035
       }
     },
@@ -8469,41 +8469,41 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-29T20:29:23.864Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 4212.1,
+          "realizedPct": 0.147
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-29T20:33:23.864Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 4212.1,
+          "realizedPct": 0.147
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-29T20:43:23.864Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 4212.1,
+          "realizedPct": 0.147
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-09-29T20:58:23.864Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 4212.1,
+          "realizedPct": 0.147
         },
         {
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-09-29T21:28:23.864Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 4212.1,
+          "realizedPct": 0.147
         },
         {
           "key": "H4",
@@ -8537,7 +8537,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.147,
+        "maePct": 0.147
+      }
     },
     {
       "key": "news:crypto:Traders expecting a back-to-back rate hike from the Fed in October may have gotten ahead of themselves",
@@ -8553,41 +8558,41 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-29T20:29:23.864Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 83647.52,
+          "realizedPct": 0.047
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-29T20:33:23.864Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 83647.52,
+          "realizedPct": 0.047
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-29T20:43:23.864Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 83647.52,
+          "realizedPct": 0.047
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-09-29T20:58:23.864Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 83647.52,
+          "realizedPct": 0.047
         },
         {
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-09-29T21:28:23.864Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 83647.52,
+          "realizedPct": 0.047
         },
         {
           "key": "H4",
@@ -8621,7 +8626,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.047,
+        "maePct": 0.047
+      }
     },
     {
       "key": "news:forex:Traders expecting a back-to-back rate hike from the Fed in October may have gotten ahead of themselves",
@@ -8637,41 +8647,41 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-29T20:29:23.864Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 1.1343,
+          "realizedPct": 0.035
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-29T20:33:23.864Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 1.1343,
+          "realizedPct": 0.035
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-29T20:43:23.864Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 1.1343,
+          "realizedPct": 0.035
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-09-29T20:58:23.864Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 1.1343,
+          "realizedPct": 0.035
         },
         {
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-09-29T21:28:23.864Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 1.1343,
+          "realizedPct": 0.035
         },
         {
           "key": "H4",
@@ -8701,6 +8711,515 @@
           "key": "MN1",
           "minutes": 43200,
           "dueAt": "2026-10-29T20:28:23.864Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.035,
+        "maePct": 0.035
+      }
+    },
+    {
+      "key": "news:gold:Australian Dollar cracks 0.70 as Bullock dulls RBA hike, CPI looms",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Australian Dollar cracks 0.70 as Bullock dulls RBA hike, CPI looms",
+      "url": "https://www.fxstreet.com/news/australian-dollar-cracks-070-as-bullock-dulls-rba-hike-cpi-looms-202609292326",
+      "impactScore": -0.36,
+      "priceAtDetect": 4212.1,
+      "createdAt": "2026-09-29T23:53:14.494Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T23:54:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T23:58:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-30T00:08:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-30T00:23:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-30T00:53:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-30T03:53:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T23:53:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T23:53:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T23:53:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:gold:The New Zealand Dollar breaks lower after Australia's rate hike",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "The New Zealand Dollar breaks lower after Australia's rate hike",
+      "url": "https://www.fxstreet.com/news/the-new-zealand-dollar-breaks-lower-after-australias-rate-hike-202609292302",
+      "impactScore": -0.12,
+      "priceAtDetect": 4212.1,
+      "createdAt": "2026-09-29T23:53:14.494Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T23:54:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T23:58:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-30T00:08:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-30T00:23:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-30T00:53:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-30T03:53:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T23:53:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T23:53:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T23:53:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:crypto:Australian Dollar cracks 0.70 as Bullock dulls RBA hike, CPI looms",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Australian Dollar cracks 0.70 as Bullock dulls RBA hike, CPI looms",
+      "url": "https://www.fxstreet.com/news/australian-dollar-cracks-070-as-bullock-dulls-rba-hike-cpi-looms-202609292326",
+      "impactScore": -0.41,
+      "priceAtDetect": 83647.52,
+      "createdAt": "2026-09-29T23:53:14.494Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T23:54:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T23:58:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-30T00:08:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-30T00:23:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-30T00:53:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-30T03:53:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T23:53:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T23:53:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T23:53:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:crypto:The New Zealand Dollar breaks lower after Australia's rate hike",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "The New Zealand Dollar breaks lower after Australia's rate hike",
+      "url": "https://www.fxstreet.com/news/the-new-zealand-dollar-breaks-lower-after-australias-rate-hike-202609292302",
+      "impactScore": -0.14,
+      "priceAtDetect": 83647.52,
+      "createdAt": "2026-09-29T23:53:14.494Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T23:54:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T23:58:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-30T00:08:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-30T00:23:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-30T00:53:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-30T03:53:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T23:53:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T23:53:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T23:53:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:forex:Australian Dollar cracks 0.70 as Bullock dulls RBA hike, CPI looms",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Australian Dollar cracks 0.70 as Bullock dulls RBA hike, CPI looms",
+      "url": "https://www.fxstreet.com/news/australian-dollar-cracks-070-as-bullock-dulls-rba-hike-cpi-looms-202609292326",
+      "impactScore": -0.23,
+      "priceAtDetect": 1.1343,
+      "createdAt": "2026-09-29T23:53:14.494Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T23:54:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T23:58:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-30T00:08:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-30T00:23:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-30T00:53:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-30T03:53:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T23:53:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T23:53:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T23:53:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:forex:The New Zealand Dollar breaks lower after Australia's rate hike",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "The New Zealand Dollar breaks lower after Australia's rate hike",
+      "url": "https://www.fxstreet.com/news/the-new-zealand-dollar-breaks-lower-after-australias-rate-hike-202609292302",
+      "impactScore": -0.15,
+      "priceAtDetect": 1.1343,
+      "createdAt": "2026-09-29T23:53:14.494Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T23:54:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T23:58:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-30T00:08:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-30T00:23:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-30T00:53:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-30T03:53:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T23:53:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T23:53:14.494Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T23:53:14.494Z",
           "capturedAt": null,
           "price": null,
           "realizedPct": null
