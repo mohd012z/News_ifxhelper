@@ -5,7 +5,7 @@
  * Regenerate: node build-news.js (run on the same daily cron as build-atr.js).
  */
 window.NEWS_AUTO = {
-  "generatedAt": "2026-09-29 08:53:09Z",
+  "generatedAt": "2026-09-29 09:03:55Z",
   "note": "Auto-collected: economic calendar is real structured data; news rows are country/currency-aware and instrument-filtered; mixed observed-vs-policy direction becomes CONFLICT/NEUTRAL. impactPct is retained only for UI compatibility and is an impact score, not a calibrated return forecast. Treat auto:true rows as a first pass.",
   "incoming": [
     {
@@ -31,7 +31,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-09-29T08:53:04.321Z",
+      "fetchedAt": "2026-09-29T09:03:50.649Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -58,7 +58,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-09-29T08:53:04.322Z",
+      "fetchedAt": "2026-09-29T09:03:50.649Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -85,7 +85,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-09-29T08:53:04.322Z",
+      "fetchedAt": "2026-09-29T09:03:50.650Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -112,7 +112,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-09-29T08:53:04.322Z",
+      "fetchedAt": "2026-09-29T09:03:50.650Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -139,7 +139,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-09-29T08:53:04.322Z",
+      "fetchedAt": "2026-09-29T09:03:50.650Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -166,7 +166,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-09-29T08:53:04.322Z",
+      "fetchedAt": "2026-09-29T09:03:50.650Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -193,7 +193,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-09-29T08:53:04.322Z",
+      "fetchedAt": "2026-09-29T09:03:50.650Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -220,7 +220,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-09-29T08:53:04.322Z",
+      "fetchedAt": "2026-09-29T09:03:50.650Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -247,7 +247,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-09-29T08:53:04.322Z",
+      "fetchedAt": "2026-09-29T09:03:50.650Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -274,7 +274,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-09-29T08:53:04.322Z",
+      "fetchedAt": "2026-09-29T09:03:50.650Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -301,7 +301,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-09-29T08:53:04.322Z",
+      "fetchedAt": "2026-09-29T09:03:50.650Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -328,7 +328,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-09-29T08:53:04.322Z",
+      "fetchedAt": "2026-09-29T09:03:50.650Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     }
@@ -336,6 +336,31 @@ window.NEWS_AUTO = {
   "byTab": {
     "gold": {
       "news": [
+        {
+          "time": "Tue 29 Sep, 16:50 MYT",
+          "tf": "Intraday",
+          "title": "Sterling today: Pound slips as oil-fuelled dollar demand builds",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "Investing.com - Forex News",
+          "url": "https://www.investing.com/news/forex-news/sterling-today-pound-slips-as-oilfuelled-dollar-demand-builds-4921804",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.8,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": true,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
         {
           "time": "Tue 29 Sep, 15:53 MYT",
           "tf": "Intraday",
@@ -502,6 +527,31 @@ window.NEWS_AUTO = {
             "gold": false,
             "yields": false,
             "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Tue 29 Sep, 16:36 MYT",
+          "tf": "Intraday",
+          "title": "Europe gas prices resume rally after 2-day pullback, with YTD exceeding 160%",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "Investing.com - Commodities & Futures",
+          "url": "https://www.investing.com/news/commodities-news/europe-gas-prices-resume-rally-after-2day-pullback-with-ytd-exceeding-160-4921764",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.5,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
             "oil": false,
             "risk": false,
             "crypto": false
@@ -737,21 +787,49 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Tue 29 Sep, 12:17 MYT",
+          "time": "Tue 29 Sep, 17:03 MYT",
           "tf": "Intraday",
-          "title": "Gold stays near seven-week low after 4% plunge as Fed hike bets rise",
+          "title": "USDCAD: Fair value estimate stands at 1.4068 – Scotiabank",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "Investing.com - Commodities & Futures",
-          "url": "https://www.investing.com/news/commodities-news/gold-steadies-near-sevenweek-low-after-4-plunge-as-fed-hike-bets-rise-4921480",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/usdcad-fair-value-estimate-stands-at-14068-scotiabank-202609290903",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
-          "relevance": 1,
+          "relevance": 0.8,
           "currencies": [],
           "drivers": {
-            "gold": true,
+            "gold": false,
+            "yields": true,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Tue 29 Sep, 16:55 MYT",
+          "tf": "Intraday",
+          "title": "Australian Dollar sticks to cautious RBA-led losses; struggles near two-week low vs Yen",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/australian-dollar-sticks-to-cautious-rba-led-losses-struggles-near-two-week-low-vs-yen-202609290855",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.8,
+          "currencies": [
+            "JPY",
+            "AUD"
+          ],
+          "drivers": {
+            "gold": false,
             "yields": false,
-            "usd": false,
+            "usd": true,
             "oil": false,
             "risk": false,
             "crypto": false
@@ -1108,20 +1186,20 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Tue 29 Sep, 15:34 MYT",
+          "time": "Tue 29 Sep, 17:00 MYT",
           "tf": "Intraday",
-          "title": "US Treasuries: Yields near multi-decade highs – Deutsche Bank",
+          "title": "Celebrity couple Jenny McCarthy and Donnie Wahlberg are selling $2.8 million Illinois home",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/us-treasuries-yields-near-multi-decade-highs-deutsche-bank-202609290734",
+          "source": "MarketWatch - Top Stories",
+          "url": "https://www.marketwatch.com/story/celebrity-couple-jenny-mccarthy-and-donnie-wahlberg-are-selling-2-8-million-illinois-home-b48f4191?mod=mw_rss_topstories",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
-          "relevance": 0.8,
+          "relevance": 0.5,
           "currencies": [],
           "drivers": {
             "gold": false,
-            "yields": true,
+            "yields": false,
             "usd": false,
             "oil": false,
             "risk": false,
@@ -1133,24 +1211,47 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Tue 29 Sep, 15:33 MYT",
+          "time": "Tue 29 Sep, 16:58 MYT",
           "tf": "Intraday",
-          "title": "USD: Data risks support Dollar gains – ING",
+          "title": "Kris Jenner delists $13.5 million home that was featured in &#x2018;Keeping Up With the Kardashians&#x2019;",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/usd-data-risks-support-dollar-gains-ing-202609290733",
+          "source": "MarketWatch - Top Stories",
+          "url": "https://www.marketwatch.com/story/kris-jenner-delists-13-5-million-home-that-was-featured-in-keeping-up-with-the-kardashians-dd162590?mod=mw_rss_topstories",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
-          "relevance": 0.8,
-          "currencies": [
-            "USD"
-          ],
+          "relevance": 0.5,
+          "currencies": [],
           "drivers": {
             "gold": false,
             "yields": false,
-            "usd": true,
-            "oil": true,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Tue 29 Sep, 16:56 MYT",
+          "tf": "Intraday",
+          "title": "A month ago, this JPMorgan team urged caution on stocks. Now it&#x2019;s going all in on tech.",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "MarketWatch - Top Stories",
+          "url": "https://www.marketwatch.com/story/a-month-ago-this-jpmorgan-team-urged-caution-on-stocks-now-its-going-all-in-on-tech-f2e4b007?mod=mw_rss_topstories",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.5,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": false,
             "risk": false,
             "crypto": false
           },
@@ -1335,81 +1436,6 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Tue 29 Sep, 05:27 MYT",
-          "tf": "Intraday",
-          "title": "Nvidia makes a statement with historic $150 billion buyback announcement",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "MarketWatch - Top Stories",
-          "url": "https://www.marketwatch.com/story/nvidia-makes-a-statement-with-historic-150-billion-buyback-announcement-bfab5a22?mod=mw_rss_topstories",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.5,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Tue 29 Sep, 05:23 MYT",
-          "tf": "Intraday",
-          "title": "MongoDB&#x2019;s stock is down nearly 20% as CEO decamps to Meta",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "MarketWatch - Top Stories",
-          "url": "https://www.marketwatch.com/story/mongodbs-stock-is-down-more-than-20-as-ceo-decamps-to-meta-ad66a942?mod=mw_rss_topstories",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.5,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Tue 29 Sep, 05:19 MYT",
-          "tf": "Intraday",
-          "title": "This AI startup has only 14 employees &#x2014; and a fresh $10 billion valuation",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "MarketWatch - Top Stories",
-          "url": "https://www.marketwatch.com/story/this-ai-startup-has-only-14-employees-and-a-fresh-10-billion-valuation-5466e081?mod=mw_rss_topstories",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.8,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
           "time": "Mon 28 Sep, 12:04 MYT",
           "tf": "Intraday",
           "title": "China posts weakest industrial profit growth this year, expanding 4.2% in August",
@@ -1439,6 +1465,31 @@ window.NEWS_AUTO = {
     },
     "crypto": {
       "news": [
+        {
+          "time": "Tue 29 Sep, 16:50 MYT",
+          "tf": "Intraday",
+          "title": "Sterling today: Pound slips as oil-fuelled dollar demand builds",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "Investing.com - Forex News",
+          "url": "https://www.investing.com/news/forex-news/sterling-today-pound-slips-as-oilfuelled-dollar-demand-builds-4921804",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.7,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": true,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
         {
           "time": "Tue 29 Sep, 15:53 MYT",
           "tf": "Intraday",
@@ -1605,6 +1656,31 @@ window.NEWS_AUTO = {
             "gold": false,
             "yields": false,
             "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Tue 29 Sep, 16:36 MYT",
+          "tf": "Intraday",
+          "title": "Europe gas prices resume rally after 2-day pullback, with YTD exceeding 160%",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "Investing.com - Commodities & Futures",
+          "url": "https://www.investing.com/news/commodities-news/europe-gas-prices-resume-rally-after-2day-pullback-with-ytd-exceeding-160-4921764",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.4,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
             "oil": false,
             "risk": false,
             "crypto": false
@@ -1840,21 +1916,49 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Tue 29 Sep, 12:17 MYT",
+          "time": "Tue 29 Sep, 17:03 MYT",
           "tf": "Intraday",
-          "title": "Gold stays near seven-week low after 4% plunge as Fed hike bets rise",
+          "title": "USDCAD: Fair value estimate stands at 1.4068 – Scotiabank",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "Investing.com - Commodities & Futures",
-          "url": "https://www.investing.com/news/commodities-news/gold-steadies-near-sevenweek-low-after-4-plunge-as-fed-hike-bets-rise-4921480",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/usdcad-fair-value-estimate-stands-at-14068-scotiabank-202609290903",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
-          "relevance": 0.4,
+          "relevance": 0.7,
           "currencies": [],
           "drivers": {
-            "gold": true,
+            "gold": false,
+            "yields": true,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Tue 29 Sep, 16:55 MYT",
+          "tf": "Intraday",
+          "title": "Australian Dollar sticks to cautious RBA-led losses; struggles near two-week low vs Yen",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/australian-dollar-sticks-to-cautious-rba-led-losses-struggles-near-two-week-low-vs-yen-202609290855",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.7,
+          "currencies": [
+            "JPY",
+            "AUD"
+          ],
+          "drivers": {
+            "gold": false,
             "yields": false,
-            "usd": false,
+            "usd": true,
             "oil": false,
             "risk": false,
             "crypto": false
@@ -2211,20 +2315,20 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Tue 29 Sep, 15:34 MYT",
+          "time": "Tue 29 Sep, 17:00 MYT",
           "tf": "Intraday",
-          "title": "US Treasuries: Yields near multi-decade highs – Deutsche Bank",
+          "title": "Celebrity couple Jenny McCarthy and Donnie Wahlberg are selling $2.8 million Illinois home",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/us-treasuries-yields-near-multi-decade-highs-deutsche-bank-202609290734",
+          "source": "MarketWatch - Top Stories",
+          "url": "https://www.marketwatch.com/story/celebrity-couple-jenny-mccarthy-and-donnie-wahlberg-are-selling-2-8-million-illinois-home-b48f4191?mod=mw_rss_topstories",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
-          "relevance": 0.7,
+          "relevance": 0.4,
           "currencies": [],
           "drivers": {
             "gold": false,
-            "yields": true,
+            "yields": false,
             "usd": false,
             "oil": false,
             "risk": false,
@@ -2236,24 +2340,47 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Tue 29 Sep, 15:33 MYT",
+          "time": "Tue 29 Sep, 16:58 MYT",
           "tf": "Intraday",
-          "title": "USD: Data risks support Dollar gains – ING",
+          "title": "Kris Jenner delists $13.5 million home that was featured in &#x2018;Keeping Up With the Kardashians&#x2019;",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/usd-data-risks-support-dollar-gains-ing-202609290733",
+          "source": "MarketWatch - Top Stories",
+          "url": "https://www.marketwatch.com/story/kris-jenner-delists-13-5-million-home-that-was-featured-in-keeping-up-with-the-kardashians-dd162590?mod=mw_rss_topstories",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
-          "relevance": 0.7,
-          "currencies": [
-            "USD"
-          ],
+          "relevance": 0.4,
+          "currencies": [],
           "drivers": {
             "gold": false,
             "yields": false,
-            "usd": true,
-            "oil": true,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Tue 29 Sep, 16:56 MYT",
+          "tf": "Intraday",
+          "title": "A month ago, this JPMorgan team urged caution on stocks. Now it&#x2019;s going all in on tech.",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "MarketWatch - Top Stories",
+          "url": "https://www.marketwatch.com/story/a-month-ago-this-jpmorgan-team-urged-caution-on-stocks-now-its-going-all-in-on-tech-f2e4b007?mod=mw_rss_topstories",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.4,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": false,
             "risk": false,
             "crypto": false
           },
@@ -2438,81 +2565,6 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Tue 29 Sep, 05:27 MYT",
-          "tf": "Intraday",
-          "title": "Nvidia makes a statement with historic $150 billion buyback announcement",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "MarketWatch - Top Stories",
-          "url": "https://www.marketwatch.com/story/nvidia-makes-a-statement-with-historic-150-billion-buyback-announcement-bfab5a22?mod=mw_rss_topstories",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.4,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Tue 29 Sep, 05:23 MYT",
-          "tf": "Intraday",
-          "title": "MongoDB&#x2019;s stock is down nearly 20% as CEO decamps to Meta",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "MarketWatch - Top Stories",
-          "url": "https://www.marketwatch.com/story/mongodbs-stock-is-down-more-than-20-as-ceo-decamps-to-meta-ad66a942?mod=mw_rss_topstories",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.4,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Tue 29 Sep, 05:19 MYT",
-          "tf": "Intraday",
-          "title": "This AI startup has only 14 employees &#x2014; and a fresh $10 billion valuation",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "MarketWatch - Top Stories",
-          "url": "https://www.marketwatch.com/story/this-ai-startup-has-only-14-employees-and-a-fresh-10-billion-valuation-5466e081?mod=mw_rss_topstories",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.7,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
           "time": "Mon 28 Sep, 12:04 MYT",
           "tf": "Intraday",
           "title": "China posts weakest industrial profit growth this year, expanding 4.2% in August",
@@ -2542,6 +2594,31 @@ window.NEWS_AUTO = {
     },
     "forex": {
       "news": [
+        {
+          "time": "Tue 29 Sep, 16:50 MYT",
+          "tf": "Intraday",
+          "title": "Sterling today: Pound slips as oil-fuelled dollar demand builds",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "Investing.com - Forex News",
+          "url": "https://www.investing.com/news/forex-news/sterling-today-pound-slips-as-oilfuelled-dollar-demand-builds-4921804",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.5,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": true,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
         {
           "time": "Tue 29 Sep, 15:53 MYT",
           "tf": "Intraday",
@@ -2708,6 +2785,31 @@ window.NEWS_AUTO = {
             "gold": false,
             "yields": false,
             "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Tue 29 Sep, 16:36 MYT",
+          "tf": "Intraday",
+          "title": "Europe gas prices resume rally after 2-day pullback, with YTD exceeding 160%",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "Investing.com - Commodities & Futures",
+          "url": "https://www.investing.com/news/commodities-news/europe-gas-prices-resume-rally-after-2day-pullback-with-ytd-exceeding-160-4921764",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.5,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
             "oil": false,
             "risk": false,
             "crypto": false
@@ -2943,21 +3045,49 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Tue 29 Sep, 12:17 MYT",
+          "time": "Tue 29 Sep, 17:03 MYT",
           "tf": "Intraday",
-          "title": "Gold stays near seven-week low after 4% plunge as Fed hike bets rise",
+          "title": "USDCAD: Fair value estimate stands at 1.4068 – Scotiabank",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "Investing.com - Commodities & Futures",
-          "url": "https://www.investing.com/news/commodities-news/gold-steadies-near-sevenweek-low-after-4-plunge-as-fed-hike-bets-rise-4921480",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/usdcad-fair-value-estimate-stands-at-14068-scotiabank-202609290903",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
           "relevance": 0.5,
           "currencies": [],
           "drivers": {
-            "gold": true,
+            "gold": false,
+            "yields": true,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Tue 29 Sep, 16:55 MYT",
+          "tf": "Intraday",
+          "title": "Australian Dollar sticks to cautious RBA-led losses; struggles near two-week low vs Yen",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/australian-dollar-sticks-to-cautious-rba-led-losses-struggles-near-two-week-low-vs-yen-202609290855",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 1,
+          "currencies": [
+            "JPY",
+            "AUD"
+          ],
+          "drivers": {
+            "gold": false,
             "yields": false,
-            "usd": false,
+            "usd": true,
             "oil": false,
             "risk": false,
             "crypto": false
@@ -3314,12 +3444,12 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Tue 29 Sep, 15:34 MYT",
+          "time": "Tue 29 Sep, 17:00 MYT",
           "tf": "Intraday",
-          "title": "US Treasuries: Yields near multi-decade highs – Deutsche Bank",
+          "title": "Celebrity couple Jenny McCarthy and Donnie Wahlberg are selling $2.8 million Illinois home",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/us-treasuries-yields-near-multi-decade-highs-deutsche-bank-202609290734",
+          "source": "MarketWatch - Top Stories",
+          "url": "https://www.marketwatch.com/story/celebrity-couple-jenny-mccarthy-and-donnie-wahlberg-are-selling-2-8-million-illinois-home-b48f4191?mod=mw_rss_topstories",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
@@ -3327,7 +3457,7 @@ window.NEWS_AUTO = {
           "currencies": [],
           "drivers": {
             "gold": false,
-            "yields": true,
+            "yields": false,
             "usd": false,
             "oil": false,
             "risk": false,
@@ -3339,24 +3469,47 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Tue 29 Sep, 15:33 MYT",
+          "time": "Tue 29 Sep, 16:58 MYT",
           "tf": "Intraday",
-          "title": "USD: Data risks support Dollar gains – ING",
+          "title": "Kris Jenner delists $13.5 million home that was featured in &#x2018;Keeping Up With the Kardashians&#x2019;",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/usd-data-risks-support-dollar-gains-ing-202609290733",
+          "source": "MarketWatch - Top Stories",
+          "url": "https://www.marketwatch.com/story/kris-jenner-delists-13-5-million-home-that-was-featured-in-keeping-up-with-the-kardashians-dd162590?mod=mw_rss_topstories",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
-          "relevance": 1,
-          "currencies": [
-            "USD"
-          ],
+          "relevance": 0.5,
+          "currencies": [],
           "drivers": {
             "gold": false,
             "yields": false,
-            "usd": true,
-            "oil": true,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Tue 29 Sep, 16:56 MYT",
+          "tf": "Intraday",
+          "title": "A month ago, this JPMorgan team urged caution on stocks. Now it&#x2019;s going all in on tech.",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "MarketWatch - Top Stories",
+          "url": "https://www.marketwatch.com/story/a-month-ago-this-jpmorgan-team-urged-caution-on-stocks-now-its-going-all-in-on-tech-f2e4b007?mod=mw_rss_topstories",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.5,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": false,
             "risk": false,
             "crypto": false
           },
@@ -3531,81 +3684,6 @@ window.NEWS_AUTO = {
             "gold": false,
             "yields": false,
             "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Tue 29 Sep, 05:27 MYT",
-          "tf": "Intraday",
-          "title": "Nvidia makes a statement with historic $150 billion buyback announcement",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "MarketWatch - Top Stories",
-          "url": "https://www.marketwatch.com/story/nvidia-makes-a-statement-with-historic-150-billion-buyback-announcement-bfab5a22?mod=mw_rss_topstories",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.5,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Tue 29 Sep, 05:23 MYT",
-          "tf": "Intraday",
-          "title": "MongoDB&#x2019;s stock is down nearly 20% as CEO decamps to Meta",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "MarketWatch - Top Stories",
-          "url": "https://www.marketwatch.com/story/mongodbs-stock-is-down-more-than-20-as-ceo-decamps-to-meta-ad66a942?mod=mw_rss_topstories",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.5,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Tue 29 Sep, 05:19 MYT",
-          "tf": "Intraday",
-          "title": "This AI startup has only 14 employees &#x2014; and a fresh $10 billion valuation",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "MarketWatch - Top Stories",
-          "url": "https://www.marketwatch.com/story/this-ai-startup-has-only-14-employees-and-a-fresh-10-billion-valuation-5466e081?mod=mw_rss_topstories",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.5,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
             "oil": false,
             "risk": false,
             "crypto": false
