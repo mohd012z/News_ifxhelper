@@ -1,11 +1,11 @@
 {
   "schemaVersion": 3,
   "generationId": null,
-  "generatedAt": "2026-09-28T22:14:35.650Z",
+  "generatedAt": "2026-09-29T07:11:36.018Z",
   "lineage": {
     "status": "MIXED",
     "generationId": null,
-    "bbmaGenerationId": "bbma-f3006cbd7f8db7c1eb62",
+    "bbmaGenerationId": "bbma-1691815f2d5df7d15d7a",
     "intelligenceGenerationId": null
   },
   "files": [
@@ -40,21 +40,21 @@
     {
       "file": "data/bbma-watch.json",
       "available": true,
-      "bytes": 70158,
-      "sha256": "6b49418c509b5cd4aee6367290f830c5898cae5f29ee1234576e98647ffcbf1d",
-      "modifiedAt": "2026-09-28T19:56:41.639Z",
+      "bytes": 78487,
+      "sha256": "be09c7e819e0a522ad3cce29eedf1ad475f3c6fb619946b9a2ad3eca39fbbb95",
+      "modifiedAt": "2026-09-29T07:07:06.574Z",
       "lineage": {
-        "generationId": "bbma-f3006cbd7f8db7c1eb62",
-        "generatedAt": "2026-09-28T19:56:41.634Z",
-        "sourceGeneratedAt": "2026-09-28T19:56:41.634Z"
+        "generationId": "bbma-1691815f2d5df7d15d7a",
+        "generatedAt": "2026-09-29T07:07:06.564Z",
+        "sourceGeneratedAt": "2026-09-29T07:07:06.564Z"
       }
     },
     {
       "file": "data/bbma-learning.json",
       "available": true,
-      "bytes": 4765,
-      "sha256": "d8d09b1189e4cd624f000b9e0149b9c88038d89b78008a73ed59afe364c79d05",
-      "modifiedAt": "2026-09-28T20:39:19.475Z",
+      "bytes": 82210,
+      "sha256": "c1672e554cd312a699b6f293e9ae161fc0c5a265111e3b1a69cffe919544f114",
+      "modifiedAt": "2026-09-29T07:09:40.313Z",
       "lineage": {
         "generationId": null,
         "generatedAt": null,
@@ -64,13 +64,13 @@
     {
       "file": "data/bbma-performance.json",
       "available": true,
-      "bytes": 2035,
-      "sha256": "3678c4545f4a305cc165753b015d57c276bbf71f420b8a619361279a306e8533",
-      "modifiedAt": "2026-09-28T20:39:19.475Z",
+      "bytes": 2976,
+      "sha256": "28f3ee14d68bc7899debae6f4aadbb64ebc23dc905b8c55ede37d107ac7a0464",
+      "modifiedAt": "2026-09-29T07:09:40.313Z",
       "lineage": {
-        "generationId": "bbma-f3006cbd7f8db7c1eb62",
-        "generatedAt": "2026-09-28T20:39:19.475Z",
-        "sourceGeneratedAt": "2026-09-28T19:56:41.634Z"
+        "generationId": "bbma-1691815f2d5df7d15d7a",
+        "generatedAt": "2026-09-29T07:09:40.312Z",
+        "sourceGeneratedAt": "2026-09-29T07:07:06.564Z"
       }
     },
     {
