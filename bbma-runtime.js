@@ -99,7 +99,6 @@ function backfillHistory(){
     var tfs=Object.keys(TF_INTERVAL);
     var pace=(w.__bbmaBackfillPaceMs!=null)?w.__bbmaBackfillPaceMs:BACKFILL_PACE_MS;
     _backfill.inflight=true; /* cold-load history fetch running (feeds NO_DATA vs BACKFILL) */
-    var retryMs=(w.__bbmaBackfillRetryMs!=null)?w.__bbmaBackfillRetryMs:BACKFILL_429_RETRY_MS;
     for(var i=0;i<tfs.length;i++){
       var tf=tfs[i];
       try{
@@ -109,19 +108,22 @@ function backfillHistory(){
         var resp=await w.fetch(url,{signal:ctrl?ctrl.signal:undefined,headers:{'User-Agent':'XAU-Desk-BBMA/1.0'}});
         if(timer)clearTimeout(timer);
         if(resp.status===429){
-          /* Free tier = 8 credits/min: we paced to stay under, but the key may
-           * be shared. Wait 65s and retry THIS timeframe once; if it 429s
-           * again, record it and move on (that TF stays empty — honest). */
-          await new Promise(function(r){setTimeout(r,retryMs);});
-          var ctrl2=(typeof AbortController!=='undefined')?new AbortController():null;
-          var timer2=ctrl2?setTimeout(function(){ctrl2.abort();},15000):null;
-          resp=await w.fetch(url,{signal:ctrl2?ctrl2.signal:undefined,headers:{'User-Agent':'XAU-Desk-BBMA/1.0'}});
-          if(timer2)clearTimeout(timer2);
-          if(resp.status===429||!resp.ok){
-            _backfill.errors.push(tf+': rate limit (HTTP 429) — skipped, retry on next cold load');
-            _backfill.at=new Date().toISOString();
-            continue;
-          }
+          /* Free tier = 8 credits/min and the key is shared with the live WS
+           * stream. The 8-TF backfill sequence needs ~17 credits, so
+           * mid-sequence 429s are EXPECTED. Old code paused 65s then retried
+           * — which usually 429s AGAIN (still within the minute) and wasted
+           * the whole load. Now: record + SKIP this TF for this load. The
+           * NEXT app open picks it up (self-healing across loads), and the
+           * committed CI snapshot (see below) hydrates whatever is still
+           * missing so the matrix is never silently empty. */
+          _backfill.errors.push(tf+': rate limit (HTTP 429) — skipped, retries on next load');
+          _backfill.at=new Date().toISOString();
+          continue;
+        }
+        if(!resp.ok){
+          _backfill.errors.push(tf+': HTTP '+resp.status+' — skipped');
+          _backfill.at=new Date().toISOString();
+          continue;
         }
         var j=await resp.json();
         if(!j||!Array.isArray(j.values))throw new Error('no values');
