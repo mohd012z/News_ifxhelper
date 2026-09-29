@@ -3703,9 +3703,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-09-29T02:25:25.179Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T02:37:40.772Z",
+          "price": 4164.6,
+          "realizedPct": 0.217
         },
         {
           "key": "D1",
@@ -3792,9 +3792,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-09-29T02:25:25.179Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T02:37:40.772Z",
+          "price": 82912.69,
+          "realizedPct": -0.285
         },
         {
           "key": "D1",
@@ -3881,9 +3881,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-09-29T02:25:25.179Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T02:37:40.772Z",
+          "price": 1.1373,
+          "realizedPct": -0.035
         },
         {
           "key": "D1",
@@ -4197,25 +4197,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-29T02:12:14.393Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T02:37:40.772Z",
+          "price": 4164.6,
+          "realizedPct": -0.046
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-29T02:16:14.393Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T02:37:40.772Z",
+          "price": 4164.6,
+          "realizedPct": -0.046
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-29T02:26:14.393Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T02:37:40.772Z",
+          "price": 4164.6,
+          "realizedPct": -0.046
         },
         {
           "key": "M30",
@@ -4265,7 +4265,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.046,
+        "maePct": -0.046
+      }
     },
     {
       "key": "news:gold:Gold tumbles below $4.150 as US bond yields, oil prices rise",
@@ -4281,25 +4286,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-29T02:12:14.393Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T02:37:40.772Z",
+          "price": 4164.6,
+          "realizedPct": -0.046
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-29T02:16:14.393Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T02:37:40.772Z",
+          "price": 4164.6,
+          "realizedPct": -0.046
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-29T02:26:14.393Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T02:37:40.772Z",
+          "price": 4164.6,
+          "realizedPct": -0.046
         },
         {
           "key": "M30",
@@ -4349,7 +4354,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.046,
+        "maePct": -0.046
+      }
     },
     {
       "key": "news:crypto:British Pound softens to near 1.3250 as elevated US yields outweigh BoE’s hawkish tone",
@@ -4365,25 +4375,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-29T02:12:14.393Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T02:37:40.772Z",
+          "price": 82912.69,
+          "realizedPct": 0.023
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-29T02:16:14.393Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T02:37:40.772Z",
+          "price": 82912.69,
+          "realizedPct": 0.023
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-29T02:26:14.393Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T02:37:40.772Z",
+          "price": 82912.69,
+          "realizedPct": 0.023
         },
         {
           "key": "M30",
@@ -4433,7 +4443,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.023,
+        "maePct": 0.023
+      }
     },
     {
       "key": "news:crypto:Gold tumbles below $4.150 as US bond yields, oil prices rise",
@@ -4449,25 +4464,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-29T02:12:14.393Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T02:37:40.772Z",
+          "price": 82912.69,
+          "realizedPct": 0.023
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-29T02:16:14.393Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T02:37:40.772Z",
+          "price": 82912.69,
+          "realizedPct": 0.023
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-29T02:26:14.393Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T02:37:40.772Z",
+          "price": 82912.69,
+          "realizedPct": 0.023
         },
         {
           "key": "M30",
@@ -4517,7 +4532,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.023,
+        "maePct": 0.023
+      }
     },
     {
       "key": "news:forex:British Pound softens to near 1.3250 as elevated US yields outweigh BoE’s hawkish tone",
@@ -4533,25 +4553,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-29T02:12:14.393Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T02:37:40.772Z",
+          "price": 1.1373,
+          "realizedPct": 0.018
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-29T02:16:14.393Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T02:37:40.772Z",
+          "price": 1.1373,
+          "realizedPct": 0.018
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-29T02:26:14.393Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T02:37:40.772Z",
+          "price": 1.1373,
+          "realizedPct": 0.018
         },
         {
           "key": "M30",
@@ -4601,7 +4621,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.018,
+        "maePct": 0.018
+      }
     },
     {
       "key": "news:forex:Gold tumbles below $4.150 as US bond yields, oil prices rise",
@@ -4617,25 +4642,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-29T02:12:14.393Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T02:37:40.772Z",
+          "price": 1.1373,
+          "realizedPct": 0.018
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-29T02:16:14.393Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T02:37:40.772Z",
+          "price": 1.1373,
+          "realizedPct": 0.018
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-29T02:26:14.393Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T02:37:40.772Z",
+          "price": 1.1373,
+          "realizedPct": 0.018
         },
         {
           "key": "M30",
@@ -4685,7 +4710,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.018,
+        "maePct": 0.018
+      }
     }
   ],
   "results": [
