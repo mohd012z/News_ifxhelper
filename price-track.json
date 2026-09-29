@@ -863,9 +863,9 @@
           "key": "D1",
           "minutes": 1440,
           "dueAt": "2026-09-29T03:25:42.955Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T05:10:40.871Z",
+          "price": 4157.9,
+          "realizedPct": -1.783
         },
         {
           "key": "W1",
@@ -887,7 +887,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.069,
-        "maePct": -1.08
+        "maePct": -1.783
       }
     },
     {
@@ -952,9 +952,9 @@
           "key": "D1",
           "minutes": 1440,
           "dueAt": "2026-09-29T03:25:42.955Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T05:10:40.871Z",
+          "price": 83166.74,
+          "realizedPct": -0.204
         },
         {
           "key": "W1",
@@ -1041,9 +1041,9 @@
           "key": "D1",
           "minutes": 1440,
           "dueAt": "2026-09-29T03:25:42.955Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T05:10:40.871Z",
+          "price": 1.1364,
+          "realizedPct": -0.246
         },
         {
           "key": "W1",
@@ -1065,7 +1065,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.009,
-        "maePct": -0.053
+        "maePct": -0.246
       }
     },
     {
@@ -3970,9 +3970,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-09-29T03:19:25.482Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T05:10:40.871Z",
+          "price": 4157.9,
+          "realizedPct": 0.07
         },
         {
           "key": "D1",
@@ -4002,7 +4002,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.277,
-        "maePct": 0.277
+        "maePct": 0.07
       }
     },
     {
@@ -4059,9 +4059,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-09-29T03:19:25.482Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T05:10:40.871Z",
+          "price": 83166.74,
+          "realizedPct": -0.363
         },
         {
           "key": "D1",
@@ -4090,7 +4090,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": -0.69,
+        "mfePct": -0.363,
         "maePct": -0.69
       }
     },
@@ -4148,9 +4148,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-09-29T03:19:25.482Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T05:10:40.871Z",
+          "price": 1.1364,
+          "realizedPct": -0.097
         },
         {
           "key": "D1",
@@ -4180,7 +4180,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.035,
-        "maePct": -0.035
+        "maePct": -0.097
       }
     },
     {
@@ -4221,17 +4221,17 @@
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-09-29T02:41:14.393Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T05:10:40.871Z",
+          "price": 4157.9,
+          "realizedPct": -0.206
         },
         {
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-09-29T03:11:14.393Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T05:10:40.871Z",
+          "price": 4157.9,
+          "realizedPct": -0.206
         },
         {
           "key": "H4",
@@ -4269,7 +4269,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.046,
-        "maePct": -0.046
+        "maePct": -0.206
       }
     },
     {
@@ -4310,17 +4310,17 @@
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-09-29T02:41:14.393Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T05:10:40.871Z",
+          "price": 4157.9,
+          "realizedPct": -0.206
         },
         {
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-09-29T03:11:14.393Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T05:10:40.871Z",
+          "price": 4157.9,
+          "realizedPct": -0.206
         },
         {
           "key": "H4",
@@ -4358,7 +4358,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.046,
-        "maePct": -0.046
+        "maePct": -0.206
       }
     },
     {
@@ -4399,17 +4399,17 @@
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-09-29T02:41:14.393Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T05:10:40.871Z",
+          "price": 83166.74,
+          "realizedPct": 0.329
         },
         {
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-09-29T03:11:14.393Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T05:10:40.871Z",
+          "price": 83166.74,
+          "realizedPct": 0.329
         },
         {
           "key": "H4",
@@ -4446,7 +4446,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.023,
+        "mfePct": 0.329,
         "maePct": 0.023
       }
     },
@@ -4488,17 +4488,17 @@
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-09-29T02:41:14.393Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T05:10:40.871Z",
+          "price": 83166.74,
+          "realizedPct": 0.329
         },
         {
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-09-29T03:11:14.393Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T05:10:40.871Z",
+          "price": 83166.74,
+          "realizedPct": 0.329
         },
         {
           "key": "H4",
@@ -4535,7 +4535,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.023,
+        "mfePct": 0.329,
         "maePct": 0.023
       }
     },
@@ -4577,17 +4577,17 @@
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-09-29T02:41:14.393Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T05:10:40.871Z",
+          "price": 1.1364,
+          "realizedPct": -0.062
         },
         {
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-09-29T03:11:14.393Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T05:10:40.871Z",
+          "price": 1.1364,
+          "realizedPct": -0.062
         },
         {
           "key": "H4",
@@ -4625,7 +4625,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.018,
-        "maePct": 0.018
+        "maePct": -0.062
       }
     },
     {
@@ -4666,17 +4666,17 @@
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-09-29T02:41:14.393Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T05:10:40.871Z",
+          "price": 1.1364,
+          "realizedPct": -0.062
         },
         {
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-09-29T03:11:14.393Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T05:10:40.871Z",
+          "price": 1.1364,
+          "realizedPct": -0.062
         },
         {
           "key": "H4",
@@ -4714,8 +4714,764 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.018,
-        "maePct": 0.018
+        "maePct": -0.062
       }
+    },
+    {
+      "key": "news:gold:Australia’s Treasurer Chalmers: Today’s rate rise was widely expected",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Australia’s Treasurer Chalmers: Today’s rate rise was widely expected",
+      "url": "https://www.fxstreet.com/news/australias-treasurer-chalmers-todays-rate-rise-was-widely-expected-202609290454",
+      "impactScore": -0.08,
+      "priceAtDetect": 4157.9,
+      "createdAt": "2026-09-29T05:10:40.871Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T05:11:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T05:15:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-29T05:25:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-29T05:40:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-29T06:10:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-29T09:10:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T05:10:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T05:10:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T05:10:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:gold:Swiss Franc declines as US Dollar rises on Fed rate hike bets",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Swiss Franc declines as US Dollar rises on Fed rate hike bets",
+      "url": "https://www.fxstreet.com/news/swiss-franc-declines-as-us-dollar-rises-on-fed-rate-hike-bets-202609290404",
+      "impactScore": -0.12,
+      "priceAtDetect": 4157.9,
+      "createdAt": "2026-09-29T05:10:40.871Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T05:11:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T05:15:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-29T05:25:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-29T05:40:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-29T06:10:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-29T09:10:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T05:10:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T05:10:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T05:10:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:gold:Silver Price Forecast: XAG/USD holds onto losses below $61 ahead of US Job Openings data",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Silver Price Forecast: XAG/USD holds onto losses below $61 ahead of US Job Openings data",
+      "url": "https://www.fxstreet.com/news/silver-price-forecast-xag-usd-holds-onto-losses-below-61-ahead-of-us-job-openings-data-202609290318",
+      "impactScore": -0.12,
+      "priceAtDetect": 4157.9,
+      "createdAt": "2026-09-29T05:10:40.871Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T05:11:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T05:15:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-29T05:25:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-29T05:40:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-29T06:10:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-29T09:10:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T05:10:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T05:10:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T05:10:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:crypto:Australia’s Treasurer Chalmers: Today’s rate rise was widely expected",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Australia’s Treasurer Chalmers: Today’s rate rise was widely expected",
+      "url": "https://www.fxstreet.com/news/australias-treasurer-chalmers-todays-rate-rise-was-widely-expected-202609290454",
+      "impactScore": -0.08,
+      "priceAtDetect": 83166.74,
+      "createdAt": "2026-09-29T05:10:40.871Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T05:11:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T05:15:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-29T05:25:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-29T05:40:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-29T06:10:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-29T09:10:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T05:10:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T05:10:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T05:10:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:crypto:Swiss Franc declines as US Dollar rises on Fed rate hike bets",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Swiss Franc declines as US Dollar rises on Fed rate hike bets",
+      "url": "https://www.fxstreet.com/news/swiss-franc-declines-as-us-dollar-rises-on-fed-rate-hike-bets-202609290404",
+      "impactScore": -0.14,
+      "priceAtDetect": 83166.74,
+      "createdAt": "2026-09-29T05:10:40.871Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T05:11:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T05:15:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-29T05:25:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-29T05:40:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-29T06:10:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-29T09:10:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T05:10:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T05:10:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T05:10:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:crypto:Silver Price Forecast: XAG/USD holds onto losses below $61 ahead of US Job Openings data",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Silver Price Forecast: XAG/USD holds onto losses below $61 ahead of US Job Openings data",
+      "url": "https://www.fxstreet.com/news/silver-price-forecast-xag-usd-holds-onto-losses-below-61-ahead-of-us-job-openings-data-202609290318",
+      "impactScore": -0.14,
+      "priceAtDetect": 83166.74,
+      "createdAt": "2026-09-29T05:10:40.871Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T05:11:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T05:15:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-29T05:25:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-29T05:40:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-29T06:10:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-29T09:10:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T05:10:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T05:10:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T05:10:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:forex:Australia’s Treasurer Chalmers: Today’s rate rise was widely expected",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Australia’s Treasurer Chalmers: Today’s rate rise was widely expected",
+      "url": "https://www.fxstreet.com/news/australias-treasurer-chalmers-todays-rate-rise-was-widely-expected-202609290454",
+      "impactScore": -0.08,
+      "priceAtDetect": 1.1364,
+      "createdAt": "2026-09-29T05:10:40.871Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T05:11:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T05:15:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-29T05:25:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-29T05:40:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-29T06:10:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-29T09:10:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T05:10:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T05:10:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T05:10:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:forex:Swiss Franc declines as US Dollar rises on Fed rate hike bets",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Swiss Franc declines as US Dollar rises on Fed rate hike bets",
+      "url": "https://www.fxstreet.com/news/swiss-franc-declines-as-us-dollar-rises-on-fed-rate-hike-bets-202609290404",
+      "impactScore": -0.15,
+      "priceAtDetect": 1.1364,
+      "createdAt": "2026-09-29T05:10:40.871Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T05:11:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T05:15:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-29T05:25:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-29T05:40:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-29T06:10:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-29T09:10:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T05:10:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T05:10:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T05:10:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:forex:Silver Price Forecast: XAG/USD holds onto losses below $61 ahead of US Job Openings data",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Silver Price Forecast: XAG/USD holds onto losses below $61 ahead of US Job Openings data",
+      "url": "https://www.fxstreet.com/news/silver-price-forecast-xag-usd-holds-onto-losses-below-61-ahead-of-us-job-openings-data-202609290318",
+      "impactScore": -0.15,
+      "priceAtDetect": 1.1364,
+      "createdAt": "2026-09-29T05:10:40.871Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T05:11:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T05:15:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-29T05:25:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-29T05:40:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-29T06:10:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-29T09:10:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T05:10:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T05:10:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T05:10:40.871Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
     }
   ],
   "results": [
