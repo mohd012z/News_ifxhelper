@@ -7668,25 +7668,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-29T20:09:19.361Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 4205.9,
+          "realizedPct": 0.007
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-29T20:13:19.361Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 4205.9,
+          "realizedPct": 0.007
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-29T20:23:19.361Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 4205.9,
+          "realizedPct": 0.007
         },
         {
           "key": "M30",
@@ -7736,7 +7736,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.007,
+        "maePct": 0.007
+      }
     },
     {
       "key": "news:gold:Fed’s Barr calls economy “strikingly” resilient, defends last hike",
@@ -7752,25 +7757,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-29T20:09:19.362Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 4205.9,
+          "realizedPct": 0.007
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-29T20:13:19.362Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 4205.9,
+          "realizedPct": 0.007
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-29T20:23:19.362Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 4205.9,
+          "realizedPct": 0.007
         },
         {
           "key": "M30",
@@ -7820,7 +7825,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.007,
+        "maePct": 0.007
+      }
     },
     {
       "key": "news:gold:ECB’s DeMarco backs October hike as core inflation stays firm",
@@ -7836,25 +7846,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-29T20:09:19.362Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 4205.9,
+          "realizedPct": 0.007
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-29T20:13:19.362Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 4205.9,
+          "realizedPct": 0.007
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-29T20:23:19.362Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 4205.9,
+          "realizedPct": 0.007
         },
         {
           "key": "M30",
@@ -7904,7 +7914,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.007,
+        "maePct": 0.007
+      }
     },
     {
       "key": "news:crypto:Fed’s Williams says no rush after September hike",
@@ -7920,25 +7935,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-29T20:09:19.362Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 83608.03,
+          "realizedPct": 0.055
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-29T20:13:19.362Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 83608.03,
+          "realizedPct": 0.055
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-29T20:23:19.362Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 83608.03,
+          "realizedPct": 0.055
         },
         {
           "key": "M30",
@@ -7988,7 +8003,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.055,
+        "maePct": 0.055
+      }
     },
     {
       "key": "news:crypto:Fed’s Barr calls economy “strikingly” resilient, defends last hike",
@@ -8004,25 +8024,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-29T20:09:19.362Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 83608.03,
+          "realizedPct": 0.055
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-29T20:13:19.362Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 83608.03,
+          "realizedPct": 0.055
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-29T20:23:19.362Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 83608.03,
+          "realizedPct": 0.055
         },
         {
           "key": "M30",
@@ -8072,7 +8092,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.055,
+        "maePct": 0.055
+      }
     },
     {
       "key": "news:crypto:ECB’s DeMarco backs October hike as core inflation stays firm",
@@ -8088,25 +8113,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-29T20:09:19.362Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 83608.03,
+          "realizedPct": 0.055
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-29T20:13:19.362Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 83608.03,
+          "realizedPct": 0.055
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-29T20:23:19.362Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 83608.03,
+          "realizedPct": 0.055
         },
         {
           "key": "M30",
@@ -8156,7 +8181,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.055,
+        "maePct": 0.055
+      }
     },
     {
       "key": "news:forex:Fed’s Williams says no rush after September hike",
@@ -8172,25 +8202,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-29T20:09:19.362Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 1.1339,
+          "realizedPct": -0.035
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-29T20:13:19.362Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 1.1339,
+          "realizedPct": -0.035
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-29T20:23:19.362Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 1.1339,
+          "realizedPct": -0.035
         },
         {
           "key": "M30",
@@ -8240,7 +8270,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.035,
+        "maePct": -0.035
+      }
     },
     {
       "key": "news:forex:Fed’s Barr calls economy “strikingly” resilient, defends last hike",
@@ -8256,25 +8291,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-29T20:09:19.362Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 1.1339,
+          "realizedPct": -0.035
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-29T20:13:19.362Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 1.1339,
+          "realizedPct": -0.035
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-29T20:23:19.362Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 1.1339,
+          "realizedPct": -0.035
         },
         {
           "key": "M30",
@@ -8324,7 +8359,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.035,
+        "maePct": -0.035
+      }
     },
     {
       "key": "news:forex:ECB’s DeMarco backs October hike as core inflation stays firm",
@@ -8340,25 +8380,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-29T20:09:19.362Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 1.1339,
+          "realizedPct": -0.035
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-29T20:13:19.362Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 1.1339,
+          "realizedPct": -0.035
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-29T20:23:19.362Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 1.1339,
+          "realizedPct": -0.035
         },
         {
           "key": "M30",
@@ -8404,6 +8444,263 @@
           "key": "MN1",
           "minutes": 43200,
           "dueAt": "2026-10-29T20:08:19.362Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.035,
+        "maePct": -0.035
+      }
+    },
+    {
+      "key": "news:gold:Traders expecting a back-to-back rate hike from the Fed in October may have gotten ahead of themselves",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Traders expecting a back-to-back rate hike from the Fed in October may have gotten ahead of themselves",
+      "url": "https://www.marketwatch.com/story/traders-expecting-a-back-to-back-rate-hike-from-the-fed-in-october-may-have-gotten-ahead-of-themselves-e2cc5193?mod=mw_rss_topstories",
+      "impactScore": -0.08,
+      "priceAtDetect": 4205.9,
+      "createdAt": "2026-09-29T20:28:23.864Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T20:29:23.864Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T20:33:23.864Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-29T20:43:23.864Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-29T20:58:23.864Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-29T21:28:23.864Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-30T00:28:23.864Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T20:28:23.864Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T20:28:23.864Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T20:28:23.864Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:crypto:Traders expecting a back-to-back rate hike from the Fed in October may have gotten ahead of themselves",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Traders expecting a back-to-back rate hike from the Fed in October may have gotten ahead of themselves",
+      "url": "https://www.marketwatch.com/story/traders-expecting-a-back-to-back-rate-hike-from-the-fed-in-october-may-have-gotten-ahead-of-themselves-e2cc5193?mod=mw_rss_topstories",
+      "impactScore": -0.08,
+      "priceAtDetect": 83608.03,
+      "createdAt": "2026-09-29T20:28:23.864Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T20:29:23.864Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T20:33:23.864Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-29T20:43:23.864Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-29T20:58:23.864Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-29T21:28:23.864Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-30T00:28:23.864Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T20:28:23.864Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T20:28:23.864Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T20:28:23.864Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:forex:Traders expecting a back-to-back rate hike from the Fed in October may have gotten ahead of themselves",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Traders expecting a back-to-back rate hike from the Fed in October may have gotten ahead of themselves",
+      "url": "https://www.marketwatch.com/story/traders-expecting-a-back-to-back-rate-hike-from-the-fed-in-october-may-have-gotten-ahead-of-themselves-e2cc5193?mod=mw_rss_topstories",
+      "impactScore": -0.08,
+      "priceAtDetect": 1.1339,
+      "createdAt": "2026-09-29T20:28:23.864Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T20:29:23.864Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T20:33:23.864Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-29T20:43:23.864Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-29T20:58:23.864Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-29T21:28:23.864Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-30T00:28:23.864Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T20:28:23.864Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T20:28:23.864Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T20:28:23.864Z",
           "capturedAt": null,
           "price": null,
           "realizedPct": null
