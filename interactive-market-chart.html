@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>Unified Interactive Market Chart</title>
+<script src="https://unpkg.com/lightweight-charts@5.2.0/dist/lightweight-charts.standalone.production.js"></script>
+<style>
+:root{--bg:#07111b;--panel:#0b1824;--panel2:#0e2030;--line:#1a3549;--text:#edf7ff;--muted:#87a2b7;--green:#28d68a;--red:#ff5f72;--amber:#ffc857;--cyan:#54c7ff;--purple:#b37cff}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:var(--bg);color:var(--text);font:12px/1.35 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,select,input{font:inherit}.app{height:100%;display:grid;grid-template-rows:auto auto 1fr auto;overflow:hidden}.top{display:flex;align-items:center;gap:8px;padding:8px 10px;border-bottom:1px solid var(--line);background:#081521;overflow:auto}.brand{font-weight:900;white-space:nowrap}.symbol{font-size:15px;font-weight:900}.price{font-size:18px;font-weight:900}.badge{border:1px solid var(--line);border-radius:999px;padding:4px 8px;white-space:nowrap;color:var(--muted)}.badge.live{color:var(--green);border-color:#1f6f53}.badge.warn{color:var(--amber)}.toolbar{display:flex;gap:6px;padding:6px 10px;overflow:auto;border-bottom:1px solid var(--line);background:#091824}.toolbar button,.toolbar select,.toolbar input{background:#0b2031;color:var(--text);border:1px solid var(--line);border-radius:8px;padding:6px 9px}.toolbar button.on{background:#0c5685;border-color:#2ea7e7}.workspace{min-height:0;display:grid;grid-template-columns:minmax(0,1fr) 300px}.chart-shell{position:relative;min-width:0;min-height:0;background:#07131d}.chart{position:absolute;inset:0}.zones{position:absolute;inset:0;pointer-events:none;overflow:hidden}.zone{position:absolute;border:1px solid rgba(255,200,87,.65);background:rgba(255,200,87,.07);border-radius:4px}.zone.us{border-color:rgba(84,199,255,.72);background:rgba(84,199,255,.07)}.zone-label{position:absolute;top:2px;left:4px;font-size:9px;font-weight:900;color:var(--amber);white-space:nowrap}.zone.us .zone-label{color:var(--cyan)}.legend{position:absolute;top:8px;left:10px;z-index:5;background:rgba(7,17,27,.72);backdrop-filter:blur(5px);padding:6px 8px;border:1px solid rgba(74,120,150,.35);border-radius:8px;pointer-events:none}.legend .ohlc{font-weight:800}.legend .small{font-size:10px;color:var(--muted);margin-top:2px}.side{border-left:1px solid var(--line);background:var(--panel);overflow:auto;padding:8px}.card{background:var(--panel2);border:1px solid var(--line);border-radius:12px;margin-bottom:8px;padding:9px}.card h3{font-size:11px;margin:0 0 8px;color:#a9c6d8}.mtf{display:grid;grid-template-columns:42px repeat(4,1fr);font-size:9px;border:1px solid var(--line);border-radius:8px;overflow:hidden}.mtf div{padding:5px 3px;text-align:center;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}.mtf .h{font-weight:900;color:#8cccf4}.state-up{background:rgba(40,214,138,.16);color:var(--green)}.state-down{background:rgba(255,95,114,.16);color:var(--red)}.state-mixed{background:rgba(255,200,87,.12);color:var(--amber)}.state-none{color:var(--muted)}.news{font-size:10px;color:#cfe6f4}.health-row{display:grid;grid-template-columns:1fr auto auto;gap:8px;padding:5px 0;border-bottom:1px solid rgba(56,92,115,.35);font-size:10px}.depth{width:100%;height:120px;background:#07131d;border-radius:8px;display:block}.foot{display:flex;gap:8px;align-items:center;padding:6px 10px;border-top:1px solid var(--line);background:#081521;overflow:auto}.foot span{white-space:nowrap;color:var(--muted)}.tf-group{display:flex;gap:4px}.tf-group button{min-width:38px}.hidden{display:none!important}@media(max-width:850px){.workspace{grid-template-columns:1fr}.side{position:absolute;right:0;top:86px;bottom:38px;width:min(88vw,320px);z-index:20;box-shadow:-14px 0 35px rgba(0,0,0,.35)}.side.closed{display:none}.top{padding-top:max(8px,env(safe-area-inset-top))}}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="top">
+    <div class="brand">MARKET 360</div>
+    <select id="symbolSel" aria-label="Symbol">
+      <option value="XAUUSD">XAUUSD</option><option value="BTCUSDT">BTCUSDT</option><option value="ETHUSDT">ETHUSDT</option><option value="BMS.1155">BMS.1155</option><option value="AAPL">AAPL</option>
+    </select>
+    <div class="symbol" id="symbolText">XAUUSD</div>
+    <div class="price" id="lastPrice">—</div>
+    <span class="badge" id="feedBadge">DEMO</span>
+    <span class="badge" id="sourceBadge">source —</span>
+    <span class="badge" id="latencyBadge">latency —</span>
+  </div>
+
+  <div class="toolbar">
+    <div class="tf-group" id="tfGroup"></div>
+    <button id="bbBtn" class="on">BB20</button>
+    <button id="emaBtn" class="on">EMA50</button>
+    <button id="volBtn" class="on">Volume</button>
+    <button id="markersBtn" class="on">BBMA</button>
+    <button id="sessionsBtn" class="on">Sessions</button>
+    <button id="followBtn" class="on">Follow</button>
+    <button id="fitBtn">Fit</button>
+    <button id="fullBtn">Fullscreen</button>
+    <button id="panelBtn">Panel</button>
+    <select id="tzSel"><option value="MYT">MYT</option><option value="UTC">UTC</option></select>
+    <label>Tokyo <input id="tokyoTime" type="time" value="08:00" /></label>
+    <label>US <input id="usTime" type="time" value="20:00" /></label>
+    <label>Import <input id="fileInput" type="file" accept=".json,.csv,text/csv,application/json" style="width:120px" /></label>
+  </div>
+
+  <div class="workspace">
+    <div class="chart-shell" id="chartShell">
+      <div class="chart" id="chart"></div>
+      <div class="zones" id="zones"></div>
+      <div class="legend" id="legend"><div class="ohlc">O — H — L — C —</div><div class="small">Crosshair a candle for details</div></div>
+    </div>
+    <aside class="side" id="sidePanel">
+      <div class="card"><h3>BBMA MULTI-TIMEFRAME HEATMAP</h3><div class="mtf" id="mtf"></div></div>
+      <div class="card"><h3>NEWS / EVENT CONTEXT</h3><div class="news" id="news">No event context loaded.</div></div>
+      <div class="card"><h3>LIQUIDITY / DEPTH HOOK</h3><canvas class="depth" id="depth"></canvas><div class="news" style="margin-top:6px">Call <code>InteractiveMarketChart.setDepth(levels)</code> to render live depth.</div></div>
+      <div class="card"><h3>PROVIDER HEALTH</h3><div id="health"></div></div>
+    </aside>
+  </div>
+
+  <div class="foot">
+    <span id="status">Ready</span><span>•</span><span id="clock">—</span><span>•</span><span id="barStatus">bar —</span><span>•</span><span id="mode">visualization layer</span>
+  </div>
+</div>
+
+<script>
+(() => {
+'use strict';
+const L = window.LightweightCharts;
+if (!L) { document.getElementById('status').textContent = 'Lightweight Charts failed to load'; return; }
+const TFS = {M1:60,M5:300,M15:900,M30:1800,H1:3600,H4:14400,D1:86400,W1:604800};
+const TF_ORDER = Object.keys(TFS);
+const state = {symbol:'XAUUSD',tf:'M15',candles:{},runtime:null,follow:true,showBB:true,showEMA:true,showVolume:true,showMarkers:true,showSessions:true,source:'DEMO',latency:null,depth:[]};
+const $ = s => document.querySelector(s);
+const tfGroup=$('#tfGroup');
+TF_ORDER.forEach(tf=>{const b=document.createElement('button');b.textContent=tf;b.dataset.tf=tf;b.className=tf===state.tf?'on':'';b.onclick=()=>switchTf(tf);tfGroup.appendChild(b);});
+
+const chart=L.createChart($('#chart'),{
+  autoSize:true,
+  layout:{background:{type:'solid',color:'#07131d'},textColor:'#a9c6d8',panes:{separatorColor:'#173347',separatorHoverColor:'#2b668e',enableResize:true}},
+  grid:{vertLines:{color:'#102535'},horzLines:{color:'#102535'}},
+  rightPriceScale:{borderColor:'#24445a'},
+  timeScale:{borderColor:'#24445a',timeVisible:true,secondsVisible:false,rightOffset:8,barSpacing:8},
+  crosshair:{mode:0},
+  handleScroll:{mouseWheel:true,pressedMouseMove:true,horzTouchDrag:true,vertTouchDrag:true},
+  handleScale:{axisPressedMouseMove:true,mouseWheel:true,pinch:true}
+});
+const candles=chart.addSeries(L.CandlestickSeries,{upColor:'#28d68a',downColor:'#ff5f72',borderVisible:false,wickUpColor:'#28d68a',wickDownColor:'#ff5f72'});
+const bbU=chart.addSeries(L.LineSeries,{lineWidth:1,color:'#37aef2',priceLineVisible:false,lastValueVisible:false});
+const bbM=chart.addSeries(L.LineSeries,{lineWidth:1,color:'#ffc857',priceLineVisible:false,lastValueVisible:false});
+const bbL=chart.addSeries(L.LineSeries,{lineWidth:1,color:'#37aef2',priceLineVisible:false,lastValueVisible:false});
+const ema=chart.addSeries(L.LineSeries,{lineWidth:2,color:'#b37cff',priceLineVisible:false,lastValueVisible:false});
+const volume=chart.addSeries(L.HistogramSeries,{priceFormat:{type:'volume'},priceScaleId:'',lastValueVisible:false,priceLineVisible:false},1);
+let markerApi=L.createSeriesMarkers ? L.createSeriesMarkers(candles,[]) : null;
+
+function normalizeCandle(c){
+ const raw=c.time??c.timestamp??c.t??c._b; let t;
+ if(typeof raw==='number') t=raw>1e12?Math.floor(raw/1000):Math.floor(raw);
+ else t=Math.floor(new Date(raw).getTime()/1000);
+ return {time:t,open:+c.open,high:+c.high,low:+c.low,close:+c.close,volume:+(c.volume??c.tick_volume??0),source:c.source||state.source};
+}
+function clean(list){return (list||[]).map(normalizeCandle).filter(c=>Number.isFinite(c.time)&&[c.open,c.high,c.low,c.close].every(Number.isFinite)).sort((a,b)=>a.time-b.time).filter((c,i,a)=>!i||c.time!==a[i-1].time);}
+function sma(a,n,i){if(i+1<n)return null;let s=0;for(let k=i-n+1;k<=i;k++)s+=a[k];return s/n;}
+function sd(a,n,i,m){if(i+1<n)return null;let s=0;for(let k=i-n+1;k<=i;k++)s+=(a[k]-m)*(a[k]-m);return Math.sqrt(s/n);}
+function indicators(a){
+ const cls=a.map(x=>x.close), out={u:[],m:[],l:[],e:[]}; let e=null,k=2/51;
+ for(let i=0;i<a.length;i++){
+   const m=sma(cls,20,i); if(m!=null){const d=sd(cls,20,i,m);out.u.push({time:a[i].time,value:m+2*d});out.m.push({time:a[i].time,value:m});out.l.push({time:a[i].time,value:m-2*d});}
+   if(i===49){e=cls.slice(0,50).reduce((x,y)=>x+y,0)/50;out.e.push({time:a[i].time,value:e});}
+   else if(i>49){e=cls[i]*k+e*(1-k);out.e.push({time:a[i].time,value:e});}
+ }
+ return out;
+}
+function render(){
+ const a=clean(state.candles[state.symbol]?.[state.tf]||[]); if(!a.length)return;
+ candles.setData(a.map(({time,open,high,low,close})=>({time,open,high,low,close})));
+ const ind=indicators(a);bbU.setData(state.showBB?ind.u:[]);bbM.setData(state.showBB?ind.m:[]);bbL.setData(state.showBB?ind.l:[]);ema.setData(state.showEMA?ind.e:[]);
+ volume.setData(state.showVolume?a.map(c=>({time:c.time,value:c.volume||0,color:c.close>=c.open?'rgba(40,214,138,.45)':'rgba(255,95,114,.45)'})):[]);
+ const last=a[a.length-1];$('#lastPrice').textContent=fmt(last.close);$('#symbolText').textContent=state.symbol;
+ $('#barStatus').textContent=`${state.tf} · ${new Date(last.time*1000).toISOString()}`;
+ renderMarkers(a);renderSessions(a);renderMtf();renderHealth();
+ if(state.follow) chart.timeScale().scrollToRealTime();
+ }
+function renderMarkers(a){
+ if(!markerApi)return; if(!state.showMarkers){markerApi.setMarkers([]);return;}
+ const r=state.runtime, x=r&&(r.mtf||r.frames||r.timeframes||{})[state.tf]; if(!x||!a.length){markerApi.setMarkers([]);return;}
+ const last=a[a.length-1], ms=[];
+ const add=(ok,text,pos,color,shape)=>{if(ok)ms.push({time:last.time,position:pos,color,shape,text});};
+ add(x.momentum&&x.momentum!=='NONE','MOM','aboveBar','#ffc857','arrowDown');
+ add(x.extreme&&x.extreme!=='NONE','EXT','belowBar','#54c7ff','circle');
+ add(x.mhv&&x.mhv!=='NONE','MHV','aboveBar','#b37cff','square');
+ add((x.csa||x.csak)&&String(x.csa||x.csak)!=='NONE','CSA','belowBar','#28d68a','arrowUp');
+ add(x.reentry&&x.reentry!=='NONE','RE','belowBar','#28d68a','circle');
+ markerApi.setMarkers(ms);
+}
+function mytParts(ts){const d=new Date(ts*1000), f=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Kuala_Lumpur',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false});const p=Object.fromEntries(f.formatToParts(d).filter(x=>x.type!=='literal').map(x=>[x.type,x.value]));return p;}
+function renderSessions(a){
+ const root=$('#zones');root.innerHTML='';if(!state.showSessions||!a.length)return;
+ const specs=[['tokyoTime','TOKYO 1ST','tokyo'],['usTime','US 1ST','us']];
+ for(const [input,label,cls] of specs){const hm=$('#'+input).value.split(':').map(Number);const seen=new Set();for(const c of a){const p=mytParts(c.time), key=`${p.year}-${p.month}-${p.day}`;if(seen.has(key)||+p.hour!==hm[0]||+p.minute!==hm[1])continue;seen.add(key);const x1=chart.timeScale().timeToCoordinate(c.time),x2=chart.timeScale().timeToCoordinate(c.time+TFS[state.tf]);const y1=candles.priceToCoordinate(c.high),y2=candles.priceToCoordinate(c.low);if([x1,x2,y1,y2].some(v=>v==null))continue;const z=document.createElement('div');z.className='zone '+(cls==='us'?'us':'');z.style.left=Math.min(x1,x2)+'px';z.style.width=Math.max(3,Math.abs(x2-x1))+'px';z.style.top=Math.min(y1,y2)+'px';z.style.height=Math.max(3,Math.abs(y2-y1))+'px';z.innerHTML=`<span class="zone-label">${label}</span>`;root.appendChild(z);}}
+}
+function renderMtf(){
+ const r=state.runtime, mtf=r&&(r.mtf||r.frames||r.timeframes)||{};let h='<div class="h">TF</div><div class="h">Trend</div><div class="h">Pattern</div><div class="h">Zone</div><div class="h">EMA</div>';
+ ['MN1','W1','D1','H4','H1','M30','M15','M5','M1'].forEach(tf=>{const x=mtf[tf]||{};const trend=String(x.trend||'—'),cl=trend==='UP'?'state-up':trend==='DOWN'?'state-down':trend==='MIXED'?'state-mixed':'state-none';const pat=[x.momentum,x.extreme,x.mhv,x.csa||x.csak,x.reentry].find(v=>v&&v!=='NONE')||'—';h+=`<div class="h">${tf}</div><div class="${cl}">${trend}</div><div>${esc(pat)}</div><div>${esc(x.zone||x.location||'—')}</div><div>${esc(x.ema50Position||x.emaGap||'—')}</div>`;});$('#mtf').innerHTML=h;
+ const ev=r&&(r.event||r.newsImpact);$('#news').innerHTML=ev?`<b>${esc(ev.name||ev.event||'EVENT')}</b><br>${esc(ev.mytDisplay||ev.timeMYT||ev.malaysiaTime||'')}<br>Prev ${esc(ev.previous||'—')} · Fcst ${esc(ev.forecast||'—')} · Actual ${esc(ev.actual||'—')}<br><br>${esc(ev.summary||r.newsSummary||'')}`:'No event context loaded.';
+}
+function renderHealth(){const raw=window.MARKET_PROVIDER_HEALTH||[];let rows=Array.isArray(raw)?raw:Object.entries(raw).map(([provider,v])=>({provider,...v}));if(!rows.length)rows=[{provider:state.source,state:state.source==='DEMO'?'DEMO':'LIVE',latencyMs:state.latency}];$('#health').innerHTML=rows.map(x=>`<div class="health-row"><b>${esc(x.provider||x.name||'source')}</b><span>${esc(x.state||x.status||'—')}</span><span>${x.latencyMs==null?'—':Math.round(x.latencyMs)+'ms'}</span></div>`).join('');}
+function fmt(n){if(!Number.isFinite(+n))return'—';const a=Math.abs(+n);return (+n).toLocaleString(undefined,{minimumFractionDigits:a<100?2:2,maximumFractionDigits:a<1?6:2});}
+function esc(v){return String(v??'—').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function switchTf(tf){state.tf=tf;tfGroup.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.tf===tf));render();}
+function bucket(ts,sec){return Math.floor(ts/sec)*sec;}
+function pushTick(symbol,price,at=Date.now(),vol=0){price=+price;if(!Number.isFinite(price)||price<=0)return;const ts=typeof at==='number'?(at>1e12?Math.floor(at/1000):Math.floor(at)):Math.floor(new Date(at).getTime()/1000);if(!state.candles[symbol])state.candles[symbol]={};for(const [tf,sec] of Object.entries(TFS)){const a=state.candles[symbol][tf]||(state.candles[symbol][tf]=[]),b=bucket(ts,sec),last=a[a.length-1];if(!last||last.time!==b)a.push({time:b,open:price,high:price,low:price,close:price,volume:vol,source:state.source});else{last.high=Math.max(last.high,price);last.low=Math.min(last.low,price);last.close=price;last.volume=(last.volume||0)+(+vol||0);}if(a.length>1500)a.shift();}
+ if(symbol===state.symbol){const c=state.candles[symbol][state.tf].at(-1);candles.update({time:c.time,open:c.open,high:c.high,low:c.low,close:c.close});$('#lastPrice').textContent=fmt(price);if(state.follow)chart.timeScale().scrollToRealTime();}
+}
+function setHistory(symbol,tf,list,source='IMPORT'){if(!state.candles[symbol])state.candles[symbol]={};state.candles[symbol][tf]=clean(list);state.source=source;setBadges();if(symbol===state.symbol&&tf===state.tf){render();chart.timeScale().fitContent();}}
+function applyRuntime(r){if(!r)return;state.runtime=r;state.source=r.source||state.source;const all=r.ohlc||r.candles||r.marketCandles||{};if(!state.candles[state.symbol])state.candles[state.symbol]={};Object.entries(all).forEach(([tf,a])=>{if(Array.isArray(a))state.candles[state.symbol][tf]=clean(a);});setBadges(r.fresh===false?'STALE':'LIVE');render();}
+function setBadges(mode){const f=$('#feedBadge');f.textContent=mode||state.source;f.className='badge '+((mode||'').match(/LIVE|FRESH/)||state.source!=='DEMO'?'live':'warn');$('#sourceBadge').textContent='source '+state.source;$('#latencyBadge').textContent='latency '+(state.latency==null?'—':Math.round(state.latency)+'ms');}
+function setDepth(levels){state.depth=levels||[];drawDepth();}
+function drawDepth(){const c=$('#depth'),dpr=devicePixelRatio||1,r=c.getBoundingClientRect();c.width=Math.max(1,Math.floor(r.width*dpr));c.height=Math.max(1,Math.floor(r.height*dpr));const g=c.getContext('2d');g.scale(dpr,dpr);g.clearRect(0,0,r.width,r.height);g.fillStyle='#07131d';g.fillRect(0,0,r.width,r.height);const a=state.depth;if(!a.length){g.fillStyle='#6f8da2';g.font='10px system-ui';g.fillText('No depth supplied',10,18);return;}const max=Math.max(...a.map(x=>Math.abs(+x.size||0)),1),row=r.height/Math.min(a.length,30);a.slice(0,30).forEach((x,i)=>{const w=(Math.abs(+x.size||0)/max)*(r.width*.9);g.fillStyle=(x.side==='ask'||x.side==='SELL')?'rgba(255,95,114,.45)':'rgba(40,214,138,.45)';g.fillRect(0,i*row,w,Math.max(1,row-1));g.fillStyle='#d8edf8';g.font='9px system-ui';g.fillText(`${fmt(+x.price)}  ${Math.round(+x.size||0)}`,4,i*row+Math.min(row-1,10));});}
+function seedDemo(){const now=Math.floor(Date.now()/1000),step=TFS.M1,a=[];let p=3820;for(let i=900;i>=0;i--){const t=bucket(now-i*step,step),o=p,c=o+(Math.sin(i*.31)+Math.cos(i*.17))*.45+(Math.random()-.5)*.8,h=Math.max(o,c)+Math.random()*1.1,l=Math.min(o,c)-Math.random()*1.1;p=c;a.push({time:t,open:o,high:h,low:l,close:c,volume:100+Math.random()*900,source:'DEMO'});}state.candles.XAUUSD={M1:a};resampleFromM1('XAUUSD');state.source='DEMO';setBadges('DEMO');render();chart.timeScale().fitContent();}
+function resampleFromM1(symbol){const base=state.candles[symbol]?.M1;if(!base)return;for(const [tf,sec] of Object.entries(TFS)){if(tf==='M1')continue;const out=[];for(const c of base){const b=bucket(c.time,sec),x=out[out.length-1];if(!x||x.time!==b)out.push({time:b,open:c.open,high:c.high,low:c.low,close:c.close,volume:c.volume||0,source:c.source});else{x.high=Math.max(x.high,c.high);x.low=Math.min(x.low,c.low);x.close=c.close;x.volume+=(c.volume||0);}}state.candles[symbol][tf]=out;}}
+function parseCsv(s){const rows=s.trim().split(/\r?\n/),head=rows.shift().split(',').map(x=>x.trim().toLowerCase());return rows.map(row=>{const v=row.split(',');const o={};head.forEach((h,i)=>o[h]=v[i]);return o;});}
+$('#fileInput').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const text=await f.text(),data=f.name.toLowerCase().endsWith('.csv')?parseCsv(text):JSON.parse(text);const list=Array.isArray(data)?data:(data.candles||data.data||[]);setHistory(state.symbol,state.tf,list,'LOCAL_FILE');$('#status').textContent=`Imported ${list.length} rows`; }catch(err){$('#status').textContent='Import failed: '+err.message;}};
+$('#symbolSel').onchange=e=>{state.symbol=e.target.value;$('#symbolText').textContent=state.symbol;if(!state.candles[state.symbol]?.[state.tf])$('#status').textContent='No candles loaded for '+state.symbol;render();};
+[['bbBtn','showBB'],['emaBtn','showEMA'],['volBtn','showVolume'],['markersBtn','showMarkers'],['sessionsBtn','showSessions'],['followBtn','follow']].forEach(([id,key])=>{$('#'+id).onclick=()=>{state[key]=!state[key];$('#'+id).classList.toggle('on',state[key]);render();};});
+$('#fitBtn').onclick=()=>chart.timeScale().fitContent();$('#fullBtn').onclick=()=>document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen();$('#panelBtn').onclick=()=>$('#sidePanel').classList.toggle('closed');$('#tokyoTime').onchange=render;$('#usTime').onchange=render;
+chart.subscribeCrosshairMove(p=>{if(!p||!p.time)return;const d=p.seriesData.get(candles);if(!d)return;$('#legend').innerHTML=`<div class="ohlc">O ${fmt(d.open)} &nbsp; H ${fmt(d.high)} &nbsp; L ${fmt(d.low)} &nbsp; C ${fmt(d.close)}</div><div class="small">${new Date(Number(p.time)*1000).toISOString()} · ${state.tf}</div>`;});
+chart.timeScale().subscribeVisibleLogicalRangeChange(()=>renderSessions(clean(state.candles[state.symbol]?.[state.tf]||[])));
+window.addEventListener('resize',()=>{renderSessions(clean(state.candles[state.symbol]?.[state.tf]||[]));drawDepth();});
+window.addEventListener('bbma-runtime-updated',e=>applyRuntime(e.detail));
+window.addEventListener('xau-live-tick',e=>{const d=e.detail||{};if(d.price)pushTick('XAUUSD',d.price,d.at||Date.now(),d.volume||0);});
+window.addEventListener('market-tick',e=>{const d=e.detail||{};if(d.price)pushTick(d.symbol||state.symbol,d.price,d.at||d.timestamp||Date.now(),d.volume||0);});
+window.InteractiveMarketChart={pushTick,setHistory,setDepth,applyRuntime,state,chart};
+setInterval(()=>{$('#clock').textContent=new Date().toLocaleString('en-GB',{timeZone:$('#tzSel').value==='MYT'?'Asia/Kuala_Lumpur':'UTC',hour12:false})+' '+$('#tzSel').value;},1000);
+seedDemo();if(window.BBMA_RUNTIME)applyRuntime(window.BBMA_RUNTIME);
+})();
+</script>
+</body>
+</html>
