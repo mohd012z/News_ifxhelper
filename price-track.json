@@ -8736,9 +8736,9 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-29T23:54:14.494Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T23:56:04.783Z",
+          "price": 4214.8,
+          "realizedPct": 0.064
         },
         {
           "key": "M5",
@@ -8804,7 +8804,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.064,
+        "maePct": 0.064
+      }
     },
     {
       "key": "news:gold:The New Zealand Dollar breaks lower after Australia's rate hike",
@@ -8820,9 +8825,9 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-29T23:54:14.494Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T23:56:04.783Z",
+          "price": 4214.8,
+          "realizedPct": 0.064
         },
         {
           "key": "M5",
@@ -8888,7 +8893,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.064,
+        "maePct": 0.064
+      }
     },
     {
       "key": "news:crypto:Australian Dollar cracks 0.70 as Bullock dulls RBA hike, CPI looms",
@@ -8904,9 +8914,9 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-29T23:54:14.494Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T23:56:04.783Z",
+          "price": 83632.51,
+          "realizedPct": -0.018
         },
         {
           "key": "M5",
@@ -8972,7 +8982,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.018,
+        "maePct": -0.018
+      }
     },
     {
       "key": "news:crypto:The New Zealand Dollar breaks lower after Australia's rate hike",
@@ -8988,9 +9003,9 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-29T23:54:14.494Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T23:56:04.783Z",
+          "price": 83632.51,
+          "realizedPct": -0.018
         },
         {
           "key": "M5",
@@ -9056,7 +9071,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.018,
+        "maePct": -0.018
+      }
     },
     {
       "key": "news:forex:Australian Dollar cracks 0.70 as Bullock dulls RBA hike, CPI looms",
@@ -9072,9 +9092,9 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-29T23:54:14.494Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T23:56:04.783Z",
+          "price": 1.1344,
+          "realizedPct": 0.009
         },
         {
           "key": "M5",
@@ -9140,7 +9160,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.009,
+        "maePct": 0.009
+      }
     },
     {
       "key": "news:forex:The New Zealand Dollar breaks lower after Australia's rate hike",
@@ -9156,9 +9181,9 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-29T23:54:14.494Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T23:56:04.783Z",
+          "price": 1.1344,
+          "realizedPct": 0.009
         },
         {
           "key": "M5",
@@ -9224,7 +9249,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.009,
+        "maePct": 0.009
+      }
     }
   ],
   "results": [
