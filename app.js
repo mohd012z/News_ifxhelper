@@ -410,7 +410,7 @@
       .replace(/\bFOMC\b/g, "the Fed")
       .replace(/\bATR\b/g, "average true range")
       .replace(/\bDXY\b/g, "the dollar index")
-      .replace(/\bbps\b/gi, "basis points")
+      .replace(/\b(\d*)\s*bps\b/gi, "$1 basis points") // "+12bps" -> "+12 basis points" (keep the number)
       .replace(/\bBUY\b/g, "buy").replace(/\bSELL\b/g, "sell") // avoid TTS spelling out short all-caps as letters
       .replace(/~/g, "about ")
       .replace(/→|->/g, " to ")
@@ -428,6 +428,9 @@
    * closer to how a presenter actually pauses between statements than one flat monotone block. */
   function speak(text) {
     if (!voiceEnabled || !text) return;
+    /* Native path first (Android APK): WebView's Web Speech TTS is a silent
+     * no-op, so on native platforms the OS engine speaks instead. */
+    if (nativeSpeak(text)) return;
     if (!("speechSynthesis" in window)) return;
     try {
       var style = VOICE_STYLES[settings.voiceStyle] || VOICE_STYLES.presenter;
@@ -443,22 +446,107 @@
       });
     } catch (e) {}
   }
+  /* ---- Native TTS bridge (Android APK) -----------------------------------
+   * Root cause of "voice on/off not working": Android WebView EXPOSES
+   * window.speechSynthesis (so feature-detection cannot see the gap) but its
+   * implementation is a silent no-op — utterances queue and never make sound.
+   * The app therefore speaks through the OS TextToSpeech engine via the
+   * XauTts Capacitor plugin on native platforms, and keeps Web Speech for
+   * desktop/mobile browsers. All failure paths are silent+safe: if the
+   * plugin/engine is unavailable we fall back to the Web Speech path (and the
+   * toggle still reflects the user's choice). */
+  var nativeTts = { supported: false, status: 'pending' };
+  function probeNativeTts() {
+    var st = (function () {
+      try {
+        var C = window.Capacitor;
+        if (!C || !C.Plugins || !C.Plugins.XauTts) return 'no-plugin';
+        var isAndroid = C.getPlatform && C.getPlatform() === 'android';
+        var isNative = C.isNativePlatform && C.isNativePlatform();
+        if (!isAndroid && !isNative) return 'browser';
+        return 'pending';
+      } catch (e) { return 'no-plugin'; }
+    })();
+    if (st === 'browser') { nativeTts.status = 'browser'; updateVoiceStatus(); return; }
+    if (st === 'no-plugin') { nativeTts.status = 'no-plugin'; updateVoiceStatus(); return; }
+    nativeTts.status = 'pending';
+    try {
+      window.Capacitor.Plugins.XauTts.isReady().then(function (r) {
+        nativeTts.supported = !!(r && r.ready);
+        nativeTts.status = nativeTts.supported ? 'ready' : 'no-engine';
+        updateVoiceStatus();
+      }).catch(function () { nativeTts.status = 'no-engine'; updateVoiceStatus(); });
+    } catch (e) { nativeTts.status = 'no-engine'; updateVoiceStatus(); }
+  }
+  function updateVoiceStatus() {
+    var el = $("#set-voice-status"); if (!el) return;
+    var map = {
+      'browser': ['Browser TTS', ''],
+      'ready': ['Native TTS ready', 'go'],
+      'pending': ['TTS starting…', ''],
+      'no-engine': ['No TTS engine', 'stop'],
+      'no-plugin': ['TTS bridge missing', 'stop']
+    };
+    var m = map[nativeTts.status] || map['pending'];
+    el.textContent = m[0];
+    el.classList.toggle('go', m[1] === 'go');
+    el.classList.toggle('stop', m[1] === 'stop');
+  }
+  function nativeSpeak(text) {
+    /* Returns true if the native engine took the call (we must NOT also use
+     * Web Speech, or the line is read twice). */
+    try {
+      var C = window.Capacitor;
+      if (!C || !C.Plugins || !C.Plugins.XauTts) return false;
+      var isAndroid = C.getPlatform && C.getPlatform() === 'android';
+      var isNative = C.isNativePlatform && C.isNativePlatform();
+      if (!isAndroid && !isNative) return false;
+      var spoken = humanizeForSpeech(text);
+      if (!spoken) return false;
+      C.Plugins.XauTts.speak({ text: spoken }).catch(function (err) {
+        nativeTts.status = 'no-engine';
+        updateVoiceStatus();
+        var msg = String((err && err.message) || err);
+        if (/not ready|unavailable|no text-to-speech/i.test(msg)) {
+          showToast("No TTS engine on this device. Enable 'Text-to-speech' in Android system settings (Settings → System → Languages → Text-to-speech output), then reopen the app.", "Voice");
+        }
+      });
+      return true;
+    } catch (e) { return false; }
+  }
   function updateVoiceBtn() {
     var btn = $("#voice-toggle"); if (!btn) return;
     btn.textContent = voiceEnabled ? "🔊 Voice on" : "🔈 Voice off";
     btn.classList.toggle("go", voiceEnabled);
   }
   function bindVoice() {
-    voiceEnabled = safeGetVoice() && ("speechSynthesis" in window);
+    /* On native (Android APK) the OS TTS plugin speaks, so the Web Speech
+     * API is NOT a prerequisite there. In browsers, Web Speech is required. */
+    var isNativeNow = (function () {
+      try {
+        var C = window.Capacitor;
+        if (!C) return false;
+        return !!(C.getPlatform && C.getPlatform() === 'android') || !!(C.isNativePlatform && C.isNativePlatform());
+      } catch (e) { return false; }
+    })();
+    var hasEngine = isNativeNow || ("speechSynthesis" in window);
+    voiceEnabled = safeGetVoice() && hasEngine;
+    probeNativeTts();
     updateVoiceBtn();
     var btn = $("#voice-toggle"); if (!btn) return;
-    if (!("speechSynthesis" in window)) { btn.title = "Speech synthesis not supported in this browser"; btn.disabled = true; return; }
+    if (!hasEngine) { btn.title = "Speech synthesis not supported on this platform"; btn.disabled = true; return; }
     refreshVoiceList();
     if ("onvoiceschanged" in window.speechSynthesis) window.speechSynthesis.onvoiceschanged = refreshVoiceList;
     if (voiceEnabled) { lastAnnouncedNext = null; lastAnnouncedAlerts = null; renderIncoming(); renderAlerts(); }
     btn.onclick = function () {
       voiceEnabled = !voiceEnabled; safeSetVoice(voiceEnabled); updateVoiceBtn();
-      if (voiceEnabled) { speak("Voice alerts on."); lastAnnouncedNext = null; lastAnnouncedAlerts = null; renderIncoming(); renderAlerts(); }
+      if (voiceEnabled) {
+        speak("Voice alerts on.");
+        /* Native engine may still be initialising on first use — the plugin
+         * retries once; nudge again shortly in case both calls landed pre-init. */
+        if (isNativeNow) setTimeout(function () { if (voiceEnabled) speak("Voice on."); }, 900);
+        lastAnnouncedNext = null; lastAnnouncedAlerts = null; renderIncoming(); renderAlerts();
+      }
     };
   }
   function populateVoiceSelect() {
@@ -472,22 +560,39 @@
   function bindVoiceSettings() {
     var sel = $("#set-voice-uri"), styleSel = $("#set-voice-style"), testBtn = $("#set-voice-test");
     if (!sel) return;
-    populateVoiceSelect();
-    sel.onchange = function () { settings.voiceURI = sel.value; safeSetSettings(settings); };
+    /* On native the OS engine's voice is used (XauTtsPlugin), not the Web
+     * Speech voice list — label the control accordingly instead of listing
+     * Web voices that won't actually be heard in the APK. */
+    var nativeNow = (function () { try { var C = window.Capacitor; if (!C) return false; return !!(C.getPlatform && C.getPlatform() === 'android') || !!(C.isNativePlatform && C.isNativePlatform()); } catch (e) { return false; } })();
+    if (nativeNow) {
+      sel.innerHTML = '<option value="">Device default (Android TTS)</option>';
+      sel.value = "";
+      sel.disabled = true;
+      if (styleSel) { styleSel.disabled = true; styleSel.title = "Preset applies to browser voice; Android uses the device engine."; }
+    } else {
+      populateVoiceSelect();
+      sel.value = settings.voiceURI || bestDefaultVoiceURI();
+      sel.onchange = function () { settings.voiceURI = sel.value; safeSetSettings(settings); };
+    }
     if (styleSel) {
-      if (!styleSel.options.length) styleSel.innerHTML = Object.keys(VOICE_STYLES).map(function (id) { return '<option value="' + id + '">' + esc(VOICE_STYLES[id].label) + "</option>"; }).join("");
+      if (!styleSel.options.length) styleSel.innerHTML = Object.keys(VOICE_STYLES).map(function (id) { return '<option value="' + id + '">' + esc(VOICE_STYLES[id].label) + '</option>'; }).join('');
       styleSel.value = settings.voiceStyle || "presenter";
       styleSel.onchange = function () { settings.voiceStyle = styleSel.value; safeSetSettings(settings); };
     }
     if (testBtn) testBtn.onclick = function () {
+      probeNativeTts();
       var was = voiceEnabled; voiceEnabled = true;
       speak("Hi, this is your desk assistant. This is how I'll sound reading your alerts.");
       voiceEnabled = was;
+      if (nativeTts.status === 'no-engine') {
+        testBtn.textContent = "No TTS engine found";
+        setTimeout(function () { testBtn.textContent = "Preview voice"; }, 2500);
+      }
     };
   }
 
   /* ---- settings: accent/font/size/profile + notification toggles, all local to this device ---- */
-  var DEFAULT_SETTINGS = { profile: "", accent: "#e2b04a", font: "", fontSize: "1", notifPopup: false, notifOS: false, defaultTab: "", accountCcy: "USD", lotSize: 1, riskPct: 1, showAuto: true, compact: false, aiMode: "offline", aiProvider: "groq", aiKey: "", aiModel: "", remoteUrl: "https://raw.githubusercontent.com/mohd012z/News_ifxhelper/main/", remoteMin: "15", voiceURI: "", voiceStyle: "presenter" };
+  var DEFAULT_SETTINGS = { profile: "", accent: "#e2b04a", font: "", fontSize: "1", notifPopup: false, notifOS: false, defaultTab: "", accountCcy: "USD", lotSize: 1, riskPct: 1, showAuto: true, compact: false, aiMode: "offline", aiProvider: "groq", aiKey: "", aiModel: "", remoteUrl: "https://gentle-violet-4a79.ifxhelper.workers.dev/", remoteMin: "15", voiceURI: "", voiceStyle: "presenter" };
   var safeGetSettings = function () {
     try { var s = JSON.parse(localStorage.getItem("xau-settings") || "{}"); var out = {}; for (var k in DEFAULT_SETTINGS) out[k] = (s[k] !== undefined ? s[k] : DEFAULT_SETTINGS[k]); return out; }
     catch (e) { var d = {}; for (var k2 in DEFAULT_SETTINGS) d[k2] = DEFAULT_SETTINGS[k2]; return d; }
@@ -648,7 +753,9 @@
     var started = new Date().toISOString();
     return fetchText(b + "data-manifest.json").then(function (txt) {
       var manifest = JSON.parse(txt);
-      if (!manifest || manifest.schemaVersion !== 1 || !manifest.generatedAt) throw new Error("Invalid data manifest");
+      /* Manifest schema has moved 1 -> 3 (lineage + freshness policy). Accept the
+       * current v3; the per-file sha256 + shape validation below is the real gate. */
+      if (!manifest || !manifest.generatedAt || typeof manifest.schemaVersion !== 'number' || manifest.schemaVersion < 1 || manifest.schemaVersion > 3) throw new Error("Invalid data manifest");
       return Promise.all([
         validatedRemoteFile(b, manifest, "xauusd-data.js"),
         validatedRemoteFile(b, manifest, "news-auto.js")
@@ -659,6 +766,7 @@
         var changed = false;
         if (rm.updated && rm.updated !== lastRemoteMarketUpdated) { lastRemoteMarketUpdated = rm.updated; changed = true; } else rm = null;
         if (rn.generatedAt && rn.generatedAt !== lastRemoteNewsGenerated) { lastRemoteNewsGenerated = rn.generatedAt; changed = true; } else rn = null;
+        if (rn && Array.isArray(rn.alertHistory)) { try { var na=window.NEWS_AUTO; if (na) na.alertHistory=rn.alertHistory; else window.NEWS_AUTO=rn; } catch(e){} }
         var mode = res.some(function (x) { return x.source === "cache"; }) ? "cache-fallback" : "remote-current";
         var info = { checkedAt: started, manifestGeneratedAt: manifest.generatedAt, mode: mode, changed: changed };
         if (changed) applyRemoteData(rm, rn, info); else try { localStorage.setItem("xau-last-sync", JSON.stringify(info)); } catch (e) {}
@@ -1667,7 +1775,7 @@
     var iv = $("#live-interval"); if (iv) iv.textContent = ((D.live || {}).intervalSec || 5) + "s";
     var p2 = $("#live-pill2"); if (p2) p2.textContent = m[0] + " \u00b7 " + liveState.ticks + " ticks";
   }
-  function onStatus(st) { liveState = st; setBadge(); }
+  function onStatus(st) { liveState = st; setBadge(); if (window.BBMARuntime && window.BBMARuntime.setFeedStatus) window.BBMARuntime.setFeedStatus(st.state || st, st.message); }
   function onTick(p) {
     var changed = 0;
     if (p.rates) {
@@ -1702,6 +1810,22 @@
     if (p.crypto) {
       if (p.crypto.BTC) updateCryptoHero(p.crypto.BTC, "BTC");
       if (p.crypto.ETH) updateCryptoHero(p.crypto.ETH, "ETH");
+    }
+    /* The 5s REST poll IS the realtime path for metals in the APK: gold-api
+     * updates XAU every few seconds. Previously only the Twelve Data WS
+     * callback updated the gold hero / BBMA runtime, so if the WS was down
+     * (or never connected) the poll kept running but the price LOOKED frozen
+     * — the user's "not live" report. Feed every polled metal into the hero
+     * and the BBMA runtime too (WS still wins when both are alive: it arrives
+     * more often and both are just the same ingest pipeline). */
+    if (p.metals) {
+      Object.keys(p.metals).forEach(function (m) {
+        var px = p.metals[m];
+        if (px != null && String(m).indexOf("XAU") === 0) {
+          updateMetalHero(px, m, "poll");
+          if (window.BBMARuntime && px) window.BBMARuntime.ingest(px, new Date(p.at), "poll");
+        }
+      });
     }
     var note = $("#live-note");
     if (note) note.textContent = "Last poll " + fmtClock(p.at) + " \u00b7 " + changed + " FX pairs refreshed" + (p.crypto ? " \u00b7 crypto updated" : "") + ".";
@@ -1762,17 +1886,19 @@
       $("#k-spot-sub").innerHTML = '<span class="' + (pc >= 0 ? "good" : "bad") + '">' + (pc >= 0 ? "+" : "") + pc.toFixed(3) + '%</span> since connect';
     }
   }
-  function updateMetalHero(px, sym) {
+  function updateMetalHero(px, sym, src) {
     var tab = D.tabs.filter(function (t) { return t.id === "gold"; })[0];
-    if (!tab || sym.indexOf("XAU") === -1) return;
+    if (!tab || !px || String(sym).indexOf("XAU") === -1) return;
     tab.price.spot = px;
+    lastMetalSrc = src || "live";
     if (activeId === "gold") {
       $("#k-spot").textContent = money(px);
       if (firstPrices.__xau == null) firstPrices.__xau = px;
       var pc = ((px - firstPrices.__xau) / firstPrices.__xau) * 100;
-      $("#k-spot-sub").innerHTML = '<span class="' + (pc >= 0 ? "good" : "bad") + '">' + (pc >= 0 ? "+" : "") + pc.toFixed(3) + '%</span> live \u00b7 real-time stream';
+      $("#k-spot-sub").innerHTML = '<span class="' + (pc >= 0 ? "good" : "bad") + '">' + (pc >= 0 ? "+" : "") + pc.toFixed(3) + '%</span> live \u00b7 ' + (lastMetalSrc === "stream" ? "real-time stream" : "polled every " + ((D.live || {}).intervalSec || 5) + "s");
     }
   }
+  var lastMetalSrc = "snapshot";
   function initLive() {
     var cfg = D.live || {};
     var note = $("#live-note");
@@ -1783,15 +1909,22 @@
       return;
     }
     if (note) note.textContent = "Connecting to live endpoints\u2026";
-    window.LiveFeed.start({ intervalSec: cfg.intervalSec || 5, fxEndpoint: cfg.fxEndpoint, cryptoEndpoint: cfg.cryptoEndpoint }, onTick, onStatus);
+    window.LiveFeed.start({ intervalSec: cfg.intervalSec || 5, fxEndpoint: cfg.fxEndpoint, cryptoEndpoint: cfg.cryptoEndpoint, metals: cfg.metals }, onTick, onStatus);
     if (cfg.twelveDataApiKey && cfg.twelveDataSymbols && cfg.twelveDataSymbols.length) {
       window.LiveFeed.streamTwelveData(cfg.twelveDataApiKey, cfg.twelveDataSymbols, function (q) {
-        updateMetalHero(q.price, q.symbol);
+        /* WS pushes lastMetals["XAU/USD"] inside LiveFeed; mirror it under the
+         * same key the REST poll uses ("XAU") so one symbol = one history. */
+        var mk = String(q.symbol).replace(/\/USD$/, "");
+        try { if (window.LiveFeed && window.LiveFeed.prices) { var pr = window.LiveFeed.prices(); if (pr.metals) pr.metals[mk] = q.price; } } catch (e) {}
+        updateMetalHero(q.price, q.symbol, "stream");
         var n = $("#live-note"); if (n) n.textContent = "Realtime " + q.symbol + " " + money(q.price) + " \u00b7 tick @ " + fmtClock(new Date());
         renderTape(lastTick || {});
         if (activeId === "gold") renderPairs();
         renderLiveDetail();
         setBadge();
+        /* Route real WS ticks into the BBMA runtime (it builds live OHLC;
+         * it never fabricates, and it is Node-safe). */
+        if (window.BBMARuntime && q && q.price) window.BBMARuntime.ingest(q.price, new Date(), "stream");
       });
     }
   }
@@ -1900,6 +2033,16 @@
     // of only updating on the next unrelated re-render (a live poll tick, a tab switch, etc).
     setInterval(function () { if ($("#incoming-list")) renderIncoming(); }, 15000);
   }
+  /* Test seam: expose the voice routing internals so a Node contract test can
+   * assert native-vs-Web-Speech selection without a browser. Not used in prod. */
+  window.__XAU_VOICE_TEST = {
+    isNative: function () { try { var C = window.Capacitor; if (!C) return false; return !!(C.getPlatform && C.getPlatform() === 'android') || !!(C.isNativePlatform && C.isNativePlatform()); } catch (e) { return false; } },
+    speak: speak,
+    nativeSpeak: nativeSpeak,
+    setEnabled: function (b) { voiceEnabled = !!b; },
+    isEnabled: function () { return voiceEnabled; },
+    humanize: humanizeForSpeech
+  };
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
   else boot();
 })();

@@ -26,6 +26,13 @@ jobs:
         run: node build-data-manifest.js
       - name: Run evidence-engine tests
         run: npm test
+      - name: Build BBMA candle watch (real GC=F 1-min candles)
+        env:
+          BBMA_SYMBOL: GC=F
+        run: node build-bbma-watch.js
+      - name: Validate BBMA watch snapshot
+        run: |
+          node -e "const fs=require('fs');const x=JSON.parse(fs.readFileSync('data/bbma-watch.json'));if(!x.generatedAt||!x.symbol||!x.analysis||!x.dashboard||!x.last||x.last.close==null)throw Error('invalid BBMA snapshot');console.log('snapshot OK',x.symbol,x.news&&x.news.state,'last='+x.last.close)"
       - name: Send Telegram alerts for anything new
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
@@ -41,6 +48,6 @@ jobs:
         run: |
           git config user.name "xau-desk-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add atr.js news-auto.js macro-auto.js data-manifest.json .news-alert-state.json price-track.json data/history
+          git add atr.js news-auto.js macro-auto.js data-manifest.json .news-alert-state.json price-track.json data/history data/bbma-watch.json
           git diff --cached --quiet || git commit -m "bot: daily evidence + ATR + manifest refresh [skip ci]"
           git push

@@ -4028,7 +4028,2410 @@ window.NEWS_AUTO = {
     ],
     "observationModel": "M1/M5/M15/M30/H1/H4/D1/W1/MN1",
     "note": "Observed post-evidence price reactions only; no directional accuracy claim."
-  }
+  },
+  "alertHistory": [
+    {
+      "key": "evt:[AUD] CPI m/m|2026-09-30",
+      "type": "EVENT",
+      "title": "CPI m/m",
+      "timeMYT": "09-30 08:00 MYT",
+      "at": "2026-09-30T00:00:00.000Z",
+      "legacy": false
+    },
+    {
+      "key": "evt:[AUD] CPI y/y|2026-09-30",
+      "type": "EVENT",
+      "title": "CPI y/y",
+      "timeMYT": "09-30 08:00 MYT",
+      "at": "2026-09-30T00:00:00.000Z",
+      "legacy": false
+    },
+    {
+      "key": "evt:[AUD] Trimmed Mean CPI m/m|2026-09-30",
+      "type": "EVENT",
+      "title": "Trimmed Mean CPI m/m",
+      "timeMYT": "09-30 08:00 MYT",
+      "at": "2026-09-30T00:00:00.000Z",
+      "legacy": false
+    },
+    {
+      "key": "evt:[AUD] Cash Rate|2026-09-29",
+      "type": "EVENT",
+      "title": "Cash Rate",
+      "timeMYT": "09-29 08:00 MYT",
+      "at": "2026-09-29T00:00:00.000Z",
+      "legacy": false
+    },
+    {
+      "key": "evt:[AUD] RBA Rate Statement|2026-09-29",
+      "type": "EVENT",
+      "title": "RBA Rate Statement",
+      "timeMYT": "09-29 08:00 MYT",
+      "at": "2026-09-29T00:00:00.000Z",
+      "legacy": false
+    },
+    {
+      "key": "evt:[AUD] Employment Change|2026-09-24",
+      "type": "EVENT",
+      "title": "Employment Change",
+      "timeMYT": "09-24 08:00 MYT",
+      "at": "2026-09-24T00:00:00.000Z",
+      "legacy": false
+    },
+    {
+      "key": "evt:[AUD] Unemployment Rate|2026-09-24",
+      "type": "EVENT",
+      "title": "Unemployment Rate",
+      "timeMYT": "09-24 08:00 MYT",
+      "at": "2026-09-24T00:00:00.000Z",
+      "legacy": false
+    },
+    {
+      "key": "remind:[AUD] Employment Change|2026-09-24:30",
+      "type": "REMINDER",
+      "title": "Employment Change",
+      "timeMYT": "09-24 08:00 MYT",
+      "at": "2026-09-24T00:00:00.000Z",
+      "legacy": false
+    },
+    {
+      "key": "remind:[AUD] Employment Change|2026-09-24:10",
+      "type": "REMINDER",
+      "title": "Employment Change",
+      "timeMYT": "09-24 08:00 MYT",
+      "at": "2026-09-24T00:00:00.000Z",
+      "legacy": false
+    },
+    {
+      "key": "evt:[AUD] RBA Gov Bullock Speaks|2026-09-22",
+      "type": "EVENT",
+      "title": "RBA Gov Bullock Speaks",
+      "timeMYT": "09-22 08:00 MYT",
+      "at": "2026-09-22T00:00:00.000Z",
+      "legacy": false
+    },
+    {
+      "key": "evt:[GBP] CPI y/y|2026-09-16",
+      "type": "EVENT",
+      "title": "CPI y/y",
+      "timeMYT": "09-16 08:00 MYT",
+      "at": "2026-09-16T00:00:00.000Z",
+      "legacy": false
+    },
+    {
+      "key": "evt:[USD] Federal Funds Rate|2026-09-16",
+      "type": "EVENT",
+      "title": "Federal Funds Rate",
+      "timeMYT": "09-16 08:00 MYT",
+      "at": "2026-09-16T00:00:00.000Z",
+      "legacy": false
+    },
+    {
+      "key": "evt:[GBP] Claimant Count Change|2026-09-15",
+      "type": "EVENT",
+      "title": "Claimant Count Change",
+      "timeMYT": "09-15 08:00 MYT",
+      "at": "2026-09-15T00:00:00.000Z",
+      "legacy": false
+    },
+    {
+      "key": "evt:[CAD] CPI m/m|2026-09-14",
+      "type": "EVENT",
+      "title": "CPI m/m",
+      "timeMYT": "09-14 08:00 MYT",
+      "at": "2026-09-14T00:00:00.000Z",
+      "legacy": false
+    },
+    {
+      "key": "evt:[CAD] Median CPI y/y|2026-09-14",
+      "type": "EVENT",
+      "title": "Median CPI y/y",
+      "timeMYT": "09-14 08:00 MYT",
+      "at": "2026-09-14T00:00:00.000Z",
+      "legacy": false
+    },
+    {
+      "key": "evt:[CAD] Trimmed CPI y/y|2026-09-14",
+      "type": "EVENT",
+      "title": "Trimmed CPI y/y",
+      "timeMYT": "09-14 08:00 MYT",
+      "at": "2026-09-14T00:00:00.000Z",
+      "legacy": false
+    },
+    {
+      "key": "evt:FOMC rate decision|16 Sep",
+      "type": "EVENT",
+      "title": "FOMC rate decision",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "evt:FOMC press conference (Warsh)|16 Sep",
+      "type": "EVENT",
+      "title": "FOMC press conference (Warsh)",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "evt:BoJ rate decision|18 Sep",
+      "type": "EVENT",
+      "title": "BoJ rate decision",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Yen rise as markets price BOJ rate hike  while dollar pauses post-Fed",
+      "type": "NEWS",
+      "title": "Yen rise as markets price BOJ rate hike  while dollar pauses post-Fed",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Loonie weakens after Fed hike as dollar gains on hawkish outlook",
+      "type": "NEWS",
+      "title": "Loonie weakens after Fed hike as dollar gains on hawkish outlook",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Sterling today: Pound slips as Fed hike bets and UK inflation uptick weigh",
+      "type": "NEWS",
+      "title": "Sterling today: Pound slips as Fed hike bets and UK inflation uptick weigh",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Australian Dollar rebound offsets the hawkish Fed hike",
+      "type": "NEWS",
+      "title": "Australian Dollar rebound offsets the hawkish Fed hike",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:1.25%: Why the Bank of Japan hike is a done deal and the Japanese Yen now hinges on Ueda's guidance",
+      "type": "NEWS",
+      "title": "1.25%: Why the Bank of Japan hike is a done deal and the Japanese Yen now hinges on Ueda's guidance",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:US Dollar: Fed hike keeps upside risks – BBH",
+      "type": "NEWS",
+      "title": "US Dollar: Fed hike keeps upside risks – BBH",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Federal Reserve: Two more hikes seen as inflation stays too high – UOB",
+      "type": "NEWS",
+      "title": "Federal Reserve: Two more hikes seen as inflation stays too high – UOB",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Japanese Yen: BoJ tightening expectations lift JPY against US Dollar – Scotiabank",
+      "type": "NEWS",
+      "title": "Japanese Yen: BoJ tightening expectations lift JPY against US Dollar – Scotiabank",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Bank of England: November hike risk rises – Rabobank",
+      "type": "NEWS",
+      "title": "Bank of England: November hike risk rises – Rabobank",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Gold shrugs off Fed hike as falling yields reopen path to $4,400",
+      "type": "NEWS",
+      "title": "Gold shrugs off Fed hike as falling yields reopen path to $4,400",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Australian and New Zealand Dollars dig in ahead of a Japanese rate hike",
+      "type": "NEWS",
+      "title": "Australian and New Zealand Dollars dig in ahead of a Japanese rate hike",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Federal Reserve: Higher-for-longer path reshapes cuts – Rabobank",
+      "type": "NEWS",
+      "title": "Federal Reserve: Higher-for-longer path reshapes cuts – Rabobank",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:British Pound loses its footing as BoE hold meets Fed hike",
+      "type": "NEWS",
+      "title": "British Pound loses its footing as BoE hold meets Fed hike",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Dollar halts six-day rally after Fed hike, sterling slips after BoE stands pat",
+      "type": "NEWS",
+      "title": "Dollar halts six-day rally after Fed hike, sterling slips after BoE stands pat",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Bank of Japan is expected to deliver a hawkish hike, pressured by rising inflation",
+      "type": "NEWS",
+      "title": "Bank of Japan is expected to deliver a hawkish hike, pressured by rising inflation",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Silver Price Forecast: Bulls threaten bearish setup after Fed hike",
+      "type": "NEWS",
+      "title": "Silver Price Forecast: Bulls threaten bearish setup after Fed hike",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Euro gains momentum against Japanese Yen as BoJ aligns on rate hikes",
+      "type": "NEWS",
+      "title": "Euro gains momentum against Japanese Yen as BoJ aligns on rate hikes",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Gold bulls seem hesitant as hawkish Fed and Middle East jitters limit USD downside",
+      "type": "NEWS",
+      "title": "Gold bulls seem hesitant as hawkish Fed and Middle East jitters limit USD downside",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:British Pound jumps to two-week top as JPY declines after BoJ's rate-hike to 31-year high",
+      "type": "NEWS",
+      "title": "British Pound jumps to two-week top as JPY declines after BoJ's rate-hike to 31-year high",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Japanese Yen falls like house of cards as BoJ hike interest rates by 25 bps to 1.25%",
+      "type": "NEWS",
+      "title": "Japanese Yen falls like house of cards as BoJ hike interest rates by 25 bps to 1.25%",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Australian Dollar strengthens on hawkish RBA comments",
+      "type": "NEWS",
+      "title": "Australian Dollar strengthens on hawkish RBA comments",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Asia FX mixed as yen slides despite BOJ rate hike",
+      "type": "NEWS",
+      "title": "Asia FX mixed as yen slides despite BOJ rate hike",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Gold sticks to gains on softer bond yields and subdued USD; hawkish Fed caps upside",
+      "type": "NEWS",
+      "title": "Gold sticks to gains on softer bond yields and subdued USD; hawkish Fed caps upside",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Yen tumbles despite BOJ lifting rates as Ueda pre-empts aggressive tightening",
+      "type": "NEWS",
+      "title": "Yen tumbles despite BOJ lifting rates as Ueda pre-empts aggressive tightening",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:What Fed rate hikes mean for gold prices in 2027, according to Goldman",
+      "type": "NEWS",
+      "title": "What Fed rate hikes mean for gold prices in 2027, according to Goldman",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Japanese Yen: Cautious BoJ tilt weighs on JPY against US Dollar – BBH",
+      "type": "NEWS",
+      "title": "Japanese Yen: Cautious BoJ tilt weighs on JPY against US Dollar – BBH",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:US Dollar: Oil drives Dollar upside risks – ING",
+      "type": "NEWS",
+      "title": "US Dollar: Oil drives Dollar upside risks – ING",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Bank of Japan: Hawkish path with FX doubts – TD Securities",
+      "type": "NEWS",
+      "title": "Bank of Japan: Hawkish path with FX doubts – TD Securities",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Australian Dollar soars against Japanese Yen as BoJ rate hike disappoints hawks",
+      "type": "NEWS",
+      "title": "Australian Dollar soars against Japanese Yen as BoJ rate hike disappoints hawks",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Micron, Intel and other chip stocks are furthering their strong comebacks",
+      "type": "NEWS",
+      "title": "Micron, Intel and other chip stocks are furthering their strong comebacks",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Why Japan’s markets flipped the usual script after central bank rate hike",
+      "type": "NEWS",
+      "title": "Why Japan’s markets flipped the usual script after central bank rate hike",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Bank of England defies Fed’s rate-hike lead, leaving rates unchanged",
+      "type": "NEWS",
+      "title": "Bank of England defies Fed’s rate-hike lead, leaving rates unchanged",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Bank of England defies Fed’s rate-hike lead, leaving rates unchanged",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Bank of England defies Fed’s rate-hike lead, leaving rates unchanged",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Why Japan’s markets flipped the usual script after central bank rate hike",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Why Japan’s markets flipped the usual script after central bank rate hike",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Micron, Intel and other chip stocks are furthering their strong comebacks",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Micron, Intel and other chip stocks are furthering their strong comebacks",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Australian Dollar soars against Japanese Yen as BoJ rate hike disappoints hawks",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Australian Dollar soars against Japanese Yen as BoJ rate hike disappoints hawks",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Bank of Japan: Hawkish path with FX doubts – TD Securities",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Bank of Japan: Hawkish path with FX doubts – TD Securities",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:US Dollar: Oil drives Dollar upside risks – ING",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:US Dollar: Oil drives Dollar upside risks – ING",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:What Fed rate hikes mean for gold prices in 2027, according to Goldman",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:What Fed rate hikes mean for gold prices in 2027, according to Goldman",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Yen tumbles despite BOJ lifting rates as Ueda pre-empts aggressive tightening",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Yen tumbles despite BOJ lifting rates as Ueda pre-empts aggressive tightening",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:British Pound: Retail rebound but BoE risks – BBH",
+      "type": "NEWS",
+      "title": "British Pound: Retail rebound but BoE risks – BBH",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Bank of Canada: Rate path risks tilt earlier – RBC",
+      "type": "NEWS",
+      "title": "Bank of Canada: Rate path risks tilt earlier – RBC",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Japanese Yen: BoJ hike fails to lift JPY against US Dollar – Danske Bank",
+      "type": "NEWS",
+      "title": "Japanese Yen: BoJ hike fails to lift JPY against US Dollar – Danske Bank",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Gold rebound stalls as Treasury yields return toward multi-year highs",
+      "type": "NEWS",
+      "title": "Gold rebound stalls as Treasury yields return toward multi-year highs",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:European Central Bank: Quarterly hikes still baseline – Nordea",
+      "type": "NEWS",
+      "title": "European Central Bank: Quarterly hikes still baseline – Nordea",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Euro heads for weekly loss against US Dollar on hawkish Fed outlook",
+      "type": "NEWS",
+      "title": "Euro heads for weekly loss against US Dollar on hawkish Fed outlook",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:British Pound: QT overhaul supports Gilt curve and Pound – MUFG",
+      "type": "NEWS",
+      "title": "British Pound: QT overhaul supports Gilt curve and Pound – MUFG",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:New Zealand Dollar falls as hawkish Fed stance supports US Dollar",
+      "type": "NEWS",
+      "title": "New Zealand Dollar falls as hawkish Fed stance supports US Dollar",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Federal Reserve: Further hikes supported by resilient economy – Nordea",
+      "type": "NEWS",
+      "title": "Federal Reserve: Further hikes supported by resilient economy – Nordea",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Japanese Yen: Cautious BoJ tilt weighs on JPY against US Dollar – BBH",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Japanese Yen: Cautious BoJ tilt weighs on JPY against US Dollar – BBH",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:Japanese Yen: Cautious BoJ tilt weighs on JPY against US Dollar – BBH",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:Japanese Yen: Cautious BoJ tilt weighs on JPY against US Dollar – BBH",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:gold:Japanese Yen: Cautious BoJ tilt weighs on JPY against US Dollar – BBH",
+      "type": "PRICE_TRACK",
+      "title": "news:gold:Japanese Yen: Cautious BoJ tilt weighs on JPY against US Dollar – BBH",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:Bank of England defies Fed’s rate-hike lead, leaving rates unchanged",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:Bank of England defies Fed’s rate-hike lead, leaving rates unchanged",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:Why Japan’s markets flipped the usual script after central bank rate hike",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:Why Japan’s markets flipped the usual script after central bank rate hike",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:Micron, Intel and other chip stocks are furthering their strong comebacks",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:Micron, Intel and other chip stocks are furthering their strong comebacks",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:Australian Dollar soars against Japanese Yen as BoJ rate hike disappoints hawks",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:Australian Dollar soars against Japanese Yen as BoJ rate hike disappoints hawks",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:Bank of Japan: Hawkish path with FX doubts – TD Securities",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:Bank of Japan: Hawkish path with FX doubts – TD Securities",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:US Dollar: Oil drives Dollar upside risks – ING",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:US Dollar: Oil drives Dollar upside risks – ING",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:What Fed rate hikes mean for gold prices in 2027, according to Goldman",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:What Fed rate hikes mean for gold prices in 2027, according to Goldman",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:Yen tumbles despite BOJ lifting rates as Ueda pre-empts aggressive tightening",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:Yen tumbles despite BOJ lifting rates as Ueda pre-empts aggressive tightening",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:gold:Bank of England defies Fed’s rate-hike lead, leaving rates unchanged",
+      "type": "PRICE_TRACK",
+      "title": "news:gold:Bank of England defies Fed’s rate-hike lead, leaving rates unchanged",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Swiss Franc gains against US Dollar, but Fed-SNB divergence weighs",
+      "type": "NEWS",
+      "title": "Swiss Franc gains against US Dollar, but Fed-SNB divergence weighs",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Fed’s Schmid supports rate hike as inflation broadens beyond 3%",
+      "type": "NEWS",
+      "title": "Fed’s Schmid supports rate hike as inflation broadens beyond 3%",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Gold outlook hinges on Oil prices and shifting Fed expectations",
+      "type": "NEWS",
+      "title": "Gold outlook hinges on Oil prices and shifting Fed expectations",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Why investors&#x2019; best move in reaction to Fed&#x2019;s rate hike is doing nothing at all",
+      "type": "NEWS",
+      "title": "Why investors&#x2019; best move in reaction to Fed&#x2019;s rate hike is doing nothing at all",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Federal Reserve: Further hikes supported by resilient economy – Nordea",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Federal Reserve: Further hikes supported by resilient economy – Nordea",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:New Zealand Dollar falls as hawkish Fed stance supports US Dollar",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:New Zealand Dollar falls as hawkish Fed stance supports US Dollar",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:British Pound: QT overhaul supports Gilt curve and Pound – MUFG",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:British Pound: QT overhaul supports Gilt curve and Pound – MUFG",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Japanese Yen: BoJ hike fails to lift JPY against US Dollar – Danske Bank",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Japanese Yen: BoJ hike fails to lift JPY against US Dollar – Danske Bank",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Euro heads for weekly loss against US Dollar on hawkish Fed outlook",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Euro heads for weekly loss against US Dollar on hawkish Fed outlook",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:European Central Bank: Quarterly hikes still baseline – Nordea",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:European Central Bank: Quarterly hikes still baseline – Nordea",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Bank of Canada: Rate path risks tilt earlier – RBC",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Bank of Canada: Rate path risks tilt earlier – RBC",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:Gold rebound stalls as Treasury yields return toward multi-year highs",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:Gold rebound stalls as Treasury yields return toward multi-year highs",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:British Pound: Retail rebound but BoE risks – BBH",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:British Pound: Retail rebound but BoE risks – BBH",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:gold:Federal Reserve: Further hikes supported by resilient economy – Nordea",
+      "type": "PRICE_TRACK",
+      "title": "news:gold:Federal Reserve: Further hikes supported by resilient economy – Nordea",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:gold:New Zealand Dollar falls as hawkish Fed stance supports US Dollar",
+      "type": "PRICE_TRACK",
+      "title": "news:gold:New Zealand Dollar falls as hawkish Fed stance supports US Dollar",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Why investors&#x2019; best move in reaction to Fed&#x2019;s rate hike is doing nothing at all",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Why investors&#x2019; best move in reaction to Fed&#x2019;s rate hike is doing nothing at all",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Gold outlook hinges on Oil prices and shifting Fed expectations",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Gold outlook hinges on Oil prices and shifting Fed expectations",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Fed’s Schmid supports rate hike as inflation broadens beyond 3%",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Fed’s Schmid supports rate hike as inflation broadens beyond 3%",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Swiss Franc gains against US Dollar, but Fed-SNB divergence weighs",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Swiss Franc gains against US Dollar, but Fed-SNB divergence weighs",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:British Pound: Limited upside after hawkish BoE hold – Scotiabank",
+      "type": "NEWS",
+      "title": "British Pound: Limited upside after hawkish BoE hold – Scotiabank",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Gold heads for slight weekly gain as decline in oil prices offset Fed rate hike",
+      "type": "NEWS",
+      "title": "Gold heads for slight weekly gain as decline in oil prices offset Fed rate hike",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:NZD/USD Price Forecast: Kiwi reversal puts 0.5700 under pressure",
+      "type": "NEWS",
+      "title": "NZD/USD Price Forecast: Kiwi reversal puts 0.5700 under pressure",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:10-year Treasury yield rises back to 5% as global tightening wave pushes",
+      "type": "NEWS",
+      "title": "10-year Treasury yield rises back to 5% as global tightening wave pushes",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:My rental property is paid off, but I need cash. Is this a bad time to take out a $50,000 HELOC?",
+      "type": "NEWS",
+      "title": "My rental property is paid off, but I need cash. Is this a bad time to take out a $50,000 HELOC?",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:Why investors&#x2019; best move in reaction to Fed&#x2019;s rate hike is doing nothing at all",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:Why investors&#x2019; best move in reaction to Fed&#x2019;s rate hike is doing nothing at all",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:Gold outlook hinges on Oil prices and shifting Fed expectations",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:Gold outlook hinges on Oil prices and shifting Fed expectations",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:Fed’s Schmid supports rate hike as inflation broadens beyond 3%",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:Fed’s Schmid supports rate hike as inflation broadens beyond 3%",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:Swiss Franc gains against US Dollar, but Fed-SNB divergence weighs",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:Swiss Franc gains against US Dollar, but Fed-SNB divergence weighs",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:gold:Why investors&#x2019; best move in reaction to Fed&#x2019;s rate hike is doing nothing at all",
+      "type": "PRICE_TRACK",
+      "title": "news:gold:Why investors&#x2019; best move in reaction to Fed&#x2019;s rate hike is doing nothing at all",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:My rental property is paid off, but I need cash. Is this a bad time to take out a $50,000 HELOC?",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:My rental property is paid off, but I need cash. Is this a bad time to take out a $50,000 HELOC?",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:10-year Treasury yield rises back to 5% as global tightening wave pushes",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:10-year Treasury yield rises back to 5% as global tightening wave pushes",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:British Pound: Limited upside after hawkish BoE hold – Scotiabank",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:British Pound: Limited upside after hawkish BoE hold – Scotiabank",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:NZD/USD Price Forecast: Kiwi reversal puts 0.5700 under pressure",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:NZD/USD Price Forecast: Kiwi reversal puts 0.5700 under pressure",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Gold heads for slight weekly gain as decline in oil prices offset Fed rate hike",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Gold heads for slight weekly gain as decline in oil prices offset Fed rate hike",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:gold:My rental property is paid off, but I need cash. Is this a bad time to take out a $50,000 HELOC?",
+      "type": "PRICE_TRACK",
+      "title": "news:gold:My rental property is paid off, but I need cash. Is this a bad time to take out a $50,000 HELOC?",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:gold:10-year Treasury yield rises back to 5% as global tightening wave pushes",
+      "type": "PRICE_TRACK",
+      "title": "news:gold:10-year Treasury yield rises back to 5% as global tightening wave pushes",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:gold:British Pound: Limited upside after hawkish BoE hold – Scotiabank",
+      "type": "PRICE_TRACK",
+      "title": "news:gold:British Pound: Limited upside after hawkish BoE hold – Scotiabank",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:gold:NZD/USD Price Forecast: Kiwi reversal puts 0.5700 under pressure",
+      "type": "PRICE_TRACK",
+      "title": "news:gold:NZD/USD Price Forecast: Kiwi reversal puts 0.5700 under pressure",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:gold:Gold heads for slight weekly gain as decline in oil prices offset Fed rate hike",
+      "type": "PRICE_TRACK",
+      "title": "news:gold:Gold heads for slight weekly gain as decline in oil prices offset Fed rate hike",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:My rental property is paid off, but I need cash. Is this a bad time to take out a $50,000 HELOC?",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:My rental property is paid off, but I need cash. Is this a bad time to take out a $50,000 HELOC?",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:10-year Treasury yield rises back to 5% as global tightening wave pushes",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:10-year Treasury yield rises back to 5% as global tightening wave pushes",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:British Pound: Limited upside after hawkish BoE hold – Scotiabank",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:British Pound: Limited upside after hawkish BoE hold – Scotiabank",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:NZD/USD Price Forecast: Kiwi reversal puts 0.5700 under pressure",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:NZD/USD Price Forecast: Kiwi reversal puts 0.5700 under pressure",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:Gold heads for slight weekly gain as decline in oil prices offset Fed rate hike",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:Gold heads for slight weekly gain as decline in oil prices offset Fed rate hike",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Taiwan Dollar: Mildly hawkish CBC but flows drive – OCBC",
+      "type": "NEWS",
+      "title": "Taiwan Dollar: Mildly hawkish CBC but flows drive – OCBC",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Taiwan Dollar: Mildly hawkish CBC but flows drive – OCBC",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Taiwan Dollar: Mildly hawkish CBC but flows drive – OCBC",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:gold:Taiwan Dollar: Mildly hawkish CBC but flows drive – OCBC",
+      "type": "PRICE_TRACK",
+      "title": "news:gold:Taiwan Dollar: Mildly hawkish CBC but flows drive – OCBC",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:Taiwan Dollar: Mildly hawkish CBC but flows drive – OCBC",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:Taiwan Dollar: Mildly hawkish CBC but flows drive – OCBC",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Japanese Yen bulls seem hesitant amid BoJ's dovish rate hike as Fed bets support USD",
+      "type": "NEWS",
+      "title": "Japanese Yen bulls seem hesitant amid BoJ's dovish rate hike as Fed bets support USD",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:British Pound slips as hawkish Fed outlook boosts US Dollar",
+      "type": "NEWS",
+      "title": "British Pound slips as hawkish Fed outlook boosts US Dollar",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Australian Dollar edges lower as Fed hike bets grow ahead of Trump-Xi summit",
+      "type": "NEWS",
+      "title": "Australian Dollar edges lower as Fed hike bets grow ahead of Trump-Xi summit",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:United States Dollar Index holds firm on hawkish Fed outlook",
+      "type": "NEWS",
+      "title": "United States Dollar Index holds firm on hawkish Fed outlook",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Gold edges lower to near $4,350 on Fed hawkish stance, Middle East tensions",
+      "type": "NEWS",
+      "title": "Gold edges lower to near $4,350 on Fed hawkish stance, Middle East tensions",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Australian Dollar edges lower as Fed hike bets grow ahead of Trump-Xi summit",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Australian Dollar edges lower as Fed hike bets grow ahead of Trump-Xi summit",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:British Pound slips as hawkish Fed outlook boosts US Dollar",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:British Pound slips as hawkish Fed outlook boosts US Dollar",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Japanese Yen bulls seem hesitant amid BoJ's dovish rate hike as Fed bets support USD",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Japanese Yen bulls seem hesitant amid BoJ's dovish rate hike as Fed bets support USD",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:Australian Dollar edges lower as Fed hike bets grow ahead of Trump-Xi summit",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:Australian Dollar edges lower as Fed hike bets grow ahead of Trump-Xi summit",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:British Pound slips as hawkish Fed outlook boosts US Dollar",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:British Pound slips as hawkish Fed outlook boosts US Dollar",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:Japanese Yen bulls seem hesitant amid BoJ's dovish rate hike as Fed bets support USD",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:Japanese Yen bulls seem hesitant amid BoJ's dovish rate hike as Fed bets support USD",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:gold:Australian Dollar edges lower as Fed hike bets grow ahead of Trump-Xi summit",
+      "type": "PRICE_TRACK",
+      "title": "news:gold:Australian Dollar edges lower as Fed hike bets grow ahead of Trump-Xi summit",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:gold:British Pound slips as hawkish Fed outlook boosts US Dollar",
+      "type": "PRICE_TRACK",
+      "title": "news:gold:British Pound slips as hawkish Fed outlook boosts US Dollar",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:gold:Japanese Yen bulls seem hesitant amid BoJ's dovish rate hike as Fed bets support USD",
+      "type": "PRICE_TRACK",
+      "title": "news:gold:Japanese Yen bulls seem hesitant amid BoJ's dovish rate hike as Fed bets support USD",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Gold edges lower to near $4,350 on Fed hawkish stance, Middle East tensions",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Gold edges lower to near $4,350 on Fed hawkish stance, Middle East tensions",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:United States Dollar Index holds firm on hawkish Fed outlook",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:United States Dollar Index holds firm on hawkish Fed outlook",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Australian Dollar outperforms its peers on hawkish RBA bets",
+      "type": "NEWS",
+      "title": "Australian Dollar outperforms its peers on hawkish RBA bets",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:GBP/USD Price Forecast: Declines below 1.3400 as bearish momentum persists below 100-day SMA",
+      "type": "NEWS",
+      "title": "GBP/USD Price Forecast: Declines below 1.3400 as bearish momentum persists below 100-day SMA",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Indonesian Rupiah declines as US Dollar remains stronger amid hawkish Fed tone",
+      "type": "NEWS",
+      "title": "Indonesian Rupiah declines as US Dollar remains stronger amid hawkish Fed tone",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:Gold edges lower to near $4,350 on Fed hawkish stance, Middle East tensions",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:Gold edges lower to near $4,350 on Fed hawkish stance, Middle East tensions",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:United States Dollar Index holds firm on hawkish Fed outlook",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:United States Dollar Index holds firm on hawkish Fed outlook",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:gold:Gold edges lower to near $4,350 on Fed hawkish stance, Middle East tensions",
+      "type": "PRICE_TRACK",
+      "title": "news:gold:Gold edges lower to near $4,350 on Fed hawkish stance, Middle East tensions",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:gold:United States Dollar Index holds firm on hawkish Fed outlook",
+      "type": "PRICE_TRACK",
+      "title": "news:gold:United States Dollar Index holds firm on hawkish Fed outlook",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Indonesian Rupiah declines as US Dollar remains stronger amid hawkish Fed tone",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Indonesian Rupiah declines as US Dollar remains stronger amid hawkish Fed tone",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:GBP/USD Price Forecast: Declines below 1.3400 as bearish momentum persists below 100-day SMA",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:GBP/USD Price Forecast: Declines below 1.3400 as bearish momentum persists below 100-day SMA",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Australian Dollar outperforms its peers on hawkish RBA bets",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Australian Dollar outperforms its peers on hawkish RBA bets",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Japanese Yen: BoJ hike underwhelms as yields drive JPY against US Dollar – OCBC",
+      "type": "NEWS",
+      "title": "Japanese Yen: BoJ hike underwhelms as yields drive JPY against US Dollar – OCBC",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:U.S. Treasury yields ease on crude pull-back ;  rate hike bets stay",
+      "type": "NEWS",
+      "title": "U.S. Treasury yields ease on crude pull-back ;  rate hike bets stay",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:UBS sees limited yen gains despite Bank of Japan rate hike",
+      "type": "NEWS",
+      "title": "UBS sees limited yen gains despite Bank of Japan rate hike",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Gold declines amid firmer dollar, bets on more Fed rate hike",
+      "type": "NEWS",
+      "title": "Gold declines amid firmer dollar, bets on more Fed rate hike",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Gold struggles for direction as traders weigh Fed outlook and falling Oil prices",
+      "type": "NEWS",
+      "title": "Gold struggles for direction as traders weigh Fed outlook and falling Oil prices",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Canadian Dollar remains under pressure as hawkish Fed contrasts with steady BoC",
+      "type": "NEWS",
+      "title": "Canadian Dollar remains under pressure as hawkish Fed contrasts with steady BoC",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:US Dollar: Oil-driven support as Fed seen hiking – ING",
+      "type": "NEWS",
+      "title": "US Dollar: Oil-driven support as Fed seen hiking – ING",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Fed's Musalem calls for more rate hikes",
+      "type": "NEWS",
+      "title": "Fed's Musalem calls for more rate hikes",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Forex Today: Fedspeak takes centre stage alongside weekly ADP figures",
+      "type": "NEWS",
+      "title": "Forex Today: Fedspeak takes centre stage alongside weekly ADP figures",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:British Pound loses grip as Fed hawks stay in charge",
+      "type": "NEWS",
+      "title": "British Pound loses grip as Fed hawks stay in charge",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Gold struggles near $4,350 as hawksih Fed outlook supports the Greenback",
+      "type": "NEWS",
+      "title": "Gold struggles near $4,350 as hawksih Fed outlook supports the Greenback",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Euro struggles against US Dollar as hawkish Fed outlook weighs",
+      "type": "NEWS",
+      "title": "Euro struggles against US Dollar as hawkish Fed outlook weighs",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Japanese Yen: BoJ hike underwhelms as yields drive JPY against US Dollar – OCBC",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Japanese Yen: BoJ hike underwhelms as yields drive JPY against US Dollar – OCBC",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:US Dollar: Oil-driven support as Fed seen hiking – ING",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:US Dollar: Oil-driven support as Fed seen hiking – ING",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Canadian Dollar remains under pressure as hawkish Fed contrasts with steady BoC",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Canadian Dollar remains under pressure as hawkish Fed contrasts with steady BoC",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Gold struggles for direction as traders weigh Fed outlook and falling Oil prices",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Gold struggles for direction as traders weigh Fed outlook and falling Oil prices",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:gold:Japanese Yen: BoJ hike underwhelms as yields drive JPY against US Dollar – OCBC",
+      "type": "PRICE_TRACK",
+      "title": "news:gold:Japanese Yen: BoJ hike underwhelms as yields drive JPY against US Dollar – OCBC",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:gold:US Dollar: Oil-driven support as Fed seen hiking – ING",
+      "type": "PRICE_TRACK",
+      "title": "news:gold:US Dollar: Oil-driven support as Fed seen hiking – ING",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:gold:Canadian Dollar remains under pressure as hawkish Fed contrasts with steady BoC",
+      "type": "PRICE_TRACK",
+      "title": "news:gold:Canadian Dollar remains under pressure as hawkish Fed contrasts with steady BoC",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:gold:Gold struggles for direction as traders weigh Fed outlook and falling Oil prices",
+      "type": "PRICE_TRACK",
+      "title": "news:gold:Gold struggles for direction as traders weigh Fed outlook and falling Oil prices",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:gold:Gold declines amid firmer dollar, bets on more Fed rate hike",
+      "type": "PRICE_TRACK",
+      "title": "news:gold:Gold declines amid firmer dollar, bets on more Fed rate hike",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:gold:UBS sees limited yen gains despite Bank of Japan rate hike",
+      "type": "PRICE_TRACK",
+      "title": "news:gold:UBS sees limited yen gains despite Bank of Japan rate hike",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Euro struggles against US Dollar as hawkish Fed outlook weighs",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Euro struggles against US Dollar as hawkish Fed outlook weighs",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Gold struggles near $4,350 as hawksih Fed outlook supports the Greenback",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Gold struggles near $4,350 as hawksih Fed outlook supports the Greenback",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:British Pound loses grip as Fed hawks stay in charge",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:British Pound loses grip as Fed hawks stay in charge",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Forex Today: Fedspeak takes centre stage alongside weekly ADP figures",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Forex Today: Fedspeak takes centre stage alongside weekly ADP figures",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Fed's Musalem calls for more rate hikes",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Fed's Musalem calls for more rate hikes",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Gold slips as dollar firms on Fed rate hike bets, losses capped by slide in oil",
+      "type": "NEWS",
+      "title": "Gold slips as dollar firms on Fed rate hike bets, losses capped by slide in oil",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Fed’s Collins eyes another hike as energy risks linger",
+      "type": "NEWS",
+      "title": "Fed’s Collins eyes another hike as energy risks linger",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Gold price retraces as Fed hawks keep the US Dollar bid",
+      "type": "NEWS",
+      "title": "Gold price retraces as Fed hawks keep the US Dollar bid",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:Euro struggles against US Dollar as hawkish Fed outlook weighs",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:Euro struggles against US Dollar as hawkish Fed outlook weighs",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:Gold struggles near $4,350 as hawksih Fed outlook supports the Greenback",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:Gold struggles near $4,350 as hawksih Fed outlook supports the Greenback",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:British Pound loses grip as Fed hawks stay in charge",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:British Pound loses grip as Fed hawks stay in charge",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:Forex Today: Fedspeak takes centre stage alongside weekly ADP figures",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:Forex Today: Fedspeak takes centre stage alongside weekly ADP figures",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:Fed's Musalem calls for more rate hikes",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:Fed's Musalem calls for more rate hikes",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:gold:Euro struggles against US Dollar as hawkish Fed outlook weighs",
+      "type": "PRICE_TRACK",
+      "title": "news:gold:Euro struggles against US Dollar as hawkish Fed outlook weighs",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:gold:Gold struggles near $4,350 as hawksih Fed outlook supports the Greenback",
+      "type": "PRICE_TRACK",
+      "title": "news:gold:Gold struggles near $4,350 as hawksih Fed outlook supports the Greenback",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:gold:British Pound loses grip as Fed hawks stay in charge",
+      "type": "PRICE_TRACK",
+      "title": "news:gold:British Pound loses grip as Fed hawks stay in charge",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:gold:Forex Today: Fedspeak takes centre stage alongside weekly ADP figures",
+      "type": "PRICE_TRACK",
+      "title": "news:gold:Forex Today: Fedspeak takes centre stage alongside weekly ADP figures",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:gold:Fed's Musalem calls for more rate hikes",
+      "type": "PRICE_TRACK",
+      "title": "news:gold:Fed's Musalem calls for more rate hikes",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Gold declines amid firmer dollar, bets on more Fed rate hike",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Gold declines amid firmer dollar, bets on more Fed rate hike",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Gold price retraces as Fed hawks keep the US Dollar bid",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Gold price retraces as Fed hawks keep the US Dollar bid",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Fed’s Collins eyes another hike as energy risks linger",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Fed’s Collins eyes another hike as energy risks linger",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Gold slips as dollar firms on Fed rate hike bets, losses capped by slide in oil",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Gold slips as dollar firms on Fed rate hike bets, losses capped by slide in oil",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:gold:Gold price retraces as Fed hawks keep the US Dollar bid",
+      "type": "PRICE_TRACK",
+      "title": "news:gold:Gold price retraces as Fed hawks keep the US Dollar bid",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:gold:Fed’s Collins eyes another hike as energy risks linger",
+      "type": "PRICE_TRACK",
+      "title": "news:gold:Fed’s Collins eyes another hike as energy risks linger",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:gold:Gold slips as dollar firms on Fed rate hike bets, losses capped by slide in oil",
+      "type": "PRICE_TRACK",
+      "title": "news:gold:Gold slips as dollar firms on Fed rate hike bets, losses capped by slide in oil",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Australian Dollar holds its nerve as Fed hawks meet RBA hike bets",
+      "type": "NEWS",
+      "title": "Australian Dollar holds its nerve as Fed hawks meet RBA hike bets",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:RBA’s Hunter backs more hikes as inflation risks entrench",
+      "type": "NEWS",
+      "title": "RBA’s Hunter backs more hikes as inflation risks entrench",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Gold declines to near $4,350 on rising odds of Fed rate hike",
+      "type": "NEWS",
+      "title": "Gold declines to near $4,350 on rising odds of Fed rate hike",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:NZD/USD Price Forecast: Bears lean on 0.5700 as RSI sinks",
+      "type": "NEWS",
+      "title": "NZD/USD Price Forecast: Bears lean on 0.5700 as RSI sinks",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:Gold price retraces as Fed hawks keep the US Dollar bid",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:Gold price retraces as Fed hawks keep the US Dollar bid",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:Fed’s Collins eyes another hike as energy risks linger",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:Fed’s Collins eyes another hike as energy risks linger",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:Gold slips as dollar firms on Fed rate hike bets, losses capped by slide in oil",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:Gold slips as dollar firms on Fed rate hike bets, losses capped by slide in oil",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:New Zealand Dollar slips amid gradual RBNZ rate hike outlook, geopolitical tensions",
+      "type": "NEWS",
+      "title": "New Zealand Dollar slips amid gradual RBNZ rate hike outlook, geopolitical tensions",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Japanese Yen weakens on BoJ's lack of hawkish guidance, eyes on potential intervention",
+      "type": "NEWS",
+      "title": "Japanese Yen weakens on BoJ's lack of hawkish guidance, eyes on potential intervention",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:NZD/USD Price Forecast: Bears lean on 0.5700 as RSI sinks",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:NZD/USD Price Forecast: Bears lean on 0.5700 as RSI sinks",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Gold declines to near $4,350 on rising odds of Fed rate hike",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Gold declines to near $4,350 on rising odds of Fed rate hike",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Australian Dollar holds its nerve as Fed hawks meet RBA hike bets",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Australian Dollar holds its nerve as Fed hawks meet RBA hike bets",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:RBA’s Hunter backs more hikes as inflation risks entrench",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:RBA’s Hunter backs more hikes as inflation risks entrench",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:NZD/USD Price Forecast: Bears lean on 0.5700 as RSI sinks",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:NZD/USD Price Forecast: Bears lean on 0.5700 as RSI sinks",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:Gold declines to near $4,350 on rising odds of Fed rate hike",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:Gold declines to near $4,350 on rising odds of Fed rate hike",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:Australian Dollar holds its nerve as Fed hawks meet RBA hike bets",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:Australian Dollar holds its nerve as Fed hawks meet RBA hike bets",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:RBA’s Hunter backs more hikes as inflation risks entrench",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:RBA’s Hunter backs more hikes as inflation risks entrench",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:gold:NZD/USD Price Forecast: Bears lean on 0.5700 as RSI sinks",
+      "type": "PRICE_TRACK",
+      "title": "news:gold:NZD/USD Price Forecast: Bears lean on 0.5700 as RSI sinks",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:gold:Gold declines to near $4,350 on rising odds of Fed rate hike",
+      "type": "PRICE_TRACK",
+      "title": "news:gold:Gold declines to near $4,350 on rising odds of Fed rate hike",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:gold:Australian Dollar holds its nerve as Fed hawks meet RBA hike bets",
+      "type": "PRICE_TRACK",
+      "title": "news:gold:Australian Dollar holds its nerve as Fed hawks meet RBA hike bets",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:gold:RBA’s Hunter backs more hikes as inflation risks entrench",
+      "type": "PRICE_TRACK",
+      "title": "news:gold:RBA’s Hunter backs more hikes as inflation risks entrench",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:US Dollar: Fed support seen fading – Commerzbank",
+      "type": "NEWS",
+      "title": "US Dollar: Fed support seen fading – Commerzbank",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Canadian Dollar strengthens on rising oil prices ahead of potential US-Iran talks",
+      "type": "NEWS",
+      "title": "Canadian Dollar strengthens on rising oil prices ahead of potential US-Iran talks",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Gold struggles below $4,350 as hawkish Fed offsets sliding bond yields, softer USD",
+      "type": "NEWS",
+      "title": "Gold struggles below $4,350 as hawkish Fed offsets sliding bond yields, softer USD",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Silver Price Forecast: XAG/USD holds losses near $66.00 amid Fed rate hike bets",
+      "type": "NEWS",
+      "title": "Silver Price Forecast: XAG/USD holds losses near $66.00 amid Fed rate hike bets",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Japanese Yen weakens on BoJ's lack of hawkish guidance, eyes on potential intervention",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Japanese Yen weakens on BoJ's lack of hawkish guidance, eyes on potential intervention",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:New Zealand Dollar slips amid gradual RBNZ rate hike outlook, geopolitical tensions",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:New Zealand Dollar slips amid gradual RBNZ rate hike outlook, geopolitical tensions",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:Japanese Yen weakens on BoJ's lack of hawkish guidance, eyes on potential intervention",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:Japanese Yen weakens on BoJ's lack of hawkish guidance, eyes on potential intervention",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:New Zealand Dollar slips amid gradual RBNZ rate hike outlook, geopolitical tensions",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:New Zealand Dollar slips amid gradual RBNZ rate hike outlook, geopolitical tensions",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:gold:Japanese Yen weakens on BoJ's lack of hawkish guidance, eyes on potential intervention",
+      "type": "PRICE_TRACK",
+      "title": "news:gold:Japanese Yen weakens on BoJ's lack of hawkish guidance, eyes on potential intervention",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:gold:New Zealand Dollar slips amid gradual RBNZ rate hike outlook, geopolitical tensions",
+      "type": "PRICE_TRACK",
+      "title": "news:gold:New Zealand Dollar slips amid gradual RBNZ rate hike outlook, geopolitical tensions",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Silver Price Forecast: XAG/USD holds losses near $66.00 amid Fed rate hike bets",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Silver Price Forecast: XAG/USD holds losses near $66.00 amid Fed rate hike bets",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Gold struggles below $4,350 as hawkish Fed offsets sliding bond yields, softer USD",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Gold struggles below $4,350 as hawkish Fed offsets sliding bond yields, softer USD",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Canadian Dollar strengthens on rising oil prices ahead of potential US-Iran talks",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Canadian Dollar strengthens on rising oil prices ahead of potential US-Iran talks",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:US Dollar: Fed support seen fading – Commerzbank",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:US Dollar: Fed support seen fading – Commerzbank",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:British Pound: Fiscal squeeze risks dovish BoE – BBH",
+      "type": "NEWS",
+      "title": "British Pound: Fiscal squeeze risks dovish BoE – BBH",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Dollar holds on hawkish Fed pricing while yen languishes despite Tokyo support",
+      "type": "NEWS",
+      "title": "Dollar holds on hawkish Fed pricing while yen languishes despite Tokyo support",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Sterling today: Pound slips as hawkish Fed talk lifts dollar broadly",
+      "type": "NEWS",
+      "title": "Sterling today: Pound slips as hawkish Fed talk lifts dollar broadly",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:US Dollar: Modestly stronger into year-end – OCBC",
+      "type": "NEWS",
+      "title": "US Dollar: Modestly stronger into year-end – OCBC",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:South African Rand: SARB hike and hawkish tone – Commerzbank",
+      "type": "NEWS",
+      "title": "South African Rand: SARB hike and hawkish tone – Commerzbank",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Hungarian Forint: NBH stance supports carry appeal – ING",
+      "type": "NEWS",
+      "title": "Hungarian Forint: NBH stance supports carry appeal – ING",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:Silver Price Forecast: XAG/USD holds losses near $66.00 amid Fed rate hike bets",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:Silver Price Forecast: XAG/USD holds losses near $66.00 amid Fed rate hike bets",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:Gold struggles below $4,350 as hawkish Fed offsets sliding bond yields, softer USD",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:Gold struggles below $4,350 as hawkish Fed offsets sliding bond yields, softer USD",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Canadian Dollar dips as Oil slump, dovish BoC outlook underpin USD strength",
+      "type": "NEWS",
+      "title": "Canadian Dollar dips as Oil slump, dovish BoC outlook underpin USD strength",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Gold consolidates as Iran diplomacy hopes clash with hawkish Fed expectations",
+      "type": "NEWS",
+      "title": "Gold consolidates as Iran diplomacy hopes clash with hawkish Fed expectations",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Fed’s Collins: More restrictive policy should help inflation return to 2%",
+      "type": "NEWS",
+      "title": "Fed’s Collins: More restrictive policy should help inflation return to 2%",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Risk sentiment improved and Oil prices fell: Why the US Dollar is still holding firm",
+      "type": "NEWS",
+      "title": "Risk sentiment improved and Oil prices fell: Why the US Dollar is still holding firm",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Hungarian Forint: NBH stance supports carry appeal – ING",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Hungarian Forint: NBH stance supports carry appeal – ING",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:South African Rand: SARB hike and hawkish tone – Commerzbank",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:South African Rand: SARB hike and hawkish tone – Commerzbank",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:US Dollar: Modestly stronger into year-end – OCBC",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:US Dollar: Modestly stronger into year-end – OCBC",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:British Pound: Fiscal squeeze risks dovish BoE – BBH",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:British Pound: Fiscal squeeze risks dovish BoE – BBH",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Sterling today: Pound slips as hawkish Fed talk lifts dollar broadly",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Sterling today: Pound slips as hawkish Fed talk lifts dollar broadly",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Dollar holds on hawkish Fed pricing while yen languishes despite Tokyo support",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Dollar holds on hawkish Fed pricing while yen languishes despite Tokyo support",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:Hungarian Forint: NBH stance supports carry appeal – ING",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:Hungarian Forint: NBH stance supports carry appeal – ING",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:South African Rand: SARB hike and hawkish tone – Commerzbank",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:South African Rand: SARB hike and hawkish tone – Commerzbank",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:gold:Sterling today: Pound slips as hawkish Fed talk lifts dollar broadly",
+      "type": "PRICE_TRACK",
+      "title": "news:gold:Sterling today: Pound slips as hawkish Fed talk lifts dollar broadly",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:gold:Dollar holds on hawkish Fed pricing while yen languishes despite Tokyo support",
+      "type": "PRICE_TRACK",
+      "title": "news:gold:Dollar holds on hawkish Fed pricing while yen languishes despite Tokyo support",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Gold losses altitude as peace hopes meet hawkish Fed bets",
+      "type": "NEWS",
+      "title": "Gold losses altitude as peace hopes meet hawkish Fed bets",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Fed’s Barkin backs rate hike, stays unsure on more increases",
+      "type": "NEWS",
+      "title": "Fed’s Barkin backs rate hike, stays unsure on more increases",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Canadian Dollar dips as Oil slump, dovish BoC outlook underpin USD",
+      "type": "NEWS",
+      "title": "Canadian Dollar dips as Oil slump, dovish BoC outlook underpin USD",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Risk sentiment improved and Oil prices fell: Why the US Dollar is still holding firm",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Risk sentiment improved and Oil prices fell: Why the US Dollar is still holding firm",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Fed’s Collins: More restrictive policy should help inflation return to 2%",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Fed’s Collins: More restrictive policy should help inflation return to 2%",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Gold consolidates as Iran diplomacy hopes clash with hawkish Fed expectations",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Gold consolidates as Iran diplomacy hopes clash with hawkish Fed expectations",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Canadian Dollar dips as Oil slump, dovish BoC outlook underpin USD strength",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Canadian Dollar dips as Oil slump, dovish BoC outlook underpin USD strength",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:Risk sentiment improved and Oil prices fell: Why the US Dollar is still holding firm",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:Risk sentiment improved and Oil prices fell: Why the US Dollar is still holding firm",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:Fed’s Collins: More restrictive policy should help inflation return to 2%",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:Fed’s Collins: More restrictive policy should help inflation return to 2%",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:Gold consolidates as Iran diplomacy hopes clash with hawkish Fed expectations",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:Gold consolidates as Iran diplomacy hopes clash with hawkish Fed expectations",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:Canadian Dollar dips as Oil slump, dovish BoC outlook underpin USD strength",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:Canadian Dollar dips as Oil slump, dovish BoC outlook underpin USD strength",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:gold:Risk sentiment improved and Oil prices fell: Why the US Dollar is still holding firm",
+      "type": "PRICE_TRACK",
+      "title": "news:gold:Risk sentiment improved and Oil prices fell: Why the US Dollar is still holding firm",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:gold:Fed’s Collins: More restrictive policy should help inflation return to 2%",
+      "type": "PRICE_TRACK",
+      "title": "news:gold:Fed’s Collins: More restrictive policy should help inflation return to 2%",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:gold:Gold consolidates as Iran diplomacy hopes clash with hawkish Fed expectations",
+      "type": "PRICE_TRACK",
+      "title": "news:gold:Gold consolidates as Iran diplomacy hopes clash with hawkish Fed expectations",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Canadian Dollar dips as Oil slump, dovish BoC outlook underpin USD",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Canadian Dollar dips as Oil slump, dovish BoC outlook underpin USD",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Fed’s Barkin backs rate hike, stays unsure on more increases",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Fed’s Barkin backs rate hike, stays unsure on more increases",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Gold losses altitude as peace hopes meet hawkish Fed bets",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Gold losses altitude as peace hopes meet hawkish Fed bets",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Australian Dollar remains subdued as Fed and RBA hawks collide",
+      "type": "NEWS",
+      "title": "Australian Dollar remains subdued as Fed and RBA hawks collide",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:The British Pound sets a new September low as Fed officials argue for more",
+      "type": "NEWS",
+      "title": "The British Pound sets a new September low as Fed officials argue for more",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Banxico expected to stay put as inflation risks block easing – Reuters",
+      "type": "NEWS",
+      "title": "Banxico expected to stay put as inflation risks block easing – Reuters",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:Canadian Dollar dips as Oil slump, dovish BoC outlook underpin USD",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:Canadian Dollar dips as Oil slump, dovish BoC outlook underpin USD",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:Fed’s Barkin backs rate hike, stays unsure on more increases",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:Fed’s Barkin backs rate hike, stays unsure on more increases",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:Gold losses altitude as peace hopes meet hawkish Fed bets",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:Gold losses altitude as peace hopes meet hawkish Fed bets",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:gold:Canadian Dollar dips as Oil slump, dovish BoC outlook underpin USD",
+      "type": "PRICE_TRACK",
+      "title": "news:gold:Canadian Dollar dips as Oil slump, dovish BoC outlook underpin USD",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:gold:Fed’s Barkin backs rate hike, stays unsure on more increases",
+      "type": "PRICE_TRACK",
+      "title": "news:gold:Fed’s Barkin backs rate hike, stays unsure on more increases",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:gold:Gold losses altitude as peace hopes meet hawkish Fed bets",
+      "type": "PRICE_TRACK",
+      "title": "news:gold:Gold losses altitude as peace hopes meet hawkish Fed bets",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Banxico expected to stay put as inflation risks block easing – Reuters",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Banxico expected to stay put as inflation risks block easing – Reuters",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:The British Pound sets a new September low as Fed officials argue for more",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:The British Pound sets a new September low as Fed officials argue for more",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Australian Dollar remains subdued as Fed and RBA hawks collide",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Australian Dollar remains subdued as Fed and RBA hawks collide",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:Banxico expected to stay put as inflation risks block easing – Reuters",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:Banxico expected to stay put as inflation risks block easing – Reuters",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:The British Pound sets a new September low as Fed officials argue for more",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:The British Pound sets a new September low as Fed officials argue for more",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:Australian Dollar remains subdued as Fed and RBA hawks collide",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:Australian Dollar remains subdued as Fed and RBA hawks collide",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Euro weakens below 1.1450 on hawkish Fed signals, German political risks",
+      "type": "NEWS",
+      "title": "Euro weakens below 1.1450 on hawkish Fed signals, German political risks",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:gold:Banxico expected to stay put as inflation risks block easing – Reuters",
+      "type": "PRICE_TRACK",
+      "title": "news:gold:Banxico expected to stay put as inflation risks block easing – Reuters",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:gold:The British Pound sets a new September low as Fed officials argue for more",
+      "type": "PRICE_TRACK",
+      "title": "news:gold:The British Pound sets a new September low as Fed officials argue for more",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:gold:Australian Dollar remains subdued as Fed and RBA hawks collide",
+      "type": "PRICE_TRACK",
+      "title": "news:gold:Australian Dollar remains subdued as Fed and RBA hawks collide",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:gold:Euro weakens below 1.1450 on hawkish Fed signals, German political risks",
+      "type": "PRICE_TRACK",
+      "title": "news:gold:Euro weakens below 1.1450 on hawkish Fed signals, German political risks",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Japanese Yen softens on BoJ's lack of hawkish guidance, potential intervention eyed",
+      "type": "NEWS",
+      "title": "Japanese Yen softens on BoJ's lack of hawkish guidance, potential intervention eyed",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "news:Silver Price Forecast: XAG/USD falls to near $66.50 as Fed signals further rate hikes",
+      "type": "NEWS",
+      "title": "Silver Price Forecast: XAG/USD falls to near $66.50 as Fed signals further rate hikes",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Euro weakens below 1.1450 on hawkish Fed signals, German political risks",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Euro weakens below 1.1450 on hawkish Fed signals, German political risks",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:crypto:Euro weakens below 1.1450 on hawkish Fed signals, German political risks",
+      "type": "PRICE_TRACK",
+      "title": "news:crypto:Euro weakens below 1.1450 on hawkish Fed signals, German political risks",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    },
+    {
+      "key": "result:news:forex:Japanese Yen softens on BoJ's lack of hawkish guidance, potential intervention eyed",
+      "type": "PRICE_TRACK",
+      "title": "news:forex:Japanese Yen softens on BoJ's lack of hawkish guidance, potential intervention eyed",
+      "timeMYT": "recorded",
+      "at": null,
+      "legacy": true
+    }
+  ],
+  "alertHistoryGeneratedAt": "2026-09-28T14:07:38.733Z"
 };
 
 /* Merges window.NEWS_AUTO into window.MARKET_DATA in place, de-duplicating by url/title.

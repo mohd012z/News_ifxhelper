@@ -735,6 +735,7 @@
         <select id="set-voice-style" class="tinput" style="margin-top:6px;width:100%"></select>
         <div class="row-flex" style="margin-top:6px">
           <span class="chip go" id="set-voice-test">Preview voice</span>
+          <span class="chip" id="set-voice-status" title="Engine status"></span>
         </div>
       </div>
       <div>
@@ -755,7 +756,17 @@
   <script src="./shared-market-logic.js"></script>
   <script src="./live.js"></script>
   <script src="./app.js"></script>
+  <!-- PHASE B: canonical BBMA authority — must load BEFORE bbma-runtime.js,
+       which delegates classify() to BBMAEngine (no third implementation). -->
+  <script src="./lib/bbma-engine.js" onerror="console.warn('bbma-engine missing')"></script>
   <script src="./bbma-runtime.js"></script>
+  <script src="./lib/label-layout-engine.js" onerror="console.warn('label-layout-engine missing')"></script>
+  <script src="./lib/bbma-chart-zones.js" onerror="console.warn('bbma-chart-zones missing')"></script>
+  <script src="./lib/instrument.js" onerror="console.warn('instrument missing')"></script>
+  <script src="./lib/bbma-confidence.js" onerror="console.warn('bbma-confidence missing')"></script>
+  <script src="./lib/alert-lifecycle.js" onerror="console.warn('alert-lifecycle missing')"></script>
+  <!-- lib/bbma-demo.js is deliberately NOT loaded on the production page:
+       synthetic/init data must never be reachable from the evidence path. -->
   <script src="./bbma-dashboard-ui.js"></script>
   <script src="./bbma-router-fix.js"></script>
   <script src="./bbma-link.js"></script>

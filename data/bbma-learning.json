@@ -1,0 +1,3103 @@
+[
+  {
+    "schemaVersion": 3,
+    "generationId": "bbma-f3006cbd7f8db7c1eb62",
+    "sourceGeneratedAt": "2026-09-28T19:56:41.634Z",
+    "symbol": "GC=F",
+    "tf": "M1",
+    "candleTime": "2026-09-28T20:29:03.000Z",
+    "createdAt": "2026-09-28T20:39:19.474Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Barkin Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-09-28T17:30:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "DOWN_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_down"
+    ],
+    "status": "PENDING",
+    "id": "d082e73fa98904ba22ed",
+    "algoGenerationId": "gen-a0080007b822d56bd93f",
+    "instrumentId": "GC_FUTURES"
+  },
+  {
+    "schemaVersion": 3,
+    "generationId": "bbma-f3006cbd7f8db7c1eb62",
+    "sourceGeneratedAt": "2026-09-28T19:56:41.634Z",
+    "symbol": "GC=F",
+    "tf": "M5",
+    "candleTime": "2026-09-28T20:25:00.000Z",
+    "createdAt": "2026-09-28T20:39:19.474Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Barkin Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-09-28T17:30:00.000Z"
+    },
+    "location": "LOW_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "DOWN_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_down"
+    ],
+    "status": "SETTLED",
+    "id": "a372cdde6f1c73e783ee",
+    "algoGenerationId": "gen-a0080007b822d56bd93f",
+    "instrumentId": "GC_FUTURES",
+    "settledAt": "2026-09-28T22:19:19.230Z",
+    "nextCandleTime": "2026-09-28T20:30:00.000Z",
+    "actualDirection": "DOWN",
+    "predictedDirection": "DOWN",
+    "correct": true,
+    "nextReturnPct": -0.0482,
+    "mfePct": 0.0145,
+    "maePct": -0.0602,
+    "excursion": {
+      "highExcursionPct": 0.0145,
+      "lowExcursionPct": -0.0602,
+      "favorableExcursionPct": -0.0602,
+      "adverseExcursionPct": 0.0145,
+      "note": "DOWN-call: favorable = low side"
+    },
+    "rangePct": 0.0747,
+    "closeLocationPct": 16.13,
+    "multiHorizon": {
+      "tf": "M5",
+      "anchorCandleTime": "2026-09-28T20:25:00.000Z",
+      "predictedDirection": "DOWN",
+      "plus": {
+        "plus1": {
+          "time": "2026-09-28T20:30:00.000Z",
+          "direction": "DOWN",
+          "returnPct": -0.0434
+        },
+        "plus2": {
+          "time": "2026-09-28T20:35:00.000Z",
+          "direction": "UP",
+          "returnPct": -0.0337
+        },
+        "plus3": {
+          "time": "2026-09-28T20:40:00.000Z",
+          "direction": "DOWN",
+          "returnPct": -0.0916
+        },
+        "plus5": {
+          "time": "2026-09-28T20:50:00.000Z",
+          "direction": "UP",
+          "returnPct": -0.0843
+        }
+      },
+      "mfePct": -0.1542,
+      "maePct": 0.0193,
+      "nextState": "CSAK",
+      "barsToNextState": 1,
+      "plus1Against": false,
+      "complete": true
+    },
+    "memoryRoot": "GC_FUTURES_PROXY"
+  },
+  {
+    "schemaVersion": 3,
+    "generationId": "bbma-f3006cbd7f8db7c1eb62",
+    "sourceGeneratedAt": "2026-09-28T19:56:41.634Z",
+    "symbol": "GC=F",
+    "tf": "M15",
+    "candleTime": "2026-09-28T20:15:00.000Z",
+    "createdAt": "2026-09-28T20:39:19.474Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Barkin Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-09-28T17:30:00.000Z"
+    },
+    "location": "MID_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "CSAK_DOWN"
+    },
+    "squeeze": "SQUEEZE",
+    "state": "RANGE_OR_BREAKOUT_WATCH",
+    "confidence": 50,
+    "reasons": [
+      "trend_down",
+      "squeeze_pre_breakout"
+    ],
+    "status": "SETTLED",
+    "id": "409bd3e973f965a64602",
+    "algoGenerationId": "gen-a0080007b822d56bd93f",
+    "instrumentId": "GC_FUTURES",
+    "settledAt": "2026-09-28T22:19:19.230Z",
+    "nextCandleTime": "2026-09-28T20:30:00.000Z",
+    "actualDirection": "DOWN",
+    "predictedDirection": "FLAT",
+    "correct": false,
+    "nextReturnPct": -0.0964,
+    "mfePct": 0.0145,
+    "maePct": -0.1036,
+    "excursion": {
+      "highExcursionPct": 0.0145,
+      "lowExcursionPct": -0.1036,
+      "favorableExcursionPct": 0.0145,
+      "adverseExcursionPct": -0.1036,
+      "note": "FLAT-call: favorable = high side"
+    },
+    "rangePct": 0.118,
+    "closeLocationPct": 6.12,
+    "multiHorizon": {
+      "tf": "M15",
+      "anchorCandleTime": "2026-09-28T20:15:00.000Z",
+      "predictedDirection": "UNKNOWN",
+      "plus": {
+        "plus1": {
+          "time": "2026-09-28T20:30:00.000Z",
+          "direction": "DOWN",
+          "returnPct": -0.0916
+        },
+        "plus2": {
+          "time": "2026-09-28T20:45:00.000Z",
+          "direction": "UP",
+          "returnPct": -0.053
+        },
+        "plus3": {
+          "time": "2026-09-28T22:00:00.000Z",
+          "direction": "UP",
+          "returnPct": 0.106
+        },
+        "plus5": {
+          "time": "2026-09-28T22:30:00.000Z",
+          "direction": "DOWN",
+          "returnPct": 0.1373
+        }
+      },
+      "mfePct": null,
+      "maePct": null,
+      "nextState": "MOM",
+      "barsToNextState": 1,
+      "plus1Against": false,
+      "complete": true
+    },
+    "memoryRoot": "GC_FUTURES_PROXY"
+  },
+  {
+    "schemaVersion": 3,
+    "generationId": "bbma-f3006cbd7f8db7c1eb62",
+    "sourceGeneratedAt": "2026-09-28T19:56:41.634Z",
+    "symbol": "GC=F",
+    "tf": "M30",
+    "candleTime": "2026-09-28T20:00:00.000Z",
+    "createdAt": "2026-09-28T20:39:19.474Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Barkin Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-09-28T17:30:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "TIGHT",
+    "state": "DOWN_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_down"
+    ],
+    "status": "SETTLED",
+    "id": "7a68393ba793df8c2e96",
+    "algoGenerationId": "gen-a0080007b822d56bd93f",
+    "instrumentId": "GC_FUTURES",
+    "settledAt": "2026-09-28T22:19:19.230Z",
+    "nextCandleTime": "2026-09-28T20:30:00.000Z",
+    "actualDirection": "DOWN",
+    "predictedDirection": "DOWN",
+    "correct": true,
+    "nextReturnPct": -0.0578,
+    "mfePct": 0.0145,
+    "maePct": -0.1614,
+    "excursion": {
+      "highExcursionPct": 0.0145,
+      "lowExcursionPct": -0.1614,
+      "favorableExcursionPct": -0.1614,
+      "adverseExcursionPct": 0.0145,
+      "note": "DOWN-call: favorable = low side"
+    },
+    "rangePct": 0.1759,
+    "closeLocationPct": 58.9,
+    "multiHorizon": {
+      "tf": "M30",
+      "anchorCandleTime": "2026-09-28T20:00:00.000Z",
+      "predictedDirection": "DOWN",
+      "plus": {
+        "plus1": {
+          "time": "2026-09-28T20:30:00.000Z",
+          "direction": "DOWN",
+          "returnPct": -0.053
+        },
+        "plus2": {
+          "time": "2026-09-28T22:00:00.000Z",
+          "direction": "UP",
+          "returnPct": 0.171
+        },
+        "plus3": {
+          "time": "2026-09-28T22:30:00.000Z",
+          "direction": "DOWN",
+          "returnPct": 0.0819
+        },
+        "plus5": {
+          "time": "2026-09-28T23:30:00.000Z",
+          "direction": "DOWN",
+          "returnPct": 0.2144
+        }
+      },
+      "mfePct": -0.1566,
+      "maePct": 0.2578,
+      "nextState": "CSAK",
+      "barsToNextState": 1,
+      "plus1Against": false,
+      "complete": true
+    },
+    "memoryRoot": "GC_FUTURES_PROXY"
+  },
+  {
+    "schemaVersion": 3,
+    "generationId": "bbma-f3006cbd7f8db7c1eb62",
+    "sourceGeneratedAt": "2026-09-28T19:56:41.634Z",
+    "symbol": "GC=F",
+    "tf": "H1",
+    "candleTime": "2026-09-28T19:00:00.000Z",
+    "createdAt": "2026-09-28T20:39:19.474Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Barkin Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-09-28T17:30:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "TIGHT",
+    "state": "DOWN_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_down"
+    ],
+    "status": "SETTLED",
+    "id": "0232cc48f56f65351651",
+    "algoGenerationId": "gen-a0080007b822d56bd93f",
+    "instrumentId": "GC_FUTURES",
+    "settledAt": "2026-09-28T22:19:19.231Z",
+    "nextCandleTime": "2026-09-28T20:00:00.000Z",
+    "actualDirection": "DOWN",
+    "predictedDirection": "DOWN",
+    "correct": true,
+    "nextReturnPct": -0.1829,
+    "mfePct": 0.0192,
+    "maePct": -0.2863,
+    "excursion": {
+      "highExcursionPct": 0.0192,
+      "lowExcursionPct": -0.2863,
+      "favorableExcursionPct": -0.2863,
+      "adverseExcursionPct": 0.0192,
+      "note": "DOWN-call: favorable = low side"
+    },
+    "rangePct": 0.3056,
+    "closeLocationPct": 33.86,
+    "multiHorizon": {
+      "tf": "H1",
+      "anchorCandleTime": "2026-09-28T19:00:00.000Z",
+      "predictedDirection": "DOWN",
+      "plus": {
+        "plus1": {
+          "time": "2026-09-28T20:00:00.000Z",
+          "direction": "DOWN",
+          "returnPct": -0.1877
+        },
+        "plus2": {
+          "time": "2026-09-28T22:00:00.000Z",
+          "direction": "UP",
+          "returnPct": -0.0529
+        },
+        "plus3": {
+          "time": "2026-09-28T23:00:00.000Z",
+          "direction": "UP",
+          "returnPct": 0.0794
+        },
+        "plus5": {
+          "time": "2026-09-29T01:00:00.000Z",
+          "direction": "UP",
+          "returnPct": 0.255
+        }
+      },
+      "mfePct": -0.2911,
+      "maePct": 0.2959,
+      "nextState": "CSAK",
+      "barsToNextState": 1,
+      "plus1Against": false,
+      "complete": true
+    },
+    "memoryRoot": "GC_FUTURES_PROXY"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-a45f021fff37040ef1a5",
+    "sourceGeneratedAt": "2026-09-28T22:19:18.901Z",
+    "symbol": "GC=F",
+    "tf": "M1",
+    "candleTime": "2026-09-28T22:09:09.000Z",
+    "createdAt": "2026-09-28T22:19:19.233Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Barkin Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-09-28T17:30:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "UP",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "UP_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_up"
+    ],
+    "status": "PENDING",
+    "id": "4dfe2cfebf407819b0fa",
+    "algoGenerationId": "gen-b5d29cc3961171703dcf",
+    "instrumentId": "GC_FUTURES"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-a45f021fff37040ef1a5",
+    "sourceGeneratedAt": "2026-09-28T22:19:18.901Z",
+    "symbol": "GC=F",
+    "tf": "M5",
+    "candleTime": "2026-09-28T22:05:00.000Z",
+    "createdAt": "2026-09-28T22:19:19.233Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Barkin Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-09-28T17:30:00.000Z"
+    },
+    "location": "MID_BB",
+    "bbma": {
+      "trend": "MIXED",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "CSAK_UP"
+    },
+    "squeeze": "TIGHT",
+    "state": "RANGE_OR_BREAKOUT_WATCH",
+    "confidence": 100,
+    "reasons": [],
+    "status": "SETTLED",
+    "id": "8d9f15629ed4deedaea9",
+    "algoGenerationId": "gen-b5d29cc3961171703dcf",
+    "instrumentId": "GC_FUTURES",
+    "settledAt": "2026-09-28T22:23:06.643Z",
+    "nextCandleTime": "2026-09-28T22:10:00.000Z",
+    "actualDirection": "DOWN",
+    "predictedDirection": "FLAT",
+    "correct": false,
+    "nextReturnPct": -0.0361,
+    "mfePct": 0,
+    "maePct": -0.0626,
+    "excursion": {
+      "highExcursionPct": 0,
+      "lowExcursionPct": -0.0626,
+      "favorableExcursionPct": 0,
+      "adverseExcursionPct": -0.0626,
+      "note": "FLAT-call: favorable = high side"
+    },
+    "rangePct": 0.0626,
+    "closeLocationPct": 42.31,
+    "multiHorizon": {
+      "tf": "M5",
+      "anchorCandleTime": "2026-09-28T22:05:00.000Z",
+      "predictedDirection": "UNKNOWN",
+      "plus": {
+        "plus1": {
+          "time": "2026-09-28T22:10:00.000Z",
+          "direction": "UP",
+          "returnPct": -0.012
+        },
+        "plus2": {
+          "time": "2026-09-28T22:15:00.000Z",
+          "direction": "UP",
+          "returnPct": -0.0048
+        },
+        "plus3": {
+          "time": "2026-09-28T22:20:00.000Z",
+          "direction": "UP",
+          "returnPct": 0.0529
+        },
+        "plus5": {
+          "time": "2026-09-28T22:30:00.000Z",
+          "direction": "DOWN",
+          "returnPct": -0.0072
+        }
+      },
+      "mfePct": null,
+      "maePct": null,
+      "nextState": "RANGE",
+      "barsToNextState": 5,
+      "plus1Against": false,
+      "complete": true
+    },
+    "memoryRoot": "GC_FUTURES_PROXY"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-a45f021fff37040ef1a5",
+    "sourceGeneratedAt": "2026-09-28T22:19:18.901Z",
+    "symbol": "GC=F",
+    "tf": "M15",
+    "candleTime": "2026-09-28T20:45:00.000Z",
+    "createdAt": "2026-09-28T22:19:19.233Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Barkin Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-09-28T17:30:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "DOWN_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_down"
+    ],
+    "status": "PENDING",
+    "id": "fce60d48a8f347cbdb83",
+    "algoGenerationId": "gen-b5d29cc3961171703dcf",
+    "instrumentId": "GC_FUTURES"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-a45f021fff37040ef1a5",
+    "sourceGeneratedAt": "2026-09-28T22:19:18.901Z",
+    "symbol": "GC=F",
+    "tf": "M30",
+    "candleTime": "2026-09-28T20:30:00.000Z",
+    "createdAt": "2026-09-28T22:19:19.233Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Barkin Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-09-28T17:30:00.000Z"
+    },
+    "location": "LOW_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "CSAK_DOWN"
+    },
+    "squeeze": "NORMAL",
+    "state": "DOWN_BIAS",
+    "confidence": 67,
+    "reasons": [
+      "trend_down",
+      "low_rejection_candidate"
+    ],
+    "status": "PENDING",
+    "id": "9faf040acd930a7e77b1",
+    "algoGenerationId": "gen-b5d29cc3961171703dcf",
+    "instrumentId": "GC_FUTURES"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-a45f021fff37040ef1a5",
+    "sourceGeneratedAt": "2026-09-28T22:19:18.901Z",
+    "symbol": "GC=F",
+    "tf": "H1",
+    "candleTime": "2026-09-28T20:00:00.000Z",
+    "createdAt": "2026-09-28T22:19:19.233Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Barkin Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-09-28T17:30:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "CSAK_DOWN"
+    },
+    "squeeze": "SQUEEZE",
+    "state": "RANGE_OR_BREAKOUT_WATCH",
+    "confidence": 50,
+    "reasons": [
+      "trend_down",
+      "squeeze_pre_breakout"
+    ],
+    "status": "PENDING",
+    "id": "7e3effa0498d0b849979",
+    "algoGenerationId": "gen-b5d29cc3961171703dcf",
+    "instrumentId": "GC_FUTURES"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-a45f021fff37040ef1a5",
+    "sourceGeneratedAt": "2026-09-28T22:19:18.901Z",
+    "symbol": "GC=F",
+    "tf": "M1",
+    "candleTime": "2026-09-28T22:13:02.000Z",
+    "createdAt": "2026-09-28T22:23:06.644Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Barkin Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-09-28T17:30:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "UP",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "UP_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_up"
+    ],
+    "status": "PENDING",
+    "id": "ef65694d30260404c1a0",
+    "algoGenerationId": "gen-b5d29cc3961171703dcf",
+    "instrumentId": "GC_FUTURES"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-a45f021fff37040ef1a5",
+    "sourceGeneratedAt": "2026-09-28T22:19:18.901Z",
+    "symbol": "GC=F",
+    "tf": "M5",
+    "candleTime": "2026-09-28T22:10:00.000Z",
+    "createdAt": "2026-09-28T22:23:06.644Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Barkin Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-09-28T17:30:00.000Z"
+    },
+    "location": "MID_BB",
+    "bbma": {
+      "trend": "MIXED",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "CSAK_UP"
+    },
+    "squeeze": "TIGHT",
+    "state": "RANGE_OR_BREAKOUT_WATCH",
+    "confidence": 100,
+    "reasons": [],
+    "status": "SETTLED",
+    "id": "549136dadc8349412dd4",
+    "algoGenerationId": "gen-b5d29cc3961171703dcf",
+    "instrumentId": "GC_FUTURES",
+    "settledAt": "2026-09-28T22:28:41.857Z",
+    "nextCandleTime": "2026-09-28T22:15:00.000Z",
+    "actualDirection": "UP",
+    "predictedDirection": "FLAT",
+    "correct": false,
+    "nextReturnPct": 0.0096,
+    "mfePct": 0.0241,
+    "maePct": -0.0168,
+    "excursion": {
+      "highExcursionPct": 0.0241,
+      "lowExcursionPct": -0.0168,
+      "favorableExcursionPct": 0.0241,
+      "adverseExcursionPct": -0.0168,
+      "note": "FLAT-call: favorable = high side"
+    },
+    "rangePct": 0.0409,
+    "closeLocationPct": 64.72,
+    "multiHorizon": {
+      "tf": "M5",
+      "anchorCandleTime": "2026-09-28T22:10:00.000Z",
+      "predictedDirection": "UNKNOWN",
+      "plus": {
+        "plus1": {
+          "time": "2026-09-28T22:15:00.000Z",
+          "direction": "UP",
+          "returnPct": 0.0072
+        },
+        "plus2": {
+          "time": "2026-09-28T22:20:00.000Z",
+          "direction": "UP",
+          "returnPct": 0.065
+        },
+        "plus3": {
+          "time": "2026-09-28T22:25:00.000Z",
+          "direction": "UP",
+          "returnPct": 0.065
+        },
+        "plus5": {
+          "time": "2026-09-28T22:35:00.000Z",
+          "direction": "DOWN",
+          "returnPct": -0.0169
+        }
+      },
+      "mfePct": null,
+      "maePct": null,
+      "nextState": "RANGE",
+      "barsToNextState": 5,
+      "plus1Against": false,
+      "complete": true
+    },
+    "memoryRoot": "GC_FUTURES_PROXY"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-a45f021fff37040ef1a5",
+    "sourceGeneratedAt": "2026-09-28T22:19:18.901Z",
+    "symbol": "GC=F",
+    "tf": "M15",
+    "candleTime": "2026-09-28T22:00:00.000Z",
+    "createdAt": "2026-09-28T22:23:06.644Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Barkin Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-09-28T17:30:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "DOWN_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_down"
+    ],
+    "status": "SETTLED",
+    "id": "7420b90462b4d22dd2bd",
+    "algoGenerationId": "gen-b5d29cc3961171703dcf",
+    "instrumentId": "GC_FUTURES",
+    "predictionId": "pred-7e63b139b64d2ecc13802e91",
+    "snapshotId": "d4c4cf31b793dac2e8b39d95",
+    "settledAt": "2026-09-28T22:40:22.602Z",
+    "nextCandleTime": "2026-09-28T22:15:00.000Z",
+    "actualDirection": "UP",
+    "predictedDirection": "DOWN",
+    "correct": false,
+    "nextReturnPct": 0.0602,
+    "mfePct": 0.0939,
+    "maePct": -0.0168,
+    "excursion": {
+      "highExcursionPct": 0.0939,
+      "lowExcursionPct": -0.0168,
+      "favorableExcursionPct": -0.0168,
+      "adverseExcursionPct": 0.0939,
+      "note": "DOWN-call: favorable = low side"
+    },
+    "rangePct": 0.1107,
+    "closeLocationPct": 69.56,
+    "multiHorizon": {
+      "tf": "M15",
+      "anchorCandleTime": "2026-09-28T22:00:00.000Z",
+      "predictedDirection": "DOWN",
+      "plus": {
+        "plus1": {
+          "time": "2026-09-28T22:15:00.000Z",
+          "direction": "UP",
+          "returnPct": 0.065
+        },
+        "plus2": {
+          "time": "2026-09-28T22:30:00.000Z",
+          "direction": "DOWN",
+          "returnPct": 0.0313
+        },
+        "plus3": {
+          "time": "2026-09-28T22:45:00.000Z",
+          "direction": "DOWN",
+          "returnPct": -0.0241
+        },
+        "plus5": {
+          "time": "2026-09-28T23:15:00.000Z",
+          "direction": "UP",
+          "returnPct": 0.13
+        }
+      },
+      "mfePct": -0.0602,
+      "maePct": 0.1492,
+      "nextState": "RE",
+      "barsToNextState": 3,
+      "plus1Against": true,
+      "complete": true
+    },
+    "memoryRoot": "GC_FUTURES_PROXY"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-ae9cb17f5a5903192729",
+    "sourceGeneratedAt": "2026-09-28T22:23:35.034Z",
+    "symbol": "GC=F",
+    "tf": "M1",
+    "candleTime": "2026-09-28T22:13:30.000Z",
+    "createdAt": "2026-09-28T22:23:35.374Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Barkin Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-09-28T17:30:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "UP",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "UP_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_up"
+    ],
+    "status": "PENDING",
+    "id": "7aca7ddd27f2040dfa69",
+    "algoGenerationId": "gen-b5d29cc3961171703dcf",
+    "instrumentId": "GC_FUTURES"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-52357593aa40a3b1036a",
+    "sourceGeneratedAt": "2026-09-28T22:27:00.990Z",
+    "symbol": "GC=F",
+    "tf": "M1",
+    "candleTime": "2026-09-28T22:16:35.000Z",
+    "createdAt": "2026-09-28T22:27:01.528Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Barkin Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-09-28T17:30:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "UP",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "TIGHT",
+    "state": "UP_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_up"
+    ],
+    "status": "PENDING",
+    "id": "3976f7016beb3aafe2ef",
+    "algoGenerationId": "gen-b5d29cc3961171703dcf",
+    "instrumentId": "GC_FUTURES"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-52357593aa40a3b1036a",
+    "sourceGeneratedAt": "2026-09-28T22:27:00.990Z",
+    "symbol": "GC=F",
+    "tf": "M1",
+    "candleTime": "2026-09-28T22:18:26.000Z",
+    "createdAt": "2026-09-28T22:28:41.871Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Barkin Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-09-28T17:30:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "UP",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "TIGHT",
+    "state": "UP_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_up"
+    ],
+    "status": "PENDING",
+    "id": "4751d6e4ddc3d754c894",
+    "algoGenerationId": "gen-b5d29cc3961171703dcf",
+    "instrumentId": "GC_FUTURES"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-52357593aa40a3b1036a",
+    "sourceGeneratedAt": "2026-09-28T22:27:00.990Z",
+    "symbol": "GC=F",
+    "tf": "M5",
+    "candleTime": "2026-09-28T22:15:00.000Z",
+    "createdAt": "2026-09-28T22:28:41.871Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Barkin Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-09-28T17:30:00.000Z"
+    },
+    "location": "MID_BB",
+    "bbma": {
+      "trend": "MIXED",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "CSAK_UP"
+    },
+    "squeeze": "TIGHT",
+    "state": "RANGE_OR_BREAKOUT_WATCH",
+    "confidence": 100,
+    "reasons": [],
+    "status": "SETTLED",
+    "id": "1f0c309ca4178ccdc7ec",
+    "algoGenerationId": "gen-b5d29cc3961171703dcf",
+    "instrumentId": "GC_FUTURES",
+    "settledAt": "2026-09-28T22:40:22.617Z",
+    "nextCandleTime": "2026-09-28T22:20:00.000Z",
+    "actualDirection": "UP",
+    "predictedDirection": "FLAT",
+    "correct": false,
+    "nextReturnPct": 0.0481,
+    "mfePct": 0.0818,
+    "maePct": 0,
+    "excursion": {
+      "highExcursionPct": 0.0818,
+      "lowExcursionPct": 0,
+      "favorableExcursionPct": 0.0818,
+      "adverseExcursionPct": 0,
+      "note": "FLAT-call: favorable = high side"
+    },
+    "rangePct": 0.0818,
+    "closeLocationPct": 58.82,
+    "multiHorizon": {
+      "tf": "M5",
+      "anchorCandleTime": "2026-09-28T22:15:00.000Z",
+      "predictedDirection": "UNKNOWN",
+      "plus": {
+        "plus1": {
+          "time": "2026-09-28T22:20:00.000Z",
+          "direction": "UP",
+          "returnPct": 0.0578
+        },
+        "plus2": {
+          "time": "2026-09-28T22:25:00.000Z",
+          "direction": "UP",
+          "returnPct": 0.0578
+        },
+        "plus3": {
+          "time": "2026-09-28T22:30:00.000Z",
+          "direction": "DOWN",
+          "returnPct": -0.0024
+        },
+        "plus5": {
+          "time": "2026-09-28T22:40:00.000Z",
+          "direction": "UP",
+          "returnPct": 0.0241
+        }
+      },
+      "mfePct": null,
+      "maePct": null,
+      "nextState": "RANGE",
+      "barsToNextState": 3,
+      "plus1Against": false,
+      "complete": true
+    },
+    "memoryRoot": "GC_FUTURES_PROXY"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-52357593aa40a3b1036a",
+    "sourceGeneratedAt": "2026-09-28T22:27:00.990Z",
+    "symbol": "GC=F",
+    "tf": "M1",
+    "candleTime": "2026-09-28T22:30:20.000Z",
+    "createdAt": "2026-09-28T22:40:22.625Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Barkin Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-09-28T17:30:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "UP",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "TIGHT",
+    "state": "UP_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_up"
+    ],
+    "status": "PENDING",
+    "id": "aa7e4c1051e7dde24c61",
+    "algoGenerationId": "gen-b5d29cc3961171703dcf",
+    "instrumentId": "GC_FUTURES"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-52357593aa40a3b1036a",
+    "sourceGeneratedAt": "2026-09-28T22:27:00.990Z",
+    "symbol": "GC=F",
+    "tf": "M5",
+    "candleTime": "2026-09-28T22:25:00.000Z",
+    "createdAt": "2026-09-28T22:40:22.625Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Barkin Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-09-28T17:30:00.000Z"
+    },
+    "location": "MID_BB",
+    "bbma": {
+      "trend": "MIXED",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "CSAK_UP"
+    },
+    "squeeze": "TIGHT",
+    "state": "RANGE_OR_BREAKOUT_WATCH",
+    "confidence": 100,
+    "reasons": [],
+    "status": "SETTLED",
+    "id": "23a8d0cde3453674acdf",
+    "algoGenerationId": "gen-b5d29cc3961171703dcf",
+    "instrumentId": "GC_FUTURES",
+    "settledAt": "2026-09-29T07:02:56.927Z",
+    "nextCandleTime": "2026-09-28T22:30:00.000Z",
+    "actualDirection": "DOWN",
+    "predictedDirection": "FLAT",
+    "correct": false,
+    "nextReturnPct": -0.0649,
+    "mfePct": 0.0024,
+    "maePct": -0.101,
+    "excursion": {
+      "highExcursionPct": 0.0024,
+      "lowExcursionPct": -0.101,
+      "favorableExcursionPct": 0.0024,
+      "adverseExcursionPct": -0.101,
+      "note": "FLAT-call: favorable = high side"
+    },
+    "rangePct": 0.1034,
+    "closeLocationPct": 34.88,
+    "multiHorizon": {
+      "tf": "M5",
+      "anchorCandleTime": "2026-09-28T22:25:00.000Z",
+      "predictedDirection": "UNKNOWN",
+      "plus": {
+        "plus1": {
+          "time": "2026-09-28T22:30:00.000Z",
+          "direction": "DOWN",
+          "returnPct": -0.0601
+        },
+        "plus2": {
+          "time": "2026-09-28T22:35:00.000Z",
+          "direction": "DOWN",
+          "returnPct": -0.0818
+        },
+        "plus3": {
+          "time": "2026-09-28T22:40:00.000Z",
+          "direction": "UP",
+          "returnPct": -0.0337
+        },
+        "plus5": {
+          "time": "2026-09-28T22:50:00.000Z",
+          "direction": "DOWN",
+          "returnPct": -0.089
+        }
+      },
+      "mfePct": null,
+      "maePct": null,
+      "nextState": "RANGE",
+      "barsToNextState": 1,
+      "plus1Against": false,
+      "complete": true
+    },
+    "memoryRoot": "GC_FUTURES_PROXY"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-52357593aa40a3b1036a",
+    "sourceGeneratedAt": "2026-09-28T22:27:00.990Z",
+    "symbol": "GC=F",
+    "tf": "M15",
+    "candleTime": "2026-09-28T22:15:00.000Z",
+    "createdAt": "2026-09-28T22:40:22.626Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Barkin Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-09-28T17:30:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "TIGHT",
+    "state": "DOWN_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_down"
+    ],
+    "status": "SETTLED",
+    "id": "4ddaff011f6ccb62a68d",
+    "algoGenerationId": "gen-b5d29cc3961171703dcf",
+    "instrumentId": "GC_FUTURES",
+    "settledAt": "2026-09-29T07:02:56.927Z",
+    "nextCandleTime": "2026-09-28T22:30:00.000Z",
+    "actualDirection": "DOWN",
+    "predictedDirection": "DOWN",
+    "correct": true,
+    "nextReturnPct": -0.0385,
+    "mfePct": 0.0024,
+    "maePct": -0.101,
+    "excursion": {
+      "highExcursionPct": 0.0024,
+      "lowExcursionPct": -0.101,
+      "favorableExcursionPct": -0.101,
+      "adverseExcursionPct": 0.0024,
+      "note": "DOWN-call: favorable = low side"
+    },
+    "rangePct": 0.1034,
+    "closeLocationPct": 60.46,
+    "multiHorizon": {
+      "tf": "M15",
+      "anchorCandleTime": "2026-09-28T22:15:00.000Z",
+      "predictedDirection": "DOWN",
+      "plus": {
+        "plus1": {
+          "time": "2026-09-28T22:30:00.000Z",
+          "direction": "DOWN",
+          "returnPct": -0.0337
+        },
+        "plus2": {
+          "time": "2026-09-28T22:45:00.000Z",
+          "direction": "DOWN",
+          "returnPct": -0.089
+        },
+        "plus3": {
+          "time": "2026-09-28T23:00:00.000Z",
+          "direction": "UP",
+          "returnPct": -0.0048
+        },
+        "plus5": {
+          "time": "2026-09-28T23:30:00.000Z",
+          "direction": "DOWN",
+          "returnPct": 0.0168
+        }
+      },
+      "mfePct": -0.1251,
+      "maePct": 0.0866,
+      "nextState": "RE",
+      "barsToNextState": 2,
+      "plus1Against": false,
+      "complete": true
+    },
+    "memoryRoot": "GC_FUTURES_PROXY"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-52357593aa40a3b1036a",
+    "sourceGeneratedAt": "2026-09-28T22:27:00.990Z",
+    "symbol": "GC=F",
+    "tf": "M30",
+    "candleTime": "2026-09-28T22:00:00.000Z",
+    "createdAt": "2026-09-28T22:40:22.626Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Barkin Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-09-28T17:30:00.000Z"
+    },
+    "location": "LOW_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "CSAK_DOWN"
+    },
+    "squeeze": "NORMAL",
+    "state": "DOWN_BIAS",
+    "confidence": 67,
+    "reasons": [
+      "trend_down",
+      "low_rejection_candidate"
+    ],
+    "status": "SETTLED",
+    "id": "f52a0f508180fea5b3fe",
+    "algoGenerationId": "gen-b5d29cc3961171703dcf",
+    "instrumentId": "GC_FUTURES",
+    "settledAt": "2026-09-29T07:02:56.927Z",
+    "nextCandleTime": "2026-09-28T22:30:00.000Z",
+    "actualDirection": "DOWN",
+    "predictedDirection": "DOWN",
+    "correct": true,
+    "nextReturnPct": -0.0938,
+    "mfePct": 0.0024,
+    "maePct": -0.1299,
+    "excursion": {
+      "highExcursionPct": 0.0024,
+      "lowExcursionPct": -0.1299,
+      "favorableExcursionPct": -0.1299,
+      "adverseExcursionPct": 0.0024,
+      "note": "DOWN-call: favorable = low side"
+    },
+    "rangePct": 0.1323,
+    "closeLocationPct": 27.27,
+    "multiHorizon": {
+      "tf": "M30",
+      "anchorCandleTime": "2026-09-28T22:00:00.000Z",
+      "predictedDirection": "DOWN",
+      "plus": {
+        "plus1": {
+          "time": "2026-09-28T22:30:00.000Z",
+          "direction": "DOWN",
+          "returnPct": -0.089
+        },
+        "plus2": {
+          "time": "2026-09-28T23:00:00.000Z",
+          "direction": "UP",
+          "returnPct": 0.0649
+        },
+        "plus3": {
+          "time": "2026-09-28T23:30:00.000Z",
+          "direction": "DOWN",
+          "returnPct": 0.0433
+        },
+        "plus5": {
+          "time": "2026-09-29T00:30:00.000Z",
+          "direction": "DOWN",
+          "returnPct": -0.1876
+        }
+      },
+      "mfePct": -0.279,
+      "maePct": 0.0866,
+      "nextState": "RE",
+      "barsToNextState": 1,
+      "plus1Against": false,
+      "complete": true
+    },
+    "memoryRoot": "GC_FUTURES_PROXY"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-52357593aa40a3b1036a",
+    "sourceGeneratedAt": "2026-09-28T22:27:00.990Z",
+    "symbol": "GC=F",
+    "tf": "M1",
+    "candleTime": "2026-09-29T06:52:49.000Z",
+    "createdAt": "2026-09-29T07:02:56.935Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Barkin Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-09-28T17:30:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "UP",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "TIGHT",
+    "state": "UP_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_up"
+    ],
+    "status": "PENDING",
+    "id": "0149109cc628e90d6e93",
+    "algoGenerationId": "gen-b5d29cc3961171703dcf",
+    "instrumentId": "GC_FUTURES",
+    "memoryRoot": "GC_FUTURES_PROXY",
+    "canonical": {
+      "candleId": "XAUUSD:M1:2026-09-29T06:52:49.000Z",
+      "symbol": "XAUUSD",
+      "timeframe": "M1",
+      "openTime": "2026-09-29T06:52:49.000Z",
+      "closeTime": "2026-09-28T22:16:35.000Z",
+      "closed": true,
+      "ohlc": {
+        "open": 4172.5,
+        "high": 4172.5,
+        "low": 4172.5,
+        "close": 4172.5
+      },
+      "body": {
+        "direction": "DOJI",
+        "size": 0,
+        "range": 0,
+        "bodyRatio": 0
+      },
+      "bbma": {
+        "zone": "INSIDE_BB",
+        "event": null,
+        "direction": "UP",
+        "momentum": false,
+        "extreme": false,
+        "csa": false,
+        "csak": false,
+        "reentry": false,
+        "state": "UP",
+        "ema50Relation": "EMA50_INSIDE_BB"
+      },
+      "session": {
+        "name": "TOKYO",
+        "firstSessionCandle": false
+      },
+      "provenance": {
+        "provider": "YAHOO_CHART",
+        "sourceSymbol": "GC=F",
+        "revision": 1
+      }
+    },
+    "formationFingerprintId": "b163276a4f813b61314d5858"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-52357593aa40a3b1036a",
+    "sourceGeneratedAt": "2026-09-28T22:27:00.990Z",
+    "symbol": "GC=F",
+    "tf": "M5",
+    "candleTime": "2026-09-29T06:45:00.000Z",
+    "createdAt": "2026-09-29T07:02:56.935Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Barkin Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-09-28T17:30:00.000Z"
+    },
+    "location": "MID_BB",
+    "bbma": {
+      "trend": "MIXED",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "CSAK_UP"
+    },
+    "squeeze": "TIGHT",
+    "state": "RANGE_OR_BREAKOUT_WATCH",
+    "confidence": 100,
+    "reasons": [],
+    "status": "SETTLED",
+    "id": "24a5b6664defaa15af05",
+    "algoGenerationId": "gen-b5d29cc3961171703dcf",
+    "instrumentId": "GC_FUTURES",
+    "memoryRoot": "GC_FUTURES_PROXY",
+    "canonical": {
+      "candleId": "XAUUSD:M5:2026-09-29T06:45:00.000Z",
+      "symbol": "XAUUSD",
+      "timeframe": "M5",
+      "openTime": "2026-09-29T06:45:00.000Z",
+      "closeTime": "2026-09-28T22:10:00.000Z",
+      "closed": true,
+      "ohlc": {
+        "open": 4175.10009765625,
+        "high": 4175.10009765625,
+        "low": 4173.2001953125,
+        "close": 4173.60009765625
+      },
+      "body": {
+        "direction": "BEAR",
+        "size": 1.5,
+        "range": 1.8999,
+        "bodyRatio": 0.7895
+      },
+      "bbma": {
+        "zone": "MID_BB",
+        "event": "CSAK",
+        "direction": "MIXED",
+        "momentum": false,
+        "extreme": false,
+        "csa": false,
+        "csak": true,
+        "reentry": false,
+        "state": "CSAK",
+        "ema50Relation": "EMA50_INSIDE_BB"
+      },
+      "session": {
+        "name": "TOKYO",
+        "firstSessionCandle": false
+      },
+      "provenance": {
+        "provider": "YAHOO_CHART",
+        "sourceSymbol": "GC=F",
+        "revision": 1
+      }
+    },
+    "formationFingerprintId": "b163276a4f813b61314d5858",
+    "settledAt": "2026-09-29T07:03:19.068Z",
+    "nextCandleTime": "2026-09-29T06:50:00.000Z",
+    "actualDirection": "DOWN",
+    "predictedDirection": "FLAT",
+    "correct": false,
+    "nextReturnPct": -0.0192,
+    "mfePct": 0,
+    "maePct": -0.0599,
+    "excursion": {
+      "highExcursionPct": 0,
+      "lowExcursionPct": -0.0599,
+      "favorableExcursionPct": 0,
+      "adverseExcursionPct": -0.0599,
+      "note": "FLAT-call: favorable = high side"
+    },
+    "rangePct": 0.0599,
+    "closeLocationPct": 68.01,
+    "multiHorizon": {
+      "tf": "M5",
+      "anchorCandleTime": "2026-09-29T06:45:00.000Z",
+      "predictedDirection": "UNKNOWN",
+      "plus": {
+        "plus1": {
+          "time": "2026-09-29T06:50:00.000Z",
+          "direction": "DOWN",
+          "returnPct": -0.0072
+        },
+        "plus2": {
+          "time": "2026-09-29T06:55:00.000Z",
+          "direction": "DOWN",
+          "returnPct": -0.0431
+        }
+      },
+      "mfePct": null,
+      "maePct": null,
+      "nextState": "RE",
+      "barsToNextState": 1,
+      "plus1Against": false,
+      "complete": false
+    }
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-52357593aa40a3b1036a",
+    "sourceGeneratedAt": "2026-09-28T22:27:00.990Z",
+    "symbol": "GC=F",
+    "tf": "M15",
+    "candleTime": "2026-09-29T06:30:00.000Z",
+    "createdAt": "2026-09-29T07:02:56.935Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Barkin Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-09-28T17:30:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "TIGHT",
+    "state": "DOWN_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_down"
+    ],
+    "status": "SETTLED",
+    "id": "ad00f01df136fe150193",
+    "algoGenerationId": "gen-b5d29cc3961171703dcf",
+    "instrumentId": "GC_FUTURES",
+    "memoryRoot": "GC_FUTURES_PROXY",
+    "canonical": {
+      "candleId": "XAUUSD:M15:2026-09-29T06:30:00.000Z",
+      "symbol": "XAUUSD",
+      "timeframe": "M15",
+      "openTime": "2026-09-29T06:30:00.000Z",
+      "closeTime": "2026-09-28T22:00:00.000Z",
+      "closed": true,
+      "ohlc": {
+        "open": 4175.10009765625,
+        "high": 4177,
+        "low": 4173.5,
+        "close": 4175.2001953125
+      },
+      "body": {
+        "direction": "BULL",
+        "size": 0.1001,
+        "range": 3.5,
+        "bodyRatio": 0.0286
+      },
+      "bbma": {
+        "zone": "INSIDE_BB",
+        "event": null,
+        "direction": "DOWN",
+        "momentum": false,
+        "extreme": false,
+        "csa": false,
+        "csak": false,
+        "reentry": false,
+        "state": "DOWN",
+        "ema50Relation": "EMA50_INSIDE_BB"
+      },
+      "session": {
+        "name": "TOKYO",
+        "firstSessionCandle": false
+      },
+      "provenance": {
+        "provider": "YAHOO_CHART",
+        "sourceSymbol": "GC=F",
+        "revision": 1
+      }
+    },
+    "formationFingerprintId": "b163276a4f813b61314d5858",
+    "settledAt": "2026-09-29T07:09:40.289Z",
+    "nextCandleTime": "2026-09-29T06:45:00.000Z",
+    "actualDirection": "DOWN",
+    "predictedDirection": "DOWN",
+    "correct": true,
+    "nextReturnPct": -0.079,
+    "mfePct": 0,
+    "maePct": -0.1078,
+    "excursion": {
+      "highExcursionPct": 0,
+      "lowExcursionPct": -0.1078,
+      "favorableExcursionPct": -0.1078,
+      "adverseExcursionPct": 0,
+      "note": "DOWN-call: favorable = low side"
+    },
+    "rangePct": 0.1078,
+    "closeLocationPct": 26.66,
+    "multiHorizon": {
+      "tf": "M15",
+      "anchorCandleTime": "2026-09-29T06:30:00.000Z",
+      "predictedDirection": "DOWN",
+      "plus": {
+        "plus1": {
+          "time": "2026-09-29T06:45:00.000Z",
+          "direction": "DOWN",
+          "returnPct": -0.0814
+        }
+      },
+      "mfePct": -0.1102,
+      "maePct": -0.0024,
+      "nextState": "RE",
+      "barsToNextState": 1,
+      "plus1Against": false,
+      "complete": false
+    }
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-52357593aa40a3b1036a",
+    "sourceGeneratedAt": "2026-09-28T22:27:00.990Z",
+    "symbol": "GC=F",
+    "tf": "M30",
+    "candleTime": "2026-09-29T06:00:00.000Z",
+    "createdAt": "2026-09-29T07:02:56.935Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Barkin Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-09-28T17:30:00.000Z"
+    },
+    "location": "LOW_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "CSAK_DOWN"
+    },
+    "squeeze": "NORMAL",
+    "state": "DOWN_BIAS",
+    "confidence": 67,
+    "reasons": [
+      "trend_down",
+      "low_rejection_candidate"
+    ],
+    "status": "SETTLED",
+    "id": "9701eb8aa384a7bd9c94",
+    "algoGenerationId": "gen-b5d29cc3961171703dcf",
+    "instrumentId": "GC_FUTURES",
+    "memoryRoot": "GC_FUTURES_PROXY",
+    "canonical": {
+      "candleId": "XAUUSD:M30:2026-09-29T06:00:00.000Z",
+      "symbol": "XAUUSD",
+      "timeframe": "M30",
+      "openTime": "2026-09-29T06:00:00.000Z",
+      "closeTime": "2026-09-28T20:30:00.000Z",
+      "closed": true,
+      "ohlc": {
+        "open": 4170.10009765625,
+        "high": 4179.5,
+        "low": 4169.7998046875,
+        "close": 4174.7001953125
+      },
+      "body": {
+        "direction": "BULL",
+        "size": 4.6001,
+        "range": 9.7002,
+        "bodyRatio": 0.4742
+      },
+      "bbma": {
+        "zone": "LOW_BB",
+        "event": "CSAK",
+        "direction": "DOWN",
+        "momentum": false,
+        "extreme": false,
+        "csa": false,
+        "csak": true,
+        "reentry": false,
+        "state": "CSAK",
+        "ema50Relation": "EMA50_ABOVE_BB"
+      },
+      "session": {
+        "name": "TOKYO",
+        "firstSessionCandle": false
+      },
+      "provenance": {
+        "provider": "YAHOO_CHART",
+        "sourceSymbol": "GC=F",
+        "revision": 1
+      }
+    },
+    "formationFingerprintId": "b163276a4f813b61314d5858",
+    "settledAt": "2026-09-29T07:09:40.289Z",
+    "nextCandleTime": "2026-09-29T06:30:00.000Z",
+    "actualDirection": "DOWN",
+    "predictedDirection": "DOWN",
+    "correct": true,
+    "nextReturnPct": -0.079,
+    "mfePct": 0.0455,
+    "maePct": -0.1078,
+    "excursion": {
+      "highExcursionPct": 0.0455,
+      "lowExcursionPct": -0.1078,
+      "favorableExcursionPct": -0.1078,
+      "adverseExcursionPct": 0.0455,
+      "note": "DOWN-call: favorable = low side"
+    },
+    "rangePct": 0.1533,
+    "closeLocationPct": 18.75,
+    "multiHorizon": {
+      "tf": "M30",
+      "anchorCandleTime": "2026-09-29T06:00:00.000Z",
+      "predictedDirection": "DOWN",
+      "plus": {
+        "plus1": {
+          "time": "2026-09-29T06:30:00.000Z",
+          "direction": "DOWN",
+          "returnPct": -0.0695
+        }
+      },
+      "mfePct": -0.0982,
+      "maePct": 0.0551,
+      "nextState": "RANGE",
+      "barsToNextState": 1,
+      "plus1Against": false,
+      "complete": false
+    }
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-52357593aa40a3b1036a",
+    "sourceGeneratedAt": "2026-09-28T22:27:00.990Z",
+    "symbol": "GC=F",
+    "tf": "H1",
+    "candleTime": "2026-09-29T05:00:00.000Z",
+    "createdAt": "2026-09-29T07:02:56.935Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Barkin Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-09-28T17:30:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "CSAK_DOWN"
+    },
+    "squeeze": "SQUEEZE",
+    "state": "RANGE_OR_BREAKOUT_WATCH",
+    "confidence": 50,
+    "reasons": [
+      "trend_down",
+      "squeeze_pre_breakout"
+    ],
+    "status": "SETTLED",
+    "id": "8f9fd30b295f14241a5c",
+    "algoGenerationId": "gen-b5d29cc3961171703dcf",
+    "instrumentId": "GC_FUTURES",
+    "memoryRoot": "GC_FUTURES_PROXY",
+    "canonical": {
+      "candleId": "XAUUSD:H1:2026-09-29T05:00:00.000Z",
+      "symbol": "XAUUSD",
+      "timeframe": "H1",
+      "openTime": "2026-09-29T05:00:00.000Z",
+      "closeTime": "2026-09-28T20:00:00.000Z",
+      "closed": true,
+      "ohlc": {
+        "open": 4157.89990234375,
+        "high": 4176.2001953125,
+        "low": 4153.10009765625,
+        "close": 4169.89990234375
+      },
+      "body": {
+        "direction": "BULL",
+        "size": 12,
+        "range": 23.1001,
+        "bodyRatio": 0.5195
+      },
+      "bbma": {
+        "zone": "INSIDE_BB",
+        "event": "CSAK",
+        "direction": "DOWN",
+        "momentum": false,
+        "extreme": false,
+        "csa": false,
+        "csak": true,
+        "reentry": false,
+        "state": "CSAK",
+        "ema50Relation": "EMA50_INSIDE_BB"
+      },
+      "session": {
+        "name": "TOKYO",
+        "firstSessionCandle": false
+      },
+      "provenance": {
+        "provider": "YAHOO_CHART",
+        "sourceSymbol": "GC=F",
+        "revision": 1
+      }
+    },
+    "formationFingerprintId": "b163276a4f813b61314d5858",
+    "settledAt": "2026-09-29T07:09:40.289Z",
+    "nextCandleTime": "2026-09-29T06:00:00.000Z",
+    "actualDirection": "UP",
+    "predictedDirection": "FLAT",
+    "correct": false,
+    "nextReturnPct": 0.0408,
+    "mfePct": 0.2254,
+    "maePct": -0.0072,
+    "excursion": {
+      "highExcursionPct": 0.2254,
+      "lowExcursionPct": -0.0072,
+      "favorableExcursionPct": 0.2254,
+      "adverseExcursionPct": -0.0072,
+      "note": "FLAT-call: favorable = high side"
+    },
+    "rangePct": 0.2326,
+    "closeLocationPct": 20.62,
+    "multiHorizon": {
+      "tf": "H1",
+      "anchorCandleTime": "2026-09-29T05:00:00.000Z",
+      "predictedDirection": "UNKNOWN",
+      "plus": {
+        "plus1": {
+          "time": "2026-09-29T06:00:00.000Z",
+          "direction": "UP",
+          "returnPct": 0.0456
+        }
+      },
+      "mfePct": null,
+      "maePct": null,
+      "nextState": "RANGE",
+      "barsToNextState": 1,
+      "plus1Against": false,
+      "complete": false
+    }
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-52357593aa40a3b1036a",
+    "sourceGeneratedAt": "2026-09-28T22:27:00.990Z",
+    "symbol": "GC=F",
+    "tf": "M1",
+    "candleTime": "2026-09-29T06:53:10.000Z",
+    "createdAt": "2026-09-29T07:03:19.070Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Barkin Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-09-28T17:30:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "UP",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "TIGHT",
+    "state": "UP_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_up"
+    ],
+    "status": "PENDING",
+    "id": "1e1835ab4de16f180c98",
+    "algoGenerationId": "gen-b5d29cc3961171703dcf",
+    "instrumentId": "GC_FUTURES",
+    "memoryRoot": "GC_FUTURES_PROXY",
+    "canonical": {
+      "candleId": "XAUUSD:M1:2026-09-29T06:53:10.000Z",
+      "symbol": "XAUUSD",
+      "timeframe": "M1",
+      "openTime": "2026-09-29T06:53:10.000Z",
+      "closeTime": "2026-09-28T22:16:35.000Z",
+      "closed": true,
+      "ohlc": {
+        "open": 4173.2001953125,
+        "high": 4173.2001953125,
+        "low": 4173.2001953125,
+        "close": 4173.2001953125
+      },
+      "body": {
+        "direction": "DOJI",
+        "size": 0,
+        "range": 0,
+        "bodyRatio": 0
+      },
+      "bbma": {
+        "zone": "INSIDE_BB",
+        "event": null,
+        "direction": "UP",
+        "momentum": false,
+        "extreme": false,
+        "csa": false,
+        "csak": false,
+        "reentry": false,
+        "state": "UP",
+        "ema50Relation": "EMA50_INSIDE_BB"
+      },
+      "session": {
+        "name": "TOKYO",
+        "firstSessionCandle": false
+      },
+      "provenance": {
+        "provider": "YAHOO_CHART",
+        "sourceSymbol": "GC=F",
+        "revision": 1
+      }
+    },
+    "formationFingerprintId": "b163276a4f813b61314d5858"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-52357593aa40a3b1036a",
+    "sourceGeneratedAt": "2026-09-28T22:27:00.990Z",
+    "symbol": "GC=F",
+    "tf": "M5",
+    "candleTime": "2026-09-29T06:50:00.000Z",
+    "createdAt": "2026-09-29T07:03:19.070Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Barkin Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-09-28T17:30:00.000Z"
+    },
+    "location": "MID_BB",
+    "bbma": {
+      "trend": "MIXED",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "CSAK_UP"
+    },
+    "squeeze": "TIGHT",
+    "state": "RANGE_OR_BREAKOUT_WATCH",
+    "confidence": 100,
+    "reasons": [],
+    "status": "SETTLED",
+    "id": "054ba0916f7170ad1a7d",
+    "algoGenerationId": "gen-b5d29cc3961171703dcf",
+    "instrumentId": "GC_FUTURES",
+    "memoryRoot": "GC_FUTURES_PROXY",
+    "canonical": {
+      "candleId": "XAUUSD:M5:2026-09-29T06:50:00.000Z",
+      "symbol": "XAUUSD",
+      "timeframe": "M5",
+      "openTime": "2026-09-29T06:50:00.000Z",
+      "closeTime": "2026-09-28T22:10:00.000Z",
+      "closed": true,
+      "ohlc": {
+        "open": 4174,
+        "high": 4174,
+        "low": 4171.5,
+        "close": 4173.2001953125
+      },
+      "body": {
+        "direction": "BEAR",
+        "size": 0.7998,
+        "range": 2.5,
+        "bodyRatio": 0.3199
+      },
+      "bbma": {
+        "zone": "MID_BB",
+        "event": "CSAK",
+        "direction": "MIXED",
+        "momentum": false,
+        "extreme": false,
+        "csa": false,
+        "csak": true,
+        "reentry": false,
+        "state": "CSAK",
+        "ema50Relation": "EMA50_INSIDE_BB"
+      },
+      "session": {
+        "name": "TOKYO",
+        "firstSessionCandle": false
+      },
+      "provenance": {
+        "provider": "YAHOO_CHART",
+        "sourceSymbol": "GC=F",
+        "revision": 1
+      }
+    },
+    "formationFingerprintId": "b163276a4f813b61314d5858",
+    "settledAt": "2026-09-29T07:09:40.294Z",
+    "nextCandleTime": "2026-09-29T06:55:00.000Z",
+    "actualDirection": "DOWN",
+    "predictedDirection": "FLAT",
+    "correct": false,
+    "nextReturnPct": -0.0288,
+    "mfePct": 0.0072,
+    "maePct": -0.0575,
+    "excursion": {
+      "highExcursionPct": 0.0072,
+      "lowExcursionPct": -0.0575,
+      "favorableExcursionPct": 0.0072,
+      "adverseExcursionPct": -0.0575,
+      "note": "FLAT-call: favorable = high side"
+    },
+    "rangePct": 0.0647,
+    "closeLocationPct": 44.44,
+    "multiHorizon": {
+      "tf": "M5",
+      "anchorCandleTime": "2026-09-29T06:50:00.000Z",
+      "predictedDirection": "UNKNOWN",
+      "plus": {
+        "plus1": {
+          "time": "2026-09-29T06:55:00.000Z",
+          "direction": "DOWN",
+          "returnPct": -0.0359
+        }
+      },
+      "mfePct": null,
+      "maePct": null,
+      "nextState": "UP",
+      "barsToNextState": 1,
+      "plus1Against": false,
+      "complete": false
+    }
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-d73565f78551b9e521c5",
+    "sourceGeneratedAt": "2026-09-29T07:03:34.480Z",
+    "symbol": "GC=F",
+    "tf": "M1",
+    "candleTime": "2026-09-29T06:53:30.000Z",
+    "createdAt": "2026-09-29T07:03:46.480Z",
+    "marketMode": "NO_EVENT",
+    "event": null,
+    "location": "EMA50",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "DOWN_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_down"
+    ],
+    "status": "PENDING",
+    "id": "c6dc44e76f513e92a2ba",
+    "algoGenerationId": "gen-b5d29cc3961171703dcf",
+    "instrumentId": "GC_FUTURES",
+    "memoryRoot": "GC_FUTURES_PROXY",
+    "canonical": {
+      "candleId": "XAUUSD:M1:2026-09-29T06:53:30.000Z",
+      "symbol": "XAUUSD",
+      "timeframe": "M1",
+      "openTime": "2026-09-29T06:53:30.000Z",
+      "closeTime": "2026-09-29T06:53:26.000Z",
+      "closed": true,
+      "ohlc": {
+        "open": 4172.7001953125,
+        "high": 4172.7001953125,
+        "low": 4172.7001953125,
+        "close": 4172.7001953125
+      },
+      "body": {
+        "direction": "DOJI",
+        "size": 0,
+        "range": 0,
+        "bodyRatio": 0
+      },
+      "bbma": {
+        "zone": "EMA50",
+        "event": null,
+        "direction": "DOWN",
+        "momentum": false,
+        "extreme": false,
+        "csa": false,
+        "csak": false,
+        "reentry": false,
+        "state": "DOWN",
+        "ema50Relation": "EMA50_INSIDE_BB"
+      },
+      "session": {
+        "name": "TOKYO",
+        "firstSessionCandle": false
+      },
+      "provenance": {
+        "provider": "YAHOO_CHART",
+        "sourceSymbol": "GC=F",
+        "revision": 1
+      }
+    },
+    "formationFingerprintId": "d3d282a50527d4daad55b114"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-d73565f78551b9e521c5",
+    "sourceGeneratedAt": "2026-09-29T07:03:34.480Z",
+    "symbol": "GC=F",
+    "tf": "M5",
+    "candleTime": "2026-09-29T06:50:00.000Z",
+    "createdAt": "2026-09-29T07:03:46.481Z",
+    "marketMode": "NO_EVENT",
+    "event": null,
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "UP",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "REENTRY_UP_ZONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "UP_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_up",
+      "reentry_up"
+    ],
+    "status": "SETTLED",
+    "id": "fdb4391d080990269f4e",
+    "algoGenerationId": "gen-b5d29cc3961171703dcf",
+    "instrumentId": "GC_FUTURES",
+    "memoryRoot": "GC_FUTURES_PROXY",
+    "canonical": {
+      "candleId": "XAUUSD:M5:2026-09-29T06:50:00.000Z",
+      "symbol": "XAUUSD",
+      "timeframe": "M5",
+      "openTime": "2026-09-29T06:50:00.000Z",
+      "closeTime": "2026-09-29T06:50:00.000Z",
+      "closed": true,
+      "ohlc": {
+        "open": 4174,
+        "high": 4174,
+        "low": 4171.5,
+        "close": 4172.7001953125
+      },
+      "body": {
+        "direction": "BEAR",
+        "size": 1.2998,
+        "range": 2.5,
+        "bodyRatio": 0.5199
+      },
+      "bbma": {
+        "zone": "INSIDE_BB",
+        "event": "RE",
+        "direction": "UP",
+        "momentum": false,
+        "extreme": false,
+        "csa": false,
+        "csak": false,
+        "reentry": true,
+        "state": "RE",
+        "ema50Relation": "EMA50_INSIDE_BB"
+      },
+      "session": {
+        "name": "TOKYO",
+        "firstSessionCandle": false
+      },
+      "provenance": {
+        "provider": "YAHOO_CHART",
+        "sourceSymbol": "GC=F",
+        "revision": 1
+      }
+    },
+    "formationFingerprintId": "d3d282a50527d4daad55b114",
+    "settledAt": "2026-09-29T07:09:40.298Z",
+    "nextCandleTime": "2026-09-29T06:55:00.000Z",
+    "actualDirection": "DOWN",
+    "predictedDirection": "UP",
+    "correct": false,
+    "nextReturnPct": -0.0288,
+    "mfePct": 0.0072,
+    "maePct": -0.0575,
+    "excursion": {
+      "highExcursionPct": 0.0072,
+      "lowExcursionPct": -0.0575,
+      "favorableExcursionPct": 0.0072,
+      "adverseExcursionPct": -0.0575,
+      "note": "UP-call: favorable = high side"
+    },
+    "rangePct": 0.0647,
+    "closeLocationPct": 44.44,
+    "multiHorizon": {
+      "tf": "M5",
+      "anchorCandleTime": "2026-09-29T06:50:00.000Z",
+      "predictedDirection": "UP",
+      "plus": {
+        "plus1": {
+          "time": "2026-09-29T06:55:00.000Z",
+          "direction": "DOWN",
+          "returnPct": -0.0359
+        }
+      },
+      "mfePct": 0,
+      "maePct": -0.0647,
+      "nextState": "UP",
+      "barsToNextState": 1,
+      "plus1Against": true,
+      "complete": false
+    }
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-d73565f78551b9e521c5",
+    "sourceGeneratedAt": "2026-09-29T07:03:34.480Z",
+    "symbol": "GC=F",
+    "tf": "M15",
+    "candleTime": "2026-09-29T06:30:00.000Z",
+    "createdAt": "2026-09-29T07:03:46.481Z",
+    "marketMode": "NO_EVENT",
+    "event": null,
+    "location": "TOP_BB",
+    "bbma": {
+      "trend": "UP",
+      "extreme": "EXTREME_HIGH",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "TIGHT",
+    "state": "UP_BIAS",
+    "confidence": 67,
+    "reasons": [
+      "trend_up",
+      "top_rejection_candidate"
+    ],
+    "status": "SETTLED",
+    "id": "9943180c748d337c2da3",
+    "algoGenerationId": "gen-b5d29cc3961171703dcf",
+    "instrumentId": "GC_FUTURES",
+    "memoryRoot": "GC_FUTURES_PROXY",
+    "canonical": {
+      "candleId": "XAUUSD:M15:2026-09-29T06:30:00.000Z",
+      "symbol": "XAUUSD",
+      "timeframe": "M15",
+      "openTime": "2026-09-29T06:30:00.000Z",
+      "closeTime": "2026-09-29T06:30:00.000Z",
+      "closed": true,
+      "ohlc": {
+        "open": 4175.10009765625,
+        "high": 4177,
+        "low": 4173.5,
+        "close": 4175.2001953125
+      },
+      "body": {
+        "direction": "BULL",
+        "size": 0.1001,
+        "range": 3.5,
+        "bodyRatio": 0.0286
+      },
+      "bbma": {
+        "zone": "TOP_BB",
+        "event": "EXT",
+        "direction": "UP",
+        "momentum": false,
+        "extreme": true,
+        "csa": false,
+        "csak": false,
+        "reentry": false,
+        "state": "EXT",
+        "ema50Relation": "EMA50_INSIDE_BB"
+      },
+      "session": {
+        "name": "TOKYO",
+        "firstSessionCandle": false
+      },
+      "provenance": {
+        "provider": "YAHOO_CHART",
+        "sourceSymbol": "GC=F",
+        "revision": 1
+      }
+    },
+    "formationFingerprintId": "d3d282a50527d4daad55b114",
+    "predictionId": "pred-a6c640f212e8c0a7803bbec1",
+    "snapshotId": "fee252b8787a135f8aeeddc8",
+    "settledAt": "2026-09-29T07:09:40.299Z",
+    "nextCandleTime": "2026-09-29T06:45:00.000Z",
+    "actualDirection": "DOWN",
+    "predictedDirection": "UP",
+    "correct": false,
+    "nextReturnPct": -0.079,
+    "mfePct": 0,
+    "maePct": -0.1078,
+    "excursion": {
+      "highExcursionPct": 0,
+      "lowExcursionPct": -0.1078,
+      "favorableExcursionPct": 0,
+      "adverseExcursionPct": -0.1078,
+      "note": "UP-call: favorable = high side"
+    },
+    "rangePct": 0.1078,
+    "closeLocationPct": 26.66,
+    "multiHorizon": {
+      "tf": "M15",
+      "anchorCandleTime": "2026-09-29T06:30:00.000Z",
+      "predictedDirection": "UP",
+      "plus": {
+        "plus1": {
+          "time": "2026-09-29T06:45:00.000Z",
+          "direction": "DOWN",
+          "returnPct": -0.0814
+        }
+      },
+      "mfePct": -0.0024,
+      "maePct": -0.1102,
+      "nextState": "RE",
+      "barsToNextState": 1,
+      "plus1Against": true,
+      "complete": false
+    }
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-d73565f78551b9e521c5",
+    "sourceGeneratedAt": "2026-09-29T07:03:34.480Z",
+    "symbol": "GC=F",
+    "tf": "M30",
+    "candleTime": "2026-09-29T06:00:00.000Z",
+    "createdAt": "2026-09-29T07:03:46.481Z",
+    "marketMode": "NO_EVENT",
+    "event": null,
+    "location": "TOP_BB",
+    "bbma": {
+      "trend": "MIXED",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "CSAK_UP"
+    },
+    "squeeze": "TIGHT",
+    "state": "RANGE_OR_BREAKOUT_WATCH",
+    "confidence": 50,
+    "reasons": [
+      "top_rejection_candidate"
+    ],
+    "status": "SETTLED",
+    "id": "7738dd8927c3f4b8c2ff",
+    "algoGenerationId": "gen-b5d29cc3961171703dcf",
+    "instrumentId": "GC_FUTURES",
+    "memoryRoot": "GC_FUTURES_PROXY",
+    "canonical": {
+      "candleId": "XAUUSD:M30:2026-09-29T06:00:00.000Z",
+      "symbol": "XAUUSD",
+      "timeframe": "M30",
+      "openTime": "2026-09-29T06:00:00.000Z",
+      "closeTime": "2026-09-29T06:00:00.000Z",
+      "closed": true,
+      "ohlc": {
+        "open": 4170.10009765625,
+        "high": 4179.5,
+        "low": 4169.7998046875,
+        "close": 4174.7001953125
+      },
+      "body": {
+        "direction": "BULL",
+        "size": 4.6001,
+        "range": 9.7002,
+        "bodyRatio": 0.4742
+      },
+      "bbma": {
+        "zone": "TOP_BB",
+        "event": "CSAK",
+        "direction": "MIXED",
+        "momentum": false,
+        "extreme": false,
+        "csa": false,
+        "csak": true,
+        "reentry": false,
+        "state": "CSAK",
+        "ema50Relation": "EMA50_ABOVE_BB"
+      },
+      "session": {
+        "name": "TOKYO",
+        "firstSessionCandle": false
+      },
+      "provenance": {
+        "provider": "YAHOO_CHART",
+        "sourceSymbol": "GC=F",
+        "revision": 1
+      }
+    },
+    "formationFingerprintId": "d3d282a50527d4daad55b114",
+    "settledAt": "2026-09-29T07:09:40.299Z",
+    "nextCandleTime": "2026-09-29T06:30:00.000Z",
+    "actualDirection": "DOWN",
+    "predictedDirection": "FLAT",
+    "correct": false,
+    "nextReturnPct": -0.079,
+    "mfePct": 0.0455,
+    "maePct": -0.1078,
+    "excursion": {
+      "highExcursionPct": 0.0455,
+      "lowExcursionPct": -0.1078,
+      "favorableExcursionPct": 0.0455,
+      "adverseExcursionPct": -0.1078,
+      "note": "FLAT-call: favorable = high side"
+    },
+    "rangePct": 0.1533,
+    "closeLocationPct": 18.75,
+    "multiHorizon": {
+      "tf": "M30",
+      "anchorCandleTime": "2026-09-29T06:00:00.000Z",
+      "predictedDirection": "UNKNOWN",
+      "plus": {
+        "plus1": {
+          "time": "2026-09-29T06:30:00.000Z",
+          "direction": "DOWN",
+          "returnPct": -0.0695
+        }
+      },
+      "mfePct": null,
+      "maePct": null,
+      "nextState": "RANGE",
+      "barsToNextState": 1,
+      "plus1Against": false,
+      "complete": false
+    }
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-d73565f78551b9e521c5",
+    "sourceGeneratedAt": "2026-09-29T07:03:34.480Z",
+    "symbol": "GC=F",
+    "tf": "H1",
+    "candleTime": "2026-09-29T05:00:00.000Z",
+    "createdAt": "2026-09-29T07:03:46.481Z",
+    "marketMode": "NO_EVENT",
+    "event": null,
+    "location": "MID_BB",
+    "bbma": {
+      "trend": "MIXED",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "UNKNOWN",
+    "state": "RANGE_OR_BREAKOUT_WATCH",
+    "confidence": 100,
+    "reasons": [],
+    "status": "SETTLED",
+    "id": "851f5b86a2827dc6a8a0",
+    "algoGenerationId": "gen-b5d29cc3961171703dcf",
+    "instrumentId": "GC_FUTURES",
+    "memoryRoot": "GC_FUTURES_PROXY",
+    "canonical": {
+      "candleId": "XAUUSD:H1:2026-09-29T05:00:00.000Z",
+      "symbol": "XAUUSD",
+      "timeframe": "H1",
+      "openTime": "2026-09-29T05:00:00.000Z",
+      "closeTime": "2026-09-29T05:00:00.000Z",
+      "closed": true,
+      "ohlc": {
+        "open": 4157.89990234375,
+        "high": 4176.2001953125,
+        "low": 4153.10009765625,
+        "close": 4169.89990234375
+      },
+      "body": {
+        "direction": "BULL",
+        "size": 12,
+        "range": 23.1001,
+        "bodyRatio": 0.5195
+      },
+      "bbma": {
+        "zone": "MID_BB",
+        "event": null,
+        "direction": "MIXED",
+        "momentum": false,
+        "extreme": false,
+        "csa": false,
+        "csak": false,
+        "reentry": false,
+        "state": "RANGE",
+        "ema50Relation": "EMA50_ABOVE_BB"
+      },
+      "session": {
+        "name": "TOKYO",
+        "firstSessionCandle": false
+      },
+      "provenance": {
+        "provider": "YAHOO_CHART",
+        "sourceSymbol": "GC=F",
+        "revision": 1
+      }
+    },
+    "formationFingerprintId": "d3d282a50527d4daad55b114",
+    "settledAt": "2026-09-29T07:09:40.299Z",
+    "nextCandleTime": "2026-09-29T06:00:00.000Z",
+    "actualDirection": "UP",
+    "predictedDirection": "FLAT",
+    "correct": false,
+    "nextReturnPct": 0.0408,
+    "mfePct": 0.2254,
+    "maePct": -0.0072,
+    "excursion": {
+      "highExcursionPct": 0.2254,
+      "lowExcursionPct": -0.0072,
+      "favorableExcursionPct": 0.2254,
+      "adverseExcursionPct": -0.0072,
+      "note": "FLAT-call: favorable = high side"
+    },
+    "rangePct": 0.2326,
+    "closeLocationPct": 20.62,
+    "multiHorizon": {
+      "tf": "H1",
+      "anchorCandleTime": "2026-09-29T05:00:00.000Z",
+      "predictedDirection": "UNKNOWN",
+      "plus": {
+        "plus1": {
+          "time": "2026-09-29T06:00:00.000Z",
+          "direction": "UP",
+          "returnPct": 0.0456
+        }
+      },
+      "mfePct": null,
+      "maePct": null,
+      "nextState": null,
+      "barsToNextState": null,
+      "plus1Against": false,
+      "complete": false
+    }
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-5c9d53974e9d749d7ca6",
+    "sourceGeneratedAt": "2026-09-29T07:06:34.986Z",
+    "symbol": "GC=F",
+    "tf": "M1",
+    "candleTime": "2026-09-29T06:56:05.000Z",
+    "createdAt": "2026-09-29T07:06:39.624Z",
+    "marketMode": "NO_EVENT",
+    "event": null,
+    "location": "EMA50",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "DOWN_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_down"
+    ],
+    "status": "PENDING",
+    "id": "a133d4f8840bd6aadc48",
+    "algoGenerationId": "gen-b5d29cc3961171703dcf",
+    "instrumentId": "GC_FUTURES",
+    "memoryRoot": "GC_FUTURES_PROXY",
+    "session": "TOKYO",
+    "atrBand": "NORMAL",
+    "trend": "DOWN",
+    "canonical": {
+      "candleId": "XAUUSD:M1:2026-09-29T06:56:05.000Z",
+      "symbol": "XAUUSD",
+      "timeframe": "M1",
+      "openTime": "2026-09-29T06:56:05.000Z",
+      "closeTime": "2026-09-29T06:56:05.000Z",
+      "closed": true,
+      "ohlc": {
+        "open": 4172.60009765625,
+        "high": 4172.60009765625,
+        "low": 4172.60009765625,
+        "close": 4172.60009765625
+      },
+      "body": {
+        "direction": "DOJI",
+        "size": 0,
+        "range": 0,
+        "bodyRatio": 0
+      },
+      "bbma": {
+        "zone": "EMA50",
+        "event": null,
+        "direction": "DOWN",
+        "momentum": false,
+        "extreme": false,
+        "csa": false,
+        "csak": false,
+        "reentry": false,
+        "state": "DOWN",
+        "ema50Relation": "EMA50_INSIDE_BB"
+      },
+      "session": {
+        "name": "TOKYO",
+        "firstSessionCandle": false
+      },
+      "provenance": {
+        "provider": "YAHOO_CHART",
+        "sourceSymbol": "GC=F",
+        "revision": 1
+      }
+    },
+    "formationFingerprintId": "1aa26c71176971c6405a5923"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-1691815f2d5df7d15d7a",
+    "sourceGeneratedAt": "2026-09-29T07:07:06.564Z",
+    "symbol": "GC=F",
+    "tf": "M1",
+    "candleTime": "2026-09-29T06:57:03.000Z",
+    "createdAt": "2026-09-29T07:07:11.197Z",
+    "marketMode": "NO_EVENT",
+    "event": null,
+    "location": "EMA50",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "DOWN_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_down"
+    ],
+    "status": "PENDING",
+    "id": "46eebdf3f5bfe7557c66",
+    "algoGenerationId": "gen-b5d29cc3961171703dcf",
+    "instrumentId": "GC_FUTURES",
+    "memoryRoot": "GC_FUTURES_PROXY",
+    "session": "TOKYO",
+    "atrBand": "NORMAL",
+    "trend": "DOWN",
+    "canonical": {
+      "candleId": "XAUUSD:M1:2026-09-29T06:57:03.000Z",
+      "symbol": "XAUUSD",
+      "timeframe": "M1",
+      "openTime": "2026-09-29T06:57:03.000Z",
+      "closeTime": "2026-09-29T06:57:03.000Z",
+      "closed": true,
+      "ohlc": {
+        "open": 4172.60009765625,
+        "high": 4172.60009765625,
+        "low": 4172.60009765625,
+        "close": 4172.60009765625
+      },
+      "body": {
+        "direction": "DOJI",
+        "size": 0,
+        "range": 0,
+        "bodyRatio": 0
+      },
+      "bbma": {
+        "zone": "EMA50",
+        "event": null,
+        "direction": "DOWN",
+        "momentum": false,
+        "extreme": false,
+        "csa": false,
+        "csak": false,
+        "reentry": false,
+        "state": "DOWN",
+        "ema50Relation": "EMA50_INSIDE_BB"
+      },
+      "session": {
+        "name": "TOKYO",
+        "firstSessionCandle": false
+      },
+      "provenance": {
+        "provider": "YAHOO_CHART",
+        "sourceSymbol": "GC=F",
+        "revision": 1
+      }
+    },
+    "formationFingerprintId": "1aa26c71176971c6405a5923"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-1691815f2d5df7d15d7a",
+    "sourceGeneratedAt": "2026-09-29T07:07:06.564Z",
+    "symbol": "GC=F",
+    "tf": "M1",
+    "candleTime": "2026-09-29T06:59:25.000Z",
+    "createdAt": "2026-09-29T07:09:40.310Z",
+    "marketMode": "NO_EVENT",
+    "event": null,
+    "location": "EMA50",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "DOWN_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_down"
+    ],
+    "status": "PENDING",
+    "id": "41bd3f732958d4357377",
+    "algoGenerationId": "gen-b5d29cc3961171703dcf",
+    "instrumentId": "GC_FUTURES",
+    "memoryRoot": "GC_FUTURES_PROXY",
+    "session": "TOKYO",
+    "atrBand": "NORMAL",
+    "trend": "DOWN",
+    "canonical": {
+      "candleId": "XAUUSD:M1:2026-09-29T06:59:25.000Z",
+      "symbol": "XAUUSD",
+      "timeframe": "M1",
+      "openTime": "2026-09-29T06:59:25.000Z",
+      "closeTime": "2026-09-29T06:57:03.000Z",
+      "closed": true,
+      "ohlc": {
+        "open": 4171.7998046875,
+        "high": 4171.7998046875,
+        "low": 4171.7998046875,
+        "close": 4171.7998046875
+      },
+      "body": {
+        "direction": "DOJI",
+        "size": 0,
+        "range": 0,
+        "bodyRatio": 0
+      },
+      "bbma": {
+        "zone": "EMA50",
+        "event": null,
+        "direction": "DOWN",
+        "momentum": false,
+        "extreme": false,
+        "csa": false,
+        "csak": false,
+        "reentry": false,
+        "state": "DOWN",
+        "ema50Relation": "EMA50_INSIDE_BB"
+      },
+      "session": {
+        "name": "TOKYO",
+        "firstSessionCandle": false
+      },
+      "provenance": {
+        "provider": "YAHOO_CHART",
+        "sourceSymbol": "GC=F",
+        "revision": 1
+      }
+    },
+    "formationFingerprintId": "1aa26c71176971c6405a5923"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-1691815f2d5df7d15d7a",
+    "sourceGeneratedAt": "2026-09-29T07:07:06.564Z",
+    "symbol": "GC=F",
+    "tf": "M5",
+    "candleTime": "2026-09-29T06:55:00.000Z",
+    "createdAt": "2026-09-29T07:09:40.311Z",
+    "marketMode": "NO_EVENT",
+    "event": null,
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "UP",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "REENTRY_UP_ZONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "UP_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_up",
+      "reentry_up"
+    ],
+    "status": "PENDING",
+    "id": "1e08f428d782d53d44f4",
+    "algoGenerationId": "gen-b5d29cc3961171703dcf",
+    "instrumentId": "GC_FUTURES",
+    "memoryRoot": "GC_FUTURES_PROXY",
+    "session": "TOKYO",
+    "atrBand": "NORMAL",
+    "trend": "UP",
+    "canonical": {
+      "candleId": "XAUUSD:M5:2026-09-29T06:55:00.000Z",
+      "symbol": "XAUUSD",
+      "timeframe": "M5",
+      "openTime": "2026-09-29T06:55:00.000Z",
+      "closeTime": "2026-09-29T06:50:00.000Z",
+      "closed": true,
+      "ohlc": {
+        "open": 4173,
+        "high": 4173.2998046875,
+        "low": 4170.60009765625,
+        "close": 4171.7998046875
+      },
+      "body": {
+        "direction": "BEAR",
+        "size": 1.2002,
+        "range": 2.6997,
+        "bodyRatio": 0.4446
+      },
+      "bbma": {
+        "zone": "INSIDE_BB",
+        "event": "RE",
+        "direction": "UP",
+        "momentum": false,
+        "extreme": false,
+        "csa": false,
+        "csak": false,
+        "reentry": true,
+        "state": "RE",
+        "ema50Relation": "EMA50_INSIDE_BB"
+      },
+      "session": {
+        "name": "TOKYO",
+        "firstSessionCandle": false
+      },
+      "provenance": {
+        "provider": "YAHOO_CHART",
+        "sourceSymbol": "GC=F",
+        "revision": 1
+      }
+    },
+    "formationFingerprintId": "1aa26c71176971c6405a5923"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-1691815f2d5df7d15d7a",
+    "sourceGeneratedAt": "2026-09-29T07:07:06.564Z",
+    "symbol": "GC=F",
+    "tf": "M15",
+    "candleTime": "2026-09-29T06:45:00.000Z",
+    "createdAt": "2026-09-29T07:09:40.311Z",
+    "marketMode": "NO_EVENT",
+    "event": null,
+    "location": "TOP_BB",
+    "bbma": {
+      "trend": "UP",
+      "extreme": "EXTREME_HIGH",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "TIGHT",
+    "state": "UP_BIAS",
+    "confidence": 67,
+    "reasons": [
+      "trend_up",
+      "top_rejection_candidate"
+    ],
+    "status": "PENDING",
+    "id": "efa47f53b1d63cbc78a3",
+    "algoGenerationId": "gen-b5d29cc3961171703dcf",
+    "instrumentId": "GC_FUTURES",
+    "memoryRoot": "GC_FUTURES_PROXY",
+    "session": "TOKYO",
+    "atrBand": "NORMAL",
+    "trend": "UP",
+    "canonical": {
+      "candleId": "XAUUSD:M15:2026-09-29T06:45:00.000Z",
+      "symbol": "XAUUSD",
+      "timeframe": "M15",
+      "openTime": "2026-09-29T06:45:00.000Z",
+      "closeTime": "2026-09-29T06:30:00.000Z",
+      "closed": true,
+      "ohlc": {
+        "open": 4175.10009765625,
+        "high": 4175.10009765625,
+        "low": 4170.60009765625,
+        "close": 4171.7998046875
+      },
+      "body": {
+        "direction": "BEAR",
+        "size": 3.3003,
+        "range": 4.5,
+        "bodyRatio": 0.7334
+      },
+      "bbma": {
+        "zone": "TOP_BB",
+        "event": "EXT",
+        "direction": "UP",
+        "momentum": false,
+        "extreme": true,
+        "csa": false,
+        "csak": false,
+        "reentry": false,
+        "state": "EXT",
+        "ema50Relation": "EMA50_INSIDE_BB"
+      },
+      "session": {
+        "name": "TOKYO",
+        "firstSessionCandle": false
+      },
+      "provenance": {
+        "provider": "YAHOO_CHART",
+        "sourceSymbol": "GC=F",
+        "revision": 1
+      }
+    },
+    "formationFingerprintId": "1aa26c71176971c6405a5923"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-1691815f2d5df7d15d7a",
+    "sourceGeneratedAt": "2026-09-29T07:07:06.564Z",
+    "symbol": "GC=F",
+    "tf": "M30",
+    "candleTime": "2026-09-29T06:30:00.000Z",
+    "createdAt": "2026-09-29T07:09:40.311Z",
+    "marketMode": "NO_EVENT",
+    "event": null,
+    "location": "TOP_BB",
+    "bbma": {
+      "trend": "MIXED",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "CSAK_UP"
+    },
+    "squeeze": "TIGHT",
+    "state": "RANGE_OR_BREAKOUT_WATCH",
+    "confidence": 50,
+    "reasons": [
+      "top_rejection_candidate"
+    ],
+    "status": "PENDING",
+    "id": "37eb15132465a1b8dc4b",
+    "algoGenerationId": "gen-b5d29cc3961171703dcf",
+    "instrumentId": "GC_FUTURES",
+    "memoryRoot": "GC_FUTURES_PROXY",
+    "session": "TOKYO",
+    "atrBand": "NORMAL",
+    "trend": "MIXED",
+    "canonical": {
+      "candleId": "XAUUSD:M30:2026-09-29T06:30:00.000Z",
+      "symbol": "XAUUSD",
+      "timeframe": "M30",
+      "openTime": "2026-09-29T06:30:00.000Z",
+      "closeTime": "2026-09-29T06:00:00.000Z",
+      "closed": true,
+      "ohlc": {
+        "open": 4175.10009765625,
+        "high": 4177,
+        "low": 4170.60009765625,
+        "close": 4171.7998046875
+      },
+      "body": {
+        "direction": "BEAR",
+        "size": 3.3003,
+        "range": 6.3999,
+        "bodyRatio": 0.5157
+      },
+      "bbma": {
+        "zone": "TOP_BB",
+        "event": "CSAK",
+        "direction": "MIXED",
+        "momentum": false,
+        "extreme": false,
+        "csa": false,
+        "csak": true,
+        "reentry": false,
+        "state": "CSAK",
+        "ema50Relation": "EMA50_ABOVE_BB"
+      },
+      "session": {
+        "name": "TOKYO",
+        "firstSessionCandle": false
+      },
+      "provenance": {
+        "provider": "YAHOO_CHART",
+        "sourceSymbol": "GC=F",
+        "revision": 1
+      }
+    },
+    "formationFingerprintId": "1aa26c71176971c6405a5923"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-1691815f2d5df7d15d7a",
+    "sourceGeneratedAt": "2026-09-29T07:07:06.564Z",
+    "symbol": "GC=F",
+    "tf": "H1",
+    "candleTime": "2026-09-29T06:00:00.000Z",
+    "createdAt": "2026-09-29T07:09:40.311Z",
+    "marketMode": "NO_EVENT",
+    "event": null,
+    "location": "MID_BB",
+    "bbma": {
+      "trend": "MIXED",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "UNKNOWN",
+    "state": "RANGE_OR_BREAKOUT_WATCH",
+    "confidence": 100,
+    "reasons": [],
+    "status": "PENDING",
+    "id": "940089866788865e253c",
+    "algoGenerationId": "gen-b5d29cc3961171703dcf",
+    "instrumentId": "GC_FUTURES",
+    "memoryRoot": "GC_FUTURES_PROXY",
+    "session": "TOKYO",
+    "atrBand": "NORMAL",
+    "trend": "MIXED",
+    "canonical": {
+      "candleId": "XAUUSD:H1:2026-09-29T06:00:00.000Z",
+      "symbol": "XAUUSD",
+      "timeframe": "H1",
+      "openTime": "2026-09-29T06:00:00.000Z",
+      "closeTime": "2026-09-29T05:00:00.000Z",
+      "closed": true,
+      "ohlc": {
+        "open": 4170.10009765625,
+        "high": 4179.5,
+        "low": 4169.7998046875,
+        "close": 4171.7998046875
+      },
+      "body": {
+        "direction": "BULL",
+        "size": 1.6997,
+        "range": 9.7002,
+        "bodyRatio": 0.1752
+      },
+      "bbma": {
+        "zone": "MID_BB",
+        "event": null,
+        "direction": "MIXED",
+        "momentum": false,
+        "extreme": false,
+        "csa": false,
+        "csak": false,
+        "reentry": false,
+        "state": "RANGE",
+        "ema50Relation": "EMA50_ABOVE_BB"
+      },
+      "session": {
+        "name": "TOKYO",
+        "firstSessionCandle": false
+      },
+      "provenance": {
+        "provider": "YAHOO_CHART",
+        "sourceSymbol": "GC=F",
+        "revision": 1
+      }
+    },
+    "formationFingerprintId": "1aa26c71176971c6405a5923"
+  }
+]

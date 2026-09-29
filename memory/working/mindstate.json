@@ -1,0 +1,515 @@
+{
+ "schema": "MindState/v1",
+ "symbol": "GC=F",
+ "marketState": {
+  "price": 4171.2001953125,
+  "instrument": {
+   "display": "XAU/USD",
+   "analysisSymbol": "XAUUSD",
+   "providerSymbol": "GC=F",
+   "asset": "GOLD",
+   "marketType": "FUTURES",
+   "proxyFor": "XAUUSD",
+   "isProxy": true,
+   "source": "yahoo",
+   "note": "Analysis run on GC=F (futures) as a proxy for XAUUSD — not direct spot."
+  },
+  "feed": null
+ },
+ "bbmaState": {
+  "tf": "M15",
+  "zone": "MID_BB",
+  "pattern": "NONE",
+  "squeeze": "TIGHT",
+  "mtf": {
+   "D1": {
+    "trend": "UNKNOWN",
+    "state": "READY"
+   },
+   "H4": {
+    "trend": "UNKNOWN",
+    "state": "READY"
+   },
+   "H1": {
+    "trend": "DOWN",
+    "state": "READY"
+   },
+   "M30": {
+    "trend": "DOWN",
+    "state": "READY"
+   },
+   "M15": {
+    "trend": "MIXED",
+    "state": "READY"
+   },
+   "M5": {
+    "trend": "UP",
+    "state": "READY"
+   }
+  },
+  "up": [
+   "M5"
+  ],
+  "down": [
+   "H1",
+   "M30"
+  ]
+ },
+ "newsState": {
+  "state": "POST_NEWS",
+  "event": {
+   "title": "FOMC Member Barkin Speaks",
+   "currency": "USD",
+   "impact": "LOW",
+   "actual": null,
+   "forecast": "",
+   "previous": "",
+   "time": "2026-09-28T17:30:00.000Z"
+  },
+  "impact": "LOW",
+  "minutes": -91.3
+ },
+ "regimeState": {
+  "session": "NEW_YORK",
+  "htfAlignment": "MIXED",
+  "htfUp": [
+   "M5"
+  ],
+  "htfDown": [
+   "H1",
+   "M30"
+  ],
+  "atr": "NORMAL",
+  "trendStrength": -0.086
+ },
+ "activeHypotheses": [
+  {
+   "case": "BEAR",
+   "strength": 2,
+   "claims": [
+    {
+     "claim": "HTF aligned DOWN (2 TF)",
+     "material": true
+    },
+    {
+     "claim": "news event [object Object] approaching/active",
+     "material": true
+    }
+   ]
+  },
+  {
+   "case": "RANGE",
+   "strength": 2,
+   "claims": [
+    {
+     "claim": "compression / squeeze (low directional edge)",
+     "material": true
+    },
+    {
+     "claim": "conflicting HTF (mixed)",
+     "material": true
+    }
+   ]
+  }
+ ],
+ "synthesis": {
+  "leading": "BEAR",
+  "spread": 2,
+  "verdictInput": "BEAR,RANGE",
+  "note": "Kernel receives ALL surviving cases + falsifier findings (not only the winner)"
+ },
+ "recalledEpisodes": [],
+ "compare": {
+  "rows": [
+   {
+    "label": "Recent 20",
+    "rate": null,
+    "n": 0,
+    "significant": false,
+    "note": "no samples"
+   },
+   {
+    "label": "Recent 100",
+    "rate": null,
+    "n": 0,
+    "significant": false,
+    "note": "no samples"
+   },
+   {
+    "label": "Long-term",
+    "rate": null,
+    "n": 0,
+    "significant": false,
+    "note": "no samples"
+   },
+   {
+    "label": "Exact matches",
+    "rate": null,
+    "n": 0,
+    "significant": false,
+    "note": "no samples"
+   },
+   {
+    "label": "Near matches",
+    "rate": null,
+    "n": 0,
+    "significant": false,
+    "note": "no samples"
+   },
+   {
+    "label": "Current regime",
+    "rate": null,
+    "n": 0,
+    "significant": false,
+    "note": "no samples"
+   }
+  ],
+  "flag": null,
+  "summary": "",
+  "oppositeOutcomes": {
+   "n": 0,
+   "correct": 0,
+   "rate": null,
+   "significant": false
+  },
+  "settledSamples": 0
+ },
+ "uncertainties": {
+  "sources": {
+   "data": {
+    "level": "HIGH",
+    "reason": "prohibited: CONTINUITY_BROKEN,INSTRUMENT_MISMATCH_UNRESOLVED"
+   },
+   "model": {
+    "level": "LOW",
+    "reason": "modelLineage CONSISTENT"
+   },
+   "historical": {
+    "level": "HIGH",
+    "reason": "0 analogue samples"
+   },
+   "news": {
+    "level": "MEDIUM",
+    "reason": "news POST_NEWS (LOW)"
+   },
+   "regime": {
+    "level": "HIGH",
+    "reason": "HTF conflict; ATR NORMAL trend=-0.086"
+   }
+  },
+  "decision": "BLOCK",
+  "drivers": [
+   "data=HIGH",
+   "historical=HIGH",
+   "news=MEDIUM",
+   "regime=HIGH"
+  ],
+  "note": "hard source blocked (data/model) — lifecycle CONFIRMABLE will also prohibit"
+ },
+ "contradictions": [
+  {
+   "case": "BULL",
+   "claim": "HTF aligned UP",
+   "counterEvidence": "at least two HTF are DOWN"
+  }
+ ],
+ "predictions": [
+  {
+   "id": "ca8479826cc04a581507df56",
+   "tf": "M15",
+   "asset": "GOLD",
+   "state": {
+    "asset": "GOLD",
+    "atr": "NORMAL",
+    "bbmaZone": "MID_BB",
+    "htf": {
+     "H1": "DOWN",
+     "H4": "UNKNOWN"
+    },
+    "newsPhase": "POST_NEWS_FOMCMBS",
+    "pattern": "MIXED",
+    "session": "NEW_YORK",
+    "tf": "M15"
+   },
+   "fingerprint": "GOLD M15 MIXED MID_BB H1_DOWN H4_UNKNOWN ATR_NORMAL NEW_YORK POST_NEWS_FOMCMBS",
+   "stateId": "ca8479826cc04a581507df56",
+   "pattern": "MIXED",
+   "bbmaZone": "MID_BB",
+   "session": "NEW_YORK",
+   "newsPhase": "POST_NEWS_FOMCMBS",
+   "vec": {
+    "numeric": {
+     "bodyRatio": 0.45571419741640395,
+     "upperWick": 0.10124235119599481,
+     "lowerWick": 0.4430434513876012,
+     "rangePct": 0.00018939158932308574,
+     "trendStrength": -0.08622232306704453,
+     "atrPct": 0.5
+    },
+    "categorical": {
+     "tf": "M15",
+     "zone": "MID_BB",
+     "pattern": "MIXED",
+     "session": "NEW_YORK",
+     "newsPhase": "POST_NEWS_FOMCMBS",
+     "htfH1": "DOWN",
+     "htfH4": "UNKNOWN"
+    }
+   },
+   "prediction": {
+    "state": "RANGE_OR_BREAKOUT_WATCH",
+    "confidence": 100,
+    "scores": {
+     "up": 0,
+     "down": 0,
+     "range": 1
+    },
+    "reasons": [],
+    "location": "MID_BB",
+    "squeeze": "TIGHT",
+    "dataNote": "Research bias only; validate on next closed candle and historical samples.",
+    "newsState": "POST_NEWS"
+   },
+   "actual": null,
+   "settled": false,
+   "predictedDirection": null,
+   "actualDirection": null,
+   "correct": null,
+   "value": {
+    "value": 0,
+    "novelty": 1,
+    "importance": 0.15,
+    "importanceFlags": [
+     "BASELINE"
+    ],
+    "evidenceQuality": 0,
+    "learningValue": 0.35,
+    "tier": "ARCHIVE_RAW"
+   },
+   "importanceFlags": [
+    "BASELINE"
+   ],
+   "tier": "ARCHIVE_RAW",
+   "generationId": "bbma-1b7b7e7d08439f54c5cf",
+   "confidence": {
+    "score": 81,
+    "breakdown": [
+     {
+      "factor": "dataQuality",
+      "weight": 30,
+      "factorScore": 0.9,
+      "contribution": 27
+     },
+     {
+      "factor": "bbma",
+      "weight": 25,
+      "factorScore": 1,
+      "contribution": 25
+     },
+     {
+      "factor": "mtf",
+      "weight": 15,
+      "factorScore": 0.5,
+      "contribution": 7.5
+     },
+     {
+      "factor": "freshness",
+      "weight": 10,
+      "factorScore": 1,
+      "contribution": 10
+     },
+     {
+      "factor": "newsMacro",
+      "weight": 10,
+      "factorScore": 0.65,
+      "contribution": 6.5
+     },
+     {
+      "factor": "reaction",
+      "weight": 10,
+      "factorScore": 0.5,
+      "contribution": 5
+     }
+    ],
+    "prohibitions": [
+     "CONTINUITY_BROKEN",
+     "INSTRUMENT_MISMATCH_UNRESOLVED"
+    ],
+    "confirmable": false,
+    "verdict": "WAIT",
+    "weights": {
+     "dataQuality": 30,
+     "bbma": 25,
+     "mtf": 15,
+     "freshness": 10,
+     "newsMacro": 10,
+     "reaction": 10
+    }
+   },
+   "snapshotPrice": 4171.2001953125,
+   "snapshotTime": "2026-09-28T18:30:00.000Z",
+   "recordedAt": "2026-09-28T19:27:44.933Z"
+  }
+ ],
+ "pendingOutcomes": [
+  {
+   "id": "ca8479826cc04a581507df56",
+   "tf": "M15",
+   "asset": "GOLD",
+   "state": {
+    "asset": "GOLD",
+    "atr": "NORMAL",
+    "bbmaZone": "MID_BB",
+    "htf": {
+     "H1": "DOWN",
+     "H4": "UNKNOWN"
+    },
+    "newsPhase": "POST_NEWS_FOMCMBS",
+    "pattern": "MIXED",
+    "session": "NEW_YORK",
+    "tf": "M15"
+   },
+   "fingerprint": "GOLD M15 MIXED MID_BB H1_DOWN H4_UNKNOWN ATR_NORMAL NEW_YORK POST_NEWS_FOMCMBS",
+   "stateId": "ca8479826cc04a581507df56",
+   "pattern": "MIXED",
+   "bbmaZone": "MID_BB",
+   "session": "NEW_YORK",
+   "newsPhase": "POST_NEWS_FOMCMBS",
+   "vec": {
+    "numeric": {
+     "bodyRatio": 0.45571419741640395,
+     "upperWick": 0.10124235119599481,
+     "lowerWick": 0.4430434513876012,
+     "rangePct": 0.00018939158932308574,
+     "trendStrength": -0.08622232306704453,
+     "atrPct": 0.5
+    },
+    "categorical": {
+     "tf": "M15",
+     "zone": "MID_BB",
+     "pattern": "MIXED",
+     "session": "NEW_YORK",
+     "newsPhase": "POST_NEWS_FOMCMBS",
+     "htfH1": "DOWN",
+     "htfH4": "UNKNOWN"
+    }
+   },
+   "prediction": {
+    "state": "RANGE_OR_BREAKOUT_WATCH",
+    "confidence": 100,
+    "scores": {
+     "up": 0,
+     "down": 0,
+     "range": 1
+    },
+    "reasons": [],
+    "location": "MID_BB",
+    "squeeze": "TIGHT",
+    "dataNote": "Research bias only; validate on next closed candle and historical samples.",
+    "newsState": "POST_NEWS"
+   },
+   "actual": null,
+   "settled": false,
+   "predictedDirection": null,
+   "actualDirection": null,
+   "correct": null,
+   "value": {
+    "value": 0,
+    "novelty": 1,
+    "importance": 0.15,
+    "importanceFlags": [
+     "BASELINE"
+    ],
+    "evidenceQuality": 0,
+    "learningValue": 0.35,
+    "tier": "ARCHIVE_RAW"
+   },
+   "importanceFlags": [
+    "BASELINE"
+   ],
+   "tier": "ARCHIVE_RAW",
+   "generationId": "bbma-1b7b7e7d08439f54c5cf",
+   "confidence": {
+    "score": 81,
+    "breakdown": [
+     {
+      "factor": "dataQuality",
+      "weight": 30,
+      "factorScore": 0.9,
+      "contribution": 27
+     },
+     {
+      "factor": "bbma",
+      "weight": 25,
+      "factorScore": 1,
+      "contribution": 25
+     },
+     {
+      "factor": "mtf",
+      "weight": 15,
+      "factorScore": 0.5,
+      "contribution": 7.5
+     },
+     {
+      "factor": "freshness",
+      "weight": 10,
+      "factorScore": 1,
+      "contribution": 10
+     },
+     {
+      "factor": "newsMacro",
+      "weight": 10,
+      "factorScore": 0.65,
+      "contribution": 6.5
+     },
+     {
+      "factor": "reaction",
+      "weight": 10,
+      "factorScore": 0.5,
+      "contribution": 5
+     }
+    ],
+    "prohibitions": [
+     "CONTINUITY_BROKEN",
+     "INSTRUMENT_MISMATCH_UNRESOLVED"
+    ],
+    "confirmable": false,
+    "verdict": "WAIT",
+    "weights": {
+     "dataQuality": 30,
+     "bbma": 25,
+     "mtf": 15,
+     "freshness": 10,
+     "newsMacro": 10,
+     "reaction": 10
+    }
+   },
+   "snapshotPrice": 4171.2001953125,
+   "snapshotTime": "2026-09-28T18:30:00.000Z",
+   "recordedAt": "2026-09-28T19:27:44.933Z"
+  }
+ ],
+ "recentMistakes": [],
+ "driftState": {
+  "lineage": "CONSISTENT",
+  "generationId": "bbma-1b7b7e7d08439f54c5cf",
+  "generations": 1,
+  "flag": null
+ },
+ "kernelDecision": {
+  "decision": "BLOCK",
+  "drivers": [
+   "data=HIGH",
+   "historical=HIGH",
+   "news=MEDIUM",
+   "regime=HIGH"
+  ],
+  "note": "hard source blocked (data/model) — lifecycle CONFIRMABLE will also prohibit"
+ },
+ "nextRequiredEvidence": [
+  "clean (non-prohibited) feed data",
+  "more settled analogue samples (>=30)",
+  "HTF alignment resolution (closed higher-TF candles)"
+ ],
+ "builtAt": "2026-09-28T19:27:44.935Z"
+}

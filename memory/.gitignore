@@ -1,0 +1,11 @@
+# Memory Brain (this .gitignore is relative to memory/):
+# version the meaningful, bounded learning state (episodes, mistakes, semantic,
+# statistical/pattern reports, prediction ledger) so it PERSISTS across CI runs
+# and settles over time. Exclude only the unbounded raw audit stream, the
+# ephemeral working context, and the idempotency marker.
+archive/raw.jsonl
+working/last-context.json
+.lastgen
+# never track stray temp/lock files
+*.tmp
+.DS_Store

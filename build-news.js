@@ -621,6 +621,8 @@ function buildSpeakerRow(it, instrumentScale) {
 
   fs.writeFileSync(OUT, body, 'utf8');
   console.log('\nwrote ' + OUT);
+  /* Fold the committed Telegram delivery state into NEWS_AUTO.alertHistory (real alert history; rewrites the file we just wrote). */
+  require('./build-alert-history').main();
   console.log('incoming=' + out.incoming.length + '  gold.news=' + byTab.gold.news.length + '  gold.speakers=' + byTab.gold.speakers.length);
   console.log('\nTo wire it in: add these two lines to index.html, right after xauusd-data.js and before app.js:');
   console.log('  <script src="news-auto.js"></script>');
