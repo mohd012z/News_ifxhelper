@@ -6333,25 +6333,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-29T15:25:16.748Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 4187.1,
+          "realizedPct": -0.136
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-29T15:29:16.748Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 4187.1,
+          "realizedPct": -0.136
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-29T15:39:16.748Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 4187.1,
+          "realizedPct": -0.136
         },
         {
           "key": "M30",
@@ -6401,7 +6401,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.136,
+        "maePct": -0.136
+      }
     },
     {
       "key": "news:gold:India rates: Gradual hiking path – Standard Chartered",
@@ -6417,25 +6422,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-29T15:25:16.748Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 4187.1,
+          "realizedPct": -0.136
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-29T15:29:16.748Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 4187.1,
+          "realizedPct": -0.136
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-29T15:39:16.748Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 4187.1,
+          "realizedPct": -0.136
         },
         {
           "key": "M30",
@@ -6485,7 +6490,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.136,
+        "maePct": -0.136
+      }
     },
     {
       "key": "news:gold:Gold steadies after sharp drop as traders assess Fed outlook, Middle East risks",
@@ -6501,25 +6511,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-29T15:25:16.748Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 4187.1,
+          "realizedPct": -0.136
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-29T15:29:16.748Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 4187.1,
+          "realizedPct": -0.136
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-29T15:39:16.748Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 4187.1,
+          "realizedPct": -0.136
         },
         {
           "key": "M30",
@@ -6569,7 +6579,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.136,
+        "maePct": -0.136
+      }
     },
     {
       "key": "news:gold:Australian Dollar: RBA hike to support AUD/USD – BBH",
@@ -6585,25 +6600,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-29T15:25:16.748Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 4187.1,
+          "realizedPct": -0.136
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-29T15:29:16.748Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 4187.1,
+          "realizedPct": -0.136
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-29T15:39:16.748Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 4187.1,
+          "realizedPct": -0.136
         },
         {
           "key": "M30",
@@ -6653,7 +6668,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.136,
+        "maePct": -0.136
+      }
     },
     {
       "key": "news:crypto:Wells Fargo revises dollar, yen, euro estimates amid rate hike outlook",
@@ -6669,25 +6689,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-29T15:25:16.748Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 83034,
+          "realizedPct": -0.105
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-29T15:29:16.748Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 83034,
+          "realizedPct": -0.105
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-29T15:39:16.748Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 83034,
+          "realizedPct": -0.105
         },
         {
           "key": "M30",
@@ -6737,7 +6757,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.105,
+        "maePct": -0.105
+      }
     },
     {
       "key": "news:crypto:India rates: Gradual hiking path – Standard Chartered",
@@ -6753,25 +6778,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-29T15:25:16.748Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 83034,
+          "realizedPct": -0.105
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-29T15:29:16.748Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 83034,
+          "realizedPct": -0.105
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-29T15:39:16.748Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 83034,
+          "realizedPct": -0.105
         },
         {
           "key": "M30",
@@ -6821,7 +6846,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.105,
+        "maePct": -0.105
+      }
     },
     {
       "key": "news:crypto:Gold steadies after sharp drop as traders assess Fed outlook, Middle East risks",
@@ -6837,25 +6867,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-29T15:25:16.748Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 83034,
+          "realizedPct": -0.105
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-29T15:29:16.748Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 83034,
+          "realizedPct": -0.105
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-29T15:39:16.748Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 83034,
+          "realizedPct": -0.105
         },
         {
           "key": "M30",
@@ -6905,7 +6935,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.105,
+        "maePct": -0.105
+      }
     },
     {
       "key": "news:crypto:Australian Dollar: RBA hike to support AUD/USD – BBH",
@@ -6921,25 +6956,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-29T15:25:16.748Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 83034,
+          "realizedPct": -0.105
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-29T15:29:16.748Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 83034,
+          "realizedPct": -0.105
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-29T15:39:16.748Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 83034,
+          "realizedPct": -0.105
         },
         {
           "key": "M30",
@@ -6989,7 +7024,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.105,
+        "maePct": -0.105
+      }
     },
     {
       "key": "news:forex:Wells Fargo revises dollar, yen, euro estimates amid rate hike outlook",
@@ -7005,25 +7045,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-29T15:25:16.748Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 1.1337,
+          "realizedPct": 0.026
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-29T15:29:16.748Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 1.1337,
+          "realizedPct": 0.026
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-29T15:39:16.748Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 1.1337,
+          "realizedPct": 0.026
         },
         {
           "key": "M30",
@@ -7073,7 +7113,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.026,
+        "maePct": 0.026
+      }
     },
     {
       "key": "news:forex:India rates: Gradual hiking path – Standard Chartered",
@@ -7089,25 +7134,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-29T15:25:16.748Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 1.1337,
+          "realizedPct": 0.026
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-29T15:29:16.748Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 1.1337,
+          "realizedPct": 0.026
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-29T15:39:16.748Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 1.1337,
+          "realizedPct": 0.026
         },
         {
           "key": "M30",
@@ -7157,7 +7202,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.026,
+        "maePct": 0.026
+      }
     },
     {
       "key": "news:forex:Gold steadies after sharp drop as traders assess Fed outlook, Middle East risks",
@@ -7173,25 +7223,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-29T15:25:16.748Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 1.1337,
+          "realizedPct": 0.026
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-29T15:29:16.748Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 1.1337,
+          "realizedPct": 0.026
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-29T15:39:16.748Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 1.1337,
+          "realizedPct": 0.026
         },
         {
           "key": "M30",
@@ -7241,7 +7291,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.026,
+        "maePct": 0.026
+      }
     },
     {
       "key": "news:forex:Australian Dollar: RBA hike to support AUD/USD – BBH",
@@ -7257,25 +7312,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-29T15:25:16.748Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 1.1337,
+          "realizedPct": 0.026
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-29T15:29:16.748Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 1.1337,
+          "realizedPct": 0.026
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-29T15:39:16.748Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 1.1337,
+          "realizedPct": 0.026
         },
         {
           "key": "M30",
@@ -7321,6 +7376,263 @@
           "key": "MN1",
           "minutes": 43200,
           "dueAt": "2026-10-29T15:24:16.748Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.026,
+        "maePct": 0.026
+      }
+    },
+    {
+      "key": "news:gold:Euro falls to three-month low as hawkish Fed outlook weighs",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Euro falls to three-month low as hawkish Fed outlook weighs",
+      "url": "https://www.fxstreet.com/news/euro-falls-to-three-month-low-as-hawkish-fed-outlook-weighs-202609291543",
+      "impactScore": -0.21,
+      "priceAtDetect": 4187.1,
+      "createdAt": "2026-09-29T15:52:45.395Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T15:53:45.395Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T15:57:45.395Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-29T16:07:45.395Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-29T16:22:45.395Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-29T16:52:45.395Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-29T19:52:45.395Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T15:52:45.395Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T15:52:45.395Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T15:52:45.395Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:crypto:Euro falls to three-month low as hawkish Fed outlook weighs",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Euro falls to three-month low as hawkish Fed outlook weighs",
+      "url": "https://www.fxstreet.com/news/euro-falls-to-three-month-low-as-hawkish-fed-outlook-weighs-202609291543",
+      "impactScore": -0.24,
+      "priceAtDetect": 83034,
+      "createdAt": "2026-09-29T15:52:45.395Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T15:53:45.395Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T15:57:45.395Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-29T16:07:45.395Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-29T16:22:45.395Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-29T16:52:45.395Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-29T19:52:45.395Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T15:52:45.395Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T15:52:45.395Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T15:52:45.395Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:forex:Euro falls to three-month low as hawkish Fed outlook weighs",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Euro falls to three-month low as hawkish Fed outlook weighs",
+      "url": "https://www.fxstreet.com/news/euro-falls-to-three-month-low-as-hawkish-fed-outlook-weighs-202609291543",
+      "impactScore": -0.26,
+      "priceAtDetect": 1.1337,
+      "createdAt": "2026-09-29T15:52:45.395Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T15:53:45.395Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T15:57:45.395Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-29T16:07:45.395Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-29T16:22:45.395Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-29T16:52:45.395Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-29T19:52:45.395Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T15:52:45.395Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T15:52:45.395Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T15:52:45.395Z",
           "capturedAt": null,
           "price": null,
           "realizedPct": null
