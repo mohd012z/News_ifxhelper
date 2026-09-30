@@ -9804,33 +9804,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-30T10:40:27.736Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 4212,
+          "realizedPct": -0.194
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-30T10:44:27.736Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 4212,
+          "realizedPct": -0.194
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-30T10:54:27.736Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 4212,
+          "realizedPct": -0.194
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-09-30T11:09:27.736Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 4212,
+          "realizedPct": -0.194
         },
         {
           "key": "H1",
@@ -9872,7 +9872,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.194,
+        "maePct": -0.194
+      }
     },
     {
       "key": "news:gold:Euro: ECB pushback weighs on currency – MUFG",
@@ -9888,33 +9893,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-30T10:40:27.736Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 4212,
+          "realizedPct": -0.194
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-30T10:44:27.736Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 4212,
+          "realizedPct": -0.194
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-30T10:54:27.736Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 4212,
+          "realizedPct": -0.194
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-09-30T11:09:27.736Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 4212,
+          "realizedPct": -0.194
         },
         {
           "key": "H1",
@@ -9956,7 +9961,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.194,
+        "maePct": -0.194
+      }
     },
     {
       "key": "news:gold:US Dollar: Coin flip for October rate hike – DBS",
@@ -9972,33 +9982,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-30T10:40:27.736Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 4212,
+          "realizedPct": -0.194
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-30T10:44:27.736Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 4212,
+          "realizedPct": -0.194
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-30T10:54:27.736Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 4212,
+          "realizedPct": -0.194
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-09-30T11:09:27.736Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 4212,
+          "realizedPct": -0.194
         },
         {
           "key": "H1",
@@ -10040,7 +10050,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.194,
+        "maePct": -0.194
+      }
     },
     {
       "key": "news:gold:USD/JPY: Offered tone with key 155–158.20 range – Societe Generale",
@@ -10056,33 +10071,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-30T10:40:27.736Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 4212,
+          "realizedPct": -0.194
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-30T10:44:27.736Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 4212,
+          "realizedPct": -0.194
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-30T10:54:27.736Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 4212,
+          "realizedPct": -0.194
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-09-30T11:09:27.736Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 4212,
+          "realizedPct": -0.194
         },
         {
           "key": "H1",
@@ -10124,7 +10139,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.194,
+        "maePct": -0.194
+      }
     },
     {
       "key": "news:gold:Softer Australia CPI but RBA still hawkish – Rabobank",
@@ -10140,33 +10160,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-30T10:40:27.736Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 4212,
+          "realizedPct": -0.194
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-30T10:44:27.736Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 4212,
+          "realizedPct": -0.194
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-30T10:54:27.736Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 4212,
+          "realizedPct": -0.194
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-09-30T11:09:27.736Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 4212,
+          "realizedPct": -0.194
         },
         {
           "key": "H1",
@@ -10208,7 +10228,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.194,
+        "maePct": -0.194
+      }
     },
     {
       "key": "news:crypto:US Dollar: Upcoming data to support hawkish Fed stance – BBH",
@@ -10224,33 +10249,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-30T10:40:27.736Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 83706.55,
+          "realizedPct": -0.18
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-30T10:44:27.736Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 83706.55,
+          "realizedPct": -0.18
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-30T10:54:27.736Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 83706.55,
+          "realizedPct": -0.18
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-09-30T11:09:27.736Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 83706.55,
+          "realizedPct": -0.18
         },
         {
           "key": "H1",
@@ -10292,7 +10317,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.18,
+        "maePct": -0.18
+      }
     },
     {
       "key": "news:crypto:Euro: ECB pushback weighs on currency – MUFG",
@@ -10308,33 +10338,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-30T10:40:27.736Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 83706.55,
+          "realizedPct": -0.18
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-30T10:44:27.736Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 83706.55,
+          "realizedPct": -0.18
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-30T10:54:27.736Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 83706.55,
+          "realizedPct": -0.18
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-09-30T11:09:27.736Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 83706.55,
+          "realizedPct": -0.18
         },
         {
           "key": "H1",
@@ -10376,7 +10406,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.18,
+        "maePct": -0.18
+      }
     },
     {
       "key": "news:crypto:US Dollar: Coin flip for October rate hike – DBS",
@@ -10392,33 +10427,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-30T10:40:27.736Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 83706.55,
+          "realizedPct": -0.18
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-30T10:44:27.736Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 83706.55,
+          "realizedPct": -0.18
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-30T10:54:27.736Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 83706.55,
+          "realizedPct": -0.18
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-09-30T11:09:27.736Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 83706.55,
+          "realizedPct": -0.18
         },
         {
           "key": "H1",
@@ -10460,7 +10495,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.18,
+        "maePct": -0.18
+      }
     },
     {
       "key": "news:crypto:USD/JPY: Offered tone with key 155–158.20 range – Societe Generale",
@@ -10476,33 +10516,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-30T10:40:27.736Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 83706.55,
+          "realizedPct": -0.18
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-30T10:44:27.736Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 83706.55,
+          "realizedPct": -0.18
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-30T10:54:27.736Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 83706.55,
+          "realizedPct": -0.18
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-09-30T11:09:27.736Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 83706.55,
+          "realizedPct": -0.18
         },
         {
           "key": "H1",
@@ -10544,7 +10584,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.18,
+        "maePct": -0.18
+      }
     },
     {
       "key": "news:crypto:Softer Australia CPI but RBA still hawkish – Rabobank",
@@ -10560,33 +10605,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-30T10:40:27.737Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 83706.55,
+          "realizedPct": -0.18
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-30T10:44:27.737Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 83706.55,
+          "realizedPct": -0.18
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-30T10:54:27.737Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 83706.55,
+          "realizedPct": -0.18
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-09-30T11:09:27.737Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 83706.55,
+          "realizedPct": -0.18
         },
         {
           "key": "H1",
@@ -10628,7 +10673,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.18,
+        "maePct": -0.18
+      }
     },
     {
       "key": "news:forex:US Dollar: Upcoming data to support hawkish Fed stance – BBH",
@@ -10644,33 +10694,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-30T10:40:27.737Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 1.1358,
+          "realizedPct": -0.035
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-30T10:44:27.737Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 1.1358,
+          "realizedPct": -0.035
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-30T10:54:27.737Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 1.1358,
+          "realizedPct": -0.035
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-09-30T11:09:27.737Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 1.1358,
+          "realizedPct": -0.035
         },
         {
           "key": "H1",
@@ -10712,7 +10762,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.035,
+        "maePct": -0.035
+      }
     },
     {
       "key": "news:forex:Euro: ECB pushback weighs on currency – MUFG",
@@ -10728,33 +10783,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-30T10:40:27.737Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 1.1358,
+          "realizedPct": -0.035
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-30T10:44:27.737Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 1.1358,
+          "realizedPct": -0.035
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-30T10:54:27.737Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 1.1358,
+          "realizedPct": -0.035
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-09-30T11:09:27.737Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 1.1358,
+          "realizedPct": -0.035
         },
         {
           "key": "H1",
@@ -10796,7 +10851,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.035,
+        "maePct": -0.035
+      }
     },
     {
       "key": "news:forex:US Dollar: Coin flip for October rate hike – DBS",
@@ -10812,33 +10872,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-30T10:40:27.737Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 1.1358,
+          "realizedPct": -0.035
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-30T10:44:27.737Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 1.1358,
+          "realizedPct": -0.035
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-30T10:54:27.737Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 1.1358,
+          "realizedPct": -0.035
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-09-30T11:09:27.737Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 1.1358,
+          "realizedPct": -0.035
         },
         {
           "key": "H1",
@@ -10880,7 +10940,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.035,
+        "maePct": -0.035
+      }
     },
     {
       "key": "news:forex:USD/JPY: Offered tone with key 155–158.20 range – Societe Generale",
@@ -10896,33 +10961,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-30T10:40:27.737Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 1.1358,
+          "realizedPct": -0.035
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-30T10:44:27.737Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 1.1358,
+          "realizedPct": -0.035
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-30T10:54:27.737Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 1.1358,
+          "realizedPct": -0.035
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-09-30T11:09:27.737Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 1.1358,
+          "realizedPct": -0.035
         },
         {
           "key": "H1",
@@ -10964,7 +11029,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.035,
+        "maePct": -0.035
+      }
     },
     {
       "key": "news:forex:Softer Australia CPI but RBA still hawkish – Rabobank",
@@ -10980,33 +11050,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-30T10:40:27.737Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 1.1358,
+          "realizedPct": -0.035
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-30T10:44:27.737Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 1.1358,
+          "realizedPct": -0.035
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-09-30T10:54:27.737Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 1.1358,
+          "realizedPct": -0.035
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-09-30T11:09:27.737Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T11:19:55.621Z",
+          "price": 1.1358,
+          "realizedPct": -0.035
         },
         {
           "key": "H1",
@@ -11048,7 +11118,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.035,
+        "maePct": -0.035
+      }
     }
   ],
   "results": [
