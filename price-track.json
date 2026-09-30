@@ -12474,17 +12474,17 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-30T21:15:42.079Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T21:23:35.983Z",
+          "price": 4189.1,
+          "realizedPct": 0
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-30T21:19:42.079Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T21:23:35.983Z",
+          "price": 4189.1,
+          "realizedPct": 0
         },
         {
           "key": "M15",
@@ -12542,7 +12542,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0,
+        "maePct": 0
+      }
     },
     {
       "key": "news:gold:Gold can’t catch a PCE break as long US yields keep climbing",
@@ -12558,17 +12563,17 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-30T21:15:42.080Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T21:23:35.983Z",
+          "price": 4189.1,
+          "realizedPct": 0
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-30T21:19:42.080Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T21:23:35.983Z",
+          "price": 4189.1,
+          "realizedPct": 0
         },
         {
           "key": "M15",
@@ -12626,7 +12631,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0,
+        "maePct": 0
+      }
     },
     {
       "key": "news:crypto:U.S. dollar sees best month since June on hawkish Fed, U.S. Treasury bond rout",
@@ -12642,17 +12652,17 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-30T21:15:42.080Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T21:23:35.983Z",
+          "price": 83729.97,
+          "realizedPct": 0.03
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-30T21:19:42.080Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T21:23:35.983Z",
+          "price": 83729.97,
+          "realizedPct": 0.03
         },
         {
           "key": "M15",
@@ -12710,7 +12720,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.03,
+        "maePct": 0.03
+      }
     },
     {
       "key": "news:crypto:Gold can’t catch a PCE break as long US yields keep climbing",
@@ -12726,17 +12741,17 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-30T21:15:42.080Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T21:23:35.983Z",
+          "price": 83729.97,
+          "realizedPct": 0.03
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-30T21:19:42.080Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T21:23:35.983Z",
+          "price": 83729.97,
+          "realizedPct": 0.03
         },
         {
           "key": "M15",
@@ -12794,7 +12809,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.03,
+        "maePct": 0.03
+      }
     },
     {
       "key": "news:forex:U.S. dollar sees best month since June on hawkish Fed, U.S. Treasury bond rout",
@@ -12810,17 +12830,17 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-30T21:15:42.080Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T21:23:35.983Z",
+          "price": 1.1335,
+          "realizedPct": -0.018
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-30T21:19:42.080Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T21:23:35.983Z",
+          "price": 1.1335,
+          "realizedPct": -0.018
         },
         {
           "key": "M15",
@@ -12878,7 +12898,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.018,
+        "maePct": -0.018
+      }
     },
     {
       "key": "news:forex:Gold can’t catch a PCE break as long US yields keep climbing",
@@ -12894,17 +12919,17 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-30T21:15:42.080Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T21:23:35.983Z",
+          "price": 1.1335,
+          "realizedPct": -0.018
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-30T21:19:42.080Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T21:23:35.983Z",
+          "price": 1.1335,
+          "realizedPct": -0.018
         },
         {
           "key": "M15",
@@ -12962,7 +12987,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.018,
+        "maePct": -0.018
+      }
     }
   ],
   "results": [
