@@ -11139,17 +11139,17 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-30T16:42:06.006Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T16:53:58.994Z",
+          "price": 4191.3,
+          "realizedPct": 0.012
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-30T16:46:06.006Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T16:53:58.994Z",
+          "price": 4191.3,
+          "realizedPct": 0.012
         },
         {
           "key": "M15",
@@ -11207,7 +11207,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.012,
+        "maePct": 0.012
+      }
     },
     {
       "key": "news:gold:China: Targeted support and cautious stabilization signs – Societe Generale",
@@ -11223,17 +11228,17 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-30T16:42:06.006Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T16:53:58.994Z",
+          "price": 4191.3,
+          "realizedPct": 0.012
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-30T16:46:06.006Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T16:53:58.994Z",
+          "price": 4191.3,
+          "realizedPct": 0.012
         },
         {
           "key": "M15",
@@ -11291,7 +11296,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.012,
+        "maePct": 0.012
+      }
     },
     {
       "key": "news:gold:EUR/USD: Measured ECB tightening to support Euro – TD Securities",
@@ -11307,17 +11317,17 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-30T16:42:06.006Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T16:53:58.994Z",
+          "price": 4191.3,
+          "realizedPct": 0.012
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-30T16:46:06.006Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T16:53:58.994Z",
+          "price": 4191.3,
+          "realizedPct": 0.012
         },
         {
           "key": "M15",
@@ -11375,7 +11385,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.012,
+        "maePct": 0.012
+      }
     },
     {
       "key": "news:gold:Japanese Yen advances as US PCE shifts Fed rate hike bets toward December",
@@ -11391,17 +11406,17 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-30T16:42:06.006Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T16:53:58.994Z",
+          "price": 4191.3,
+          "realizedPct": 0.012
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-30T16:46:06.006Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T16:53:58.994Z",
+          "price": 4191.3,
+          "realizedPct": 0.012
         },
         {
           "key": "M15",
@@ -11459,7 +11474,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.012,
+        "maePct": 0.012
+      }
     },
     {
       "key": "news:gold:Canadian Dollar gains as US inflation cools Fed October rate hike bets",
@@ -11475,17 +11495,17 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-30T16:42:06.006Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T16:53:58.994Z",
+          "price": 4191.3,
+          "realizedPct": 0.012
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-30T16:46:06.006Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T16:53:58.994Z",
+          "price": 4191.3,
+          "realizedPct": 0.012
         },
         {
           "key": "M15",
@@ -11543,7 +11563,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.012,
+        "maePct": 0.012
+      }
     },
     {
       "key": "news:crypto:U.S. yields pull back from peaks as cooler PCE print curbs Oct rate-hike odds",
@@ -11559,17 +11584,17 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-30T16:42:06.006Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T16:53:58.994Z",
+          "price": 84306.05,
+          "realizedPct": 0.067
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-30T16:46:06.006Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T16:53:58.994Z",
+          "price": 84306.05,
+          "realizedPct": 0.067
         },
         {
           "key": "M15",
@@ -11627,7 +11652,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.067,
+        "maePct": 0.067
+      }
     },
     {
       "key": "news:crypto:China: Targeted support and cautious stabilization signs – Societe Generale",
@@ -11643,17 +11673,17 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-30T16:42:06.006Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T16:53:58.994Z",
+          "price": 84306.05,
+          "realizedPct": 0.067
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-30T16:46:06.006Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T16:53:58.994Z",
+          "price": 84306.05,
+          "realizedPct": 0.067
         },
         {
           "key": "M15",
@@ -11711,7 +11741,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.067,
+        "maePct": 0.067
+      }
     },
     {
       "key": "news:crypto:EUR/USD: Measured ECB tightening to support Euro – TD Securities",
@@ -11727,17 +11762,17 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-30T16:42:06.006Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T16:53:58.994Z",
+          "price": 84306.05,
+          "realizedPct": 0.067
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-30T16:46:06.006Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T16:53:58.994Z",
+          "price": 84306.05,
+          "realizedPct": 0.067
         },
         {
           "key": "M15",
@@ -11795,7 +11830,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.067,
+        "maePct": 0.067
+      }
     },
     {
       "key": "news:crypto:Japanese Yen advances as US PCE shifts Fed rate hike bets toward December",
@@ -11811,17 +11851,17 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-30T16:42:06.006Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T16:53:58.994Z",
+          "price": 84306.05,
+          "realizedPct": 0.067
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-30T16:46:06.006Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T16:53:58.994Z",
+          "price": 84306.05,
+          "realizedPct": 0.067
         },
         {
           "key": "M15",
@@ -11879,7 +11919,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.067,
+        "maePct": 0.067
+      }
     },
     {
       "key": "news:crypto:Canadian Dollar gains as US inflation cools Fed October rate hike bets",
@@ -11895,17 +11940,17 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-30T16:42:06.006Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T16:53:58.994Z",
+          "price": 84306.05,
+          "realizedPct": 0.067
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-30T16:46:06.006Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T16:53:58.994Z",
+          "price": 84306.05,
+          "realizedPct": 0.067
         },
         {
           "key": "M15",
@@ -11963,7 +12008,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.067,
+        "maePct": 0.067
+      }
     },
     {
       "key": "news:forex:U.S. yields pull back from peaks as cooler PCE print curbs Oct rate-hike odds",
@@ -11979,17 +12029,17 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-30T16:42:06.006Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T16:53:58.994Z",
+          "price": 1.1339,
+          "realizedPct": -0.009
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-30T16:46:06.006Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T16:53:58.994Z",
+          "price": 1.1339,
+          "realizedPct": -0.009
         },
         {
           "key": "M15",
@@ -12047,7 +12097,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.009,
+        "maePct": -0.009
+      }
     },
     {
       "key": "news:forex:China: Targeted support and cautious stabilization signs – Societe Generale",
@@ -12063,17 +12118,17 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-30T16:42:06.006Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T16:53:58.994Z",
+          "price": 1.1339,
+          "realizedPct": -0.009
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-30T16:46:06.006Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T16:53:58.994Z",
+          "price": 1.1339,
+          "realizedPct": -0.009
         },
         {
           "key": "M15",
@@ -12131,7 +12186,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.009,
+        "maePct": -0.009
+      }
     },
     {
       "key": "news:forex:EUR/USD: Measured ECB tightening to support Euro – TD Securities",
@@ -12147,17 +12207,17 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-30T16:42:06.006Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T16:53:58.994Z",
+          "price": 1.1339,
+          "realizedPct": -0.009
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-30T16:46:06.006Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T16:53:58.994Z",
+          "price": 1.1339,
+          "realizedPct": -0.009
         },
         {
           "key": "M15",
@@ -12215,7 +12275,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.009,
+        "maePct": -0.009
+      }
     },
     {
       "key": "news:forex:Japanese Yen advances as US PCE shifts Fed rate hike bets toward December",
@@ -12231,17 +12296,17 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-30T16:42:06.006Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T16:53:58.994Z",
+          "price": 1.1339,
+          "realizedPct": -0.009
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-30T16:46:06.006Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T16:53:58.994Z",
+          "price": 1.1339,
+          "realizedPct": -0.009
         },
         {
           "key": "M15",
@@ -12299,7 +12364,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.009,
+        "maePct": -0.009
+      }
     },
     {
       "key": "news:forex:Canadian Dollar gains as US inflation cools Fed October rate hike bets",
@@ -12315,17 +12385,17 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-09-30T16:42:06.006Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T16:53:58.994Z",
+          "price": 1.1339,
+          "realizedPct": -0.009
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-09-30T16:46:06.006Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-09-30T16:53:58.994Z",
+          "price": 1.1339,
+          "realizedPct": -0.009
         },
         {
           "key": "M15",
@@ -12383,7 +12453,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.009,
+        "maePct": -0.009
+      }
     }
   ],
   "results": [
