@@ -5,7 +5,7 @@
  * Regenerate: node build-news.js (run on the same daily cron as build-atr.js).
  */
 window.NEWS_AUTO = {
-  "generatedAt": "2026-10-01 23:23:43Z",
+  "generatedAt": "2026-10-01 23:42:47Z",
   "note": "Auto-collected: economic calendar is real structured data; news rows are country/currency-aware and instrument-filtered; mixed observed-vs-policy direction becomes CONFLICT/NEUTRAL. impactPct is retained only for UI compatibility and is an impact score, not a calibrated return forecast. Treat auto:true rows as a first pass.",
   "incoming": [
     {
@@ -31,7 +31,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-01T23:23:39.146Z",
+      "fetchedAt": "2026-10-01T23:42:42.407Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -58,7 +58,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-01T23:23:39.146Z",
+      "fetchedAt": "2026-10-01T23:42:42.407Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -85,7 +85,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-01T23:23:39.147Z",
+      "fetchedAt": "2026-10-01T23:42:42.407Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -112,7 +112,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-01T23:23:39.147Z",
+      "fetchedAt": "2026-10-01T23:42:42.407Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -139,7 +139,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-01T23:23:39.147Z",
+      "fetchedAt": "2026-10-01T23:42:42.407Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -166,7 +166,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-01T23:23:39.147Z",
+      "fetchedAt": "2026-10-01T23:42:42.407Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -193,7 +193,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-01T23:23:39.147Z",
+      "fetchedAt": "2026-10-01T23:42:42.407Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -220,7 +220,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-01T23:23:39.147Z",
+      "fetchedAt": "2026-10-01T23:42:42.407Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -247,7 +247,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-01T23:23:39.147Z",
+      "fetchedAt": "2026-10-01T23:42:42.407Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -274,7 +274,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-01T23:23:39.147Z",
+      "fetchedAt": "2026-10-01T23:42:42.407Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -301,7 +301,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-01T23:23:39.147Z",
+      "fetchedAt": "2026-10-01T23:42:42.407Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -328,7 +328,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-01T23:23:39.147Z",
+      "fetchedAt": "2026-10-01T23:42:42.407Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     }
@@ -837,6 +837,81 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
+          "time": "Fri 2 Oct, 07:41 MYT",
+          "tf": "Intraday",
+          "title": "Tokyo core inflation hits 2.7% and the Yen firms",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/tokyo-core-inflation-hits-27-and-the-yen-firms-202610012341",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.5,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Fri 2 Oct, 07:40 MYT",
+          "tf": "Intraday",
+          "title": "Fed’s Logan: Policy rate must increase by additional 50 bps or more",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/feds-logan-policy-rate-must-increase-by-additional-50-bps-or-more-202610012340",
+          "impact": "bearish",
+          "signal": "SELL",
+          "decisionState": "DIRECTIONAL",
+          "relevance": 0.5,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": "hawkish",
+          "impactScore": -0.08,
+          "impactPct": -0.08,
+          "auto": true
+        },
+        {
+          "time": "Fri 2 Oct, 07:32 MYT",
+          "tf": "Intraday",
+          "title": "Breaking: Japan’s Tokyo CPI inflation climbs 2.7% in September",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/27-japans-tokyo-cpi-inflation-climbs-in-september-202610012332",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.5,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
           "time": "Fri 2 Oct, 07:17 MYT",
           "tf": "Intraday",
           "title": "Australian Dollar drifts toward 0.69 as USD shrugs off Fed patience",
@@ -1143,87 +1218,6 @@ window.NEWS_AUTO = {
             "usd": false,
             "oil": false,
             "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Fri 2 Oct, 01:34 MYT",
-          "tf": "Intraday",
-          "title": "Banxico survey sees lower inflation, stronger growth and 6.50% hold",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/banxico-survey-sees-lower-inflation-stronger-growth-and-650-hold-202610011734",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.8,
-          "currencies": [
-            "USD"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Fri 2 Oct, 01:07 MYT",
-          "tf": "Intraday",
-          "title": "Mexican Peso rout deepens as USD/MXN blasts 18.30",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/mexican-peso-rout-deepens-as-usd-mxn-blasts-through-1830-202610011707",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.8,
-          "currencies": [
-            "USD"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Fri 2 Oct, 01:04 MYT",
-          "tf": "Intraday",
-          "title": "Forex Today: US NFP takes centre stage",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/forex-today-us-nfp-takes-centre-stage-202610011704",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.8,
-          "currencies": [
-            "USD"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": true,
             "crypto": false
           },
           "policySide": null,
@@ -1987,6 +1981,81 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
+          "time": "Fri 2 Oct, 07:41 MYT",
+          "tf": "Intraday",
+          "title": "Tokyo core inflation hits 2.7% and the Yen firms",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/tokyo-core-inflation-hits-27-and-the-yen-firms-202610012341",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.4,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Fri 2 Oct, 07:40 MYT",
+          "tf": "Intraday",
+          "title": "Fed’s Logan: Policy rate must increase by additional 50 bps or more",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/feds-logan-policy-rate-must-increase-by-additional-50-bps-or-more-202610012340",
+          "impact": "bearish",
+          "signal": "SELL",
+          "decisionState": "DIRECTIONAL",
+          "relevance": 0.4,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": "hawkish",
+          "impactScore": -0.08,
+          "impactPct": -0.08,
+          "auto": true
+        },
+        {
+          "time": "Fri 2 Oct, 07:32 MYT",
+          "tf": "Intraday",
+          "title": "Breaking: Japan’s Tokyo CPI inflation climbs 2.7% in September",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/27-japans-tokyo-cpi-inflation-climbs-in-september-202610012332",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.4,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
           "time": "Fri 2 Oct, 07:17 MYT",
           "tf": "Intraday",
           "title": "Australian Dollar drifts toward 0.69 as USD shrugs off Fed patience",
@@ -2293,87 +2362,6 @@ window.NEWS_AUTO = {
             "usd": false,
             "oil": false,
             "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Fri 2 Oct, 01:34 MYT",
-          "tf": "Intraday",
-          "title": "Banxico survey sees lower inflation, stronger growth and 6.50% hold",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/banxico-survey-sees-lower-inflation-stronger-growth-and-650-hold-202610011734",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.7,
-          "currencies": [
-            "USD"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Fri 2 Oct, 01:07 MYT",
-          "tf": "Intraday",
-          "title": "Mexican Peso rout deepens as USD/MXN blasts 18.30",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/mexican-peso-rout-deepens-as-usd-mxn-blasts-through-1830-202610011707",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.7,
-          "currencies": [
-            "USD"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Fri 2 Oct, 01:04 MYT",
-          "tf": "Intraday",
-          "title": "Forex Today: US NFP takes centre stage",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/forex-today-us-nfp-takes-centre-stage-202610011704",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.7,
-          "currencies": [
-            "USD"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": true,
             "crypto": false
           },
           "policySide": null,
@@ -3137,6 +3125,81 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
+          "time": "Fri 2 Oct, 07:41 MYT",
+          "tf": "Intraday",
+          "title": "Tokyo core inflation hits 2.7% and the Yen firms",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/tokyo-core-inflation-hits-27-and-the-yen-firms-202610012341",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.5,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Fri 2 Oct, 07:40 MYT",
+          "tf": "Intraday",
+          "title": "Fed’s Logan: Policy rate must increase by additional 50 bps or more",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/feds-logan-policy-rate-must-increase-by-additional-50-bps-or-more-202610012340",
+          "impact": "bearish",
+          "signal": "SELL",
+          "decisionState": "DIRECTIONAL",
+          "relevance": 0.5,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": "hawkish",
+          "impactScore": -0.08,
+          "impactPct": -0.08,
+          "auto": true
+        },
+        {
+          "time": "Fri 2 Oct, 07:32 MYT",
+          "tf": "Intraday",
+          "title": "Breaking: Japan’s Tokyo CPI inflation climbs 2.7% in September",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/27-japans-tokyo-cpi-inflation-climbs-in-september-202610012332",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.5,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
           "time": "Fri 2 Oct, 07:17 MYT",
           "tf": "Intraday",
           "title": "Australian Dollar drifts toward 0.69 as USD shrugs off Fed patience",
@@ -3443,87 +3506,6 @@ window.NEWS_AUTO = {
             "usd": false,
             "oil": false,
             "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Fri 2 Oct, 01:34 MYT",
-          "tf": "Intraday",
-          "title": "Banxico survey sees lower inflation, stronger growth and 6.50% hold",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/banxico-survey-sees-lower-inflation-stronger-growth-and-650-hold-202610011734",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 1,
-          "currencies": [
-            "USD"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Fri 2 Oct, 01:07 MYT",
-          "tf": "Intraday",
-          "title": "Mexican Peso rout deepens as USD/MXN blasts 18.30",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/mexican-peso-rout-deepens-as-usd-mxn-blasts-through-1830-202610011707",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 1,
-          "currencies": [
-            "USD"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Fri 2 Oct, 01:04 MYT",
-          "tf": "Intraday",
-          "title": "Forex Today: US NFP takes centre stage",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/forex-today-us-nfp-takes-centre-stage-202610011704",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 1,
-          "currencies": [
-            "USD"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": true,
             "crypto": false
           },
           "policySide": null,
