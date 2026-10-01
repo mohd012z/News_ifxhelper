@@ -5,7 +5,7 @@
  * Regenerate: node build-news.js (run on the same daily cron as build-atr.js).
  */
 window.NEWS_AUTO = {
-  "generatedAt": "2026-10-01 05:11:26Z",
+  "generatedAt": "2026-10-01 06:39:04Z",
   "note": "Auto-collected: economic calendar is real structured data; news rows are country/currency-aware and instrument-filtered; mixed observed-vs-policy direction becomes CONFLICT/NEUTRAL. impactPct is retained only for UI compatibility and is an impact score, not a calibrated return forecast. Treat auto:true rows as a first pass.",
   "incoming": [
     {
@@ -31,7 +31,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-01T05:11:20.439Z",
+      "fetchedAt": "2026-10-01T06:39:00.513Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -58,7 +58,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-01T05:11:20.439Z",
+      "fetchedAt": "2026-10-01T06:39:00.513Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -85,7 +85,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-01T05:11:20.439Z",
+      "fetchedAt": "2026-10-01T06:39:00.513Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -112,7 +112,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-01T05:11:20.439Z",
+      "fetchedAt": "2026-10-01T06:39:00.513Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -139,7 +139,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-01T05:11:20.439Z",
+      "fetchedAt": "2026-10-01T06:39:00.513Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -166,7 +166,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-01T05:11:20.440Z",
+      "fetchedAt": "2026-10-01T06:39:00.513Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -193,7 +193,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-01T05:11:20.440Z",
+      "fetchedAt": "2026-10-01T06:39:00.513Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -220,7 +220,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-01T05:11:20.440Z",
+      "fetchedAt": "2026-10-01T06:39:00.513Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -247,7 +247,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-01T05:11:20.440Z",
+      "fetchedAt": "2026-10-01T06:39:00.513Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -274,7 +274,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-01T05:11:20.440Z",
+      "fetchedAt": "2026-10-01T06:39:00.513Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -301,7 +301,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-01T05:11:20.440Z",
+      "fetchedAt": "2026-10-01T06:39:00.513Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -328,7 +328,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-01T05:11:20.440Z",
+      "fetchedAt": "2026-10-01T06:39:00.513Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     }
@@ -587,12 +587,12 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Thu 1 Oct, 11:30 MYT",
+          "time": "Thu 1 Oct, 14:14 MYT",
           "tf": "Intraday",
-          "title": "Trump unveils $200 billion South Korean investment in US; Seoul hedges on Alaska pipeline",
+          "title": "Israel to ramp up pilot checks after flydubai scare",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
           "source": "Investing.com - Commodities & Futures",
-          "url": "https://www.investing.com/news/commodities-news/trump-expected-to-announce-54-billion-south-korea-investment-in-alaska-lng-sources-say-4925265",
+          "url": "https://www.investing.com/news/commodities-news/israel-to-ramp-up-pilot-checks-after-flydubai-scare-4925664",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
@@ -612,9 +612,34 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Thu 1 Oct, 09:18 MYT",
+          "time": "Thu 1 Oct, 14:14 MYT",
           "tf": "Intraday",
-          "title": "Gold little changed after 6% September slide as softer U.S. PCE cuts Fed hike bets",
+          "title": "A pilot brawl, then a rapid descent: passengers recount chaos on flydubai flight",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "Investing.com - Commodities & Futures",
+          "url": "https://www.investing.com/news/commodities-news/a-pilot-brawl-then-a-rapid-descent-passengers-recount-chaos-on-flydubai-flight-4925642",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.5,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 1 Oct, 13:59 MYT",
+          "tf": "Intraday",
+          "title": "Gold rises after September slide as softer PCE trims Fed hike bets",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
           "source": "Investing.com - Commodities & Futures",
           "url": "https://www.investing.com/news/commodities-news/gold-little-changed-after-6-september-slide-as-softer-us-pce-cuts-fed-hike-bets-4926166",
@@ -625,6 +650,56 @@ window.NEWS_AUTO = {
           "currencies": [],
           "drivers": {
             "gold": true,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 1 Oct, 13:24 MYT",
+          "tf": "Intraday",
+          "title": "Iran says it receives US response to latest proposal as Washington pulls out of Iraq",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "Investing.com - Commodities & Futures",
+          "url": "https://www.investing.com/news/commodities-news/iran-says-it-receives-us-response-to-latest-proposal-as-washington-pulls-out-of-iraq-4926259",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.5,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 1 Oct, 11:30 MYT",
+          "tf": "Intraday",
+          "title": "Trump unveils $200 billion South Korean investment in US; Seoul hedges on Alaska pipeline",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "Investing.com - Commodities & Futures",
+          "url": "https://www.investing.com/news/commodities-news/trump-expected-to-announce-54-billion-south-korea-investment-in-alaska-lng-sources-say-4925265",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.5,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
             "yields": false,
             "usd": false,
             "oil": false,
@@ -762,21 +837,23 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Thu 1 Oct, 05:24 MYT",
+          "time": "Thu 1 Oct, 12:54 MYT",
           "tf": "Intraday",
-          "title": "Explainer-What is red-dyed diesel and can it help lower prices, as Trump wants?",
+          "title": "Gold sticks to modest gains; remains below $4,200 as bullish USD limits upside",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "Investing.com - Commodities & Futures",
-          "url": "https://www.investing.com/news/commodities-news/explainerwhat-is-reddyed-diesel-and-can-it-help-lower-prices-as-trump-wants-4925969",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/gold-bulls-seem-hesitant-as-resilient-us-dollar-and-yields-cap-upside-202610010454",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
-          "relevance": 0.5,
-          "currencies": [],
+          "relevance": 1,
+          "currencies": [
+            "USD"
+          ],
           "drivers": {
-            "gold": false,
+            "gold": true,
             "yields": false,
-            "usd": false,
+            "usd": true,
             "oil": false,
             "risk": false,
             "crypto": false
@@ -787,21 +864,52 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Thu 1 Oct, 04:54 MYT",
+          "time": "Thu 1 Oct, 14:34 MYT",
           "tf": "Intraday",
-          "title": "Israel to ramp up pilot checks after flydubai scare",
+          "title": "Japanese Yen dips further as higher US yields offset hawkish BoJ opinions",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "Investing.com - Commodities & Futures",
-          "url": "https://www.investing.com/news/commodities-news/israel-to-ramp-up-pilot-checks-after-flydubai-scare-4925664",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/japanese-yen-dips-further-as-higher-us-yields-offset-hawkish-boj-opinions-202610010634",
+          "impact": "bearish",
+          "signal": "SELL",
+          "decisionState": "CONFLICT",
+          "relevance": 0.8,
+          "currencies": [
+            "USD",
+            "JPY"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": true,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": "hawkish",
+          "impactScore": -0.36,
+          "impactPct": -0.36,
+          "auto": true
+        },
+        {
+          "time": "Thu 1 Oct, 13:58 MYT",
+          "tf": "Intraday",
+          "title": "GBP/USD Price Forecast: Declines to near 1.3250 as bearish bias persists below 100-day moving average",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/gbp-usd-price-forecast-declines-to-near-13250-as-bearish-bias-persists-below-100-day-moving-average-202610010558",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
-          "relevance": 0.5,
-          "currencies": [],
+          "relevance": 0.8,
+          "currencies": [
+            "USD",
+            "GBP"
+          ],
           "drivers": {
             "gold": false,
             "yields": false,
-            "usd": false,
+            "usd": true,
             "oil": false,
             "risk": false,
             "crypto": false
@@ -812,12 +920,95 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Thu 1 Oct, 04:46 MYT",
+          "time": "Thu 1 Oct, 13:55 MYT",
           "tf": "Intraday",
-          "title": "Oil rises for September, Brent jumps 14% as Middle East conflict drags on",
+          "title": "AUD/USD Price Forecast: On verge of 78.6% Fibo breakdown near 0.6950",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "Investing.com - Commodities & Futures",
-          "url": "https://www.investing.com/news/commodities-news/oil-prices-edge-higher-after-sharp-drop-as-middle-east-supply-recovers-4923978",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/aud-usd-price-forecast-on-verge-of-786-fibo-breakdown-near-06950-202610010555",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.8,
+          "currencies": [
+            "USD",
+            "AUD"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 1 Oct, 13:50 MYT",
+          "tf": "Intraday",
+          "title": "Swiss Franc reaches fresh 16-month lows ahead of CPI data",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/swiss-franc-reaches-fresh-16-month-lows-ahead-of-cpi-data-202610010550",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.8,
+          "currencies": [
+            "USD",
+            "CHF"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 1 Oct, 13:43 MYT",
+          "tf": "Intraday",
+          "title": "Indian Rupee falls as US Treasury Yields hit fresh two-decade high near 5.3%",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/indian-rupee-falls-as-us-treasury-yields-hit-fresh-two-decade-high-near-53-202610010543",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.8,
+          "currencies": [
+            "USD"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": true,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 1 Oct, 13:15 MYT",
+          "tf": "Intraday",
+          "title": "WTI Price Forecast: Bears await acceptance below $88.00, 50% Fibo. support breakdown",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/wti-price-forecast-bears-await-acceptance-below-8800-50-fibo-support-breakdown-202610010515",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
@@ -855,33 +1046,6 @@ window.NEWS_AUTO = {
             "gold": false,
             "yields": false,
             "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Thu 1 Oct, 12:54 MYT",
-          "tf": "Intraday",
-          "title": "Gold bulls seem hesitant as resilient US Dollar and yields cap upside",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/gold-bulls-seem-hesitant-as-resilient-us-dollar-and-yields-cap-upside-202610010454",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 1,
-          "currencies": [
-            "USD"
-          ],
-          "drivers": {
-            "gold": true,
-            "yields": true,
-            "usd": true,
             "oil": false,
             "risk": false,
             "crypto": false
@@ -1077,165 +1241,6 @@ window.NEWS_AUTO = {
           "policySide": "hawkish",
           "impactScore": -0.13,
           "impactPct": -0.13,
-          "auto": true
-        },
-        {
-          "time": "Thu 1 Oct, 10:22 MYT",
-          "tf": "Intraday",
-          "title": "US Dollar: Fed outlook supported by robust data – TD Securities",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/us-dollar-fed-outlook-supported-by-robust-data-td-securities-202610010222",
-          "impact": "bearish",
-          "signal": "SELL",
-          "decisionState": "DIRECTIONAL",
-          "relevance": 0.8,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": "hawkish",
-          "impactScore": -0.21,
-          "impactPct": -0.21,
-          "auto": true
-        },
-        {
-          "time": "Thu 1 Oct, 10:17 MYT",
-          "tf": "Intraday",
-          "title": "Australian Dollar remains stronger against Japanese Yen following Trade Balance data",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/australian-dollar-remains-stronger-against-japanese-yen-following-trade-balance-data-202610010217",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.8,
-          "currencies": [
-            "JPY",
-            "AUD"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Thu 1 Oct, 10:11 MYT",
-          "tf": "Intraday",
-          "title": "British Pound retreats further from one-week top as USD buying remains unabated",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/british-pound-retreats-further-from-one-week-top-as-usd-buying-remains-unabated-202610010211",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.8,
-          "currencies": [
-            "USD",
-            "GBP"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Thu 1 Oct, 09:57 MYT",
-          "tf": "Intraday",
-          "title": "Australian Dollar declines below 0.6959 as Trade Surplus shrinks sharply",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/australian-dollar-declines-below-06959-as-trade-surplus-shrinks-sharply-202610010157",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.8,
-          "currencies": [
-            "USD",
-            "AUD"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Thu 1 Oct, 09:41 MYT",
-          "tf": "Intraday",
-          "title": "Reserve Bank of Australia: Households, businesses can weather slower economy, falling house prices",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/reserve-bank-of-australia-households-businesses-can-weather-slower-economy-falling-house-prices-202610010141",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.5,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Thu 1 Oct, 09:33 MYT",
-          "tf": "Intraday",
-          "title": "AUD495M: Australia’s Trade Surplus shrinks sharply in August",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/aud495m-australias-trade-balance-shows-a-surplus-in-august-202610010133",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.5,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
           "auto": true
         },
         {
@@ -1744,12 +1749,12 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Thu 1 Oct, 11:30 MYT",
+          "time": "Thu 1 Oct, 14:14 MYT",
           "tf": "Intraday",
-          "title": "Trump unveils $200 billion South Korean investment in US; Seoul hedges on Alaska pipeline",
+          "title": "Israel to ramp up pilot checks after flydubai scare",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
           "source": "Investing.com - Commodities & Futures",
-          "url": "https://www.investing.com/news/commodities-news/trump-expected-to-announce-54-billion-south-korea-investment-in-alaska-lng-sources-say-4925265",
+          "url": "https://www.investing.com/news/commodities-news/israel-to-ramp-up-pilot-checks-after-flydubai-scare-4925664",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
@@ -1769,9 +1774,34 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Thu 1 Oct, 09:18 MYT",
+          "time": "Thu 1 Oct, 14:14 MYT",
           "tf": "Intraday",
-          "title": "Gold little changed after 6% September slide as softer U.S. PCE cuts Fed hike bets",
+          "title": "A pilot brawl, then a rapid descent: passengers recount chaos on flydubai flight",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "Investing.com - Commodities & Futures",
+          "url": "https://www.investing.com/news/commodities-news/a-pilot-brawl-then-a-rapid-descent-passengers-recount-chaos-on-flydubai-flight-4925642",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.4,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 1 Oct, 13:59 MYT",
+          "tf": "Intraday",
+          "title": "Gold rises after September slide as softer PCE trims Fed hike bets",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
           "source": "Investing.com - Commodities & Futures",
           "url": "https://www.investing.com/news/commodities-news/gold-little-changed-after-6-september-slide-as-softer-us-pce-cuts-fed-hike-bets-4926166",
@@ -1782,6 +1812,56 @@ window.NEWS_AUTO = {
           "currencies": [],
           "drivers": {
             "gold": true,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 1 Oct, 13:24 MYT",
+          "tf": "Intraday",
+          "title": "Iran says it receives US response to latest proposal as Washington pulls out of Iraq",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "Investing.com - Commodities & Futures",
+          "url": "https://www.investing.com/news/commodities-news/iran-says-it-receives-us-response-to-latest-proposal-as-washington-pulls-out-of-iraq-4926259",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.4,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 1 Oct, 11:30 MYT",
+          "tf": "Intraday",
+          "title": "Trump unveils $200 billion South Korean investment in US; Seoul hedges on Alaska pipeline",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "Investing.com - Commodities & Futures",
+          "url": "https://www.investing.com/news/commodities-news/trump-expected-to-announce-54-billion-south-korea-investment-in-alaska-lng-sources-say-4925265",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.4,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
             "yields": false,
             "usd": false,
             "oil": false,
@@ -1919,21 +1999,23 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Thu 1 Oct, 05:24 MYT",
+          "time": "Thu 1 Oct, 12:54 MYT",
           "tf": "Intraday",
-          "title": "Explainer-What is red-dyed diesel and can it help lower prices, as Trump wants?",
+          "title": "Gold sticks to modest gains; remains below $4,200 as bullish USD limits upside",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "Investing.com - Commodities & Futures",
-          "url": "https://www.investing.com/news/commodities-news/explainerwhat-is-reddyed-diesel-and-can-it-help-lower-prices-as-trump-wants-4925969",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/gold-bulls-seem-hesitant-as-resilient-us-dollar-and-yields-cap-upside-202610010454",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
-          "relevance": 0.4,
-          "currencies": [],
+          "relevance": 0.7,
+          "currencies": [
+            "USD"
+          ],
           "drivers": {
-            "gold": false,
+            "gold": true,
             "yields": false,
-            "usd": false,
+            "usd": true,
             "oil": false,
             "risk": false,
             "crypto": false
@@ -1944,21 +2026,52 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Thu 1 Oct, 04:54 MYT",
+          "time": "Thu 1 Oct, 14:34 MYT",
           "tf": "Intraday",
-          "title": "Israel to ramp up pilot checks after flydubai scare",
+          "title": "Japanese Yen dips further as higher US yields offset hawkish BoJ opinions",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "Investing.com - Commodities & Futures",
-          "url": "https://www.investing.com/news/commodities-news/israel-to-ramp-up-pilot-checks-after-flydubai-scare-4925664",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/japanese-yen-dips-further-as-higher-us-yields-offset-hawkish-boj-opinions-202610010634",
+          "impact": "bearish",
+          "signal": "SELL",
+          "decisionState": "CONFLICT",
+          "relevance": 0.7,
+          "currencies": [
+            "USD",
+            "JPY"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": true,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": "hawkish",
+          "impactScore": -0.41,
+          "impactPct": -0.41,
+          "auto": true
+        },
+        {
+          "time": "Thu 1 Oct, 13:58 MYT",
+          "tf": "Intraday",
+          "title": "GBP/USD Price Forecast: Declines to near 1.3250 as bearish bias persists below 100-day moving average",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/gbp-usd-price-forecast-declines-to-near-13250-as-bearish-bias-persists-below-100-day-moving-average-202610010558",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
-          "relevance": 0.4,
-          "currencies": [],
+          "relevance": 0.7,
+          "currencies": [
+            "USD",
+            "GBP"
+          ],
           "drivers": {
             "gold": false,
             "yields": false,
-            "usd": false,
+            "usd": true,
             "oil": false,
             "risk": false,
             "crypto": false
@@ -1969,12 +2082,95 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Thu 1 Oct, 04:46 MYT",
+          "time": "Thu 1 Oct, 13:55 MYT",
           "tf": "Intraday",
-          "title": "Oil rises for September, Brent jumps 14% as Middle East conflict drags on",
+          "title": "AUD/USD Price Forecast: On verge of 78.6% Fibo breakdown near 0.6950",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "Investing.com - Commodities & Futures",
-          "url": "https://www.investing.com/news/commodities-news/oil-prices-edge-higher-after-sharp-drop-as-middle-east-supply-recovers-4923978",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/aud-usd-price-forecast-on-verge-of-786-fibo-breakdown-near-06950-202610010555",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.7,
+          "currencies": [
+            "USD",
+            "AUD"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 1 Oct, 13:50 MYT",
+          "tf": "Intraday",
+          "title": "Swiss Franc reaches fresh 16-month lows ahead of CPI data",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/swiss-franc-reaches-fresh-16-month-lows-ahead-of-cpi-data-202610010550",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.7,
+          "currencies": [
+            "USD",
+            "CHF"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 1 Oct, 13:43 MYT",
+          "tf": "Intraday",
+          "title": "Indian Rupee falls as US Treasury Yields hit fresh two-decade high near 5.3%",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/indian-rupee-falls-as-us-treasury-yields-hit-fresh-two-decade-high-near-53-202610010543",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.7,
+          "currencies": [
+            "USD"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": true,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 1 Oct, 13:15 MYT",
+          "tf": "Intraday",
+          "title": "WTI Price Forecast: Bears await acceptance below $88.00, 50% Fibo. support breakdown",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/wti-price-forecast-bears-await-acceptance-below-8800-50-fibo-support-breakdown-202610010515",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
@@ -2012,33 +2208,6 @@ window.NEWS_AUTO = {
             "gold": false,
             "yields": false,
             "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Thu 1 Oct, 12:54 MYT",
-          "tf": "Intraday",
-          "title": "Gold bulls seem hesitant as resilient US Dollar and yields cap upside",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/gold-bulls-seem-hesitant-as-resilient-us-dollar-and-yields-cap-upside-202610010454",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.7,
-          "currencies": [
-            "USD"
-          ],
-          "drivers": {
-            "gold": true,
-            "yields": true,
-            "usd": true,
             "oil": false,
             "risk": false,
             "crypto": false
@@ -2234,165 +2403,6 @@ window.NEWS_AUTO = {
           "policySide": "hawkish",
           "impactScore": -0.14,
           "impactPct": -0.14,
-          "auto": true
-        },
-        {
-          "time": "Thu 1 Oct, 10:22 MYT",
-          "tf": "Intraday",
-          "title": "US Dollar: Fed outlook supported by robust data – TD Securities",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/us-dollar-fed-outlook-supported-by-robust-data-td-securities-202610010222",
-          "impact": "bearish",
-          "signal": "SELL",
-          "decisionState": "DIRECTIONAL",
-          "relevance": 0.7,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": "hawkish",
-          "impactScore": -0.24,
-          "impactPct": -0.24,
-          "auto": true
-        },
-        {
-          "time": "Thu 1 Oct, 10:17 MYT",
-          "tf": "Intraday",
-          "title": "Australian Dollar remains stronger against Japanese Yen following Trade Balance data",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/australian-dollar-remains-stronger-against-japanese-yen-following-trade-balance-data-202610010217",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.7,
-          "currencies": [
-            "JPY",
-            "AUD"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Thu 1 Oct, 10:11 MYT",
-          "tf": "Intraday",
-          "title": "British Pound retreats further from one-week top as USD buying remains unabated",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/british-pound-retreats-further-from-one-week-top-as-usd-buying-remains-unabated-202610010211",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.7,
-          "currencies": [
-            "USD",
-            "GBP"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Thu 1 Oct, 09:57 MYT",
-          "tf": "Intraday",
-          "title": "Australian Dollar declines below 0.6959 as Trade Surplus shrinks sharply",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/australian-dollar-declines-below-06959-as-trade-surplus-shrinks-sharply-202610010157",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.7,
-          "currencies": [
-            "USD",
-            "AUD"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Thu 1 Oct, 09:41 MYT",
-          "tf": "Intraday",
-          "title": "Reserve Bank of Australia: Households, businesses can weather slower economy, falling house prices",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/reserve-bank-of-australia-households-businesses-can-weather-slower-economy-falling-house-prices-202610010141",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.4,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Thu 1 Oct, 09:33 MYT",
-          "tf": "Intraday",
-          "title": "AUD495M: Australia’s Trade Surplus shrinks sharply in August",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/aud495m-australias-trade-balance-shows-a-surplus-in-august-202610010133",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.4,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
           "auto": true
         },
         {
@@ -2901,12 +2911,12 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Thu 1 Oct, 11:30 MYT",
+          "time": "Thu 1 Oct, 14:14 MYT",
           "tf": "Intraday",
-          "title": "Trump unveils $200 billion South Korean investment in US; Seoul hedges on Alaska pipeline",
+          "title": "Israel to ramp up pilot checks after flydubai scare",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
           "source": "Investing.com - Commodities & Futures",
-          "url": "https://www.investing.com/news/commodities-news/trump-expected-to-announce-54-billion-south-korea-investment-in-alaska-lng-sources-say-4925265",
+          "url": "https://www.investing.com/news/commodities-news/israel-to-ramp-up-pilot-checks-after-flydubai-scare-4925664",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
@@ -2926,9 +2936,34 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Thu 1 Oct, 09:18 MYT",
+          "time": "Thu 1 Oct, 14:14 MYT",
           "tf": "Intraday",
-          "title": "Gold little changed after 6% September slide as softer U.S. PCE cuts Fed hike bets",
+          "title": "A pilot brawl, then a rapid descent: passengers recount chaos on flydubai flight",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "Investing.com - Commodities & Futures",
+          "url": "https://www.investing.com/news/commodities-news/a-pilot-brawl-then-a-rapid-descent-passengers-recount-chaos-on-flydubai-flight-4925642",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.5,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 1 Oct, 13:59 MYT",
+          "tf": "Intraday",
+          "title": "Gold rises after September slide as softer PCE trims Fed hike bets",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
           "source": "Investing.com - Commodities & Futures",
           "url": "https://www.investing.com/news/commodities-news/gold-little-changed-after-6-september-slide-as-softer-us-pce-cuts-fed-hike-bets-4926166",
@@ -2939,6 +2974,56 @@ window.NEWS_AUTO = {
           "currencies": [],
           "drivers": {
             "gold": true,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 1 Oct, 13:24 MYT",
+          "tf": "Intraday",
+          "title": "Iran says it receives US response to latest proposal as Washington pulls out of Iraq",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "Investing.com - Commodities & Futures",
+          "url": "https://www.investing.com/news/commodities-news/iran-says-it-receives-us-response-to-latest-proposal-as-washington-pulls-out-of-iraq-4926259",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.5,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 1 Oct, 11:30 MYT",
+          "tf": "Intraday",
+          "title": "Trump unveils $200 billion South Korean investment in US; Seoul hedges on Alaska pipeline",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "Investing.com - Commodities & Futures",
+          "url": "https://www.investing.com/news/commodities-news/trump-expected-to-announce-54-billion-south-korea-investment-in-alaska-lng-sources-say-4925265",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.5,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
             "yields": false,
             "usd": false,
             "oil": false,
@@ -3076,21 +3161,23 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Thu 1 Oct, 05:24 MYT",
+          "time": "Thu 1 Oct, 12:54 MYT",
           "tf": "Intraday",
-          "title": "Explainer-What is red-dyed diesel and can it help lower prices, as Trump wants?",
+          "title": "Gold sticks to modest gains; remains below $4,200 as bullish USD limits upside",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "Investing.com - Commodities & Futures",
-          "url": "https://www.investing.com/news/commodities-news/explainerwhat-is-reddyed-diesel-and-can-it-help-lower-prices-as-trump-wants-4925969",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/gold-bulls-seem-hesitant-as-resilient-us-dollar-and-yields-cap-upside-202610010454",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
-          "relevance": 0.5,
-          "currencies": [],
+          "relevance": 1,
+          "currencies": [
+            "USD"
+          ],
           "drivers": {
-            "gold": false,
+            "gold": true,
             "yields": false,
-            "usd": false,
+            "usd": true,
             "oil": false,
             "risk": false,
             "crypto": false
@@ -3101,21 +3188,52 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Thu 1 Oct, 04:54 MYT",
+          "time": "Thu 1 Oct, 14:34 MYT",
           "tf": "Intraday",
-          "title": "Israel to ramp up pilot checks after flydubai scare",
+          "title": "Japanese Yen dips further as higher US yields offset hawkish BoJ opinions",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "Investing.com - Commodities & Futures",
-          "url": "https://www.investing.com/news/commodities-news/israel-to-ramp-up-pilot-checks-after-flydubai-scare-4925664",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/japanese-yen-dips-further-as-higher-us-yields-offset-hawkish-boj-opinions-202610010634",
+          "impact": "bearish",
+          "signal": "SELL",
+          "decisionState": "CONFLICT",
+          "relevance": 1,
+          "currencies": [
+            "USD",
+            "JPY"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": true,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": "hawkish",
+          "impactScore": -0.45,
+          "impactPct": -0.45,
+          "auto": true
+        },
+        {
+          "time": "Thu 1 Oct, 13:58 MYT",
+          "tf": "Intraday",
+          "title": "GBP/USD Price Forecast: Declines to near 1.3250 as bearish bias persists below 100-day moving average",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/gbp-usd-price-forecast-declines-to-near-13250-as-bearish-bias-persists-below-100-day-moving-average-202610010558",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
-          "relevance": 0.5,
-          "currencies": [],
+          "relevance": 1,
+          "currencies": [
+            "USD",
+            "GBP"
+          ],
           "drivers": {
             "gold": false,
             "yields": false,
-            "usd": false,
+            "usd": true,
             "oil": false,
             "risk": false,
             "crypto": false
@@ -3126,12 +3244,95 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Thu 1 Oct, 04:46 MYT",
+          "time": "Thu 1 Oct, 13:55 MYT",
           "tf": "Intraday",
-          "title": "Oil rises for September, Brent jumps 14% as Middle East conflict drags on",
+          "title": "AUD/USD Price Forecast: On verge of 78.6% Fibo breakdown near 0.6950",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "Investing.com - Commodities & Futures",
-          "url": "https://www.investing.com/news/commodities-news/oil-prices-edge-higher-after-sharp-drop-as-middle-east-supply-recovers-4923978",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/aud-usd-price-forecast-on-verge-of-786-fibo-breakdown-near-06950-202610010555",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 1,
+          "currencies": [
+            "USD",
+            "AUD"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 1 Oct, 13:50 MYT",
+          "tf": "Intraday",
+          "title": "Swiss Franc reaches fresh 16-month lows ahead of CPI data",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/swiss-franc-reaches-fresh-16-month-lows-ahead-of-cpi-data-202610010550",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 1,
+          "currencies": [
+            "USD",
+            "CHF"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 1 Oct, 13:43 MYT",
+          "tf": "Intraday",
+          "title": "Indian Rupee falls as US Treasury Yields hit fresh two-decade high near 5.3%",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/indian-rupee-falls-as-us-treasury-yields-hit-fresh-two-decade-high-near-53-202610010543",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 1,
+          "currencies": [
+            "USD"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": true,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 1 Oct, 13:15 MYT",
+          "tf": "Intraday",
+          "title": "WTI Price Forecast: Bears await acceptance below $88.00, 50% Fibo. support breakdown",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/wti-price-forecast-bears-await-acceptance-below-8800-50-fibo-support-breakdown-202610010515",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
@@ -3169,33 +3370,6 @@ window.NEWS_AUTO = {
             "gold": false,
             "yields": false,
             "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Thu 1 Oct, 12:54 MYT",
-          "tf": "Intraday",
-          "title": "Gold bulls seem hesitant as resilient US Dollar and yields cap upside",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/gold-bulls-seem-hesitant-as-resilient-us-dollar-and-yields-cap-upside-202610010454",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 1,
-          "currencies": [
-            "USD"
-          ],
-          "drivers": {
-            "gold": true,
-            "yields": true,
-            "usd": true,
             "oil": false,
             "risk": false,
             "crypto": false
@@ -3391,165 +3565,6 @@ window.NEWS_AUTO = {
           "policySide": "hawkish",
           "impactScore": -0.13,
           "impactPct": -0.13,
-          "auto": true
-        },
-        {
-          "time": "Thu 1 Oct, 10:22 MYT",
-          "tf": "Intraday",
-          "title": "US Dollar: Fed outlook supported by robust data – TD Securities",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/us-dollar-fed-outlook-supported-by-robust-data-td-securities-202610010222",
-          "impact": "bearish",
-          "signal": "SELL",
-          "decisionState": "DIRECTIONAL",
-          "relevance": 0.5,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": "hawkish",
-          "impactScore": -0.13,
-          "impactPct": -0.13,
-          "auto": true
-        },
-        {
-          "time": "Thu 1 Oct, 10:17 MYT",
-          "tf": "Intraday",
-          "title": "Australian Dollar remains stronger against Japanese Yen following Trade Balance data",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/australian-dollar-remains-stronger-against-japanese-yen-following-trade-balance-data-202610010217",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 1,
-          "currencies": [
-            "JPY",
-            "AUD"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Thu 1 Oct, 10:11 MYT",
-          "tf": "Intraday",
-          "title": "British Pound retreats further from one-week top as USD buying remains unabated",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/british-pound-retreats-further-from-one-week-top-as-usd-buying-remains-unabated-202610010211",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 1,
-          "currencies": [
-            "USD",
-            "GBP"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Thu 1 Oct, 09:57 MYT",
-          "tf": "Intraday",
-          "title": "Australian Dollar declines below 0.6959 as Trade Surplus shrinks sharply",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/australian-dollar-declines-below-06959-as-trade-surplus-shrinks-sharply-202610010157",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 1,
-          "currencies": [
-            "USD",
-            "AUD"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Thu 1 Oct, 09:41 MYT",
-          "tf": "Intraday",
-          "title": "Reserve Bank of Australia: Households, businesses can weather slower economy, falling house prices",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/reserve-bank-of-australia-households-businesses-can-weather-slower-economy-falling-house-prices-202610010141",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.5,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Thu 1 Oct, 09:33 MYT",
-          "tf": "Intraday",
-          "title": "AUD495M: Australia’s Trade Surplus shrinks sharply in August",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/aud495m-australias-trade-balance-shows-a-surplus-in-august-202610010133",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.5,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
           "auto": true
         },
         {
