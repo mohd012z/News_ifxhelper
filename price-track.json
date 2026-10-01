@@ -9318,9 +9318,9 @@
           "key": "D1",
           "minutes": 1440,
           "dueAt": "2026-10-01T04:58:07.764Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-01T05:11:26.660Z",
+          "price": 4209.3,
+          "realizedPct": -0.088
         },
         {
           "key": "W1",
@@ -9407,9 +9407,9 @@
           "key": "D1",
           "minutes": 1440,
           "dueAt": "2026-10-01T04:58:07.764Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-01T05:11:26.660Z",
+          "price": 84178.13,
+          "realizedPct": 1.198
         },
         {
           "key": "W1",
@@ -9430,7 +9430,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.812,
+        "mfePct": 1.198,
         "maePct": 0.093
       }
     },
@@ -9496,9 +9496,9 @@
           "key": "D1",
           "minutes": 1440,
           "dueAt": "2026-10-01T04:58:07.764Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-01T05:11:26.660Z",
+          "price": 1.1321,
+          "realizedPct": -0.124
         },
         {
           "key": "W1",
@@ -9520,7 +9520,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.238,
-        "maePct": 0.026
+        "maePct": -0.124
       }
     },
     {
@@ -12514,9 +12514,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-10-01T01:14:42.079Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-01T05:11:26.661Z",
+          "price": 4209.3,
+          "realizedPct": 0.482
         },
         {
           "key": "D1",
@@ -12545,7 +12545,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0,
+        "mfePct": 0.482,
         "maePct": -0.375
       }
     },
@@ -12603,9 +12603,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-10-01T01:14:42.080Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-01T05:11:26.661Z",
+          "price": 4209.3,
+          "realizedPct": 0.482
         },
         {
           "key": "D1",
@@ -12634,7 +12634,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0,
+        "mfePct": 0.482,
         "maePct": -0.375
       }
     },
@@ -12692,9 +12692,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-10-01T01:14:42.080Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-01T05:11:26.661Z",
+          "price": 84178.13,
+          "realizedPct": 0.565
         },
         {
           "key": "D1",
@@ -12723,7 +12723,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.03,
+        "mfePct": 0.565,
         "maePct": -0.285
       }
     },
@@ -12781,9 +12781,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-10-01T01:14:42.080Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-01T05:11:26.661Z",
+          "price": 84178.13,
+          "realizedPct": 0.565
         },
         {
           "key": "D1",
@@ -12812,7 +12812,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.03,
+        "mfePct": 0.565,
         "maePct": -0.285
       }
     },
@@ -12870,9 +12870,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-10-01T01:14:42.080Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-01T05:11:26.661Z",
+          "price": 1.1321,
+          "realizedPct": -0.141
         },
         {
           "key": "D1",
@@ -12902,7 +12902,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.018,
-        "maePct": -0.018
+        "maePct": -0.141
       }
     },
     {
@@ -12959,9 +12959,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-10-01T01:14:42.080Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-01T05:11:26.661Z",
+          "price": 1.1321,
+          "realizedPct": -0.141
         },
         {
           "key": "D1",
@@ -12991,8 +12991,344 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.018,
-        "maePct": -0.018
+        "maePct": -0.141
       }
+    },
+    {
+      "key": "news:gold:Euro weakens below 1.1350 on higher US Treasury yields, Lagarde's dovish tilt",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Euro weakens below 1.1350 on higher US Treasury yields, Lagarde's dovish tilt",
+      "url": "https://www.fxstreet.com/news/euro-weakens-below-11350-on-higher-us-treasury-yields-lagardes-dovish-tilt-202610010252",
+      "impactScore": 0.12,
+      "priceAtDetect": 4209.3,
+      "createdAt": "2026-10-01T05:11:26.661Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-10-01T05:12:26.661Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-10-01T05:16:26.661Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-10-01T05:26:26.661Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-10-01T05:41:26.661Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-10-01T06:11:26.661Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-10-01T09:11:26.661Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-10-02T05:11:26.661Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-08T05:11:26.661Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-31T05:11:26.661Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:gold:Fed path shaped by firm inflation – Societe Generale",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Fed path shaped by firm inflation – Societe Generale",
+      "url": "https://www.fxstreet.com/news/fed-path-shaped-by-firm-inflation-societe-generale-202610010225",
+      "impactScore": -0.13,
+      "priceAtDetect": 4209.3,
+      "createdAt": "2026-10-01T05:11:26.661Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-10-01T05:12:26.661Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-10-01T05:16:26.661Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-10-01T05:26:26.661Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-10-01T05:41:26.661Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-10-01T06:11:26.661Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-10-01T09:11:26.661Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-10-02T05:11:26.661Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-08T05:11:26.661Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-31T05:11:26.661Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:gold:US Dollar: Fed outlook supported by robust data – TD Securities",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "US Dollar: Fed outlook supported by robust data – TD Securities",
+      "url": "https://www.fxstreet.com/news/us-dollar-fed-outlook-supported-by-robust-data-td-securities-202610010222",
+      "impactScore": -0.21,
+      "priceAtDetect": 4209.3,
+      "createdAt": "2026-10-01T05:11:26.661Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-10-01T05:12:26.661Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-10-01T05:16:26.661Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-10-01T05:26:26.661Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-10-01T05:41:26.661Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-10-01T06:11:26.661Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-10-01T09:11:26.661Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-10-02T05:11:26.661Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-08T05:11:26.661Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-31T05:11:26.661Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:crypto:Euro weakens below 1.1350 on higher US Treasury yields, Lagarde's dovish tilt",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Euro weakens below 1.1350 on higher US Treasury yields, Lagarde's dovish tilt",
+      "url": "https://www.fxstreet.com/news/euro-weakens-below-11350-on-higher-us-treasury-yields-lagardes-dovish-tilt-202610010252",
+      "impactScore": 0.14,
+      "priceAtDetect": 84178.13,
+      "createdAt": "2026-10-01T05:11:26.661Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-10-01T05:12:26.661Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-10-01T05:16:26.661Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-10-01T05:26:26.661Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-10-01T05:41:26.661Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-10-01T06:11:26.661Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-10-01T09:11:26.661Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-10-02T05:11:26.661Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-08T05:11:26.661Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-31T05:11:26.661Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
     }
   ],
   "results": [
