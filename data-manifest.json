@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
   "generationId": null,
-  "generatedAt": "2026-10-03T22:19:25.696Z",
+  "generatedAt": "2026-10-03T23:55:56.573Z",
   "lineage": {
     "status": "UNKNOWN",
     "generationId": null,
@@ -13,29 +13,29 @@
       "file": "news-auto.js",
       "available": true,
       "bytes": 159503,
-      "sha256": "54892e12bbff33d166e1569051aad884e52c52d558ab690dd7e8a499097800bf",
-      "modifiedAt": "2026-10-03T22:19:25.378Z"
+      "sha256": "cf0f69b2b97821117fb66aa6b12767fde1a00df97753ef93e8c91b4768d7e59c",
+      "modifiedAt": "2026-10-03T23:55:56.502Z"
     },
     {
       "file": "macro-auto.js",
       "available": true,
       "bytes": 1530,
       "sha256": "7c20ca1f09746b9e9b43cc9aa88bd5624959259ab26d379f56aee5b64e2fc56f",
-      "modifiedAt": "2026-10-03T22:19:25.644Z"
+      "modifiedAt": "2026-10-03T23:55:47.241Z"
     },
     {
       "file": "atr.js",
       "available": true,
       "bytes": 5801,
       "sha256": "56a41e5b6c46503def1d50df34d7e52443ebf631b5b7e9182fb9edaea5fb37d0",
-      "modifiedAt": "2026-10-03T22:19:15.498Z"
+      "modifiedAt": "2026-10-03T23:55:47.233Z"
     },
     {
       "file": "xauusd-data.js",
       "available": true,
       "bytes": 38201,
       "sha256": "5a308431b2e833b1b18a0fdd1cd6bd0a7e2d352276aecca147ff4a21eb444ba6",
-      "modifiedAt": "2026-10-03T22:19:15.513Z"
+      "modifiedAt": "2026-10-03T23:55:47.245Z"
     },
     {
       "file": "data/bbma-watch.json",
@@ -62,7 +62,7 @@
       "available": true,
       "bytes": 92,
       "sha256": "6480dc3af19ff7ca6371596e36147b1bbc6e7609331a9f2492b19c49997551bc",
-      "modifiedAt": "2026-10-03T22:19:15.505Z",
+      "modifiedAt": "2026-10-03T23:55:47.239Z",
       "lineage": {
         "generationId": null,
         "generatedAt": "2026-10-01T09:26:44.113Z",
@@ -74,7 +74,7 @@
       "available": true,
       "bytes": 93,
       "sha256": "bbed325f06d02c96fd55e91b0ea589a5ff9abfa528ec3d79b65c977c77efdbae",
-      "modifiedAt": "2026-10-03T22:19:15.505Z",
+      "modifiedAt": "2026-10-03T23:55:47.239Z",
       "lineage": {
         "generationId": null,
         "generatedAt": "2026-10-01T09:26:44.113Z",
