@@ -5,7 +5,7 @@
  * Regenerate: node build-news.js (run on the same daily cron as build-atr.js).
  */
 window.NEWS_AUTO = {
-  "generatedAt": "2026-10-04 05:41:15Z",
+  "generatedAt": "2026-10-04 07:52:25Z",
   "note": "Auto-collected: economic calendar is real structured data; news rows are country/currency-aware and instrument-filtered; mixed observed-vs-policy direction becomes CONFLICT/NEUTRAL. impactPct is retained only for UI compatibility and is an impact score, not a calibrated return forecast. Treat auto:true rows as a first pass.",
   "incoming": [
     {
@@ -31,7 +31,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-04T05:41:11.033Z",
+      "fetchedAt": "2026-10-04T07:51:02.070Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -58,7 +58,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-04T05:41:11.033Z",
+      "fetchedAt": "2026-10-04T07:51:02.070Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -85,7 +85,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-04T05:41:11.033Z",
+      "fetchedAt": "2026-10-04T07:51:02.070Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -112,7 +112,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-04T05:41:11.033Z",
+      "fetchedAt": "2026-10-04T07:51:02.070Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -139,7 +139,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-04T05:41:11.034Z",
+      "fetchedAt": "2026-10-04T07:51:02.070Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -166,7 +166,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-04T05:41:11.034Z",
+      "fetchedAt": "2026-10-04T07:51:02.070Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -193,7 +193,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-04T05:41:11.034Z",
+      "fetchedAt": "2026-10-04T07:51:02.070Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -220,7 +220,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-04T05:41:11.034Z",
+      "fetchedAt": "2026-10-04T07:51:02.070Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -247,7 +247,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-04T05:41:11.034Z",
+      "fetchedAt": "2026-10-04T07:51:02.070Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -274,7 +274,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-04T05:41:11.034Z",
+      "fetchedAt": "2026-10-04T07:51:02.070Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     }
@@ -436,7 +436,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Sun 4 Oct, 13:06 MYT",
+          "time": "Sun 4 Oct, 14:42 MYT",
           "tf": "Intraday",
           "title": "Bosnia votes Sunday in election that could affect EU bid",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
@@ -1535,7 +1535,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Sun 4 Oct, 13:06 MYT",
+          "time": "Sun 4 Oct, 14:42 MYT",
           "tf": "Intraday",
           "title": "Bosnia votes Sunday in election that could affect EU bid",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
@@ -2634,7 +2634,7 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Sun 4 Oct, 13:06 MYT",
+          "time": "Sun 4 Oct, 14:42 MYT",
           "tf": "Intraday",
           "title": "Bosnia votes Sunday in election that could affect EU bid",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
