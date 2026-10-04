@@ -648,7 +648,10 @@
     var started = new Date().toISOString();
     return fetchText(b + "data-manifest.json").then(function (txt) {
       var manifest = JSON.parse(txt);
-      if (!manifest || manifest.schemaVersion !== 1 || !manifest.generatedAt) throw new Error("Invalid data manifest");
+      // Manifest schemaVersion: writer (build-data-manifest.js) emits 3; the v1 validator
+      // pinned here rejected it (5c97f4b, 2026-10-01) and silently froze the APK on its
+      // bundled snapshot. Accept 1..3 forward-compatibly; anything else stays invalid.
+      if (!manifest || typeof manifest.schemaVersion !== "number" || manifest.schemaVersion < 1 || manifest.schemaVersion > 3 || !manifest.generatedAt) throw new Error("Invalid data manifest");
       return Promise.all([
         validatedRemoteFile(b, manifest, "xauusd-data.js"),
         validatedRemoteFile(b, manifest, "news-auto.js")
