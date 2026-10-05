@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
   "generationId": null,
-  "generatedAt": "2026-10-05T07:15:28.458Z",
+  "generatedAt": "2026-10-05T15:07:42.436Z",
   "lineage": {
     "status": "UNKNOWN",
     "generationId": null,
@@ -12,30 +12,30 @@
     {
       "file": "news-auto.js",
       "available": true,
-      "bytes": 143879,
-      "sha256": "21e0c123170a10dd4f7314040d385a32ad50f6749e814d07e2018d0b5405995f",
-      "modifiedAt": "2026-10-05T07:15:28.405Z"
+      "bytes": 156149,
+      "sha256": "286f5da49f65c73884013065889561bda31bca184ff480973cd314033f6f387d",
+      "modifiedAt": "2026-10-05T15:07:42.066Z"
     },
     {
       "file": "macro-auto.js",
       "available": true,
-      "bytes": 1535,
-      "sha256": "2e830ccfa5b5ff7f488f7311ce45d12ac8e98cd3ca66ce457f833b79628f98cd",
-      "modifiedAt": "2026-10-05T07:15:17.449Z"
+      "bytes": 1534,
+      "sha256": "a0a1644180d9a9602f7d51e47f71d5227d7827c564aa71fa70572bf935627c36",
+      "modifiedAt": "2026-10-05T15:07:42.388Z"
     },
     {
       "file": "atr.js",
       "available": true,
       "bytes": 5803,
       "sha256": "51c70402b039eba4813b042ebde15c4b3773d53cd11535c033689d4adb1d2033",
-      "modifiedAt": "2026-10-05T07:15:17.438Z"
+      "modifiedAt": "2026-10-05T15:07:32.564Z"
     },
     {
       "file": "xauusd-data.js",
       "available": true,
       "bytes": 38201,
       "sha256": "5a308431b2e833b1b18a0fdd1cd6bd0a7e2d352276aecca147ff4a21eb444ba6",
-      "modifiedAt": "2026-10-05T07:15:17.454Z"
+      "modifiedAt": "2026-10-05T15:07:32.579Z"
     },
     {
       "file": "data/bbma-watch.json",
@@ -61,11 +61,11 @@
       "file": "data/intelligence-weekly.json",
       "available": true,
       "bytes": 92,
-      "sha256": "6480dc3af19ff7ca6371596e36147b1bbc6e7609331a9f2492b19c49997551bc",
-      "modifiedAt": "2026-10-05T07:15:17.446Z",
+      "sha256": "731a4939e44d556921c02b4b5e528f58b87bbbd24a4b1dcd0a4008acf19c680e",
+      "modifiedAt": "2026-10-05T15:07:32.572Z",
       "lineage": {
         "generationId": null,
-        "generatedAt": "2026-10-01T09:26:44.113Z",
+        "generatedAt": "2026-10-05T09:12:03.217Z",
         "sourceGeneratedAt": null
       }
     },
@@ -73,11 +73,11 @@
       "file": "data/intelligence-monthly.json",
       "available": true,
       "bytes": 93,
-      "sha256": "bbed325f06d02c96fd55e91b0ea589a5ff9abfa528ec3d79b65c977c77efdbae",
-      "modifiedAt": "2026-10-05T07:15:17.446Z",
+      "sha256": "b4b9c8addadd44f627680e9b1215340c6a6fd425b13076f2c985c91e061d2fe8",
+      "modifiedAt": "2026-10-05T15:07:32.572Z",
       "lineage": {
         "generationId": null,
-        "generatedAt": "2026-10-01T09:26:44.113Z",
+        "generatedAt": "2026-10-05T09:12:03.217Z",
         "sourceGeneratedAt": null
       }
     }
