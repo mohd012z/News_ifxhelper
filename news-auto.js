@@ -5,7 +5,7 @@
  * Regenerate: node build-news.js (run on the same daily cron as build-atr.js).
  */
 window.NEWS_AUTO = {
-  "generatedAt": "2026-10-05 15:07:42Z",
+  "generatedAt": "2026-10-05 16:13:52Z",
   "note": "Auto-collected: economic calendar is real structured data; news rows are country/currency-aware and instrument-filtered; mixed observed-vs-policy direction becomes CONFLICT/NEUTRAL. impactPct is retained only for UI compatibility and is an impact score, not a calibrated return forecast. Treat auto:true rows as a first pass.",
   "incoming": [
     {
@@ -31,7 +31,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-05T15:07:37.098Z",
+      "fetchedAt": "2026-10-05T16:13:47.837Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -58,7 +58,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-05T15:07:37.098Z",
+      "fetchedAt": "2026-10-05T16:13:47.837Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -85,7 +85,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-05T15:07:37.098Z",
+      "fetchedAt": "2026-10-05T16:13:47.837Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -112,7 +112,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-05T15:07:37.098Z",
+      "fetchedAt": "2026-10-05T16:13:47.837Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -139,7 +139,61 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-05T15:07:37.098Z",
+      "fetchedAt": "2026-10-05T16:13:47.837Z",
+      "url": "https://www.forexfactory.com/calendar",
+      "auto": true
+    },
+    {
+      "date": "2026-10-08",
+      "timeMyt": "Thu, 2026-10-08 16:30",
+      "timeGmt": "Thu, 2026-10-08 08:30",
+      "event": "[USD] FOMC Member Waller Speaks",
+      "currency": "USD",
+      "country": "United States",
+      "importance": "med",
+      "actual": null,
+      "forecast": null,
+      "previous": null,
+      "release": {
+        "state": "RELEASE_PENDING",
+        "actualNumeric": null,
+        "forecastNumeric": null,
+        "surpriseRaw": null,
+        "surprisePct": null
+      },
+      "note": "No result/consensus figure published.",
+      "focusTf": "M15",
+      "play": "Upcoming/pending - scenario context only until an actual result is available.",
+      "source": "ForexFactory calendar feed",
+      "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
+      "fetchedAt": "2026-10-05T16:13:47.837Z",
+      "url": "https://www.forexfactory.com/calendar",
+      "auto": true
+    },
+    {
+      "date": "2026-10-08",
+      "timeMyt": "Thu, 2026-10-08 20:15",
+      "timeGmt": "Thu, 2026-10-08 12:15",
+      "event": "[GBP] BOE Gov Bailey Speaks",
+      "currency": "GBP",
+      "country": "United Kingdom",
+      "importance": "high",
+      "actual": null,
+      "forecast": null,
+      "previous": null,
+      "release": {
+        "state": "RELEASE_PENDING",
+        "actualNumeric": null,
+        "forecastNumeric": null,
+        "surpriseRaw": null,
+        "surprisePct": null
+      },
+      "note": "No result/consensus figure published.",
+      "focusTf": "M5 - M15",
+      "play": "Upcoming/pending - scenario context only until an actual result is available.",
+      "source": "ForexFactory calendar feed",
+      "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
+      "fetchedAt": "2026-10-05T16:13:47.837Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -166,7 +220,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-05T15:07:37.098Z",
+      "fetchedAt": "2026-10-05T16:13:47.837Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -193,7 +247,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-05T15:07:37.098Z",
+      "fetchedAt": "2026-10-05T16:13:47.837Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -220,7 +274,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-05T15:07:37.098Z",
+      "fetchedAt": "2026-10-05T16:13:47.837Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -247,7 +301,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-05T15:07:37.098Z",
+      "fetchedAt": "2026-10-05T16:13:47.837Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -274,7 +328,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-05T15:07:37.098Z",
+      "fetchedAt": "2026-10-05T16:13:47.837Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     }
@@ -458,6 +512,56 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
+          "time": "Mon 5 Oct, 23:42 MYT",
+          "tf": "Intraday",
+          "title": "Oil market turmoil could last for years, executives say",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "Investing.com - Commodities & Futures",
+          "url": "https://www.investing.com/news/commodities-news/replenishing-crude-and-fuel-stocks-could-take-two-years-saudi-aramco-ceo-says-4931614",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.5,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": true,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Mon 5 Oct, 23:29 MYT",
+          "tf": "Intraday",
+          "title": "Euronext wheat hits three-week high on weak euro and Saudi deal",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "Investing.com - Commodities & Futures",
+          "url": "https://www.investing.com/news/commodities-news/euronext-wheat-hits-threeweek-high-on-weak-euro-and-saudi-deal-93CH-4932532",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.5,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
           "time": "Mon 5 Oct, 22:30 MYT",
           "tf": "Intraday",
           "title": "Yemeni government forces advance to Bab el-Mandeb Strait",
@@ -489,31 +593,6 @@ window.NEWS_AUTO = {
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
           "source": "Investing.com - Commodities & Futures",
           "url": "https://www.investing.com/news/commodities-news/middle-east-crude-oil-exports-exceed-prewar-levels-but-tanker-attacks-increase-4930981",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.5,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": true,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Mon 5 Oct, 21:44 MYT",
-          "tf": "Intraday",
-          "title": "Replenishing crude and fuel stocks could take two years, Saudi Aramco CEO says",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "Investing.com - Commodities & Futures",
-          "url": "https://www.investing.com/news/commodities-news/replenishing-crude-and-fuel-stocks-could-take-two-years-saudi-aramco-ceo-says-4931614",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
@@ -683,17 +762,20 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Mon 5 Oct, 17:13 MYT",
+          "time": "Tue 6 Oct, 00:11 MYT",
           "tf": "Intraday",
-          "title": "Yemeni government launches offensive to seize all areas from Iran-backed Houthis",
+          "title": "EUR/CHF Price Forecast: 100-day SMA limits immediate downside",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "Investing.com - Commodities & Futures",
-          "url": "https://www.investing.com/news/commodities-news/head-of-yemens-presidential-council-announces-military-operations-to-retake-territory-4930932",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/eur-chf-price-forecast-100-day-sma-limits-immediate-downside-202610051611",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
-          "relevance": 0.5,
-          "currencies": [],
+          "relevance": 0.35,
+          "currencies": [
+            "EUR",
+            "CHF"
+          ],
           "drivers": {
             "gold": false,
             "yields": false,
@@ -705,6 +787,170 @@ window.NEWS_AUTO = {
           "policySide": null,
           "impactScore": 0,
           "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Tue 6 Oct, 00:06 MYT",
+          "tf": "Intraday",
+          "title": "Australian Dollar edges higher even as robust US services, firm Dollar cap gains",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/australian-dollar-edges-higher-even-as-robust-us-services-firm-dollar-cap-gains-202610051606",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.8,
+          "currencies": [
+            "USD",
+            "EUR",
+            "AUD"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": true,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Mon 5 Oct, 23:55 MYT",
+          "tf": "Intraday",
+          "title": "Euro: Fiscal stress and fewer ECB hikes weigh against US Dollar – BBH",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/euro-fiscal-stress-and-fewer-ecb-hikes-weigh-against-us-dollar-bbh-202610051555",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.8,
+          "currencies": [
+            "USD",
+            "EUR"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Mon 5 Oct, 23:42 MYT",
+          "tf": "Intraday",
+          "title": "Dollar Index hits an 18-month high on French debt fears",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/dollar-index-hits-an-18-month-high-on-french-debt-fears-202610051542",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.8,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Mon 5 Oct, 18:50 MYT",
+          "tf": "Intraday",
+          "title": "Gold trades flat as stronger US Dollar offsets easing Fed rate-hike bets",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/gold-struggles-as-dovish-fed-repricing-meets-stronger-us-dollar-elevated-yields-202610051050",
+          "impact": "bearish",
+          "signal": "SELL",
+          "decisionState": "DIRECTIONAL",
+          "relevance": 1,
+          "currencies": [
+            "USD"
+          ],
+          "drivers": {
+            "gold": true,
+            "yields": true,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": "hawkish",
+          "impactScore": -0.15,
+          "impactPct": -0.15,
+          "auto": true
+        },
+        {
+          "time": "Mon 5 Oct, 23:26 MYT",
+          "tf": "Intraday",
+          "title": "Canadian Dollar attracts fresh buying after touching multi-month low",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/canadian-dollar-attracts-fresh-buying-after-touching-multi-month-low-202610051526",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.8,
+          "currencies": [
+            "USD",
+            "CAD"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Mon 5 Oct, 23:25 MYT",
+          "tf": "Intraday",
+          "title": "South Korean Won: Strong exports and policy support KRW – Commerzbank",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/south-korean-won-strong-exports-and-policy-support-krw-commerzbank-202610051525",
+          "impact": "bearish",
+          "signal": "SELL",
+          "decisionState": "DIRECTIONAL",
+          "relevance": 0.8,
+          "currencies": [
+            "USD"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": "hawkish",
+          "impactScore": -0.12,
+          "impactPct": -0.12,
           "auto": true
         },
         {
@@ -783,33 +1029,6 @@ window.NEWS_AUTO = {
             "crypto": false
           },
           "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Mon 5 Oct, 18:50 MYT",
-          "tf": "Intraday",
-          "title": "Gold trades flat as stronger US Dollar offsets easing Fed rate-hike bets",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/gold-struggles-as-dovish-fed-repricing-meets-stronger-us-dollar-elevated-yields-202610051050",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "CONFLICT",
-          "relevance": 1,
-          "currencies": [
-            "USD"
-          ],
-          "drivers": {
-            "gold": true,
-            "yields": true,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": "hawkish",
           "impactScore": 0,
           "impactPct": 0,
           "auto": true
@@ -949,120 +1168,12 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Mon 5 Oct, 21:40 MYT",
+          "time": "Tue 6 Oct, 00:08 MYT",
           "tf": "Intraday",
-          "title": "British Pound: Gradual Dollar gains into United Kingdom budget – HSBC",
+          "title": "Saudi Aramco&#x2019;s CEO may be too downbeat about the road to restocking global oil supplies",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/british-pound-gradual-dollar-gains-into-united-kingdom-budget-hsbc-202610051340",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "CONFLICT",
-          "relevance": 0.8,
-          "currencies": [
-            "USD",
-            "GBP"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": "hawkish",
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Mon 5 Oct, 21:04 MYT",
-          "tf": "Intraday",
-          "title": "Brazilian Real: Election surprise supports BRL – BBH",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/brazilian-real-election-surprise-supports-brl-bbh-202610051304",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.5,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Mon 5 Oct, 20:49 MYT",
-          "tf": "Intraday",
-          "title": "Euro extends decline against British Pound on France debt concerns",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/euro-extends-decline-against-british-pound-on-france-debt-concerns-202610051249",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.35,
-          "currencies": [
-            "EUR",
-            "GBP"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Mon 5 Oct, 20:41 MYT",
-          "tf": "Intraday",
-          "title": "Euro: Fragmentation fears weigh on EUR – OCBC",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/euro-fragmentation-fears-weigh-on-eur-ocbc-202610051241",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.35,
-          "currencies": [
-            "EUR"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Mon 5 Oct, 20:30 MYT",
-          "tf": "Intraday",
-          "title": "Oil: Crude forecasts signal inflation surprises ahead - Societe Generale",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/oil-crude-forecasts-signal-inflation-surprises-ahead-societe-generale-202610051230",
+          "source": "MarketWatch - Top Stories",
+          "url": "https://www.marketwatch.com/story/saudi-aramcos-ceo-may-be-too-downbeat-about-the-road-to-restocking-global-oil-supplies-1fdbb70b?mod=mw_rss_topstories",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
@@ -1082,24 +1193,46 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Mon 5 Oct, 20:24 MYT",
+          "time": "Tue 6 Oct, 00:00 MYT",
           "tf": "Intraday",
-          "title": "Canadian Dollar bounces up as US Dollar  loses steam with services PMIs in focus",
+          "title": "&#x2018;The pain was excruciating&#x2019;: A friend in her 80s fell down her basement stairs. Could it have been avoided?",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/canadian-dollar-bounces-up-as-us-dollar-loses-steam-with-services-pmis-in-focus-202610051224",
+          "source": "MarketWatch - Top Stories",
+          "url": "https://www.marketwatch.com/story/the-pain-was-excruciating-a-friend-in-her-80s-fell-down-her-basement-stairs-could-it-have-been-avoided-ce105db6?mod=mw_rss_topstories",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
-          "relevance": 0.8,
-          "currencies": [
-            "USD",
-            "CAD"
-          ],
+          "relevance": 0.5,
+          "currencies": [],
           "drivers": {
             "gold": false,
-            "yields": true,
-            "usd": true,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Mon 5 Oct, 23:45 MYT",
+          "tf": "Intraday",
+          "title": "SpaceX&#x2019;s stock could actually be a bargain, according to this metric",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "MarketWatch - Top Stories",
+          "url": "https://www.marketwatch.com/story/spacexs-stock-could-actually-be-a-bargain-according-to-this-metric-ac3ddf45?mod=mw_rss_topstories",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.5,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
             "oil": false,
             "risk": false,
             "crypto": false
@@ -1266,81 +1399,6 @@ window.NEWS_AUTO = {
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
           "source": "MarketWatch - Top Stories",
           "url": "https://www.marketwatch.com/story/falling-wages-soaring-energy-prices-and-inflation-its-beginning-to-look-a-lot-like-the-1970s-d645cbca?mod=mw_rss_topstories",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.5,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Mon 5 Oct, 21:30 MYT",
-          "tf": "Intraday",
-          "title": "An AI &#x2018;reality check&#x2019; may take the S&P 500 to 5,000. Here are the trades to make, this strategist says.",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "MarketWatch - Top Stories",
-          "url": "https://www.marketwatch.com/story/an-ai-reality-check-may-take-the-s-p-500-to-5-000-heres-the-trades-to-make-this-strategist-says-263cf0e9?mod=mw_rss_topstories",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.5,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Mon 5 Oct, 21:00 MYT",
-          "tf": "Intraday",
-          "title": "&#x2018;The pain was excruciating&#x2019;: A friend in her 80s fell down her basement stairs. Could it have been avoided?",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "MarketWatch - Top Stories",
-          "url": "https://www.marketwatch.com/story/the-pain-was-excruciating-a-friend-in-her-80s-fell-down-her-basement-stairs-could-it-have-been-avoided-ce105db6?mod=mw_rss_topstories",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.5,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Mon 5 Oct, 20:30 MYT",
-          "tf": "Intraday",
-          "title": "Go ahead and get that poetry degree. Republican law won&#x2019;t prevent people with humanities majors from getting student loans.",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "MarketWatch - Top Stories",
-          "url": "https://www.marketwatch.com/story/go-ahead-and-get-that-poetry-degree-republican-law-wont-prevent-people-with-humanities-majors-from-getting-student-loans-f94587cf?mod=mw_rss_topstories",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
@@ -1565,6 +1623,56 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
+          "time": "Mon 5 Oct, 23:42 MYT",
+          "tf": "Intraday",
+          "title": "Oil market turmoil could last for years, executives say",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "Investing.com - Commodities & Futures",
+          "url": "https://www.investing.com/news/commodities-news/replenishing-crude-and-fuel-stocks-could-take-two-years-saudi-aramco-ceo-says-4931614",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.4,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": true,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Mon 5 Oct, 23:29 MYT",
+          "tf": "Intraday",
+          "title": "Euronext wheat hits three-week high on weak euro and Saudi deal",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "Investing.com - Commodities & Futures",
+          "url": "https://www.investing.com/news/commodities-news/euronext-wheat-hits-threeweek-high-on-weak-euro-and-saudi-deal-93CH-4932532",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.4,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
           "time": "Mon 5 Oct, 22:30 MYT",
           "tf": "Intraday",
           "title": "Yemeni government forces advance to Bab el-Mandeb Strait",
@@ -1596,31 +1704,6 @@ window.NEWS_AUTO = {
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
           "source": "Investing.com - Commodities & Futures",
           "url": "https://www.investing.com/news/commodities-news/middle-east-crude-oil-exports-exceed-prewar-levels-but-tanker-attacks-increase-4930981",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.4,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": true,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Mon 5 Oct, 21:44 MYT",
-          "tf": "Intraday",
-          "title": "Replenishing crude and fuel stocks could take two years, Saudi Aramco CEO says",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "Investing.com - Commodities & Futures",
-          "url": "https://www.investing.com/news/commodities-news/replenishing-crude-and-fuel-stocks-could-take-two-years-saudi-aramco-ceo-says-4931614",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
@@ -1790,17 +1873,20 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Mon 5 Oct, 17:13 MYT",
+          "time": "Tue 6 Oct, 00:11 MYT",
           "tf": "Intraday",
-          "title": "Yemeni government launches offensive to seize all areas from Iran-backed Houthis",
+          "title": "EUR/CHF Price Forecast: 100-day SMA limits immediate downside",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "Investing.com - Commodities & Futures",
-          "url": "https://www.investing.com/news/commodities-news/head-of-yemens-presidential-council-announces-military-operations-to-retake-territory-4930932",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/eur-chf-price-forecast-100-day-sma-limits-immediate-downside-202610051611",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
           "relevance": 0.4,
-          "currencies": [],
+          "currencies": [
+            "EUR",
+            "CHF"
+          ],
           "drivers": {
             "gold": false,
             "yields": false,
@@ -1812,6 +1898,170 @@ window.NEWS_AUTO = {
           "policySide": null,
           "impactScore": 0,
           "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Tue 6 Oct, 00:06 MYT",
+          "tf": "Intraday",
+          "title": "Australian Dollar edges higher even as robust US services, firm Dollar cap gains",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/australian-dollar-edges-higher-even-as-robust-us-services-firm-dollar-cap-gains-202610051606",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.7,
+          "currencies": [
+            "USD",
+            "EUR",
+            "AUD"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": true,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Mon 5 Oct, 23:55 MYT",
+          "tf": "Intraday",
+          "title": "Euro: Fiscal stress and fewer ECB hikes weigh against US Dollar – BBH",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/euro-fiscal-stress-and-fewer-ecb-hikes-weigh-against-us-dollar-bbh-202610051555",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.7,
+          "currencies": [
+            "USD",
+            "EUR"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Mon 5 Oct, 23:42 MYT",
+          "tf": "Intraday",
+          "title": "Dollar Index hits an 18-month high on French debt fears",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/dollar-index-hits-an-18-month-high-on-french-debt-fears-202610051542",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.7,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Mon 5 Oct, 18:50 MYT",
+          "tf": "Intraday",
+          "title": "Gold trades flat as stronger US Dollar offsets easing Fed rate-hike bets",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/gold-struggles-as-dovish-fed-repricing-meets-stronger-us-dollar-elevated-yields-202610051050",
+          "impact": "bearish",
+          "signal": "SELL",
+          "decisionState": "DIRECTIONAL",
+          "relevance": 0.7,
+          "currencies": [
+            "USD"
+          ],
+          "drivers": {
+            "gold": true,
+            "yields": true,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": "hawkish",
+          "impactScore": -0.14,
+          "impactPct": -0.14,
+          "auto": true
+        },
+        {
+          "time": "Mon 5 Oct, 23:26 MYT",
+          "tf": "Intraday",
+          "title": "Canadian Dollar attracts fresh buying after touching multi-month low",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/canadian-dollar-attracts-fresh-buying-after-touching-multi-month-low-202610051526",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.7,
+          "currencies": [
+            "USD",
+            "CAD"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Mon 5 Oct, 23:25 MYT",
+          "tf": "Intraday",
+          "title": "South Korean Won: Strong exports and policy support KRW – Commerzbank",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/south-korean-won-strong-exports-and-policy-support-krw-commerzbank-202610051525",
+          "impact": "bearish",
+          "signal": "SELL",
+          "decisionState": "DIRECTIONAL",
+          "relevance": 0.7,
+          "currencies": [
+            "USD"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": "hawkish",
+          "impactScore": -0.14,
+          "impactPct": -0.14,
           "auto": true
         },
         {
@@ -1890,33 +2140,6 @@ window.NEWS_AUTO = {
             "crypto": false
           },
           "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Mon 5 Oct, 18:50 MYT",
-          "tf": "Intraday",
-          "title": "Gold trades flat as stronger US Dollar offsets easing Fed rate-hike bets",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/gold-struggles-as-dovish-fed-repricing-meets-stronger-us-dollar-elevated-yields-202610051050",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "CONFLICT",
-          "relevance": 0.7,
-          "currencies": [
-            "USD"
-          ],
-          "drivers": {
-            "gold": true,
-            "yields": true,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": "hawkish",
           "impactScore": 0,
           "impactPct": 0,
           "auto": true
@@ -2056,120 +2279,12 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Mon 5 Oct, 21:40 MYT",
+          "time": "Tue 6 Oct, 00:08 MYT",
           "tf": "Intraday",
-          "title": "British Pound: Gradual Dollar gains into United Kingdom budget – HSBC",
+          "title": "Saudi Aramco&#x2019;s CEO may be too downbeat about the road to restocking global oil supplies",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/british-pound-gradual-dollar-gains-into-united-kingdom-budget-hsbc-202610051340",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "CONFLICT",
-          "relevance": 0.7,
-          "currencies": [
-            "USD",
-            "GBP"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": "hawkish",
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Mon 5 Oct, 21:04 MYT",
-          "tf": "Intraday",
-          "title": "Brazilian Real: Election surprise supports BRL – BBH",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/brazilian-real-election-surprise-supports-brl-bbh-202610051304",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.4,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Mon 5 Oct, 20:49 MYT",
-          "tf": "Intraday",
-          "title": "Euro extends decline against British Pound on France debt concerns",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/euro-extends-decline-against-british-pound-on-france-debt-concerns-202610051249",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.4,
-          "currencies": [
-            "EUR",
-            "GBP"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Mon 5 Oct, 20:41 MYT",
-          "tf": "Intraday",
-          "title": "Euro: Fragmentation fears weigh on EUR – OCBC",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/euro-fragmentation-fears-weigh-on-eur-ocbc-202610051241",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.4,
-          "currencies": [
-            "EUR"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Mon 5 Oct, 20:30 MYT",
-          "tf": "Intraday",
-          "title": "Oil: Crude forecasts signal inflation surprises ahead - Societe Generale",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/oil-crude-forecasts-signal-inflation-surprises-ahead-societe-generale-202610051230",
+          "source": "MarketWatch - Top Stories",
+          "url": "https://www.marketwatch.com/story/saudi-aramcos-ceo-may-be-too-downbeat-about-the-road-to-restocking-global-oil-supplies-1fdbb70b?mod=mw_rss_topstories",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
@@ -2189,24 +2304,46 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Mon 5 Oct, 20:24 MYT",
+          "time": "Tue 6 Oct, 00:00 MYT",
           "tf": "Intraday",
-          "title": "Canadian Dollar bounces up as US Dollar  loses steam with services PMIs in focus",
+          "title": "&#x2018;The pain was excruciating&#x2019;: A friend in her 80s fell down her basement stairs. Could it have been avoided?",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/canadian-dollar-bounces-up-as-us-dollar-loses-steam-with-services-pmis-in-focus-202610051224",
+          "source": "MarketWatch - Top Stories",
+          "url": "https://www.marketwatch.com/story/the-pain-was-excruciating-a-friend-in-her-80s-fell-down-her-basement-stairs-could-it-have-been-avoided-ce105db6?mod=mw_rss_topstories",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
-          "relevance": 0.7,
-          "currencies": [
-            "USD",
-            "CAD"
-          ],
+          "relevance": 0.4,
+          "currencies": [],
           "drivers": {
             "gold": false,
-            "yields": true,
-            "usd": true,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Mon 5 Oct, 23:45 MYT",
+          "tf": "Intraday",
+          "title": "SpaceX&#x2019;s stock could actually be a bargain, according to this metric",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "MarketWatch - Top Stories",
+          "url": "https://www.marketwatch.com/story/spacexs-stock-could-actually-be-a-bargain-according-to-this-metric-ac3ddf45?mod=mw_rss_topstories",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.4,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
             "oil": false,
             "risk": false,
             "crypto": false
@@ -2373,81 +2510,6 @@ window.NEWS_AUTO = {
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
           "source": "MarketWatch - Top Stories",
           "url": "https://www.marketwatch.com/story/falling-wages-soaring-energy-prices-and-inflation-its-beginning-to-look-a-lot-like-the-1970s-d645cbca?mod=mw_rss_topstories",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.4,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Mon 5 Oct, 21:30 MYT",
-          "tf": "Intraday",
-          "title": "An AI &#x2018;reality check&#x2019; may take the S&P 500 to 5,000. Here are the trades to make, this strategist says.",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "MarketWatch - Top Stories",
-          "url": "https://www.marketwatch.com/story/an-ai-reality-check-may-take-the-s-p-500-to-5-000-heres-the-trades-to-make-this-strategist-says-263cf0e9?mod=mw_rss_topstories",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.4,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Mon 5 Oct, 21:00 MYT",
-          "tf": "Intraday",
-          "title": "&#x2018;The pain was excruciating&#x2019;: A friend in her 80s fell down her basement stairs. Could it have been avoided?",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "MarketWatch - Top Stories",
-          "url": "https://www.marketwatch.com/story/the-pain-was-excruciating-a-friend-in-her-80s-fell-down-her-basement-stairs-could-it-have-been-avoided-ce105db6?mod=mw_rss_topstories",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.4,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Mon 5 Oct, 20:30 MYT",
-          "tf": "Intraday",
-          "title": "Go ahead and get that poetry degree. Republican law won&#x2019;t prevent people with humanities majors from getting student loans.",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "MarketWatch - Top Stories",
-          "url": "https://www.marketwatch.com/story/go-ahead-and-get-that-poetry-degree-republican-law-wont-prevent-people-with-humanities-majors-from-getting-student-loans-f94587cf?mod=mw_rss_topstories",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
@@ -2672,6 +2734,56 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
+          "time": "Mon 5 Oct, 23:42 MYT",
+          "tf": "Intraday",
+          "title": "Oil market turmoil could last for years, executives say",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "Investing.com - Commodities & Futures",
+          "url": "https://www.investing.com/news/commodities-news/replenishing-crude-and-fuel-stocks-could-take-two-years-saudi-aramco-ceo-says-4931614",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.5,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": true,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Mon 5 Oct, 23:29 MYT",
+          "tf": "Intraday",
+          "title": "Euronext wheat hits three-week high on weak euro and Saudi deal",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "Investing.com - Commodities & Futures",
+          "url": "https://www.investing.com/news/commodities-news/euronext-wheat-hits-threeweek-high-on-weak-euro-and-saudi-deal-93CH-4932532",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.5,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
           "time": "Mon 5 Oct, 22:30 MYT",
           "tf": "Intraday",
           "title": "Yemeni government forces advance to Bab el-Mandeb Strait",
@@ -2703,31 +2815,6 @@ window.NEWS_AUTO = {
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
           "source": "Investing.com - Commodities & Futures",
           "url": "https://www.investing.com/news/commodities-news/middle-east-crude-oil-exports-exceed-prewar-levels-but-tanker-attacks-increase-4930981",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.5,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": true,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Mon 5 Oct, 21:44 MYT",
-          "tf": "Intraday",
-          "title": "Replenishing crude and fuel stocks could take two years, Saudi Aramco CEO says",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "Investing.com - Commodities & Futures",
-          "url": "https://www.investing.com/news/commodities-news/replenishing-crude-and-fuel-stocks-could-take-two-years-saudi-aramco-ceo-says-4931614",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
@@ -2897,17 +2984,20 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Mon 5 Oct, 17:13 MYT",
+          "time": "Tue 6 Oct, 00:11 MYT",
           "tf": "Intraday",
-          "title": "Yemeni government launches offensive to seize all areas from Iran-backed Houthis",
+          "title": "EUR/CHF Price Forecast: 100-day SMA limits immediate downside",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "Investing.com - Commodities & Futures",
-          "url": "https://www.investing.com/news/commodities-news/head-of-yemens-presidential-council-announces-military-operations-to-retake-territory-4930932",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/eur-chf-price-forecast-100-day-sma-limits-immediate-downside-202610051611",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
-          "relevance": 0.5,
-          "currencies": [],
+          "relevance": 1,
+          "currencies": [
+            "EUR",
+            "CHF"
+          ],
           "drivers": {
             "gold": false,
             "yields": false,
@@ -2919,6 +3009,170 @@ window.NEWS_AUTO = {
           "policySide": null,
           "impactScore": 0,
           "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Tue 6 Oct, 00:06 MYT",
+          "tf": "Intraday",
+          "title": "Australian Dollar edges higher even as robust US services, firm Dollar cap gains",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/australian-dollar-edges-higher-even-as-robust-us-services-firm-dollar-cap-gains-202610051606",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 1,
+          "currencies": [
+            "USD",
+            "EUR",
+            "AUD"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": true,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Mon 5 Oct, 23:55 MYT",
+          "tf": "Intraday",
+          "title": "Euro: Fiscal stress and fewer ECB hikes weigh against US Dollar – BBH",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/euro-fiscal-stress-and-fewer-ecb-hikes-weigh-against-us-dollar-bbh-202610051555",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 1,
+          "currencies": [
+            "USD",
+            "EUR"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Mon 5 Oct, 23:42 MYT",
+          "tf": "Intraday",
+          "title": "Dollar Index hits an 18-month high on French debt fears",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/dollar-index-hits-an-18-month-high-on-french-debt-fears-202610051542",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.5,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Mon 5 Oct, 18:50 MYT",
+          "tf": "Intraday",
+          "title": "Gold trades flat as stronger US Dollar offsets easing Fed rate-hike bets",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/gold-struggles-as-dovish-fed-repricing-meets-stronger-us-dollar-elevated-yields-202610051050",
+          "impact": "bearish",
+          "signal": "SELL",
+          "decisionState": "DIRECTIONAL",
+          "relevance": 1,
+          "currencies": [
+            "USD"
+          ],
+          "drivers": {
+            "gold": true,
+            "yields": true,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": "hawkish",
+          "impactScore": -0.15,
+          "impactPct": -0.15,
+          "auto": true
+        },
+        {
+          "time": "Mon 5 Oct, 23:26 MYT",
+          "tf": "Intraday",
+          "title": "Canadian Dollar attracts fresh buying after touching multi-month low",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/canadian-dollar-attracts-fresh-buying-after-touching-multi-month-low-202610051526",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 1,
+          "currencies": [
+            "USD",
+            "CAD"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Mon 5 Oct, 23:25 MYT",
+          "tf": "Intraday",
+          "title": "South Korean Won: Strong exports and policy support KRW – Commerzbank",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/south-korean-won-strong-exports-and-policy-support-krw-commerzbank-202610051525",
+          "impact": "bearish",
+          "signal": "SELL",
+          "decisionState": "DIRECTIONAL",
+          "relevance": 1,
+          "currencies": [
+            "USD"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": "hawkish",
+          "impactScore": -0.15,
+          "impactPct": -0.15,
           "auto": true
         },
         {
@@ -2997,33 +3251,6 @@ window.NEWS_AUTO = {
             "crypto": false
           },
           "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Mon 5 Oct, 18:50 MYT",
-          "tf": "Intraday",
-          "title": "Gold trades flat as stronger US Dollar offsets easing Fed rate-hike bets",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/gold-struggles-as-dovish-fed-repricing-meets-stronger-us-dollar-elevated-yields-202610051050",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "CONFLICT",
-          "relevance": 1,
-          "currencies": [
-            "USD"
-          ],
-          "drivers": {
-            "gold": true,
-            "yields": true,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": "hawkish",
           "impactScore": 0,
           "impactPct": 0,
           "auto": true
@@ -3163,120 +3390,12 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Mon 5 Oct, 21:40 MYT",
+          "time": "Tue 6 Oct, 00:08 MYT",
           "tf": "Intraday",
-          "title": "British Pound: Gradual Dollar gains into United Kingdom budget – HSBC",
+          "title": "Saudi Aramco&#x2019;s CEO may be too downbeat about the road to restocking global oil supplies",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/british-pound-gradual-dollar-gains-into-united-kingdom-budget-hsbc-202610051340",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "CONFLICT",
-          "relevance": 1,
-          "currencies": [
-            "USD",
-            "GBP"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": "hawkish",
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Mon 5 Oct, 21:04 MYT",
-          "tf": "Intraday",
-          "title": "Brazilian Real: Election surprise supports BRL – BBH",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/brazilian-real-election-surprise-supports-brl-bbh-202610051304",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.5,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Mon 5 Oct, 20:49 MYT",
-          "tf": "Intraday",
-          "title": "Euro extends decline against British Pound on France debt concerns",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/euro-extends-decline-against-british-pound-on-france-debt-concerns-202610051249",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 1,
-          "currencies": [
-            "EUR",
-            "GBP"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Mon 5 Oct, 20:41 MYT",
-          "tf": "Intraday",
-          "title": "Euro: Fragmentation fears weigh on EUR – OCBC",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/euro-fragmentation-fears-weigh-on-eur-ocbc-202610051241",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 1,
-          "currencies": [
-            "EUR"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Mon 5 Oct, 20:30 MYT",
-          "tf": "Intraday",
-          "title": "Oil: Crude forecasts signal inflation surprises ahead - Societe Generale",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/oil-crude-forecasts-signal-inflation-surprises-ahead-societe-generale-202610051230",
+          "source": "MarketWatch - Top Stories",
+          "url": "https://www.marketwatch.com/story/saudi-aramcos-ceo-may-be-too-downbeat-about-the-road-to-restocking-global-oil-supplies-1fdbb70b?mod=mw_rss_topstories",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
@@ -3296,24 +3415,46 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Mon 5 Oct, 20:24 MYT",
+          "time": "Tue 6 Oct, 00:00 MYT",
           "tf": "Intraday",
-          "title": "Canadian Dollar bounces up as US Dollar  loses steam with services PMIs in focus",
+          "title": "&#x2018;The pain was excruciating&#x2019;: A friend in her 80s fell down her basement stairs. Could it have been avoided?",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/canadian-dollar-bounces-up-as-us-dollar-loses-steam-with-services-pmis-in-focus-202610051224",
+          "source": "MarketWatch - Top Stories",
+          "url": "https://www.marketwatch.com/story/the-pain-was-excruciating-a-friend-in-her-80s-fell-down-her-basement-stairs-could-it-have-been-avoided-ce105db6?mod=mw_rss_topstories",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
-          "relevance": 1,
-          "currencies": [
-            "USD",
-            "CAD"
-          ],
+          "relevance": 0.5,
+          "currencies": [],
           "drivers": {
             "gold": false,
-            "yields": true,
-            "usd": true,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Mon 5 Oct, 23:45 MYT",
+          "tf": "Intraday",
+          "title": "SpaceX&#x2019;s stock could actually be a bargain, according to this metric",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "MarketWatch - Top Stories",
+          "url": "https://www.marketwatch.com/story/spacexs-stock-could-actually-be-a-bargain-according-to-this-metric-ac3ddf45?mod=mw_rss_topstories",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.5,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
             "oil": false,
             "risk": false,
             "crypto": false
@@ -3480,81 +3621,6 @@ window.NEWS_AUTO = {
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
           "source": "MarketWatch - Top Stories",
           "url": "https://www.marketwatch.com/story/falling-wages-soaring-energy-prices-and-inflation-its-beginning-to-look-a-lot-like-the-1970s-d645cbca?mod=mw_rss_topstories",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.5,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Mon 5 Oct, 21:30 MYT",
-          "tf": "Intraday",
-          "title": "An AI &#x2018;reality check&#x2019; may take the S&P 500 to 5,000. Here are the trades to make, this strategist says.",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "MarketWatch - Top Stories",
-          "url": "https://www.marketwatch.com/story/an-ai-reality-check-may-take-the-s-p-500-to-5-000-heres-the-trades-to-make-this-strategist-says-263cf0e9?mod=mw_rss_topstories",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.5,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Mon 5 Oct, 21:00 MYT",
-          "tf": "Intraday",
-          "title": "&#x2018;The pain was excruciating&#x2019;: A friend in her 80s fell down her basement stairs. Could it have been avoided?",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "MarketWatch - Top Stories",
-          "url": "https://www.marketwatch.com/story/the-pain-was-excruciating-a-friend-in-her-80s-fell-down-her-basement-stairs-could-it-have-been-avoided-ce105db6?mod=mw_rss_topstories",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.5,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Mon 5 Oct, 20:30 MYT",
-          "tf": "Intraday",
-          "title": "Go ahead and get that poetry degree. Republican law won&#x2019;t prevent people with humanities majors from getting student loans.",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "MarketWatch - Top Stories",
-          "url": "https://www.marketwatch.com/story/go-ahead-and-get-that-poetry-degree-republican-law-wont-prevent-people-with-humanities-majors-from-getting-student-loans-f94587cf?mod=mw_rss_topstories",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
