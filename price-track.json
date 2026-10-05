@@ -2740,9 +2740,9 @@
           "key": "W1",
           "minutes": 10080,
           "dueAt": "2026-10-05T16:54:18.656Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-05T22:07:23.821Z",
+          "price": 4167.6,
+          "realizedPct": 0.058
         },
         {
           "key": "MN1",
@@ -2829,9 +2829,9 @@
           "key": "W1",
           "minutes": 10080,
           "dueAt": "2026-10-05T16:54:18.656Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-05T22:07:23.821Z",
+          "price": 4167.6,
+          "realizedPct": 0.058
         },
         {
           "key": "MN1",
@@ -2918,9 +2918,9 @@
           "key": "W1",
           "minutes": 10080,
           "dueAt": "2026-10-05T16:54:18.656Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-05T22:07:23.821Z",
+          "price": 4167.6,
+          "realizedPct": 0.058
         },
         {
           "key": "MN1",
@@ -3007,9 +3007,9 @@
           "key": "W1",
           "minutes": 10080,
           "dueAt": "2026-10-05T16:54:18.656Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-05T22:07:23.821Z",
+          "price": 85918.72,
+          "realizedPct": 2.679
         },
         {
           "key": "MN1",
@@ -3022,7 +3022,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.298,
+        "mfePct": 2.679,
         "maePct": -0.63
       }
     },
@@ -3096,9 +3096,9 @@
           "key": "W1",
           "minutes": 10080,
           "dueAt": "2026-10-05T16:54:18.656Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-05T22:07:23.821Z",
+          "price": 85918.72,
+          "realizedPct": 2.679
         },
         {
           "key": "MN1",
@@ -3111,7 +3111,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.298,
+        "mfePct": 2.679,
         "maePct": -0.63
       }
     },
@@ -3185,9 +3185,9 @@
           "key": "W1",
           "minutes": 10080,
           "dueAt": "2026-10-05T16:54:18.656Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-05T22:07:23.821Z",
+          "price": 85918.72,
+          "realizedPct": 2.679
         },
         {
           "key": "MN1",
@@ -3200,7 +3200,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.298,
+        "mfePct": 2.679,
         "maePct": -0.63
       }
     },
@@ -3274,9 +3274,9 @@
           "key": "W1",
           "minutes": 10080,
           "dueAt": "2026-10-05T16:54:18.656Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-05T22:07:23.821Z",
+          "price": 85918.72,
+          "realizedPct": 2.679
         },
         {
           "key": "MN1",
@@ -3289,7 +3289,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.298,
+        "mfePct": 2.679,
         "maePct": -0.63
       }
     },
@@ -3363,9 +3363,9 @@
           "key": "W1",
           "minutes": 10080,
           "dueAt": "2026-10-05T16:54:18.656Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-05T22:07:23.821Z",
+          "price": 1.1226,
+          "realizedPct": -1.327
         },
         {
           "key": "MN1",
@@ -3379,7 +3379,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.026,
-        "maePct": -0.299
+        "maePct": -1.327
       }
     },
     {
@@ -3452,9 +3452,9 @@
           "key": "W1",
           "minutes": 10080,
           "dueAt": "2026-10-05T16:54:18.656Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-05T22:07:23.821Z",
+          "price": 1.1226,
+          "realizedPct": -1.327
         },
         {
           "key": "MN1",
@@ -3468,7 +3468,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.026,
-        "maePct": -0.299
+        "maePct": -1.327
       }
     },
     {
@@ -3541,9 +3541,9 @@
           "key": "W1",
           "minutes": 10080,
           "dueAt": "2026-10-05T16:54:18.656Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-05T22:07:23.821Z",
+          "price": 1.1226,
+          "realizedPct": -1.327
         },
         {
           "key": "MN1",
@@ -3557,7 +3557,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.026,
-        "maePct": -0.299
+        "maePct": -1.327
       }
     },
     {
@@ -3630,9 +3630,9 @@
           "key": "W1",
           "minutes": 10080,
           "dueAt": "2026-10-05T16:54:18.656Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-05T22:07:23.821Z",
+          "price": 1.1226,
+          "realizedPct": -1.327
         },
         {
           "key": "MN1",
@@ -3646,7 +3646,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.026,
-        "maePct": -0.299
+        "maePct": -1.327
       }
     },
     {
