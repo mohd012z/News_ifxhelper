@@ -5,7 +5,7 @@
  * Regenerate: node build-news.js (run on the same daily cron as build-atr.js).
  */
 window.NEWS_AUTO = {
-  "generatedAt": "2026-10-07 13:58:40Z",
+  "generatedAt": "2026-10-07 14:14:39Z",
   "note": "Auto-collected: economic calendar is real structured data; news rows are country/currency-aware and instrument-filtered; mixed observed-vs-policy direction becomes CONFLICT/NEUTRAL. impactPct is retained only for UI compatibility and is an impact score, not a calibrated return forecast. Treat auto:true rows as a first pass.",
   "incoming": [
     {
@@ -31,7 +31,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-07T13:58:34.028Z",
+      "fetchedAt": "2026-10-07T14:14:35.435Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -58,7 +58,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-07T13:58:34.028Z",
+      "fetchedAt": "2026-10-07T14:14:35.435Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -85,7 +85,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-07T13:58:34.028Z",
+      "fetchedAt": "2026-10-07T14:14:35.435Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -112,7 +112,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-07T13:58:34.028Z",
+      "fetchedAt": "2026-10-07T14:14:35.435Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -139,7 +139,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-07T13:58:34.028Z",
+      "fetchedAt": "2026-10-07T14:14:35.435Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -166,7 +166,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-07T13:58:34.028Z",
+      "fetchedAt": "2026-10-07T14:14:35.435Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -193,7 +193,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-07T13:58:34.028Z",
+      "fetchedAt": "2026-10-07T14:14:35.435Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -220,7 +220,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-07T13:58:34.028Z",
+      "fetchedAt": "2026-10-07T14:14:35.435Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -247,7 +247,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-07T13:58:34.028Z",
+      "fetchedAt": "2026-10-07T14:14:35.435Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -274,7 +274,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-07T13:58:34.028Z",
+      "fetchedAt": "2026-10-07T14:14:35.435Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -301,7 +301,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-07T13:58:34.029Z",
+      "fetchedAt": "2026-10-07T14:14:35.436Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -328,7 +328,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-07T13:58:34.029Z",
+      "fetchedAt": "2026-10-07T14:14:35.436Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     }
@@ -842,6 +842,141 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
+          "time": "Wed 7 Oct, 18:45 MYT",
+          "tf": "Intraday",
+          "title": "Gold tests $4,100 as US Dollar and yields rise ahead of FOMC Minutes",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/gold-falls-as-us-dollar-treasury-yields-rebound-ahead-of-fed-minutes-202610071045",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 1,
+          "currencies": [
+            "USD"
+          ],
+          "drivers": {
+            "gold": true,
+            "yields": true,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Wed 7 Oct, 22:03 MYT",
+          "tf": "Intraday",
+          "title": "Canadian Dollar: Political risks weigh against US Dollar – Scotiabank",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/canadian-dollar-political-risks-weigh-against-us-dollar-scotiabank-202610071403",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.8,
+          "currencies": [
+            "USD",
+            "CAD"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Wed 7 Oct, 22:00 MYT",
+          "tf": "Intraday",
+          "title": "Fed Minutes set to provide some insight into the timing of next rate hikes",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/fed-minutes-set-to-provide-some-insight-into-the-timing-of-next-rate-hikes-202610071400",
+          "impact": "bearish",
+          "signal": "SELL",
+          "decisionState": "DIRECTIONAL",
+          "relevance": 0.5,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": "hawkish",
+          "impactScore": -0.08,
+          "impactPct": -0.08,
+          "auto": true
+        },
+        {
+          "time": "Wed 7 Oct, 21:51 MYT",
+          "tf": "Intraday",
+          "title": "Canadian Dollar loses ground ahead of Fed Minutes",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/canadian-dollar-loses-ground-ahead-of-fed-minutes-202610071351",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.8,
+          "currencies": [
+            "USD",
+            "CAD"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": true,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Wed 7 Oct, 21:45 MYT",
+          "tf": "Intraday",
+          "title": "Euro: Recovery holds as currency softens – BNY",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/euro-recovery-holds-as-currency-softens-bny-202610071345",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.35,
+          "currencies": [
+            "EUR"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
           "time": "Wed 7 Oct, 21:18 MYT",
           "tf": "Intraday",
           "title": "Japanese Yen: Funding appeal eroded by BoJ hikes – Rabobank",
@@ -1002,33 +1137,6 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Wed 7 Oct, 18:45 MYT",
-          "tf": "Intraday",
-          "title": "Gold declines as stronger US Dollar and yields weigh ahead FOMC Minutes",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/gold-falls-as-us-dollar-treasury-yields-rebound-ahead-of-fed-minutes-202610071045",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 1,
-          "currencies": [
-            "USD"
-          ],
-          "drivers": {
-            "gold": true,
-            "yields": true,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
           "time": "Wed 7 Oct, 20:17 MYT",
           "tf": "Intraday",
           "title": "Euro extends losing streak against British Pound, hits 16-month low",
@@ -1140,43 +1248,15 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Wed 7 Oct, 19:45 MYT",
+          "time": "Wed 7 Oct, 22:01 MYT",
           "tf": "Intraday",
-          "title": "Swiss Franc: Safe-haven demand keeps CHF firm against Euro – Rabobank",
+          "title": "Loneliness and social isolation can take six years off your life",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/swiss-franc-safe-haven-demand-keeps-chf-firm-against-euro-rabobank-202610071145",
+          "source": "MarketWatch - Top Stories",
+          "url": "https://www.marketwatch.com/story/loneliness-and-social-isolation-can-take-six-years-off-your-life-496af256?mod=mw_rss_topstories",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
-          "relevance": 0.6,
-          "currencies": [
-            "EUR",
-            "CHF"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": true,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Wed 7 Oct, 19:31 MYT",
-          "tf": "Intraday",
-          "title": "Indian Rupee: RBI tightening fails to halt INR slide – BBH",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/indian-rupee-rbi-tightening-fails-to-halt-inr-slide-bbh-202610071131",
-          "impact": "bearish",
-          "signal": "SELL",
-          "decisionState": "DIRECTIONAL",
           "relevance": 0.5,
           "currencies": [],
           "drivers": {
@@ -1187,56 +1267,27 @@ window.NEWS_AUTO = {
             "risk": false,
             "crypto": false
           },
-          "policySide": "hawkish",
-          "impactScore": -0.08,
-          "impactPct": -0.08,
-          "auto": true
-        },
-        {
-          "time": "Wed 7 Oct, 12:41 MYT",
-          "tf": "Intraday",
-          "title": "Indian Rupee tumbles after RBI's policy, 20 bps away from all-time low",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/usd-inr-remains-broadly-muted-after-rbis-25-bps-hike-in-repo-rates-to-55-202610070441",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.8,
-          "currencies": [
-            "USD"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
           "policySide": null,
           "impactScore": 0,
           "impactPct": 0,
           "auto": true
         },
         {
-          "time": "Wed 7 Oct, 19:22 MYT",
+          "time": "Wed 7 Oct, 22:01 MYT",
           "tf": "Intraday",
-          "title": "Euro plummets as French bonds sell-off intensifies after a day relief",
+          "title": "Micron&#x2019;s ridiculously cheap stock could triple from here, according to this analyst&#x2019;s math",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/euro-plummets-as-french-bonds-sell-off-intensifies-after-a-day-relief-202610071122",
+          "source": "MarketWatch - Top Stories",
+          "url": "https://www.marketwatch.com/story/microns-ridiculously-cheap-stock-could-triple-from-here-according-to-this-analysts-math-7b9b50bc?mod=mw_rss_topstories",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
-          "relevance": 0.8,
-          "currencies": [
-            "EUR"
-          ],
+          "relevance": 0.5,
+          "currencies": [],
           "drivers": {
             "gold": false,
             "yields": false,
-            "usd": true,
+            "usd": false,
             "oil": false,
             "risk": false,
             "crypto": false
@@ -1428,56 +1479,6 @@ window.NEWS_AUTO = {
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
           "source": "MarketWatch - Top Stories",
           "url": "https://www.marketwatch.com/story/elon-musk-and-intel-ceo-shore-up-chipmakers-role-in-terafab-project-and-heres-what-the-news-is-doing-to-the-stock-315d0974?mod=mw_rss_topstories",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.5,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Wed 7 Oct, 20:43 MYT",
-          "tf": "Intraday",
-          "title": "&#x2018;Trump accounts&#x2019; could force MAGA children to own New York Times stock",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "MarketWatch - Top Stories",
-          "url": "https://www.marketwatch.com/story/trump-accounts-could-force-maga-children-to-own-new-york-times-stock-46177c96?mod=mw_rss_topstories",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.5,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Wed 7 Oct, 19:40 MYT",
-          "tf": "Intraday",
-          "title": "These two hard-hit stocks are poised for a comeback, says fund manager",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "MarketWatch - Top Stories",
-          "url": "https://www.marketwatch.com/story/these-two-hard-hit-stocks-are-poised-for-a-comeback-says-fund-manager-cccc0c4e?mod=mw_rss_topstories",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
@@ -2132,6 +2133,141 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
+          "time": "Wed 7 Oct, 18:45 MYT",
+          "tf": "Intraday",
+          "title": "Gold tests $4,100 as US Dollar and yields rise ahead of FOMC Minutes",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/gold-falls-as-us-dollar-treasury-yields-rebound-ahead-of-fed-minutes-202610071045",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.7,
+          "currencies": [
+            "USD"
+          ],
+          "drivers": {
+            "gold": true,
+            "yields": true,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Wed 7 Oct, 22:03 MYT",
+          "tf": "Intraday",
+          "title": "Canadian Dollar: Political risks weigh against US Dollar – Scotiabank",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/canadian-dollar-political-risks-weigh-against-us-dollar-scotiabank-202610071403",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.7,
+          "currencies": [
+            "USD",
+            "CAD"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Wed 7 Oct, 22:00 MYT",
+          "tf": "Intraday",
+          "title": "Fed Minutes set to provide some insight into the timing of next rate hikes",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/fed-minutes-set-to-provide-some-insight-into-the-timing-of-next-rate-hikes-202610071400",
+          "impact": "bearish",
+          "signal": "SELL",
+          "decisionState": "DIRECTIONAL",
+          "relevance": 0.4,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": "hawkish",
+          "impactScore": -0.08,
+          "impactPct": -0.08,
+          "auto": true
+        },
+        {
+          "time": "Wed 7 Oct, 21:51 MYT",
+          "tf": "Intraday",
+          "title": "Canadian Dollar loses ground ahead of Fed Minutes",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/canadian-dollar-loses-ground-ahead-of-fed-minutes-202610071351",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.7,
+          "currencies": [
+            "USD",
+            "CAD"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": true,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Wed 7 Oct, 21:45 MYT",
+          "tf": "Intraday",
+          "title": "Euro: Recovery holds as currency softens – BNY",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/euro-recovery-holds-as-currency-softens-bny-202610071345",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.4,
+          "currencies": [
+            "EUR"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
           "time": "Wed 7 Oct, 21:18 MYT",
           "tf": "Intraday",
           "title": "Japanese Yen: Funding appeal eroded by BoJ hikes – Rabobank",
@@ -2292,33 +2428,6 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Wed 7 Oct, 18:45 MYT",
-          "tf": "Intraday",
-          "title": "Gold declines as stronger US Dollar and yields weigh ahead FOMC Minutes",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/gold-falls-as-us-dollar-treasury-yields-rebound-ahead-of-fed-minutes-202610071045",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.7,
-          "currencies": [
-            "USD"
-          ],
-          "drivers": {
-            "gold": true,
-            "yields": true,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
           "time": "Wed 7 Oct, 20:17 MYT",
           "tf": "Intraday",
           "title": "Euro extends losing streak against British Pound, hits 16-month low",
@@ -2430,43 +2539,15 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Wed 7 Oct, 19:45 MYT",
+          "time": "Wed 7 Oct, 22:01 MYT",
           "tf": "Intraday",
-          "title": "Swiss Franc: Safe-haven demand keeps CHF firm against Euro – Rabobank",
+          "title": "Loneliness and social isolation can take six years off your life",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/swiss-franc-safe-haven-demand-keeps-chf-firm-against-euro-rabobank-202610071145",
+          "source": "MarketWatch - Top Stories",
+          "url": "https://www.marketwatch.com/story/loneliness-and-social-isolation-can-take-six-years-off-your-life-496af256?mod=mw_rss_topstories",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
-          "relevance": 0.7,
-          "currencies": [
-            "EUR",
-            "CHF"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": true,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Wed 7 Oct, 19:31 MYT",
-          "tf": "Intraday",
-          "title": "Indian Rupee: RBI tightening fails to halt INR slide – BBH",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/indian-rupee-rbi-tightening-fails-to-halt-inr-slide-bbh-202610071131",
-          "impact": "bearish",
-          "signal": "SELL",
-          "decisionState": "DIRECTIONAL",
           "relevance": 0.4,
           "currencies": [],
           "drivers": {
@@ -2477,56 +2558,27 @@ window.NEWS_AUTO = {
             "risk": false,
             "crypto": false
           },
-          "policySide": "hawkish",
-          "impactScore": -0.08,
-          "impactPct": -0.08,
-          "auto": true
-        },
-        {
-          "time": "Wed 7 Oct, 12:41 MYT",
-          "tf": "Intraday",
-          "title": "Indian Rupee tumbles after RBI's policy, 20 bps away from all-time low",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/usd-inr-remains-broadly-muted-after-rbis-25-bps-hike-in-repo-rates-to-55-202610070441",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.7,
-          "currencies": [
-            "USD"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
           "policySide": null,
           "impactScore": 0,
           "impactPct": 0,
           "auto": true
         },
         {
-          "time": "Wed 7 Oct, 19:22 MYT",
+          "time": "Wed 7 Oct, 22:01 MYT",
           "tf": "Intraday",
-          "title": "Euro plummets as French bonds sell-off intensifies after a day relief",
+          "title": "Micron&#x2019;s ridiculously cheap stock could triple from here, according to this analyst&#x2019;s math",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/euro-plummets-as-french-bonds-sell-off-intensifies-after-a-day-relief-202610071122",
+          "source": "MarketWatch - Top Stories",
+          "url": "https://www.marketwatch.com/story/microns-ridiculously-cheap-stock-could-triple-from-here-according-to-this-analysts-math-7b9b50bc?mod=mw_rss_topstories",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
-          "relevance": 0.7,
-          "currencies": [
-            "EUR"
-          ],
+          "relevance": 0.4,
+          "currencies": [],
           "drivers": {
             "gold": false,
             "yields": false,
-            "usd": true,
+            "usd": false,
             "oil": false,
             "risk": false,
             "crypto": false
@@ -2718,56 +2770,6 @@ window.NEWS_AUTO = {
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
           "source": "MarketWatch - Top Stories",
           "url": "https://www.marketwatch.com/story/elon-musk-and-intel-ceo-shore-up-chipmakers-role-in-terafab-project-and-heres-what-the-news-is-doing-to-the-stock-315d0974?mod=mw_rss_topstories",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.4,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Wed 7 Oct, 20:43 MYT",
-          "tf": "Intraday",
-          "title": "&#x2018;Trump accounts&#x2019; could force MAGA children to own New York Times stock",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "MarketWatch - Top Stories",
-          "url": "https://www.marketwatch.com/story/trump-accounts-could-force-maga-children-to-own-new-york-times-stock-46177c96?mod=mw_rss_topstories",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.4,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Wed 7 Oct, 19:40 MYT",
-          "tf": "Intraday",
-          "title": "These two hard-hit stocks are poised for a comeback, says fund manager",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "MarketWatch - Top Stories",
-          "url": "https://www.marketwatch.com/story/these-two-hard-hit-stocks-are-poised-for-a-comeback-says-fund-manager-cccc0c4e?mod=mw_rss_topstories",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
@@ -3422,6 +3424,141 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
+          "time": "Wed 7 Oct, 18:45 MYT",
+          "tf": "Intraday",
+          "title": "Gold tests $4,100 as US Dollar and yields rise ahead of FOMC Minutes",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/gold-falls-as-us-dollar-treasury-yields-rebound-ahead-of-fed-minutes-202610071045",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 1,
+          "currencies": [
+            "USD"
+          ],
+          "drivers": {
+            "gold": true,
+            "yields": true,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Wed 7 Oct, 22:03 MYT",
+          "tf": "Intraday",
+          "title": "Canadian Dollar: Political risks weigh against US Dollar – Scotiabank",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/canadian-dollar-political-risks-weigh-against-us-dollar-scotiabank-202610071403",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 1,
+          "currencies": [
+            "USD",
+            "CAD"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Wed 7 Oct, 22:00 MYT",
+          "tf": "Intraday",
+          "title": "Fed Minutes set to provide some insight into the timing of next rate hikes",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/fed-minutes-set-to-provide-some-insight-into-the-timing-of-next-rate-hikes-202610071400",
+          "impact": "bearish",
+          "signal": "SELL",
+          "decisionState": "DIRECTIONAL",
+          "relevance": 0.5,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": "hawkish",
+          "impactScore": -0.08,
+          "impactPct": -0.08,
+          "auto": true
+        },
+        {
+          "time": "Wed 7 Oct, 21:51 MYT",
+          "tf": "Intraday",
+          "title": "Canadian Dollar loses ground ahead of Fed Minutes",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/canadian-dollar-loses-ground-ahead-of-fed-minutes-202610071351",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 1,
+          "currencies": [
+            "USD",
+            "CAD"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": true,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Wed 7 Oct, 21:45 MYT",
+          "tf": "Intraday",
+          "title": "Euro: Recovery holds as currency softens – BNY",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/euro-recovery-holds-as-currency-softens-bny-202610071345",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 1,
+          "currencies": [
+            "EUR"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
           "time": "Wed 7 Oct, 21:18 MYT",
           "tf": "Intraday",
           "title": "Japanese Yen: Funding appeal eroded by BoJ hikes – Rabobank",
@@ -3582,33 +3719,6 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Wed 7 Oct, 18:45 MYT",
-          "tf": "Intraday",
-          "title": "Gold declines as stronger US Dollar and yields weigh ahead FOMC Minutes",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/gold-falls-as-us-dollar-treasury-yields-rebound-ahead-of-fed-minutes-202610071045",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 1,
-          "currencies": [
-            "USD"
-          ],
-          "drivers": {
-            "gold": true,
-            "yields": true,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
           "time": "Wed 7 Oct, 20:17 MYT",
           "tf": "Intraday",
           "title": "Euro extends losing streak against British Pound, hits 16-month low",
@@ -3720,43 +3830,15 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Wed 7 Oct, 19:45 MYT",
+          "time": "Wed 7 Oct, 22:01 MYT",
           "tf": "Intraday",
-          "title": "Swiss Franc: Safe-haven demand keeps CHF firm against Euro – Rabobank",
+          "title": "Loneliness and social isolation can take six years off your life",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/swiss-franc-safe-haven-demand-keeps-chf-firm-against-euro-rabobank-202610071145",
+          "source": "MarketWatch - Top Stories",
+          "url": "https://www.marketwatch.com/story/loneliness-and-social-isolation-can-take-six-years-off-your-life-496af256?mod=mw_rss_topstories",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
-          "relevance": 1,
-          "currencies": [
-            "EUR",
-            "CHF"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": true,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Wed 7 Oct, 19:31 MYT",
-          "tf": "Intraday",
-          "title": "Indian Rupee: RBI tightening fails to halt INR slide – BBH",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/indian-rupee-rbi-tightening-fails-to-halt-inr-slide-bbh-202610071131",
-          "impact": "bearish",
-          "signal": "SELL",
-          "decisionState": "DIRECTIONAL",
           "relevance": 0.5,
           "currencies": [],
           "drivers": {
@@ -3767,56 +3849,27 @@ window.NEWS_AUTO = {
             "risk": false,
             "crypto": false
           },
-          "policySide": "hawkish",
-          "impactScore": -0.08,
-          "impactPct": -0.08,
-          "auto": true
-        },
-        {
-          "time": "Wed 7 Oct, 12:41 MYT",
-          "tf": "Intraday",
-          "title": "Indian Rupee tumbles after RBI's policy, 20 bps away from all-time low",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/usd-inr-remains-broadly-muted-after-rbis-25-bps-hike-in-repo-rates-to-55-202610070441",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 1,
-          "currencies": [
-            "USD"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
           "policySide": null,
           "impactScore": 0,
           "impactPct": 0,
           "auto": true
         },
         {
-          "time": "Wed 7 Oct, 19:22 MYT",
+          "time": "Wed 7 Oct, 22:01 MYT",
           "tf": "Intraday",
-          "title": "Euro plummets as French bonds sell-off intensifies after a day relief",
+          "title": "Micron&#x2019;s ridiculously cheap stock could triple from here, according to this analyst&#x2019;s math",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/euro-plummets-as-french-bonds-sell-off-intensifies-after-a-day-relief-202610071122",
+          "source": "MarketWatch - Top Stories",
+          "url": "https://www.marketwatch.com/story/microns-ridiculously-cheap-stock-could-triple-from-here-according-to-this-analysts-math-7b9b50bc?mod=mw_rss_topstories",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
-          "relevance": 1,
-          "currencies": [
-            "EUR"
-          ],
+          "relevance": 0.5,
+          "currencies": [],
           "drivers": {
             "gold": false,
             "yields": false,
-            "usd": true,
+            "usd": false,
             "oil": false,
             "risk": false,
             "crypto": false
@@ -4008,56 +4061,6 @@ window.NEWS_AUTO = {
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
           "source": "MarketWatch - Top Stories",
           "url": "https://www.marketwatch.com/story/elon-musk-and-intel-ceo-shore-up-chipmakers-role-in-terafab-project-and-heres-what-the-news-is-doing-to-the-stock-315d0974?mod=mw_rss_topstories",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.5,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Wed 7 Oct, 20:43 MYT",
-          "tf": "Intraday",
-          "title": "&#x2018;Trump accounts&#x2019; could force MAGA children to own New York Times stock",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "MarketWatch - Top Stories",
-          "url": "https://www.marketwatch.com/story/trump-accounts-could-force-maga-children-to-own-new-york-times-stock-46177c96?mod=mw_rss_topstories",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.5,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Wed 7 Oct, 19:40 MYT",
-          "tf": "Intraday",
-          "title": "These two hard-hit stocks are poised for a comeback, says fund manager",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "MarketWatch - Top Stories",
-          "url": "https://www.marketwatch.com/story/these-two-hard-hit-stocks-are-poised-for-a-comeback-says-fund-manager-cccc0c4e?mod=mw_rss_topstories",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
