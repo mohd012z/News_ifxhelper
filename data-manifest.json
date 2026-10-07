@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
   "generationId": null,
-  "generatedAt": "2026-10-07T19:54:07.397Z",
+  "generatedAt": "2026-10-07T20:04:16.847Z",
   "lineage": {
     "status": "UNKNOWN",
     "generationId": null,
@@ -13,29 +13,29 @@
       "file": "news-auto.js",
       "available": true,
       "bytes": 179538,
-      "sha256": "35f28466f5f91996cf3d6728cf7fbdbbee1a158d95c737854754ab1a0d13ac36",
-      "modifiedAt": "2026-10-07T19:54:07.344Z"
+      "sha256": "af02981ac5524095d72166ba1c1c1af0c8ad8c07084fd48d73666ec042c6b742",
+      "modifiedAt": "2026-10-07T20:04:16.350Z"
     },
     {
       "file": "macro-auto.js",
       "available": true,
-      "bytes": 1552,
-      "sha256": "7fb0e54c54c982a9ccf84c70b9957fa0622ed8e715b187e171f86844a5a54d4e",
-      "modifiedAt": "2026-10-07T19:53:57.199Z"
+      "bytes": 1534,
+      "sha256": "31395fe06f05725a3156f5b156523e3fe353bbc71d1792c280f3d3ef8543f023",
+      "modifiedAt": "2026-10-07T20:04:16.805Z"
     },
     {
       "file": "atr.js",
       "available": true,
       "bytes": 5807,
       "sha256": "2cce26d6b827c563134c770ae94e1f2fedba53118084ac66ea45cede8f414575",
-      "modifiedAt": "2026-10-07T19:53:57.189Z"
+      "modifiedAt": "2026-10-07T20:04:05.467Z"
     },
     {
       "file": "xauusd-data.js",
       "available": true,
       "bytes": 38201,
       "sha256": "5a308431b2e833b1b18a0fdd1cd6bd0a7e2d352276aecca147ff4a21eb444ba6",
-      "modifiedAt": "2026-10-07T19:53:57.204Z"
+      "modifiedAt": "2026-10-07T20:04:05.480Z"
     },
     {
       "file": "data/bbma-watch.json",
@@ -62,7 +62,7 @@
       "available": true,
       "bytes": 92,
       "sha256": "731a4939e44d556921c02b4b5e528f58b87bbbd24a4b1dcd0a4008acf19c680e",
-      "modifiedAt": "2026-10-07T19:53:57.196Z",
+      "modifiedAt": "2026-10-07T20:04:05.475Z",
       "lineage": {
         "generationId": null,
         "generatedAt": "2026-10-05T09:12:03.217Z",
@@ -74,7 +74,7 @@
       "available": true,
       "bytes": 93,
       "sha256": "b4b9c8addadd44f627680e9b1215340c6a6fd425b13076f2c985c91e061d2fe8",
-      "modifiedAt": "2026-10-07T19:53:57.196Z",
+      "modifiedAt": "2026-10-07T20:04:05.475Z",
       "lineage": {
         "generationId": null,
         "generatedAt": "2026-10-05T09:12:03.217Z",
