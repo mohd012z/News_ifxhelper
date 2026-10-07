@@ -5,7 +5,7 @@
  * Regenerate: node build-news.js (run on the same daily cron as build-atr.js).
  */
 window.NEWS_AUTO = {
-  "generatedAt": "2026-10-07 06:39:11Z",
+  "generatedAt": "2026-10-07 06:53:05Z",
   "note": "Auto-collected: economic calendar is real structured data; news rows are country/currency-aware and instrument-filtered; mixed observed-vs-policy direction becomes CONFLICT/NEUTRAL. impactPct is retained only for UI compatibility and is an impact score, not a calibrated return forecast. Treat auto:true rows as a first pass.",
   "incoming": [
     {
@@ -31,7 +31,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-07T06:39:06.083Z",
+      "fetchedAt": "2026-10-07T06:53:00.558Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -58,7 +58,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-07T06:39:06.083Z",
+      "fetchedAt": "2026-10-07T06:53:00.558Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -85,7 +85,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-07T06:39:06.083Z",
+      "fetchedAt": "2026-10-07T06:53:00.558Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -112,7 +112,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-07T06:39:06.083Z",
+      "fetchedAt": "2026-10-07T06:53:00.558Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -139,7 +139,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-07T06:39:06.083Z",
+      "fetchedAt": "2026-10-07T06:53:00.558Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -166,7 +166,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-07T06:39:06.083Z",
+      "fetchedAt": "2026-10-07T06:53:00.558Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -193,7 +193,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-07T06:39:06.083Z",
+      "fetchedAt": "2026-10-07T06:53:00.558Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -220,7 +220,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-07T06:39:06.083Z",
+      "fetchedAt": "2026-10-07T06:53:00.558Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -247,7 +247,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-07T06:39:06.083Z",
+      "fetchedAt": "2026-10-07T06:53:00.558Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -274,7 +274,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-07T06:39:06.083Z",
+      "fetchedAt": "2026-10-07T06:53:00.558Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -301,7 +301,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-07T06:39:06.083Z",
+      "fetchedAt": "2026-10-07T06:53:00.558Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -328,7 +328,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-07T06:39:06.083Z",
+      "fetchedAt": "2026-10-07T06:53:00.558Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     }
@@ -837,6 +837,31 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
+          "time": "Wed 7 Oct, 14:41 MYT",
+          "tf": "Intraday",
+          "title": "Equities: Valuation reset underpins new highs – Danske Bank",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/equities-valuation-reset-underpins-new-highs-danske-bank-202610070641",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.5,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
           "time": "Wed 7 Oct, 14:33 MYT",
           "tf": "Intraday",
           "title": "Euro extends its reversal as rising Oil prices offset upbeat German data",
@@ -1208,33 +1233,6 @@ window.NEWS_AUTO = {
           "policySide": null,
           "impactScore": 0,
           "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Wed 7 Oct, 12:41 MYT",
-          "tf": "Intraday",
-          "title": "USD/INR remains broadly muted after RBI’s 25 bps hike in Repo Rates to 5.5%",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/usd-inr-remains-broadly-muted-after-rbis-25-bps-hike-in-repo-rates-to-55-202610070441",
-          "impact": "bearish",
-          "signal": "SELL",
-          "decisionState": "DIRECTIONAL",
-          "relevance": 0.8,
-          "currencies": [
-            "USD"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": "hawkish",
-          "impactScore": -0.12,
-          "impactPct": -0.12,
           "auto": true
         },
         {
@@ -2093,6 +2091,31 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
+          "time": "Wed 7 Oct, 14:41 MYT",
+          "tf": "Intraday",
+          "title": "Equities: Valuation reset underpins new highs – Danske Bank",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/equities-valuation-reset-underpins-new-highs-danske-bank-202610070641",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.4,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
           "time": "Wed 7 Oct, 14:33 MYT",
           "tf": "Intraday",
           "title": "Euro extends its reversal as rising Oil prices offset upbeat German data",
@@ -2464,33 +2487,6 @@ window.NEWS_AUTO = {
           "policySide": null,
           "impactScore": 0,
           "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Wed 7 Oct, 12:41 MYT",
-          "tf": "Intraday",
-          "title": "USD/INR remains broadly muted after RBI’s 25 bps hike in Repo Rates to 5.5%",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/usd-inr-remains-broadly-muted-after-rbis-25-bps-hike-in-repo-rates-to-55-202610070441",
-          "impact": "bearish",
-          "signal": "SELL",
-          "decisionState": "DIRECTIONAL",
-          "relevance": 0.7,
-          "currencies": [
-            "USD"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": "hawkish",
-          "impactScore": -0.14,
-          "impactPct": -0.14,
           "auto": true
         },
         {
@@ -3349,6 +3345,31 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
+          "time": "Wed 7 Oct, 14:41 MYT",
+          "tf": "Intraday",
+          "title": "Equities: Valuation reset underpins new highs – Danske Bank",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/equities-valuation-reset-underpins-new-highs-danske-bank-202610070641",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.5,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
           "time": "Wed 7 Oct, 14:33 MYT",
           "tf": "Intraday",
           "title": "Euro extends its reversal as rising Oil prices offset upbeat German data",
@@ -3720,33 +3741,6 @@ window.NEWS_AUTO = {
           "policySide": null,
           "impactScore": 0,
           "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Wed 7 Oct, 12:41 MYT",
-          "tf": "Intraday",
-          "title": "USD/INR remains broadly muted after RBI’s 25 bps hike in Repo Rates to 5.5%",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/usd-inr-remains-broadly-muted-after-rbis-25-bps-hike-in-repo-rates-to-55-202610070441",
-          "impact": "bearish",
-          "signal": "SELL",
-          "decisionState": "DIRECTIONAL",
-          "relevance": 1,
-          "currencies": [
-            "USD"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": "hawkish",
-          "impactScore": -0.15,
-          "impactPct": -0.15,
           "auto": true
         },
         {
