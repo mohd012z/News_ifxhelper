@@ -15,7 +15,7 @@ on:
       - "test/**"
       - ".github/workflows/news-watch.yml"
   schedule:
-    - cron: "*/30 * * * *"
+    - cron: "7,37 * * * *" # every 30 min, offset from busy :00/:30 scheduler windows
   workflow_dispatch: {}
 
 permissions:
