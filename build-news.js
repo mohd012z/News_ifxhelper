@@ -433,10 +433,13 @@ function calendarRowFromRaw(raw, sourceHorizon, sourceLabel, sourceClass) {
     auto: true
   };
 }
+function calendarGmtMs(s) {
+  const m = /(\d{4})-(\d{2})-(\d{2})\s+(\d{1,2}):(\d{2})/.exec(String(s || ''));
+  return m ? Date.UTC(+m[1], +m[2] - 1, +m[3], +m[4], +m[5]) : NaN;
+}
 function sameCalendarEvent(a, b) {
   if (!a || !b || a.currency !== b.currency || a.event !== b.event) return false;
-  const at = a.timeGmt ? new Date(a.timeGmt.replace(/^[A-Za-z]{3},\s*/, '') + 'Z').getTime() : NaN;
-  const bt = b.timeGmt ? new Date(b.timeGmt.replace(/^[A-Za-z]{3},\s*/, '') + 'Z').getTime() : NaN;
+  const at = calendarGmtMs(a.timeGmt), bt = calendarGmtMs(b.timeGmt);
   if (Number.isFinite(at) && Number.isFinite(bt)) return Math.abs(at - bt) <= 6 * 3600000;
   return !!a.date && a.date === b.date;
 }
