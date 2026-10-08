@@ -2,7 +2,24 @@
  * App shell is cached so the app opens offline; live-data endpoints are always network-only.
  * Note: service workers only run on http(s) origins - opening index.html from file:// skips this file.
  */
-const CACHE = "xaudesk-v4";
+const CACHE = "xaudesk-v5";
+const VOLATILE = new Set([
+  "/app.js",
+  "/news-auto.js",
+  "/data-manifest.json",
+  "/xauusd-data.js",
+  "/macro-auto.js",
+  "/atr.js",
+  "/sw.js"
+]);
+
+function contentTypeMismatch(url, res) {
+  const ct = (res.headers.get("content-type") || "").toLowerCase();
+  if (/\.js$/.test(url.pathname)) return !ct.includes("javascript");
+  if (/\.json$/.test(url.pathname)) return !ct.includes("json");
+  return false;
+}
+
 const SHELL = [
   "./",
   "./index.html",
@@ -40,11 +57,22 @@ self.addEventListener("fetch", (e) => {
     return;
   }
   if (e.request.method !== "GET" || url.origin !== self.location.origin) return;
-  // Network-first so the bundled data can never be served stale; cache is the offline fallback.
+
+  const isVolatile = VOLATILE.has(url.pathname);
+  const request = isVolatile ? new Request(e.request, { cache: "no-store" }) : e.request;
+
+  // Network-first. For JS/JSON, reject an HTML SPA fallback instead of executing/parsing it.
   e.respondWith(
-    fetch(e.request).then((res) => {
-      if (res && res.ok) caches.open(CACHE).then((c) => c.put(e.request, res.clone()));
+    fetch(request).then((res) => {
+      if (!res || !res.ok) throw new Error("HTTP " + (res ? res.status : "network"));
+      if (contentTypeMismatch(url, res)) throw new Error("content-type mismatch for " + url.pathname);
+      caches.open(CACHE).then((cache) => cache.put(e.request, res.clone())).catch(() => {});
       return res;
-    }).catch(() => caches.match(e.request).then((hit) => hit || caches.match("./index.html")))
+    }).catch(() => caches.match(e.request).then((hit) => {
+      if (hit && !contentTypeMismatch(url, hit)) return hit;
+      // Only navigation/document requests may fall back to index.html. Never return HTML for JS/JSON.
+      if (e.request.mode === "navigate" || e.request.destination === "document") return caches.match("./index.html");
+      return new Response("Offline asset unavailable", { status: 503, headers: { "Content-Type": "text/plain; charset=utf-8" } });
+    }))
   );
 });

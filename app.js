@@ -580,6 +580,8 @@
    * Priority: validated remote -> last-known-good local cache -> bundled APK snapshot.
    * A successful APK build is never treated as proof that market data is current. */
   var remoteTimer = null, lastRemoteMarketUpdated = D.updated, lastRemoteNewsGenerated = (window.NEWS_AUTO || {}).generatedAt;
+  var LIVE_CALENDAR_URL = "https://gentle-violet-4a79.ifxhelper.workers.dev/api/ff-calendar";
+  var liveCalendarTimer = null, lastLiveCalendarSignature = "";
   var DATA_CACHE_PREFIX = "xau-data-cache:";
   function sandboxEvalDataFile(text, globalName) {
     var win = {};
@@ -680,6 +682,99 @@
     checkRemote(settings.remoteUrl, null);
     remoteTimer = setInterval(function () { checkRemote(settings.remoteUrl, null); }, ms);
   }
+  function livePad(n) { return String(n).padStart(2, "0"); }
+  function liveGmtString(d) {
+    return d.getUTCFullYear() + "-" + livePad(d.getUTCMonth() + 1) + "-" + livePad(d.getUTCDate()) + " " + livePad(d.getUTCHours()) + ":" + livePad(d.getUTCMinutes());
+  }
+  function liveMytString(d) {
+    var x = new Date(d.getTime() + 8 * 3600000);
+    return DAY_NAMES[x.getUTCDay()] + ", " + x.getUTCFullYear() + "-" + livePad(x.getUTCMonth() + 1) + "-" + livePad(x.getUTCDate()) + " " + livePad(x.getUTCHours()) + ":" + livePad(x.getUTCMinutes());
+  }
+  function liveImportance(impact) {
+    if (impact === "High") return "high";
+    if (impact === "Medium") return "med";
+    if (impact === "Holiday") return "holiday";
+    return "low";
+  }
+  function liveCalendarRow(e, fetchedAt) {
+    if (!e || !e.date || !e.title) return null;
+    var d = new Date(e.date); if (isNaN(d.getTime())) return null;
+    var importance = liveImportance(e.impact);
+    var actual = e.actual != null && e.actual !== "" ? e.actual : null;
+    var forecast = e.forecast != null && e.forecast !== "" ? e.forecast : null;
+    var previous = e.previous != null && e.previous !== "" ? e.previous : null;
+    return {
+      date: d.toISOString().slice(0, 10),
+      timeMyt: liveMytString(d),
+      timeGmt: liveGmtString(d),
+      displayTime: null,
+      dateOnly: false,
+      event: (e.country ? "[" + e.country + "] " : "") + e.title,
+      currency: e.country || null,
+      country: null,
+      importance: importance,
+      actual: actual,
+      forecast: forecast,
+      previous: previous,
+      release: actual ? "released" : "pending",
+      note: [actual ? "Actual " + actual : null, forecast ? "Forecast " + forecast : null, previous ? "Prev " + previous : null].filter(Boolean).join(" - ") || "No result/consensus figure published.",
+      focusTf: importance === "high" ? "M5 - M15" : (importance === "med" ? "M15" : (importance === "holiday" ? "Session" : "Context")),
+      play: actual ? "Released event — verify the official figure and current context." : "Upcoming event — live schedule/context only until an actual result is published.",
+      reminderLeadMin: importance === "high" ? 15 : (importance === "med" ? 10 : 5),
+      sourceHorizon: "this-week",
+      source: "ForexFactory live Worker",
+      sourceClass: "LIVE_CALENDAR_PROXY",
+      fetchedAt: fetchedAt || new Date().toISOString(),
+      url: "https://www.forexfactory.com/calendar",
+      auto: true
+    };
+  }
+  function applyLiveCalendar(events, fetchedAt) {
+    var rows = (events || []).map(function (e) { return liveCalendarRow(e, fetchedAt); }).filter(Boolean);
+    if (!rows.length) return false;
+    var signature = JSON.stringify(rows.map(function (e) { return [e.event, e.timeGmt, e.importance, e.actual, e.forecast, e.previous]; }));
+    var changed = signature !== lastLiveCalendarSignature;
+    lastLiveCalendarSignature = signature;
+
+    var a = window.NEWS_AUTO || {};
+    var keepAll = (a.calendarAll || []).filter(function (e) { return e.sourceHorizon !== "this-week"; });
+    var priority = rows.filter(function (e) { return e.importance === "high" || e.importance === "med"; });
+    var keepIncoming = (a.incoming || []).filter(function (e) { return e.sourceHorizon !== "this-week"; });
+    a.calendarAll = keepAll.concat(rows);
+    a.incoming = keepIncoming.concat(priority);
+    a.liveGeneratedAt = fetchedAt || new Date().toISOString();
+    a.calendarHorizon = a.calendarHorizon || {};
+    a.calendarHorizon.live = "current-week direct feed (~60s client refresh)";
+    window.NEWS_AUTO = a;
+
+    D.incoming = (D.incoming || []).filter(function (e) { return e.sourceHorizon !== "this-week"; }).concat(priority);
+    try { localStorage.setItem("xau-live-calendar-sync", JSON.stringify({ checkedAt: new Date().toISOString(), fetchedAt: a.liveGeneratedAt, rows: rows.length, changed: changed })); } catch (e) {}
+    if (changed) renderAll();
+    return changed;
+  }
+  function fetchLiveCalendar() {
+    return fetch(LIVE_CALENDAR_URL, { cache: "no-store" }).then(function (r) {
+      if (!r.ok) throw new Error("live calendar HTTP " + r.status);
+      return r.json();
+    }).then(function (body) {
+      var events = Array.isArray(body) ? body : body.events;
+      if (!Array.isArray(events)) throw new Error("live calendar shape invalid");
+      return applyLiveCalendar(events, body.fetchedAt || new Date().toISOString());
+    }).catch(function (e) {
+      try { localStorage.setItem("xau-live-calendar-sync", JSON.stringify({ checkedAt: new Date().toISOString(), error: e.message })); } catch (x) {}
+      return false;
+    });
+  }
+  function scheduleLiveCalendarPolling() {
+    if (liveCalendarTimer) { clearInterval(liveCalendarTimer); liveCalendarTimer = null; }
+    fetchLiveCalendar();
+    liveCalendarTimer = setInterval(fetchLiveCalendar, 60000);
+  }
+  function bindLiveCalendarWakeup() {
+    document.addEventListener("visibilitychange", function () { if (!document.hidden) fetchLiveCalendar(); });
+    window.addEventListener("focus", fetchLiveCalendar);
+  }
+
   function bindRemoteSettings() {
     var urlIn = $("#set-remote-url"), minSel = $("#set-remote-min"), testBtn = $("#set-remote-test"), statusEl = $("#set-remote-status");
     if (!urlIn) return;
@@ -1091,6 +1186,7 @@
     if (D.updated) { var d0 = new Date(D.updated.replace(" SGT", "Z").replace(" GMT", "Z")); if (!isNaN(d0.getTime())) candidates.push(d0); }
     [window.NEWS_AUTO, window.MACRO_AUTO].forEach(function (src) {
       if (src && src.generatedAt) { var d = new Date(src.generatedAt.replace(" ", "T")); if (!isNaN(d.getTime())) candidates.push(d); }
+      if (src && src.liveGeneratedAt) { var dl = new Date(src.liveGeneratedAt); if (!isNaN(dl.getTime())) candidates.push(dl); }
     });
     if (!candidates.length) return D.updated || "\u2014";
     var latest = new Date(Math.max.apply(null, candidates.map(function (d) { return d.getTime(); })));
@@ -1299,7 +1395,7 @@
     var status = $("#calendar-source-status");
     if (status) {
       var a = window.NEWS_AUTO || {}, hz = (a.calendarHorizon || {}).loaded || [];
-      status.textContent = "Snapshot " + (a.generatedAt || "bundled") + " · horizon " + (hz.length ? hz.join(" + ") : "loaded calendar only") + (incomingView === "month" ? " · month view includes only events present in the loaded horizon" : "");
+      status.textContent = "Snapshot " + (a.generatedAt || "bundled") + (a.liveGeneratedAt ? " · live " + a.liveGeneratedAt : "") + " · horizon " + (hz.length ? hz.join(" + ") : "loaded calendar only") + (a.calendarHorizon && a.calendarHorizon.live ? " · " + a.calendarHorizon.live : "") + (incomingView === "month" ? " · month view includes only events present in the loaded horizon" : "");
     }
 
     var lastDay = null;
@@ -1988,6 +2084,8 @@
     var wsu = $("#ws-url"); if (wsu && (D.live || {}).wsHint) wsu.value = D.live.wsHint;
     initLive();
     scheduleRemotePolling();
+    scheduleLiveCalendarPolling();
+    bindLiveCalendarWakeup();
     // Live countdown: re-render Priority Read every 15s so "in 12m" actually ticks down instead
     // of only updating on the next unrelated re-render (a live poll tick, a tab switch, etc).
     setInterval(function () { if ($("#incoming-list")) renderIncoming(); }, 15000);
