@@ -487,13 +487,22 @@
   }
 
   /* ---- settings: accent/font/size/profile + notification toggles, all local to this device ---- */
-  var DEFAULT_SETTINGS = { profile: "", accent: "#e2b04a", font: "", fontSize: "1", notifPopup: false, notifOS: false, defaultTab: "", accountCcy: "USD", lotSize: 1, riskPct: 1, showAuto: true, compact: false, aiMode: "offline", aiProvider: "groq", aiKey: "", aiModel: "", remoteUrl: "https://raw.githubusercontent.com/mohd012z/News_ifxhelper/main/", remoteMin: "15", voiceURI: "", voiceStyle: "presenter" };
+  var DEFAULT_SETTINGS = { profile: "", accent: "#e2b04a", font: "", fontSize: "1", notifPopup: false, notifOS: false, defaultTab: "", accountCcy: "USD", lotSize: 1, riskPct: 1, showAuto: true, compact: false, aiMode: "offline", aiProvider: "groq", aiKey: "", aiModel: "", remoteUrl: "https://raw.githubusercontent.com/mohd012z/News_ifxhelper/main/", remoteMin: "5", syncProfileVersion: 2, voiceURI: "", voiceStyle: "presenter" };
   var safeGetSettings = function () {
-    try { var s = JSON.parse(localStorage.getItem("xau-settings") || "{}"); var out = {}; for (var k in DEFAULT_SETTINGS) out[k] = (s[k] !== undefined ? s[k] : DEFAULT_SETTINGS[k]); return out; }
+    try {
+      var s = JSON.parse(localStorage.getItem("xau-settings") || "{}"), out = {};
+      for (var k in DEFAULT_SETTINGS) out[k] = (s[k] !== undefined ? s[k] : DEFAULT_SETTINGS[k]);
+      if (!s.syncProfileVersion || Number(s.syncProfileVersion) < 2) {
+        if (s.remoteMin === undefined || s.remoteMin === "15") out.remoteMin = "5";
+        out.syncProfileVersion = 2;
+      }
+      return out;
+    }
     catch (e) { var d = {}; for (var k2 in DEFAULT_SETTINGS) d[k2] = DEFAULT_SETTINGS[k2]; return d; }
   };
   var safeSetSettings = function (s) { try { localStorage.setItem("xau-settings", JSON.stringify(s)); } catch (e) {} };
   var settings = safeGetSettings();
+  safeSetSettings(settings);
   function applySettings() {
     document.documentElement.style.setProperty("--accent", settings.accent || DEFAULT_SETTINGS.accent);
     if (settings.font) document.documentElement.style.setProperty("--ui-font", settings.font);
@@ -580,7 +589,10 @@
    * Priority: validated remote -> last-known-good local cache -> bundled APK snapshot.
    * A successful APK build is never treated as proof that market data is current. */
   var remoteTimer = null, lastRemoteMarketUpdated = D.updated, lastRemoteNewsGenerated = (window.NEWS_AUTO || {}).generatedAt;
-  var LIVE_CALENDAR_URL = "https://gentle-violet-4a79.ifxhelper.workers.dev/api/ff-calendar";
+  var LIVE_CALENDAR_URLS = [
+    "https://gentle-violet-4a79.ifxhelper.workers.dev/api/ff-calendar",
+    "https://nfs.faireconomy.media/ff_calendar_thisweek.json"
+  ];
   var liveCalendarTimer = null, lastLiveCalendarSignature = "";
   var DATA_CACHE_PREFIX = "xau-data-cache:";
   function sandboxEvalDataFile(text, globalName) {
@@ -696,7 +708,7 @@
     if (impact === "Holiday") return "holiday";
     return "low";
   }
-  function liveCalendarRow(e, fetchedAt) {
+  function liveCalendarRow(e, fetchedAt, sourceLabel) {
     if (!e || !e.date || !e.title) return null;
     var d = new Date(e.date); if (isNaN(d.getTime())) return null;
     var importance = liveImportance(e.impact);
@@ -722,15 +734,15 @@
       play: actual ? "Released event — verify the official figure and current context." : "Upcoming event — live schedule/context only until an actual result is published.",
       reminderLeadMin: importance === "high" ? 15 : (importance === "med" ? 10 : 5),
       sourceHorizon: "this-week",
-      source: "ForexFactory live Worker",
+      source: sourceLabel || "ForexFactory live feed",
       sourceClass: "LIVE_CALENDAR_PROXY",
       fetchedAt: fetchedAt || new Date().toISOString(),
       url: "https://www.forexfactory.com/calendar",
       auto: true
     };
   }
-  function applyLiveCalendar(events, fetchedAt) {
-    var rows = (events || []).map(function (e) { return liveCalendarRow(e, fetchedAt); }).filter(Boolean);
+  function applyLiveCalendar(events, fetchedAt, sourceLabel) {
+    var rows = (events || []).map(function (e) { return liveCalendarRow(e, fetchedAt, sourceLabel); }).filter(Boolean);
     if (!rows.length) return false;
     var signature = JSON.stringify(rows.map(function (e) { return [e.event, e.timeGmt, e.importance, e.actual, e.forecast, e.previous]; }));
     var changed = signature !== lastLiveCalendarSignature;
@@ -752,14 +764,31 @@
     if (changed) renderAll();
     return changed;
   }
-  function fetchLiveCalendar() {
-    return fetch(LIVE_CALENDAR_URL, { cache: "no-store" }).then(function (r) {
-      if (!r.ok) throw new Error("live calendar HTTP " + r.status);
+  function fetchLiveCalendarSource(index, errors) {
+    errors = errors || [];
+    if (index >= LIVE_CALENDAR_URLS.length) return Promise.reject(new Error(errors.join(" | ") || "no live calendar source available"));
+    var url = LIVE_CALENDAR_URLS[index];
+    return fetch(url, { cache: "no-store" }).then(function (r) {
+      if (!r.ok) throw new Error("HTTP " + r.status);
       return r.json();
     }).then(function (body) {
       var events = Array.isArray(body) ? body : body.events;
-      if (!Array.isArray(events)) throw new Error("live calendar shape invalid");
-      return applyLiveCalendar(events, body.fetchedAt || new Date().toISOString());
+      if (!Array.isArray(events)) throw new Error("shape invalid");
+      return {
+        events: events,
+        fetchedAt: (body && body.fetchedAt) || new Date().toISOString(),
+        sourceLabel: index === 0 ? "ForexFactory live Worker" : "ForexFactory direct structured feed",
+        sourceUrl: url
+      };
+    }).catch(function (e) {
+      errors.push(url + ": " + e.message);
+      return fetchLiveCalendarSource(index + 1, errors);
+    });
+  }
+  function fetchLiveCalendar() {
+    return fetchLiveCalendarSource(0, []).then(function (result) {
+      try { localStorage.setItem("xau-live-calendar-source", JSON.stringify({ url: result.sourceUrl, at: result.fetchedAt })); } catch (x) {}
+      return applyLiveCalendar(result.events, result.fetchedAt, result.sourceLabel);
     }).catch(function (e) {
       try { localStorage.setItem("xau-live-calendar-sync", JSON.stringify({ checkedAt: new Date().toISOString(), error: e.message })); } catch (x) {}
       return false;
