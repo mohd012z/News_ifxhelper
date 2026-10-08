@@ -22,6 +22,7 @@
 'use strict';
 const fs = require('fs');
 const History = require('./lib/history-store');
+const ForexFactoryCalendar = require('./lib/forexfactory-calendar');
 const path = require('path');
 
 const OUT = path.join(__dirname, 'news-auto.js');
@@ -379,13 +380,13 @@ function releaseState(actual, forecast) {
 }
 
 // ---- 1. Economic calendar (real, structured, key-free) ----
-// Keep the analysis stream selective (High/Medium), but collect the full current + next-week
-// calendar for Day/Week/Month UI views. The second endpoint is fail-open: if it is unavailable,
-// the current-week feed still produces a valid snapshot and the UI reports the loaded horizon.
-const CALENDAR_FEEDS = [
-  { url: 'https://nfs.faireconomy.media/ff_calendar_thisweek.json', horizon: 'this-week' },
-  { url: 'https://nfs.faireconomy.media/ff_calendar_nextweek.json', horizon: 'next-week' }
-];
+// Source strategy:
+//   - Current week: Forex Factory's JSON export (precise ISO timestamps, preferred authority).
+//   - Current month: Forex Factory's HTML calendar page, parsed with its displayed GMT offset.
+// The monthly page fills the longer horizon. Current-week JSON always wins on duplicates.
+const CURRENT_WEEK_CALENDAR_URL = 'https://nfs.faireconomy.media/ff_calendar_thisweek.json';
+const CURRENT_MONTH_CALENDAR_URL = 'https://www.forexfactory.com/calendar?month=this';
+
 function calendarImportance(impact) {
   if (impact === 'High') return 'high';
   if (impact === 'Medium') return 'med';
@@ -393,56 +394,116 @@ function calendarImportance(impact) {
   return 'low';
 }
 function reminderLeadMinutes(importance) {
-  // Mirrors the useful reminder cadence observed in the Forex Factory Calendar Telegram channel:
-  // high≈15m, medium≈10m, low/holiday≈5m. This is presentation metadata, not a trading signal.
+  // Presentation cadence inspired by the Forex Factory Calendar reminder channel:
+  // high≈15m, medium≈10m, low≈5m. Only exact-time rows get a reminder lead.
   return importance === 'high' ? 15 : (importance === 'med' ? 10 : 5);
 }
+function calendarRowFromRaw(raw, sourceHorizon, sourceLabel, sourceClass) {
+  const importance = calendarImportance(raw.impact);
+  const instant = raw.instantIso ? new Date(raw.instantIso) : (raw.dateIso ? new Date(raw.dateIso) : null);
+  const exactTime = !!(instant && !isNaN(instant.getTime()));
+  const actual = raw.actual != null && raw.actual !== '' ? raw.actual : null;
+  const forecast = raw.forecast != null && raw.forecast !== '' ? raw.forecast : null;
+  const previous = raw.previous != null && raw.previous !== '' ? raw.previous : null;
+  return {
+    date: raw.calendarDate || (exactTime ? instant.toISOString().slice(0, 10) : null),
+    timeMyt: exactTime ? toMyt(instant.toISOString()) : null,
+    timeGmt: exactTime ? toGmt(instant.toISOString()) : null,
+    displayTime: raw.displayTime || null,
+    dateOnly: !exactTime,
+    event: (raw.country ? '[' + raw.country + '] ' : '') + raw.title,
+    currency: raw.country || null,
+    country: (COUNTRY_CCY.find(x => x.code === raw.country) || {}).country || null,
+    importance,
+    actual,
+    forecast,
+    previous,
+    release: releaseState(actual, forecast),
+    note: [actual ? 'Actual ' + actual : null, forecast ? 'Forecast ' + forecast : null, previous ? 'Prev ' + previous : null].filter(Boolean).join(' - ') || 'No result/consensus figure published.',
+    focusTf: importance === 'high' ? 'M5 - M15' : (importance === 'med' ? 'M15' : (importance === 'holiday' ? 'Session' : 'Context')),
+    play: importance === 'holiday'
+      ? 'Holiday/session context - liquidity and opening hours may differ.'
+      : (actual ? 'Released - compare actual, consensus and observed reaction before interpretation.' : 'Upcoming/pending - scenario context only until an actual result is available.'),
+    reminderLeadMin: exactTime ? reminderLeadMinutes(importance) : null,
+    sourceHorizon,
+    source: sourceLabel,
+    sourceClass,
+    fetchedAt: new Date().toISOString(),
+    url: sourceHorizon === 'this-month' ? CURRENT_MONTH_CALENDAR_URL : 'https://www.forexfactory.com/calendar',
+    auto: true
+  };
+}
+function calendarGmtMs(s) {
+  const m = /(\d{4})-(\d{2})-(\d{2})\s+(\d{1,2}):(\d{2})/.exec(String(s || ''));
+  return m ? Date.UTC(+m[1], +m[2] - 1, +m[3], +m[4], +m[5]) : NaN;
+}
+function sameCalendarEvent(a, b) {
+  if (!a || !b || a.currency !== b.currency || a.event !== b.event) return false;
+  const at = calendarGmtMs(a.timeGmt), bt = calendarGmtMs(b.timeGmt);
+  if (Number.isFinite(at) && Number.isFinite(bt)) return Math.abs(at - bt) <= 6 * 3600000;
+  return !!a.date && a.date === b.date;
+}
 async function getCalendar() {
-  const rows = [], seen = new Set(), failures = [];
-  for (const feed of CALENDAR_FEEDS) {
-    try {
-      const j = JSON.parse(await fetchText(feed.url));
-      for (const e of j) {
-        if (!e || !e.date || !e.title) continue;
-        const d = new Date(e.date);
-        if (isNaN(d.getTime())) continue;
-        const key = [e.date, e.country || '', e.title].join('|');
-        if (seen.has(key)) continue;
-        seen.add(key);
-        const importance = calendarImportance(e.impact);
-        rows.push({
-          date: d.toISOString().slice(0, 10),
-          timeMyt: toMyt(e.date),
-          timeGmt: toGmt(e.date),
-          event: (e.country ? '[' + e.country + '] ' : '') + e.title,
-          currency: e.country || null,
-          country: (COUNTRY_CCY.find(x => x.code === e.country) || {}).country || null,
-          importance,
-          actual: e.actual != null && e.actual !== '' ? e.actual : null,
-          forecast: e.forecast != null && e.forecast !== '' ? e.forecast : null,
-          previous: e.previous != null && e.previous !== '' ? e.previous : null,
-          release: releaseState(e.actual, e.forecast),
-          note: [e.actual ? 'Actual ' + e.actual : null, e.forecast ? 'Forecast ' + e.forecast : null, e.previous ? 'Prev ' + e.previous : null].filter(Boolean).join(' - ') || 'No result/consensus figure published.',
-          focusTf: importance === 'high' ? 'M5 - M15' : (importance === 'med' ? 'M15' : (importance === 'holiday' ? 'Session' : 'Context')),
-          play: importance === 'holiday'
-            ? 'Holiday/session context - liquidity and opening hours may differ.'
-            : (e.actual ? 'Released - compare actual, consensus and observed reaction before interpretation.' : 'Upcoming/pending - scenario context only until an actual result is available.'),
-          reminderLeadMin: reminderLeadMinutes(importance),
-          sourceHorizon: feed.horizon,
-          source: 'ForexFactory calendar feed',
-          sourceClass: 'OFFICIAL_CALENDAR_AGGREGATE',
-          fetchedAt: new Date().toISOString(),
-          url: 'https://www.forexfactory.com/calendar',
-          auto: true
-        });
-      }
-    } catch (e) {
-      failures.push(feed.horizon + ': ' + e.message);
-      console.log('WARN calendar ' + feed.horizon + ' -> ' + e.message);
+  const rows = [], failures = [];
+
+  // 1) Current-week structured JSON: authoritative for exact times and current values.
+  try {
+    const j = JSON.parse(await fetchText(CURRENT_WEEK_CALENDAR_URL));
+    for (const e of j) {
+      if (!e || !e.date || !e.title) continue;
+      const d = new Date(e.date);
+      if (isNaN(d.getTime())) continue;
+      rows.push(calendarRowFromRaw({
+        calendarDate: d.toISOString().slice(0, 10),
+        dateIso: d.toISOString(),
+        title: e.title,
+        country: e.country || null,
+        impact: e.impact,
+        actual: e.actual,
+        forecast: e.forecast,
+        previous: e.previous
+      }, 'this-week', 'ForexFactory calendar JSON', 'CALENDAR_AGGREGATE_JSON'));
     }
+    console.log('OK   calendar json   rows=' + rows.length);
+  } catch (e) {
+    failures.push('this-week JSON: ' + e.message);
+    console.log('WARN calendar this-week JSON -> ' + e.message);
   }
-  if (!rows.length && failures.length) throw new Error('all calendar feeds failed: ' + failures.join(' | '));
-  return rows.sort((a, b) => (a.date + ' ' + (a.timeGmt || '')).localeCompare(b.date + ' ' + (b.timeGmt || '')));
+
+  // 2) Full current-month page: longer horizon, with the page's own GMT offset normalized.
+  try {
+    const html = await fetchText(CURRENT_MONTH_CALENDAR_URL);
+    const parsed = ForexFactoryCalendar.parseMonthHtml(html, new Date());
+    if (!parsed.rows.length) throw new Error('month page parsed zero calendar rows');
+    let added = 0;
+    for (const e of parsed.rows) {
+      const candidate = calendarRowFromRaw({
+        calendarDate: e.date,
+        instantIso: e.instantIso,
+        displayTime: e.displayTime,
+        title: e.title,
+        country: e.country,
+        impact: e.impact,
+        actual: e.actual,
+        forecast: e.forecast,
+        previous: e.previous
+      }, 'this-month', 'ForexFactory calendar month page', 'CALENDAR_AGGREGATE_HTML');
+      if (rows.some(existing => sameCalendarEvent(existing, candidate))) continue;
+      rows.push(candidate);
+      added += 1;
+    }
+    console.log('OK   calendar month  rows=' + parsed.rows.length + ' added=' + added + ' pageGMT=' + parsed.offsetHours);
+  } catch (e) {
+    failures.push('this-month HTML: ' + e.message);
+    console.log('WARN calendar this-month HTML -> ' + e.message);
+  }
+
+  if (!rows.length && failures.length) throw new Error('all calendar sources failed: ' + failures.join(' | '));
+  return rows.sort((a, b) => {
+    const ak = a.timeGmt || (a.date ? a.date + ' 99:99' : '9999');
+    const bk = b.timeGmt || (b.date ? b.date + ' 99:99' : '9999');
+    return ak.localeCompare(bk);
+  });
 }
 
 // ---- 2. Central-bank press releases (real, official) - the trustworthy hawkish/dovish source ----
@@ -633,7 +694,7 @@ function buildSpeakerRow(it, instrumentScale) {
     calendarAll,
     calendarHorizon: {
       loaded: Array.from(new Set(calendarAll.map(e => e.sourceHorizon))).sort(),
-      note: 'Full calendar UI uses all loaded current/next-week rows; analysis remains High/Medium only.'
+      note: 'Full calendar UI uses precise current-week JSON plus the current-month Forex Factory page when available; analysis remains High/Medium only.'
     },
     byTab,
     priceTrack

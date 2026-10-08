@@ -1129,8 +1129,10 @@
   }
   function calendarAlertRows(view) {
     var now = new Date();
-    var items = (D.incoming || []).map(function (e) { return { e: e, t: parseEventTime(e.timeGmt) }; });
-    items = filterCalendarView(items, view, now).sort(function (a, b) { return (a.t ? a.t.getTime() : Infinity) - (b.t ? b.t.getTime() : Infinity); });
+    var items = fullCalendarRows()
+      .filter(function (e) { return e.importance === "high" || e.importance === "med"; })
+      .map(function (e) { return { e: e, t: parseEventTime(e.timeGmt) }; });
+    items = filterCalendarView(items, view, now).sort(function (a, b) { return calendarSortMs(a) - calendarSortMs(b); });
     return items.map(function (it) {
       var e = it.e, figures = [];
       if (e.actual != null && e.actual !== "") figures.push("Actual " + e.actual);
@@ -1139,7 +1141,7 @@
       return {
         level: e.importance === "high" ? "high" : "med",
         tf: e.focusTf || "",
-        text: e.event + " · " + mytDisplay(e.timeMyt || e.timeSgt) + (figures.length ? " · " + figures.join(" · ") : "")
+        text: e.event + " · " + (it.t ? mytDisplay(e.timeMyt || e.timeSgt) : (e.displayTime || e.date || "time TBA")) + (figures.length ? " · " + figures.join(" · ") : "")
       };
     });
   }
@@ -1227,21 +1229,49 @@
     var monday = dayIndex - ((d.getUTCDay() + 6) % 7);
     return String(monday);
   }
+  function dateCalendarKey(dateStr, part) {
+    var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(dateStr || ""));
+    if (!m) return "";
+    var d = new Date(Date.UTC(+m[1], +m[2] - 1, +m[3]));
+    if (part === "month") return m[1] + "-" + m[2];
+    if (part === "day") return m[1] + "-" + m[2] + "-" + m[3];
+    var dayIndex = Math.floor(d.getTime() / 86400000);
+    return String(dayIndex - ((d.getUTCDay() + 6) % 7));
+  }
+  function itemCalendarKey(it, part) {
+    return it.t ? mytCalendarKey(it.t, part) : dateCalendarKey(it.e && it.e.date, part);
+  }
+  function calendarSortMs(it) {
+    if (it.t) return it.t.getTime();
+    var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(it.e && it.e.date || ""));
+    return m ? Date.UTC(+m[1], +m[2] - 1, +m[3], 12, 0, 0) : Infinity;
+  }
+  function calendarDayLabel(it) {
+    if (it.t) return mytDayLabel(it.t);
+    var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(it.e && it.e.date || ""));
+    if (!m) return "Unknown day";
+    var d = new Date(Date.UTC(+m[1], +m[2] - 1, +m[3]));
+    return DAY_NAMES[d.getUTCDay()] + ", " + d.getUTCDate() + " " + MONTH_NAMES[d.getUTCMonth()];
+  }
   function filterCalendarView(items, view, now) {
-    if (view === "past") return items.filter(function (it) { return it.t && it.t.getTime() < now.getTime(); });
-    if (view === "today") {
-      var todayKey = mytCalendarKey(now, "day");
-      return items.filter(function (it) { return it.t && mytCalendarKey(it.t, "day") === todayKey; });
-    }
+    var todayKey = mytCalendarKey(now, "day");
+    if (view === "past") return items.filter(function (it) {
+      return it.t ? it.t.getTime() < now.getTime() : (itemCalendarKey(it, "day") && itemCalendarKey(it, "day") < todayKey);
+    });
+    if (view === "today") return items.filter(function (it) { return itemCalendarKey(it, "day") === todayKey; });
     if (view === "week") {
       var weekKey = mytCalendarKey(now, "week");
-      return items.filter(function (it) { return it.t && mytCalendarKey(it.t, "week") === weekKey; });
+      return items.filter(function (it) { return itemCalendarKey(it, "week") === weekKey; });
     }
     if (view === "month") {
       var monthKey = mytCalendarKey(now, "month");
-      return items.filter(function (it) { return it.t && mytCalendarKey(it.t, "month") === monthKey; });
+      return items.filter(function (it) { return itemCalendarKey(it, "month") === monthKey; });
     }
-    return items.filter(function (it) { return !it.t || it.t.getTime() >= now.getTime(); });
+    return items.filter(function (it) {
+      if (it.t) return it.t.getTime() >= now.getTime();
+      var k = itemCalendarKey(it, "day");
+      return k && k >= todayKey;
+    });
   }
   function impactBadgeClass(importance) {
     return importance === "high" ? "b-high" : (importance === "med" ? "b-med" : (importance === "holiday" ? "b-holiday" : "b-low"));
@@ -1251,7 +1281,7 @@
     var box = $("#incoming-list"); box.innerHTML = "";
     var now = new Date();
     var all = fullCalendarRows().filter(function (e) { return settings.showAuto !== false || !e.auto; }).map(function (e) { return { e: e, t: parseEventTime(e.timeGmt) }; });
-    var sortedAll = all.slice().sort(function (a, b) { return (a.t ? a.t.getTime() : Infinity) - (b.t ? b.t.getTime() : Infinity); });
+    var sortedAll = all.slice().sort(function (a, b) { return calendarSortMs(a) - calendarSortMs(b); });
     var nextEvent = null;
     sortedAll.some(function (it) { if (it.t && it.t.getTime() >= now.getTime()) { nextEvent = it; return true; } return false; });
     if (nextEvent) {
@@ -1264,7 +1294,7 @@
     }
     var items = filterCalendarView(sortedAll, incomingView, now);
     if (incomingView === "past") items.sort(function (a, b) { return b.t.getTime() - a.t.getTime(); });
-    else items.sort(function (a, b) { return (a.t ? a.t.getTime() : Infinity) - (b.t ? b.t.getTime() : Infinity); });
+    else items.sort(function (a, b) { return calendarSortMs(a) - calendarSortMs(b); });
 
     var status = $("#calendar-source-status");
     if (status) {
@@ -1275,9 +1305,9 @@
     var lastDay = null;
     items.forEach(function (it) {
       var e = it.e;
-      var day = mytDayLabel(it.t);
+      var day = calendarDayLabel(it);
       if (day !== lastDay) { lastDay = day; box.insertAdjacentHTML("beforeend", '<div class="day-sep">' + esc(day) + "</div>"); }
-      var when = countdownText(it.t ? it.t.getTime() - now.getTime() : null);
+      var when = it.t ? countdownText(it.t.getTime() - now.getTime()) : (e.displayTime || "date only");
       var isSoon = it.t && it.t.getTime() - now.getTime() <= 2 * 3600000 && it.t.getTime() >= now.getTime();
       var isNext = nextEvent && e.event === nextEvent.e.event && e.timeGmt === nextEvent.e.timeGmt;
       var lead = e.reminderLeadMin != null ? " · alert ~" + e.reminderLeadMin + "m" : "";
@@ -1285,7 +1315,9 @@
         '<div class="inc"><div class="hd"><div>' + (isNext ? '<span class="badge b-hawk" style="margin-right:6px">NEXT</span>' : "") + '<span class="nm">' + esc(e.event) + '</span> <span class="rl' + (isSoon ? " countdown-live" : "") + '">· ' + esc(when) + "</span></div>" +
         '<div style="display:flex;gap:6px;align-items:center"><span class="badge ' + impactBadgeClass(e.importance) + '">' + esc((e.importance || "").toUpperCase()) + '</span><span class="badge b-tf">' + esc(e.focusTf || "") + "</span></div></div>" +
         '<div class="im">' + esc(e.note || "") + "</div>" +
-        '<div class="mt">MYT ' + esc(mytDisplay(e.timeMyt || e.timeSgt)) + "  ·  GMT " + esc(e.timeGmt || "—") + "  ·  focus " + esc(e.focusTf || "—") + esc(lead) + "</div>" +
+        '<div class="mt">' + (it.t
+          ? ("MYT " + esc(mytDisplay(e.timeMyt || e.timeSgt)) + "  ·  GMT " + esc(e.timeGmt || "—"))
+          : ("Date " + esc(e.date || "—") + "  ·  " + esc(e.displayTime || "time TBA") + "  ·  exact time refreshes from the current-week structured feed")) + "  ·  focus " + esc(e.focusTf || "—") + esc(lead) + "</div>" +
         '<div class="im">' + esc(e.play || "") + "</div>" +
         '<div class="im">' + (e.url ? '<a href="' + esc(e.url) + '" target="_blank" rel="noopener">↗ Source: ' + esc(e.source || "calendar") + "</a>" : '<span style="color:var(--muted)">Source not linked</span>') + "</div></div>");
     });
