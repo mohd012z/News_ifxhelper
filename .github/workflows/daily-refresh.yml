@@ -2,7 +2,7 @@ name: Daily refresh (ATR + evidence + Telegram)
 
 on:
   schedule:
-    - cron: "0 0 * * *"
+    - cron: "11 0 * * *" # 08:11 MYT; offset from top-of-hour and before 08:27 daily digest
   workflow_dispatch: {}
 
 permissions:
@@ -26,21 +26,41 @@ jobs:
         run: node build-data-manifest.js
       - name: Run evidence-engine tests
         run: npm test
+
+      - name: Publish refreshed daily datasets before notifications
+        run: |
+          git config user.name "xau-desk-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add atr.js news-auto.js macro-auto.js data-manifest.json price-track.json data/history
+          if ! git diff --cached --quiet; then
+            git commit -m "bot: daily evidence + ATR + manifest refresh [skip ci]"
+            git pull --rebase origin main
+            git push
+          fi
+
       - name: Send Telegram alerts for anything new
+        continue-on-error: true
+        timeout-minutes: 2
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: node telegram-notify.js
       - name: Send BBMA Alert to Channel
+        continue-on-error: true
+        timeout-minutes: 2
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHANNEL_ID: ${{ secrets.TELEGRAM_CHANNEL_ID || secrets.TELEGRAM_CHAT_ID }}
         run: node send-bbma-telegram.js
 
-      - name: Commit updated data files
+      - name: Persist daily notification state
+        if: always()
         run: |
           git config user.name "xau-desk-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add atr.js news-auto.js macro-auto.js data-manifest.json .news-alert-state.json price-track.json data/history
-          git diff --cached --quiet || git commit -m "bot: daily evidence + ATR + manifest refresh [skip ci]"
-          git push
+          git add .news-alert-state.json
+          if ! git diff --cached --quiet; then
+            git commit -m "bot: daily notification state [skip ci]"
+            git pull --rebase origin main
+            git push
+          fi
