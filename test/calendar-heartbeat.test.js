@@ -2,6 +2,7 @@
 
 const assert=require('assert');
 const {mergeSnapshot,rowFromProvider,stableSignature,releaseState}=require('../lib/calendar-heartbeat');
+const {parseNewsFile}=require('../refresh-calendar-snapshot');
 
 const oldWeek={
   date:'2026-10-09',timeMyt:'Fri, 2026-10-09 20:30',timeGmt:'Fri, 2026-10-09 12:30',
@@ -11,6 +12,11 @@ const oldWeek={
 const monthDup={...oldWeek,sourceHorizon:'this-month',source:'month'};
 const monthOther={date:'2026-10-20',timeMyt:'Tue, 2026-10-20 20:30',timeGmt:'Tue, 2026-10-20 12:30',
   event:'[USD] Existing Month Event',currency:'USD',importance:'med',sourceHorizon:'this-month',auto:true};
+
+const parsed=parseNewsFile('/* header */\nwindow.NEWS_AUTO = {"generatedAt":"x","calendarAll":[]};\n\n/* Merges window.NEWS_AUTO */\n');
+assert.equal(parsed.snapshot.generatedAt,'x');
+assert(parsed.prefix.includes('window.NEWS_AUTO = '));
+assert(parsed.suffix.startsWith('\n\n/* Merges'));
 
 const base={generatedAt:'2026-10-08 21:15:31Z',calendarAll:[monthDup,monthOther,oldWeek],incoming:[oldWeek,monthOther],calendarHorizon:{loaded:['this-week','this-month']}};
 const same=[{date:'2026-10-09T12:30:00Z',country:'USD',title:'CPI y/y',impact:'High',actual:'',forecast:'3.1%',previous:'3.0%'}];
