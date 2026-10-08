@@ -692,7 +692,7 @@
   function scheduleRemotePolling() {
     if (remoteTimer) { clearInterval(remoteTimer); remoteTimer = null; }
     if (!settings.remoteUrl) return;
-    var ms = Math.max(1, Number(settings.remoteMin) || 15) * 60000;
+    var ms = Math.max(1, Number(settings.remoteMin) || 5) * 60000;
     checkRemote(settings.remoteUrl, null);
     remoteTimer = setInterval(function () { checkRemote(settings.remoteUrl, null); }, ms);
   }
@@ -810,7 +810,7 @@
     var urlIn = $("#set-remote-url"), minSel = $("#set-remote-min"), testBtn = $("#set-remote-test"), statusEl = $("#set-remote-status");
     if (!urlIn) return;
     urlIn.value = settings.remoteUrl || "";
-    if (minSel) minSel.value = settings.remoteMin || "15";
+    if (minSel) minSel.value = settings.remoteMin || "5";
     var last = null; try { last = JSON.parse(localStorage.getItem("xau-last-sync") || "null"); } catch (e) {}
     if (statusEl && last) statusEl.textContent = (last.mode || "unknown") + (last.manifestGeneratedAt ? " · manifest " + last.manifestGeneratedAt : "");
     urlIn.onchange = function () { settings.remoteUrl = urlIn.value.trim(); safeSetSettings(settings); scheduleRemotePolling(); };
