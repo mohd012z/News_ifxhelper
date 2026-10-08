@@ -366,7 +366,7 @@
         </div>
         <div id="calendar-source-status" class="note" style="margin-top:8px"></div>
         <div class="grid2" style="margin-top:8px"><div id="incoming-list"></div>
-          <div class="note">Current + next-week calendar rows are loaded when the provider is available. The period buttons filter the loaded snapshot in MYT. High/medium events continue into the analysis engine; low-impact and holiday rows are calendar context only. Month view is explicitly limited to the loaded horizon rather than pretending a full-month source exists.</div>
+          <div class="note">Current-week rows come from the structured Forex Factory JSON export; the full current-month horizon is supplemented from the Forex Factory calendar page when available. The period buttons filter the validated snapshot in MYT. High/medium events continue into the analysis engine; low-impact and holiday rows are calendar context only. If the monthly page is unavailable, the UI falls back honestly to the structured current-week horizon.</div>
         </div>
       </section>
 
