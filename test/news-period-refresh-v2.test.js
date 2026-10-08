@@ -10,6 +10,7 @@ const index = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 const build = fs.readFileSync(path.join(root, 'build-news.js'), 'utf8');
 const pagesWorkflow = fs.readFileSync(path.join(root, '.github', 'workflows', 'deploy-pages.yml'), 'utf8');
 const newsWorkflow = fs.readFileSync(path.join(root, '.github', 'workflows', 'news-watch.yml'), 'utf8');
+const dailyWorkflow = fs.readFileSync(path.join(root, '.github', 'workflows', 'daily-refresh.yml'), 'utf8');
 
 assert(!app.includes('manifest.schemaVersion !== 1'), 'client must not pin manifest schemaVersion === 1');
 assert(app.includes('schemaVersion < 1 || schemaVersion > 3'), 'client must explicitly accept supported manifest schema versions through v3');
@@ -43,5 +44,16 @@ assert(publishIdx >= 0 && telegramIdx > publishIdx, 'validated news data must be
 assert(stateIdx > telegramIdx, 'notification state must persist after notification delivery');
 assert((newsWorkflow.match(/continue-on-error: true/g) || []).length >= 2, 'notification steps must fail open');
 assert((newsWorkflow.match(/timeout-minutes: 2/g) || []).length >= 2, 'notification steps must be time bounded');
+assert(newsWorkflow.includes('cron: "7,37 * * * *"'), 'frequent news schedule must avoid busy :00/:30 scheduler windows');
+
+const dailyPublishIdx = dailyWorkflow.indexOf('Publish refreshed daily datasets before notifications');
+const dailyTelegramIdx = dailyWorkflow.indexOf('Send Telegram alerts for anything new');
+const dailyStateIdx = dailyWorkflow.indexOf('Persist daily notification state');
+assert(dailyWorkflow.includes('cron: "11 0 * * *"'), 'daily refresh must run off the top-of-hour and before the morning digest');
+assert(dailyPublishIdx >= 0 && dailyTelegramIdx > dailyPublishIdx, 'daily data must publish before Telegram delivery');
+assert(dailyStateIdx > dailyTelegramIdx, 'daily notification state must persist after delivery');
+assert((dailyWorkflow.match(/continue-on-error: true/g) || []).length >= 2, 'daily notification steps must fail open');
+assert((dailyWorkflow.match(/timeout-minutes: 2/g) || []).length >= 2, 'daily notification steps must be time bounded');
+assert((dailyWorkflow.match(/git pull --rebase origin main/g) || []).length >= 2, 'daily writer must rebase before both pushes');
 
 console.log('news period refresh v2 tests passed');
