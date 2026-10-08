@@ -379,32 +379,70 @@ function releaseState(actual, forecast) {
 }
 
 // ---- 1. Economic calendar (real, structured, key-free) ----
+// Keep the analysis stream selective (High/Medium), but collect the full current + next-week
+// calendar for Day/Week/Month UI views. The second endpoint is fail-open: if it is unavailable,
+// the current-week feed still produces a valid snapshot and the UI reports the loaded horizon.
+const CALENDAR_FEEDS = [
+  { url: 'https://nfs.faireconomy.media/ff_calendar_thisweek.json', horizon: 'this-week' },
+  { url: 'https://nfs.faireconomy.media/ff_calendar_nextweek.json', horizon: 'next-week' }
+];
+function calendarImportance(impact) {
+  if (impact === 'High') return 'high';
+  if (impact === 'Medium') return 'med';
+  if (impact === 'Holiday') return 'holiday';
+  return 'low';
+}
+function reminderLeadMinutes(importance) {
+  // Mirrors the useful reminder cadence observed in the Forex Factory Calendar Telegram channel:
+  // high≈15m, medium≈10m, low/holiday≈5m. This is presentation metadata, not a trading signal.
+  return importance === 'high' ? 15 : (importance === 'med' ? 10 : 5);
+}
 async function getCalendar() {
-  const j = JSON.parse(await fetchText('https://nfs.faireconomy.media/ff_calendar_thisweek.json'));
-  return j
-    .filter(e => e.impact === 'High' || e.impact === 'Medium')
-    .map(e => ({
-      date: e.date ? new Date(e.date).toISOString().slice(0, 10) : null,
-      timeMyt: toMyt(e.date),
-      timeGmt: toGmt(e.date),
-      event: (e.country ? '[' + e.country + '] ' : '') + e.title,
-      currency: e.country || null,
-      country: (COUNTRY_CCY.find(x => x.code === e.country) || {}).country || null,
-      importance: e.impact === 'High' ? 'high' : 'med',
-      actual: e.actual != null && e.actual !== '' ? e.actual : null,
-      forecast: e.forecast != null && e.forecast !== '' ? e.forecast : null,
-      previous: e.previous != null && e.previous !== '' ? e.previous : null,
-      release: releaseState(e.actual, e.forecast),
-      note: [e.actual ? 'Actual ' + e.actual : null, e.forecast ? 'Forecast ' + e.forecast : null, e.previous ? 'Prev ' + e.previous : null].filter(Boolean).join(' - ') || 'No result/consensus figure published.',
-      focusTf: e.impact === 'High' ? 'M5 - M15' : 'M15',
-      play: e.actual ? 'Released - compare actual, consensus and observed reaction before interpretation.' : 'Upcoming/pending - scenario context only until an actual result is available.',
-      source: 'ForexFactory calendar feed',
-      sourceClass: 'OFFICIAL_CALENDAR_AGGREGATE',
-      fetchedAt: new Date().toISOString(),
-      url: 'https://www.forexfactory.com/calendar',
-      auto: true
-    }))
-    .filter(e => e.date);
+  const rows = [], seen = new Set(), failures = [];
+  for (const feed of CALENDAR_FEEDS) {
+    try {
+      const j = JSON.parse(await fetchText(feed.url));
+      for (const e of j) {
+        if (!e || !e.date || !e.title) continue;
+        const d = new Date(e.date);
+        if (isNaN(d.getTime())) continue;
+        const key = [e.date, e.country || '', e.title].join('|');
+        if (seen.has(key)) continue;
+        seen.add(key);
+        const importance = calendarImportance(e.impact);
+        rows.push({
+          date: d.toISOString().slice(0, 10),
+          timeMyt: toMyt(e.date),
+          timeGmt: toGmt(e.date),
+          event: (e.country ? '[' + e.country + '] ' : '') + e.title,
+          currency: e.country || null,
+          country: (COUNTRY_CCY.find(x => x.code === e.country) || {}).country || null,
+          importance,
+          actual: e.actual != null && e.actual !== '' ? e.actual : null,
+          forecast: e.forecast != null && e.forecast !== '' ? e.forecast : null,
+          previous: e.previous != null && e.previous !== '' ? e.previous : null,
+          release: releaseState(e.actual, e.forecast),
+          note: [e.actual ? 'Actual ' + e.actual : null, e.forecast ? 'Forecast ' + e.forecast : null, e.previous ? 'Prev ' + e.previous : null].filter(Boolean).join(' - ') || 'No result/consensus figure published.',
+          focusTf: importance === 'high' ? 'M5 - M15' : (importance === 'med' ? 'M15' : (importance === 'holiday' ? 'Session' : 'Context')),
+          play: importance === 'holiday'
+            ? 'Holiday/session context - liquidity and opening hours may differ.'
+            : (e.actual ? 'Released - compare actual, consensus and observed reaction before interpretation.' : 'Upcoming/pending - scenario context only until an actual result is available.'),
+          reminderLeadMin: reminderLeadMinutes(importance),
+          sourceHorizon: feed.horizon,
+          source: 'ForexFactory calendar feed',
+          sourceClass: 'OFFICIAL_CALENDAR_AGGREGATE',
+          fetchedAt: new Date().toISOString(),
+          url: 'https://www.forexfactory.com/calendar',
+          auto: true
+        });
+      }
+    } catch (e) {
+      failures.push(feed.horizon + ': ' + e.message);
+      console.log('WARN calendar ' + feed.horizon + ' -> ' + e.message);
+    }
+  }
+  if (!rows.length && failures.length) throw new Error('all calendar feeds failed: ' + failures.join(' | '));
+  return rows.sort((a, b) => (a.date + ' ' + (a.timeGmt || '')).localeCompare(b.date + ' ' + (b.timeGmt || '')));
 }
 
 // ---- 2. Central-bank press releases (real, official) - the trustworthy hawkish/dovish source ----
@@ -524,10 +562,13 @@ function buildSpeakerRow(it, instrumentScale) {
 
 (async () => {
   console.log('build-news.js - fetching real calendar + headlines...\n');
-  let calendar = [], centralBankReleases = [], headlines = [];
+  let calendarAll = [], calendar = [], centralBankReleases = [], headlines = [];
 
-  try { calendar = await getCalendar(); console.log('OK   calendar        rows=' + calendar.length); }
-  catch (e) { console.log('FAIL calendar        -> ' + e.message); }
+  try {
+    calendarAll = await getCalendar();
+    calendar = calendarAll.filter(e => e.importance === 'high' || e.importance === 'med');
+    console.log('OK   calendar        priority=' + calendar.length + ' all=' + calendarAll.length);
+  } catch (e) { console.log('FAIL calendar        -> ' + e.message); }
 
   try { centralBankReleases = await getCentralBankReleases(15); console.log('OK   central bank    rows=' + centralBankReleases.length); }
   catch (e) { console.log('FAIL central bank    -> ' + e.message); }
@@ -556,10 +597,10 @@ function buildSpeakerRow(it, instrumentScale) {
   // ---- Append-only evidence history (DB-ready file adapter) ----
   // Failure here is fail-open: current news-auto.js still builds, but the run logs the archive problem.
   try {
-    calendar.forEach(e => History.append('events', History.eventRecord(e)));
+    calendarAll.forEach(e => History.append('events', History.eventRecord(e)));
     // Archive one canonical speaker stream rather than duplicating the same official speech per instrument tab.
     byTab.forex.speakers.forEach(s => History.append('speeches', History.speechRecord(Object.assign({ sourceClass: 'OFFICIAL_SPEECH' }, s))));
-    console.log('OK   history         events=' + calendar.length + ' speeches=' + byTab.forex.speakers.length);
+    console.log('OK   history         events=' + calendarAll.length + ' speeches=' + byTab.forex.speakers.length);
   } catch (e) { console.log('FAIL history         -> ' + e.message); }
 
   // ---- Price-reaction tracking: "did the predicted move actually happen" ----
@@ -588,7 +629,12 @@ function buildSpeakerRow(it, instrumentScale) {
   const out = {
     generatedAt: new Date().toISOString().slice(0, 19).replace('T', ' ') + 'Z',
     note: 'Auto-collected: economic calendar is real structured data; news rows are country/currency-aware and instrument-filtered; mixed observed-vs-policy direction becomes CONFLICT/NEUTRAL. impactPct is retained only for UI compatibility and is an impact score, not a calibrated return forecast. Treat auto:true rows as a first pass.',
-    incoming: calendar.slice(0, 12),
+    incoming: calendar,
+    calendarAll,
+    calendarHorizon: {
+      loaded: Array.from(new Set(calendarAll.map(e => e.sourceHorizon))).sort(),
+      note: 'Full calendar UI uses all loaded current/next-week rows; analysis remains High/Medium only.'
+    },
     byTab,
     priceTrack
   };
@@ -606,15 +652,16 @@ function buildSpeakerRow(it, instrumentScale) {
     'window.mergeNewsAuto = function () {\n' +
     '  var D = window.MARKET_DATA, A = window.NEWS_AUTO;\n' +
     '  if (!D || !A) return;\n' +
-    '  function dedupe(list, extra, key) {\n' +
-    '    var seen = {}; (list || []).forEach(function (x) { seen[x[key]] = 1; });\n' +
-    '    return (list || []).concat((extra || []).filter(function (x) { return x[key] && !seen[x[key]]; }));\n' +
+    '  function replaceAuto(list, extra, key) {\n' +
+    '    var base = (list || []).filter(function (x) { return !x.auto; });\n' +
+    '    var seen = {}; base.forEach(function (x) { if (x[key]) seen[x[key]] = 1; });\n' +
+    '    return base.concat((extra || []).filter(function (x) { return x[key] && !seen[x[key]]; }));\n' +
     '  }\n' +
-    '  D.incoming = dedupe(D.incoming, A.incoming, "event");\n' +
+    '  D.incoming = replaceAuto(D.incoming, A.incoming, "event");\n' +
     '  (D.tabs || []).forEach(function (T) {\n' +
     '    var by = A.byTab[T.id]; if (!by) return;\n' +
-    '    T.news = dedupe(T.news, by.news, "title");\n' +
-    '    T.speakers = dedupe(T.speakers, by.speakers, "quote");\n' +
+    '    T.news = replaceAuto(T.news, by.news, "title");\n' +
+    '    T.speakers = replaceAuto(T.speakers, by.speakers, "quote");\n' +
     '  });\n' +
     '};\n' +
     'if (window.MARKET_DATA) window.mergeNewsAuto();\n';
