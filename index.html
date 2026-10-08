@@ -660,7 +660,7 @@
       </div>
       <div>
         <div class="k">Remote data source &mdash; for an installed APK/PWA to pick up bot updates</div>
-        <div class="note">Bundled data is used first for instant, offline-first load. If set, this app then checks the URL below every few minutes for a fresher <code>xauusd-data.js</code> / <code>news-auto.js</code> / <code>atr.js</code> (e.g. your GitHub repo's raw URL) and swaps it in live, no reinstall needed. Leave blank to stay fully offline/bundled-only.</div>
+        <div class="note">Bundled data is used first for instant, offline-first load. <b>Economic calendar events use a separate ~60-second live fast lane</b> (Worker first, direct structured-feed fallback when browser CORS permits). The URL below is the durable validated snapshot fallback for <code>xauusd-data.js</code> / <code>news-auto.js</code> / <code>atr.js</code>; the default sync interval is 5 minutes. Leave it blank to stay fully offline/bundled-only.</div>
         <input class="tinput" id="set-remote-url" type="text" style="margin-top:6px;width:100%" placeholder="https://raw.githubusercontent.com/&lt;user&gt;/&lt;repo&gt;/main/" />
         <div class="row-flex" style="margin-top:6px">
           <select id="set-remote-min" class="tinput" style="width:auto">

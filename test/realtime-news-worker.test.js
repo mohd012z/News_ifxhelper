@@ -11,8 +11,13 @@ const worker = fs.readFileSync(path.join(root, 'worker', 'index.mjs'), 'utf8');
 const wrangler = fs.readFileSync(path.join(root, 'wrangler.toml'), 'utf8');
 const deploy = fs.readFileSync(path.join(root, '.github', 'workflows', 'deploy-worker.yml'), 'utf8');
 
-assert(app.includes('LIVE_CALENDAR_URL = "https://gentle-violet-4a79.ifxhelper.workers.dev/api/ff-calendar"'), 'live Worker calendar endpoint missing');
+assert(app.includes('LIVE_CALENDAR_URLS = ['), 'live calendar source chain missing');
+assert(app.includes('https://gentle-violet-4a79.ifxhelper.workers.dev/api/ff-calendar'), 'live Worker calendar endpoint missing');
+assert(app.includes('https://nfs.faireconomy.media/ff_calendar_thisweek.json'), 'direct structured-feed fallback missing');
 assert(app.includes('setInterval(fetchLiveCalendar, 60000)'), 'live calendar must refresh every 60 seconds');
+assert(app.includes('syncProfileVersion: 2'), 'sync profile migration marker missing');
+assert(app.includes('remoteMin: "5"'), 'durable remote sync default must be five minutes');
+assert(app.includes('fetchLiveCalendarSource(index + 1, errors)'), 'live calendar must fail over to the next source');
 assert(app.includes('visibilitychange'), 'live calendar must refresh when app becomes visible');
 assert(app.includes('window.addEventListener("focus", fetchLiveCalendar)'), 'live calendar must refresh on focus');
 assert(app.includes('sourceClass: "LIVE_CALENDAR_PROXY"'), 'live rows must be labeled by source class');
