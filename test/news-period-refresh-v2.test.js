@@ -8,6 +8,7 @@ const root = path.resolve(__dirname, '..');
 const app = fs.readFileSync(path.join(root, 'app.js'), 'utf8');
 const index = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 const build = fs.readFileSync(path.join(root, 'build-news.js'), 'utf8');
+const pagesWorkflow = fs.readFileSync(path.join(root, '.github', 'workflows', 'deploy-pages.yml'), 'utf8');
 
 assert(!app.includes('manifest.schemaVersion !== 1'), 'client must not pin manifest schemaVersion === 1');
 assert(app.includes('schemaVersion < 1 || schemaVersion > 3'), 'client must explicitly accept supported manifest schema versions through v3');
@@ -31,5 +32,6 @@ assert(build.includes('incoming: calendar,'), 'priority incoming list must be em
 assert(!build.includes('calendar.slice(0, 12)'), 'calendar must not drop later events with slice(0, 12)');
 assert(build.includes('reminderLeadMinutes'), 'impact-aware reminder metadata missing');
 assert(build.includes("importance === 'high' ? 15 : (importance === 'med' ? 10 : 5)"), 'Telegram-inspired 15/10/5 reminder cadence missing');
+assert(pagesWorkflow.includes('cancel-in-progress: true'), 'Pages deployments must supersede stale in-progress deployments');
 
 console.log('news period refresh v2 tests passed');
