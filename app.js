@@ -588,7 +588,8 @@
   /* ================= Manifest-aware remote data sync =================
    * Priority: validated remote -> last-known-good local cache -> bundled APK snapshot.
    * A successful APK build is never treated as proof that market data is current. */
-  var remoteTimer = null, lastRemoteMarketUpdated = D.updated, lastRemoteNewsGenerated = (window.NEWS_AUTO || {}).generatedAt;
+  function newsSyncSignature(a) { return [(a && a.generatedAt) || "", (a && a.calendarGeneratedAt) || ""].join("|"); }
+  var remoteTimer = null, lastRemoteMarketUpdated = D.updated, lastRemoteNewsGenerated = newsSyncSignature(window.NEWS_AUTO || {});
   var LIVE_CALENDAR_URLS = [
     "https://gentle-violet-4a79.ifxhelper.workers.dev/api/ff-calendar",
     "https://nfs.faireconomy.media/ff_calendar_thisweek.json"
@@ -674,7 +675,8 @@
         if (!rm || !Array.isArray(rm.tabs) || !rn || !rn.byTab) throw new Error("Dataset shape validation failed");
         var changed = false;
         if (rm.updated && rm.updated !== lastRemoteMarketUpdated) { lastRemoteMarketUpdated = rm.updated; changed = true; } else rm = null;
-        if (rn.generatedAt && rn.generatedAt !== lastRemoteNewsGenerated) { lastRemoteNewsGenerated = rn.generatedAt; changed = true; } else rn = null;
+        var newsSig = newsSyncSignature(rn);
+        if (newsSig && newsSig !== lastRemoteNewsGenerated) { lastRemoteNewsGenerated = newsSig; changed = true; } else rn = null;
         var mode = res.some(function (x) { return x.source === "cache"; }) ? "cache-fallback" : "remote-current";
         var info = { checkedAt: started, manifestGeneratedAt: manifest.generatedAt, mode: mode, changed: changed };
         if (changed) applyRemoteData(rm, rn, info); else try { localStorage.setItem("xau-last-sync", JSON.stringify(info)); } catch (e) {}
@@ -690,7 +692,7 @@
   function scheduleRemotePolling() {
     if (remoteTimer) { clearInterval(remoteTimer); remoteTimer = null; }
     if (!settings.remoteUrl) return;
-    var ms = Math.max(1, Number(settings.remoteMin) || 15) * 60000;
+    var ms = Math.max(1, Number(settings.remoteMin) || 5) * 60000;
     checkRemote(settings.remoteUrl, null);
     remoteTimer = setInterval(function () { checkRemote(settings.remoteUrl, null); }, ms);
   }
@@ -808,7 +810,7 @@
     var urlIn = $("#set-remote-url"), minSel = $("#set-remote-min"), testBtn = $("#set-remote-test"), statusEl = $("#set-remote-status");
     if (!urlIn) return;
     urlIn.value = settings.remoteUrl || "";
-    if (minSel) minSel.value = settings.remoteMin || "15";
+    if (minSel) minSel.value = settings.remoteMin || "5";
     var last = null; try { last = JSON.parse(localStorage.getItem("xau-last-sync") || "null"); } catch (e) {}
     if (statusEl && last) statusEl.textContent = (last.mode || "unknown") + (last.manifestGeneratedAt ? " · manifest " + last.manifestGeneratedAt : "");
     urlIn.onchange = function () { settings.remoteUrl = urlIn.value.trim(); safeSetSettings(settings); scheduleRemotePolling(); };
@@ -1215,6 +1217,7 @@
     if (D.updated) { var d0 = new Date(D.updated.replace(" SGT", "Z").replace(" GMT", "Z")); if (!isNaN(d0.getTime())) candidates.push(d0); }
     [window.NEWS_AUTO, window.MACRO_AUTO].forEach(function (src) {
       if (src && src.generatedAt) { var d = new Date(src.generatedAt.replace(" ", "T")); if (!isNaN(d.getTime())) candidates.push(d); }
+      if (src && src.calendarGeneratedAt) { var dc = new Date(src.calendarGeneratedAt); if (!isNaN(dc.getTime())) candidates.push(dc); }
       if (src && src.liveGeneratedAt) { var dl = new Date(src.liveGeneratedAt); if (!isNaN(dl.getTime())) candidates.push(dl); }
     });
     if (!candidates.length) return D.updated || "\u2014";
@@ -1424,7 +1427,7 @@
     var status = $("#calendar-source-status");
     if (status) {
       var a = window.NEWS_AUTO || {}, hz = (a.calendarHorizon || {}).loaded || [];
-      status.textContent = "Snapshot " + (a.generatedAt || "bundled") + (a.liveGeneratedAt ? " · live " + a.liveGeneratedAt : "") + " · horizon " + (hz.length ? hz.join(" + ") : "loaded calendar only") + (a.calendarHorizon && a.calendarHorizon.live ? " · " + a.calendarHorizon.live : "") + (incomingView === "month" ? " · month view includes only events present in the loaded horizon" : "");
+      status.textContent = "Snapshot " + (a.generatedAt || "bundled") + (a.calendarGeneratedAt ? " · calendar " + a.calendarGeneratedAt : "") + (a.liveGeneratedAt ? " · live " + a.liveGeneratedAt : "") + " · horizon " + (hz.length ? hz.join(" + ") : "loaded calendar only") + (a.calendarHorizon && a.calendarHorizon.live ? " · " + a.calendarHorizon.live : "") + (a.calendarHorizon && a.calendarHorizon.heartbeat ? " · " + a.calendarHorizon.heartbeat : "") + (incomingView === "month" ? " · month view includes only events present in the loaded horizon" : "");
     }
 
     var lastDay = null;
