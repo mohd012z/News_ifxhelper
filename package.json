@@ -10,7 +10,7 @@
     "macro": "node build-macro.js",
     "manifest:data": "node build-data-manifest.js",
     "refresh:data": "node build-news.js && node build-macro.js && node build-data-manifest.js",
-    "test": "npm run test:evidence && npm run test:history && npm run test:technical && npm run test:reaction && npm run test:timestamps && npm run test:intelligence && npm run test:bbma && npm run test:bbma-dashboard && npm run test:bbma-chart-ohlc && npm run test:bbma-alert-ui && npm run test:bbma-deeplink && npm run test:market-provider && npm run test:ohlc-backfill && npm run test:ohlc-resampler && npm run test:news-level-history && npm run test:bbma-learning && npm run test:evidence-envelope && npm run test:source-health && npm run test:orchestrator && npm run test:learning-store && npm run test:news-refresh-v2 && npm run test:ff-calendar && npm run test:worker && npm run test:realtime-news",
+    "test": "npm run test:evidence && npm run test:history && npm run test:technical && npm run test:reaction && npm run test:timestamps && npm run test:intelligence && npm run test:bbma && npm run test:bbma-dashboard && npm run test:bbma-chart-ohlc && npm run test:bbma-alert-ui && npm run test:bbma-deeplink && npm run test:market-provider && npm run test:ohlc-backfill && npm run test:ohlc-resampler && npm run test:news-level-history && npm run test:bbma-learning && npm run test:evidence-envelope && npm run test:source-health && npm run test:orchestrator && npm run test:learning-store && npm run test:news-refresh-v2 && npm run test:ff-calendar && npm run test:worker && npm run test:realtime-news && npm run test:calendar-heartbeat && npm run test:workflow-reliability",
     "test:evidence": "node test/evidence-engine.test.js",
     "test:history": "node test/history-store.test.js",
     "test:technical": "node test/technical-context.test.js",
@@ -45,7 +45,10 @@
     "test:news-refresh-v2": "node test/news-period-refresh-v2.test.js",
     "test:ff-calendar": "node test/forexfactory-calendar.test.js",
     "test:worker": "node test/cloudflare-worker.test.mjs",
-    "test:realtime-news": "node test/realtime-news-worker.test.js"
+    "test:realtime-news": "node test/realtime-news-worker.test.js",
+    "calendar:heartbeat": "node refresh-calendar-snapshot.js",
+    "test:calendar-heartbeat": "node test/calendar-heartbeat.test.js",
+    "test:workflow-reliability": "node test/workflow-reliability.test.js"
   },
   "dependencies": {
     "@capacitor/android": "^7.0.0",
