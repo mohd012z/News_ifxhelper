@@ -11,7 +11,7 @@ const html = `
   <td class="calendar__cell calendar__date date"><span>Mon<br>Oct 12</span></td>
   <td class="calendar__cell calendar__time time"><span>8:30am</span></td>
   <td class="calendar__cell calendar__currency currency">USD</td>
-  <td class="calendar__cell calendar__impact impact calendar__impact calendar__impact--high"><span title="High Impact Expected"></span></td>
+  <td class="calendar__cell calendar__impact impact impact--high"><span title="High Impact Expected"></span></td>
   <td class="calendar__cell calendar__event event"><span class="calendar__event-title">CPI y/y</span></td>
   <td class="calendar__cell calendar__actual actual"></td>
   <td class="calendar__cell calendar__forecast forecast">3.1%</td>
@@ -21,7 +21,7 @@ const html = `
   <td class="calendar__cell calendar__date date"></td>
   <td class="calendar__cell calendar__time time"></td>
   <td class="calendar__cell calendar__currency currency">USD</td>
-  <td class="calendar__cell calendar__impact impact calendar__impact calendar__impact--medium"><span title="Medium Impact Expected"></span></td>
+  <td class="calendar__cell calendar__impact impact impact--medium"><span title="Medium Impact Expected"></span></td>
   <td class="calendar__cell calendar__event event"><span class="calendar__event-title">Core CPI m/m</span></td>
   <td class="calendar__cell calendar__actual actual"></td>
   <td class="calendar__cell calendar__forecast forecast">0.2%</td>
