@@ -627,20 +627,21 @@
     }
     if (remoteNewsAuto) {
       window.NEWS_AUTO = remoteNewsAuto;
-      function dedupe(list, extra, key) {
-        var seen = {}; (list || []).forEach(function (x) { seen[x[key]] = 1; });
-        return (list || []).concat((extra || []).filter(function (x) { return x[key] && !seen[x[key]]; }));
+      function replaceAuto(list, extra, key) {
+        var base = (list || []).filter(function (x) { return !x.auto; });
+        var seen = {}; base.forEach(function (x) { if (x[key]) seen[x[key]] = 1; });
+        return base.concat((extra || []).filter(function (x) { return x[key] && !seen[x[key]]; }));
       }
-      D.incoming = dedupe(D.incoming, remoteNewsAuto.incoming, "event");
+      D.incoming = replaceAuto(D.incoming, remoteNewsAuto.incoming, "event");
       (D.tabs || []).forEach(function (t) {
         var by = remoteNewsAuto.byTab && remoteNewsAuto.byTab[t.id]; if (!by) return;
-        t.news = dedupe(t.news, by.news, "title");
-        t.speakers = dedupe(t.speakers, by.speakers, "quote");
+        t.news = replaceAuto(t.news, by.news, "title");
+        t.speakers = replaceAuto(t.speakers, by.speakers, "quote");
       });
     }
     try { localStorage.setItem("xau-last-sync", JSON.stringify(syncInfo || {})); } catch (e) {}
     renderAll(); updateChartContext();
-    showToast("Data synchronized", "Validated current data; fallback cache remains available offline.");
+    showToast("Data synchronized", "Validated current data; previous auto snapshot replaced.");
   }
   function checkRemote(base, statusEl) {
     if (!base) return Promise.resolve({ changed: false, mode: "bundled" });
@@ -648,7 +649,8 @@
     var started = new Date().toISOString();
     return fetchText(b + "data-manifest.json").then(function (txt) {
       var manifest = JSON.parse(txt);
-      if (!manifest || manifest.schemaVersion !== 1 || !manifest.generatedAt) throw new Error("Invalid data manifest");
+      var schemaVersion = Number(manifest && manifest.schemaVersion);
+      if (!manifest || !Number.isFinite(schemaVersion) || schemaVersion < 1 || schemaVersion > 3 || !manifest.generatedAt) throw new Error("Invalid/unsupported data manifest");
       return Promise.all([
         validatedRemoteFile(b, manifest, "xauusd-data.js"),
         validatedRemoteFile(b, manifest, "news-auto.js")
@@ -1125,22 +1127,39 @@
     $("#net-sig").style.color = s.netPct > 0 ? "var(--good)" : "var(--bad)";
     $("#net-note").textContent = s.netNote || "";
   }
+  function calendarAlertRows(view) {
+    var now = new Date();
+    var items = (D.incoming || []).map(function (e) { return { e: e, t: parseEventTime(e.timeGmt) }; });
+    items = filterCalendarView(items, view, now).sort(function (a, b) { return (a.t ? a.t.getTime() : Infinity) - (b.t ? b.t.getTime() : Infinity); });
+    return items.map(function (it) {
+      var e = it.e, figures = [];
+      if (e.actual != null && e.actual !== "") figures.push("Actual " + e.actual);
+      if (e.forecast != null && e.forecast !== "") figures.push("Forecast " + e.forecast);
+      if (e.previous != null && e.previous !== "") figures.push("Previous " + e.previous);
+      return {
+        level: e.importance === "high" ? "high" : "med",
+        tf: e.focusTf || "",
+        text: e.event + " · " + mytDisplay(e.timeMyt || e.timeSgt) + (figures.length ? " · " + figures.join(" · ") : "")
+      };
+    });
+  }
   function renderAlerts() {
     var map = { high: "b-high", med: "b-med" };
     var fill = function (sel, arr) {
-      var box = $(sel); box.innerHTML = "";
+      var box = $(sel); if (!box) return; box.innerHTML = "";
       (arr || []).forEach(function (a) {
         box.insertAdjacentHTML("beforeend", '<div class="al"><div class="hd"><span class="badge ' + (map[a.level] || "b-med") + '">' + esc((a.level || "").toUpperCase()) + '</span><span class="badge b-tf">' + esc(a.tf || "") + '</span></div><div class="tx">' + esc(a.text) + "</div></div>");
       });
-      if (!(arr || []).length) box.innerHTML = '<div class="note">Nothing flagged.</div>';
+      if (!(arr || []).length) box.innerHTML = '<div class="note">No current events in this period.</div>';
     };
-    fill("#alerts-today", (T.alerts || {}).today);
-    fill("#alerts-week", (T.alerts || {}).week);
-    var today = (T.alerts || {}).today || [];
+    var today = calendarAlertRows("today"), week = calendarAlertRows("week"), month = calendarAlertRows("month");
+    fill("#alerts-today", today);
+    fill("#alerts-week", week);
+    fill("#alerts-month", month);
     var key = activeId + ":" + today.length + ":" + (today[0] ? today[0].text : "");
     if (today.length && key !== lastAnnouncedAlerts) {
       lastAnnouncedAlerts = key;
-      fireAlert(today.length + (today.length === 1 ? " alert" : " alerts") + " today — " + T.label, today[0].text);
+      fireAlert(today.length + (today.length === 1 ? " event" : " events") + " today — " + T.label, today[0].text);
     }
   }
   // eventCurrency lives in shared-market-logic.js now - see that file for why (it had already
@@ -1195,44 +1214,85 @@
       el.onclick = function () { var i = el.dataset.idx; tradeFocusOpen[i] = !tradeFocusOpen[i]; renderTradeFocus(); };
     });
   }
+  function fullCalendarRows() {
+    var a = window.NEWS_AUTO || {};
+    return Array.isArray(a.calendarAll) && a.calendarAll.length ? a.calendarAll : (D.incoming || []);
+  }
+  function mytCalendarKey(t, part) {
+    if (!t) return "";
+    var d = new Date(t.getTime() + 8 * 3600000);
+    if (part === "month") return d.toISOString().slice(0, 7);
+    if (part === "day") return d.toISOString().slice(0, 10);
+    var dayIndex = Math.floor(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()) / 86400000);
+    var monday = dayIndex - ((d.getUTCDay() + 6) % 7);
+    return String(monday);
+  }
+  function filterCalendarView(items, view, now) {
+    if (view === "past") return items.filter(function (it) { return it.t && it.t.getTime() < now.getTime(); });
+    if (view === "today") {
+      var todayKey = mytCalendarKey(now, "day");
+      return items.filter(function (it) { return it.t && mytCalendarKey(it.t, "day") === todayKey; });
+    }
+    if (view === "week") {
+      var weekKey = mytCalendarKey(now, "week");
+      return items.filter(function (it) { return it.t && mytCalendarKey(it.t, "week") === weekKey; });
+    }
+    if (view === "month") {
+      var monthKey = mytCalendarKey(now, "month");
+      return items.filter(function (it) { return it.t && mytCalendarKey(it.t, "month") === monthKey; });
+    }
+    return items.filter(function (it) { return !it.t || it.t.getTime() >= now.getTime(); });
+  }
+  function impactBadgeClass(importance) {
+    return importance === "high" ? "b-high" : (importance === "med" ? "b-med" : (importance === "holiday" ? "b-holiday" : "b-low"));
+  }
   var incomingView = "upcoming";
   function renderIncoming() {
     var box = $("#incoming-list"); box.innerHTML = "";
     var now = new Date();
-    var all = (D.incoming || []).filter(function (e) { return settings.showAuto !== false || !e.auto; }).map(function (e) { return { e: e, t: parseEventTime(e.timeGmt) }; });
-    var items = all.slice().sort(function (a, b) { return (a.t ? a.t.getTime() : Infinity) - (b.t ? b.t.getTime() : Infinity); });
-    var nextIdx = -1;
-    items.forEach(function (it, i) { if (nextIdx === -1 && it.t && it.t.getTime() >= now.getTime()) nextIdx = i; });
-    if (nextIdx > -1) {
-      var ne = items[nextIdx].e, nkey = activeId + ":" + ne.event + ":" + ne.timeGmt;
+    var all = fullCalendarRows().filter(function (e) { return settings.showAuto !== false || !e.auto; }).map(function (e) { return { e: e, t: parseEventTime(e.timeGmt) }; });
+    var sortedAll = all.slice().sort(function (a, b) { return (a.t ? a.t.getTime() : Infinity) - (b.t ? b.t.getTime() : Infinity); });
+    var nextEvent = null;
+    sortedAll.some(function (it) { if (it.t && it.t.getTime() >= now.getTime()) { nextEvent = it; return true; } return false; });
+    if (nextEvent) {
+      var ne = nextEvent.e, nkey = activeId + ":" + ne.event + ":" + ne.timeGmt;
       if (nkey !== lastAnnouncedNext) {
         lastAnnouncedNext = nkey;
-        var hAway = items[nextIdx].t ? Math.round((items[nextIdx].t.getTime() - now.getTime()) / 3600000) : null;
-        fireAlert("Next event - " + T.label, ne.event + ", " + (ne.importance || "") + " impact" + (hAway != null ? ", in about " + hAway + " hours" : "") + ".");
+        var hAway = Math.round((nextEvent.t.getTime() - now.getTime()) / 3600000);
+        fireAlert("Next event - " + T.label, ne.event + ", " + (ne.importance || "") + " impact, in about " + hAway + " hours.");
       }
     }
-    if (incomingView === "past") {
-      items = all.filter(function (it) { return it.t && it.t.getTime() < now.getTime(); }).sort(function (a, b) { return b.t.getTime() - a.t.getTime(); });
-      nextIdx = -1;
-    } else {
-      items = items.filter(function (it) { return !it.t || it.t.getTime() >= now.getTime(); });
+    var items = filterCalendarView(sortedAll, incomingView, now);
+    if (incomingView === "past") items.sort(function (a, b) { return b.t.getTime() - a.t.getTime(); });
+    else items.sort(function (a, b) { return (a.t ? a.t.getTime() : Infinity) - (b.t ? b.t.getTime() : Infinity); });
+
+    var status = $("#calendar-source-status");
+    if (status) {
+      var a = window.NEWS_AUTO || {}, hz = (a.calendarHorizon || {}).loaded || [];
+      status.textContent = "Snapshot " + (a.generatedAt || "bundled") + " · horizon " + (hz.length ? hz.join(" + ") : "loaded calendar only") + (incomingView === "month" ? " · month view includes only events present in the loaded horizon" : "");
     }
+
     var lastDay = null;
-    items.forEach(function (it, i) {
+    items.forEach(function (it) {
       var e = it.e;
       var day = mytDayLabel(it.t);
       if (day !== lastDay) { lastDay = day; box.insertAdjacentHTML("beforeend", '<div class="day-sep">' + esc(day) + "</div>"); }
       var when = countdownText(it.t ? it.t.getTime() - now.getTime() : null);
-      var isSoon = incomingView === "upcoming" && it.t && it.t.getTime() - now.getTime() <= 2 * 3600000 && it.t.getTime() >= now.getTime();
+      var isSoon = it.t && it.t.getTime() - now.getTime() <= 2 * 3600000 && it.t.getTime() >= now.getTime();
+      var isNext = nextEvent && e.event === nextEvent.e.event && e.timeGmt === nextEvent.e.timeGmt;
+      var lead = e.reminderLeadMin != null ? " · alert ~" + e.reminderLeadMin + "m" : "";
       box.insertAdjacentHTML("beforeend",
-        '<div class="inc"><div class="hd"><div>' + (i === nextIdx ? '<span class="badge b-hawk" style="margin-right:6px">NEXT</span>' : "") + '<span class="nm">' + esc(e.event) + '</span> <span class="rl' + (isSoon ? " countdown-live" : "") + '">\u00b7 ' + esc(when) + "</span></div>" +
-        '<div style="display:flex;gap:6px;align-items:center"><span class="badge ' + (e.importance === "high" ? "b-high" : "b-med") + '">' + esc((e.importance || "").toUpperCase()) + '</span><span class="badge b-tf">' + esc(e.focusTf || "") + "</span></div></div>" +
-        '<div class="im">' + esc(e.note) + "</div>" +
-        '<div class="mt">MYT ' + esc(mytDisplay(e.timeMyt || e.timeSgt)) + "  \u00b7  GMT " + esc(e.timeGmt) + "  \u00b7  focus " + esc(e.focusTf) + "</div>" +
+        '<div class="inc"><div class="hd"><div>' + (isNext ? '<span class="badge b-hawk" style="margin-right:6px">NEXT</span>' : "") + '<span class="nm">' + esc(e.event) + '</span> <span class="rl' + (isSoon ? " countdown-live" : "") + '">· ' + esc(when) + "</span></div>" +
+        '<div style="display:flex;gap:6px;align-items:center"><span class="badge ' + impactBadgeClass(e.importance) + '">' + esc((e.importance || "").toUpperCase()) + '</span><span class="badge b-tf">' + esc(e.focusTf || "") + "</span></div></div>" +
+        '<div class="im">' + esc(e.note || "") + "</div>" +
+        '<div class="mt">MYT ' + esc(mytDisplay(e.timeMyt || e.timeSgt)) + "  ·  GMT " + esc(e.timeGmt || "—") + "  ·  focus " + esc(e.focusTf || "—") + esc(lead) + "</div>" +
         '<div class="im">' + esc(e.play || "") + "</div>" +
-        '<div class="im">' + (e.url ? '<a href="' + esc(e.url) + '" target="_blank" rel="noopener">\u2197 Source: ' + esc(e.source || "official release") + "</a>" : '<span style="color:var(--muted)">Source not linked</span>') + "</div></div>");
+        '<div class="im">' + (e.url ? '<a href="' + esc(e.url) + '" target="_blank" rel="noopener">↗ Source: ' + esc(e.source || "calendar") + "</a>" : '<span style="color:var(--muted)">Source not linked</span>') + "</div></div>");
     });
-    if (!items.length) box.innerHTML = '<div class="note">' + (incomingView === "past" ? "No past events loaded." : "Nothing scheduled.") + "</div>";
+    if (!items.length) {
+      var names = { today: "today", week: "this week", month: "this month", past: "past events", upcoming: "upcoming events" };
+      box.innerHTML = '<div class="note">No ' + esc(names[incomingView] || "events") + ' in the loaded calendar snapshot.</div>';
+    }
   }
   function bindIncomingView() {
     var seg = $("#incoming-view-seg"); if (!seg) return;
