@@ -21,8 +21,12 @@ assert(index.includes('id="alerts-month"'), 'monthly alert bucket must be visibl
 assert(index.includes('id="calendar-source-status"'), 'calendar freshness/horizon status must be visible');
 
 assert(build.includes('ff_calendar_thisweek.json'), 'current-week calendar feed missing');
-assert(build.includes('ff_calendar_nextweek.json'), 'next-week calendar feed missing');
+assert(build.includes('calendar?month=this'), 'current-month Forex Factory page source missing');
+assert(!build.includes('ff_calendar_nextweek.json'), 'dead next-week JSON endpoint must not return');
 assert(build.includes('calendarAll'), 'full calendar snapshot missing');
+assert(build.includes("ForexFactoryCalendar.parseMonthHtml"), 'monthly calendar HTML parser must be wired into the generator');
+assert(app.includes('function dateCalendarKey('), 'date-only calendar rows must be filterable by period');
+assert(app.includes('function calendarSortMs('), 'date-only calendar rows must have deterministic ordering');
 assert(build.includes('incoming: calendar,'), 'priority incoming list must be emitted without hard-coded truncation');
 assert(!build.includes('calendar.slice(0, 12)'), 'calendar must not drop later events with slice(0, 12)');
 assert(build.includes('reminderLeadMinutes'), 'impact-aware reminder metadata missing');
