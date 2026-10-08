@@ -76,6 +76,8 @@
     a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
     .badge{font-size:9.5px;padding:2px 7px;border-radius:999px;border:1px solid var(--line);white-space:nowrap;font-weight:700;letter-spacing:.04em}
     .badge.b-high,.badge.b-med,.badge.b-tf{font-size:11.5px;padding:4px 11px;font-weight:800}
+    .badge.b-low{color:var(--good);border-color:color-mix(in srgb,var(--good) 45%,var(--line))}
+    .badge.b-holiday{color:var(--muted);border-color:color-mix(in srgb,var(--muted) 55%,var(--line))}
     .news-time{font-size:13px;font-weight:800;color:var(--text)!important}
     .b-bear{border-color:color-mix(in srgb,var(--bad) 45%,var(--line));color:var(--bad)}
     .b-bull{border-color:color-mix(in srgb,var(--good) 45%,var(--line));color:var(--good)}
@@ -117,7 +119,7 @@
     .glab{display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-top:6px;letter-spacing:.06em}
     .netsig{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:12px;padding:10px;border:1px solid var(--line);border-radius:10px;background:var(--chip)}
     .netsig .big{font-size:21px;font-weight:800;font-family:"JetBrains Mono",monospace}
-    .alerts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}
+    .alerts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:8px}
     .al{border:1px solid var(--line);border-radius:9px;padding:9px;background:var(--chip);margin-bottom:7px}
     .al .hd{display:flex;justify-content:space-between;gap:6px;align-items:center;margin-bottom:5px}
     .al .tx{font-size:11.5px;line-height:1.5}
@@ -354,13 +356,17 @@
       </section>
 
       <section class="card" style="margin-top:10px" data-sec="news">
-        <div class="k">Priority Read &mdash; News Incoming <span style="color:var(--accent);font-weight:600">(times in Malaysia time, MYT = GMT+8)</span></div>
+        <div class="k">Economic Calendar &mdash; live event horizon <span style="color:var(--accent);font-weight:600">(Malaysia time, MYT = GMT+8)</span></div>
         <div class="seg" id="incoming-view-seg" style="margin-top:8px">
+          <button data-view="today">Today</button>
+          <button data-view="week">This Week</button>
+          <button data-view="month">This Month</button>
           <button data-view="upcoming" class="active">Upcoming</button>
           <button data-view="past">Past</button>
         </div>
+        <div id="calendar-source-status" class="note" style="margin-top:8px"></div>
         <div class="grid2" style="margin-top:8px"><div id="incoming-list"></div>
-          <div class="note">Upcoming = soonest-first. Past = most-recent-first (latest at the top). Grouped by day &mdash; the bold bar is the day, never mistake it for a headline. Focus timeframe = the chart resolution where the event's move is usually cleanest &mdash; higher-impact events need a wider timeframe because the first spike often reverses.</div>
+          <div class="note">Current + next-week calendar rows are loaded when the provider is available. The period buttons filter the loaded snapshot in MYT. High/medium events continue into the analysis engine; low-impact and holiday rows are calendar context only. Month view is explicitly limited to the loaded horizon rather than pretending a full-month source exists.</div>
         </div>
       </section>
 
@@ -369,8 +375,9 @@
         <div class="alerts">
           <div><div class="k" style="margin-bottom:6px">Today</div><div id="alerts-today"></div></div>
           <div><div class="k" style="margin-bottom:6px">This Week</div><div id="alerts-week"></div></div>
+          <div><div class="k" style="margin-bottom:6px">This Month</div><div id="alerts-month"></div></div>
         </div>
-        <div class="note">Generated from the items retrieved for this instrument. Severity: high = market-moving, med = watch.</div>
+        <div class="note">Generated from the current High/Medium calendar snapshot, not the old hand-written September alert block. Times are MYT; forecast/previous/actual values are shown when the source supplies them.</div>
       </section>
 
       <section class="hero" data-sec="all">
