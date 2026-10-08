@@ -1,12 +1,8 @@
 name: Deploy Cloudflare Worker
 
+# Manual-only until the required Cloudflare repository secrets are configured.
+# Missing credentials must fail visibly; a skipped deploy must never be reported as success.
 on:
-  push:
-    branches: [main]
-    paths:
-      - "worker/**"
-      - "wrangler.toml"
-      - ".github/workflows/deploy-worker.yml"
   workflow_dispatch: {}
 
 permissions:
@@ -18,37 +14,39 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Check Cloudflare credentials
-        id: cf
+      - name: Require Cloudflare credentials
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
-          if [ -n "$CLOUDFLARE_API_TOKEN" ] && [ -n "$CLOUDFLARE_ACCOUNT_ID" ]; then
-            echo "ready=true" >> "$GITHUB_OUTPUT"
-            echo "Cloudflare credentials detected."
-          else
-            echo "ready=false" >> "$GITHUB_OUTPUT"
-            echo "::warning::Cloudflare deploy skipped. Add CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID repository secrets."
+          if [ -z "$CLOUDFLARE_API_TOKEN" ] || [ -z "$CLOUDFLARE_ACCOUNT_ID" ]; then
+            echo "::error::Cloudflare Worker was not deployed. Configure CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID, then run this workflow again."
+            exit 1
           fi
 
       - name: Deploy Worker
-        if: steps.cf.outputs.ready == 'true'
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: deploy --config wrangler.toml
 
-      - name: Verify deployment endpoint
-        if: steps.cf.outputs.ready == 'true'
+      - name: Verify deployed Worker
         run: |
-          node -e "
-          const u='https://gentle-violet-4a79.ifxhelper.workers.dev/api/health';
-          fetch(u,{cache:'no-store'}).then(async r=>{
-            const t=await r.text();
-            if(!r.ok) throw Error('health HTTP '+r.status+' '+t);
-            const j=JSON.parse(t);
-            if(!j.ok||j.service!=='ifxhelper-news-worker') throw Error('unexpected health payload');
-            console.log('Worker health OK',j.now);
-          })"
+          node - <<'NODE'
+          const base='https://gentle-violet-4a79.ifxhelper.workers.dev';
+          async function check(path, type) {
+            const r=await fetch(base+path,{cache:'no-store'});
+            const ct=(r.headers.get('content-type')||'').toLowerCase();
+            if(!r.ok) throw new Error(path+' HTTP '+r.status);
+            if(!type.test(ct)) throw new Error(path+' wrong content-type '+ct);
+            return r;
+          }
+          const health=await check('/api/health',/application\/json/);
+          const body=await health.json();
+          if(!body.ok||body.service!=='ifxhelper-news-worker') throw new Error('unexpected health payload');
+          await check('/app.js',/javascript/);
+          await check('/news-auto.js',/javascript/);
+          await check('/data-manifest.json',/application\/json/);
+          console.log('Worker deployment verified at',body.now);
+          NODE
