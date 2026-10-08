@@ -626,6 +626,20 @@
     "evt:[USD] Fed Chairman Warsh Speaks|2026-10-15",
     "news:Dollar Index flatlines as Fed Governor Waller puts no date on more hikes",
     "news:Australian Dollar slips as hawkish Fed, elevated US yields sustain USD",
-    "news:British Pound catches bid as Fed’s Waller eyes a pause in October"
+    "news:British Pound catches bid as Fed’s Waller eyes a pause in October",
+    "evt:[AUD] Employment Change|2026-10-15",
+    "evt:[AUD] Unemployment Rate|2026-10-15",
+    "evt:[GBP] BOE Gov Bailey Speaks|2026-10-16",
+    "evt:[USD] Fed Chairman Warsh Speaks|2026-10-16",
+    "evt:[GBP] BOE Gov Bailey Speaks|2026-10-17",
+    "evt:[AUD] CPI m/m|2026-10-28",
+    "evt:[AUD] CPI y/y|2026-10-28",
+    "evt:[AUD] Trimmed Mean CPI m/m|2026-10-28",
+    "evt:[NZD] Official Cash Rate|2026-10-28",
+    "evt:[NZD] RBNZ Rate Statement|2026-10-28",
+    "evt:[NZD] RBNZ Press Conference|2026-10-28",
+    "evt:[JPY] BOJ Policy Rate|2026-10-30",
+    "evt:[JPY] Monetary Policy Statement|2026-10-30",
+    "evt:[JPY] BOJ Outlook Report|2026-10-30"
   ]
 }
