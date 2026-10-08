@@ -28,15 +28,30 @@ jobs:
           node-version: "20"
 
       - name: Refresh durable current-week calendar slice
-        run: node refresh-calendar-snapshot.js
+        id: heartbeat
+        run: |
+          set +e
+          node refresh-calendar-snapshot.js
+          rc=$?
+          set -e
+          if [ "$rc" -ne 0 ]; then
+            echo "::warning::Calendar heartbeat fetch failed; reminders will use the last committed snapshot."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          elif git diff --quiet -- news-auto.js; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Rebuild manifest after calendar heartbeat
+        if: steps.heartbeat.outputs.changed == 'true'
         run: node build-data-manifest.js
 
       - name: Verify calendar heartbeat
         run: npm run test:calendar-heartbeat
 
       - name: Publish calendar changes before reminders
+        if: steps.heartbeat.outputs.changed == 'true'
         run: |
           git config user.name "xau-desk-bot"
           git config user.email "actions@users.noreply.github.com"
