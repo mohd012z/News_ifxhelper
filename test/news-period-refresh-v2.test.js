@@ -9,6 +9,7 @@ const app = fs.readFileSync(path.join(root, 'app.js'), 'utf8');
 const index = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 const build = fs.readFileSync(path.join(root, 'build-news.js'), 'utf8');
 const pagesWorkflow = fs.readFileSync(path.join(root, '.github', 'workflows', 'deploy-pages.yml'), 'utf8');
+const newsWorkflow = fs.readFileSync(path.join(root, '.github', 'workflows', 'news-watch.yml'), 'utf8');
 
 assert(!app.includes('manifest.schemaVersion !== 1'), 'client must not pin manifest schemaVersion === 1');
 assert(app.includes('schemaVersion < 1 || schemaVersion > 3'), 'client must explicitly accept supported manifest schema versions through v3');
@@ -33,5 +34,14 @@ assert(!build.includes('calendar.slice(0, 12)'), 'calendar must not drop later e
 assert(build.includes('reminderLeadMinutes'), 'impact-aware reminder metadata missing');
 assert(build.includes("importance === 'high' ? 15 : (importance === 'med' ? 10 : 5)"), 'Telegram-inspired 15/10/5 reminder cadence missing');
 assert(pagesWorkflow.includes('cancel-in-progress: true'), 'Pages deployments must supersede stale in-progress deployments');
+assert(!/^\s*push:/m.test(pagesWorkflow), 'custom Pages workflow must not auto-run on push while native branch Pages is active');
+
+const publishIdx = newsWorkflow.indexOf('Publish refreshed datasets before notifications');
+const telegramIdx = newsWorkflow.indexOf('Send Telegram alerts for anything new');
+const stateIdx = newsWorkflow.indexOf('Persist notification state');
+assert(publishIdx >= 0 && telegramIdx > publishIdx, 'validated news data must be published before Telegram notification delivery');
+assert(stateIdx > telegramIdx, 'notification state must persist after notification delivery');
+assert((newsWorkflow.match(/continue-on-error: true/g) || []).length >= 2, 'notification steps must fail open');
+assert((newsWorkflow.match(/timeout-minutes: 2/g) || []).length >= 2, 'notification steps must be time bounded');
 
 console.log('news period refresh v2 tests passed');
