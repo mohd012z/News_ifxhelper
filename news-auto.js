@@ -5,7 +5,7 @@
  * Regenerate: node build-news.js (run on the same daily cron as build-atr.js).
  */
 window.NEWS_AUTO = {
-  "generatedAt": "2026-10-08 05:28:02Z",
+  "generatedAt": "2026-10-08 06:05:29Z",
   "note": "Auto-collected: economic calendar is real structured data; news rows are country/currency-aware and instrument-filtered; mixed observed-vs-policy direction becomes CONFLICT/NEUTRAL. impactPct is retained only for UI compatibility and is an impact score, not a calibrated return forecast. Treat auto:true rows as a first pass.",
   "incoming": [
     {
@@ -31,7 +31,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-08T05:27:57.767Z",
+      "fetchedAt": "2026-10-08T06:05:23.992Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -58,7 +58,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-08T05:27:57.767Z",
+      "fetchedAt": "2026-10-08T06:05:23.992Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -85,7 +85,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-08T05:27:57.767Z",
+      "fetchedAt": "2026-10-08T06:05:23.992Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -112,7 +112,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-08T05:27:57.767Z",
+      "fetchedAt": "2026-10-08T06:05:23.992Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -139,7 +139,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-08T05:27:57.767Z",
+      "fetchedAt": "2026-10-08T06:05:23.992Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -166,7 +166,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-08T05:27:57.767Z",
+      "fetchedAt": "2026-10-08T06:05:23.992Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -193,7 +193,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-08T05:27:57.767Z",
+      "fetchedAt": "2026-10-08T06:05:23.992Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -220,7 +220,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-08T05:27:57.767Z",
+      "fetchedAt": "2026-10-08T06:05:23.992Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -247,7 +247,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-08T05:27:57.767Z",
+      "fetchedAt": "2026-10-08T06:05:23.992Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -274,7 +274,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-08T05:27:57.767Z",
+      "fetchedAt": "2026-10-08T06:05:23.992Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -301,7 +301,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-08T05:27:57.767Z",
+      "fetchedAt": "2026-10-08T06:05:23.993Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -328,7 +328,7 @@ window.NEWS_AUTO = {
       "play": "Upcoming/pending - scenario context only until an actual result is available.",
       "source": "ForexFactory calendar feed",
       "sourceClass": "OFFICIAL_CALENDAR_AGGREGATE",
-      "fetchedAt": "2026-10-08T05:27:57.767Z",
+      "fetchedAt": "2026-10-08T06:05:23.993Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     }
@@ -842,6 +842,172 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
+          "time": "Thu 8 Oct, 14:03 MYT",
+          "tf": "Intraday",
+          "title": "Canadian Dollar weakens despite higher oil prices",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/canadian-dollar-weakens-despite-higher-oil-prices-202610080603",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.8,
+          "currencies": [
+            "USD",
+            "CAD"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": true,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 8 Oct, 14:02 MYT",
+          "tf": "Intraday",
+          "title": "EUR/USD Price Forecast: Holds below 1.1200, bearish tone prevails amid oversold conditions",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/eur-usd-price-forecast-holds-below-11200-bearish-tone-prevails-amid-oversold-conditions-202610080602",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.8,
+          "currencies": [
+            "USD",
+            "EUR"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 8 Oct, 13:59 MYT",
+          "tf": "Intraday",
+          "title": "USD/JPY Price Forecast: 20-day EMA provides cushion near 157.55",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/usd-jpy-price-forecast-20-day-ema-provides-cushion-near-15755-202610080559",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.8,
+          "currencies": [
+            "USD",
+            "JPY"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 8 Oct, 12:32 MYT",
+          "tf": "Intraday",
+          "title": "Gold remains below $4,150 as as hawkish Fed and firm USD cap gains",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/gold-moves-away-from-two-month-low-not-out-of-the-woods-yet-amid-hawkish-fed-bullish-usd-202610080432",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "CONFLICT",
+          "relevance": 1,
+          "currencies": [
+            "USD"
+          ],
+          "drivers": {
+            "gold": true,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": "hawkish",
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 8 Oct, 13:54 MYT",
+          "tf": "Intraday",
+          "title": "Indian Rupee gets relief from likely RBI intervention",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/indian-rupee-gets-relief-from-likely-rbis-intervention-202610080554",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.8,
+          "currencies": [
+            "USD"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 8 Oct, 13:40 MYT",
+          "tf": "Intraday",
+          "title": "GBP/USD Price Forecast: Bears await break below trading range support near 1.3180",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/gbp-usd-price-forecast-bears-await-break-below-trading-range-support-near-13180-202610080540",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.8,
+          "currencies": [
+            "USD",
+            "GBP"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
           "time": "Thu 8 Oct, 13:17 MYT",
           "tf": "Intraday",
           "title": "BoJ holds steady assessment for 7 of Japan's 9 regions",
@@ -998,33 +1164,6 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Thu 8 Oct, 12:32 MYT",
-          "tf": "Intraday",
-          "title": "Gold moves away from two-month low; not out of the woods yet amid hawkish Fed, bullish USD",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/gold-moves-away-from-two-month-low-not-out-of-the-woods-yet-amid-hawkish-fed-bullish-usd-202610080432",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "CONFLICT",
-          "relevance": 1,
-          "currencies": [
-            "USD"
-          ],
-          "drivers": {
-            "gold": true,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": "hawkish",
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
           "time": "Thu 8 Oct, 11:35 MYT",
           "tf": "Intraday",
           "title": "New Zealand Dollar moves sideways as US Dollar stabilizes amid rising bond yields",
@@ -1106,142 +1245,6 @@ window.NEWS_AUTO = {
           "policySide": "hawkish",
           "impactScore": -0.12,
           "impactPct": -0.12,
-          "auto": true
-        },
-        {
-          "time": "Thu 8 Oct, 10:46 MYT",
-          "tf": "Intraday",
-          "title": "Silver Price Forecast: XAG/USD rebounds to near $60.50 despite soaring bond yields",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/silver-price-forecast-xag-usd-rebounds-to-near-6050-despite-soaring-bond-yields-202610080246",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.8,
-          "currencies": [
-            "USD"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": true,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Thu 8 Oct, 10:40 MYT",
-          "tf": "Intraday",
-          "title": "United States Dollar Index retreats from YTD top; eyes 102.00 as bullish bias persists",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/united-states-dollar-index-retreats-from-ytd-top-eyes-10200-as-bullish-bias-persists-202610080240",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.8,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Thu 8 Oct, 09:58 MYT",
-          "tf": "Intraday",
-          "title": "Euro recovers to near 1.1200 on softer US Dollar, eyes on France debt concerns",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/euro-recovers-to-near-11200-on-softer-us-dollar-eyes-on-france-debt-concerns-202610080158",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.8,
-          "currencies": [
-            "USD",
-            "EUR"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Thu 8 Oct, 09:48 MYT",
-          "tf": "Intraday",
-          "title": "Japanese Yen strengthens amid BoJ hike bets, intervention risks; bullish USD cap gains",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/japanese-yen-strengthens-amid-boj-hike-bets-intervention-risks-bullish-usd-cap-gains-202610080148",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.8,
-          "currencies": [
-            "USD",
-            "JPY"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Thu 8 Oct, 09:41 MYT",
-          "tf": "Intraday",
-          "title": "British Pound slips due to stable US Dollar, rising oil prices",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/british-pound-slips-due-to-stable-us-dollar-rising-oil-prices-202610080141",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.8,
-          "currencies": [
-            "USD",
-            "GBP"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": true,
-            "usd": true,
-            "oil": true,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
           "auto": true
         },
         {
@@ -2155,6 +2158,172 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
+          "time": "Thu 8 Oct, 14:03 MYT",
+          "tf": "Intraday",
+          "title": "Canadian Dollar weakens despite higher oil prices",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/canadian-dollar-weakens-despite-higher-oil-prices-202610080603",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.7,
+          "currencies": [
+            "USD",
+            "CAD"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": true,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 8 Oct, 14:02 MYT",
+          "tf": "Intraday",
+          "title": "EUR/USD Price Forecast: Holds below 1.1200, bearish tone prevails amid oversold conditions",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/eur-usd-price-forecast-holds-below-11200-bearish-tone-prevails-amid-oversold-conditions-202610080602",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.7,
+          "currencies": [
+            "USD",
+            "EUR"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 8 Oct, 13:59 MYT",
+          "tf": "Intraday",
+          "title": "USD/JPY Price Forecast: 20-day EMA provides cushion near 157.55",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/usd-jpy-price-forecast-20-day-ema-provides-cushion-near-15755-202610080559",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.7,
+          "currencies": [
+            "USD",
+            "JPY"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 8 Oct, 12:32 MYT",
+          "tf": "Intraday",
+          "title": "Gold remains below $4,150 as as hawkish Fed and firm USD cap gains",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/gold-moves-away-from-two-month-low-not-out-of-the-woods-yet-amid-hawkish-fed-bullish-usd-202610080432",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "CONFLICT",
+          "relevance": 0.7,
+          "currencies": [
+            "USD"
+          ],
+          "drivers": {
+            "gold": true,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": "hawkish",
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 8 Oct, 13:54 MYT",
+          "tf": "Intraday",
+          "title": "Indian Rupee gets relief from likely RBI intervention",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/indian-rupee-gets-relief-from-likely-rbis-intervention-202610080554",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.7,
+          "currencies": [
+            "USD"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 8 Oct, 13:40 MYT",
+          "tf": "Intraday",
+          "title": "GBP/USD Price Forecast: Bears await break below trading range support near 1.3180",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/gbp-usd-price-forecast-bears-await-break-below-trading-range-support-near-13180-202610080540",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.7,
+          "currencies": [
+            "USD",
+            "GBP"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
           "time": "Thu 8 Oct, 13:17 MYT",
           "tf": "Intraday",
           "title": "BoJ holds steady assessment for 7 of Japan's 9 regions",
@@ -2311,33 +2480,6 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Thu 8 Oct, 12:32 MYT",
-          "tf": "Intraday",
-          "title": "Gold moves away from two-month low; not out of the woods yet amid hawkish Fed, bullish USD",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/gold-moves-away-from-two-month-low-not-out-of-the-woods-yet-amid-hawkish-fed-bullish-usd-202610080432",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "CONFLICT",
-          "relevance": 0.7,
-          "currencies": [
-            "USD"
-          ],
-          "drivers": {
-            "gold": true,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": "hawkish",
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
           "time": "Thu 8 Oct, 11:35 MYT",
           "tf": "Intraday",
           "title": "New Zealand Dollar moves sideways as US Dollar stabilizes amid rising bond yields",
@@ -2419,142 +2561,6 @@ window.NEWS_AUTO = {
           "policySide": "hawkish",
           "impactScore": -0.14,
           "impactPct": -0.14,
-          "auto": true
-        },
-        {
-          "time": "Thu 8 Oct, 10:46 MYT",
-          "tf": "Intraday",
-          "title": "Silver Price Forecast: XAG/USD rebounds to near $60.50 despite soaring bond yields",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/silver-price-forecast-xag-usd-rebounds-to-near-6050-despite-soaring-bond-yields-202610080246",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.7,
-          "currencies": [
-            "USD"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": true,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Thu 8 Oct, 10:40 MYT",
-          "tf": "Intraday",
-          "title": "United States Dollar Index retreats from YTD top; eyes 102.00 as bullish bias persists",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/united-states-dollar-index-retreats-from-ytd-top-eyes-10200-as-bullish-bias-persists-202610080240",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.7,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Thu 8 Oct, 09:58 MYT",
-          "tf": "Intraday",
-          "title": "Euro recovers to near 1.1200 on softer US Dollar, eyes on France debt concerns",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/euro-recovers-to-near-11200-on-softer-us-dollar-eyes-on-france-debt-concerns-202610080158",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.7,
-          "currencies": [
-            "USD",
-            "EUR"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Thu 8 Oct, 09:48 MYT",
-          "tf": "Intraday",
-          "title": "Japanese Yen strengthens amid BoJ hike bets, intervention risks; bullish USD cap gains",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/japanese-yen-strengthens-amid-boj-hike-bets-intervention-risks-bullish-usd-cap-gains-202610080148",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.7,
-          "currencies": [
-            "USD",
-            "JPY"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Thu 8 Oct, 09:41 MYT",
-          "tf": "Intraday",
-          "title": "British Pound slips due to stable US Dollar, rising oil prices",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/british-pound-slips-due-to-stable-us-dollar-rising-oil-prices-202610080141",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.7,
-          "currencies": [
-            "USD",
-            "GBP"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": true,
-            "usd": true,
-            "oil": true,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
           "auto": true
         },
         {
@@ -3468,6 +3474,172 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
+          "time": "Thu 8 Oct, 14:03 MYT",
+          "tf": "Intraday",
+          "title": "Canadian Dollar weakens despite higher oil prices",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/canadian-dollar-weakens-despite-higher-oil-prices-202610080603",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 1,
+          "currencies": [
+            "USD",
+            "CAD"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": true,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 8 Oct, 14:02 MYT",
+          "tf": "Intraday",
+          "title": "EUR/USD Price Forecast: Holds below 1.1200, bearish tone prevails amid oversold conditions",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/eur-usd-price-forecast-holds-below-11200-bearish-tone-prevails-amid-oversold-conditions-202610080602",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 1,
+          "currencies": [
+            "USD",
+            "EUR"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 8 Oct, 13:59 MYT",
+          "tf": "Intraday",
+          "title": "USD/JPY Price Forecast: 20-day EMA provides cushion near 157.55",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/usd-jpy-price-forecast-20-day-ema-provides-cushion-near-15755-202610080559",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 1,
+          "currencies": [
+            "USD",
+            "JPY"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 8 Oct, 12:32 MYT",
+          "tf": "Intraday",
+          "title": "Gold remains below $4,150 as as hawkish Fed and firm USD cap gains",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/gold-moves-away-from-two-month-low-not-out-of-the-woods-yet-amid-hawkish-fed-bullish-usd-202610080432",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "CONFLICT",
+          "relevance": 1,
+          "currencies": [
+            "USD"
+          ],
+          "drivers": {
+            "gold": true,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": "hawkish",
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 8 Oct, 13:54 MYT",
+          "tf": "Intraday",
+          "title": "Indian Rupee gets relief from likely RBI intervention",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/indian-rupee-gets-relief-from-likely-rbis-intervention-202610080554",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 1,
+          "currencies": [
+            "USD"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 8 Oct, 13:40 MYT",
+          "tf": "Intraday",
+          "title": "GBP/USD Price Forecast: Bears await break below trading range support near 1.3180",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/gbp-usd-price-forecast-bears-await-break-below-trading-range-support-near-13180-202610080540",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 1,
+          "currencies": [
+            "USD",
+            "GBP"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
           "time": "Thu 8 Oct, 13:17 MYT",
           "tf": "Intraday",
           "title": "BoJ holds steady assessment for 7 of Japan's 9 regions",
@@ -3624,33 +3796,6 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Thu 8 Oct, 12:32 MYT",
-          "tf": "Intraday",
-          "title": "Gold moves away from two-month low; not out of the woods yet amid hawkish Fed, bullish USD",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/gold-moves-away-from-two-month-low-not-out-of-the-woods-yet-amid-hawkish-fed-bullish-usd-202610080432",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "CONFLICT",
-          "relevance": 1,
-          "currencies": [
-            "USD"
-          ],
-          "drivers": {
-            "gold": true,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": "hawkish",
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
           "time": "Thu 8 Oct, 11:35 MYT",
           "tf": "Intraday",
           "title": "New Zealand Dollar moves sideways as US Dollar stabilizes amid rising bond yields",
@@ -3732,142 +3877,6 @@ window.NEWS_AUTO = {
           "policySide": "hawkish",
           "impactScore": -0.15,
           "impactPct": -0.15,
-          "auto": true
-        },
-        {
-          "time": "Thu 8 Oct, 10:46 MYT",
-          "tf": "Intraday",
-          "title": "Silver Price Forecast: XAG/USD rebounds to near $60.50 despite soaring bond yields",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/silver-price-forecast-xag-usd-rebounds-to-near-6050-despite-soaring-bond-yields-202610080246",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 1,
-          "currencies": [
-            "USD"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": true,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Thu 8 Oct, 10:40 MYT",
-          "tf": "Intraday",
-          "title": "United States Dollar Index retreats from YTD top; eyes 102.00 as bullish bias persists",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/united-states-dollar-index-retreats-from-ytd-top-eyes-10200-as-bullish-bias-persists-202610080240",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.5,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Thu 8 Oct, 09:58 MYT",
-          "tf": "Intraday",
-          "title": "Euro recovers to near 1.1200 on softer US Dollar, eyes on France debt concerns",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/euro-recovers-to-near-11200-on-softer-us-dollar-eyes-on-france-debt-concerns-202610080158",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 1,
-          "currencies": [
-            "USD",
-            "EUR"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Thu 8 Oct, 09:48 MYT",
-          "tf": "Intraday",
-          "title": "Japanese Yen strengthens amid BoJ hike bets, intervention risks; bullish USD cap gains",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/japanese-yen-strengthens-amid-boj-hike-bets-intervention-risks-bullish-usd-cap-gains-202610080148",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 1,
-          "currencies": [
-            "USD",
-            "JPY"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Thu 8 Oct, 09:41 MYT",
-          "tf": "Intraday",
-          "title": "British Pound slips due to stable US Dollar, rising oil prices",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/british-pound-slips-due-to-stable-us-dollar-rising-oil-prices-202610080141",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 1,
-          "currencies": [
-            "USD",
-            "GBP"
-          ],
-          "drivers": {
-            "gold": false,
-            "yields": true,
-            "usd": true,
-            "oil": true,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
           "auto": true
         },
         {
