@@ -588,7 +588,8 @@
   /* ================= Manifest-aware remote data sync =================
    * Priority: validated remote -> last-known-good local cache -> bundled APK snapshot.
    * A successful APK build is never treated as proof that market data is current. */
-  var remoteTimer = null, lastRemoteMarketUpdated = D.updated, lastRemoteNewsGenerated = (window.NEWS_AUTO || {}).generatedAt;
+  function newsSyncSignature(a) { return [(a && a.generatedAt) || "", (a && a.calendarGeneratedAt) || ""].join("|"); }
+  var remoteTimer = null, lastRemoteMarketUpdated = D.updated, lastRemoteNewsGenerated = newsSyncSignature(window.NEWS_AUTO || {});
   var LIVE_CALENDAR_URLS = [
     "https://gentle-violet-4a79.ifxhelper.workers.dev/api/ff-calendar",
     "https://nfs.faireconomy.media/ff_calendar_thisweek.json"
@@ -674,7 +675,8 @@
         if (!rm || !Array.isArray(rm.tabs) || !rn || !rn.byTab) throw new Error("Dataset shape validation failed");
         var changed = false;
         if (rm.updated && rm.updated !== lastRemoteMarketUpdated) { lastRemoteMarketUpdated = rm.updated; changed = true; } else rm = null;
-        if (rn.generatedAt && rn.generatedAt !== lastRemoteNewsGenerated) { lastRemoteNewsGenerated = rn.generatedAt; changed = true; } else rn = null;
+        var newsSig = newsSyncSignature(rn);
+        if (newsSig && newsSig !== lastRemoteNewsGenerated) { lastRemoteNewsGenerated = newsSig; changed = true; } else rn = null;
         var mode = res.some(function (x) { return x.source === "cache"; }) ? "cache-fallback" : "remote-current";
         var info = { checkedAt: started, manifestGeneratedAt: manifest.generatedAt, mode: mode, changed: changed };
         if (changed) applyRemoteData(rm, rn, info); else try { localStorage.setItem("xau-last-sync", JSON.stringify(info)); } catch (e) {}
@@ -1215,6 +1217,7 @@
     if (D.updated) { var d0 = new Date(D.updated.replace(" SGT", "Z").replace(" GMT", "Z")); if (!isNaN(d0.getTime())) candidates.push(d0); }
     [window.NEWS_AUTO, window.MACRO_AUTO].forEach(function (src) {
       if (src && src.generatedAt) { var d = new Date(src.generatedAt.replace(" ", "T")); if (!isNaN(d.getTime())) candidates.push(d); }
+      if (src && src.calendarGeneratedAt) { var dc = new Date(src.calendarGeneratedAt); if (!isNaN(dc.getTime())) candidates.push(dc); }
       if (src && src.liveGeneratedAt) { var dl = new Date(src.liveGeneratedAt); if (!isNaN(dl.getTime())) candidates.push(dl); }
     });
     if (!candidates.length) return D.updated || "\u2014";
