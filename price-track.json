@@ -13064,9 +13064,9 @@
           "key": "W1",
           "minutes": 10080,
           "dueAt": "2026-10-08T05:11:26.661Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-08T05:28:02.363Z",
+          "price": 4155.7,
+          "realizedPct": -1.273
         },
         {
           "key": "MN1",
@@ -13080,7 +13080,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.238,
-        "maePct": -0.38
+        "maePct": -1.273
       }
     },
     {
@@ -13153,9 +13153,9 @@
           "key": "W1",
           "minutes": 10080,
           "dueAt": "2026-10-08T05:11:26.661Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-08T05:28:02.363Z",
+          "price": 4155.7,
+          "realizedPct": -1.273
         },
         {
           "key": "MN1",
@@ -13169,7 +13169,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.238,
-        "maePct": -0.38
+        "maePct": -1.273
       }
     },
     {
@@ -13242,9 +13242,9 @@
           "key": "W1",
           "minutes": 10080,
           "dueAt": "2026-10-08T05:11:26.661Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-08T05:28:02.363Z",
+          "price": 4155.7,
+          "realizedPct": -1.273
         },
         {
           "key": "MN1",
@@ -13258,7 +13258,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.238,
-        "maePct": -0.38
+        "maePct": -1.273
       }
     },
     {
@@ -13331,9 +13331,9 @@
           "key": "W1",
           "minutes": 10080,
           "dueAt": "2026-10-08T05:11:26.661Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-08T05:28:02.363Z",
+          "price": 82892.83,
+          "realizedPct": -1.527
         },
         {
           "key": "MN1",
@@ -13347,7 +13347,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 2.448,
-        "maePct": -0.41
+        "maePct": -1.527
       }
     }
   ],
