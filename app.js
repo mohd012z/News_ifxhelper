@@ -1427,7 +1427,7 @@
     var status = $("#calendar-source-status");
     if (status) {
       var a = window.NEWS_AUTO || {}, hz = (a.calendarHorizon || {}).loaded || [];
-      status.textContent = "Snapshot " + (a.generatedAt || "bundled") + (a.liveGeneratedAt ? " · live " + a.liveGeneratedAt : "") + " · horizon " + (hz.length ? hz.join(" + ") : "loaded calendar only") + (a.calendarHorizon && a.calendarHorizon.live ? " · " + a.calendarHorizon.live : "") + (incomingView === "month" ? " · month view includes only events present in the loaded horizon" : "");
+      status.textContent = "Snapshot " + (a.generatedAt || "bundled") + (a.calendarGeneratedAt ? " · calendar " + a.calendarGeneratedAt : "") + (a.liveGeneratedAt ? " · live " + a.liveGeneratedAt : "") + " · horizon " + (hz.length ? hz.join(" + ") : "loaded calendar only") + (a.calendarHorizon && a.calendarHorizon.live ? " · " + a.calendarHorizon.live : "") + (a.calendarHorizon && a.calendarHorizon.heartbeat ? " · " + a.calendarHorizon.heartbeat : "") + (incomingView === "month" ? " · month view includes only events present in the loaded horizon" : "");
     }
 
     var lastDay = null;
