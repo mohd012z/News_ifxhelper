@@ -499,11 +499,13 @@ async function getCalendar() {
   }
 
   if (!rows.length && failures.length) throw new Error('all calendar sources failed: ' + failures.join(' | '));
-  return rows.sort((a, b) => {
-    const ak = a.timeGmt || (a.date ? a.date + ' 99:99' : '9999');
-    const bk = b.timeGmt || (b.date ? b.date + ' 99:99' : '9999');
-    return ak.localeCompare(bk);
-  });
+  function sortMs(row) {
+    const exact = calendarGmtMs(row.timeGmt);
+    if (Number.isFinite(exact)) return exact;
+    const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(row.date || ''));
+    return m ? Date.UTC(+m[1], +m[2] - 1, +m[3], 12, 0, 0) : Number.MAX_SAFE_INTEGER;
+  }
+  return rows.sort((a, b) => sortMs(a) - sortMs(b));
 }
 
 // ---- 2. Central-bank press releases (real, official) - the trustworthy hawkish/dovish source ----
