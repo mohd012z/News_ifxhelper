@@ -106,7 +106,7 @@
       var movePips = (px != null && base) ? pipsFor(s.key, px - base) : null;
       var hist = liveHistFor(s.key, s.kind);
       var hi = hist.length ? Math.max.apply(null, hist) : null, lo = hist.length ? Math.min.apply(null, hist) : null;
-      var src = s.kind === "commodity" ? "gold-api.com / Twelve Data" : s.kind === "crypto" ? "Coinbase (polled)" : "Coinbase EUR table (derived)";
+      var src = s.kind === "commodity" ? "gold-api.com / optional authenticated WS" : s.kind === "crypto" ? "Coinbase (polled)" : "Coinbase EUR table (derived)";
       return "<tr><td><b>" + esc(s.label) + "</b></td>" +
         '<td class="px">' + (px != null ? (s.kind === "fx" ? pairFmt(px) : money(px)) : "—") + "</td>" +
         '<td class="chg ' + (pct == null ? "muted" : pctCls(pct)) + '">' + (pct == null ? "—" : (pct > 0 ? "+" : "") + pct.toFixed(3) + "%") + "</td>" +
@@ -1598,7 +1598,7 @@
         tr.innerHTML = "<td><b>" + esc(c.label) + "</b> <span class=\"badge b-neu\">" + esc(c.sym) + "</span></td>" +
           '<td class="px">' + (px != null ? money(px) : "\u2014") + "</td>" +
           '<td class="chg ' + (pct == null ? "muted" : pct > 0 ? "good" : pct < 0 ? "bad" : "muted") + '">' + (pct == null ? "\u2014" : (pct > 0 ? "+" : "") + pct.toFixed(3) + "%") + "</td>" +
-          '<td style="color:var(--muted)">Twelve Data (gold WS) / gold-api.com</td>';
+          '<td style="color:var(--muted)">gold-api.com / optional authenticated WS</td>';
         body.appendChild(tr);
       });
       if (pn) pn.textContent = "Commodity prices stream live where a feed is connected; XAU/USD ticks in real time via the Live view.";

@@ -72,11 +72,10 @@ window.MARKET_DATA = {
     caveat: "If the browser blocks the request (CORS) or the machine is offline, the desk falls back to the last snapshot and the badge shows OFFLINE.",
     wsHint: "wss://stream.binance.com:9443/ws/btcusdt@trade",
     derivedFrom: "FX is rebuilt from one EUR rate table: price(A/B) = rate(B) / rate(A).",
-    /* True tick-by-tick gold stream (Twelve Data WS, free tier = 1 real-time symbol).
-     * Auto-connects on load; polling above remains the fallback if this is
-     * unset, unreachable, or the key/quota runs out. */
-    twelveDataApiKey: "6c8d081decdb4af99bf262642bcbabcb",
-    twelveDataSymbols: ["XAU/USD"]
+    /* Security policy: no provider API key is embedded in public client assets.
+     * Key-free polling remains the default live-data path; authenticated streaming must be
+     * supplied through a server-side proxy or another non-public credential channel. */
+    credentialPolicy: "No provider API keys embedded in public client assets"
   },
 
   /* ---- Which currency is involved, and how ---- */
