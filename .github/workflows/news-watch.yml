@@ -1,6 +1,19 @@
 name: News watch (frequent, evidence refresh)
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - "build-news.js"
+      - "build-macro.js"
+      - "build-data-manifest.js"
+      - "shared-market-logic.js"
+      - "lib/**"
+      - "package.json"
+      - "package-lock.json"
+      - "test/**"
+      - ".github/workflows/news-watch.yml"
   schedule:
     - cron: "*/30 * * * *"
   workflow_dispatch: {}
