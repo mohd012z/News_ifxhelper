@@ -42,6 +42,8 @@ const intelligence360=fs.readFileSync(path.join(wfDir,'intelligence-360.yml'),'u
 assert(intelligence360.includes('git status --porcelain -- data/intelligence-360.json'),'Intelligence 360 must detect untracked/new snapshot files');
 assert(!intelligence360.includes('git diff --quiet -- data/intelligence-360.json'),'Intelligence 360 must not use git diff alone for a possibly untracked snapshot');
 assert(intelligence360.includes('push:'),'Intelligence 360 must self-verify on relevant main changes');
+assert(intelligence360.includes('node build-data-manifest.js'),'Intelligence 360 must rebuild the manifest after creating its lineage source');
+assert(intelligence360.includes('git add data/intelligence-360.json data-manifest.json'),'Intelligence 360 must publish its snapshot and manifest atomically');
 
 const workerDeploy=fs.readFileSync(path.join(wfDir,'deploy-worker.yml'),'utf8');
 assert(!/^\s{2}push:/m.test(workerDeploy),'Worker deploy must remain manual until Cloudflare credentials are configured');
