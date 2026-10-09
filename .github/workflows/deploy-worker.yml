@@ -1,8 +1,14 @@
 name: Deploy Cloudflare Worker
 
-# Manual-only until the required Cloudflare repository secrets are configured.
-# Missing credentials must fail visibly; a skipped deploy must never be reported as success.
+# Worker code proxies current main assets, so it only needs redeployment when the
+# Worker/config itself changes. Credentials are required and failures remain visible.
 on:
+  push:
+    branches: [main]
+    paths:
+      - "worker/**"
+      - "wrangler.toml"
+      - ".github/workflows/deploy-worker.yml"
   workflow_dispatch: {}
 
 permissions:
