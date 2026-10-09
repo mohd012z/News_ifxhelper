@@ -1,0 +1,175 @@
+[
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-da79c4258bdd1c53d1ca",
+    "sourceGeneratedAt": "2026-10-09T11:56:22.442Z",
+    "symbol": "GC=F",
+    "tf": "M1",
+    "candleTime": "2026-10-09T11:46:19.000Z",
+    "createdAt": "2026-10-09T11:56:22.865Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "Prelim UoM Consumer Sentiment",
+      "currency": "USD",
+      "impact": "MEDIUM",
+      "actual": null,
+      "forecast": "47.5",
+      "previous": "47.8",
+      "time": "2026-10-09T14:00:00.000Z"
+    },
+    "location": "EMA50",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "DOWN_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_down"
+    ],
+    "status": "PENDING",
+    "id": "d0b4b16517763b500785"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-da79c4258bdd1c53d1ca",
+    "sourceGeneratedAt": "2026-10-09T11:56:22.442Z",
+    "symbol": "GC=F",
+    "tf": "M5",
+    "candleTime": "2026-10-09T11:40:00.000Z",
+    "createdAt": "2026-10-09T11:56:22.866Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "Prelim UoM Consumer Sentiment",
+      "currency": "USD",
+      "impact": "MEDIUM",
+      "actual": null,
+      "forecast": "47.5",
+      "previous": "47.8",
+      "time": "2026-10-09T14:00:00.000Z"
+    },
+    "location": "MID_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "DOWN_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_down"
+    ],
+    "status": "PENDING",
+    "id": "725f3365f0edb7c34726"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-da79c4258bdd1c53d1ca",
+    "sourceGeneratedAt": "2026-10-09T11:56:22.442Z",
+    "symbol": "GC=F",
+    "tf": "M15",
+    "candleTime": "2026-10-09T11:30:00.000Z",
+    "createdAt": "2026-10-09T11:56:22.866Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "Prelim UoM Consumer Sentiment",
+      "currency": "USD",
+      "impact": "MEDIUM",
+      "actual": null,
+      "forecast": "47.5",
+      "previous": "47.8",
+      "time": "2026-10-09T14:00:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "MIXED",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "RANGE_OR_BREAKOUT_WATCH",
+    "confidence": 100,
+    "reasons": [],
+    "status": "PENDING",
+    "id": "28e85b118b1ef46a0919"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-da79c4258bdd1c53d1ca",
+    "sourceGeneratedAt": "2026-10-09T11:56:22.442Z",
+    "symbol": "GC=F",
+    "tf": "M30",
+    "candleTime": "2026-10-09T11:00:00.000Z",
+    "createdAt": "2026-10-09T11:56:22.866Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "Prelim UoM Consumer Sentiment",
+      "currency": "USD",
+      "impact": "MEDIUM",
+      "actual": null,
+      "forecast": "47.5",
+      "previous": "47.8",
+      "time": "2026-10-09T14:00:00.000Z"
+    },
+    "location": "MID_BB",
+    "bbma": {
+      "trend": "MIXED",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "SQUEEZE",
+    "state": "RANGE_OR_BREAKOUT_WATCH",
+    "confidence": 100,
+    "reasons": [
+      "squeeze_pre_breakout"
+    ],
+    "status": "PENDING",
+    "id": "025daef6bafe71d4f14a"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-da79c4258bdd1c53d1ca",
+    "sourceGeneratedAt": "2026-10-09T11:56:22.442Z",
+    "symbol": "GC=F",
+    "tf": "H1",
+    "candleTime": "2026-10-09T10:00:00.000Z",
+    "createdAt": "2026-10-09T11:56:22.866Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "Prelim UoM Consumer Sentiment",
+      "currency": "USD",
+      "impact": "MEDIUM",
+      "actual": null,
+      "forecast": "47.5",
+      "previous": "47.8",
+      "time": "2026-10-09T14:00:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "UP",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "UP_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_up"
+    ],
+    "status": "PENDING",
+    "id": "3b8a1786c258c0705527"
+  }
+]
