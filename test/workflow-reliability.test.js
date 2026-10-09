@@ -20,6 +20,9 @@ for(const name of workflowFiles){
   }
 }
 
+const newsWatch=fs.readFileSync(path.join(wfDir,'news-watch.yml'),'utf8');
+assert(!newsWatch.includes('"test/**"'),'News-watch must not run for test-only changes');
+
 const reminders=fs.readFileSync(path.join(wfDir,'event-reminders.yml'),'utf8');
 const refreshIdx=reminders.indexOf('Refresh durable current-week calendar slice');
 const publishIdx=reminders.indexOf('Publish calendar changes before reminders');
@@ -41,11 +44,14 @@ const learningHealth=fs.readFileSync(path.join(wfDir,'learning-health.yml'),'utf
 assert(learningHealth.includes('Ensure BBMA watch snapshot exists'),'learning health must bootstrap a missing BBMA snapshot');
 assert(learningHealth.includes('node build-bbma-watch.js'),'learning health bootstrap must rebuild the watch snapshot');
 assert(learningHealth.includes('git add data/bbma-watch.json data/bbma-learning.json data/bbma-performance.json data/agent-health.json'),'learning health must persist a bootstrapped watch snapshot with its outputs');
+assert(!/^\s{2}push:/m.test(learningHealth),'Learning/Health must not auto-run on push; shared writer concurrency only keeps one pending run');
+assert(learningHealth.includes("cron: '56 1 * * 1-5'"),'Learning/Health schedule must be offset from News-watch');
 
 const intelligence360=fs.readFileSync(path.join(wfDir,'intelligence-360.yml'),'utf8');
 assert(intelligence360.includes('git status --porcelain -- data/intelligence-360.json'),'Intelligence 360 must detect untracked/new snapshot files');
 assert(!intelligence360.includes('git diff --quiet -- data/intelligence-360.json'),'Intelligence 360 must not use git diff alone for a possibly untracked snapshot');
 assert(intelligence360.includes('push:'),'Intelligence 360 must self-verify on relevant main changes');
+assert(intelligence360.includes("cron: '31 * * * 1-5'"),'Intelligence 360 schedule must not collide with News-watch :07/:37');
 assert(intelligence360.includes('node build-data-manifest.js'),'Intelligence 360 must rebuild the manifest after creating its lineage source');
 assert(intelligence360.includes('git add data/intelligence-360.json data-manifest.json'),'Intelligence 360 must publish its snapshot and manifest atomically');
 
