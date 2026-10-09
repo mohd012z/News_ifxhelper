@@ -17,6 +17,9 @@ globalThis.fetch = async (input) => {
   if (url.endsWith("/app.js")) {
     return new Response("console.log('fresh app')", { status: 200, headers: { "Content-Type": "text/plain" } });
   }
+  if (url.endsWith("/pwa.js")) {
+    return new Response("console.log('fresh pwa')", { status: 200, headers: { "Content-Type": "text/plain" } });
+  }
   if (url.endsWith("/data-manifest.json")) {
     return new Response('{"schemaVersion":3}', { status: 200, headers: { "Content-Type": "text/plain" } });
   }
@@ -41,6 +44,11 @@ try {
 
   r = await worker.fetch(new Request("https://gentle-violet-4a79.ifxhelper.workers.dev/data-manifest.json"));
   assert.match(r.headers.get("content-type") || "", /application\/json/);
+  assert.match(r.headers.get("cache-control") || "", /no-store/);
+
+  r = await worker.fetch(new Request("https://gentle-violet-4a79.ifxhelper.workers.dev/pwa.js"));
+  assert.equal(r.status, 200);
+  assert.match(r.headers.get("content-type") || "", /application\/javascript/);
   assert.match(r.headers.get("cache-control") || "", /no-store/);
 
   r = await worker.fetch(new Request("https://gentle-violet-4a79.ifxhelper.workers.dev/api/ff-calendar"));

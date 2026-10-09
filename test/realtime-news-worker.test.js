@@ -7,6 +7,7 @@ const root = path.resolve(__dirname, '..');
 
 const app = fs.readFileSync(path.join(root, 'app.js'), 'utf8');
 const sw = fs.readFileSync(path.join(root, 'sw.js'), 'utf8');
+const pwa = fs.readFileSync(path.join(root, 'pwa.js'), 'utf8');
 const worker = fs.readFileSync(path.join(root, 'worker', 'index.mjs'), 'utf8');
 const wrangler = fs.readFileSync(path.join(root, 'wrangler.toml'), 'utf8');
 const deploy = fs.readFileSync(path.join(root, '.github', 'workflows', 'deploy-worker.yml'), 'utf8');
@@ -26,17 +27,23 @@ assert(app.includes('window.addEventListener("focus", fetchLiveCalendar)'), 'liv
 assert(app.includes('sourceClass: "LIVE_CALENDAR_PROXY"'), 'live rows must be labeled by source class');
 assert(app.includes('liveGeneratedAt'), 'UI freshness must include live update timestamp');
 
-assert(sw.includes('const CACHE = "xaudesk-v5"'), 'service-worker cache version must be bumped');
+assert(sw.includes('const CACHE = "xaudesk-v6"'), 'service-worker cache version must be v6');
+assert(sw.includes('"/index.html"') && sw.includes('"/pwa.js"'), 'service worker must network-first the HTML/PWA bootstrap');
+assert(pwa.includes('register("./sw.js?v=6", { updateViaCache: "none" })'), 'PWA must bypass stale HTTP cache when checking the service worker');
+assert(pwa.includes('reg.update()'), 'PWA must actively check for a newer service worker');
+assert(pwa.includes('controllerchange'), 'PWA must react when a newer worker takes control');
 assert(sw.includes('contentTypeMismatch'), 'service worker must reject HTML returned for JS/JSON');
 assert(sw.includes('Offline asset unavailable'), 'service worker must not use index.html as an asset fallback');
 
 assert(worker.includes('/api/ff-calendar'), 'Worker live calendar route missing');
 assert(worker.includes('raw.githubusercontent.com/mohd012z/News_ifxhelper/main/'), 'Worker must proxy current main assets');
 assert(worker.includes('no-store, no-cache, must-revalidate'), 'volatile Worker assets must disable stale caching');
+assert(worker.includes('"pwa.js"'), 'Worker must treat pwa.js as volatile');
 
 assert(wrangler.includes('name = "gentle-violet-4a79"'), 'Wrangler worker name must target the existing Worker');
 assert(deploy.includes('CLOUDFLARE_API_TOKEN'), 'Cloudflare token secret hook missing');
 assert(deploy.includes('CLOUDFLARE_ACCOUNT_ID'), 'Cloudflare account secret hook missing');
 assert(deploy.includes('/api/health'), 'post-deploy health verification missing');
+assert(deploy.includes('push:') && deploy.includes('"worker/**"'), 'Worker changes on main must auto-deploy');
 
 console.log('Realtime news Worker contract tests passed');

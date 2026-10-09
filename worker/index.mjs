@@ -18,7 +18,7 @@ const MIME = {
 };
 
 const VOLATILE = new Set([
-  "index.html", "app.js", "news-auto.js", "data-manifest.json",
+  "index.html", "pwa.js", "app.js", "news-auto.js", "data-manifest.json",
   "xauusd-data.js", "macro-auto.js", "atr.js", "sw.js"
 ]);
 

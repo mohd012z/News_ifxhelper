@@ -11,7 +11,18 @@
     var secure = location.protocol === "https:" || location.hostname === "localhost" || location.hostname === "127.0.0.1";
 
     if ("serviceWorker" in navigator && secure) {
-      navigator.serviceWorker.register("./sw.js").catch(function () { /* offline mode unavailable */ });
+      var reloadedForV6 = false;
+      try { reloadedForV6 = sessionStorage.getItem("xau-sw-v6-reloaded") === "1"; } catch (e) {}
+      navigator.serviceWorker.addEventListener("controllerchange", function () {
+        if (reloadedForV6) return;
+        reloadedForV6 = true;
+        try { sessionStorage.setItem("xau-sw-v6-reloaded", "1"); } catch (e) {}
+        location.reload();
+      });
+      navigator.serviceWorker.register("./sw.js?v=6", { updateViaCache: "none" }).then(function (reg) {
+        reg.update().catch(function () {});
+        setInterval(function () { reg.update().catch(function () {}); }, 5 * 60 * 1000);
+      }).catch(function () { /* offline mode unavailable */ });
     } else if (btn) {
       btn.hidden = true;
       btn.title = "Install needs https hosting or the Android build";

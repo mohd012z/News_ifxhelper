@@ -2,8 +2,11 @@
  * App shell is cached so the app opens offline; live-data endpoints are always network-only.
  * Note: service workers only run on http(s) origins - opening index.html from file:// skips this file.
  */
-const CACHE = "xaudesk-v5";
+const CACHE = "xaudesk-v6";
 const VOLATILE = new Set([
+  "/",
+  "/index.html",
+  "/pwa.js",
   "/app.js",
   "/news-auto.js",
   "/data-manifest.json",
