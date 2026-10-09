@@ -910,9 +910,9 @@
       return "Next event: " + nx.e.event + " (" + (nx.e.importance || "").toUpperCase() + ")" + (hAway != null ? ", in about " + hAway + "h" : "") + ". Time: MYT " + mytDisplay(nx.e.timeMyt) + " / GMT " + (nx.e.timeGmt || "—") + ". Focus timeframe: " + (nx.e.focusTf || "—") + ". " + (nx.e.url ? "Source: " + nx.e.url : "No source linked.");
     }
     if (/\balert/.test(lq)) {
-      var today = (T.alerts || {}).today || [];
-      if (!today.length) return "No alerts flagged today for " + T.label + ".";
-      return today.length + " alert(s) today for " + T.label + ": " + today.map(function (a) { return "[" + (a.level || "").toUpperCase() + "] " + a.text; }).join(" · ");
+      var today = calendarAlertRows("today");
+      if (!today.length) return "No High/Medium economic calendar events are loaded for today.";
+      return today.length + " current calendar event(s) today: " + today.map(function (a) { return "[" + (a.level || "").toUpperCase() + "] " + a.text; }).join(" · ");
     }
     if (/gauge|sentiment|hawkish|dovish/.test(lq)) {
       var s = T.sentiment || {};
@@ -2139,7 +2139,22 @@
     renderInst(); renderRanges(); renderAll();
     bindCharts(); bindPalette(); bindLiveControls(); bindBottomNav(); bindTheme(); bindVoice(); bindAssistant(); bindAnalysisScope(); bindPivotInputs(); bindSettings(); bindIncomingView();
     applyFilter("news");
-    var rb = $("#refresh"); if (rb) rb.onclick = function () { location.reload(); };
+    function hardRefreshShell() {
+      var next;
+      try {
+        next = new URL(location.href);
+        next.searchParams.set("_fresh", String(Date.now()));
+      } catch (e) {
+        next = { href: location.pathname + "?_fresh=" + Date.now() };
+      }
+      var go = function () { location.replace(next.href); };
+      if (navigator.serviceWorker && navigator.serviceWorker.getRegistration) {
+        navigator.serviceWorker.getRegistration().then(function (reg) {
+          return reg ? reg.update() : null;
+        }).then(go, go);
+      } else go();
+    }
+    var rb = $("#refresh"); if (rb) rb.onclick = hardRefreshShell;
     ["c-open", "c-high", "c-low", "c-prev", "c-atr", "c-iv", "c-dte", "c-k"].forEach(function (id) { var el = $("#" + id); if (el) el.addEventListener("input", calc); });
     var wsu = $("#ws-url"); if (wsu && (D.live || {}).wsHint) wsu.value = D.live.wsHint;
     initLive();
