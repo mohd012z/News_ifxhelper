@@ -60,8 +60,9 @@ assert(!/^\s{2}push:/m.test(workerDeploy),'Worker deploy must remain manual whil
 assert(workerDeploy.includes('workflow_dispatch: {}'),'Worker deploy must remain manually runnable');
 assert(workerDeploy.includes('exit 1'),'missing Cloudflare credentials must fail visibly');
 assert(!workerDeploy.includes("if: steps.cf.outputs.ready == 'true'"),'Worker deploy must not silently skip deployment');
-assert(workerDeploy.includes("/app.js"),'Worker deploy verification must check JavaScript routing');
-assert(workerDeploy.includes("/data-manifest.json"),'Worker deploy verification must check JSON routing');
+assert(workerDeploy.includes("['app.js',/javascript/]"),'Worker deploy verification must check JavaScript routing');
+assert(workerDeploy.includes("['data-manifest.json',/application\\/json/]"),'Worker deploy verification must check JSON routing');
+assert(workerDeploy.includes('live SHA differs from current main'),'Worker deploy must reject stale live assets that differ from current main');
 
 const app=fs.readFileSync(path.join(root,'app.js'),'utf8');
 assert(app.includes('function newsSyncSignature(a)'), 'client durable sync signature helper missing');
