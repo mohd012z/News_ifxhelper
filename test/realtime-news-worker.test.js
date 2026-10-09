@@ -52,7 +52,7 @@ assert(deploy.includes('CLOUDFLARE_API_TOKEN'), 'Cloudflare token secret hook mi
 assert(deploy.includes('CLOUDFLARE_ACCOUNT_ID'), 'Cloudflare account secret hook missing');
 assert(deploy.includes('/api/health'), 'post-deploy health verification missing');
 assert(deploy.includes('live SHA differs from current main'), 'deploy verification must compare live Cloudflare assets with current main');
-assert(deploy.includes('data-view="'+view+'"'), 'deploy verification must reject the stale Incoming/Past-only shell');
+assert(deploy.includes("for(const view of ['today','week','month'])"), 'deploy verification must reject the stale Incoming/Past-only shell');
 assert(deploy.includes('calendarAlertRows("today")'), 'deploy verification must require live Today alert logic');
 assert(deploy.includes('setInterval(fetchLiveCalendar, 60000)'), 'deploy verification must require live calendar polling');
 assert(deploy.includes('ref: main'), 'production Worker deploy must always checkout main');
