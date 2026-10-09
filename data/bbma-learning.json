@@ -66,8 +66,18 @@
     "reasons": [
       "trend_down"
     ],
-    "status": "PENDING",
-    "id": "725f3365f0edb7c34726"
+    "status": "SETTLED",
+    "id": "725f3365f0edb7c34726",
+    "settledAt": "2026-10-09T12:10:14.553Z",
+    "nextCandleTime": "2026-10-09T11:45:00.000Z",
+    "actualDirection": "UP",
+    "predictedDirection": "DOWN",
+    "correct": false,
+    "nextReturnPct": 0.0048,
+    "mfePct": 0.0261,
+    "maePct": -0.0428,
+    "rangePct": 0.0689,
+    "closeLocationPct": 68.97
   },
   {
     "schemaVersion": 4,
@@ -99,8 +109,18 @@
     "state": "RANGE_OR_BREAKOUT_WATCH",
     "confidence": 100,
     "reasons": [],
-    "status": "PENDING",
-    "id": "28e85b118b1ef46a0919"
+    "status": "SETTLED",
+    "id": "28e85b118b1ef46a0919",
+    "settledAt": "2026-10-09T12:10:14.553Z",
+    "nextCandleTime": "2026-10-09T11:45:00.000Z",
+    "actualDirection": "UP",
+    "predictedDirection": "FLAT",
+    "correct": false,
+    "nextReturnPct": 0.0166,
+    "mfePct": 0.0357,
+    "maePct": -0.0428,
+    "rangePct": 0.0784,
+    "closeLocationPct": 75.76
   },
   {
     "schemaVersion": 4,
@@ -134,8 +154,18 @@
     "reasons": [
       "squeeze_pre_breakout"
     ],
-    "status": "PENDING",
-    "id": "025daef6bafe71d4f14a"
+    "status": "SETTLED",
+    "id": "025daef6bafe71d4f14a",
+    "settledAt": "2026-10-09T12:10:14.553Z",
+    "nextCandleTime": "2026-10-09T11:30:00.000Z",
+    "actualDirection": "DOWN",
+    "predictedDirection": "FLAT",
+    "correct": false,
+    "nextReturnPct": -0.0214,
+    "mfePct": 0.057,
+    "maePct": -0.0903,
+    "rangePct": 0.1473,
+    "closeLocationPct": 46.78
   },
   {
     "schemaVersion": 4,
@@ -169,7 +199,190 @@
     "reasons": [
       "trend_up"
     ],
+    "status": "SETTLED",
+    "id": "3b8a1786c258c0705527",
+    "settledAt": "2026-10-09T12:10:14.553Z",
+    "nextCandleTime": "2026-10-09T11:00:00.000Z",
+    "actualDirection": "UP",
+    "predictedDirection": "UP",
+    "correct": true,
+    "nextReturnPct": 0.088,
+    "mfePct": 0.1665,
+    "maePct": -0.1142,
+    "rangePct": 0.2807,
+    "closeLocationPct": 72.04
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-da79c4258bdd1c53d1ca",
+    "sourceGeneratedAt": "2026-10-09T11:56:22.442Z",
+    "symbol": "GC=F",
+    "tf": "M1",
+    "candleTime": "2026-10-09T12:00:11.000Z",
+    "createdAt": "2026-10-09T12:10:14.554Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "Prelim UoM Consumer Sentiment",
+      "currency": "USD",
+      "impact": "MEDIUM",
+      "actual": null,
+      "forecast": "47.5",
+      "previous": "47.8",
+      "time": "2026-10-09T14:00:00.000Z"
+    },
+    "location": "EMA50",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "DOWN_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_down"
+    ],
     "status": "PENDING",
-    "id": "3b8a1786c258c0705527"
+    "id": "5367713a8739b4a3b0e0"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-da79c4258bdd1c53d1ca",
+    "sourceGeneratedAt": "2026-10-09T11:56:22.442Z",
+    "symbol": "GC=F",
+    "tf": "M5",
+    "candleTime": "2026-10-09T11:55:00.000Z",
+    "createdAt": "2026-10-09T12:10:14.554Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "Prelim UoM Consumer Sentiment",
+      "currency": "USD",
+      "impact": "MEDIUM",
+      "actual": null,
+      "forecast": "47.5",
+      "previous": "47.8",
+      "time": "2026-10-09T14:00:00.000Z"
+    },
+    "location": "MID_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "DOWN_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_down"
+    ],
+    "status": "PENDING",
+    "id": "cae40f121ff7372f67d3"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-da79c4258bdd1c53d1ca",
+    "sourceGeneratedAt": "2026-10-09T11:56:22.442Z",
+    "symbol": "GC=F",
+    "tf": "M15",
+    "candleTime": "2026-10-09T11:45:00.000Z",
+    "createdAt": "2026-10-09T12:10:14.554Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "Prelim UoM Consumer Sentiment",
+      "currency": "USD",
+      "impact": "MEDIUM",
+      "actual": null,
+      "forecast": "47.5",
+      "previous": "47.8",
+      "time": "2026-10-09T14:00:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "MIXED",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "RANGE_OR_BREAKOUT_WATCH",
+    "confidence": 100,
+    "reasons": [],
+    "status": "PENDING",
+    "id": "b60907cae74839443480"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-da79c4258bdd1c53d1ca",
+    "sourceGeneratedAt": "2026-10-09T11:56:22.442Z",
+    "symbol": "GC=F",
+    "tf": "M30",
+    "candleTime": "2026-10-09T11:30:00.000Z",
+    "createdAt": "2026-10-09T12:10:14.554Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "Prelim UoM Consumer Sentiment",
+      "currency": "USD",
+      "impact": "MEDIUM",
+      "actual": null,
+      "forecast": "47.5",
+      "previous": "47.8",
+      "time": "2026-10-09T14:00:00.000Z"
+    },
+    "location": "MID_BB",
+    "bbma": {
+      "trend": "MIXED",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "SQUEEZE",
+    "state": "RANGE_OR_BREAKOUT_WATCH",
+    "confidence": 100,
+    "reasons": [
+      "squeeze_pre_breakout"
+    ],
+    "status": "PENDING",
+    "id": "824e08985ef34efb626c"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-da79c4258bdd1c53d1ca",
+    "sourceGeneratedAt": "2026-10-09T11:56:22.442Z",
+    "symbol": "GC=F",
+    "tf": "H1",
+    "candleTime": "2026-10-09T11:00:00.000Z",
+    "createdAt": "2026-10-09T12:10:14.554Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "Prelim UoM Consumer Sentiment",
+      "currency": "USD",
+      "impact": "MEDIUM",
+      "actual": null,
+      "forecast": "47.5",
+      "previous": "47.8",
+      "time": "2026-10-09T14:00:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "UP",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "UP_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_up"
+    ],
+    "status": "PENDING",
+    "id": "14b9ff192d03f2e756d1"
   }
 ]

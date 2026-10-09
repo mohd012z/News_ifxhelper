@@ -1,8 +1,8 @@
 {
   "overall": {
-    "samples": 0,
-    "correct": 0,
-    "accuracyPct": null
+    "samples": 4,
+    "correct": 1,
+    "accuracyPct": 25
   },
   "lineage": {
     "liveGenerationId": "bbma-da79c4258bdd1c53d1ca",
@@ -21,31 +21,31 @@
       "accuracyPct": null
     },
     "M5": {
-      "samples": 0,
+      "samples": 1,
       "correct": 0,
-      "accuracyPct": null
+      "accuracyPct": 0
     },
     "M15": {
-      "samples": 0,
+      "samples": 1,
       "correct": 0,
-      "accuracyPct": null
+      "accuracyPct": 0
     },
     "M30": {
-      "samples": 0,
+      "samples": 1,
       "correct": 0,
-      "accuracyPct": null
+      "accuracyPct": 0
     },
     "H1": {
-      "samples": 0,
-      "correct": 0,
-      "accuracyPct": null
+      "samples": 1,
+      "correct": 1,
+      "accuracyPct": 100
     }
   },
   "byMarketMode": {
     "NORMAL": {
-      "samples": 0,
-      "correct": 0,
-      "accuracyPct": null
+      "samples": 4,
+      "correct": 1,
+      "accuracyPct": 25
     }
   },
   "byLocation": {
@@ -55,49 +55,55 @@
       "accuracyPct": null
     },
     "MID_BB": {
-      "samples": 0,
+      "samples": 2,
       "correct": 0,
-      "accuracyPct": null
+      "accuracyPct": 0
     },
     "INSIDE_BB": {
-      "samples": 0,
-      "correct": 0,
-      "accuracyPct": null
+      "samples": 2,
+      "correct": 1,
+      "accuracyPct": 50
     }
   },
   "bySqueeze": {
     "NORMAL": {
-      "samples": 0,
-      "correct": 0,
-      "accuracyPct": null
+      "samples": 3,
+      "correct": 1,
+      "accuracyPct": 33.3
     },
     "SQUEEZE": {
-      "samples": 0,
+      "samples": 1,
       "correct": 0,
-      "accuracyPct": null
+      "accuracyPct": 0
     }
   },
   "byPattern": {
     "DOWN": {
-      "samples": 0,
+      "samples": 1,
       "correct": 0,
-      "accuracyPct": null
+      "accuracyPct": 0
     },
     "MIXED": {
-      "samples": 0,
+      "samples": 2,
       "correct": 0,
-      "accuracyPct": null
+      "accuracyPct": 0
     },
     "UP": {
-      "samples": 0,
-      "correct": 0,
-      "accuracyPct": null
+      "samples": 1,
+      "correct": 1,
+      "accuracyPct": 100
     }
   },
-  "calibration": {},
-  "generatedAt": "2026-10-09T11:56:22.866Z",
-  "pending": 5,
-  "settled": 0,
+  "calibration": {
+    "100-99": {
+      "samples": 4,
+      "correct": 1,
+      "accuracyPct": 25
+    }
+  },
+  "generatedAt": "2026-10-09T12:10:14.555Z",
+  "pending": 6,
+  "settled": 4,
   "schemaVersion": 3,
   "generationId": "bbma-da79c4258bdd1c53d1ca",
   "sourceGeneratedAt": "2026-10-09T11:56:22.442Z"

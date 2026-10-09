@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-09T11:56:22.920Z",
+  "generatedAt": "2026-10-09T12:10:14.602Z",
   "agents": {
     "market": {
       "state": "OK",
@@ -15,9 +15,9 @@
     },
     "learning": {
       "state": "OK",
-      "pending": 5,
-      "settled": 0,
-      "accuracyPct": 0
+      "pending": 6,
+      "settled": 4,
+      "accuracyPct": 25
     }
   }
 }
