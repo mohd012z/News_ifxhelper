@@ -44,11 +44,18 @@ assert(worker.includes('/api/ff-calendar'), 'Worker live calendar route missing'
 assert(worker.includes('raw.githubusercontent.com/mohd012z/News_ifxhelper/main/'), 'Worker must proxy current main assets');
 assert(worker.includes('no-store, no-cache, must-revalidate'), 'volatile Worker assets must disable stale caching');
 assert(worker.includes('"pwa.js"'), 'Worker must treat pwa.js as volatile');
+assert(worker.includes('2026-10-09-live-proxy-v2'), 'Worker freshness/version fingerprint missing');
+assert(worker.includes('?cf_refresh='), 'Worker volatile upstream cache-buster missing');
 
 assert(wrangler.includes('name = "gentle-violet-4a79"'), 'Wrangler worker name must target the existing Worker');
 assert(deploy.includes('CLOUDFLARE_API_TOKEN'), 'Cloudflare token secret hook missing');
 assert(deploy.includes('CLOUDFLARE_ACCOUNT_ID'), 'Cloudflare account secret hook missing');
 assert(deploy.includes('/api/health'), 'post-deploy health verification missing');
+assert(deploy.includes('live SHA differs from current main'), 'deploy verification must compare live Cloudflare assets with current main');
+assert(deploy.includes('data-view="'+view+'"'), 'deploy verification must reject the stale Incoming/Past-only shell');
+assert(deploy.includes('calendarAlertRows("today")'), 'deploy verification must require live Today alert logic');
+assert(deploy.includes('setInterval(fetchLiveCalendar, 60000)'), 'deploy verification must require live calendar polling');
+assert(deploy.includes('ref: main'), 'production Worker deploy must always checkout main');
 assert(!/^\s{2}push:/m.test(deploy), 'Worker deploy must stay manual until Cloudflare Actions credentials are configured');
 assert(deploy.includes('workflow_dispatch: {}'), 'Worker deploy must remain manually runnable once credentials are added');
 
