@@ -22,6 +22,14 @@ for (const view of ['today', 'week', 'month', 'upcoming', 'past']) {
 }
 assert(index.includes('id="alerts-month"'), 'monthly alert bucket must be visible');
 assert(index.includes('id="calendar-source-status"'), 'calendar freshness/horizon status must be visible');
+assert(index.includes("Today's Event Focus"), 'today focus heading must identify the live event calendar');
+const focusStart = app.indexOf('function renderTradeFocus()');
+const focusEnd = app.indexOf('function fullCalendarRows()', focusStart);
+const focusBlock = app.slice(focusStart, focusEnd);
+assert(focusStart >= 0 && focusEnd > focusStart, 'today event focus renderer missing');
+assert(focusBlock.includes('fullCalendarRows()'), 'today event focus must use the full live calendar');
+assert(!focusBlock.includes('bestPairForCurrency'), 'today event focus must not depend on pair-direction scoring');
+assert(focusBlock.includes('itemCalendarKey(it, "day") === todayKey'), 'today event focus must filter by MYT calendar day');
 
 assert(build.includes('ff_calendar_thisweek.json'), 'current-week calendar feed missing');
 assert(build.includes('calendar?month=this'), 'current-month Forex Factory page source missing');
