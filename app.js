@@ -595,6 +595,7 @@
     "https://nfs.faireconomy.media/ff_calendar_thisweek.json"
   ];
   var liveCalendarTimer = null, lastLiveCalendarSignature = "";
+  var LIVE_CALENDAR_SOURCE_TIMEOUT_MS = 2500;
   var DATA_CACHE_PREFIX = "xau-data-cache:";
   function sandboxEvalDataFile(text, globalName) {
     var win = {};
@@ -766,11 +767,11 @@
     if (changed) renderAll();
     return changed;
   }
-  function fetchLiveCalendarSource(index, errors) {
-    errors = errors || [];
-    if (index >= LIVE_CALENDAR_URLS.length) return Promise.reject(new Error(errors.join(" | ") || "no live calendar source available"));
+  function fetchLiveCalendarAttempt(index) {
     var url = LIVE_CALENDAR_URLS[index];
-    return fetch(url, { cache: "no-store" }).then(function (r) {
+    var controller = typeof AbortController !== "undefined" ? new AbortController() : null;
+    var timer = null;
+    var request = fetch(url, { cache: "no-store", signal: controller ? controller.signal : undefined }).then(function (r) {
       if (!r.ok) throw new Error("HTTP " + r.status);
       return r.json();
     }).then(function (body) {
@@ -782,7 +783,26 @@
         sourceLabel: index === 0 ? "ForexFactory live Worker" : "ForexFactory direct structured feed",
         sourceUrl: url
       };
-    }).catch(function (e) {
+    });
+    var timeout = new Promise(function (_, reject) {
+      timer = setTimeout(function () {
+        if (controller) controller.abort();
+        reject(new Error("timeout after " + LIVE_CALENDAR_SOURCE_TIMEOUT_MS + "ms"));
+      }, LIVE_CALENDAR_SOURCE_TIMEOUT_MS);
+    });
+    return Promise.race([request, timeout]).then(function (value) {
+      if (timer) clearTimeout(timer);
+      return value;
+    }, function (err) {
+      if (timer) clearTimeout(timer);
+      throw err;
+    });
+  }
+  function fetchLiveCalendarSource(index, errors) {
+    errors = errors || [];
+    if (index >= LIVE_CALENDAR_URLS.length) return Promise.reject(new Error(errors.join(" | ") || "no live calendar source available"));
+    var url = LIVE_CALENDAR_URLS[index];
+    return fetchLiveCalendarAttempt(index).catch(function (e) {
       errors.push(url + ": " + e.message);
       return fetchLiveCalendarSource(index + 1, errors);
     });
