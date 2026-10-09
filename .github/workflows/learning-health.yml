@@ -1,5 +1,13 @@
 name: Learning and Agent Health
 on:
+  push:
+    branches: [main]
+    paths:
+      - "build-bbma-watch.js"
+      - "build-bbma-learning.js"
+      - "build-agent-health.js"
+      - "lib/bbma-*.js"
+      - ".github/workflows/learning-health.yml"
   schedule:
     - cron: '37 1 * * 1-5'
   workflow_dispatch:
