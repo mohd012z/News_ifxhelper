@@ -26,6 +26,11 @@ assert(app.includes('visibilitychange'), 'live calendar must refresh when app be
 assert(app.includes('window.addEventListener("focus", fetchLiveCalendar)'), 'live calendar must refresh on focus');
 assert(app.includes('sourceClass: "LIVE_CALENDAR_PROXY"'), 'live rows must be labeled by source class');
 assert(app.includes('liveGeneratedAt'), 'UI freshness must include live update timestamp');
+assert(!app.includes('var today = (T.alerts || {}).today || [];'), 'assistant today alerts must not read the legacy static alert table');
+assert(app.includes('var today = calendarAlertRows("today");'), 'assistant today alerts must read the live calendar');
+assert(app.includes('function hardRefreshShell()'), 'Reload must use the stale-shell recovery path');
+assert(app.includes('searchParams.set("_fresh"'), 'hard refresh must add a cache-busting query');
+assert(app.includes('navigator.serviceWorker.getRegistration()'), 'hard refresh must ask the service worker to update before navigation');
 
 assert(sw.includes('const CACHE = "xaudesk-v6"'), 'service-worker cache version must be v6');
 assert(sw.includes('"/index.html"') && sw.includes('"/pwa.js"'), 'service worker must network-first the HTML/PWA bootstrap');
