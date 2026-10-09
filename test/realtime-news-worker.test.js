@@ -18,6 +18,9 @@ assert(app.includes('setInterval(fetchLiveCalendar, 60000)'), 'live calendar mus
 assert(app.includes('syncProfileVersion: 2'), 'sync profile migration marker missing');
 assert(app.includes('remoteMin: "5"'), 'durable remote sync default must be five minutes');
 assert(app.includes('fetchLiveCalendarSource(index + 1, errors)'), 'live calendar must fail over to the next source');
+assert(app.includes('LIVE_CALENDAR_SOURCE_TIMEOUT_MS = 2500'), 'each live calendar source must have a bounded timeout');
+assert(app.includes('Promise.race([request, timeout])'), 'live source timeout must race the network request');
+assert(app.includes('controller.abort()'), 'timed-out live source should be aborted when AbortController is available');
 assert(app.includes('visibilitychange'), 'live calendar must refresh when app becomes visible');
 assert(app.includes('window.addEventListener("focus", fetchLiveCalendar)'), 'live calendar must refresh on focus');
 assert(app.includes('sourceClass: "LIVE_CALENDAR_PROXY"'), 'live rows must be labeled by source class');
