@@ -863,7 +863,7 @@
   /* ---- desk assistant: a local, offline chat bubble that answers from this page's own data ---- */
   function nextIncomingEvent() {
     var now = new Date();
-    var items = (D.incoming || []).map(function (e) { return { e: e, t: parseEventTime(e.timeGmt) }; })
+    var items = fullCalendarRows().filter(function (e) { return e.importance === "high" || e.importance === "med"; }).map(function (e) { return { e: e, t: parseEventTime(e.timeGmt) }; })
       .sort(function (a, b) { return (a.t ? a.t.getTime() : Infinity) - (b.t ? b.t.getTime() : Infinity); });
     for (var i = 0; i < items.length; i++) { if (items[i].t && items[i].t.getTime() >= now.getTime()) return items[i]; }
     return null;
@@ -1337,32 +1337,40 @@
   function renderTradeFocus() {
     var box = $("#trade-focus-list"); if (!box) return;
     var now = new Date();
-    var items = (D.incoming || []).filter(function (e) { return settings.showAuto !== false || !e.auto; }).map(function (e) { return { e: e, t: parseEventTime(e.timeGmt) }; })
-      .sort(function (a, b) { return (a.t ? a.t.getTime() : Infinity) - (b.t ? b.t.getTime() : Infinity); })
-      .filter(function (it) { return !it.t || it.t.getTime() >= now.getTime(); })
-      .slice(0, 4);
-    if (!items.length) { box.innerHTML = '<div class="note">No upcoming events left in the loaded calendar to map.</div>'; return; }
-    box.innerHTML = items.map(function (it, idx) {
+    var todayKey = mytCalendarKey(now, "day");
+    var items = fullCalendarRows()
+      .filter(function (e) { return settings.showAuto !== false || !e.auto; })
+      .filter(function (e) { return e.importance === "high" || e.importance === "med"; })
+      .map(function (e) { return { e: e, t: parseEventTime(e.timeGmt) }; })
+      .filter(function (it) { return itemCalendarKey(it, "day") === todayKey; })
+      .sort(function (a, b) { return calendarSortMs(a) - calendarSortMs(b); });
+
+    var upcoming = items.filter(function (it) { return !it.t || it.t.getTime() >= now.getTime(); });
+    var shown = (upcoming.length ? upcoming : items.slice().reverse()).slice(0, 6);
+    if (!shown.length) {
+      box.innerHTML = '<div class="note">No High/Medium economic events are loaded for today. The live calendar below remains the source of truth.</div>';
+      return;
+    }
+
+    var modeNote = upcoming.length
+      ? '<div class="note" style="margin-bottom:8px">Showing today\'s remaining High/Medium events from the same live calendar used below.</div>'
+      : '<div class="note" style="margin-bottom:8px">No High/Medium events remain ahead today; showing the latest completed events for today.</div>';
+
+    box.innerHTML = modeNote + shown.map(function (it) {
       var e = it.e;
-      var ccy = eventCurrency(e.event + " " + (e.note || ""));
-      var top = bestPairForCurrency(ccy);
-      var hAway = it.t ? Math.round((it.t.getTime() - now.getTime()) / 3600000) : null;
-      var pairLine = top
-        ? esc(top.pair) + ' <span class="sig ' + sigCls(top.s.signal) + '">' + esc(top.s.signal) + "</span> (score " + (top.s.score > 0 ? "+" : "") + top.s.score.toFixed(2) + ")"
-        : (ccy ? "No loaded FX pair carries " + esc(ccy) + " — watch it via a related cross or XAU/USD." : "No single currency driver — treat as a broad risk/USD event; watch XAU/USD and DXY directly.");
-      var open = !!tradeFocusOpen[idx];
-      var more = '<div class="tf-more">' +
-        '<div class="im">' + esc(e.note || "") + "</div>" +
-        '<div class="mt">MYT ' + esc(mytDisplay(e.timeMyt)) + "  ·  GMT " + esc(e.timeGmt || "—") + "  ·  focus " + esc(e.focusTf || "—") + "</div>" +
-        '<div class="im">' + esc(whenToTradeLine(e, it.t)) + "</div>" +
-        '<div class="im">' + esc(e.play || "") + "</div>" +
-        '<div class="im">' + (e.url ? '<a href="' + esc(e.url) + '" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Source: ' + esc(e.source || "official release") + "</a>" : '<span style="color:var(--muted)">Source not linked</span>') + "</div></div>";
-      return '<div class="al tf-item' + (open ? " open" : "") + '" data-idx="' + idx + '"><div class="hd"><span class="badge b-tf">' + esc(e.focusTf || "—") + '</span><span class="badge ' + (e.importance === "high" ? "b-high" : "b-med") + '">' + esc((e.importance || "").toUpperCase()) + "</span></div>" +
-        '<div class="tx"><b>' + esc(e.event) + "</b>" + (hAway != null ? " · in ~" + hAway + "h" : "") + '<span class="tf-caret">' + (open ? "▲ hide detail" : "▼ tap for detail") + "</span><br>Best expression: " + pairLine + " · Focus timeframe: <b>" + esc(e.focusTf || "—") + "</b></div>" + more + "</div>";
+      var future = !it.t || it.t.getTime() >= now.getTime();
+      var figures = [];
+      if (e.actual != null && e.actual !== "") figures.push("Actual " + e.actual);
+      if (e.forecast != null && e.forecast !== "") figures.push("Forecast " + e.forecast);
+      if (e.previous != null && e.previous !== "") figures.push("Previous " + e.previous);
+      var when = it.t ? mytDisplay(e.timeMyt) : (e.displayTime || e.date || "time TBA");
+      var state = future ? "UPCOMING" : "COMPLETED";
+      return '<div class="al tf-item"><div class="hd"><span class="badge ' + impactBadgeClass(e.importance) + '">' + esc((e.importance || "").toUpperCase()) + '</span><span class="badge b-tf">' + state + '</span></div>' +
+        '<div class="tx"><b>' + esc(e.event) + '</b><br>MYT <b>' + esc(when) + '</b>' +
+        (figures.length ? '<br>' + esc(figures.join(" · ")) : '') +
+        (e.source ? '<br><span style="color:var(--muted)">Source: ' + esc(e.source) + '</span>' : '') +
+        '</div></div>';
     }).join("");
-    $$(".tf-item", box).forEach(function (el) {
-      el.onclick = function () { var i = el.dataset.idx; tradeFocusOpen[i] = !tradeFocusOpen[i]; renderTradeFocus(); };
-    });
   }
   function fullCalendarRows() {
     var a = window.NEWS_AUTO || {};
