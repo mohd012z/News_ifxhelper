@@ -56,8 +56,7 @@ assert(intelligence360.includes('node build-data-manifest.js'),'Intelligence 360
 assert(intelligence360.includes('git add data/intelligence-360.json data-manifest.json'),'Intelligence 360 must publish its snapshot and manifest atomically');
 
 const workerDeploy=fs.readFileSync(path.join(wfDir,'deploy-worker.yml'),'utf8');
-assert(/^\s{2}push:/m.test(workerDeploy),'Worker deploy must auto-run when Worker/config files change on main');
-assert(workerDeploy.includes('"worker/**"'),'Worker deploy push trigger must be scoped to Worker code/config changes');
+assert(!/^\s{2}push:/m.test(workerDeploy),'Worker deploy must remain manual while Cloudflare Actions credentials are absent');
 assert(workerDeploy.includes('workflow_dispatch: {}'),'Worker deploy must remain manually runnable');
 assert(workerDeploy.includes('exit 1'),'missing Cloudflare credentials must fail visibly');
 assert(!workerDeploy.includes("if: steps.cf.outputs.ready == 'true'"),'Worker deploy must not silently skip deployment');

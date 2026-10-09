@@ -44,6 +44,7 @@ assert(wrangler.includes('name = "gentle-violet-4a79"'), 'Wrangler worker name m
 assert(deploy.includes('CLOUDFLARE_API_TOKEN'), 'Cloudflare token secret hook missing');
 assert(deploy.includes('CLOUDFLARE_ACCOUNT_ID'), 'Cloudflare account secret hook missing');
 assert(deploy.includes('/api/health'), 'post-deploy health verification missing');
-assert(deploy.includes('push:') && deploy.includes('"worker/**"'), 'Worker changes on main must auto-deploy');
+assert(!/^\s{2}push:/m.test(deploy), 'Worker deploy must stay manual until Cloudflare Actions credentials are configured');
+assert(deploy.includes('workflow_dispatch: {}'), 'Worker deploy must remain manually runnable once credentials are added');
 
 console.log('Realtime news Worker contract tests passed');
