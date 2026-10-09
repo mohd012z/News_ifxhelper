@@ -14,6 +14,10 @@ for(const name of workflowFiles){
   assert(text.includes('group: market-data-writer'), name+' writes main but is not in shared market-data-writer concurrency group');
   assert(!/^\s*queue:/m.test(text), name+' contains unsupported concurrency queue key');
   assert(text.includes('git pull --rebase origin main'), name+' pushes main without rebasing first');
+  if (/^\s{2}push:/m.test(text)) {
+    assert(text.includes('ref: main'), name+' is a push-triggered writer but does not checkout latest main after concurrency wait');
+    assert(text.includes('fetch-depth: 0'), name+' push-triggered writer must fetch main history for safe rebases');
+  }
 }
 
 const reminders=fs.readFileSync(path.join(wfDir,'event-reminders.yml'),'utf8');
