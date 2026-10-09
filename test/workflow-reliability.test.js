@@ -29,6 +29,15 @@ assert(reminders.includes('npm run test:calendar-heartbeat'),'heartbeat regressi
 assert(reminders.includes('continue-on-error: true'),'reminder delivery must fail open');
 assert(reminders.includes('timeout-minutes: 2'),'reminder delivery must be time bounded');
 
+const bbmaWatch=fs.readFileSync(path.join(wfDir,'bbma-watch.yml'),'utf8');
+assert(bbmaWatch.includes('git status --porcelain -- data/bbma-watch.json'),'BBMA watcher must detect untracked/new snapshot files before deciding there is no change');
+assert(!bbmaWatch.includes('git diff --quiet -- data/bbma-watch.json'),'BBMA watcher must not use git diff alone for a possibly untracked snapshot');
+
+const learningHealth=fs.readFileSync(path.join(wfDir,'learning-health.yml'),'utf8');
+assert(learningHealth.includes('Ensure BBMA watch snapshot exists'),'learning health must bootstrap a missing BBMA snapshot');
+assert(learningHealth.includes('node build-bbma-watch.js'),'learning health bootstrap must rebuild the watch snapshot');
+assert(learningHealth.includes('git add data/bbma-watch.json data/bbma-learning.json data/bbma-performance.json data/agent-health.json'),'learning health must persist a bootstrapped watch snapshot with its outputs');
+
 const workerDeploy=fs.readFileSync(path.join(wfDir,'deploy-worker.yml'),'utf8');
 assert(!/^\s{2}push:/m.test(workerDeploy),'Worker deploy must remain manual until Cloudflare credentials are configured');
 assert(workerDeploy.includes('workflow_dispatch: {}'),'Worker deploy must be manually runnable');
