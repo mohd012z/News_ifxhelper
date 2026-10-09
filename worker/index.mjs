@@ -1,5 +1,6 @@
 const RAW_BASE = "https://raw.githubusercontent.com/mohd012z/News_ifxhelper/main/";
 const FF_WEEK = "https://nfs.faireconomy.media/ff_calendar_thisweek.json";
+const WORKER_VERSION = "2026-10-09-live-proxy-v2";
 
 const MIME = {
   ".html": "text/html; charset=utf-8",
@@ -39,6 +40,7 @@ function headersFor(path, upstream) {
   const type = MIME[ext(path)];
   if (type) h.set("Content-Type", type);
   h.set("X-Content-Type-Options", "nosniff");
+  h.set("X-IFXHelper-Worker-Version", WORKER_VERSION);
   h.set("Access-Control-Allow-Origin", "*");
   h.set("Vary", "Origin");
   if (VOLATILE.has(path) || path.startsWith("data/")) {
@@ -52,7 +54,12 @@ function headersFor(path, upstream) {
 }
 
 async function fetchRaw(path) {
-  const target = RAW_BASE + path.split("/").map(encodeURIComponent).join("/");
+  const volatile = VOLATILE.has(path) || path.startsWith("data/");
+  let target = RAW_BASE + path.split("/").map(encodeURIComponent).join("/");
+  // raw.githubusercontent.com is normally fast to update, but an intermediate CDN can still
+  // briefly reuse an older object. Give volatile files a minute-bucket query key so a Worker
+  // that is definitely on this revision cannot keep serving an old shell/data snapshot.
+  if (volatile) target += "?cf_refresh=" + Math.floor(Date.now() / 60000);
   return fetch(target, {
     cache: "no-store",
     cf: { cacheTtl: 0, cacheEverything: false }
@@ -117,12 +124,15 @@ export default {
         ok: true,
         service: "ifxhelper-news-worker",
         now: new Date().toISOString(),
-        rawBase: RAW_BASE
+        rawBase: RAW_BASE,
+        workerVersion: WORKER_VERSION,
+        sourceMode: "github-main-live-proxy"
       }), {
         headers: {
           "Content-Type": "application/json; charset=utf-8",
           "Cache-Control": "no-store",
-          "Access-Control-Allow-Origin": "*"
+          "Access-Control-Allow-Origin": "*",
+          "X-IFXHelper-Worker-Version": WORKER_VERSION
         }
       });
     }

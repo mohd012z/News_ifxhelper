@@ -13,6 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
 
       - name: Require Cloudflare credentials
         env:
@@ -31,22 +33,55 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: deploy --config wrangler.toml
 
-      - name: Verify deployed Worker
+      - name: Verify deployed Worker matches current main
         run: |
           node - <<'NODE'
+          const crypto=require('crypto');
           const base='https://gentle-violet-4a79.ifxhelper.workers.dev';
-          async function check(path, type) {
-            const r=await fetch(base+path,{cache:'no-store'});
+          const raw='https://raw.githubusercontent.com/mohd012z/News_ifxhelper/main/';
+          const expectedWorkerVersion='2026-10-09-live-proxy-v2';
+
+          async function fetchText(url,type){
+            const r=await fetch(url+(url.includes('?')?'&':'?')+'_verify='+Date.now(),{cache:'no-store'});
             const ct=(r.headers.get('content-type')||'').toLowerCase();
-            if(!r.ok) throw new Error(path+' HTTP '+r.status);
-            if(!type.test(ct)) throw new Error(path+' wrong content-type '+ct);
-            return r;
+            if(!r.ok) throw new Error(url+' HTTP '+r.status);
+            if(type && !type.test(ct)) throw new Error(url+' wrong content-type '+ct);
+            return {r,text:await r.text()};
           }
-          const health=await check('/api/health',/application\/json/);
-          const body=await health.json();
-          if(!body.ok||body.service!=='ifxhelper-news-worker') throw new Error('unexpected health payload');
-          await check('/app.js',/javascript/);
-          await check('/news-auto.js',/javascript/);
-          await check('/data-manifest.json',/application\/json/);
-          console.log('Worker deployment verified at',body.now);
+          const sha=s=>crypto.createHash('sha256').update(s).digest('hex');
+
+          const healthRes=await fetch(base+'/api/health?verify='+Date.now(),{cache:'no-store'});
+          if(!healthRes.ok) throw new Error('/api/health HTTP '+healthRes.status);
+          const health=await healthRes.json();
+          if(!health.ok||health.service!=='ifxhelper-news-worker') throw new Error('unexpected health payload');
+          if(health.workerVersion!==expectedWorkerVersion) throw new Error('stale Worker revision: '+String(health.workerVersion||'missing'));
+          if(health.sourceMode!=='github-main-live-proxy') throw new Error('unexpected Worker source mode');
+
+          const files=[
+            ['index.html',/text\/html/],
+            ['app.js',/javascript/],
+            ['news-auto.js',/javascript/],
+            ['data-manifest.json',/application\/json/]
+          ];
+          const live={};
+          for(const [path,type] of files){
+            const a=await fetchText(base+'/'+path,type);
+            const b=await fetchText(raw+path,null);
+            if(sha(a.text)!==sha(b.text)) throw new Error(path+' live SHA differs from current main');
+            live[path]=a.text;
+            const version=a.r.headers.get('x-ifxhelper-worker-version');
+            if(version!==expectedWorkerVersion) throw new Error(path+' missing/current Worker version header');
+          }
+
+          for(const view of ['today','week','month']){
+            if(!live['index.html'].includes('data-view="'+view+'"')) throw new Error('stale index.html: missing '+view+' calendar view');
+          }
+          if(!live['app.js'].includes('calendarAlertRows("today")')) throw new Error('stale app.js: live Today alerts missing');
+          if(!live['app.js'].includes('setInterval(fetchLiveCalendar, 60000)')) throw new Error('stale app.js: live calendar refresh loop missing');
+          if(!live['news-auto.js'].includes('"calendarAll"')) throw new Error('stale news-auto.js: calendarAll missing');
+
+          const manifest=JSON.parse(live['data-manifest.json']);
+          if(Number(manifest.schemaVersion)!==3||!manifest.generatedAt) throw new Error('invalid/stale data manifest');
+
+          console.log('Cloudflare Worker verified current:',health.workerVersion,manifest.generatedAt);
           NODE
