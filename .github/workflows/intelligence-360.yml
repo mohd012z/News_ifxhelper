@@ -1,5 +1,12 @@
 name: Intelligence 360
 on:
+  push:
+    branches: [main]
+    paths:
+      - "build-intelligence-360.js"
+      - "lib/intelligence-*.js"
+      - "lib/intelligence-orchestrator.js"
+      - ".github/workflows/intelligence-360.yml"
   schedule:
     - cron: '7 * * * 1-5'
   workflow_dispatch:
@@ -20,11 +27,19 @@ jobs:
       - run: npm test
       - run: node build-intelligence-360.js
       - run: node -e "const x=require('./data/intelligence-360.json');if(!x.generatedAt||!x.status)throw Error('invalid intelligence snapshot')"
+      - name: Rebuild manifest with Intelligence 360 lineage
+        run: node build-data-manifest.js
+      - name: Validate manifest lineage inputs
+        run: |
+          node -e "const m=require('./data-manifest.json');const i=require('./data/intelligence-360.json');if(!m.generatedAt||!i.generationId)throw Error('missing manifest/intelligence lineage');console.log('manifest lineage inputs',i.generationId,m.lineage&&m.lineage.status);"
       - run: |
-          if git diff --quiet -- data/intelligence-360.json; then exit 0; fi
+          if [ -z "$(git status --porcelain -- data/intelligence-360.json)" ]; then
+            echo 'No Intelligence 360 snapshot change'
+            exit 0
+          fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data/intelligence-360.json
+          git add data/intelligence-360.json data-manifest.json
           git commit -m 'data: refresh intelligence 360'
           git pull --rebase origin main
           git push

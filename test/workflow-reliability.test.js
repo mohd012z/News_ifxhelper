@@ -38,6 +38,13 @@ assert(learningHealth.includes('Ensure BBMA watch snapshot exists'),'learning he
 assert(learningHealth.includes('node build-bbma-watch.js'),'learning health bootstrap must rebuild the watch snapshot');
 assert(learningHealth.includes('git add data/bbma-watch.json data/bbma-learning.json data/bbma-performance.json data/agent-health.json'),'learning health must persist a bootstrapped watch snapshot with its outputs');
 
+const intelligence360=fs.readFileSync(path.join(wfDir,'intelligence-360.yml'),'utf8');
+assert(intelligence360.includes('git status --porcelain -- data/intelligence-360.json'),'Intelligence 360 must detect untracked/new snapshot files');
+assert(!intelligence360.includes('git diff --quiet -- data/intelligence-360.json'),'Intelligence 360 must not use git diff alone for a possibly untracked snapshot');
+assert(intelligence360.includes('push:'),'Intelligence 360 must self-verify on relevant main changes');
+assert(intelligence360.includes('node build-data-manifest.js'),'Intelligence 360 must rebuild the manifest after creating its lineage source');
+assert(intelligence360.includes('git add data/intelligence-360.json data-manifest.json'),'Intelligence 360 must publish its snapshot and manifest atomically');
+
 const workerDeploy=fs.readFileSync(path.join(wfDir,'deploy-worker.yml'),'utf8');
 assert(!/^\s{2}push:/m.test(workerDeploy),'Worker deploy must remain manual until Cloudflare credentials are configured');
 assert(workerDeploy.includes('workflow_dispatch: {}'),'Worker deploy must be manually runnable');
