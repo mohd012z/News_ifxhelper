@@ -1,14 +1,8 @@
 name: Deploy Cloudflare Worker
 
-# Worker code proxies current main assets, so it only needs redeployment when the
-# Worker/config itself changes. Credentials are required and failures remain visible.
+# Manual-only while CLOUDFLARE_API_TOKEN / CLOUDFLARE_ACCOUNT_ID are absent.
+# Missing credentials must fail visibly; a skipped deploy must never be reported as success.
 on:
-  push:
-    branches: [main]
-    paths:
-      - "worker/**"
-      - "wrangler.toml"
-      - ".github/workflows/deploy-worker.yml"
   workflow_dispatch: {}
 
 permissions:
