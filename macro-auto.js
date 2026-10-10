@@ -4,7 +4,7 @@
  * Regenerate: node build-macro.js (run on the same cron as build-atr.js / build-news.js).
  */
 window.MACRO_AUTO = {
-  "generatedAt": "2026-10-10 06:20:13Z",
+  "generatedAt": "2026-10-10 12:59:58Z",
   "dxy": {
     "label": "DXY",
     "value": "102.23",
