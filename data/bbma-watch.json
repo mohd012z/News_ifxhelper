@@ -1,11 +1,11 @@
 {
   "schemaVersion": 3,
   "generationId": "bbma-861599bca20d89747e5b",
-  "generatedAt": "2026-10-09T23:05:37.051Z",
-  "sourceGeneratedAt": "2026-10-09T23:05:37.051Z",
+  "generatedAt": "2026-10-10T02:18:04.230Z",
+  "sourceGeneratedAt": "2026-10-10T02:18:04.230Z",
   "symbol": "GC=F",
   "provider": "YAHOO_CHART",
-  "httpMs": 324,
+  "httpMs": 184,
   "source": {
     "candles": 6521,
     "valid": 6521,
@@ -23,7 +23,7 @@
       "previous": "",
       "time": "2026-10-09T20:00:00.000Z"
     },
-    "minutes": -185.6
+    "minutes": -378.1
   },
   "analysis": {
     "M1": {
@@ -361,7 +361,7 @@
     }
   },
   "dashboard": {
-    "generatedAt": "2026-10-09T23:05:37.051Z",
+    "generatedAt": "2026-10-10T02:18:04.230Z",
     "overall": "UP_ALIGNED",
     "up": 3,
     "down": 0,
