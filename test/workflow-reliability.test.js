@@ -7,6 +7,7 @@ const path=require('path');
 const root=path.resolve(__dirname,'..');
 const wfDir=path.join(root,'.github','workflows');
 const workflowFiles=fs.readdirSync(wfDir).filter(x=>/\.ya?ml$/i.test(x));
+const telegram=fs.readFileSync(path.join(root,'telegram-notify.js'),'utf8');
 
 for(const name of workflowFiles){
   const text=fs.readFileSync(path.join(wfDir,name),'utf8');
@@ -35,6 +36,11 @@ assert(reminders.includes('node build-data-manifest.js'),'manifest rebuild missi
 assert(reminders.includes('npm run test:calendar-heartbeat'),'heartbeat regression test missing from workflow');
 assert(reminders.includes('continue-on-error: true'),'reminder delivery must fail open');
 assert(reminders.includes('timeout-minutes: 2'),'reminder delivery must be time bounded');
+
+assert(telegram.includes('j.parameters && j.parameters.retry_after'),'Telegram rate limits must honor the API retry_after value');
+assert(telegram.includes('attempt < 3'),'Telegram delivery must retry rate-limited messages a bounded number of times');
+assert(telegram.includes('setTimeout(resolve, waitMs)'),'Telegram delivery must wait before retrying a rate-limited message');
+assert(telegram.includes('setTimeout(res, 3100)'),'weekly outlook messages must be paced below Telegram chat limits');
 
 const bbmaWatch=fs.readFileSync(path.join(wfDir,'bbma-watch.yml'),'utf8');
 assert(bbmaWatch.includes('git status --porcelain -- data/bbma-watch.json'),'BBMA watcher must detect untracked/new snapshot files before deciding there is no change');
