@@ -67,23 +67,33 @@ function saveState(state) {
 async function sendTelegram(text) {
   if (!TOKEN || !CHAT_ID) { console.log('SKIP (no Telegram credentials configured):\n' + text + '\n'); return { ok: false, skipped: true }; }
   const url = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
-  let r;
-  try {
-    r = await fetch(url, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chat_id: CHAT_ID, text, parse_mode: 'HTML', disable_web_page_preview: true })
-    });
-  } catch (e) { console.log('FAIL Telegram send (network): ' + e.message); return { ok: false }; }
-  const j = await r.json().catch(() => ({}));
-  if (!r.ok || !j.ok) {
+  for (let attempt = 0; attempt < 3; attempt++) {
+    let r;
+    try {
+      r = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ chat_id: CHAT_ID, text, parse_mode: 'HTML', disable_web_page_preview: true })
+      });
+    } catch (e) { console.log('FAIL Telegram send (network): ' + e.message); return { ok: false }; }
+    const j = await r.json().catch(() => ({}));
+    if (r.ok && j.ok) return { ok: true };
+
+    const rateLimited = /too many requests/i.test(j.description || '');
+    if (rateLimited && attempt < 2) {
+      const retryAfter = Number(j.parameters && j.parameters.retry_after);
+      const waitMs = (Number.isFinite(retryAfter) && retryAfter > 0 ? retryAfter : 1) * 1000 + 1000;
+      console.log(`Telegram rate limited; retrying in ${Math.ceil(waitMs / 1000)}s.`);
+      await new Promise(resolve => setTimeout(resolve, waitMs));
+      continue;
+    }
+
     console.log('FAIL Telegram send: ' + (j.description || r.status));
-    // Telegram's own rate limit (~20 msg/min/chat) is an EXPECTED outcome on a big catch-up batch,
-    // not a broken integration - the item is correctly left unsent above and retried next run.
-    // Treating it as a hard failure only trains everyone to ignore the real red X's.
-    return { ok: false, rateLimited: /too many requests/i.test(j.description || '') };
+    // Telegram rate limits are expected on a big catch-up batch; the item remains unsent and can
+    // be retried on the next run if the bounded retry above is exhausted.
+    return { ok: false, rateLimited };
   }
-  return { ok: true };
+  return { ok: false, rateLimited: true };
 }
 /* Sends the card as a photo with the full card as its caption (QuickChart.io - free, key-free,
  * renders a real PNG bar from a JSON chart spec, no account needed). Falls back to a plain text
@@ -676,7 +686,7 @@ function buildWeeklyOutlook(MARKET_DATA, NEWS_AUTO) {
     for (const chunk of chunks) {
       const r = await sendTelegram(chunk);
       if (r.skipped) anySkipped = true; else if (!r.ok) sentAll = false;
-      await new Promise(res => setTimeout(res, 1500));
+      await new Promise(res => setTimeout(res, 3100));
     }
     console.log(anySkipped ? '\n(no Telegram credentials - printed above only)' : sentAll ? `\nSENT weekly outlook (${chunks.length} message(s)).` : '\nFAILED to send one or more weekly outlook messages.');
     if (!sentAll && !anySkipped) process.exitCode = 1;
