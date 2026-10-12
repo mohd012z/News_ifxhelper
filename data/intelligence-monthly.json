@@ -1,6 +1,27 @@
 {
-  "generatedAt": "2026-10-05T09:12:03.217Z",
+  "generatedAt": "2026-10-12T09:21:40.175Z",
   "days": 30,
-  "samples": 0,
-  "groups": {}
+  "samples": 8,
+  "groups": {
+    "M5|NORMAL|MID_BB|NORMAL": {
+      "samples": 2,
+      "correct": 0,
+      "accuracyPct": 0
+    },
+    "M15|NORMAL|INSIDE_BB|NORMAL": {
+      "samples": 2,
+      "correct": 1,
+      "accuracyPct": 50
+    },
+    "M30|NORMAL|MID_BB|SQUEEZE": {
+      "samples": 2,
+      "correct": 0,
+      "accuracyPct": 0
+    },
+    "H1|NORMAL|INSIDE_BB|NORMAL": {
+      "samples": 2,
+      "correct": 1,
+      "accuracyPct": 50
+    }
+  }
 }
