@@ -279,8 +279,18 @@
     "reasons": [
       "trend_down"
     ],
-    "status": "PENDING",
-    "id": "cae40f121ff7372f67d3"
+    "status": "SETTLED",
+    "id": "cae40f121ff7372f67d3",
+    "settledAt": "2026-10-12T08:08:59.356Z",
+    "nextCandleTime": "2026-10-09T12:00:00.000Z",
+    "actualDirection": "UP",
+    "predictedDirection": "DOWN",
+    "correct": false,
+    "nextReturnPct": 0.0119,
+    "mfePct": 0.0594,
+    "maePct": -0.0285,
+    "rangePct": 0.0879,
+    "closeLocationPct": 45.94
   },
   {
     "schemaVersion": 4,
@@ -312,8 +322,18 @@
     "state": "RANGE_OR_BREAKOUT_WATCH",
     "confidence": 100,
     "reasons": [],
-    "status": "PENDING",
-    "id": "b60907cae74839443480"
+    "status": "SETTLED",
+    "id": "b60907cae74839443480",
+    "settledAt": "2026-10-12T08:08:59.356Z",
+    "nextCandleTime": "2026-10-09T12:00:00.000Z",
+    "actualDirection": "FLAT",
+    "predictedDirection": "FLAT",
+    "correct": true,
+    "nextReturnPct": 0,
+    "mfePct": 0.0713,
+    "maePct": -0.0404,
+    "rangePct": 0.1117,
+    "closeLocationPct": 36.17
   },
   {
     "schemaVersion": 4,
@@ -347,8 +367,18 @@
     "reasons": [
       "squeeze_pre_breakout"
     ],
-    "status": "PENDING",
-    "id": "824e08985ef34efb626c"
+    "status": "SETTLED",
+    "id": "824e08985ef34efb626c",
+    "settledAt": "2026-10-12T08:08:59.356Z",
+    "nextCandleTime": "2026-10-09T12:00:00.000Z",
+    "actualDirection": "UP",
+    "predictedDirection": "FLAT",
+    "correct": false,
+    "nextReturnPct": 0.0214,
+    "mfePct": 0.0713,
+    "maePct": -0.0879,
+    "rangePct": 0.1592,
+    "closeLocationPct": 68.66
   },
   {
     "schemaVersion": 4,
@@ -382,7 +412,192 @@
     "reasons": [
       "trend_up"
     ],
+    "status": "SETTLED",
+    "id": "14b9ff192d03f2e756d1",
+    "settledAt": "2026-10-12T08:08:59.356Z",
+    "nextCandleTime": "2026-10-09T12:00:00.000Z",
+    "actualDirection": "DOWN",
+    "predictedDirection": "UP",
+    "correct": false,
+    "nextReturnPct": -0.1759,
+    "mfePct": 0.2044,
+    "maePct": -0.347,
+    "rangePct": 0.5514,
+    "closeLocationPct": 31.03
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-06e16c86792ae379f223",
+    "sourceGeneratedAt": "2026-10-12T03:22:15.877Z",
+    "symbol": "GC=F",
+    "tf": "M1",
+    "candleTime": "2026-10-12T07:58:54.000Z",
+    "createdAt": "2026-10-12T08:08:59.356Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "Bank Holiday",
+      "currency": "USD",
+      "impact": "HOLIDAY",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-10-12T11:00:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "TIGHT",
+    "state": "DOWN_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_down"
+    ],
     "status": "PENDING",
-    "id": "14b9ff192d03f2e756d1"
+    "id": "47023252e619f0c2bc6c"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-06e16c86792ae379f223",
+    "sourceGeneratedAt": "2026-10-12T03:22:15.877Z",
+    "symbol": "GC=F",
+    "tf": "M5",
+    "candleTime": "2026-10-12T07:55:00.000Z",
+    "createdAt": "2026-10-12T08:08:59.356Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "Bank Holiday",
+      "currency": "USD",
+      "impact": "HOLIDAY",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-10-12T11:00:00.000Z"
+    },
+    "location": "EMA50",
+    "bbma": {
+      "trend": "MIXED",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "RANGE_OR_BREAKOUT_WATCH",
+    "confidence": 100,
+    "reasons": [],
+    "status": "PENDING",
+    "id": "ddd984efbe284d47d981"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-06e16c86792ae379f223",
+    "sourceGeneratedAt": "2026-10-12T03:22:15.877Z",
+    "symbol": "GC=F",
+    "tf": "M15",
+    "candleTime": "2026-10-12T07:45:00.000Z",
+    "createdAt": "2026-10-12T08:08:59.356Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "Bank Holiday",
+      "currency": "USD",
+      "impact": "HOLIDAY",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-10-12T11:00:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "UP",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "UP_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_up"
+    ],
+    "status": "PENDING",
+    "id": "2feb87bcf0574fd10b99"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-06e16c86792ae379f223",
+    "sourceGeneratedAt": "2026-10-12T03:22:15.877Z",
+    "symbol": "GC=F",
+    "tf": "M30",
+    "candleTime": "2026-10-12T07:30:00.000Z",
+    "createdAt": "2026-10-12T08:08:59.356Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "Bank Holiday",
+      "currency": "USD",
+      "impact": "HOLIDAY",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-10-12T11:00:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "UP",
+      "extreme": "EXTREME_HIGH",
+      "momentum": "NONE",
+      "reentry": "REENTRY_UP_ZONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "UP_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_up",
+      "reentry_up"
+    ],
+    "status": "PENDING",
+    "id": "9a98dbd972d30a5b52a0"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-06e16c86792ae379f223",
+    "sourceGeneratedAt": "2026-10-12T03:22:15.877Z",
+    "symbol": "GC=F",
+    "tf": "H1",
+    "candleTime": "2026-10-12T07:00:00.000Z",
+    "createdAt": "2026-10-12T08:08:59.356Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "Bank Holiday",
+      "currency": "USD",
+      "impact": "HOLIDAY",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-10-12T11:00:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "UP",
+      "extreme": "EXTREME_HIGH",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "SQUEEZE",
+    "state": "RANGE_OR_BREAKOUT_WATCH",
+    "confidence": 50,
+    "reasons": [
+      "trend_up",
+      "squeeze_pre_breakout"
+    ],
+    "status": "PENDING",
+    "id": "c417f4fddb85876221c6"
   }
 ]
