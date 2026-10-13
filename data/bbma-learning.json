@@ -490,8 +490,18 @@
     "state": "RANGE_OR_BREAKOUT_WATCH",
     "confidence": 100,
     "reasons": [],
-    "status": "PENDING",
-    "id": "ddd984efbe284d47d981"
+    "status": "SETTLED",
+    "id": "ddd984efbe284d47d981",
+    "settledAt": "2026-10-13T08:34:06.331Z",
+    "nextCandleTime": "2026-10-12T08:00:00.000Z",
+    "actualDirection": "UP",
+    "predictedDirection": "FLAT",
+    "correct": false,
+    "nextReturnPct": 0.019,
+    "mfePct": 0.0285,
+    "maePct": -0.0333,
+    "rangePct": 0.0618,
+    "closeLocationPct": 84.6
   },
   {
     "schemaVersion": 4,
@@ -525,8 +535,18 @@
     "reasons": [
       "trend_up"
     ],
-    "status": "PENDING",
-    "id": "2feb87bcf0574fd10b99"
+    "status": "SETTLED",
+    "id": "2feb87bcf0574fd10b99",
+    "settledAt": "2026-10-13T08:34:06.331Z",
+    "nextCandleTime": "2026-10-12T08:00:00.000Z",
+    "actualDirection": "DOWN",
+    "predictedDirection": "UP",
+    "correct": false,
+    "nextReturnPct": -0.0761,
+    "mfePct": 0.0285,
+    "maePct": -0.0832,
+    "rangePct": 0.1118,
+    "closeLocationPct": 6.38
   },
   {
     "schemaVersion": 4,
@@ -561,8 +581,18 @@
       "trend_up",
       "reentry_up"
     ],
-    "status": "PENDING",
-    "id": "9a98dbd972d30a5b52a0"
+    "status": "SETTLED",
+    "id": "9a98dbd972d30a5b52a0",
+    "settledAt": "2026-10-13T08:34:06.331Z",
+    "nextCandleTime": "2026-10-12T08:00:00.000Z",
+    "actualDirection": "DOWN",
+    "predictedDirection": "UP",
+    "correct": false,
+    "nextReturnPct": -0.088,
+    "mfePct": 0.0285,
+    "maePct": -0.1308,
+    "rangePct": 0.1594,
+    "closeLocationPct": 26.86
   },
   {
     "schemaVersion": 4,
@@ -597,7 +627,192 @@
       "trend_up",
       "squeeze_pre_breakout"
     ],
+    "status": "SETTLED",
+    "id": "c417f4fddb85876221c6",
+    "settledAt": "2026-10-13T08:34:06.331Z",
+    "nextCandleTime": "2026-10-12T08:00:00.000Z",
+    "actualDirection": "DOWN",
+    "predictedDirection": "FLAT",
+    "correct": false,
+    "nextReturnPct": -0.1617,
+    "mfePct": 0.0285,
+    "maePct": -0.1855,
+    "rangePct": 0.2141,
+    "closeLocationPct": 11.11
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-9d6b9dc45252155b53b2",
+    "sourceGeneratedAt": "2026-10-13T02:09:05.516Z",
+    "symbol": "GC=F",
+    "tf": "M1",
+    "candleTime": "2026-10-13T08:24:03.000Z",
+    "createdAt": "2026-10-13T08:34:06.332Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Waller Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-10-13T07:45:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "UP",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "UP_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_up"
+    ],
     "status": "PENDING",
-    "id": "c417f4fddb85876221c6"
+    "id": "218dacd3fe372403797b"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-9d6b9dc45252155b53b2",
+    "sourceGeneratedAt": "2026-10-13T02:09:05.516Z",
+    "symbol": "GC=F",
+    "tf": "M5",
+    "candleTime": "2026-10-13T08:20:00.000Z",
+    "createdAt": "2026-10-13T08:34:06.332Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Waller Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-10-13T07:45:00.000Z"
+    },
+    "location": "MID_BB",
+    "bbma": {
+      "trend": "UP",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "CSAK_UP"
+    },
+    "squeeze": "NORMAL",
+    "state": "UP_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_up"
+    ],
+    "status": "PENDING",
+    "id": "35593733d7d09b23c214"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-9d6b9dc45252155b53b2",
+    "sourceGeneratedAt": "2026-10-13T02:09:05.516Z",
+    "symbol": "GC=F",
+    "tf": "M15",
+    "candleTime": "2026-10-13T08:00:00.000Z",
+    "createdAt": "2026-10-13T08:34:06.332Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Waller Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-10-13T07:45:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "EXTREME_LOW",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "DOWN_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_down"
+    ],
+    "status": "PENDING",
+    "id": "bdf9752e5164506c05e9"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-9d6b9dc45252155b53b2",
+    "sourceGeneratedAt": "2026-10-13T02:09:05.516Z",
+    "symbol": "GC=F",
+    "tf": "M30",
+    "candleTime": "2026-10-13T07:30:00.000Z",
+    "createdAt": "2026-10-13T08:34:06.332Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Waller Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-10-13T07:45:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "EXTREME_LOW",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "DOWN_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_down"
+    ],
+    "status": "PENDING",
+    "id": "4a2da8dfa5ce153ab7c4"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-9d6b9dc45252155b53b2",
+    "sourceGeneratedAt": "2026-10-13T02:09:05.516Z",
+    "symbol": "GC=F",
+    "tf": "H1",
+    "candleTime": "2026-10-13T07:00:00.000Z",
+    "createdAt": "2026-10-13T08:34:06.332Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Waller Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-10-13T07:45:00.000Z"
+    },
+    "location": "EMA50",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "TIGHT",
+    "state": "DOWN_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_down"
+    ],
+    "status": "PENDING",
+    "id": "179fab60742aea114064"
   }
 ]
