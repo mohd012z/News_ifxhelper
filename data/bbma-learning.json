@@ -707,8 +707,18 @@
     "reasons": [
       "trend_up"
     ],
-    "status": "PENDING",
-    "id": "35593733d7d09b23c214"
+    "status": "SETTLED",
+    "id": "35593733d7d09b23c214",
+    "settledAt": "2026-10-14T06:48:15.377Z",
+    "nextCandleTime": "2026-10-13T08:25:00.000Z",
+    "actualDirection": "UP",
+    "predictedDirection": "UP",
+    "correct": true,
+    "nextReturnPct": 0.0688,
+    "mfePct": 0.0807,
+    "maePct": -0.0237,
+    "rangePct": 0.1044,
+    "closeLocationPct": 88.64
   },
   {
     "schemaVersion": 4,
@@ -742,8 +752,18 @@
     "reasons": [
       "trend_down"
     ],
-    "status": "PENDING",
-    "id": "bdf9752e5164506c05e9"
+    "status": "SETTLED",
+    "id": "bdf9752e5164506c05e9",
+    "settledAt": "2026-10-14T06:48:15.378Z",
+    "nextCandleTime": "2026-10-13T08:15:00.000Z",
+    "actualDirection": "UP",
+    "predictedDirection": "DOWN",
+    "correct": false,
+    "nextReturnPct": 0.0688,
+    "mfePct": 0.0807,
+    "maePct": -0.0451,
+    "rangePct": 0.1258,
+    "closeLocationPct": 90.57
   },
   {
     "schemaVersion": 4,
@@ -777,8 +797,18 @@
     "reasons": [
       "trend_down"
     ],
-    "status": "PENDING",
-    "id": "4a2da8dfa5ce153ab7c4"
+    "status": "SETTLED",
+    "id": "4a2da8dfa5ce153ab7c4",
+    "settledAt": "2026-10-14T06:48:15.378Z",
+    "nextCandleTime": "2026-10-13T08:00:00.000Z",
+    "actualDirection": "UP",
+    "predictedDirection": "DOWN",
+    "correct": false,
+    "nextReturnPct": 0.133,
+    "mfePct": 0.1448,
+    "maePct": -0.0641,
+    "rangePct": 0.209,
+    "closeLocationPct": 94.32
   },
   {
     "schemaVersion": 4,
@@ -812,7 +842,195 @@
     "reasons": [
       "trend_down"
     ],
+    "status": "SETTLED",
+    "id": "179fab60742aea114064",
+    "settledAt": "2026-10-14T06:48:15.378Z",
+    "nextCandleTime": "2026-10-13T08:00:00.000Z",
+    "actualDirection": "DOWN",
+    "predictedDirection": "DOWN",
+    "correct": true,
+    "nextReturnPct": -0.0285,
+    "mfePct": 0.1496,
+    "maePct": -0.0641,
+    "rangePct": 0.2137,
+    "closeLocationPct": 16.67
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-e441cecc7fd86c4424b1",
+    "sourceGeneratedAt": "2026-10-14T05:27:03.419Z",
+    "symbol": "GC=F",
+    "tf": "M1",
+    "candleTime": "2026-10-14T06:37:52.000Z",
+    "createdAt": "2026-10-14T06:48:15.378Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Bowman Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-10-14T09:40:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "DOWN_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_down"
+    ],
     "status": "PENDING",
-    "id": "179fab60742aea114064"
+    "id": "d845c88224931c22f292"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-e441cecc7fd86c4424b1",
+    "sourceGeneratedAt": "2026-10-14T05:27:03.419Z",
+    "symbol": "GC=F",
+    "tf": "M5",
+    "candleTime": "2026-10-14T06:30:00.000Z",
+    "createdAt": "2026-10-14T06:48:15.378Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Bowman Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-10-14T09:40:00.000Z"
+    },
+    "location": "MID_BB",
+    "bbma": {
+      "trend": "UP",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "REENTRY_UP_ZONE",
+      "csak": "NONE"
+    },
+    "squeeze": "TIGHT",
+    "state": "UP_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_up",
+      "reentry_up"
+    ],
+    "status": "PENDING",
+    "id": "55a13697fd12640a7e7a"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-e441cecc7fd86c4424b1",
+    "sourceGeneratedAt": "2026-10-14T05:27:03.419Z",
+    "symbol": "GC=F",
+    "tf": "M15",
+    "candleTime": "2026-10-14T06:15:00.000Z",
+    "createdAt": "2026-10-14T06:48:15.378Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Bowman Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-10-14T09:40:00.000Z"
+    },
+    "location": "MID_BB",
+    "bbma": {
+      "trend": "UP",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "REENTRY_UP_ZONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "UP_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_up",
+      "reentry_up"
+    ],
+    "status": "PENDING",
+    "id": "05a4a80923d5ec3ce1a0"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-e441cecc7fd86c4424b1",
+    "sourceGeneratedAt": "2026-10-14T05:27:03.419Z",
+    "symbol": "GC=F",
+    "tf": "M30",
+    "candleTime": "2026-10-14T06:00:00.000Z",
+    "createdAt": "2026-10-14T06:48:15.378Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Bowman Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-10-14T09:40:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "MIXED",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "SQUEEZE",
+    "state": "RANGE_OR_BREAKOUT_WATCH",
+    "confidence": 100,
+    "reasons": [
+      "squeeze_pre_breakout"
+    ],
+    "status": "PENDING",
+    "id": "fcc90e5959dc8c6d0416"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-e441cecc7fd86c4424b1",
+    "sourceGeneratedAt": "2026-10-14T05:27:03.419Z",
+    "symbol": "GC=F",
+    "tf": "H1",
+    "candleTime": "2026-10-14T05:00:00.000Z",
+    "createdAt": "2026-10-14T06:48:15.378Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Bowman Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-10-14T09:40:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "REENTRY_DOWN_ZONE",
+      "csak": "NONE"
+    },
+    "squeeze": "UNKNOWN",
+    "state": "DOWN_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_down",
+      "reentry_down"
+    ],
+    "status": "PENDING",
+    "id": "8e8f22efc2e87f220673"
   }
 ]
