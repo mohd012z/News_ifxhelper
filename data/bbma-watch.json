@@ -1,29 +1,29 @@
 {
   "schemaVersion": 3,
-  "generationId": "bbma-2786b2449767afd52cd5",
-  "generatedAt": "2026-10-14T19:32:25.475Z",
-  "sourceGeneratedAt": "2026-10-14T19:32:25.475Z",
+  "generationId": "bbma-0876e7af447789e7df69",
+  "generatedAt": "2026-10-14T22:37:05.746Z",
+  "sourceGeneratedAt": "2026-10-14T22:37:05.746Z",
   "symbol": "GC=F",
   "provider": "YAHOO_CHART",
-  "httpMs": 217,
+  "httpMs": 250,
   "source": {
-    "candles": 5044,
-    "valid": 5044,
-    "gaps": 8,
+    "candles": 5168,
+    "valid": 5168,
+    "gaps": 9,
     "duplicates": 0
   },
   "news": {
-    "state": "POST_NEWS",
+    "state": "NORMAL",
     "event": {
-      "title": "FOMC Member Goolsbee Speaks",
+      "title": "API Weekly Statistical Bulletin",
       "currency": "USD",
       "impact": "LOW",
       "actual": null,
       "forecast": "",
       "previous": "",
-      "time": "2026-10-14T19:00:00.000Z"
+      "time": "2026-10-14T20:30:00.000Z"
     },
-    "minutes": -32.4
+    "minutes": -127.1
   },
   "analysis": {
     "M1": {
@@ -35,25 +35,25 @@
         "csak": "NONE",
         "reentry": "NONE",
         "emaGap": "EMA50_INSIDE_BB",
-        "squeeze": "NORMAL",
+        "squeeze": "TIGHT",
         "zone": "INSIDE_BB",
         "values": {
           "bb": {
-            "mid": 4120.694995117187,
-            "upper": 4128.907508521889,
-            "lower": 4112.482481712485,
-            "widthPct": 0.3985984604263658
+            "mid": 4126.425024414062,
+            "upper": 4129.916167653613,
+            "lower": 4122.933881174511,
+            "widthPct": 0.16920909595571407
           },
-          "ma5High": 4126.026627604167,
-          "ma10High": 4125.721795099432,
-          "ma5Low": 4125.073274739583,
-          "ma10Low": 4124.218146306818,
-          "ema50": 4118.569048177552,
-          "close": 4125.5
+          "ma5High": 4128.1,
+          "ma10High": 4128.398171164773,
+          "ma5Low": 4127.42001953125,
+          "ma10Low": 4127.370925071023,
+          "ema50": 4125.04319583481,
+          "close": 4127.7001953125
         },
-        "lastTime": "2026-10-14T19:22:23.000Z",
-        "previousTime": "2026-10-14T19:22:00.000Z",
-        "tolerance": 0.618825,
+        "lastTime": "2026-10-14T22:26:49.000Z",
+        "previousTime": "2026-10-14T22:26:00.000Z",
+        "tolerance": 0.6191550292968749,
         "candle": {
           "direction": "FLAT",
           "bodyRatio": 0,
@@ -61,18 +61,18 @@
           "lowerWick": 0
         },
         "distance": {
-          "topPct": 0.08259625552997728,
-          "midPct": -0.11647084917737684,
-          "lowPct": -0.315537953884731,
-          "ema50Pct": -0.16800271051868018
+          "topPct": 0.05368539952658704,
+          "midPct": -0.03089301155849385,
+          "lowPct": -0.11547142264357474,
+          "ema50Pct": -0.06436997242937897
         }
       },
       "squeeze": {
         "state": "READY",
-        "widthPct": 0.3986,
-        "percentile": 100,
+        "widthPct": 0.1692,
+        "percentile": 80,
         "squeeze": "NORMAL",
-        "expanding": true
+        "expanding": false
       },
       "next": {
         "state": "UP_BIAS",
@@ -88,9 +88,9 @@
         "location": "INSIDE_BB",
         "squeeze": "NORMAL",
         "dataNote": "Research bias only; validate on next closed candle and historical samples.",
-        "newsState": "POST_NEWS"
+        "newsState": "NORMAL"
       },
-      "marketMode": "POST_NEWS"
+      "marketMode": "NORMAL"
     },
     "M5": {
       "bbma": {
@@ -101,42 +101,42 @@
         "csak": "CSAK_UP",
         "reentry": "NONE",
         "emaGap": "EMA50_INSIDE_BB",
-        "squeeze": "NORMAL",
+        "squeeze": "TIGHT",
         "zone": "ABOVE_TOP_BB",
         "values": {
           "bb": {
-            "mid": 4113.45,
-            "upper": 4124.730837427768,
-            "lower": 4102.1691625722315,
-            "widthPct": 0.5484854527352314
+            "mid": 4123.074975585938,
+            "upper": 4127.838127104432,
+            "lower": 4118.311824067444,
+            "widthPct": 0.2310485036870978
           },
-          "ma5High": 4121.846647135417,
-          "ma10High": 4120.149058948864,
-          "ma5Low": 4117.206705729167,
-          "ma10Low": 4116.003657670454,
-          "ema50": 4113.694413324562,
-          "close": 4125.89990234375
+          "ma5High": 4127.653352864583,
+          "ma10High": 4126.581827059659,
+          "ma5Low": 4124.493326822917,
+          "ma10Low": 4123.376358309659,
+          "ema50": 4119.817567773052,
+          "close": 4128.7001953125
         },
-        "lastTime": "2026-10-14T19:15:00.000Z",
-        "previousTime": "2026-10-14T19:10:00.000Z",
-        "tolerance": 0.6768502456661007,
+        "lastTime": "2026-10-14T22:20:00.000Z",
+        "previousTime": "2026-10-14T22:15:00.000Z",
+        "tolerance": 0.6193050292968749,
         "candle": {
           "direction": "UP",
-          "bodyRatio": 0.795,
-          "upperWick": 0.151,
-          "lowerWick": 0.055
+          "bodyRatio": 0.568,
+          "upperWick": 0.297,
+          "lowerWick": 0.135
         },
         "distance": {
-          "topPct": -0.0283347861958003,
-          "midPct": -0.30174998517724383,
-          "lowPct": -0.5751651841586873,
-          "ema50Pct": -0.2958261060151781
+          "topPct": -0.020879893605424284,
+          "midPct": -0.13624674741335546,
+          "lowPct": -0.2516136012212867,
+          "ema50Pct": -0.2151434378677456
         }
       },
       "squeeze": {
         "state": "READY",
-        "widthPct": 0.5485,
-        "percentile": 100,
+        "widthPct": 0.231,
+        "percentile": 45,
         "squeeze": "NORMAL",
         "expanding": true
       },
@@ -155,9 +155,9 @@
         "location": "ABOVE_TOP_BB",
         "squeeze": "NORMAL",
         "dataNote": "Research bias only; validate on next closed candle and historical samples.",
-        "newsState": "POST_NEWS"
+        "newsState": "NORMAL"
       },
-      "marketMode": "POST_NEWS"
+      "marketMode": "NORMAL"
     },
     "M15": {
       "bbma": {
@@ -165,47 +165,47 @@
         "trend": "MIXED",
         "momentum": "NONE",
         "extreme": "NONE",
-        "csak": "CSAK_UP",
+        "csak": "NONE",
         "reentry": "NONE",
-        "emaGap": "EMA50_ABOVE_BB",
+        "emaGap": "EMA50_INSIDE_BB",
         "squeeze": "NORMAL",
         "zone": "INSIDE_BB",
         "values": {
           "bb": {
-            "mid": 4110.505029296875,
-            "upper": 4125.344633338882,
-            "lower": 4095.6654252548683,
-            "widthPct": 0.7220331290797809
+            "mid": 4114.909985351563,
+            "upper": 4131.354781014193,
+            "lower": 4098.465189688933,
+            "widthPct": 0.7992785125881798
           },
-          "ma5High": 4118.793359375,
-          "ma10High": 4115.65634765625,
-          "ma5Low": 4112.553385416667,
-          "ma10Low": 4108.934552556818,
-          "ema50": 4132.739694554325,
-          "close": 4120.2001953125
+          "ma5High": 4125.94658203125,
+          "ma10High": 4125.163618607955,
+          "ma5Low": 4120.16669921875,
+          "ma10Low": 4119.660014204545,
+          "ema50": 4129.998756416018,
+          "close": 4125.2001953125
         },
-        "lastTime": "2026-10-14T19:00:00.000Z",
-        "previousTime": "2026-10-14T18:45:00.000Z",
-        "tolerance": 0.8903762425204104,
+        "lastTime": "2026-10-14T22:00:00.000Z",
+        "previousTime": "2026-10-14T20:45:00.000Z",
+        "tolerance": 0.9866877397577991,
         "candle": {
-          "direction": "UP",
-          "bodyRatio": 0.217,
-          "upperWick": 0.05,
-          "lowerWick": 0.733
+          "direction": "DOWN",
+          "bodyRatio": 0.554,
+          "upperWick": 0,
+          "lowerWick": 0.446
         },
         "distance": {
-          "topPct": 0.12485893360800136,
-          "midPct": -0.23530812960629205,
-          "lowPct": -0.5954751928205966,
-          "ema50Pct": 0.30434198940359986
+          "topPct": 0.14919483686358243,
+          "midPct": -0.24944752918004248,
+          "lowPct": -0.6480898952236673,
+          "ema50Pct": 0.11632310860866682
         }
       },
       "squeeze": {
         "state": "READY",
-        "widthPct": 0.722,
-        "percentile": 15,
-        "squeeze": "SQUEEZE",
-        "expanding": true
+        "widthPct": 0.7993,
+        "percentile": 65,
+        "squeeze": "NORMAL",
+        "expanding": false
       },
       "next": {
         "state": "RANGE_OR_BREAKOUT_WATCH",
@@ -213,19 +213,81 @@
         "scores": {
           "up": 0,
           "down": 0,
-          "range": 3
+          "range": 1
         },
-        "reasons": [
-          "squeeze_pre_breakout"
-        ],
+        "reasons": [],
         "location": "INSIDE_BB",
-        "squeeze": "SQUEEZE",
+        "squeeze": "NORMAL",
         "dataNote": "Research bias only; validate on next closed candle and historical samples.",
-        "newsState": "POST_NEWS"
+        "newsState": "NORMAL"
       },
-      "marketMode": "POST_NEWS"
+      "marketMode": "NORMAL"
     },
     "M30": {
+      "bbma": {
+        "state": "READY",
+        "trend": "MIXED",
+        "momentum": "NONE",
+        "extreme": "NONE",
+        "csak": "CSAK_UP",
+        "reentry": "NONE",
+        "emaGap": "EMA50_INSIDE_BB",
+        "squeeze": "NORMAL",
+        "zone": "MID_BB",
+        "values": {
+          "bb": {
+            "mid": 4122.10498046875,
+            "upper": 4161.691224904411,
+            "lower": 4082.518736033089,
+            "widthPct": 1.9206810415177422
+          },
+          "ma5High": 4125.80673828125,
+          "ma10High": 4121.623677201705,
+          "ma5Low": 4118.13330078125,
+          "ma10Low": 4112.814497514205,
+          "ema50": 4148.394615292218,
+          "close": 4127.2998046875
+        },
+        "lastTime": "2026-10-14T20:30:00.000Z",
+        "previousTime": "2026-10-14T20:00:00.000Z",
+        "tolerance": 2.3751746661396465,
+        "candle": {
+          "direction": "UP",
+          "bodyRatio": 0.606,
+          "upperWick": 0.021,
+          "lowerWick": 0.372
+        },
+        "distance": {
+          "topPct": 0.8332668292681669,
+          "midPct": -0.12586495928524696,
+          "lowPct": -1.0849967478386608,
+          "ema50Pct": 0.5111043927741827
+        }
+      },
+      "squeeze": {
+        "state": "READY",
+        "widthPct": 1.9207,
+        "percentile": 30,
+        "squeeze": "TIGHT",
+        "expanding": false
+      },
+      "next": {
+        "state": "RANGE_OR_BREAKOUT_WATCH",
+        "confidence": 100,
+        "scores": {
+          "up": 0,
+          "down": 0,
+          "range": 1
+        },
+        "reasons": [],
+        "location": "MID_BB",
+        "squeeze": "TIGHT",
+        "dataNote": "Research bias only; validate on next closed candle and historical samples.",
+        "newsState": "NORMAL"
+      },
+      "marketMode": "NORMAL"
+    },
+    "H1": {
       "bbma": {
         "state": "READY",
         "trend": "DOWN",
@@ -238,38 +300,38 @@
         "zone": "INSIDE_BB",
         "values": {
           "bb": {
-            "mid": 4130.290014648437,
-            "upper": 4182.675581113808,
-            "lower": 4077.9044481830656,
-            "widthPct": 2.5366531783279784
+            "mid": 4146.75498046875,
+            "upper": 4208.2923134153125,
+            "lower": 4085.217647522187,
+            "widthPct": 2.967975355978558
           },
-          "ma5High": 4115.233365885417,
-          "ma10High": 4113.790900213068,
-          "ma5Low": 4105.033268229166,
-          "ma10Low": 4103.049050071023,
-          "ema50": 4152.6617779317985,
-          "close": 4118.7001953125
+          "ma5High": 4122.546614583333,
+          "ma10High": 4124.041770241477,
+          "ma5Low": 4109.859993489584,
+          "ma10Low": 4107.436372514205,
+          "ema50": 4167.27134547471,
+          "close": 4127.2998046875
         },
-        "lastTime": "2026-10-14T18:30:00.000Z",
-        "previousTime": "2026-10-14T18:00:00.000Z",
-        "tolerance": 3.1431339879222784,
+        "lastTime": "2026-10-14T20:00:00.000Z",
+        "previousTime": "2026-10-14T19:00:00.000Z",
+        "tolerance": 3.692239976793771,
         "candle": {
           "direction": "UP",
-          "bodyRatio": 0.318,
-          "upperWick": 0.136,
-          "lowerWick": 0.545
+          "bodyRatio": 0.468,
+          "upperWick": 0.021,
+          "lowerWick": 0.511
         },
         "distance": {
-          "topPct": 1.553290668597795,
-          "midPct": 0.2813950709286277,
-          "lowPct": -0.9905005267405507,
-          "ema50Pct": 0.8245703986405768
+          "topPct": 1.9623606852069926,
+          "midPct": 0.4713778184747762,
+          "lowPct": -1.0196050482574401,
+          "ema50Pct": 0.9684671014645717
         }
       },
       "squeeze": {
         "state": "READY",
-        "widthPct": 2.5367,
-        "percentile": 70,
+        "widthPct": 2.968,
+        "percentile": 85,
         "squeeze": "NORMAL",
         "expanding": false
       },
@@ -287,82 +349,16 @@
         "location": "INSIDE_BB",
         "squeeze": "NORMAL",
         "dataNote": "Research bias only; validate on next closed candle and historical samples.",
-        "newsState": "POST_NEWS"
+        "newsState": "NORMAL"
       },
-      "marketMode": "POST_NEWS"
-    },
-    "H1": {
-      "bbma": {
-        "state": "READY",
-        "trend": "DOWN",
-        "momentum": "NONE",
-        "extreme": "NONE",
-        "csak": "NONE",
-        "reentry": "NONE",
-        "emaGap": "EMA50_INSIDE_BB",
-        "squeeze": "NORMAL",
-        "zone": "INSIDE_BB",
-        "values": {
-          "bb": {
-            "mid": 4152.669995117188,
-            "upper": 4216.052242117717,
-            "lower": 4089.2877481166583,
-            "widthPct": 3.052602160781169
-          },
-          "ma5High": 4115.313313802083,
-          "ma10High": 4127.679962713069,
-          "ma5Low": 4100.173274739584,
-          "ma10Low": 4107.770907315341,
-          "ema50": 4170.784593353695,
-          "close": 4118.7001953125
-        },
-        "lastTime": "2026-10-14T18:00:00.000Z",
-        "previousTime": "2026-10-14T17:00:00.000Z",
-        "tolerance": 3.802934820031746,
-        "candle": {
-          "direction": "UP",
-          "bodyRatio": 0.73,
-          "upperWick": 0.051,
-          "lowerWick": 0.219
-        },
-        "distance": {
-          "topPct": 2.363659460234884,
-          "midPct": 0.824769907830358,
-          "lowPct": -0.7141196445741792,
-          "ema50Pct": 1.2645833775537234
-        }
-      },
-      "squeeze": {
-        "state": "READY",
-        "widthPct": 3.0526,
-        "percentile": 100,
-        "squeeze": "NORMAL",
-        "expanding": true
-      },
-      "next": {
-        "state": "DOWN_BIAS",
-        "confidence": 100,
-        "scores": {
-          "up": 0,
-          "down": 2,
-          "range": 0
-        },
-        "reasons": [
-          "trend_down"
-        ],
-        "location": "INSIDE_BB",
-        "squeeze": "NORMAL",
-        "dataNote": "Research bias only; validate on next closed candle and historical samples.",
-        "newsState": "POST_NEWS"
-      },
-      "marketMode": "POST_NEWS"
+      "marketMode": "NORMAL"
     }
   },
   "dashboard": {
-    "generatedAt": "2026-10-14T19:32:25.475Z",
+    "generatedAt": "2026-10-14T22:37:05.745Z",
     "overall": "MIXED",
     "up": 1,
-    "down": 2,
+    "down": 1,
     "rows": [
       {
         "tf": "D1",
@@ -389,34 +385,34 @@
         "pattern": "DOWN",
         "squeeze": "NORMAL",
         "quality": "NEAR",
-        "lastTime": "2026-10-14T18:00:00.000Z"
+        "lastTime": "2026-10-14T20:00:00.000Z"
       },
       {
         "tf": "M30",
         "role": "BRIDGE",
-        "trend": "DOWN",
-        "pattern": "DOWN",
+        "trend": "MIXED",
+        "pattern": "CSAK_UP",
         "squeeze": "NORMAL",
         "quality": "NEAR",
-        "lastTime": "2026-10-14T18:30:00.000Z"
+        "lastTime": "2026-10-14T20:30:00.000Z"
       },
       {
         "tf": "M15",
         "role": "TRIGGER",
         "trend": "MIXED",
-        "pattern": "CSAK_UP",
+        "pattern": "RANGE_OR_TRANSITION",
         "squeeze": "NORMAL",
         "quality": "NEAR",
-        "lastTime": "2026-10-14T19:00:00.000Z"
+        "lastTime": "2026-10-14T22:00:00.000Z"
       },
       {
         "tf": "M5",
         "role": "EXECUTION",
         "trend": "UP",
         "pattern": "MOMENTUM_UP",
-        "squeeze": "NORMAL",
+        "squeeze": "TIGHT",
         "quality": "NEAR",
-        "lastTime": "2026-10-14T19:15:00.000Z"
+        "lastTime": "2026-10-14T22:20:00.000Z"
       }
     ],
     "chains": [
@@ -482,20 +478,20 @@
               "zone": "LOW_TO_MID",
               "values": {
                 "bb": {
-                  "mid": 4152.669995117188,
-                  "upper": 4216.052242117717,
-                  "lower": 4089.2877481166583,
-                  "widthPct": 3.052602160781169
+                  "mid": 4146.75498046875,
+                  "upper": 4208.2923134153125,
+                  "lower": 4085.217647522187,
+                  "widthPct": 2.967975355978558
                 },
-                "ma5High": 4115.313313802083,
-                "ma10High": 4127.679962713069,
-                "ma5Low": 4100.173274739584,
-                "ma10Low": 4107.770907315341,
-                "ema50": 4170.784593353695,
-                "close": 4118.7001953125
+                "ma5High": 4122.546614583333,
+                "ma10High": 4124.041770241477,
+                "ma5Low": 4109.859993489584,
+                "ma10Low": 4107.436372514205,
+                "ema50": 4167.27134547471,
+                "close": 4127.2998046875
               },
-              "lastTime": "2026-10-14T18:00:00.000Z",
-              "previousTime": "2026-10-14T17:00:00.000Z"
+              "lastTime": "2026-10-14T20:00:00.000Z",
+              "previousTime": "2026-10-14T19:00:00.000Z"
             }
           }
         ]
@@ -528,50 +524,50 @@
               "zone": "LOW_TO_MID",
               "values": {
                 "bb": {
-                  "mid": 4152.669995117188,
-                  "upper": 4216.052242117717,
-                  "lower": 4089.2877481166583,
-                  "widthPct": 3.052602160781169
+                  "mid": 4146.75498046875,
+                  "upper": 4208.2923134153125,
+                  "lower": 4085.217647522187,
+                  "widthPct": 2.967975355978558
                 },
-                "ma5High": 4115.313313802083,
-                "ma10High": 4127.679962713069,
-                "ma5Low": 4100.173274739584,
-                "ma10Low": 4107.770907315341,
-                "ema50": 4170.784593353695,
-                "close": 4118.7001953125
+                "ma5High": 4122.546614583333,
+                "ma10High": 4124.041770241477,
+                "ma5Low": 4109.859993489584,
+                "ma10Low": 4107.436372514205,
+                "ema50": 4167.27134547471,
+                "close": 4127.2998046875
               },
-              "lastTime": "2026-10-14T18:00:00.000Z",
-              "previousTime": "2026-10-14T17:00:00.000Z"
+              "lastTime": "2026-10-14T20:00:00.000Z",
+              "previousTime": "2026-10-14T19:00:00.000Z"
             }
           },
           {
             "tf": "M30",
             "state": {
               "state": "READY",
-              "trend": "DOWN",
+              "trend": "MIXED",
               "momentum": "NONE",
               "extreme": "NONE",
-              "csak": "NONE",
+              "csak": "CSAK_UP",
               "reentry": "NONE",
               "emaGap": "EMA50_INSIDE_BB",
               "squeeze": "NORMAL",
-              "zone": "LOW_TO_MID",
+              "zone": "MID_TO_TOP",
               "values": {
                 "bb": {
-                  "mid": 4130.290014648437,
-                  "upper": 4182.675581113808,
-                  "lower": 4077.9044481830656,
-                  "widthPct": 2.5366531783279784
+                  "mid": 4122.10498046875,
+                  "upper": 4161.691224904411,
+                  "lower": 4082.518736033089,
+                  "widthPct": 1.9206810415177422
                 },
-                "ma5High": 4115.233365885417,
-                "ma10High": 4113.790900213068,
-                "ma5Low": 4105.033268229166,
-                "ma10Low": 4103.049050071023,
-                "ema50": 4152.6617779317985,
-                "close": 4118.7001953125
+                "ma5High": 4125.80673828125,
+                "ma10High": 4121.623677201705,
+                "ma5Low": 4118.13330078125,
+                "ma10Low": 4112.814497514205,
+                "ema50": 4148.394615292218,
+                "close": 4127.2998046875
               },
-              "lastTime": "2026-10-14T18:30:00.000Z",
-              "previousTime": "2026-10-14T18:00:00.000Z"
+              "lastTime": "2026-10-14T20:30:00.000Z",
+              "previousTime": "2026-10-14T20:00:00.000Z"
             }
           }
         ]
@@ -598,50 +594,50 @@
               "zone": "LOW_TO_MID",
               "values": {
                 "bb": {
-                  "mid": 4152.669995117188,
-                  "upper": 4216.052242117717,
-                  "lower": 4089.2877481166583,
-                  "widthPct": 3.052602160781169
+                  "mid": 4146.75498046875,
+                  "upper": 4208.2923134153125,
+                  "lower": 4085.217647522187,
+                  "widthPct": 2.967975355978558
                 },
-                "ma5High": 4115.313313802083,
-                "ma10High": 4127.679962713069,
-                "ma5Low": 4100.173274739584,
-                "ma10Low": 4107.770907315341,
-                "ema50": 4170.784593353695,
-                "close": 4118.7001953125
+                "ma5High": 4122.546614583333,
+                "ma10High": 4124.041770241477,
+                "ma5Low": 4109.859993489584,
+                "ma10Low": 4107.436372514205,
+                "ema50": 4167.27134547471,
+                "close": 4127.2998046875
               },
-              "lastTime": "2026-10-14T18:00:00.000Z",
-              "previousTime": "2026-10-14T17:00:00.000Z"
+              "lastTime": "2026-10-14T20:00:00.000Z",
+              "previousTime": "2026-10-14T19:00:00.000Z"
             }
           },
           {
             "tf": "M30",
             "state": {
               "state": "READY",
-              "trend": "DOWN",
+              "trend": "MIXED",
               "momentum": "NONE",
               "extreme": "NONE",
-              "csak": "NONE",
+              "csak": "CSAK_UP",
               "reentry": "NONE",
               "emaGap": "EMA50_INSIDE_BB",
               "squeeze": "NORMAL",
-              "zone": "LOW_TO_MID",
+              "zone": "MID_TO_TOP",
               "values": {
                 "bb": {
-                  "mid": 4130.290014648437,
-                  "upper": 4182.675581113808,
-                  "lower": 4077.9044481830656,
-                  "widthPct": 2.5366531783279784
+                  "mid": 4122.10498046875,
+                  "upper": 4161.691224904411,
+                  "lower": 4082.518736033089,
+                  "widthPct": 1.9206810415177422
                 },
-                "ma5High": 4115.233365885417,
-                "ma10High": 4113.790900213068,
-                "ma5Low": 4105.033268229166,
-                "ma10Low": 4103.049050071023,
-                "ema50": 4152.6617779317985,
-                "close": 4118.7001953125
+                "ma5High": 4125.80673828125,
+                "ma10High": 4121.623677201705,
+                "ma5Low": 4118.13330078125,
+                "ma10Low": 4112.814497514205,
+                "ema50": 4148.394615292218,
+                "close": 4127.2998046875
               },
-              "lastTime": "2026-10-14T18:30:00.000Z",
-              "previousTime": "2026-10-14T18:00:00.000Z"
+              "lastTime": "2026-10-14T20:30:00.000Z",
+              "previousTime": "2026-10-14T20:00:00.000Z"
             }
           },
           {
@@ -651,27 +647,27 @@
               "trend": "MIXED",
               "momentum": "NONE",
               "extreme": "NONE",
-              "csak": "CSAK_UP",
+              "csak": "NONE",
               "reentry": "NONE",
-              "emaGap": "EMA50_ABOVE_BB",
+              "emaGap": "EMA50_INSIDE_BB",
               "squeeze": "NORMAL",
               "zone": "MID_TO_TOP",
               "values": {
                 "bb": {
-                  "mid": 4110.505029296875,
-                  "upper": 4125.344633338882,
-                  "lower": 4095.6654252548683,
-                  "widthPct": 0.7220331290797809
+                  "mid": 4114.909985351563,
+                  "upper": 4131.354781014193,
+                  "lower": 4098.465189688933,
+                  "widthPct": 0.7992785125881798
                 },
-                "ma5High": 4118.793359375,
-                "ma10High": 4115.65634765625,
-                "ma5Low": 4112.553385416667,
-                "ma10Low": 4108.934552556818,
-                "ema50": 4132.739694554325,
-                "close": 4120.2001953125
+                "ma5High": 4125.94658203125,
+                "ma10High": 4125.163618607955,
+                "ma5Low": 4120.16669921875,
+                "ma10Low": 4119.660014204545,
+                "ema50": 4129.998756416018,
+                "close": 4125.2001953125
               },
-              "lastTime": "2026-10-14T19:00:00.000Z",
-              "previousTime": "2026-10-14T18:45:00.000Z"
+              "lastTime": "2026-10-14T22:00:00.000Z",
+              "previousTime": "2026-10-14T20:45:00.000Z"
             }
           }
         ]
@@ -688,30 +684,30 @@
             "tf": "M30",
             "state": {
               "state": "READY",
-              "trend": "DOWN",
+              "trend": "MIXED",
               "momentum": "NONE",
               "extreme": "NONE",
-              "csak": "NONE",
+              "csak": "CSAK_UP",
               "reentry": "NONE",
               "emaGap": "EMA50_INSIDE_BB",
               "squeeze": "NORMAL",
-              "zone": "LOW_TO_MID",
+              "zone": "MID_TO_TOP",
               "values": {
                 "bb": {
-                  "mid": 4130.290014648437,
-                  "upper": 4182.675581113808,
-                  "lower": 4077.9044481830656,
-                  "widthPct": 2.5366531783279784
+                  "mid": 4122.10498046875,
+                  "upper": 4161.691224904411,
+                  "lower": 4082.518736033089,
+                  "widthPct": 1.9206810415177422
                 },
-                "ma5High": 4115.233365885417,
-                "ma10High": 4113.790900213068,
-                "ma5Low": 4105.033268229166,
-                "ma10Low": 4103.049050071023,
-                "ema50": 4152.6617779317985,
-                "close": 4118.7001953125
+                "ma5High": 4125.80673828125,
+                "ma10High": 4121.623677201705,
+                "ma5Low": 4118.13330078125,
+                "ma10Low": 4112.814497514205,
+                "ema50": 4148.394615292218,
+                "close": 4127.2998046875
               },
-              "lastTime": "2026-10-14T18:30:00.000Z",
-              "previousTime": "2026-10-14T18:00:00.000Z"
+              "lastTime": "2026-10-14T20:30:00.000Z",
+              "previousTime": "2026-10-14T20:00:00.000Z"
             }
           },
           {
@@ -721,27 +717,27 @@
               "trend": "MIXED",
               "momentum": "NONE",
               "extreme": "NONE",
-              "csak": "CSAK_UP",
+              "csak": "NONE",
               "reentry": "NONE",
-              "emaGap": "EMA50_ABOVE_BB",
+              "emaGap": "EMA50_INSIDE_BB",
               "squeeze": "NORMAL",
               "zone": "MID_TO_TOP",
               "values": {
                 "bb": {
-                  "mid": 4110.505029296875,
-                  "upper": 4125.344633338882,
-                  "lower": 4095.6654252548683,
-                  "widthPct": 0.7220331290797809
+                  "mid": 4114.909985351563,
+                  "upper": 4131.354781014193,
+                  "lower": 4098.465189688933,
+                  "widthPct": 0.7992785125881798
                 },
-                "ma5High": 4118.793359375,
-                "ma10High": 4115.65634765625,
-                "ma5Low": 4112.553385416667,
-                "ma10Low": 4108.934552556818,
-                "ema50": 4132.739694554325,
-                "close": 4120.2001953125
+                "ma5High": 4125.94658203125,
+                "ma10High": 4125.163618607955,
+                "ma5Low": 4120.16669921875,
+                "ma10Low": 4119.660014204545,
+                "ema50": 4129.998756416018,
+                "close": 4125.2001953125
               },
-              "lastTime": "2026-10-14T19:00:00.000Z",
-              "previousTime": "2026-10-14T18:45:00.000Z"
+              "lastTime": "2026-10-14T22:00:00.000Z",
+              "previousTime": "2026-10-14T20:45:00.000Z"
             }
           },
           {
@@ -754,24 +750,24 @@
               "csak": "CSAK_UP",
               "reentry": "NONE",
               "emaGap": "EMA50_INSIDE_BB",
-              "squeeze": "NORMAL",
+              "squeeze": "TIGHT",
               "zone": "ABOVE_TOP_BB",
               "values": {
                 "bb": {
-                  "mid": 4113.45,
-                  "upper": 4124.730837427768,
-                  "lower": 4102.1691625722315,
-                  "widthPct": 0.5484854527352314
+                  "mid": 4123.074975585938,
+                  "upper": 4127.838127104432,
+                  "lower": 4118.311824067444,
+                  "widthPct": 0.2310485036870978
                 },
-                "ma5High": 4121.846647135417,
-                "ma10High": 4120.149058948864,
-                "ma5Low": 4117.206705729167,
-                "ma10Low": 4116.003657670454,
-                "ema50": 4113.694413324562,
-                "close": 4125.89990234375
+                "ma5High": 4127.653352864583,
+                "ma10High": 4126.581827059659,
+                "ma5Low": 4124.493326822917,
+                "ma10Low": 4123.376358309659,
+                "ema50": 4119.817567773052,
+                "close": 4128.7001953125
               },
-              "lastTime": "2026-10-14T19:15:00.000Z",
-              "previousTime": "2026-10-14T19:10:00.000Z"
+              "lastTime": "2026-10-14T22:20:00.000Z",
+              "previousTime": "2026-10-14T22:15:00.000Z"
             }
           }
         ]
@@ -791,27 +787,27 @@
               "trend": "MIXED",
               "momentum": "NONE",
               "extreme": "NONE",
-              "csak": "CSAK_UP",
+              "csak": "NONE",
               "reentry": "NONE",
-              "emaGap": "EMA50_ABOVE_BB",
+              "emaGap": "EMA50_INSIDE_BB",
               "squeeze": "NORMAL",
               "zone": "MID_TO_TOP",
               "values": {
                 "bb": {
-                  "mid": 4110.505029296875,
-                  "upper": 4125.344633338882,
-                  "lower": 4095.6654252548683,
-                  "widthPct": 0.7220331290797809
+                  "mid": 4114.909985351563,
+                  "upper": 4131.354781014193,
+                  "lower": 4098.465189688933,
+                  "widthPct": 0.7992785125881798
                 },
-                "ma5High": 4118.793359375,
-                "ma10High": 4115.65634765625,
-                "ma5Low": 4112.553385416667,
-                "ma10Low": 4108.934552556818,
-                "ema50": 4132.739694554325,
-                "close": 4120.2001953125
+                "ma5High": 4125.94658203125,
+                "ma10High": 4125.163618607955,
+                "ma5Low": 4120.16669921875,
+                "ma10Low": 4119.660014204545,
+                "ema50": 4129.998756416018,
+                "close": 4125.2001953125
               },
-              "lastTime": "2026-10-14T19:00:00.000Z",
-              "previousTime": "2026-10-14T18:45:00.000Z"
+              "lastTime": "2026-10-14T22:00:00.000Z",
+              "previousTime": "2026-10-14T20:45:00.000Z"
             }
           },
           {
@@ -824,24 +820,24 @@
               "csak": "CSAK_UP",
               "reentry": "NONE",
               "emaGap": "EMA50_INSIDE_BB",
-              "squeeze": "NORMAL",
+              "squeeze": "TIGHT",
               "zone": "ABOVE_TOP_BB",
               "values": {
                 "bb": {
-                  "mid": 4113.45,
-                  "upper": 4124.730837427768,
-                  "lower": 4102.1691625722315,
-                  "widthPct": 0.5484854527352314
+                  "mid": 4123.074975585938,
+                  "upper": 4127.838127104432,
+                  "lower": 4118.311824067444,
+                  "widthPct": 0.2310485036870978
                 },
-                "ma5High": 4121.846647135417,
-                "ma10High": 4120.149058948864,
-                "ma5Low": 4117.206705729167,
-                "ma10Low": 4116.003657670454,
-                "ema50": 4113.694413324562,
-                "close": 4125.89990234375
+                "ma5High": 4127.653352864583,
+                "ma10High": 4126.581827059659,
+                "ma5Low": 4124.493326822917,
+                "ma10Low": 4123.376358309659,
+                "ema50": 4119.817567773052,
+                "close": 4128.7001953125
               },
-              "lastTime": "2026-10-14T19:15:00.000Z",
-              "previousTime": "2026-10-14T19:10:00.000Z"
+              "lastTime": "2026-10-14T22:20:00.000Z",
+              "previousTime": "2026-10-14T22:15:00.000Z"
             }
           },
           {
