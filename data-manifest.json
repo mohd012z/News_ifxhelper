@@ -1,52 +1,52 @@
 {
   "schemaVersion": 3,
-  "generationId": "bbma-e441cecc7fd86c4424b1",
-  "generatedAt": "2026-10-14T10:16:16.767Z",
+  "generationId": null,
+  "generatedAt": "2026-10-14T10:33:54.175Z",
   "lineage": {
-    "status": "CONSISTENT",
-    "generationId": "bbma-e441cecc7fd86c4424b1",
-    "bbmaGenerationId": "bbma-e441cecc7fd86c4424b1",
+    "status": "MIXED",
+    "generationId": null,
+    "bbmaGenerationId": "bbma-5c2e6378cdf48e6295b8",
     "intelligenceGenerationId": "bbma-e441cecc7fd86c4424b1"
   },
   "files": [
     {
       "file": "news-auto.js",
       "available": true,
-      "bytes": 667764,
-      "sha256": "6f923bc5dcf54eca1c1c9b5cf5b9df413f6cb80bfa15d9a864a4ed02ff8fd154",
-      "modifiedAt": "2026-10-14T10:16:16.705Z"
+      "bytes": 673135,
+      "sha256": "c3c74cb2ae2f55dcc85318848412710058e59f653fe0c8725dde8db409c40d66",
+      "modifiedAt": "2026-10-14T10:33:53.806Z"
     },
     {
       "file": "macro-auto.js",
       "available": true,
-      "bytes": 1530,
-      "sha256": "98e41b88a2c1aced09ed01f08f2bc66c4598095db17c7d40303b07d576907164",
-      "modifiedAt": "2026-10-14T10:15:15.411Z"
+      "bytes": 1534,
+      "sha256": "96fc74a946f3a776019c1af0e6ca0fcc6bab8e74fdd5f487545ac885712e3ae8",
+      "modifiedAt": "2026-10-14T10:33:54.122Z"
     },
     {
       "file": "atr.js",
       "available": true,
       "bytes": 5804,
       "sha256": "bedc7a025ec7d74662113fdc0aefe6cc0ddc4650ea0df490c7cd0fa32cc5e206",
-      "modifiedAt": "2026-10-14T10:15:15.352Z"
+      "modifiedAt": "2026-10-14T10:32:51.586Z"
     },
     {
       "file": "xauusd-data.js",
       "available": true,
       "bytes": 38228,
       "sha256": "c00923b2bcee5baefd90e72384b9fcabb2de6e893c84a6119272ef9d9f5b0f7f",
-      "modifiedAt": "2026-10-14T10:15:15.416Z"
+      "modifiedAt": "2026-10-14T10:32:51.655Z"
     },
     {
       "file": "data/bbma-watch.json",
       "available": true,
-      "bytes": 24615,
-      "sha256": "232c1bebc01d80f898f249bbd80bb455089071fc8bb690c351b2c81e2708bcf6",
-      "modifiedAt": "2026-10-14T10:15:15.353Z",
+      "bytes": 24541,
+      "sha256": "659f31ed5d5d44d9b513d08d689769feae52030972bb3c00b01a0f3c3066ab13",
+      "modifiedAt": "2026-10-14T10:32:51.588Z",
       "lineage": {
-        "generationId": "bbma-e441cecc7fd86c4424b1",
-        "generatedAt": "2026-10-14T05:27:03.419Z",
-        "sourceGeneratedAt": "2026-10-14T05:27:03.419Z"
+        "generationId": "bbma-5c2e6378cdf48e6295b8",
+        "generatedAt": "2026-10-14T10:25:11.763Z",
+        "sourceGeneratedAt": "2026-10-14T10:25:11.763Z"
       }
     },
     {
@@ -54,7 +54,7 @@
       "available": true,
       "bytes": 26668,
       "sha256": "b54ab33522286c78e8e3211d32ed448312eb02caef1ae0c820276d2c070894c7",
-      "modifiedAt": "2026-10-14T10:15:15.353Z",
+      "modifiedAt": "2026-10-14T10:32:51.588Z",
       "lineage": {
         "generationId": null,
         "generatedAt": null,
@@ -66,7 +66,7 @@
       "available": true,
       "bytes": 2566,
       "sha256": "b06d5a26f94560871c679f40830e745306039506371d1e18d7d2153fd204dbf8",
-      "modifiedAt": "2026-10-14T10:15:15.353Z",
+      "modifiedAt": "2026-10-14T10:32:51.588Z",
       "lineage": {
         "generationId": "bbma-e441cecc7fd86c4424b1",
         "generatedAt": "2026-10-14T06:48:15.379Z",
@@ -78,7 +78,7 @@
       "available": true,
       "bytes": 460,
       "sha256": "8c810faa619bcfb8ee6be90b8de4a034f88a38470c88e7d18e168be923f4ae32",
-      "modifiedAt": "2026-10-14T10:15:15.353Z",
+      "modifiedAt": "2026-10-14T10:32:51.587Z",
       "lineage": {
         "generationId": null,
         "generatedAt": "2026-10-14T06:48:15.431Z",
@@ -90,7 +90,7 @@
       "available": true,
       "bytes": 16280,
       "sha256": "88759da499b330c8b4482061da5566e95cc377132f71ab29d837834d37c840d2",
-      "modifiedAt": "2026-10-14T10:15:15.407Z",
+      "modifiedAt": "2026-10-14T10:32:51.643Z",
       "lineage": {
         "generationId": "bbma-e441cecc7fd86c4424b1",
         "generatedAt": "2026-10-14T07:50:45.108Z",
@@ -102,7 +102,7 @@
       "available": true,
       "bytes": 517,
       "sha256": "aa047a9be51b6ac3b6eeaa648d5d15bdedb72ecbf049e73424e59c759f9bb057",
-      "modifiedAt": "2026-10-14T10:15:15.407Z",
+      "modifiedAt": "2026-10-14T10:32:51.644Z",
       "lineage": {
         "generationId": null,
         "generatedAt": "2026-10-12T09:21:40.175Z",
@@ -114,7 +114,7 @@
       "available": true,
       "bytes": 518,
       "sha256": "6f5f61d01c021a8307743b05e7a058de013331ad97ccbf71308e5e39bb1c1d71",
-      "modifiedAt": "2026-10-14T10:15:15.407Z",
+      "modifiedAt": "2026-10-14T10:32:51.644Z",
       "lineage": {
         "generationId": null,
         "generatedAt": "2026-10-12T09:21:40.175Z",
