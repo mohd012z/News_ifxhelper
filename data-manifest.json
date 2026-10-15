@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
   "generationId": null,
-  "generatedAt": "2026-10-15T00:55:47.785Z",
+  "generatedAt": "2026-10-15T01:46:24.791Z",
   "lineage": {
     "status": "MIXED",
     "generationId": null,
@@ -12,37 +12,37 @@
     {
       "file": "news-auto.js",
       "available": true,
-      "bytes": 670474,
-      "sha256": "aaf2a4b659ec551e6c52400ff8f6994e0a664c05dac694ba9a00d9e0b2c8f238",
-      "modifiedAt": "2026-10-15T00:55:47.726Z"
+      "bytes": 670384,
+      "sha256": "3eacf071631501ff306f0c8f4729cdd277d0965f6a9c31b0f051badd4cd2f811",
+      "modifiedAt": "2026-10-15T01:46:24.248Z"
     },
     {
       "file": "macro-auto.js",
       "available": true,
-      "bytes": 1530,
-      "sha256": "fa0efb55bdb573c631710ab2d239bc8177eeff913a5b69167f39aecd08c151d4",
-      "modifiedAt": "2026-10-15T00:54:35.834Z"
+      "bytes": 1550,
+      "sha256": "8a751a688561987091eb469dc193908d838fb305ba265224609b9962febdeccc",
+      "modifiedAt": "2026-10-15T01:46:24.755Z"
     },
     {
       "file": "atr.js",
       "available": true,
       "bytes": 5804,
       "sha256": "bedc7a025ec7d74662113fdc0aefe6cc0ddc4650ea0df490c7cd0fa32cc5e206",
-      "modifiedAt": "2026-10-15T00:54:35.769Z"
+      "modifiedAt": "2026-10-15T01:45:44.013Z"
     },
     {
       "file": "xauusd-data.js",
       "available": true,
       "bytes": 38228,
       "sha256": "c00923b2bcee5baefd90e72384b9fcabb2de6e893c84a6119272ef9d9f5b0f7f",
-      "modifiedAt": "2026-10-15T00:54:35.840Z"
+      "modifiedAt": "2026-10-15T01:45:44.090Z"
     },
     {
       "file": "data/bbma-watch.json",
       "available": true,
       "bytes": 24764,
       "sha256": "8698070460f6fc9e91fee9fcc8c364f5cbb1489982106cf99735387c7fdc47d1",
-      "modifiedAt": "2026-10-15T00:54:35.771Z",
+      "modifiedAt": "2026-10-15T01:45:44.014Z",
       "lineage": {
         "generationId": "bbma-63824fce2cddb6b0310f",
         "generatedAt": "2026-10-15T00:51:28.354Z",
@@ -54,7 +54,7 @@
       "available": true,
       "bytes": 26668,
       "sha256": "b54ab33522286c78e8e3211d32ed448312eb02caef1ae0c820276d2c070894c7",
-      "modifiedAt": "2026-10-15T00:54:35.771Z",
+      "modifiedAt": "2026-10-15T01:45:44.014Z",
       "lineage": {
         "generationId": null,
         "generatedAt": null,
@@ -66,7 +66,7 @@
       "available": true,
       "bytes": 2566,
       "sha256": "b06d5a26f94560871c679f40830e745306039506371d1e18d7d2153fd204dbf8",
-      "modifiedAt": "2026-10-15T00:54:35.771Z",
+      "modifiedAt": "2026-10-15T01:45:44.014Z",
       "lineage": {
         "generationId": "bbma-e441cecc7fd86c4424b1",
         "generatedAt": "2026-10-14T06:48:15.379Z",
@@ -78,7 +78,7 @@
       "available": true,
       "bytes": 460,
       "sha256": "8c810faa619bcfb8ee6be90b8de4a034f88a38470c88e7d18e168be923f4ae32",
-      "modifiedAt": "2026-10-15T00:54:35.771Z",
+      "modifiedAt": "2026-10-15T01:45:44.013Z",
       "lineage": {
         "generationId": null,
         "generatedAt": "2026-10-14T06:48:15.431Z",
@@ -90,7 +90,7 @@
       "available": true,
       "bytes": 16315,
       "sha256": "41c49cdf20b8c55ed7859bc1df3e28d9f21b8f910ad73607ce81cfd9522784bc",
-      "modifiedAt": "2026-10-15T00:54:35.830Z",
+      "modifiedAt": "2026-10-15T01:45:44.076Z",
       "lineage": {
         "generationId": "bbma-0876e7af447789e7df69",
         "generatedAt": "2026-10-15T00:39:49.562Z",
@@ -102,7 +102,7 @@
       "available": true,
       "bytes": 517,
       "sha256": "aa047a9be51b6ac3b6eeaa648d5d15bdedb72ecbf049e73424e59c759f9bb057",
-      "modifiedAt": "2026-10-15T00:54:35.831Z",
+      "modifiedAt": "2026-10-15T01:45:44.076Z",
       "lineage": {
         "generationId": null,
         "generatedAt": "2026-10-12T09:21:40.175Z",
@@ -114,7 +114,7 @@
       "available": true,
       "bytes": 518,
       "sha256": "6f5f61d01c021a8307743b05e7a058de013331ad97ccbf71308e5e39bb1c1d71",
-      "modifiedAt": "2026-10-15T00:54:35.831Z",
+      "modifiedAt": "2026-10-15T01:45:44.076Z",
       "lineage": {
         "generationId": null,
         "generatedAt": "2026-10-12T09:21:40.175Z",
