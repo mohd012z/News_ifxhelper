@@ -923,8 +923,18 @@
       "trend_up",
       "reentry_up"
     ],
-    "status": "PENDING",
-    "id": "55a13697fd12640a7e7a"
+    "status": "SETTLED",
+    "id": "55a13697fd12640a7e7a",
+    "settledAt": "2026-10-15T06:35:01.023Z",
+    "nextCandleTime": "2026-10-14T06:35:00.000Z",
+    "actualDirection": "DOWN",
+    "predictedDirection": "UP",
+    "correct": false,
+    "nextReturnPct": -0.0503,
+    "mfePct": 0.012,
+    "maePct": -0.0622,
+    "rangePct": 0.0742,
+    "closeLocationPct": 16.13
   },
   {
     "schemaVersion": 4,
@@ -959,8 +969,18 @@
       "trend_up",
       "reentry_up"
     ],
-    "status": "PENDING",
-    "id": "05a4a80923d5ec3ce1a0"
+    "status": "SETTLED",
+    "id": "05a4a80923d5ec3ce1a0",
+    "settledAt": "2026-10-15T06:35:01.023Z",
+    "nextCandleTime": "2026-10-14T06:30:00.000Z",
+    "actualDirection": "FLAT",
+    "predictedDirection": "UP",
+    "correct": false,
+    "nextReturnPct": 0,
+    "mfePct": 0.0766,
+    "maePct": -0.0287,
+    "rangePct": 0.1054,
+    "closeLocationPct": 27.27
   },
   {
     "schemaVersion": 4,
@@ -994,8 +1014,18 @@
     "reasons": [
       "squeeze_pre_breakout"
     ],
-    "status": "PENDING",
-    "id": "fcc90e5959dc8c6d0416"
+    "status": "SETTLED",
+    "id": "fcc90e5959dc8c6d0416",
+    "settledAt": "2026-10-15T06:35:01.024Z",
+    "nextCandleTime": "2026-10-14T06:30:00.000Z",
+    "actualDirection": "DOWN",
+    "predictedDirection": "FLAT",
+    "correct": false,
+    "nextReturnPct": -0.1054,
+    "mfePct": 0.0766,
+    "maePct": -0.17,
+    "rangePct": 0.2467,
+    "closeLocationPct": 26.21
   },
   {
     "schemaVersion": 4,
@@ -1030,7 +1060,193 @@
       "trend_down",
       "reentry_down"
     ],
+    "status": "SETTLED",
+    "id": "8e8f22efc2e87f220673",
+    "settledAt": "2026-10-15T06:35:01.024Z",
+    "nextCandleTime": "2026-10-14T06:00:00.000Z",
+    "actualDirection": "UP",
+    "predictedDirection": "DOWN",
+    "correct": false,
+    "nextReturnPct": 0.012,
+    "mfePct": 0.3836,
+    "maePct": -0.0528,
+    "rangePct": 0.4364,
+    "closeLocationPct": 14.84
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-0c7a11fc49a07dc7cb83",
+    "sourceGeneratedAt": "2026-10-15T05:25:01.153Z",
+    "symbol": "GC=F",
+    "tf": "M1",
+    "candleTime": "2026-10-15T06:23:00.000Z",
+    "createdAt": "2026-10-15T06:35:01.024Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Bowman Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-10-15T02:55:00.000Z"
+    },
+    "location": "MID_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "SQUEEZE",
+    "state": "RANGE_OR_BREAKOUT_WATCH",
+    "confidence": 50,
+    "reasons": [
+      "trend_down",
+      "squeeze_pre_breakout"
+    ],
     "status": "PENDING",
-    "id": "8e8f22efc2e87f220673"
+    "id": "b6a83a9797bb81e08f35"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-0c7a11fc49a07dc7cb83",
+    "sourceGeneratedAt": "2026-10-15T05:25:01.153Z",
+    "symbol": "GC=F",
+    "tf": "M5",
+    "candleTime": "2026-10-15T06:10:00.000Z",
+    "createdAt": "2026-10-15T06:35:01.024Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Bowman Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-10-15T02:55:00.000Z"
+    },
+    "location": "MID_BB",
+    "bbma": {
+      "trend": "MIXED",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "SQUEEZE",
+    "state": "RANGE_OR_BREAKOUT_WATCH",
+    "confidence": 100,
+    "reasons": [
+      "squeeze_pre_breakout"
+    ],
+    "status": "PENDING",
+    "id": "9ade51d7cc823fdd3715"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-0c7a11fc49a07dc7cb83",
+    "sourceGeneratedAt": "2026-10-15T05:25:01.153Z",
+    "symbol": "GC=F",
+    "tf": "M15",
+    "candleTime": "2026-10-15T06:00:00.000Z",
+    "createdAt": "2026-10-15T06:35:01.024Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Bowman Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-10-15T02:55:00.000Z"
+    },
+    "location": "MID_BB",
+    "bbma": {
+      "trend": "UP",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "REENTRY_UP_ZONE",
+      "csak": "NONE"
+    },
+    "squeeze": "SQUEEZE",
+    "state": "UP_BIAS",
+    "confidence": 60,
+    "reasons": [
+      "trend_up",
+      "reentry_up",
+      "squeeze_pre_breakout"
+    ],
+    "status": "PENDING",
+    "id": "aa96aa474007d0b16e90"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-0c7a11fc49a07dc7cb83",
+    "sourceGeneratedAt": "2026-10-15T05:25:01.153Z",
+    "symbol": "GC=F",
+    "tf": "M30",
+    "candleTime": "2026-10-15T05:30:00.000Z",
+    "createdAt": "2026-10-15T06:35:01.024Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Bowman Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-10-15T02:55:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "UP",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "UP_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_up"
+    ],
+    "status": "PENDING",
+    "id": "89c5389b15462a7baf65"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-0c7a11fc49a07dc7cb83",
+    "sourceGeneratedAt": "2026-10-15T05:25:01.153Z",
+    "symbol": "GC=F",
+    "tf": "H1",
+    "candleTime": "2026-10-15T05:00:00.000Z",
+    "createdAt": "2026-10-15T06:35:01.024Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Bowman Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-10-15T02:55:00.000Z"
+    },
+    "location": "EMA50",
+    "bbma": {
+      "trend": "MIXED",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "UNKNOWN",
+    "state": "RANGE_OR_BREAKOUT_WATCH",
+    "confidence": 100,
+    "reasons": [],
+    "status": "PENDING",
+    "id": "ab7a9e3ea3fec16f658a"
   }
 ]
