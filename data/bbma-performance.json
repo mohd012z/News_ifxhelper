@@ -1,24 +1,24 @@
 {
   "overall": {
-    "samples": 20,
+    "samples": 21,
     "correct": 4,
-    "accuracyPct": 20
+    "accuracyPct": 19
   },
   "lineage": {
-    "liveGenerationId": "bbma-0c7a11fc49a07dc7cb83",
+    "liveGenerationId": "bbma-6f2214d04dafd7eac7ca",
     "history": {
       "status": "MIXED",
       "generationId": null,
-      "generations": 5,
+      "generations": 6,
       "missing": 0
     },
     "status": "LIVE_LINKED"
   },
   "byTimeframe": {
     "M1": {
-      "samples": 0,
+      "samples": 1,
       "correct": 0,
-      "accuracyPct": null
+      "accuracyPct": 0
     },
     "M5": {
       "samples": 5,
@@ -43,9 +43,14 @@
   },
   "byMarketMode": {
     "NORMAL": {
-      "samples": 20,
+      "samples": 21,
       "correct": 4,
-      "accuracyPct": 20
+      "accuracyPct": 19
+    },
+    "PRE_NEWS": {
+      "samples": 0,
+      "correct": 0,
+      "accuracyPct": null
     }
   },
   "byLocation": {
@@ -55,14 +60,19 @@
       "accuracyPct": 50
     },
     "MID_BB": {
-      "samples": 7,
+      "samples": 8,
       "correct": 1,
-      "accuracyPct": 14.3
+      "accuracyPct": 12.5
     },
     "INSIDE_BB": {
       "samples": 11,
       "correct": 2,
       "accuracyPct": 18.2
+    },
+    "ABOVE_TOP_BB": {
+      "samples": 0,
+      "correct": 0,
+      "accuracyPct": null
     }
   },
   "bySqueeze": {
@@ -72,7 +82,7 @@
       "accuracyPct": 23.1
     },
     "SQUEEZE": {
-      "samples": 4,
+      "samples": 5,
       "correct": 0,
       "accuracyPct": 0
     },
@@ -89,9 +99,9 @@
   },
   "byPattern": {
     "DOWN": {
-      "samples": 3,
+      "samples": 4,
       "correct": 1,
-      "accuracyPct": 33.3
+      "accuracyPct": 25
     },
     "MIXED": {
       "samples": 6,
@@ -122,6 +132,11 @@
       "samples": 1,
       "correct": 0,
       "accuracyPct": 0
+    },
+    "MOMENTUM_UP": {
+      "samples": 0,
+      "correct": 0,
+      "accuracyPct": null
     }
   },
   "calibration": {
@@ -131,15 +146,15 @@
       "accuracyPct": 21.1
     },
     "50-59": {
-      "samples": 1,
+      "samples": 2,
       "correct": 0,
       "accuracyPct": 0
     }
   },
-  "generatedAt": "2026-10-15T06:35:01.025Z",
-  "pending": 10,
-  "settled": 20,
+  "generatedAt": "2026-10-16T06:28:34.898Z",
+  "pending": 14,
+  "settled": 21,
   "schemaVersion": 3,
-  "generationId": "bbma-0c7a11fc49a07dc7cb83",
-  "sourceGeneratedAt": "2026-10-15T05:25:01.153Z"
+  "generationId": "bbma-6f2214d04dafd7eac7ca",
+  "sourceGeneratedAt": "2026-10-16T03:20:12.007Z"
 }

@@ -1106,8 +1106,18 @@
       "trend_down",
       "squeeze_pre_breakout"
     ],
-    "status": "PENDING",
-    "id": "b6a83a9797bb81e08f35"
+    "status": "SETTLED",
+    "id": "b6a83a9797bb81e08f35",
+    "settledAt": "2026-10-16T06:28:34.896Z",
+    "nextCandleTime": "2026-10-15T06:24:00.000Z",
+    "actualDirection": "UP",
+    "predictedDirection": "FLAT",
+    "correct": false,
+    "nextReturnPct": 0.0553,
+    "mfePct": 0.0649,
+    "maePct": 0,
+    "rangePct": 0.0649,
+    "closeLocationPct": 85.19
   },
   {
     "schemaVersion": 4,
@@ -1248,5 +1258,185 @@
     "reasons": [],
     "status": "PENDING",
     "id": "ab7a9e3ea3fec16f658a"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-6f2214d04dafd7eac7ca",
+    "sourceGeneratedAt": "2026-10-16T03:20:12.007Z",
+    "symbol": "GC=F",
+    "tf": "M1",
+    "candleTime": "2026-10-16T06:18:28.000Z",
+    "createdAt": "2026-10-16T06:28:34.897Z",
+    "marketMode": "PRE_NEWS",
+    "event": {
+      "title": "Fed Chairman Warsh Speaks",
+      "currency": "USD",
+      "impact": "HIGH",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-10-16T03:30:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "MIXED",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "SQUEEZE",
+    "state": "RANGE_OR_BREAKOUT_WATCH",
+    "confidence": 65,
+    "reasons": [
+      "squeeze_pre_breakout"
+    ],
+    "status": "PENDING",
+    "id": "19dc7dfb4c9eed775764"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-6f2214d04dafd7eac7ca",
+    "sourceGeneratedAt": "2026-10-16T03:20:12.007Z",
+    "symbol": "GC=F",
+    "tf": "M5",
+    "candleTime": "2026-10-16T06:15:00.000Z",
+    "createdAt": "2026-10-16T06:28:34.898Z",
+    "marketMode": "PRE_NEWS",
+    "event": {
+      "title": "Fed Chairman Warsh Speaks",
+      "currency": "USD",
+      "impact": "HIGH",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-10-16T03:30:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "UP",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "UP_BIAS",
+    "confidence": 65,
+    "reasons": [
+      "trend_up"
+    ],
+    "status": "PENDING",
+    "id": "0c215ec67fa467cb1eb2"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-6f2214d04dafd7eac7ca",
+    "sourceGeneratedAt": "2026-10-16T03:20:12.007Z",
+    "symbol": "GC=F",
+    "tf": "M15",
+    "candleTime": "2026-10-16T06:00:00.000Z",
+    "createdAt": "2026-10-16T06:28:34.898Z",
+    "marketMode": "PRE_NEWS",
+    "event": {
+      "title": "Fed Chairman Warsh Speaks",
+      "currency": "USD",
+      "impact": "HIGH",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-10-16T03:30:00.000Z"
+    },
+    "location": "ABOVE_TOP_BB",
+    "bbma": {
+      "trend": "UP",
+      "extreme": "NONE",
+      "momentum": "MOMENTUM_UP",
+      "reentry": "NONE",
+      "csak": "CSAK_UP"
+    },
+    "squeeze": "NORMAL",
+    "state": "UP_BIAS",
+    "confidence": 65,
+    "reasons": [
+      "trend_up",
+      "bb_momentum_up"
+    ],
+    "status": "PENDING",
+    "id": "77f6b2e1a329532db9e6"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-6f2214d04dafd7eac7ca",
+    "sourceGeneratedAt": "2026-10-16T03:20:12.007Z",
+    "symbol": "GC=F",
+    "tf": "M30",
+    "candleTime": "2026-10-16T05:30:00.000Z",
+    "createdAt": "2026-10-16T06:28:34.898Z",
+    "marketMode": "PRE_NEWS",
+    "event": {
+      "title": "Fed Chairman Warsh Speaks",
+      "currency": "USD",
+      "impact": "HIGH",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-10-16T03:30:00.000Z"
+    },
+    "location": "ABOVE_TOP_BB",
+    "bbma": {
+      "trend": "UP",
+      "extreme": "NONE",
+      "momentum": "MOMENTUM_UP",
+      "reentry": "NONE",
+      "csak": "CSAK_UP"
+    },
+    "squeeze": "NORMAL",
+    "state": "UP_BIAS",
+    "confidence": 65,
+    "reasons": [
+      "trend_up",
+      "bb_momentum_up"
+    ],
+    "status": "PENDING",
+    "id": "9a49b508138ab9afe6df"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-6f2214d04dafd7eac7ca",
+    "sourceGeneratedAt": "2026-10-16T03:20:12.007Z",
+    "symbol": "GC=F",
+    "tf": "H1",
+    "candleTime": "2026-10-16T05:00:00.000Z",
+    "createdAt": "2026-10-16T06:28:34.898Z",
+    "marketMode": "PRE_NEWS",
+    "event": {
+      "title": "Fed Chairman Warsh Speaks",
+      "currency": "USD",
+      "impact": "HIGH",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-10-16T03:30:00.000Z"
+    },
+    "location": "ABOVE_TOP_BB",
+    "bbma": {
+      "trend": "UP",
+      "extreme": "NONE",
+      "momentum": "MOMENTUM_UP",
+      "reentry": "REENTRY_UP_ZONE",
+      "csak": "CSAK_UP"
+    },
+    "squeeze": "SQUEEZE",
+    "state": "UP_BIAS",
+    "confidence": 65,
+    "reasons": [
+      "trend_up",
+      "bb_momentum_up",
+      "reentry_up",
+      "squeeze_pre_breakout"
+    ],
+    "status": "PENDING",
+    "id": "5bcd0fd22ffcaff7046e"
   }
 ]
