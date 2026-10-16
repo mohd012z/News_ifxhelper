@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
   "generationId": "bbma-c3973179461986e1d3a9",
-  "generatedAt": "2026-10-16T17:34:21.748Z",
+  "generatedAt": "2026-10-16T18:20:14.339Z",
   "lineage": {
     "status": "CONSISTENT",
     "generationId": "bbma-c3973179461986e1d3a9",
@@ -12,37 +12,37 @@
     {
       "file": "news-auto.js",
       "available": true,
-      "bytes": 672298,
-      "sha256": "ded4896e0e7bac5aa462cda161710606e95f1f875c6e6c80e9cef94fe9429a24",
-      "modifiedAt": "2026-10-16T17:34:15.145Z"
+      "bytes": 679271,
+      "sha256": "998b082dbb2994e9c8cc4ef29725641d7681985b4408c27a388af356d8500444",
+      "modifiedAt": "2026-10-16T18:20:13.848Z"
     },
     {
       "file": "macro-auto.js",
       "available": true,
-      "bytes": 1530,
-      "sha256": "72528bb89abbf149da6aedb348122f211b9d66424b9acafd732cb2d25bda1ca8",
-      "modifiedAt": "2026-10-16T17:34:15.140Z"
+      "bytes": 1548,
+      "sha256": "b29222946b80fb265a320ab1045113695d96b7e8bbe8522554b3e3ea49cd1ed0",
+      "modifiedAt": "2026-10-16T18:20:14.284Z"
     },
     {
       "file": "atr.js",
       "available": true,
       "bytes": 5807,
       "sha256": "b387bc5e377ecc46fc33b2638252408cb37e96d42634a60f0aa687e2bd5b9099",
-      "modifiedAt": "2026-10-16T17:34:15.037Z"
+      "modifiedAt": "2026-10-16T18:18:46.367Z"
     },
     {
       "file": "xauusd-data.js",
       "available": true,
       "bytes": 38228,
       "sha256": "c00923b2bcee5baefd90e72384b9fcabb2de6e893c84a6119272ef9d9f5b0f7f",
-      "modifiedAt": "2026-10-16T17:34:15.150Z"
+      "modifiedAt": "2026-10-16T18:18:46.506Z"
     },
     {
       "file": "data/bbma-watch.json",
       "available": true,
       "bytes": 24792,
       "sha256": "ecddda74f89b5ce333404dca7bea8c15ced054d81b568bab1f05bc4d7528df53",
-      "modifiedAt": "2026-10-16T17:34:15.039Z",
+      "modifiedAt": "2026-10-16T18:18:46.369Z",
       "lineage": {
         "generationId": "bbma-c3973179461986e1d3a9",
         "generatedAt": "2026-10-16T17:34:01.402Z",
@@ -54,7 +54,7 @@
       "available": true,
       "bytes": 37069,
       "sha256": "e914aecdc1609c7fd04f25fa1acb6b5b49c30e91519927feb3a26b9db8167205",
-      "modifiedAt": "2026-10-16T17:34:15.039Z",
+      "modifiedAt": "2026-10-16T18:18:46.369Z",
       "lineage": {
         "generationId": null,
         "generatedAt": null,
@@ -66,7 +66,7 @@
       "available": true,
       "bytes": 2842,
       "sha256": "72128ae8d6d071d4f5827c32d3b376f577637e092fd76eeab7a94527e21a90ac",
-      "modifiedAt": "2026-10-16T17:34:15.039Z",
+      "modifiedAt": "2026-10-16T18:18:46.369Z",
       "lineage": {
         "generationId": "bbma-6f2214d04dafd7eac7ca",
         "generatedAt": "2026-10-16T06:28:34.898Z",
@@ -78,7 +78,7 @@
       "available": true,
       "bytes": 462,
       "sha256": "dd4b1341b0212dbab23e8aaf88021c55b8ed203e1588bf4b278cc19f20a0059c",
-      "modifiedAt": "2026-10-16T17:34:15.038Z",
+      "modifiedAt": "2026-10-16T18:18:46.368Z",
       "lineage": {
         "generationId": null,
         "generatedAt": "2026-10-16T06:28:34.936Z",
@@ -90,7 +90,7 @@
       "available": true,
       "bytes": 16349,
       "sha256": "35e2f4e294e06ce083079939f5589d4ea98dd2b95e1c539097ee2d71d8bf3e39",
-      "modifiedAt": "2026-10-16T17:34:21.663Z",
+      "modifiedAt": "2026-10-16T18:18:46.491Z",
       "lineage": {
         "generationId": "bbma-c3973179461986e1d3a9",
         "generatedAt": "2026-10-16T17:34:21.663Z",
@@ -102,7 +102,7 @@
       "available": true,
       "bytes": 517,
       "sha256": "aa047a9be51b6ac3b6eeaa648d5d15bdedb72ecbf049e73424e59c759f9bb057",
-      "modifiedAt": "2026-10-16T17:34:15.137Z",
+      "modifiedAt": "2026-10-16T18:18:46.491Z",
       "lineage": {
         "generationId": null,
         "generatedAt": "2026-10-12T09:21:40.175Z",
@@ -114,7 +114,7 @@
       "available": true,
       "bytes": 518,
       "sha256": "6f5f61d01c021a8307743b05e7a058de013331ad97ccbf71308e5e39bb1c1d71",
-      "modifiedAt": "2026-10-16T17:34:15.137Z",
+      "modifiedAt": "2026-10-16T18:18:46.491Z",
       "lineage": {
         "generationId": null,
         "generatedAt": "2026-10-12T09:21:40.175Z",
