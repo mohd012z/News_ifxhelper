@@ -1,27 +1,92 @@
 {
-  "generatedAt": "2026-10-12T09:21:40.175Z",
+  "generatedAt": "2026-10-19T07:53:26.939Z",
   "days": 7,
-  "samples": 8,
+  "samples": 21,
   "groups": {
     "M5|NORMAL|MID_BB|NORMAL": {
-      "samples": 2,
-      "correct": 0,
-      "accuracyPct": 0
-    },
-    "M15|NORMAL|INSIDE_BB|NORMAL": {
       "samples": 2,
       "correct": 1,
       "accuracyPct": 50
     },
+    "M15|NORMAL|INSIDE_BB|NORMAL": {
+      "samples": 3,
+      "correct": 1,
+      "accuracyPct": 33.3
+    },
     "M30|NORMAL|MID_BB|SQUEEZE": {
-      "samples": 2,
+      "samples": 1,
       "correct": 0,
       "accuracyPct": 0
     },
     "H1|NORMAL|INSIDE_BB|NORMAL": {
+      "samples": 1,
+      "correct": 0,
+      "accuracyPct": 0
+    },
+    "M5|NORMAL|EMA50|NORMAL": {
+      "samples": 1,
+      "correct": 0,
+      "accuracyPct": 0
+    },
+    "M30|NORMAL|INSIDE_BB|NORMAL": {
       "samples": 2,
+      "correct": 0,
+      "accuracyPct": 0
+    },
+    "H1|NORMAL|INSIDE_BB|SQUEEZE": {
+      "samples": 1,
+      "correct": 0,
+      "accuracyPct": 0
+    },
+    "H1|NORMAL|EMA50|TIGHT": {
+      "samples": 1,
       "correct": 1,
-      "accuracyPct": 50
+      "accuracyPct": 100
+    },
+    "M5|NORMAL|MID_BB|TIGHT": {
+      "samples": 1,
+      "correct": 0,
+      "accuracyPct": 0
+    },
+    "M15|NORMAL|MID_BB|NORMAL": {
+      "samples": 1,
+      "correct": 0,
+      "accuracyPct": 0
+    },
+    "M30|NORMAL|INSIDE_BB|SQUEEZE": {
+      "samples": 1,
+      "correct": 0,
+      "accuracyPct": 0
+    },
+    "H1|NORMAL|INSIDE_BB|UNKNOWN": {
+      "samples": 1,
+      "correct": 0,
+      "accuracyPct": 0
+    },
+    "M1|NORMAL|MID_BB|SQUEEZE": {
+      "samples": 1,
+      "correct": 0,
+      "accuracyPct": 0
+    },
+    "M5|PRE_NEWS|INSIDE_BB|NORMAL": {
+      "samples": 1,
+      "correct": 1,
+      "accuracyPct": 100
+    },
+    "M15|PRE_NEWS|ABOVE_TOP_BB|NORMAL": {
+      "samples": 1,
+      "correct": 1,
+      "accuracyPct": 100
+    },
+    "M30|PRE_NEWS|ABOVE_TOP_BB|NORMAL": {
+      "samples": 1,
+      "correct": 1,
+      "accuracyPct": 100
+    },
+    "H1|PRE_NEWS|ABOVE_TOP_BB|SQUEEZE": {
+      "samples": 1,
+      "correct": 1,
+      "accuracyPct": 100
     }
   }
 }
