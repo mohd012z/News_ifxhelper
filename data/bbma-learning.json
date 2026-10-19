@@ -1326,8 +1326,18 @@
     "reasons": [
       "trend_up"
     ],
-    "status": "PENDING",
-    "id": "0c215ec67fa467cb1eb2"
+    "status": "SETTLED",
+    "id": "0c215ec67fa467cb1eb2",
+    "settledAt": "2026-10-19T07:01:22.197Z",
+    "nextCandleTime": "2026-10-16T06:20:00.000Z",
+    "actualDirection": "UP",
+    "predictedDirection": "UP",
+    "correct": true,
+    "nextReturnPct": 0.0167,
+    "mfePct": 0.0572,
+    "maePct": -0.0071,
+    "rangePct": 0.0644,
+    "closeLocationPct": 37.04
   },
   {
     "schemaVersion": 4,
@@ -1362,8 +1372,18 @@
       "trend_up",
       "bb_momentum_up"
     ],
-    "status": "PENDING",
-    "id": "77f6b2e1a329532db9e6"
+    "status": "SETTLED",
+    "id": "77f6b2e1a329532db9e6",
+    "settledAt": "2026-10-19T07:01:22.197Z",
+    "nextCandleTime": "2026-10-16T06:15:00.000Z",
+    "actualDirection": "UP",
+    "predictedDirection": "UP",
+    "correct": true,
+    "nextReturnPct": 0.1503,
+    "mfePct": 0.1527,
+    "maePct": -0.0215,
+    "rangePct": 0.1742,
+    "closeLocationPct": 98.63
   },
   {
     "schemaVersion": 4,
@@ -1398,8 +1418,18 @@
       "trend_up",
       "bb_momentum_up"
     ],
-    "status": "PENDING",
-    "id": "9a49b508138ab9afe6df"
+    "status": "SETTLED",
+    "id": "9a49b508138ab9afe6df",
+    "settledAt": "2026-10-19T07:01:22.197Z",
+    "nextCandleTime": "2026-10-16T06:00:00.000Z",
+    "actualDirection": "UP",
+    "predictedDirection": "UP",
+    "correct": true,
+    "nextReturnPct": 0.0286,
+    "mfePct": 0.062,
+    "maePct": -0.143,
+    "rangePct": 0.205,
+    "closeLocationPct": 83.72
   },
   {
     "schemaVersion": 4,
@@ -1436,7 +1466,196 @@
       "reentry_up",
       "squeeze_pre_breakout"
     ],
+    "status": "SETTLED",
+    "id": "5bcd0fd22ffcaff7046e",
+    "settledAt": "2026-10-19T07:01:22.197Z",
+    "nextCandleTime": "2026-10-16T06:00:00.000Z",
+    "actualDirection": "UP",
+    "predictedDirection": "UP",
+    "correct": true,
+    "nextReturnPct": 0.0596,
+    "mfePct": 0.1525,
+    "maePct": -0.143,
+    "rangePct": 0.2955,
+    "closeLocationPct": 68.55
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-ad22b34911d1ef6f22d4",
+    "sourceGeneratedAt": "2026-10-19T02:28:01.709Z",
+    "symbol": "GC=F",
+    "tf": "M1",
+    "candleTime": "2026-10-19T06:51:19.000Z",
+    "createdAt": "2026-10-19T07:01:22.197Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "NAHB Housing Market Index",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "31",
+      "previous": "32",
+      "time": "2026-10-19T14:00:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "DOWN_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_down"
+    ],
     "status": "PENDING",
-    "id": "5bcd0fd22ffcaff7046e"
+    "id": "71600c453301a5b3303a"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-ad22b34911d1ef6f22d4",
+    "sourceGeneratedAt": "2026-10-19T02:28:01.709Z",
+    "symbol": "GC=F",
+    "tf": "M5",
+    "candleTime": "2026-10-19T06:45:00.000Z",
+    "createdAt": "2026-10-19T07:01:22.198Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "NAHB Housing Market Index",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "31",
+      "previous": "32",
+      "time": "2026-10-19T14:00:00.000Z"
+    },
+    "location": "ABOVE_TOP_BB",
+    "bbma": {
+      "trend": "UP",
+      "extreme": "EXTREME_HIGH",
+      "momentum": "MOMENTUM_UP",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "UP_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_up",
+      "bb_momentum_up"
+    ],
+    "status": "PENDING",
+    "id": "96af4b1a4790928ca58c"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-ad22b34911d1ef6f22d4",
+    "sourceGeneratedAt": "2026-10-19T02:28:01.709Z",
+    "symbol": "GC=F",
+    "tf": "M15",
+    "candleTime": "2026-10-19T06:30:00.000Z",
+    "createdAt": "2026-10-19T07:01:22.198Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "NAHB Housing Market Index",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "31",
+      "previous": "32",
+      "time": "2026-10-19T14:00:00.000Z"
+    },
+    "location": "MID_BB",
+    "bbma": {
+      "trend": "UP",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "CSAK_UP"
+    },
+    "squeeze": "NORMAL",
+    "state": "UP_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_up"
+    ],
+    "status": "PENDING",
+    "id": "372fdf8f05e76f43f1bc"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-ad22b34911d1ef6f22d4",
+    "sourceGeneratedAt": "2026-10-19T02:28:01.709Z",
+    "symbol": "GC=F",
+    "tf": "M30",
+    "candleTime": "2026-10-19T06:00:00.000Z",
+    "createdAt": "2026-10-19T07:01:22.198Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "NAHB Housing Market Index",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "31",
+      "previous": "32",
+      "time": "2026-10-19T14:00:00.000Z"
+    },
+    "location": "MID_BB",
+    "bbma": {
+      "trend": "UP",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "REENTRY_UP_ZONE",
+      "csak": "NONE"
+    },
+    "squeeze": "TIGHT",
+    "state": "UP_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_up",
+      "reentry_up"
+    ],
+    "status": "PENDING",
+    "id": "c88a15487c083554533d"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-ad22b34911d1ef6f22d4",
+    "sourceGeneratedAt": "2026-10-19T02:28:01.709Z",
+    "symbol": "GC=F",
+    "tf": "H1",
+    "candleTime": "2026-10-19T05:00:00.000Z",
+    "createdAt": "2026-10-19T07:01:22.198Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "NAHB Housing Market Index",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "31",
+      "previous": "32",
+      "time": "2026-10-19T14:00:00.000Z"
+    },
+    "location": "MID_BB",
+    "bbma": {
+      "trend": "UP",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "REENTRY_UP_ZONE",
+      "csak": "NONE"
+    },
+    "squeeze": "SQUEEZE",
+    "state": "UP_BIAS",
+    "confidence": 60,
+    "reasons": [
+      "trend_up",
+      "reentry_up",
+      "squeeze_pre_breakout"
+    ],
+    "status": "PENDING",
+    "id": "7f064ddd8f931995319e"
   }
 ]
