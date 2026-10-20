@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-19T07:01:22.250Z",
+  "generatedAt": "2026-10-20T06:45:44.689Z",
   "agents": {
     "market": {
       "state": "STALE",
-      "lastSuccess": "2026-10-19T02:28:01.709Z",
-      "gaps": 12,
+      "lastSuccess": "2026-10-20T02:56:42.864Z",
+      "gaps": 13,
       "duplicates": 0
     },
     "intelligence": {
       "state": "ACCEPTED",
-      "lastSuccess": "2026-10-19T04:59:54.702Z",
+      "lastSuccess": "2026-10-20T01:57:39.930Z",
       "conflicts": []
     },
     "learning": {
       "state": "OK",
-      "pending": 15,
-      "settled": 25,
-      "accuracyPct": 32
+      "pending": 16,
+      "settled": 29,
+      "accuracyPct": 37.9
     }
   }
 }
