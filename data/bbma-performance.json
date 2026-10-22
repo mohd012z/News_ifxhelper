@@ -1,15 +1,15 @@
 {
   "overall": {
-    "samples": 33,
-    "correct": 11,
-    "accuracyPct": 33.3
+    "samples": 37,
+    "correct": 14,
+    "accuracyPct": 37.8
   },
   "lineage": {
-    "liveGenerationId": "bbma-6ef1b1e5d98c0b86e6cd",
+    "liveGenerationId": "bbma-22a2e75bc1afd5245edb",
     "history": {
       "status": "MIXED",
       "generationId": null,
-      "generations": 9,
+      "generations": 10,
       "missing": 0
     },
     "status": "LIVE_LINKED"
@@ -21,31 +21,31 @@
       "accuracyPct": 0
     },
     "M5": {
-      "samples": 8,
+      "samples": 9,
       "correct": 3,
-      "accuracyPct": 37.5
+      "accuracyPct": 33.3
     },
     "M15": {
-      "samples": 8,
-      "correct": 3,
-      "accuracyPct": 37.5
+      "samples": 9,
+      "correct": 4,
+      "accuracyPct": 44.4
     },
     "M30": {
-      "samples": 8,
-      "correct": 2,
-      "accuracyPct": 25
+      "samples": 9,
+      "correct": 3,
+      "accuracyPct": 33.3
     },
     "H1": {
-      "samples": 8,
-      "correct": 3,
-      "accuracyPct": 37.5
+      "samples": 9,
+      "correct": 4,
+      "accuracyPct": 44.4
     }
   },
   "byMarketMode": {
     "NORMAL": {
-      "samples": 29,
-      "correct": 7,
-      "accuracyPct": 24.1
+      "samples": 33,
+      "correct": 10,
+      "accuracyPct": 30.3
     },
     "PRE_NEWS": {
       "samples": 4,
@@ -60,14 +60,14 @@
       "accuracyPct": 33.3
     },
     "MID_BB": {
-      "samples": 12,
-      "correct": 3,
-      "accuracyPct": 25
+      "samples": 15,
+      "correct": 5,
+      "accuracyPct": 33.3
     },
     "INSIDE_BB": {
-      "samples": 13,
-      "correct": 3,
-      "accuracyPct": 23.1
+      "samples": 14,
+      "correct": 4,
+      "accuracyPct": 28.6
     },
     "ABOVE_TOP_BB": {
       "samples": 4,
@@ -87,14 +87,14 @@
   },
   "bySqueeze": {
     "NORMAL": {
-      "samples": 21,
-      "correct": 8,
-      "accuracyPct": 38.1
+      "samples": 23,
+      "correct": 9,
+      "accuracyPct": 39.1
     },
     "SQUEEZE": {
-      "samples": 8,
-      "correct": 1,
-      "accuracyPct": 12.5
+      "samples": 9,
+      "correct": 2,
+      "accuracyPct": 22.2
     },
     "TIGHT": {
       "samples": 3,
@@ -102,16 +102,16 @@
       "accuracyPct": 66.7
     },
     "UNKNOWN": {
-      "samples": 1,
-      "correct": 0,
-      "accuracyPct": 0
+      "samples": 2,
+      "correct": 1,
+      "accuracyPct": 50
     }
   },
   "byPattern": {
     "DOWN": {
-      "samples": 5,
-      "correct": 1,
-      "accuracyPct": 20
+      "samples": 6,
+      "correct": 2,
+      "accuracyPct": 33.3
     },
     "MIXED": {
       "samples": 7,
@@ -139,9 +139,9 @@
       "accuracyPct": 0
     },
     "REENTRY_DOWN_ZONE": {
-      "samples": 2,
-      "correct": 0,
-      "accuracyPct": 0
+      "samples": 5,
+      "correct": 2,
+      "accuracyPct": 40
     },
     "MOMENTUM_UP": {
       "samples": 4,
@@ -156,9 +156,9 @@
   },
   "calibration": {
     "100-99": {
-      "samples": 26,
-      "correct": 7,
-      "accuracyPct": 26.9
+      "samples": 29,
+      "correct": 9,
+      "accuracyPct": 31
     },
     "50-59": {
       "samples": 2,
@@ -166,15 +166,15 @@
       "accuracyPct": 0
     },
     "60-69": {
-      "samples": 5,
-      "correct": 4,
-      "accuracyPct": 80
+      "samples": 6,
+      "correct": 5,
+      "accuracyPct": 83.3
     }
   },
-  "generatedAt": "2026-10-21T06:40:42.662Z",
-  "pending": 17,
-  "settled": 33,
+  "generatedAt": "2026-10-22T06:42:23.923Z",
+  "pending": 18,
+  "settled": 37,
   "schemaVersion": 3,
-  "generationId": "bbma-6ef1b1e5d98c0b86e6cd",
-  "sourceGeneratedAt": "2026-10-21T04:39:48.684Z"
+  "generationId": "bbma-22a2e75bc1afd5245edb",
+  "sourceGeneratedAt": "2026-10-22T05:22:26.980Z"
 }

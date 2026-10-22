@@ -1979,8 +1979,18 @@
       "trend_down",
       "reentry_down"
     ],
-    "status": "PENDING",
-    "id": "2ab923ee25d499a05c34"
+    "status": "SETTLED",
+    "id": "2ab923ee25d499a05c34",
+    "settledAt": "2026-10-22T06:42:23.921Z",
+    "nextCandleTime": "2026-10-21T06:30:00.000Z",
+    "actualDirection": "UP",
+    "predictedDirection": "DOWN",
+    "correct": false,
+    "nextReturnPct": 0.0605,
+    "mfePct": 0.0919,
+    "maePct": 0,
+    "rangePct": 0.0919,
+    "closeLocationPct": 65.78
   },
   {
     "schemaVersion": 4,
@@ -2015,8 +2025,18 @@
       "trend_down",
       "reentry_down"
     ],
-    "status": "PENDING",
-    "id": "62a4480fd9044a6b468e"
+    "status": "SETTLED",
+    "id": "62a4480fd9044a6b468e",
+    "settledAt": "2026-10-22T06:42:23.921Z",
+    "nextCandleTime": "2026-10-21T06:30:00.000Z",
+    "actualDirection": "DOWN",
+    "predictedDirection": "DOWN",
+    "correct": true,
+    "nextReturnPct": -0.029,
+    "mfePct": 0.0919,
+    "maePct": -0.0508,
+    "rangePct": 0.1427,
+    "closeLocationPct": 15.25
   },
   {
     "schemaVersion": 4,
@@ -2052,8 +2072,18 @@
       "reentry_down",
       "squeeze_pre_breakout"
     ],
-    "status": "PENDING",
-    "id": "6c7ce49b57a390a886e3"
+    "status": "SETTLED",
+    "id": "6c7ce49b57a390a886e3",
+    "settledAt": "2026-10-22T06:42:23.921Z",
+    "nextCandleTime": "2026-10-21T06:30:00.000Z",
+    "actualDirection": "DOWN",
+    "predictedDirection": "DOWN",
+    "correct": true,
+    "nextReturnPct": -0.0774,
+    "mfePct": 0.0919,
+    "maePct": -0.1185,
+    "rangePct": 0.2105,
+    "closeLocationPct": 19.54
   },
   {
     "schemaVersion": 4,
@@ -2087,7 +2117,195 @@
     "reasons": [
       "trend_down"
     ],
+    "status": "SETTLED",
+    "id": "6f35900c1fb908c437ef",
+    "settledAt": "2026-10-22T06:42:23.921Z",
+    "nextCandleTime": "2026-10-21T06:00:00.000Z",
+    "actualDirection": "DOWN",
+    "predictedDirection": "DOWN",
+    "correct": true,
+    "nextReturnPct": -0.1233,
+    "mfePct": 0.0556,
+    "maePct": -0.1644,
+    "rangePct": 0.2201,
+    "closeLocationPct": 18.68
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-22a2e75bc1afd5245edb",
+    "sourceGeneratedAt": "2026-10-22T05:22:26.980Z",
+    "symbol": "GC=F",
+    "tf": "M1",
+    "candleTime": "2026-10-22T06:32:22.000Z",
+    "createdAt": "2026-10-22T06:42:23.921Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "Unemployment Claims",
+      "currency": "USD",
+      "impact": "MEDIUM",
+      "actual": null,
+      "forecast": "200K",
+      "previous": "199K",
+      "time": "2026-10-22T12:30:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "DOWN_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_down"
+    ],
     "status": "PENDING",
-    "id": "6f35900c1fb908c437ef"
+    "id": "a4a7bc33c471a537b7c0"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-22a2e75bc1afd5245edb",
+    "sourceGeneratedAt": "2026-10-22T05:22:26.980Z",
+    "symbol": "GC=F",
+    "tf": "M5",
+    "candleTime": "2026-10-22T06:25:00.000Z",
+    "createdAt": "2026-10-22T06:42:23.922Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "Unemployment Claims",
+      "currency": "USD",
+      "impact": "MEDIUM",
+      "actual": null,
+      "forecast": "200K",
+      "previous": "199K",
+      "time": "2026-10-22T12:30:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "SQUEEZE",
+    "state": "RANGE_OR_BREAKOUT_WATCH",
+    "confidence": 50,
+    "reasons": [
+      "trend_down",
+      "squeeze_pre_breakout"
+    ],
+    "status": "PENDING",
+    "id": "55dd129e72682a5bc47b"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-22a2e75bc1afd5245edb",
+    "sourceGeneratedAt": "2026-10-22T05:22:26.980Z",
+    "symbol": "GC=F",
+    "tf": "M15",
+    "candleTime": "2026-10-22T06:15:00.000Z",
+    "createdAt": "2026-10-22T06:42:23.922Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "Unemployment Claims",
+      "currency": "USD",
+      "impact": "MEDIUM",
+      "actual": null,
+      "forecast": "200K",
+      "previous": "199K",
+      "time": "2026-10-22T12:30:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "DOWN_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_down"
+    ],
+    "status": "PENDING",
+    "id": "c735093cafc7a4a11a0f"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-22a2e75bc1afd5245edb",
+    "sourceGeneratedAt": "2026-10-22T05:22:26.980Z",
+    "symbol": "GC=F",
+    "tf": "M30",
+    "candleTime": "2026-10-22T06:00:00.000Z",
+    "createdAt": "2026-10-22T06:42:23.922Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "Unemployment Claims",
+      "currency": "USD",
+      "impact": "MEDIUM",
+      "actual": null,
+      "forecast": "200K",
+      "previous": "199K",
+      "time": "2026-10-22T12:30:00.000Z"
+    },
+    "location": "BELOW_LOW_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "MOMENTUM_DOWN",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "DOWN_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_down",
+      "bb_momentum_down"
+    ],
+    "status": "PENDING",
+    "id": "fead036e0a25dc8a8de8"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-22a2e75bc1afd5245edb",
+    "sourceGeneratedAt": "2026-10-22T05:22:26.980Z",
+    "symbol": "GC=F",
+    "tf": "H1",
+    "candleTime": "2026-10-22T05:00:00.000Z",
+    "createdAt": "2026-10-22T06:42:23.922Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "Unemployment Claims",
+      "currency": "USD",
+      "impact": "MEDIUM",
+      "actual": null,
+      "forecast": "200K",
+      "previous": "199K",
+      "time": "2026-10-22T12:30:00.000Z"
+    },
+    "location": "BELOW_LOW_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "MOMENTUM_DOWN",
+      "reentry": "NONE",
+      "csak": "CSAK_DOWN"
+    },
+    "squeeze": "UNKNOWN",
+    "state": "DOWN_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_down",
+      "bb_momentum_down"
+    ],
+    "status": "PENDING",
+    "id": "3f50c485e0f0438e74f7"
   }
 ]
