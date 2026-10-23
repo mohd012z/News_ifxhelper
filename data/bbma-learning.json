@@ -2198,8 +2198,18 @@
       "trend_down",
       "squeeze_pre_breakout"
     ],
-    "status": "PENDING",
-    "id": "55dd129e72682a5bc47b"
+    "status": "SETTLED",
+    "id": "55dd129e72682a5bc47b",
+    "settledAt": "2026-10-23T06:37:40.842Z",
+    "nextCandleTime": "2026-10-22T06:30:00.000Z",
+    "actualDirection": "UP",
+    "predictedDirection": "FLAT",
+    "correct": false,
+    "nextReturnPct": 0.0097,
+    "mfePct": 0.0536,
+    "maePct": -0.0268,
+    "rangePct": 0.0803,
+    "closeLocationPct": 45.46
   },
   {
     "schemaVersion": 4,
@@ -2233,8 +2243,18 @@
     "reasons": [
       "trend_down"
     ],
-    "status": "PENDING",
-    "id": "c735093cafc7a4a11a0f"
+    "status": "SETTLED",
+    "id": "c735093cafc7a4a11a0f",
+    "settledAt": "2026-10-23T06:37:40.842Z",
+    "nextCandleTime": "2026-10-22T06:30:00.000Z",
+    "actualDirection": "DOWN",
+    "predictedDirection": "DOWN",
+    "correct": true,
+    "nextReturnPct": -0.0414,
+    "mfePct": 0.0925,
+    "maePct": -0.1071,
+    "rangePct": 0.1996,
+    "closeLocationPct": 32.93
   },
   {
     "schemaVersion": 4,
@@ -2269,8 +2289,18 @@
       "trend_down",
       "bb_momentum_down"
     ],
-    "status": "PENDING",
-    "id": "fead036e0a25dc8a8de8"
+    "status": "SETTLED",
+    "id": "fead036e0a25dc8a8de8",
+    "settledAt": "2026-10-23T06:37:40.842Z",
+    "nextCandleTime": "2026-10-22T06:30:00.000Z",
+    "actualDirection": "UP",
+    "predictedDirection": "DOWN",
+    "correct": false,
+    "nextReturnPct": 0.0317,
+    "mfePct": 0.0998,
+    "maePct": -0.1071,
+    "rangePct": 0.2069,
+    "closeLocationPct": 67.06
   },
   {
     "schemaVersion": 4,
@@ -2305,7 +2335,191 @@
       "trend_down",
       "bb_momentum_down"
     ],
+    "status": "SETTLED",
+    "id": "3f50c485e0f0438e74f7",
+    "settledAt": "2026-10-23T06:37:40.842Z",
+    "nextCandleTime": "2026-10-22T06:00:00.000Z",
+    "actualDirection": "UP",
+    "predictedDirection": "DOWN",
+    "correct": false,
+    "nextReturnPct": 0.095,
+    "mfePct": 0.3289,
+    "maePct": -0.0707,
+    "rangePct": 0.3995,
+    "closeLocationPct": 41.46
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-4525c225b27fbd49ef7b",
+    "sourceGeneratedAt": "2026-10-23T05:37:51.518Z",
+    "symbol": "GC=F",
+    "tf": "M1",
+    "candleTime": "2026-10-23T06:27:38.000Z",
+    "createdAt": "2026-10-23T06:37:40.843Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "Flash Manufacturing PMI",
+      "currency": "USD",
+      "impact": "MEDIUM",
+      "actual": null,
+      "forecast": "55.4",
+      "previous": "57.0",
+      "time": "2026-10-23T13:45:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "MIXED",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "SQUEEZE",
+    "state": "RANGE_OR_BREAKOUT_WATCH",
+    "confidence": 100,
+    "reasons": [
+      "squeeze_pre_breakout"
+    ],
     "status": "PENDING",
-    "id": "3f50c485e0f0438e74f7"
+    "id": "24e2ebd1697b1a14fdc9"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-4525c225b27fbd49ef7b",
+    "sourceGeneratedAt": "2026-10-23T05:37:51.518Z",
+    "symbol": "GC=F",
+    "tf": "M5",
+    "candleTime": "2026-10-23T06:20:00.000Z",
+    "createdAt": "2026-10-23T06:37:40.843Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "Flash Manufacturing PMI",
+      "currency": "USD",
+      "impact": "MEDIUM",
+      "actual": null,
+      "forecast": "55.4",
+      "previous": "57.0",
+      "time": "2026-10-23T13:45:00.000Z"
+    },
+    "location": "EMA50",
+    "bbma": {
+      "trend": "UP",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "UP_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_up"
+    ],
+    "status": "PENDING",
+    "id": "4f491fec9d494c763966"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-4525c225b27fbd49ef7b",
+    "sourceGeneratedAt": "2026-10-23T05:37:51.518Z",
+    "symbol": "GC=F",
+    "tf": "M15",
+    "candleTime": "2026-10-23T06:00:00.000Z",
+    "createdAt": "2026-10-23T06:37:40.843Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "Flash Manufacturing PMI",
+      "currency": "USD",
+      "impact": "MEDIUM",
+      "actual": null,
+      "forecast": "55.4",
+      "previous": "57.0",
+      "time": "2026-10-23T13:45:00.000Z"
+    },
+    "location": "MID_BB",
+    "bbma": {
+      "trend": "MIXED",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "CSAK_UP"
+    },
+    "squeeze": "TIGHT",
+    "state": "RANGE_OR_BREAKOUT_WATCH",
+    "confidence": 100,
+    "reasons": [],
+    "status": "PENDING",
+    "id": "43e8d0a3661007af5717"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-4525c225b27fbd49ef7b",
+    "sourceGeneratedAt": "2026-10-23T05:37:51.518Z",
+    "symbol": "GC=F",
+    "tf": "M30",
+    "candleTime": "2026-10-23T05:30:00.000Z",
+    "createdAt": "2026-10-23T06:37:40.843Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "Flash Manufacturing PMI",
+      "currency": "USD",
+      "impact": "MEDIUM",
+      "actual": null,
+      "forecast": "55.4",
+      "previous": "57.0",
+      "time": "2026-10-23T13:45:00.000Z"
+    },
+    "location": "LOW_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "CSAK_DOWN"
+    },
+    "squeeze": "SQUEEZE",
+    "state": "RANGE_OR_BREAKOUT_WATCH",
+    "confidence": 50,
+    "reasons": [
+      "trend_down",
+      "squeeze_pre_breakout"
+    ],
+    "status": "PENDING",
+    "id": "48f556c1739d6352a5bf"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-4525c225b27fbd49ef7b",
+    "sourceGeneratedAt": "2026-10-23T05:37:51.518Z",
+    "symbol": "GC=F",
+    "tf": "H1",
+    "candleTime": "2026-10-23T05:00:00.000Z",
+    "createdAt": "2026-10-23T06:37:40.843Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "Flash Manufacturing PMI",
+      "currency": "USD",
+      "impact": "MEDIUM",
+      "actual": null,
+      "forecast": "55.4",
+      "previous": "57.0",
+      "time": "2026-10-23T13:45:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "CSAK_DOWN"
+    },
+    "squeeze": "NORMAL",
+    "state": "DOWN_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_down"
+    ],
+    "status": "PENDING",
+    "id": "0b96ab583a037150fd63"
   }
 ]
