@@ -28,6 +28,7 @@
 'use strict';
 const fs = require('fs');
 const path = require('path');
+const { retryAfterSeconds, sendWithRateLimitRetry } = require('./lib/telegram-rate-limit');
 
 const STATE_FILE = path.join(__dirname, '.news-alert-state.json');
 const TOKEN = process.env.TELEGRAM_BOT_TOKEN;
@@ -81,7 +82,8 @@ async function sendTelegram(text) {
     // Telegram's own rate limit (~20 msg/min/chat) is an EXPECTED outcome on a big catch-up batch,
     // not a broken integration - the item is correctly left unsent above and retried next run.
     // Treating it as a hard failure only trains everyone to ignore the real red X's.
-    return { ok: false, rateLimited: /too many requests/i.test(j.description || '') };
+    const rateLimited = r.status === 429 || /too many requests/i.test(j.description || '');
+    return { ok: false, rateLimited, retryAfterSeconds: rateLimited ? retryAfterSeconds(j) : null };
   }
   return { ok: true };
 }
@@ -674,7 +676,11 @@ function buildWeeklyOutlook(MARKET_DATA, NEWS_AUTO) {
     console.log(chunks.map(c => c.replace(/<\/?b>/g, '')).join('\n\n=== next message ===\n\n'));
     let sentAll = true, anySkipped = false;
     for (const chunk of chunks) {
-      const r = await sendTelegram(chunk);
+      const r = await sendWithRateLimitRetry(
+        () => sendTelegram(chunk),
+        ms => new Promise(res => setTimeout(res, ms)),
+        ({ attempt, delayMs }) => console.log(`Telegram rate limit; retrying weekly outlook message in ${Math.ceil(delayMs / 1000)}s (retry ${attempt}/5).`)
+      );
       if (r.skipped) anySkipped = true; else if (!r.ok) sentAll = false;
       await new Promise(res => setTimeout(res, 1500));
     }
