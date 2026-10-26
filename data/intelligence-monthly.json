@@ -1,30 +1,30 @@
 {
-  "generatedAt": "2026-10-19T07:53:26.940Z",
+  "generatedAt": "2026-10-26T07:53:07.640Z",
   "days": 30,
-  "samples": 25,
+  "samples": 45,
   "groups": {
     "M5|NORMAL|MID_BB|NORMAL": {
-      "samples": 3,
-      "correct": 1,
-      "accuracyPct": 33.3
-    },
-    "M15|NORMAL|INSIDE_BB|NORMAL": {
       "samples": 4,
       "correct": 1,
       "accuracyPct": 25
     },
+    "M15|NORMAL|INSIDE_BB|NORMAL": {
+      "samples": 5,
+      "correct": 2,
+      "accuracyPct": 40
+    },
     "M30|NORMAL|MID_BB|SQUEEZE": {
-      "samples": 2,
-      "correct": 0,
-      "accuracyPct": 0
+      "samples": 3,
+      "correct": 1,
+      "accuracyPct": 33.3
     },
     "H1|NORMAL|INSIDE_BB|NORMAL": {
-      "samples": 2,
-      "correct": 1,
+      "samples": 4,
+      "correct": 2,
       "accuracyPct": 50
     },
     "M5|NORMAL|EMA50|NORMAL": {
-      "samples": 1,
+      "samples": 3,
       "correct": 0,
       "accuracyPct": 0
     },
@@ -49,9 +49,9 @@
       "accuracyPct": 0
     },
     "M15|NORMAL|MID_BB|NORMAL": {
-      "samples": 1,
-      "correct": 0,
-      "accuracyPct": 0
+      "samples": 4,
+      "correct": 2,
+      "accuracyPct": 50
     },
     "M30|NORMAL|INSIDE_BB|SQUEEZE": {
       "samples": 1,
@@ -59,9 +59,9 @@
       "accuracyPct": 0
     },
     "H1|NORMAL|INSIDE_BB|UNKNOWN": {
-      "samples": 1,
-      "correct": 0,
-      "accuracyPct": 0
+      "samples": 2,
+      "correct": 1,
+      "accuracyPct": 50
     },
     "M1|NORMAL|MID_BB|SQUEEZE": {
       "samples": 1,
@@ -87,6 +87,46 @@
       "samples": 1,
       "correct": 1,
       "accuracyPct": 100
+    },
+    "M5|NORMAL|ABOVE_TOP_BB|NORMAL": {
+      "samples": 1,
+      "correct": 1,
+      "accuracyPct": 100
+    },
+    "M30|NORMAL|MID_BB|TIGHT": {
+      "samples": 1,
+      "correct": 1,
+      "accuracyPct": 100
+    },
+    "H1|NORMAL|MID_BB|SQUEEZE": {
+      "samples": 1,
+      "correct": 0,
+      "accuracyPct": 0
+    },
+    "M30|NORMAL|LOW_BB|SQUEEZE": {
+      "samples": 2,
+      "correct": 0,
+      "accuracyPct": 0
+    },
+    "M5|NORMAL|INSIDE_BB|SQUEEZE": {
+      "samples": 1,
+      "correct": 0,
+      "accuracyPct": 0
+    },
+    "M30|NORMAL|BELOW_LOW_BB|NORMAL": {
+      "samples": 1,
+      "correct": 0,
+      "accuracyPct": 0
+    },
+    "H1|NORMAL|BELOW_LOW_BB|UNKNOWN": {
+      "samples": 1,
+      "correct": 0,
+      "accuracyPct": 0
+    },
+    "M15|NORMAL|MID_BB|TIGHT": {
+      "samples": 1,
+      "correct": 0,
+      "accuracyPct": 0
     }
   }
 }
