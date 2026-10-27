@@ -2629,8 +2629,18 @@
     "reasons": [
       "trend_up"
     ],
-    "status": "PENDING",
-    "id": "d4ee23b44d3d774d20ba"
+    "status": "SETTLED",
+    "id": "d4ee23b44d3d774d20ba",
+    "settledAt": "2026-10-27T06:54:25.200Z",
+    "nextCandleTime": "2026-10-26T07:00:00.000Z",
+    "actualDirection": "UP",
+    "predictedDirection": "UP",
+    "correct": true,
+    "nextReturnPct": 0.0498,
+    "mfePct": 0.0647,
+    "maePct": -0.0199,
+    "rangePct": 0.0846,
+    "closeLocationPct": 82.36
   },
   {
     "schemaVersion": 4,
@@ -2664,8 +2674,18 @@
     "reasons": [
       "trend_down"
     ],
-    "status": "PENDING",
-    "id": "f32181bf10c2d0bb073e"
+    "status": "SETTLED",
+    "id": "f32181bf10c2d0bb073e",
+    "settledAt": "2026-10-27T06:54:25.200Z",
+    "nextCandleTime": "2026-10-26T07:00:00.000Z",
+    "actualDirection": "DOWN",
+    "predictedDirection": "DOWN",
+    "correct": true,
+    "nextReturnPct": -0.0299,
+    "mfePct": 0.0672,
+    "maePct": -0.0398,
+    "rangePct": 0.107,
+    "closeLocationPct": 9.3
   },
   {
     "schemaVersion": 4,
@@ -2700,8 +2720,18 @@
       "trend_down",
       "squeeze_pre_breakout"
     ],
-    "status": "PENDING",
-    "id": "1dbed952f608a5e76f0a"
+    "status": "SETTLED",
+    "id": "1dbed952f608a5e76f0a",
+    "settledAt": "2026-10-27T06:54:25.200Z",
+    "nextCandleTime": "2026-10-26T07:00:00.000Z",
+    "actualDirection": "UP",
+    "predictedDirection": "FLAT",
+    "correct": false,
+    "nextReturnPct": 0.0448,
+    "mfePct": 0.0697,
+    "maePct": -0.0746,
+    "rangePct": 0.1443,
+    "closeLocationPct": 82.76
   },
   {
     "schemaVersion": 4,
@@ -2736,7 +2766,197 @@
       "trend_down",
       "reentry_down"
     ],
+    "status": "SETTLED",
+    "id": "358f5fe118fc9c56e8c2",
+    "settledAt": "2026-10-27T06:54:25.200Z",
+    "nextCandleTime": "2026-10-26T07:00:00.000Z",
+    "actualDirection": "UP",
+    "predictedDirection": "DOWN",
+    "correct": false,
+    "nextReturnPct": 0.0921,
+    "mfePct": 0.1319,
+    "maePct": -0.0746,
+    "rangePct": 0.2065,
+    "closeLocationPct": 80.72
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-47a9f590a1c519341c16",
+    "sourceGeneratedAt": "2026-10-27T02:57:53.523Z",
+    "symbol": "GC=F",
+    "tf": "M1",
+    "candleTime": "2026-10-27T06:44:19.000Z",
+    "createdAt": "2026-10-27T06:54:25.200Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "ADP Weekly Employment Change",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "18.5K",
+      "time": "2026-10-27T12:15:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "DOWN_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_down"
+    ],
     "status": "PENDING",
-    "id": "358f5fe118fc9c56e8c2"
+    "id": "be375e094df8a2317b08"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-47a9f590a1c519341c16",
+    "sourceGeneratedAt": "2026-10-27T02:57:53.523Z",
+    "symbol": "GC=F",
+    "tf": "M5",
+    "candleTime": "2026-10-27T06:40:00.000Z",
+    "createdAt": "2026-10-27T06:54:25.201Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "ADP Weekly Employment Change",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "18.5K",
+      "time": "2026-10-27T12:15:00.000Z"
+    },
+    "location": "MID_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "CSAK_DOWN"
+    },
+    "squeeze": "TIGHT",
+    "state": "DOWN_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_down"
+    ],
+    "status": "PENDING",
+    "id": "d7713ff844268e328e6d"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-47a9f590a1c519341c16",
+    "sourceGeneratedAt": "2026-10-27T02:57:53.523Z",
+    "symbol": "GC=F",
+    "tf": "M15",
+    "candleTime": "2026-10-27T06:30:00.000Z",
+    "createdAt": "2026-10-27T06:54:25.201Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "ADP Weekly Employment Change",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "18.5K",
+      "time": "2026-10-27T12:15:00.000Z"
+    },
+    "location": "TOP_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "REENTRY_DOWN_ZONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "DOWN_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_down",
+      "reentry_down",
+      "top_rejection_candidate"
+    ],
+    "status": "PENDING",
+    "id": "c095888ed91337aefb83"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-47a9f590a1c519341c16",
+    "sourceGeneratedAt": "2026-10-27T02:57:53.523Z",
+    "symbol": "GC=F",
+    "tf": "M30",
+    "candleTime": "2026-10-27T06:00:00.000Z",
+    "createdAt": "2026-10-27T06:54:25.201Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "ADP Weekly Employment Change",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "18.5K",
+      "time": "2026-10-27T12:15:00.000Z"
+    },
+    "location": "MID_BB",
+    "bbma": {
+      "trend": "UP",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "SQUEEZE",
+    "state": "RANGE_OR_BREAKOUT_WATCH",
+    "confidence": 50,
+    "reasons": [
+      "trend_up",
+      "squeeze_pre_breakout"
+    ],
+    "status": "PENDING",
+    "id": "64964fd7b7283ce42621"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-47a9f590a1c519341c16",
+    "sourceGeneratedAt": "2026-10-27T02:57:53.523Z",
+    "symbol": "GC=F",
+    "tf": "H1",
+    "candleTime": "2026-10-27T05:00:00.000Z",
+    "createdAt": "2026-10-27T06:54:25.201Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "ADP Weekly Employment Change",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "18.5K",
+      "time": "2026-10-27T12:15:00.000Z"
+    },
+    "location": "MID_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "REENTRY_DOWN_ZONE",
+      "csak": "NONE"
+    },
+    "squeeze": "SQUEEZE",
+    "state": "DOWN_BIAS",
+    "confidence": 60,
+    "reasons": [
+      "trend_down",
+      "reentry_down",
+      "squeeze_pre_breakout"
+    ],
+    "status": "PENDING",
+    "id": "b17701c476fa3778cfa7"
   }
 ]
