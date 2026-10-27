@@ -1,273 +1,6 @@
 {
   "pending": [
     {
-      "key": "news:gold:Look closer, and Wall Street&#x2019;s rally is showing cracks",
-      "tabId": "gold",
-      "kind": "news",
-      "title": "Look closer, and Wall Street&#x2019;s rally is showing cracks",
-      "url": "https://www.marketwatch.com/story/look-closer-and-wall-streets-rally-is-showing-cracks-94952048?mod=mw_rss_topstories",
-      "impactScore": -0.12,
-      "priceAtDetect": 4321.2,
-      "createdAt": "2026-09-27T17:09:34.700Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-27T17:10:34.700Z",
-          "capturedAt": "2026-09-27T17:55:27.522Z",
-          "price": 4321.2,
-          "realizedPct": 0
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-27T17:14:34.700Z",
-          "capturedAt": "2026-09-27T17:55:27.522Z",
-          "price": 4321.2,
-          "realizedPct": 0
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-27T17:24:34.700Z",
-          "capturedAt": "2026-09-27T17:55:27.522Z",
-          "price": 4321.2,
-          "realizedPct": 0
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-27T17:39:34.700Z",
-          "capturedAt": "2026-09-27T17:55:27.522Z",
-          "price": 4321.2,
-          "realizedPct": 0
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-27T18:09:34.700Z",
-          "capturedAt": "2026-09-27T20:18:29.538Z",
-          "price": 4321.2,
-          "realizedPct": 0
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-09-27T21:09:34.700Z",
-          "capturedAt": "2026-09-27T21:16:30.591Z",
-          "price": 4321.2,
-          "realizedPct": 0
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-09-28T17:09:34.700Z",
-          "capturedAt": "2026-09-28T18:10:29.606Z",
-          "price": 4166.8,
-          "realizedPct": -3.573
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-04T17:09:34.700Z",
-          "capturedAt": "2026-10-04T17:59:46.095Z",
-          "price": 4162.3,
-          "realizedPct": -3.677
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-27T17:09:34.700Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 0,
-        "maePct": -3.677
-      }
-    },
-    {
-      "key": "news:crypto:Look closer, and Wall Street&#x2019;s rally is showing cracks",
-      "tabId": "crypto",
-      "kind": "news",
-      "title": "Look closer, and Wall Street&#x2019;s rally is showing cracks",
-      "url": "https://www.marketwatch.com/story/look-closer-and-wall-streets-rally-is-showing-cracks-94952048?mod=mw_rss_topstories",
-      "impactScore": -0.14,
-      "priceAtDetect": 84366.55,
-      "createdAt": "2026-09-27T17:09:34.700Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-27T17:10:34.700Z",
-          "capturedAt": "2026-09-27T17:55:27.522Z",
-          "price": 84559.98,
-          "realizedPct": 0.229
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-27T17:14:34.700Z",
-          "capturedAt": "2026-09-27T17:55:27.522Z",
-          "price": 84559.98,
-          "realizedPct": 0.229
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-27T17:24:34.700Z",
-          "capturedAt": "2026-09-27T17:55:27.522Z",
-          "price": 84559.98,
-          "realizedPct": 0.229
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-27T17:39:34.700Z",
-          "capturedAt": "2026-09-27T17:55:27.522Z",
-          "price": 84559.98,
-          "realizedPct": 0.229
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-27T18:09:34.700Z",
-          "capturedAt": "2026-09-27T20:18:29.538Z",
-          "price": 84753.13,
-          "realizedPct": 0.458
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-09-27T21:09:34.700Z",
-          "capturedAt": "2026-09-27T21:16:30.592Z",
-          "price": 84665.29,
-          "realizedPct": 0.354
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-09-28T17:09:34.700Z",
-          "capturedAt": "2026-09-28T18:10:29.607Z",
-          "price": 83926.29,
-          "realizedPct": -0.522
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-04T17:09:34.700Z",
-          "capturedAt": "2026-10-04T17:59:46.095Z",
-          "price": 85301.26,
-          "realizedPct": 1.108
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-27T17:09:34.700Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 1.108,
-        "maePct": -0.522
-      }
-    },
-    {
-      "key": "news:forex:Look closer, and Wall Street&#x2019;s rally is showing cracks",
-      "tabId": "forex",
-      "kind": "news",
-      "title": "Look closer, and Wall Street&#x2019;s rally is showing cracks",
-      "url": "https://www.marketwatch.com/story/look-closer-and-wall-streets-rally-is-showing-cracks-94952048?mod=mw_rss_topstories",
-      "impactScore": -0.08,
-      "priceAtDetect": 1.1401,
-      "createdAt": "2026-09-27T17:09:34.700Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-27T17:10:34.700Z",
-          "capturedAt": "2026-09-27T17:55:27.522Z",
-          "price": 1.1401,
-          "realizedPct": 0
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-27T17:14:34.700Z",
-          "capturedAt": "2026-09-27T17:55:27.522Z",
-          "price": 1.1401,
-          "realizedPct": 0
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-27T17:24:34.700Z",
-          "capturedAt": "2026-09-27T17:55:27.522Z",
-          "price": 1.1401,
-          "realizedPct": 0
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-27T17:39:34.700Z",
-          "capturedAt": "2026-09-27T17:55:27.522Z",
-          "price": 1.1401,
-          "realizedPct": 0
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-27T18:09:34.700Z",
-          "capturedAt": "2026-09-27T20:18:29.538Z",
-          "price": 1.1383,
-          "realizedPct": -0.158
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-09-27T21:09:34.700Z",
-          "capturedAt": "2026-09-27T21:16:30.592Z",
-          "price": 1.1382,
-          "realizedPct": -0.167
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-09-28T17:09:34.700Z",
-          "capturedAt": "2026-09-28T18:10:29.607Z",
-          "price": 1.138,
-          "realizedPct": -0.184
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-04T17:09:34.700Z",
-          "capturedAt": "2026-10-04T17:59:46.095Z",
-          "price": 1.1257,
-          "realizedPct": -1.263
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-27T17:09:34.700Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 0,
-        "maePct": -1.263
-      }
-    },
-    {
       "key": "news:gold:Gold tumbles to near $4,200 as hawkish Fed signals and stronger US Dollar pressure bullion",
       "tabId": "gold",
       "kind": "news",
@@ -13353,6 +13086,276 @@
   ],
   "results": [
     {
+      "key": "news:forex:Look closer, and Wall Street&#x2019;s rally is showing cracks",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Look closer, and Wall Street&#x2019;s rally is showing cracks",
+      "url": "https://www.marketwatch.com/story/look-closer-and-wall-streets-rally-is-showing-cracks-94952048?mod=mw_rss_topstories",
+      "impactScore": -0.08,
+      "priceAtDetect": 1.1401,
+      "createdAt": "2026-09-27T17:09:34.700Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-27T17:10:34.700Z",
+          "capturedAt": "2026-09-27T17:55:27.522Z",
+          "price": 1.1401,
+          "realizedPct": 0
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-27T17:14:34.700Z",
+          "capturedAt": "2026-09-27T17:55:27.522Z",
+          "price": 1.1401,
+          "realizedPct": 0
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-27T17:24:34.700Z",
+          "capturedAt": "2026-09-27T17:55:27.522Z",
+          "price": 1.1401,
+          "realizedPct": 0
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-27T17:39:34.700Z",
+          "capturedAt": "2026-09-27T17:55:27.522Z",
+          "price": 1.1401,
+          "realizedPct": 0
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-27T18:09:34.700Z",
+          "capturedAt": "2026-09-27T20:18:29.538Z",
+          "price": 1.1383,
+          "realizedPct": -0.158
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-27T21:09:34.700Z",
+          "capturedAt": "2026-09-27T21:16:30.592Z",
+          "price": 1.1382,
+          "realizedPct": -0.167
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-28T17:09:34.700Z",
+          "capturedAt": "2026-09-28T18:10:29.607Z",
+          "price": 1.138,
+          "realizedPct": -0.184
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-04T17:09:34.700Z",
+          "capturedAt": "2026-10-04T17:59:46.095Z",
+          "price": 1.1257,
+          "realizedPct": -1.263
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-27T17:09:34.700Z",
+          "capturedAt": "2026-10-27T17:58:45.356Z",
+          "price": 1.1138,
+          "realizedPct": -2.307
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 0,
+        "maePct": -2.307
+      },
+      "completedAt": "2026-10-27T17:58:45.356Z"
+    },
+    {
+      "key": "news:crypto:Look closer, and Wall Street&#x2019;s rally is showing cracks",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Look closer, and Wall Street&#x2019;s rally is showing cracks",
+      "url": "https://www.marketwatch.com/story/look-closer-and-wall-streets-rally-is-showing-cracks-94952048?mod=mw_rss_topstories",
+      "impactScore": -0.14,
+      "priceAtDetect": 84366.55,
+      "createdAt": "2026-09-27T17:09:34.700Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-27T17:10:34.700Z",
+          "capturedAt": "2026-09-27T17:55:27.522Z",
+          "price": 84559.98,
+          "realizedPct": 0.229
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-27T17:14:34.700Z",
+          "capturedAt": "2026-09-27T17:55:27.522Z",
+          "price": 84559.98,
+          "realizedPct": 0.229
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-27T17:24:34.700Z",
+          "capturedAt": "2026-09-27T17:55:27.522Z",
+          "price": 84559.98,
+          "realizedPct": 0.229
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-27T17:39:34.700Z",
+          "capturedAt": "2026-09-27T17:55:27.522Z",
+          "price": 84559.98,
+          "realizedPct": 0.229
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-27T18:09:34.700Z",
+          "capturedAt": "2026-09-27T20:18:29.538Z",
+          "price": 84753.13,
+          "realizedPct": 0.458
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-27T21:09:34.700Z",
+          "capturedAt": "2026-09-27T21:16:30.592Z",
+          "price": 84665.29,
+          "realizedPct": 0.354
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-28T17:09:34.700Z",
+          "capturedAt": "2026-09-28T18:10:29.607Z",
+          "price": 83926.29,
+          "realizedPct": -0.522
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-04T17:09:34.700Z",
+          "capturedAt": "2026-10-04T17:59:46.095Z",
+          "price": 85301.26,
+          "realizedPct": 1.108
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-27T17:09:34.700Z",
+          "capturedAt": "2026-10-27T17:58:45.356Z",
+          "price": 80424.14,
+          "realizedPct": -4.673
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 1.108,
+        "maePct": -4.673
+      },
+      "completedAt": "2026-10-27T17:58:45.356Z"
+    },
+    {
+      "key": "news:gold:Look closer, and Wall Street&#x2019;s rally is showing cracks",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Look closer, and Wall Street&#x2019;s rally is showing cracks",
+      "url": "https://www.marketwatch.com/story/look-closer-and-wall-streets-rally-is-showing-cracks-94952048?mod=mw_rss_topstories",
+      "impactScore": -0.12,
+      "priceAtDetect": 4321.2,
+      "createdAt": "2026-09-27T17:09:34.700Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-27T17:10:34.700Z",
+          "capturedAt": "2026-09-27T17:55:27.522Z",
+          "price": 4321.2,
+          "realizedPct": 0
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-27T17:14:34.700Z",
+          "capturedAt": "2026-09-27T17:55:27.522Z",
+          "price": 4321.2,
+          "realizedPct": 0
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-27T17:24:34.700Z",
+          "capturedAt": "2026-09-27T17:55:27.522Z",
+          "price": 4321.2,
+          "realizedPct": 0
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-27T17:39:34.700Z",
+          "capturedAt": "2026-09-27T17:55:27.522Z",
+          "price": 4321.2,
+          "realizedPct": 0
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-27T18:09:34.700Z",
+          "capturedAt": "2026-09-27T20:18:29.538Z",
+          "price": 4321.2,
+          "realizedPct": 0
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-27T21:09:34.700Z",
+          "capturedAt": "2026-09-27T21:16:30.591Z",
+          "price": 4321.2,
+          "realizedPct": 0
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-28T17:09:34.700Z",
+          "capturedAt": "2026-09-28T18:10:29.606Z",
+          "price": 4166.8,
+          "realizedPct": -3.573
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-04T17:09:34.700Z",
+          "capturedAt": "2026-10-04T17:59:46.095Z",
+          "price": 4162.3,
+          "realizedPct": -3.677
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-27T17:09:34.700Z",
+          "capturedAt": "2026-10-27T17:58:45.355Z",
+          "price": 4072.2,
+          "realizedPct": -5.762
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 0,
+        "maePct": -5.762
+      },
+      "completedAt": "2026-10-27T17:58:45.356Z"
+    },
+    {
       "key": "news:forex:ECB’s Vujcic warns energy shock could keep inflation hot",
       "tabId": "forex",
       "kind": "news",
@@ -17806,51 +17809,6 @@
       "realizedPct": 0.21,
       "verdict": "wrong",
       "settledAt": "2026-09-21T13:40:35.497Z"
-    },
-    {
-      "key": "news:forex:Gold edges lower to near $4,350 on Fed hawkish stance, Middle East tensions",
-      "tabId": "forex",
-      "kind": "news",
-      "title": "Gold edges lower to near $4,350 on Fed hawkish stance, Middle East tensions",
-      "url": "https://www.fxstreet.com/news/gold-edges-lower-to-near-4-350-on-fed-hawkish-stance-middle-east-tensions-202609210238",
-      "predictedPct": -0.15,
-      "priceAtDetect": 1.148,
-      "createdAt": "2026-09-21T04:18:55.581Z",
-      "settleAt": "2026-09-21T05:03:55.581Z",
-      "priceAtSettle": 1.1481,
-      "realizedPct": 0.01,
-      "verdict": "flat",
-      "settledAt": "2026-09-21T06:48:36.376Z"
-    },
-    {
-      "key": "news:forex:United States Dollar Index holds firm on hawkish Fed outlook",
-      "tabId": "forex",
-      "kind": "news",
-      "title": "United States Dollar Index holds firm on hawkish Fed outlook",
-      "url": "https://www.fxstreet.com/news/united-states-dollar-index-holds-firm-on-hawkish-fed-outlook-202609210317",
-      "predictedPct": -0.26,
-      "priceAtDetect": 1.148,
-      "createdAt": "2026-09-21T04:18:55.581Z",
-      "settleAt": "2026-09-21T05:03:55.581Z",
-      "priceAtSettle": 1.1481,
-      "realizedPct": 0.01,
-      "verdict": "flat",
-      "settledAt": "2026-09-21T06:48:36.376Z"
-    },
-    {
-      "key": "news:crypto:Gold edges lower to near $4,350 on Fed hawkish stance, Middle East tensions",
-      "tabId": "crypto",
-      "kind": "news",
-      "title": "Gold edges lower to near $4,350 on Fed hawkish stance, Middle East tensions",
-      "url": "https://www.fxstreet.com/news/gold-edges-lower-to-near-4-350-on-fed-hawkish-stance-middle-east-tensions-202609210238",
-      "predictedPct": -0.14,
-      "priceAtDetect": 81270,
-      "createdAt": "2026-09-21T04:18:55.581Z",
-      "settleAt": "2026-09-21T05:03:55.581Z",
-      "priceAtSettle": 81703.62,
-      "realizedPct": 0.53,
-      "verdict": "wrong",
-      "settledAt": "2026-09-21T06:48:36.376Z"
     }
   ]
 }
