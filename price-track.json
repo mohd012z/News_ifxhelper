@@ -1,807 +1,6 @@
 {
   "pending": [
     {
-      "key": "news:gold:Gold tumbles to near $4,200 as hawkish Fed signals and stronger US Dollar pressure bullion",
-      "tabId": "gold",
-      "kind": "news",
-      "title": "Gold tumbles to near $4,200 as hawkish Fed signals and stronger US Dollar pressure bullion",
-      "url": "https://www.fxstreet.com/news/gold-tumbles-to-near-4-200-as-hawkish-fed-signals-and-stronger-us-dollar-pressure-bullion-202609280148",
-      "impactScore": -0.15,
-      "priceAtDetect": 4248,
-      "createdAt": "2026-09-28T01:52:37.604Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-28T01:53:37.604Z",
-          "capturedAt": "2026-09-28T03:25:42.955Z",
-          "price": 4233.4,
-          "realizedPct": -0.344
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-28T01:57:37.604Z",
-          "capturedAt": "2026-09-28T03:25:42.955Z",
-          "price": 4233.4,
-          "realizedPct": -0.344
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-28T02:07:37.604Z",
-          "capturedAt": "2026-09-28T03:25:42.955Z",
-          "price": 4233.4,
-          "realizedPct": -0.344
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-28T02:22:37.604Z",
-          "capturedAt": "2026-09-28T03:25:42.955Z",
-          "price": 4233.4,
-          "realizedPct": -0.344
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-28T02:52:37.604Z",
-          "capturedAt": "2026-09-28T03:25:42.955Z",
-          "price": 4233.4,
-          "realizedPct": -0.344
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-09-28T05:52:37.604Z",
-          "capturedAt": "2026-09-28T08:17:53.529Z",
-          "price": 4187.7,
-          "realizedPct": -1.419
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-09-29T01:52:37.604Z",
-          "capturedAt": "2026-09-29T02:11:14.393Z",
-          "price": 4166.5,
-          "realizedPct": -1.919
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-05T01:52:37.604Z",
-          "capturedAt": "2026-10-05T04:59:07.885Z",
-          "price": 4162.2,
-          "realizedPct": -2.02
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-28T01:52:37.604Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": -0.344,
-        "maePct": -2.02
-      }
-    },
-    {
-      "key": "news:gold:Euro declines below 1.1400 on hawkish Fed stance, ongoing Middle East tensions",
-      "tabId": "gold",
-      "kind": "news",
-      "title": "Euro declines below 1.1400 on hawkish Fed stance, ongoing Middle East tensions",
-      "url": "https://www.fxstreet.com/news/euro-declines-below-11400-on-hawkish-fed-stance-ongoing-middle-east-tensions-202609280053",
-      "impactScore": -0.12,
-      "priceAtDetect": 4248,
-      "createdAt": "2026-09-28T01:52:37.604Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-28T01:53:37.604Z",
-          "capturedAt": "2026-09-28T03:25:42.955Z",
-          "price": 4233.4,
-          "realizedPct": -0.344
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-28T01:57:37.604Z",
-          "capturedAt": "2026-09-28T03:25:42.955Z",
-          "price": 4233.4,
-          "realizedPct": -0.344
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-28T02:07:37.604Z",
-          "capturedAt": "2026-09-28T03:25:42.955Z",
-          "price": 4233.4,
-          "realizedPct": -0.344
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-28T02:22:37.604Z",
-          "capturedAt": "2026-09-28T03:25:42.955Z",
-          "price": 4233.4,
-          "realizedPct": -0.344
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-28T02:52:37.604Z",
-          "capturedAt": "2026-09-28T03:25:42.955Z",
-          "price": 4233.4,
-          "realizedPct": -0.344
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-09-28T05:52:37.604Z",
-          "capturedAt": "2026-09-28T08:17:53.529Z",
-          "price": 4187.7,
-          "realizedPct": -1.419
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-09-29T01:52:37.604Z",
-          "capturedAt": "2026-09-29T02:11:14.393Z",
-          "price": 4166.5,
-          "realizedPct": -1.919
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-05T01:52:37.604Z",
-          "capturedAt": "2026-10-05T04:59:07.885Z",
-          "price": 4162.2,
-          "realizedPct": -2.02
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-28T01:52:37.604Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": -0.344,
-        "maePct": -2.02
-      }
-    },
-    {
-      "key": "news:crypto:Gold tumbles to near $4,200 as hawkish Fed signals and stronger US Dollar pressure bullion",
-      "tabId": "crypto",
-      "kind": "news",
-      "title": "Gold tumbles to near $4,200 as hawkish Fed signals and stronger US Dollar pressure bullion",
-      "url": "https://www.fxstreet.com/news/gold-tumbles-to-near-4-200-as-hawkish-fed-signals-and-stronger-us-dollar-pressure-bullion-202609280148",
-      "impactScore": -0.14,
-      "priceAtDetect": 83751.36,
-      "createdAt": "2026-09-28T01:52:37.604Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-28T01:53:37.604Z",
-          "capturedAt": "2026-09-28T03:25:42.955Z",
-          "price": 83337,
-          "realizedPct": -0.495
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-28T01:57:37.604Z",
-          "capturedAt": "2026-09-28T03:25:42.955Z",
-          "price": 83337,
-          "realizedPct": -0.495
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-28T02:07:37.604Z",
-          "capturedAt": "2026-09-28T03:25:42.955Z",
-          "price": 83337,
-          "realizedPct": -0.495
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-28T02:22:37.604Z",
-          "capturedAt": "2026-09-28T03:25:42.955Z",
-          "price": 83337,
-          "realizedPct": -0.495
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-28T02:52:37.604Z",
-          "capturedAt": "2026-09-28T03:25:42.955Z",
-          "price": 83337,
-          "realizedPct": -0.495
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-09-28T05:52:37.604Z",
-          "capturedAt": "2026-09-28T08:17:53.529Z",
-          "price": 82962.22,
-          "realizedPct": -0.942
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-09-29T01:52:37.604Z",
-          "capturedAt": "2026-09-29T02:11:14.393Z",
-          "price": 82893.76,
-          "realizedPct": -1.024
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-05T01:52:37.604Z",
-          "capturedAt": "2026-10-05T04:59:07.885Z",
-          "price": 85491.25,
-          "realizedPct": 2.077
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-28T01:52:37.604Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 2.077,
-        "maePct": -1.024
-      }
-    },
-    {
-      "key": "news:crypto:Euro declines below 1.1400 on hawkish Fed stance, ongoing Middle East tensions",
-      "tabId": "crypto",
-      "kind": "news",
-      "title": "Euro declines below 1.1400 on hawkish Fed stance, ongoing Middle East tensions",
-      "url": "https://www.fxstreet.com/news/euro-declines-below-11400-on-hawkish-fed-stance-ongoing-middle-east-tensions-202609280053",
-      "impactScore": -0.14,
-      "priceAtDetect": 83751.36,
-      "createdAt": "2026-09-28T01:52:37.604Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-28T01:53:37.604Z",
-          "capturedAt": "2026-09-28T03:25:42.955Z",
-          "price": 83337,
-          "realizedPct": -0.495
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-28T01:57:37.604Z",
-          "capturedAt": "2026-09-28T03:25:42.955Z",
-          "price": 83337,
-          "realizedPct": -0.495
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-28T02:07:37.604Z",
-          "capturedAt": "2026-09-28T03:25:42.955Z",
-          "price": 83337,
-          "realizedPct": -0.495
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-28T02:22:37.604Z",
-          "capturedAt": "2026-09-28T03:25:42.955Z",
-          "price": 83337,
-          "realizedPct": -0.495
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-28T02:52:37.604Z",
-          "capturedAt": "2026-09-28T03:25:42.955Z",
-          "price": 83337,
-          "realizedPct": -0.495
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-09-28T05:52:37.604Z",
-          "capturedAt": "2026-09-28T08:17:53.529Z",
-          "price": 82962.22,
-          "realizedPct": -0.942
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-09-29T01:52:37.604Z",
-          "capturedAt": "2026-09-29T02:11:14.393Z",
-          "price": 82893.76,
-          "realizedPct": -1.024
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-05T01:52:37.604Z",
-          "capturedAt": "2026-10-05T04:59:07.885Z",
-          "price": 85491.25,
-          "realizedPct": 2.077
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-28T01:52:37.604Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 2.077,
-        "maePct": -1.024
-      }
-    },
-    {
-      "key": "news:forex:Gold tumbles to near $4,200 as hawkish Fed signals and stronger US Dollar pressure bullion",
-      "tabId": "forex",
-      "kind": "news",
-      "title": "Gold tumbles to near $4,200 as hawkish Fed signals and stronger US Dollar pressure bullion",
-      "url": "https://www.fxstreet.com/news/gold-tumbles-to-near-4-200-as-hawkish-fed-signals-and-stronger-us-dollar-pressure-bullion-202609280148",
-      "impactScore": -0.15,
-      "priceAtDetect": 1.1391,
-      "createdAt": "2026-09-28T01:52:37.604Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-28T01:53:37.604Z",
-          "capturedAt": "2026-09-28T03:25:42.955Z",
-          "price": 1.1392,
-          "realizedPct": 0.009
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-28T01:57:37.604Z",
-          "capturedAt": "2026-09-28T03:25:42.955Z",
-          "price": 1.1392,
-          "realizedPct": 0.009
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-28T02:07:37.604Z",
-          "capturedAt": "2026-09-28T03:25:42.955Z",
-          "price": 1.1392,
-          "realizedPct": 0.009
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-28T02:22:37.604Z",
-          "capturedAt": "2026-09-28T03:25:42.955Z",
-          "price": 1.1392,
-          "realizedPct": 0.009
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-28T02:52:37.604Z",
-          "capturedAt": "2026-09-28T03:25:42.955Z",
-          "price": 1.1392,
-          "realizedPct": 0.009
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-09-28T05:52:37.604Z",
-          "capturedAt": "2026-09-28T08:17:53.529Z",
-          "price": 1.1386,
-          "realizedPct": -0.044
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-09-29T01:52:37.604Z",
-          "capturedAt": "2026-09-29T02:11:14.393Z",
-          "price": 1.1371,
-          "realizedPct": -0.176
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-05T01:52:37.604Z",
-          "capturedAt": "2026-10-05T04:59:07.885Z",
-          "price": 1.1184,
-          "realizedPct": -1.817
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-28T01:52:37.604Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 0.009,
-        "maePct": -1.817
-      }
-    },
-    {
-      "key": "news:forex:Euro declines below 1.1400 on hawkish Fed stance, ongoing Middle East tensions",
-      "tabId": "forex",
-      "kind": "news",
-      "title": "Euro declines below 1.1400 on hawkish Fed stance, ongoing Middle East tensions",
-      "url": "https://www.fxstreet.com/news/euro-declines-below-11400-on-hawkish-fed-stance-ongoing-middle-east-tensions-202609280053",
-      "impactScore": -0.15,
-      "priceAtDetect": 1.1391,
-      "createdAt": "2026-09-28T01:52:37.604Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-28T01:53:37.604Z",
-          "capturedAt": "2026-09-28T03:25:42.955Z",
-          "price": 1.1392,
-          "realizedPct": 0.009
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-28T01:57:37.604Z",
-          "capturedAt": "2026-09-28T03:25:42.955Z",
-          "price": 1.1392,
-          "realizedPct": 0.009
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-28T02:07:37.604Z",
-          "capturedAt": "2026-09-28T03:25:42.955Z",
-          "price": 1.1392,
-          "realizedPct": 0.009
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-28T02:22:37.604Z",
-          "capturedAt": "2026-09-28T03:25:42.955Z",
-          "price": 1.1392,
-          "realizedPct": 0.009
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-28T02:52:37.604Z",
-          "capturedAt": "2026-09-28T03:25:42.955Z",
-          "price": 1.1392,
-          "realizedPct": 0.009
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-09-28T05:52:37.604Z",
-          "capturedAt": "2026-09-28T08:17:53.529Z",
-          "price": 1.1386,
-          "realizedPct": -0.044
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-09-29T01:52:37.604Z",
-          "capturedAt": "2026-09-29T02:11:14.393Z",
-          "price": 1.1371,
-          "realizedPct": -0.176
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-05T01:52:37.604Z",
-          "capturedAt": "2026-10-05T04:59:07.885Z",
-          "price": 1.1184,
-          "realizedPct": -1.817
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-28T01:52:37.604Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 0.009,
-        "maePct": -1.817
-      }
-    },
-    {
-      "key": "news:gold:Silver Price Forecast: XAG/USD falls to near $62.00 amid Fed rate hike odds",
-      "tabId": "gold",
-      "kind": "news",
-      "title": "Silver Price Forecast: XAG/USD falls to near $62.00 amid Fed rate hike odds",
-      "url": "https://www.fxstreet.com/news/silver-price-forecast-xag-usd-falls-to-near-6200-amid-fed-rate-hike-odds-202609280322",
-      "impactScore": -0.12,
-      "priceAtDetect": 4233.4,
-      "createdAt": "2026-09-28T03:25:42.955Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-28T03:26:42.955Z",
-          "capturedAt": "2026-09-28T04:44:26.435Z",
-          "price": 4230.5,
-          "realizedPct": -0.069
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-28T03:30:42.955Z",
-          "capturedAt": "2026-09-28T04:44:26.435Z",
-          "price": 4230.5,
-          "realizedPct": -0.069
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-28T03:40:42.955Z",
-          "capturedAt": "2026-09-28T04:44:26.435Z",
-          "price": 4230.5,
-          "realizedPct": -0.069
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-28T03:55:42.955Z",
-          "capturedAt": "2026-09-28T04:44:26.435Z",
-          "price": 4230.5,
-          "realizedPct": -0.069
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-28T04:25:42.955Z",
-          "capturedAt": "2026-09-28T04:44:26.435Z",
-          "price": 4230.5,
-          "realizedPct": -0.069
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-09-28T07:25:42.955Z",
-          "capturedAt": "2026-09-28T08:17:53.529Z",
-          "price": 4187.7,
-          "realizedPct": -1.08
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-09-29T03:25:42.955Z",
-          "capturedAt": "2026-09-29T05:10:40.871Z",
-          "price": 4157.9,
-          "realizedPct": -1.783
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-05T03:25:42.955Z",
-          "capturedAt": "2026-10-05T04:59:07.886Z",
-          "price": 4162.2,
-          "realizedPct": -1.682
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-28T03:25:42.955Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": -0.069,
-        "maePct": -1.783
-      }
-    },
-    {
-      "key": "news:crypto:Silver Price Forecast: XAG/USD falls to near $62.00 amid Fed rate hike odds",
-      "tabId": "crypto",
-      "kind": "news",
-      "title": "Silver Price Forecast: XAG/USD falls to near $62.00 amid Fed rate hike odds",
-      "url": "https://www.fxstreet.com/news/silver-price-forecast-xag-usd-falls-to-near-6200-amid-fed-rate-hike-odds-202609280322",
-      "impactScore": -0.14,
-      "priceAtDetect": 83337,
-      "createdAt": "2026-09-28T03:25:42.955Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-28T03:26:42.955Z",
-          "capturedAt": "2026-09-28T04:44:26.435Z",
-          "price": 83476.8,
-          "realizedPct": 0.168
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-28T03:30:42.955Z",
-          "capturedAt": "2026-09-28T04:44:26.435Z",
-          "price": 83476.8,
-          "realizedPct": 0.168
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-28T03:40:42.955Z",
-          "capturedAt": "2026-09-28T04:44:26.435Z",
-          "price": 83476.8,
-          "realizedPct": 0.168
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-28T03:55:42.955Z",
-          "capturedAt": "2026-09-28T04:44:26.435Z",
-          "price": 83476.8,
-          "realizedPct": 0.168
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-28T04:25:42.955Z",
-          "capturedAt": "2026-09-28T04:44:26.435Z",
-          "price": 83476.8,
-          "realizedPct": 0.168
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-09-28T07:25:42.955Z",
-          "capturedAt": "2026-09-28T08:17:53.529Z",
-          "price": 82962.22,
-          "realizedPct": -0.45
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-09-29T03:25:42.955Z",
-          "capturedAt": "2026-09-29T05:10:40.871Z",
-          "price": 83166.74,
-          "realizedPct": -0.204
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-05T03:25:42.955Z",
-          "capturedAt": "2026-10-05T04:59:07.886Z",
-          "price": 85491.25,
-          "realizedPct": 2.585
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-28T03:25:42.955Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 2.585,
-        "maePct": -0.45
-      }
-    },
-    {
-      "key": "news:forex:Silver Price Forecast: XAG/USD falls to near $62.00 amid Fed rate hike odds",
-      "tabId": "forex",
-      "kind": "news",
-      "title": "Silver Price Forecast: XAG/USD falls to near $62.00 amid Fed rate hike odds",
-      "url": "https://www.fxstreet.com/news/silver-price-forecast-xag-usd-falls-to-near-6200-amid-fed-rate-hike-odds-202609280322",
-      "impactScore": -0.15,
-      "priceAtDetect": 1.1392,
-      "createdAt": "2026-09-28T03:25:42.955Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-28T03:26:42.955Z",
-          "capturedAt": "2026-09-28T04:44:26.435Z",
-          "price": 1.1393,
-          "realizedPct": 0.009
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-28T03:30:42.955Z",
-          "capturedAt": "2026-09-28T04:44:26.435Z",
-          "price": 1.1393,
-          "realizedPct": 0.009
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-28T03:40:42.955Z",
-          "capturedAt": "2026-09-28T04:44:26.435Z",
-          "price": 1.1393,
-          "realizedPct": 0.009
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-28T03:55:42.955Z",
-          "capturedAt": "2026-09-28T04:44:26.435Z",
-          "price": 1.1393,
-          "realizedPct": 0.009
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-28T04:25:42.955Z",
-          "capturedAt": "2026-09-28T04:44:26.435Z",
-          "price": 1.1393,
-          "realizedPct": 0.009
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-09-28T07:25:42.955Z",
-          "capturedAt": "2026-09-28T08:17:53.529Z",
-          "price": 1.1386,
-          "realizedPct": -0.053
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-09-29T03:25:42.955Z",
-          "capturedAt": "2026-09-29T05:10:40.871Z",
-          "price": 1.1364,
-          "realizedPct": -0.246
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-05T03:25:42.955Z",
-          "capturedAt": "2026-10-05T04:59:07.886Z",
-          "price": 1.1184,
-          "realizedPct": -1.826
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-28T03:25:42.955Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 0.009,
-        "maePct": -1.826
-      }
-    },
-    {
       "key": "news:gold:Dow Jones futures drop as rising oil, US Treasury yields fuel Fed rate hike fears",
       "tabId": "gold",
       "kind": "news",
@@ -13086,6 +12285,816 @@
   ],
   "results": [
     {
+      "key": "news:forex:Silver Price Forecast: XAG/USD falls to near $62.00 amid Fed rate hike odds",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Silver Price Forecast: XAG/USD falls to near $62.00 amid Fed rate hike odds",
+      "url": "https://www.fxstreet.com/news/silver-price-forecast-xag-usd-falls-to-near-6200-amid-fed-rate-hike-odds-202609280322",
+      "impactScore": -0.15,
+      "priceAtDetect": 1.1392,
+      "createdAt": "2026-09-28T03:25:42.955Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-28T03:26:42.955Z",
+          "capturedAt": "2026-09-28T04:44:26.435Z",
+          "price": 1.1393,
+          "realizedPct": 0.009
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-28T03:30:42.955Z",
+          "capturedAt": "2026-09-28T04:44:26.435Z",
+          "price": 1.1393,
+          "realizedPct": 0.009
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-28T03:40:42.955Z",
+          "capturedAt": "2026-09-28T04:44:26.435Z",
+          "price": 1.1393,
+          "realizedPct": 0.009
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-28T03:55:42.955Z",
+          "capturedAt": "2026-09-28T04:44:26.435Z",
+          "price": 1.1393,
+          "realizedPct": 0.009
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-28T04:25:42.955Z",
+          "capturedAt": "2026-09-28T04:44:26.435Z",
+          "price": 1.1393,
+          "realizedPct": 0.009
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-28T07:25:42.955Z",
+          "capturedAt": "2026-09-28T08:17:53.529Z",
+          "price": 1.1386,
+          "realizedPct": -0.053
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-29T03:25:42.955Z",
+          "capturedAt": "2026-09-29T05:10:40.871Z",
+          "price": 1.1364,
+          "realizedPct": -0.246
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-05T03:25:42.955Z",
+          "capturedAt": "2026-10-05T04:59:07.886Z",
+          "price": 1.1184,
+          "realizedPct": -1.826
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-28T03:25:42.955Z",
+          "capturedAt": "2026-10-28T05:30:27.775Z",
+          "price": 1.1123,
+          "realizedPct": -2.361
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 0.009,
+        "maePct": -2.361
+      },
+      "completedAt": "2026-10-28T05:30:27.775Z"
+    },
+    {
+      "key": "news:crypto:Silver Price Forecast: XAG/USD falls to near $62.00 amid Fed rate hike odds",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Silver Price Forecast: XAG/USD falls to near $62.00 amid Fed rate hike odds",
+      "url": "https://www.fxstreet.com/news/silver-price-forecast-xag-usd-falls-to-near-6200-amid-fed-rate-hike-odds-202609280322",
+      "impactScore": -0.14,
+      "priceAtDetect": 83337,
+      "createdAt": "2026-09-28T03:25:42.955Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-28T03:26:42.955Z",
+          "capturedAt": "2026-09-28T04:44:26.435Z",
+          "price": 83476.8,
+          "realizedPct": 0.168
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-28T03:30:42.955Z",
+          "capturedAt": "2026-09-28T04:44:26.435Z",
+          "price": 83476.8,
+          "realizedPct": 0.168
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-28T03:40:42.955Z",
+          "capturedAt": "2026-09-28T04:44:26.435Z",
+          "price": 83476.8,
+          "realizedPct": 0.168
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-28T03:55:42.955Z",
+          "capturedAt": "2026-09-28T04:44:26.435Z",
+          "price": 83476.8,
+          "realizedPct": 0.168
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-28T04:25:42.955Z",
+          "capturedAt": "2026-09-28T04:44:26.435Z",
+          "price": 83476.8,
+          "realizedPct": 0.168
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-28T07:25:42.955Z",
+          "capturedAt": "2026-09-28T08:17:53.529Z",
+          "price": 82962.22,
+          "realizedPct": -0.45
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-29T03:25:42.955Z",
+          "capturedAt": "2026-09-29T05:10:40.871Z",
+          "price": 83166.74,
+          "realizedPct": -0.204
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-05T03:25:42.955Z",
+          "capturedAt": "2026-10-05T04:59:07.886Z",
+          "price": 85491.25,
+          "realizedPct": 2.585
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-28T03:25:42.955Z",
+          "capturedAt": "2026-10-28T05:30:27.775Z",
+          "price": 80823.53,
+          "realizedPct": -3.016
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 2.585,
+        "maePct": -3.016
+      },
+      "completedAt": "2026-10-28T05:30:27.775Z"
+    },
+    {
+      "key": "news:gold:Silver Price Forecast: XAG/USD falls to near $62.00 amid Fed rate hike odds",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Silver Price Forecast: XAG/USD falls to near $62.00 amid Fed rate hike odds",
+      "url": "https://www.fxstreet.com/news/silver-price-forecast-xag-usd-falls-to-near-6200-amid-fed-rate-hike-odds-202609280322",
+      "impactScore": -0.12,
+      "priceAtDetect": 4233.4,
+      "createdAt": "2026-09-28T03:25:42.955Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-28T03:26:42.955Z",
+          "capturedAt": "2026-09-28T04:44:26.435Z",
+          "price": 4230.5,
+          "realizedPct": -0.069
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-28T03:30:42.955Z",
+          "capturedAt": "2026-09-28T04:44:26.435Z",
+          "price": 4230.5,
+          "realizedPct": -0.069
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-28T03:40:42.955Z",
+          "capturedAt": "2026-09-28T04:44:26.435Z",
+          "price": 4230.5,
+          "realizedPct": -0.069
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-28T03:55:42.955Z",
+          "capturedAt": "2026-09-28T04:44:26.435Z",
+          "price": 4230.5,
+          "realizedPct": -0.069
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-28T04:25:42.955Z",
+          "capturedAt": "2026-09-28T04:44:26.435Z",
+          "price": 4230.5,
+          "realizedPct": -0.069
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-28T07:25:42.955Z",
+          "capturedAt": "2026-09-28T08:17:53.529Z",
+          "price": 4187.7,
+          "realizedPct": -1.08
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-29T03:25:42.955Z",
+          "capturedAt": "2026-09-29T05:10:40.871Z",
+          "price": 4157.9,
+          "realizedPct": -1.783
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-05T03:25:42.955Z",
+          "capturedAt": "2026-10-05T04:59:07.886Z",
+          "price": 4162.2,
+          "realizedPct": -1.682
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-28T03:25:42.955Z",
+          "capturedAt": "2026-10-28T05:30:27.775Z",
+          "price": 4049.9,
+          "realizedPct": -4.335
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": -0.069,
+        "maePct": -4.335
+      },
+      "completedAt": "2026-10-28T05:30:27.775Z"
+    },
+    {
+      "key": "news:forex:Euro declines below 1.1400 on hawkish Fed stance, ongoing Middle East tensions",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Euro declines below 1.1400 on hawkish Fed stance, ongoing Middle East tensions",
+      "url": "https://www.fxstreet.com/news/euro-declines-below-11400-on-hawkish-fed-stance-ongoing-middle-east-tensions-202609280053",
+      "impactScore": -0.15,
+      "priceAtDetect": 1.1391,
+      "createdAt": "2026-09-28T01:52:37.604Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-28T01:53:37.604Z",
+          "capturedAt": "2026-09-28T03:25:42.955Z",
+          "price": 1.1392,
+          "realizedPct": 0.009
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-28T01:57:37.604Z",
+          "capturedAt": "2026-09-28T03:25:42.955Z",
+          "price": 1.1392,
+          "realizedPct": 0.009
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-28T02:07:37.604Z",
+          "capturedAt": "2026-09-28T03:25:42.955Z",
+          "price": 1.1392,
+          "realizedPct": 0.009
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-28T02:22:37.604Z",
+          "capturedAt": "2026-09-28T03:25:42.955Z",
+          "price": 1.1392,
+          "realizedPct": 0.009
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-28T02:52:37.604Z",
+          "capturedAt": "2026-09-28T03:25:42.955Z",
+          "price": 1.1392,
+          "realizedPct": 0.009
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-28T05:52:37.604Z",
+          "capturedAt": "2026-09-28T08:17:53.529Z",
+          "price": 1.1386,
+          "realizedPct": -0.044
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-29T01:52:37.604Z",
+          "capturedAt": "2026-09-29T02:11:14.393Z",
+          "price": 1.1371,
+          "realizedPct": -0.176
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-05T01:52:37.604Z",
+          "capturedAt": "2026-10-05T04:59:07.885Z",
+          "price": 1.1184,
+          "realizedPct": -1.817
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-28T01:52:37.604Z",
+          "capturedAt": "2026-10-28T05:30:27.775Z",
+          "price": 1.1123,
+          "realizedPct": -2.353
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 0.009,
+        "maePct": -2.353
+      },
+      "completedAt": "2026-10-28T05:30:27.775Z"
+    },
+    {
+      "key": "news:forex:Gold tumbles to near $4,200 as hawkish Fed signals and stronger US Dollar pressure bullion",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Gold tumbles to near $4,200 as hawkish Fed signals and stronger US Dollar pressure bullion",
+      "url": "https://www.fxstreet.com/news/gold-tumbles-to-near-4-200-as-hawkish-fed-signals-and-stronger-us-dollar-pressure-bullion-202609280148",
+      "impactScore": -0.15,
+      "priceAtDetect": 1.1391,
+      "createdAt": "2026-09-28T01:52:37.604Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-28T01:53:37.604Z",
+          "capturedAt": "2026-09-28T03:25:42.955Z",
+          "price": 1.1392,
+          "realizedPct": 0.009
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-28T01:57:37.604Z",
+          "capturedAt": "2026-09-28T03:25:42.955Z",
+          "price": 1.1392,
+          "realizedPct": 0.009
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-28T02:07:37.604Z",
+          "capturedAt": "2026-09-28T03:25:42.955Z",
+          "price": 1.1392,
+          "realizedPct": 0.009
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-28T02:22:37.604Z",
+          "capturedAt": "2026-09-28T03:25:42.955Z",
+          "price": 1.1392,
+          "realizedPct": 0.009
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-28T02:52:37.604Z",
+          "capturedAt": "2026-09-28T03:25:42.955Z",
+          "price": 1.1392,
+          "realizedPct": 0.009
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-28T05:52:37.604Z",
+          "capturedAt": "2026-09-28T08:17:53.529Z",
+          "price": 1.1386,
+          "realizedPct": -0.044
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-29T01:52:37.604Z",
+          "capturedAt": "2026-09-29T02:11:14.393Z",
+          "price": 1.1371,
+          "realizedPct": -0.176
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-05T01:52:37.604Z",
+          "capturedAt": "2026-10-05T04:59:07.885Z",
+          "price": 1.1184,
+          "realizedPct": -1.817
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-28T01:52:37.604Z",
+          "capturedAt": "2026-10-28T05:30:27.775Z",
+          "price": 1.1123,
+          "realizedPct": -2.353
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 0.009,
+        "maePct": -2.353
+      },
+      "completedAt": "2026-10-28T05:30:27.775Z"
+    },
+    {
+      "key": "news:crypto:Euro declines below 1.1400 on hawkish Fed stance, ongoing Middle East tensions",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Euro declines below 1.1400 on hawkish Fed stance, ongoing Middle East tensions",
+      "url": "https://www.fxstreet.com/news/euro-declines-below-11400-on-hawkish-fed-stance-ongoing-middle-east-tensions-202609280053",
+      "impactScore": -0.14,
+      "priceAtDetect": 83751.36,
+      "createdAt": "2026-09-28T01:52:37.604Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-28T01:53:37.604Z",
+          "capturedAt": "2026-09-28T03:25:42.955Z",
+          "price": 83337,
+          "realizedPct": -0.495
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-28T01:57:37.604Z",
+          "capturedAt": "2026-09-28T03:25:42.955Z",
+          "price": 83337,
+          "realizedPct": -0.495
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-28T02:07:37.604Z",
+          "capturedAt": "2026-09-28T03:25:42.955Z",
+          "price": 83337,
+          "realizedPct": -0.495
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-28T02:22:37.604Z",
+          "capturedAt": "2026-09-28T03:25:42.955Z",
+          "price": 83337,
+          "realizedPct": -0.495
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-28T02:52:37.604Z",
+          "capturedAt": "2026-09-28T03:25:42.955Z",
+          "price": 83337,
+          "realizedPct": -0.495
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-28T05:52:37.604Z",
+          "capturedAt": "2026-09-28T08:17:53.529Z",
+          "price": 82962.22,
+          "realizedPct": -0.942
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-29T01:52:37.604Z",
+          "capturedAt": "2026-09-29T02:11:14.393Z",
+          "price": 82893.76,
+          "realizedPct": -1.024
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-05T01:52:37.604Z",
+          "capturedAt": "2026-10-05T04:59:07.885Z",
+          "price": 85491.25,
+          "realizedPct": 2.077
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-28T01:52:37.604Z",
+          "capturedAt": "2026-10-28T05:30:27.775Z",
+          "price": 80823.53,
+          "realizedPct": -3.496
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 2.077,
+        "maePct": -3.496
+      },
+      "completedAt": "2026-10-28T05:30:27.775Z"
+    },
+    {
+      "key": "news:crypto:Gold tumbles to near $4,200 as hawkish Fed signals and stronger US Dollar pressure bullion",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Gold tumbles to near $4,200 as hawkish Fed signals and stronger US Dollar pressure bullion",
+      "url": "https://www.fxstreet.com/news/gold-tumbles-to-near-4-200-as-hawkish-fed-signals-and-stronger-us-dollar-pressure-bullion-202609280148",
+      "impactScore": -0.14,
+      "priceAtDetect": 83751.36,
+      "createdAt": "2026-09-28T01:52:37.604Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-28T01:53:37.604Z",
+          "capturedAt": "2026-09-28T03:25:42.955Z",
+          "price": 83337,
+          "realizedPct": -0.495
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-28T01:57:37.604Z",
+          "capturedAt": "2026-09-28T03:25:42.955Z",
+          "price": 83337,
+          "realizedPct": -0.495
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-28T02:07:37.604Z",
+          "capturedAt": "2026-09-28T03:25:42.955Z",
+          "price": 83337,
+          "realizedPct": -0.495
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-28T02:22:37.604Z",
+          "capturedAt": "2026-09-28T03:25:42.955Z",
+          "price": 83337,
+          "realizedPct": -0.495
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-28T02:52:37.604Z",
+          "capturedAt": "2026-09-28T03:25:42.955Z",
+          "price": 83337,
+          "realizedPct": -0.495
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-28T05:52:37.604Z",
+          "capturedAt": "2026-09-28T08:17:53.529Z",
+          "price": 82962.22,
+          "realizedPct": -0.942
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-29T01:52:37.604Z",
+          "capturedAt": "2026-09-29T02:11:14.393Z",
+          "price": 82893.76,
+          "realizedPct": -1.024
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-05T01:52:37.604Z",
+          "capturedAt": "2026-10-05T04:59:07.885Z",
+          "price": 85491.25,
+          "realizedPct": 2.077
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-28T01:52:37.604Z",
+          "capturedAt": "2026-10-28T05:30:27.775Z",
+          "price": 80823.53,
+          "realizedPct": -3.496
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 2.077,
+        "maePct": -3.496
+      },
+      "completedAt": "2026-10-28T05:30:27.775Z"
+    },
+    {
+      "key": "news:gold:Euro declines below 1.1400 on hawkish Fed stance, ongoing Middle East tensions",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Euro declines below 1.1400 on hawkish Fed stance, ongoing Middle East tensions",
+      "url": "https://www.fxstreet.com/news/euro-declines-below-11400-on-hawkish-fed-stance-ongoing-middle-east-tensions-202609280053",
+      "impactScore": -0.12,
+      "priceAtDetect": 4248,
+      "createdAt": "2026-09-28T01:52:37.604Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-28T01:53:37.604Z",
+          "capturedAt": "2026-09-28T03:25:42.955Z",
+          "price": 4233.4,
+          "realizedPct": -0.344
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-28T01:57:37.604Z",
+          "capturedAt": "2026-09-28T03:25:42.955Z",
+          "price": 4233.4,
+          "realizedPct": -0.344
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-28T02:07:37.604Z",
+          "capturedAt": "2026-09-28T03:25:42.955Z",
+          "price": 4233.4,
+          "realizedPct": -0.344
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-28T02:22:37.604Z",
+          "capturedAt": "2026-09-28T03:25:42.955Z",
+          "price": 4233.4,
+          "realizedPct": -0.344
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-28T02:52:37.604Z",
+          "capturedAt": "2026-09-28T03:25:42.955Z",
+          "price": 4233.4,
+          "realizedPct": -0.344
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-28T05:52:37.604Z",
+          "capturedAt": "2026-09-28T08:17:53.529Z",
+          "price": 4187.7,
+          "realizedPct": -1.419
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-29T01:52:37.604Z",
+          "capturedAt": "2026-09-29T02:11:14.393Z",
+          "price": 4166.5,
+          "realizedPct": -1.919
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-05T01:52:37.604Z",
+          "capturedAt": "2026-10-05T04:59:07.885Z",
+          "price": 4162.2,
+          "realizedPct": -2.02
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-28T01:52:37.604Z",
+          "capturedAt": "2026-10-28T05:30:27.775Z",
+          "price": 4049.9,
+          "realizedPct": -4.663
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": -0.344,
+        "maePct": -4.663
+      },
+      "completedAt": "2026-10-28T05:30:27.775Z"
+    },
+    {
+      "key": "news:gold:Gold tumbles to near $4,200 as hawkish Fed signals and stronger US Dollar pressure bullion",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Gold tumbles to near $4,200 as hawkish Fed signals and stronger US Dollar pressure bullion",
+      "url": "https://www.fxstreet.com/news/gold-tumbles-to-near-4-200-as-hawkish-fed-signals-and-stronger-us-dollar-pressure-bullion-202609280148",
+      "impactScore": -0.15,
+      "priceAtDetect": 4248,
+      "createdAt": "2026-09-28T01:52:37.604Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-28T01:53:37.604Z",
+          "capturedAt": "2026-09-28T03:25:42.955Z",
+          "price": 4233.4,
+          "realizedPct": -0.344
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-28T01:57:37.604Z",
+          "capturedAt": "2026-09-28T03:25:42.955Z",
+          "price": 4233.4,
+          "realizedPct": -0.344
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-28T02:07:37.604Z",
+          "capturedAt": "2026-09-28T03:25:42.955Z",
+          "price": 4233.4,
+          "realizedPct": -0.344
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-28T02:22:37.604Z",
+          "capturedAt": "2026-09-28T03:25:42.955Z",
+          "price": 4233.4,
+          "realizedPct": -0.344
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-28T02:52:37.604Z",
+          "capturedAt": "2026-09-28T03:25:42.955Z",
+          "price": 4233.4,
+          "realizedPct": -0.344
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-28T05:52:37.604Z",
+          "capturedAt": "2026-09-28T08:17:53.529Z",
+          "price": 4187.7,
+          "realizedPct": -1.419
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-29T01:52:37.604Z",
+          "capturedAt": "2026-09-29T02:11:14.393Z",
+          "price": 4166.5,
+          "realizedPct": -1.919
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-05T01:52:37.604Z",
+          "capturedAt": "2026-10-05T04:59:07.885Z",
+          "price": 4162.2,
+          "realizedPct": -2.02
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-28T01:52:37.604Z",
+          "capturedAt": "2026-10-28T05:30:27.775Z",
+          "price": 4049.9,
+          "realizedPct": -4.663
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": -0.344,
+        "maePct": -4.663
+      },
+      "completedAt": "2026-10-28T05:30:27.775Z"
+    },
+    {
       "key": "news:forex:Look closer, and Wall Street&#x2019;s rally is showing cracks",
       "tabId": "forex",
       "kind": "news",
@@ -17674,141 +17683,6 @@
       "realizedPct": -0.27,
       "verdict": "correct",
       "settledAt": "2026-09-21T19:05:41.959Z"
-    },
-    {
-      "key": "news:forex:Indonesian Rupiah declines as US Dollar remains stronger amid hawkish Fed tone",
-      "tabId": "forex",
-      "kind": "news",
-      "title": "Indonesian Rupiah declines as US Dollar remains stronger amid hawkish Fed tone",
-      "url": "https://www.fxstreet.com/news/indonesian-rupiah-declines-as-us-dollar-remains-stronger-amid-hawkish-fed-tone-202609210504",
-      "predictedPct": -0.15,
-      "priceAtDetect": 1.1481,
-      "createdAt": "2026-09-21T06:48:36.377Z",
-      "settleAt": "2026-09-21T07:33:36.377Z",
-      "priceAtSettle": 1.1481,
-      "realizedPct": 0,
-      "verdict": "flat",
-      "settledAt": "2026-09-21T13:40:35.497Z"
-    },
-    {
-      "key": "news:forex:GBP/USD Price Forecast: Declines below 1.3400 as bearish momentum persists below 100-day SMA",
-      "tabId": "forex",
-      "kind": "news",
-      "title": "GBP/USD Price Forecast: Declines below 1.3400 as bearish momentum persists below 100-day SMA",
-      "url": "https://www.fxstreet.com/news/gbp-usd-price-forecast-declines-below-13400-as-bearish-momentum-persists-below-100-day-sma-202609210542",
-      "predictedPct": -0.15,
-      "priceAtDetect": 1.1481,
-      "createdAt": "2026-09-21T06:48:36.377Z",
-      "settleAt": "2026-09-21T07:33:36.377Z",
-      "priceAtSettle": 1.1481,
-      "realizedPct": 0,
-      "verdict": "flat",
-      "settledAt": "2026-09-21T13:40:35.497Z"
-    },
-    {
-      "key": "news:forex:Australian Dollar outperforms its peers on hawkish RBA bets",
-      "tabId": "forex",
-      "kind": "news",
-      "title": "Australian Dollar outperforms its peers on hawkish RBA bets",
-      "url": "https://www.fxstreet.com/news/australian-dollar-outperforms-its-peers-on-hawkish-rba-bets-202609210643",
-      "predictedPct": -0.45,
-      "priceAtDetect": 1.1481,
-      "createdAt": "2026-09-21T06:48:36.377Z",
-      "settleAt": "2026-09-21T07:33:36.377Z",
-      "priceAtSettle": 1.1481,
-      "realizedPct": 0,
-      "verdict": "flat",
-      "settledAt": "2026-09-21T13:40:35.497Z"
-    },
-    {
-      "key": "news:crypto:Indonesian Rupiah declines as US Dollar remains stronger amid hawkish Fed tone",
-      "tabId": "crypto",
-      "kind": "news",
-      "title": "Indonesian Rupiah declines as US Dollar remains stronger amid hawkish Fed tone",
-      "url": "https://www.fxstreet.com/news/indonesian-rupiah-declines-as-us-dollar-remains-stronger-amid-hawkish-fed-tone-202609210504",
-      "predictedPct": -0.14,
-      "priceAtDetect": 81703.62,
-      "createdAt": "2026-09-21T06:48:36.377Z",
-      "settleAt": "2026-09-21T07:33:36.377Z",
-      "priceAtSettle": 85060.05,
-      "realizedPct": 4.11,
-      "verdict": "wrong",
-      "settledAt": "2026-09-21T13:40:35.497Z"
-    },
-    {
-      "key": "news:crypto:GBP/USD Price Forecast: Declines below 1.3400 as bearish momentum persists below 100-day SMA",
-      "tabId": "crypto",
-      "kind": "news",
-      "title": "GBP/USD Price Forecast: Declines below 1.3400 as bearish momentum persists below 100-day SMA",
-      "url": "https://www.fxstreet.com/news/gbp-usd-price-forecast-declines-below-13400-as-bearish-momentum-persists-below-100-day-sma-202609210542",
-      "predictedPct": -0.14,
-      "priceAtDetect": 81703.62,
-      "createdAt": "2026-09-21T06:48:36.377Z",
-      "settleAt": "2026-09-21T07:33:36.377Z",
-      "priceAtSettle": 85060.05,
-      "realizedPct": 4.11,
-      "verdict": "wrong",
-      "settledAt": "2026-09-21T13:40:35.497Z"
-    },
-    {
-      "key": "news:crypto:Australian Dollar outperforms its peers on hawkish RBA bets",
-      "tabId": "crypto",
-      "kind": "news",
-      "title": "Australian Dollar outperforms its peers on hawkish RBA bets",
-      "url": "https://www.fxstreet.com/news/australian-dollar-outperforms-its-peers-on-hawkish-rba-bets-202609210643",
-      "predictedPct": -0.41,
-      "priceAtDetect": 81703.62,
-      "createdAt": "2026-09-21T06:48:36.377Z",
-      "settleAt": "2026-09-21T07:33:36.377Z",
-      "priceAtSettle": 85060.05,
-      "realizedPct": 4.11,
-      "verdict": "wrong",
-      "settledAt": "2026-09-21T13:40:35.497Z"
-    },
-    {
-      "key": "news:gold:Indonesian Rupiah declines as US Dollar remains stronger amid hawkish Fed tone",
-      "tabId": "gold",
-      "kind": "news",
-      "title": "Indonesian Rupiah declines as US Dollar remains stronger amid hawkish Fed tone",
-      "url": "https://www.fxstreet.com/news/indonesian-rupiah-declines-as-us-dollar-remains-stronger-amid-hawkish-fed-tone-202609210504",
-      "predictedPct": -0.12,
-      "priceAtDetect": 4388.8,
-      "createdAt": "2026-09-21T06:48:36.376Z",
-      "settleAt": "2026-09-21T07:33:36.376Z",
-      "priceAtSettle": 4397.8,
-      "realizedPct": 0.21,
-      "verdict": "wrong",
-      "settledAt": "2026-09-21T13:40:35.497Z"
-    },
-    {
-      "key": "news:gold:GBP/USD Price Forecast: Declines below 1.3400 as bearish momentum persists below 100-day SMA",
-      "tabId": "gold",
-      "kind": "news",
-      "title": "GBP/USD Price Forecast: Declines below 1.3400 as bearish momentum persists below 100-day SMA",
-      "url": "https://www.fxstreet.com/news/gbp-usd-price-forecast-declines-below-13400-as-bearish-momentum-persists-below-100-day-sma-202609210542",
-      "predictedPct": -0.12,
-      "priceAtDetect": 4388.8,
-      "createdAt": "2026-09-21T06:48:36.376Z",
-      "settleAt": "2026-09-21T07:33:36.376Z",
-      "priceAtSettle": 4397.8,
-      "realizedPct": 0.21,
-      "verdict": "wrong",
-      "settledAt": "2026-09-21T13:40:35.497Z"
-    },
-    {
-      "key": "news:gold:Australian Dollar outperforms its peers on hawkish RBA bets",
-      "tabId": "gold",
-      "kind": "news",
-      "title": "Australian Dollar outperforms its peers on hawkish RBA bets",
-      "url": "https://www.fxstreet.com/news/australian-dollar-outperforms-its-peers-on-hawkish-rba-bets-202609210643",
-      "predictedPct": -0.36,
-      "priceAtDetect": 4388.8,
-      "createdAt": "2026-09-21T06:48:36.376Z",
-      "settleAt": "2026-09-21T07:33:36.376Z",
-      "priceAtSettle": 4397.8,
-      "realizedPct": 0.21,
-      "verdict": "wrong",
-      "settledAt": "2026-09-21T13:40:35.497Z"
     }
   ]
 }
