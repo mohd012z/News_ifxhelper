@@ -2846,8 +2846,18 @@
     "reasons": [
       "trend_down"
     ],
-    "status": "PENDING",
-    "id": "d7713ff844268e328e6d"
+    "status": "SETTLED",
+    "id": "d7713ff844268e328e6d",
+    "settledAt": "2026-10-28T07:35:29.495Z",
+    "nextCandleTime": "2026-10-27T06:45:00.000Z",
+    "actualDirection": "DOWN",
+    "predictedDirection": "DOWN",
+    "correct": true,
+    "nextReturnPct": -0.0374,
+    "mfePct": 0.0274,
+    "maePct": -0.0673,
+    "rangePct": 0.0947,
+    "closeLocationPct": 31.58
   },
   {
     "schemaVersion": 4,
@@ -2883,8 +2893,18 @@
       "reentry_down",
       "top_rejection_candidate"
     ],
-    "status": "PENDING",
-    "id": "c095888ed91337aefb83"
+    "status": "SETTLED",
+    "id": "c095888ed91337aefb83",
+    "settledAt": "2026-10-28T07:35:29.495Z",
+    "nextCandleTime": "2026-10-27T06:45:00.000Z",
+    "actualDirection": "UP",
+    "predictedDirection": "DOWN",
+    "correct": false,
+    "nextReturnPct": 0.0174,
+    "mfePct": 0.0474,
+    "maePct": -0.0673,
+    "rangePct": 0.1146,
+    "closeLocationPct": 73.91
   },
   {
     "schemaVersion": 4,
@@ -2919,8 +2939,18 @@
       "trend_up",
       "squeeze_pre_breakout"
     ],
-    "status": "PENDING",
-    "id": "64964fd7b7283ce42621"
+    "status": "SETTLED",
+    "id": "64964fd7b7283ce42621",
+    "settledAt": "2026-10-28T07:35:29.495Z",
+    "nextCandleTime": "2026-10-27T06:30:00.000Z",
+    "actualDirection": "DOWN",
+    "predictedDirection": "FLAT",
+    "correct": false,
+    "nextReturnPct": -0.0672,
+    "mfePct": 0.005,
+    "maePct": -0.1519,
+    "rangePct": 0.1569,
+    "closeLocationPct": 53.97
   },
   {
     "schemaVersion": 4,
@@ -2956,7 +2986,195 @@
       "reentry_down",
       "squeeze_pre_breakout"
     ],
+    "status": "SETTLED",
+    "id": "b17701c476fa3778cfa7",
+    "settledAt": "2026-10-28T07:35:29.495Z",
+    "nextCandleTime": "2026-10-27T06:00:00.000Z",
+    "actualDirection": "DOWN",
+    "predictedDirection": "DOWN",
+    "correct": true,
+    "nextReturnPct": -0.2188,
+    "mfePct": 0.0696,
+    "maePct": -0.3033,
+    "rangePct": 0.373,
+    "closeLocationPct": 22.67
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-15cfcbba526db554c8cd",
+    "sourceGeneratedAt": "2026-10-28T02:28:47.836Z",
+    "symbol": "GC=F",
+    "tf": "M1",
+    "candleTime": "2026-10-28T07:25:26.000Z",
+    "createdAt": "2026-10-28T07:35:29.495Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "API Weekly Statistical Bulletin",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-10-27T20:30:00.000Z"
+    },
+    "location": "LOW_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "SQUEEZE",
+    "state": "RANGE_OR_BREAKOUT_WATCH",
+    "confidence": 50,
+    "reasons": [
+      "trend_down",
+      "squeeze_pre_breakout"
+    ],
     "status": "PENDING",
-    "id": "b17701c476fa3778cfa7"
+    "id": "d9e534f86171ae08a6e8"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-15cfcbba526db554c8cd",
+    "sourceGeneratedAt": "2026-10-28T02:28:47.836Z",
+    "symbol": "GC=F",
+    "tf": "M5",
+    "candleTime": "2026-10-28T07:20:00.000Z",
+    "createdAt": "2026-10-28T07:35:29.496Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "API Weekly Statistical Bulletin",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-10-27T20:30:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "DOWN_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_down"
+    ],
+    "status": "PENDING",
+    "id": "2fd8bc6365dbe4a322f8"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-15cfcbba526db554c8cd",
+    "sourceGeneratedAt": "2026-10-28T02:28:47.836Z",
+    "symbol": "GC=F",
+    "tf": "M15",
+    "candleTime": "2026-10-28T07:00:00.000Z",
+    "createdAt": "2026-10-28T07:35:29.496Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "API Weekly Statistical Bulletin",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-10-27T20:30:00.000Z"
+    },
+    "location": "BELOW_LOW_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "EXTREME_LOW",
+      "momentum": "MOMENTUM_DOWN",
+      "reentry": "NONE",
+      "csak": "CSAK_DOWN"
+    },
+    "squeeze": "NORMAL",
+    "state": "DOWN_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_down",
+      "bb_momentum_down"
+    ],
+    "status": "PENDING",
+    "id": "28ef8c4dbffe9ee3c6e4"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-15cfcbba526db554c8cd",
+    "sourceGeneratedAt": "2026-10-28T02:28:47.836Z",
+    "symbol": "GC=F",
+    "tf": "M30",
+    "candleTime": "2026-10-28T06:30:00.000Z",
+    "createdAt": "2026-10-28T07:35:29.496Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "API Weekly Statistical Bulletin",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-10-27T20:30:00.000Z"
+    },
+    "location": "BELOW_LOW_BB",
+    "bbma": {
+      "trend": "MIXED",
+      "extreme": "NONE",
+      "momentum": "MOMENTUM_DOWN",
+      "reentry": "NONE",
+      "csak": "CSAK_DOWN"
+    },
+    "squeeze": "SQUEEZE",
+    "state": "RANGE_OR_BREAKOUT_WATCH",
+    "confidence": 60,
+    "reasons": [
+      "bb_momentum_down",
+      "squeeze_pre_breakout"
+    ],
+    "status": "PENDING",
+    "id": "bef3b7988161712b14ec"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-15cfcbba526db554c8cd",
+    "sourceGeneratedAt": "2026-10-28T02:28:47.836Z",
+    "symbol": "GC=F",
+    "tf": "H1",
+    "candleTime": "2026-10-28T06:00:00.000Z",
+    "createdAt": "2026-10-28T07:35:29.496Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "API Weekly Statistical Bulletin",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-10-27T20:30:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "UP",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "UP_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_up"
+    ],
+    "status": "PENDING",
+    "id": "ff60b1c88f3f9ee31658"
   }
 ]
