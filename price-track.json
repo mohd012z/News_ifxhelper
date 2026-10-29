@@ -1,1074 +1,6 @@
 {
   "pending": [
     {
-      "key": "news:gold:Wells Fargo revises dollar, yen, euro estimates amid rate hike outlook",
-      "tabId": "gold",
-      "kind": "news",
-      "title": "Wells Fargo revises dollar, yen, euro estimates amid rate hike outlook",
-      "url": "https://www.investing.com/news/forex-news/wells-fargo-revises-dollar-yen-euro-estimates-amid-rate-hike-outlook-4923047",
-      "impactScore": -0.21,
-      "priceAtDetect": 4192.8,
-      "createdAt": "2026-09-29T15:24:16.748Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-29T15:25:16.748Z",
-          "capturedAt": "2026-09-29T15:52:45.395Z",
-          "price": 4187.1,
-          "realizedPct": -0.136
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-29T15:29:16.748Z",
-          "capturedAt": "2026-09-29T15:52:45.395Z",
-          "price": 4187.1,
-          "realizedPct": -0.136
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-29T15:39:16.748Z",
-          "capturedAt": "2026-09-29T15:52:45.395Z",
-          "price": 4187.1,
-          "realizedPct": -0.136
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-29T15:54:16.748Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 4205.6,
-          "realizedPct": 0.305
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-29T16:24:16.748Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 4205.6,
-          "realizedPct": 0.305
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-09-29T19:24:16.748Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 4205.6,
-          "realizedPct": 0.305
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-09-30T15:24:16.748Z",
-          "capturedAt": "2026-09-30T16:41:06.005Z",
-          "price": 4190.8,
-          "realizedPct": -0.048
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-06T15:24:16.748Z",
-          "capturedAt": "2026-10-06T16:07:56.647Z",
-          "price": 4193.1,
-          "realizedPct": 0.007
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-29T15:24:16.748Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 0.305,
-        "maePct": -0.136
-      }
-    },
-    {
-      "key": "news:gold:India rates: Gradual hiking path – Standard Chartered",
-      "tabId": "gold",
-      "kind": "news",
-      "title": "India rates: Gradual hiking path – Standard Chartered",
-      "url": "https://www.fxstreet.com/news/india-rates-gradual-hiking-path-standard-chartered-202609291502",
-      "impactScore": -0.13,
-      "priceAtDetect": 4192.8,
-      "createdAt": "2026-09-29T15:24:16.748Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-29T15:25:16.748Z",
-          "capturedAt": "2026-09-29T15:52:45.395Z",
-          "price": 4187.1,
-          "realizedPct": -0.136
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-29T15:29:16.748Z",
-          "capturedAt": "2026-09-29T15:52:45.395Z",
-          "price": 4187.1,
-          "realizedPct": -0.136
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-29T15:39:16.748Z",
-          "capturedAt": "2026-09-29T15:52:45.395Z",
-          "price": 4187.1,
-          "realizedPct": -0.136
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-29T15:54:16.748Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 4205.6,
-          "realizedPct": 0.305
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-29T16:24:16.748Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 4205.6,
-          "realizedPct": 0.305
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-09-29T19:24:16.748Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 4205.6,
-          "realizedPct": 0.305
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-09-30T15:24:16.748Z",
-          "capturedAt": "2026-09-30T16:41:06.005Z",
-          "price": 4190.8,
-          "realizedPct": -0.048
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-06T15:24:16.748Z",
-          "capturedAt": "2026-10-06T16:07:56.647Z",
-          "price": 4193.1,
-          "realizedPct": 0.007
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-29T15:24:16.748Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 0.305,
-        "maePct": -0.136
-      }
-    },
-    {
-      "key": "news:gold:Gold steadies after sharp drop as traders assess Fed outlook, Middle East risks",
-      "tabId": "gold",
-      "kind": "news",
-      "title": "Gold steadies after sharp drop as traders assess Fed outlook, Middle East risks",
-      "url": "https://www.fxstreet.com/news/gold-steadies-after-sharp-drop-as-traders-assess-fed-outlook-middle-east-risks-202609291058",
-      "impactScore": -0.26,
-      "priceAtDetect": 4192.8,
-      "createdAt": "2026-09-29T15:24:16.748Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-29T15:25:16.748Z",
-          "capturedAt": "2026-09-29T15:52:45.395Z",
-          "price": 4187.1,
-          "realizedPct": -0.136
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-29T15:29:16.748Z",
-          "capturedAt": "2026-09-29T15:52:45.395Z",
-          "price": 4187.1,
-          "realizedPct": -0.136
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-29T15:39:16.748Z",
-          "capturedAt": "2026-09-29T15:52:45.395Z",
-          "price": 4187.1,
-          "realizedPct": -0.136
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-29T15:54:16.748Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 4205.6,
-          "realizedPct": 0.305
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-29T16:24:16.748Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 4205.6,
-          "realizedPct": 0.305
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-09-29T19:24:16.748Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 4205.6,
-          "realizedPct": 0.305
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-09-30T15:24:16.748Z",
-          "capturedAt": "2026-09-30T16:41:06.005Z",
-          "price": 4190.8,
-          "realizedPct": -0.048
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-06T15:24:16.748Z",
-          "capturedAt": "2026-10-06T16:07:56.647Z",
-          "price": 4193.1,
-          "realizedPct": 0.007
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-29T15:24:16.748Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 0.305,
-        "maePct": -0.136
-      }
-    },
-    {
-      "key": "news:gold:Australian Dollar: RBA hike to support AUD/USD – BBH",
-      "tabId": "gold",
-      "kind": "news",
-      "title": "Australian Dollar: RBA hike to support AUD/USD – BBH",
-      "url": "https://www.fxstreet.com/news/australian-dollar-rba-hike-to-support-aud-usd-bbh-202609291138",
-      "impactScore": -0.36,
-      "priceAtDetect": 4192.8,
-      "createdAt": "2026-09-29T15:24:16.748Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-29T15:25:16.748Z",
-          "capturedAt": "2026-09-29T15:52:45.395Z",
-          "price": 4187.1,
-          "realizedPct": -0.136
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-29T15:29:16.748Z",
-          "capturedAt": "2026-09-29T15:52:45.395Z",
-          "price": 4187.1,
-          "realizedPct": -0.136
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-29T15:39:16.748Z",
-          "capturedAt": "2026-09-29T15:52:45.395Z",
-          "price": 4187.1,
-          "realizedPct": -0.136
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-29T15:54:16.748Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 4205.6,
-          "realizedPct": 0.305
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-29T16:24:16.748Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 4205.6,
-          "realizedPct": 0.305
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-09-29T19:24:16.748Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 4205.6,
-          "realizedPct": 0.305
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-09-30T15:24:16.748Z",
-          "capturedAt": "2026-09-30T16:41:06.005Z",
-          "price": 4190.8,
-          "realizedPct": -0.048
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-06T15:24:16.748Z",
-          "capturedAt": "2026-10-06T16:07:56.647Z",
-          "price": 4193.1,
-          "realizedPct": 0.007
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-29T15:24:16.748Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 0.305,
-        "maePct": -0.136
-      }
-    },
-    {
-      "key": "news:crypto:Wells Fargo revises dollar, yen, euro estimates amid rate hike outlook",
-      "tabId": "crypto",
-      "kind": "news",
-      "title": "Wells Fargo revises dollar, yen, euro estimates amid rate hike outlook",
-      "url": "https://www.investing.com/news/forex-news/wells-fargo-revises-dollar-yen-euro-estimates-amid-rate-hike-outlook-4923047",
-      "impactScore": -0.24,
-      "priceAtDetect": 83120.91,
-      "createdAt": "2026-09-29T15:24:16.748Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-29T15:25:16.748Z",
-          "capturedAt": "2026-09-29T15:52:45.395Z",
-          "price": 83034,
-          "realizedPct": -0.105
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-29T15:29:16.748Z",
-          "capturedAt": "2026-09-29T15:52:45.395Z",
-          "price": 83034,
-          "realizedPct": -0.105
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-29T15:39:16.748Z",
-          "capturedAt": "2026-09-29T15:52:45.395Z",
-          "price": 83034,
-          "realizedPct": -0.105
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-29T15:54:16.748Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 83562.07,
-          "realizedPct": 0.531
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-29T16:24:16.748Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 83562.07,
-          "realizedPct": 0.531
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-09-29T19:24:16.748Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 83562.07,
-          "realizedPct": 0.531
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-09-30T15:24:16.748Z",
-          "capturedAt": "2026-09-30T16:41:06.005Z",
-          "price": 84249.87,
-          "realizedPct": 1.358
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-06T15:24:16.748Z",
-          "capturedAt": "2026-10-06T16:07:56.647Z",
-          "price": 85828.54,
-          "realizedPct": 3.257
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-29T15:24:16.748Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 3.257,
-        "maePct": -0.105
-      }
-    },
-    {
-      "key": "news:crypto:India rates: Gradual hiking path – Standard Chartered",
-      "tabId": "crypto",
-      "kind": "news",
-      "title": "India rates: Gradual hiking path – Standard Chartered",
-      "url": "https://www.fxstreet.com/news/india-rates-gradual-hiking-path-standard-chartered-202609291502",
-      "impactScore": -0.14,
-      "priceAtDetect": 83120.91,
-      "createdAt": "2026-09-29T15:24:16.748Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-29T15:25:16.748Z",
-          "capturedAt": "2026-09-29T15:52:45.395Z",
-          "price": 83034,
-          "realizedPct": -0.105
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-29T15:29:16.748Z",
-          "capturedAt": "2026-09-29T15:52:45.395Z",
-          "price": 83034,
-          "realizedPct": -0.105
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-29T15:39:16.748Z",
-          "capturedAt": "2026-09-29T15:52:45.395Z",
-          "price": 83034,
-          "realizedPct": -0.105
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-29T15:54:16.748Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 83562.07,
-          "realizedPct": 0.531
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-29T16:24:16.748Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 83562.07,
-          "realizedPct": 0.531
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-09-29T19:24:16.748Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 83562.07,
-          "realizedPct": 0.531
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-09-30T15:24:16.748Z",
-          "capturedAt": "2026-09-30T16:41:06.005Z",
-          "price": 84249.87,
-          "realizedPct": 1.358
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-06T15:24:16.748Z",
-          "capturedAt": "2026-10-06T16:07:56.647Z",
-          "price": 85828.54,
-          "realizedPct": 3.257
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-29T15:24:16.748Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 3.257,
-        "maePct": -0.105
-      }
-    },
-    {
-      "key": "news:crypto:Gold steadies after sharp drop as traders assess Fed outlook, Middle East risks",
-      "tabId": "crypto",
-      "kind": "news",
-      "title": "Gold steadies after sharp drop as traders assess Fed outlook, Middle East risks",
-      "url": "https://www.fxstreet.com/news/gold-steadies-after-sharp-drop-as-traders-assess-fed-outlook-middle-east-risks-202609291058",
-      "impactScore": -0.24,
-      "priceAtDetect": 83120.91,
-      "createdAt": "2026-09-29T15:24:16.748Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-29T15:25:16.748Z",
-          "capturedAt": "2026-09-29T15:52:45.395Z",
-          "price": 83034,
-          "realizedPct": -0.105
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-29T15:29:16.748Z",
-          "capturedAt": "2026-09-29T15:52:45.395Z",
-          "price": 83034,
-          "realizedPct": -0.105
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-29T15:39:16.748Z",
-          "capturedAt": "2026-09-29T15:52:45.395Z",
-          "price": 83034,
-          "realizedPct": -0.105
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-29T15:54:16.748Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 83562.07,
-          "realizedPct": 0.531
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-29T16:24:16.748Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 83562.07,
-          "realizedPct": 0.531
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-09-29T19:24:16.748Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 83562.07,
-          "realizedPct": 0.531
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-09-30T15:24:16.748Z",
-          "capturedAt": "2026-09-30T16:41:06.005Z",
-          "price": 84249.87,
-          "realizedPct": 1.358
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-06T15:24:16.748Z",
-          "capturedAt": "2026-10-06T16:07:56.647Z",
-          "price": 85828.54,
-          "realizedPct": 3.257
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-29T15:24:16.748Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 3.257,
-        "maePct": -0.105
-      }
-    },
-    {
-      "key": "news:crypto:Australian Dollar: RBA hike to support AUD/USD – BBH",
-      "tabId": "crypto",
-      "kind": "news",
-      "title": "Australian Dollar: RBA hike to support AUD/USD – BBH",
-      "url": "https://www.fxstreet.com/news/australian-dollar-rba-hike-to-support-aud-usd-bbh-202609291138",
-      "impactScore": -0.41,
-      "priceAtDetect": 83120.91,
-      "createdAt": "2026-09-29T15:24:16.748Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-29T15:25:16.748Z",
-          "capturedAt": "2026-09-29T15:52:45.395Z",
-          "price": 83034,
-          "realizedPct": -0.105
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-29T15:29:16.748Z",
-          "capturedAt": "2026-09-29T15:52:45.395Z",
-          "price": 83034,
-          "realizedPct": -0.105
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-29T15:39:16.748Z",
-          "capturedAt": "2026-09-29T15:52:45.395Z",
-          "price": 83034,
-          "realizedPct": -0.105
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-29T15:54:16.748Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 83562.07,
-          "realizedPct": 0.531
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-29T16:24:16.748Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 83562.07,
-          "realizedPct": 0.531
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-09-29T19:24:16.748Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 83562.07,
-          "realizedPct": 0.531
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-09-30T15:24:16.748Z",
-          "capturedAt": "2026-09-30T16:41:06.005Z",
-          "price": 84249.87,
-          "realizedPct": 1.358
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-06T15:24:16.748Z",
-          "capturedAt": "2026-10-06T16:07:56.647Z",
-          "price": 85828.54,
-          "realizedPct": 3.257
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-29T15:24:16.748Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 3.257,
-        "maePct": -0.105
-      }
-    },
-    {
-      "key": "news:forex:Wells Fargo revises dollar, yen, euro estimates amid rate hike outlook",
-      "tabId": "forex",
-      "kind": "news",
-      "title": "Wells Fargo revises dollar, yen, euro estimates amid rate hike outlook",
-      "url": "https://www.investing.com/news/forex-news/wells-fargo-revises-dollar-yen-euro-estimates-amid-rate-hike-outlook-4923047",
-      "impactScore": -0.13,
-      "priceAtDetect": 1.1334,
-      "createdAt": "2026-09-29T15:24:16.748Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-29T15:25:16.748Z",
-          "capturedAt": "2026-09-29T15:52:45.395Z",
-          "price": 1.1337,
-          "realizedPct": 0.026
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-29T15:29:16.748Z",
-          "capturedAt": "2026-09-29T15:52:45.395Z",
-          "price": 1.1337,
-          "realizedPct": 0.026
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-29T15:39:16.748Z",
-          "capturedAt": "2026-09-29T15:52:45.395Z",
-          "price": 1.1337,
-          "realizedPct": 0.026
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-29T15:54:16.748Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 1.1343,
-          "realizedPct": 0.079
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-29T16:24:16.748Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 1.1343,
-          "realizedPct": 0.079
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-09-29T19:24:16.748Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 1.1343,
-          "realizedPct": 0.079
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-09-30T15:24:16.748Z",
-          "capturedAt": "2026-09-30T16:41:06.005Z",
-          "price": 1.134,
-          "realizedPct": 0.053
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-06T15:24:16.748Z",
-          "capturedAt": "2026-10-06T16:07:56.647Z",
-          "price": 1.1265,
-          "realizedPct": -0.609
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-29T15:24:16.748Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 0.079,
-        "maePct": -0.609
-      }
-    },
-    {
-      "key": "news:forex:India rates: Gradual hiking path – Standard Chartered",
-      "tabId": "forex",
-      "kind": "news",
-      "title": "India rates: Gradual hiking path – Standard Chartered",
-      "url": "https://www.fxstreet.com/news/india-rates-gradual-hiking-path-standard-chartered-202609291502",
-      "impactScore": -0.13,
-      "priceAtDetect": 1.1334,
-      "createdAt": "2026-09-29T15:24:16.748Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-29T15:25:16.748Z",
-          "capturedAt": "2026-09-29T15:52:45.395Z",
-          "price": 1.1337,
-          "realizedPct": 0.026
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-29T15:29:16.748Z",
-          "capturedAt": "2026-09-29T15:52:45.395Z",
-          "price": 1.1337,
-          "realizedPct": 0.026
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-29T15:39:16.748Z",
-          "capturedAt": "2026-09-29T15:52:45.395Z",
-          "price": 1.1337,
-          "realizedPct": 0.026
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-29T15:54:16.748Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 1.1343,
-          "realizedPct": 0.079
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-29T16:24:16.748Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 1.1343,
-          "realizedPct": 0.079
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-09-29T19:24:16.748Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 1.1343,
-          "realizedPct": 0.079
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-09-30T15:24:16.748Z",
-          "capturedAt": "2026-09-30T16:41:06.005Z",
-          "price": 1.134,
-          "realizedPct": 0.053
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-06T15:24:16.748Z",
-          "capturedAt": "2026-10-06T16:07:56.647Z",
-          "price": 1.1265,
-          "realizedPct": -0.609
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-29T15:24:16.748Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 0.079,
-        "maePct": -0.609
-      }
-    },
-    {
-      "key": "news:forex:Gold steadies after sharp drop as traders assess Fed outlook, Middle East risks",
-      "tabId": "forex",
-      "kind": "news",
-      "title": "Gold steadies after sharp drop as traders assess Fed outlook, Middle East risks",
-      "url": "https://www.fxstreet.com/news/gold-steadies-after-sharp-drop-as-traders-assess-fed-outlook-middle-east-risks-202609291058",
-      "impactScore": -0.26,
-      "priceAtDetect": 1.1334,
-      "createdAt": "2026-09-29T15:24:16.748Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-29T15:25:16.748Z",
-          "capturedAt": "2026-09-29T15:52:45.395Z",
-          "price": 1.1337,
-          "realizedPct": 0.026
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-29T15:29:16.748Z",
-          "capturedAt": "2026-09-29T15:52:45.395Z",
-          "price": 1.1337,
-          "realizedPct": 0.026
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-29T15:39:16.748Z",
-          "capturedAt": "2026-09-29T15:52:45.395Z",
-          "price": 1.1337,
-          "realizedPct": 0.026
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-29T15:54:16.748Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 1.1343,
-          "realizedPct": 0.079
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-29T16:24:16.748Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 1.1343,
-          "realizedPct": 0.079
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-09-29T19:24:16.748Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 1.1343,
-          "realizedPct": 0.079
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-09-30T15:24:16.748Z",
-          "capturedAt": "2026-09-30T16:41:06.005Z",
-          "price": 1.134,
-          "realizedPct": 0.053
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-06T15:24:16.748Z",
-          "capturedAt": "2026-10-06T16:07:56.647Z",
-          "price": 1.1265,
-          "realizedPct": -0.609
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-29T15:24:16.748Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 0.079,
-        "maePct": -0.609
-      }
-    },
-    {
-      "key": "news:forex:Australian Dollar: RBA hike to support AUD/USD – BBH",
-      "tabId": "forex",
-      "kind": "news",
-      "title": "Australian Dollar: RBA hike to support AUD/USD – BBH",
-      "url": "https://www.fxstreet.com/news/australian-dollar-rba-hike-to-support-aud-usd-bbh-202609291138",
-      "impactScore": -0.45,
-      "priceAtDetect": 1.1334,
-      "createdAt": "2026-09-29T15:24:16.748Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-29T15:25:16.748Z",
-          "capturedAt": "2026-09-29T15:52:45.395Z",
-          "price": 1.1337,
-          "realizedPct": 0.026
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-29T15:29:16.748Z",
-          "capturedAt": "2026-09-29T15:52:45.395Z",
-          "price": 1.1337,
-          "realizedPct": 0.026
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-29T15:39:16.748Z",
-          "capturedAt": "2026-09-29T15:52:45.395Z",
-          "price": 1.1337,
-          "realizedPct": 0.026
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-29T15:54:16.748Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 1.1343,
-          "realizedPct": 0.079
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-29T16:24:16.748Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 1.1343,
-          "realizedPct": 0.079
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-09-29T19:24:16.748Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 1.1343,
-          "realizedPct": 0.079
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-09-30T15:24:16.748Z",
-          "capturedAt": "2026-09-30T16:41:06.005Z",
-          "price": 1.134,
-          "realizedPct": 0.053
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-06T15:24:16.748Z",
-          "capturedAt": "2026-10-06T16:07:56.647Z",
-          "price": 1.1265,
-          "realizedPct": -0.609
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-29T15:24:16.748Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 0.079,
-        "maePct": -0.609
-      }
-    },
-    {
       "key": "news:gold:Euro falls to three-month low as hawkish Fed outlook weighs",
       "tabId": "gold",
       "kind": "news",
@@ -7030,9 +5962,1341 @@
         "mfePct": 2.448,
         "maePct": -1.527
       }
+    },
+    {
+      "key": "news:gold:European Central Bank keeps key interest rate on hold at 2.5%",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "European Central Bank keeps key interest rate on hold at 2.5%",
+      "url": "https://www.cnbc.com/2026/10/29/european-central-bank-interest-rates.html",
+      "impactScore": -0.23,
+      "priceAtDetect": 4031.7,
+      "createdAt": "2026-10-29T15:34:29.157Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-10-29T15:35:29.157Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-10-29T15:39:29.157Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-10-29T15:49:29.157Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-10-29T16:04:29.157Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-10-29T16:34:29.157Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-10-29T19:34:29.157Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-10-30T15:34:29.157Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-05T15:34:29.157Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-11-28T15:34:29.157Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:crypto:European Central Bank keeps key interest rate on hold at 2.5%",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "European Central Bank keeps key interest rate on hold at 2.5%",
+      "url": "https://www.cnbc.com/2026/10/29/european-central-bank-interest-rates.html",
+      "impactScore": -0.23,
+      "priceAtDetect": 81553.52,
+      "createdAt": "2026-10-29T15:34:29.158Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-10-29T15:35:29.158Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-10-29T15:39:29.158Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-10-29T15:49:29.158Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-10-29T16:04:29.158Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-10-29T16:34:29.158Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-10-29T19:34:29.158Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-10-30T15:34:29.158Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-05T15:34:29.158Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-11-28T15:34:29.158Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:forex:European Central Bank keeps key interest rate on hold at 2.5%",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "European Central Bank keeps key interest rate on hold at 2.5%",
+      "url": "https://www.cnbc.com/2026/10/29/european-central-bank-interest-rates.html",
+      "impactScore": -0.23,
+      "priceAtDetect": 1.1159,
+      "createdAt": "2026-10-29T15:34:29.158Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-10-29T15:35:29.158Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-10-29T15:39:29.158Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-10-29T15:49:29.158Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-10-29T16:04:29.158Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-10-29T16:34:29.158Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-10-29T19:34:29.158Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-10-30T15:34:29.158Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-05T15:34:29.158Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-11-28T15:34:29.158Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
     }
   ],
   "results": [
+    {
+      "key": "news:forex:Australian Dollar: RBA hike to support AUD/USD – BBH",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Australian Dollar: RBA hike to support AUD/USD – BBH",
+      "url": "https://www.fxstreet.com/news/australian-dollar-rba-hike-to-support-aud-usd-bbh-202609291138",
+      "impactScore": -0.45,
+      "priceAtDetect": 1.1334,
+      "createdAt": "2026-09-29T15:24:16.748Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T15:25:16.748Z",
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 1.1337,
+          "realizedPct": 0.026
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T15:29:16.748Z",
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 1.1337,
+          "realizedPct": 0.026
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-29T15:39:16.748Z",
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 1.1337,
+          "realizedPct": 0.026
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-29T15:54:16.748Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 1.1343,
+          "realizedPct": 0.079
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-29T16:24:16.748Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 1.1343,
+          "realizedPct": 0.079
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-29T19:24:16.748Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 1.1343,
+          "realizedPct": 0.079
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T15:24:16.748Z",
+          "capturedAt": "2026-09-30T16:41:06.005Z",
+          "price": 1.134,
+          "realizedPct": 0.053
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T15:24:16.748Z",
+          "capturedAt": "2026-10-06T16:07:56.647Z",
+          "price": 1.1265,
+          "realizedPct": -0.609
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T15:24:16.748Z",
+          "capturedAt": "2026-10-29T15:34:29.157Z",
+          "price": 1.1159,
+          "realizedPct": -1.544
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 0.079,
+        "maePct": -1.544
+      },
+      "completedAt": "2026-10-29T15:34:29.157Z"
+    },
+    {
+      "key": "news:forex:Gold steadies after sharp drop as traders assess Fed outlook, Middle East risks",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Gold steadies after sharp drop as traders assess Fed outlook, Middle East risks",
+      "url": "https://www.fxstreet.com/news/gold-steadies-after-sharp-drop-as-traders-assess-fed-outlook-middle-east-risks-202609291058",
+      "impactScore": -0.26,
+      "priceAtDetect": 1.1334,
+      "createdAt": "2026-09-29T15:24:16.748Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T15:25:16.748Z",
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 1.1337,
+          "realizedPct": 0.026
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T15:29:16.748Z",
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 1.1337,
+          "realizedPct": 0.026
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-29T15:39:16.748Z",
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 1.1337,
+          "realizedPct": 0.026
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-29T15:54:16.748Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 1.1343,
+          "realizedPct": 0.079
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-29T16:24:16.748Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 1.1343,
+          "realizedPct": 0.079
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-29T19:24:16.748Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 1.1343,
+          "realizedPct": 0.079
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T15:24:16.748Z",
+          "capturedAt": "2026-09-30T16:41:06.005Z",
+          "price": 1.134,
+          "realizedPct": 0.053
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T15:24:16.748Z",
+          "capturedAt": "2026-10-06T16:07:56.647Z",
+          "price": 1.1265,
+          "realizedPct": -0.609
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T15:24:16.748Z",
+          "capturedAt": "2026-10-29T15:34:29.157Z",
+          "price": 1.1159,
+          "realizedPct": -1.544
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 0.079,
+        "maePct": -1.544
+      },
+      "completedAt": "2026-10-29T15:34:29.157Z"
+    },
+    {
+      "key": "news:forex:India rates: Gradual hiking path – Standard Chartered",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "India rates: Gradual hiking path – Standard Chartered",
+      "url": "https://www.fxstreet.com/news/india-rates-gradual-hiking-path-standard-chartered-202609291502",
+      "impactScore": -0.13,
+      "priceAtDetect": 1.1334,
+      "createdAt": "2026-09-29T15:24:16.748Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T15:25:16.748Z",
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 1.1337,
+          "realizedPct": 0.026
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T15:29:16.748Z",
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 1.1337,
+          "realizedPct": 0.026
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-29T15:39:16.748Z",
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 1.1337,
+          "realizedPct": 0.026
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-29T15:54:16.748Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 1.1343,
+          "realizedPct": 0.079
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-29T16:24:16.748Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 1.1343,
+          "realizedPct": 0.079
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-29T19:24:16.748Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 1.1343,
+          "realizedPct": 0.079
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T15:24:16.748Z",
+          "capturedAt": "2026-09-30T16:41:06.005Z",
+          "price": 1.134,
+          "realizedPct": 0.053
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T15:24:16.748Z",
+          "capturedAt": "2026-10-06T16:07:56.647Z",
+          "price": 1.1265,
+          "realizedPct": -0.609
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T15:24:16.748Z",
+          "capturedAt": "2026-10-29T15:34:29.157Z",
+          "price": 1.1159,
+          "realizedPct": -1.544
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 0.079,
+        "maePct": -1.544
+      },
+      "completedAt": "2026-10-29T15:34:29.157Z"
+    },
+    {
+      "key": "news:forex:Wells Fargo revises dollar, yen, euro estimates amid rate hike outlook",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Wells Fargo revises dollar, yen, euro estimates amid rate hike outlook",
+      "url": "https://www.investing.com/news/forex-news/wells-fargo-revises-dollar-yen-euro-estimates-amid-rate-hike-outlook-4923047",
+      "impactScore": -0.13,
+      "priceAtDetect": 1.1334,
+      "createdAt": "2026-09-29T15:24:16.748Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T15:25:16.748Z",
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 1.1337,
+          "realizedPct": 0.026
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T15:29:16.748Z",
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 1.1337,
+          "realizedPct": 0.026
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-29T15:39:16.748Z",
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 1.1337,
+          "realizedPct": 0.026
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-29T15:54:16.748Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 1.1343,
+          "realizedPct": 0.079
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-29T16:24:16.748Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 1.1343,
+          "realizedPct": 0.079
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-29T19:24:16.748Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 1.1343,
+          "realizedPct": 0.079
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T15:24:16.748Z",
+          "capturedAt": "2026-09-30T16:41:06.005Z",
+          "price": 1.134,
+          "realizedPct": 0.053
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T15:24:16.748Z",
+          "capturedAt": "2026-10-06T16:07:56.647Z",
+          "price": 1.1265,
+          "realizedPct": -0.609
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T15:24:16.748Z",
+          "capturedAt": "2026-10-29T15:34:29.157Z",
+          "price": 1.1159,
+          "realizedPct": -1.544
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 0.079,
+        "maePct": -1.544
+      },
+      "completedAt": "2026-10-29T15:34:29.157Z"
+    },
+    {
+      "key": "news:crypto:Australian Dollar: RBA hike to support AUD/USD – BBH",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Australian Dollar: RBA hike to support AUD/USD – BBH",
+      "url": "https://www.fxstreet.com/news/australian-dollar-rba-hike-to-support-aud-usd-bbh-202609291138",
+      "impactScore": -0.41,
+      "priceAtDetect": 83120.91,
+      "createdAt": "2026-09-29T15:24:16.748Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T15:25:16.748Z",
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 83034,
+          "realizedPct": -0.105
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T15:29:16.748Z",
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 83034,
+          "realizedPct": -0.105
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-29T15:39:16.748Z",
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 83034,
+          "realizedPct": -0.105
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-29T15:54:16.748Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 83562.07,
+          "realizedPct": 0.531
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-29T16:24:16.748Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 83562.07,
+          "realizedPct": 0.531
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-29T19:24:16.748Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 83562.07,
+          "realizedPct": 0.531
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T15:24:16.748Z",
+          "capturedAt": "2026-09-30T16:41:06.005Z",
+          "price": 84249.87,
+          "realizedPct": 1.358
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T15:24:16.748Z",
+          "capturedAt": "2026-10-06T16:07:56.647Z",
+          "price": 85828.54,
+          "realizedPct": 3.257
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T15:24:16.748Z",
+          "capturedAt": "2026-10-29T15:34:29.157Z",
+          "price": 81553.52,
+          "realizedPct": -1.886
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 3.257,
+        "maePct": -1.886
+      },
+      "completedAt": "2026-10-29T15:34:29.157Z"
+    },
+    {
+      "key": "news:crypto:Gold steadies after sharp drop as traders assess Fed outlook, Middle East risks",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Gold steadies after sharp drop as traders assess Fed outlook, Middle East risks",
+      "url": "https://www.fxstreet.com/news/gold-steadies-after-sharp-drop-as-traders-assess-fed-outlook-middle-east-risks-202609291058",
+      "impactScore": -0.24,
+      "priceAtDetect": 83120.91,
+      "createdAt": "2026-09-29T15:24:16.748Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T15:25:16.748Z",
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 83034,
+          "realizedPct": -0.105
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T15:29:16.748Z",
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 83034,
+          "realizedPct": -0.105
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-29T15:39:16.748Z",
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 83034,
+          "realizedPct": -0.105
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-29T15:54:16.748Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 83562.07,
+          "realizedPct": 0.531
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-29T16:24:16.748Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 83562.07,
+          "realizedPct": 0.531
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-29T19:24:16.748Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 83562.07,
+          "realizedPct": 0.531
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T15:24:16.748Z",
+          "capturedAt": "2026-09-30T16:41:06.005Z",
+          "price": 84249.87,
+          "realizedPct": 1.358
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T15:24:16.748Z",
+          "capturedAt": "2026-10-06T16:07:56.647Z",
+          "price": 85828.54,
+          "realizedPct": 3.257
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T15:24:16.748Z",
+          "capturedAt": "2026-10-29T15:34:29.157Z",
+          "price": 81553.52,
+          "realizedPct": -1.886
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 3.257,
+        "maePct": -1.886
+      },
+      "completedAt": "2026-10-29T15:34:29.157Z"
+    },
+    {
+      "key": "news:crypto:India rates: Gradual hiking path – Standard Chartered",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "India rates: Gradual hiking path – Standard Chartered",
+      "url": "https://www.fxstreet.com/news/india-rates-gradual-hiking-path-standard-chartered-202609291502",
+      "impactScore": -0.14,
+      "priceAtDetect": 83120.91,
+      "createdAt": "2026-09-29T15:24:16.748Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T15:25:16.748Z",
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 83034,
+          "realizedPct": -0.105
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T15:29:16.748Z",
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 83034,
+          "realizedPct": -0.105
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-29T15:39:16.748Z",
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 83034,
+          "realizedPct": -0.105
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-29T15:54:16.748Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 83562.07,
+          "realizedPct": 0.531
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-29T16:24:16.748Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 83562.07,
+          "realizedPct": 0.531
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-29T19:24:16.748Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 83562.07,
+          "realizedPct": 0.531
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T15:24:16.748Z",
+          "capturedAt": "2026-09-30T16:41:06.005Z",
+          "price": 84249.87,
+          "realizedPct": 1.358
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T15:24:16.748Z",
+          "capturedAt": "2026-10-06T16:07:56.647Z",
+          "price": 85828.54,
+          "realizedPct": 3.257
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T15:24:16.748Z",
+          "capturedAt": "2026-10-29T15:34:29.157Z",
+          "price": 81553.52,
+          "realizedPct": -1.886
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 3.257,
+        "maePct": -1.886
+      },
+      "completedAt": "2026-10-29T15:34:29.157Z"
+    },
+    {
+      "key": "news:crypto:Wells Fargo revises dollar, yen, euro estimates amid rate hike outlook",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Wells Fargo revises dollar, yen, euro estimates amid rate hike outlook",
+      "url": "https://www.investing.com/news/forex-news/wells-fargo-revises-dollar-yen-euro-estimates-amid-rate-hike-outlook-4923047",
+      "impactScore": -0.24,
+      "priceAtDetect": 83120.91,
+      "createdAt": "2026-09-29T15:24:16.748Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T15:25:16.748Z",
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 83034,
+          "realizedPct": -0.105
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T15:29:16.748Z",
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 83034,
+          "realizedPct": -0.105
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-29T15:39:16.748Z",
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 83034,
+          "realizedPct": -0.105
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-29T15:54:16.748Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 83562.07,
+          "realizedPct": 0.531
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-29T16:24:16.748Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 83562.07,
+          "realizedPct": 0.531
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-29T19:24:16.748Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 83562.07,
+          "realizedPct": 0.531
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T15:24:16.748Z",
+          "capturedAt": "2026-09-30T16:41:06.005Z",
+          "price": 84249.87,
+          "realizedPct": 1.358
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T15:24:16.748Z",
+          "capturedAt": "2026-10-06T16:07:56.647Z",
+          "price": 85828.54,
+          "realizedPct": 3.257
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T15:24:16.748Z",
+          "capturedAt": "2026-10-29T15:34:29.157Z",
+          "price": 81553.52,
+          "realizedPct": -1.886
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 3.257,
+        "maePct": -1.886
+      },
+      "completedAt": "2026-10-29T15:34:29.157Z"
+    },
+    {
+      "key": "news:gold:Australian Dollar: RBA hike to support AUD/USD – BBH",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Australian Dollar: RBA hike to support AUD/USD – BBH",
+      "url": "https://www.fxstreet.com/news/australian-dollar-rba-hike-to-support-aud-usd-bbh-202609291138",
+      "impactScore": -0.36,
+      "priceAtDetect": 4192.8,
+      "createdAt": "2026-09-29T15:24:16.748Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T15:25:16.748Z",
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 4187.1,
+          "realizedPct": -0.136
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T15:29:16.748Z",
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 4187.1,
+          "realizedPct": -0.136
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-29T15:39:16.748Z",
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 4187.1,
+          "realizedPct": -0.136
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-29T15:54:16.748Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 4205.6,
+          "realizedPct": 0.305
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-29T16:24:16.748Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 4205.6,
+          "realizedPct": 0.305
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-29T19:24:16.748Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 4205.6,
+          "realizedPct": 0.305
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T15:24:16.748Z",
+          "capturedAt": "2026-09-30T16:41:06.005Z",
+          "price": 4190.8,
+          "realizedPct": -0.048
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T15:24:16.748Z",
+          "capturedAt": "2026-10-06T16:07:56.647Z",
+          "price": 4193.1,
+          "realizedPct": 0.007
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T15:24:16.748Z",
+          "capturedAt": "2026-10-29T15:34:29.157Z",
+          "price": 4031.7,
+          "realizedPct": -3.842
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 0.305,
+        "maePct": -3.842
+      },
+      "completedAt": "2026-10-29T15:34:29.157Z"
+    },
+    {
+      "key": "news:gold:Gold steadies after sharp drop as traders assess Fed outlook, Middle East risks",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Gold steadies after sharp drop as traders assess Fed outlook, Middle East risks",
+      "url": "https://www.fxstreet.com/news/gold-steadies-after-sharp-drop-as-traders-assess-fed-outlook-middle-east-risks-202609291058",
+      "impactScore": -0.26,
+      "priceAtDetect": 4192.8,
+      "createdAt": "2026-09-29T15:24:16.748Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T15:25:16.748Z",
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 4187.1,
+          "realizedPct": -0.136
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T15:29:16.748Z",
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 4187.1,
+          "realizedPct": -0.136
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-29T15:39:16.748Z",
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 4187.1,
+          "realizedPct": -0.136
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-29T15:54:16.748Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 4205.6,
+          "realizedPct": 0.305
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-29T16:24:16.748Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 4205.6,
+          "realizedPct": 0.305
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-29T19:24:16.748Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 4205.6,
+          "realizedPct": 0.305
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T15:24:16.748Z",
+          "capturedAt": "2026-09-30T16:41:06.005Z",
+          "price": 4190.8,
+          "realizedPct": -0.048
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T15:24:16.748Z",
+          "capturedAt": "2026-10-06T16:07:56.647Z",
+          "price": 4193.1,
+          "realizedPct": 0.007
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T15:24:16.748Z",
+          "capturedAt": "2026-10-29T15:34:29.157Z",
+          "price": 4031.7,
+          "realizedPct": -3.842
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 0.305,
+        "maePct": -3.842
+      },
+      "completedAt": "2026-10-29T15:34:29.157Z"
+    },
+    {
+      "key": "news:gold:India rates: Gradual hiking path – Standard Chartered",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "India rates: Gradual hiking path – Standard Chartered",
+      "url": "https://www.fxstreet.com/news/india-rates-gradual-hiking-path-standard-chartered-202609291502",
+      "impactScore": -0.13,
+      "priceAtDetect": 4192.8,
+      "createdAt": "2026-09-29T15:24:16.748Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T15:25:16.748Z",
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 4187.1,
+          "realizedPct": -0.136
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T15:29:16.748Z",
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 4187.1,
+          "realizedPct": -0.136
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-29T15:39:16.748Z",
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 4187.1,
+          "realizedPct": -0.136
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-29T15:54:16.748Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 4205.6,
+          "realizedPct": 0.305
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-29T16:24:16.748Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 4205.6,
+          "realizedPct": 0.305
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-29T19:24:16.748Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 4205.6,
+          "realizedPct": 0.305
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T15:24:16.748Z",
+          "capturedAt": "2026-09-30T16:41:06.005Z",
+          "price": 4190.8,
+          "realizedPct": -0.048
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T15:24:16.748Z",
+          "capturedAt": "2026-10-06T16:07:56.647Z",
+          "price": 4193.1,
+          "realizedPct": 0.007
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T15:24:16.748Z",
+          "capturedAt": "2026-10-29T15:34:29.157Z",
+          "price": 4031.7,
+          "realizedPct": -3.842
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 0.305,
+        "maePct": -3.842
+      },
+      "completedAt": "2026-10-29T15:34:29.157Z"
+    },
+    {
+      "key": "news:gold:Wells Fargo revises dollar, yen, euro estimates amid rate hike outlook",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Wells Fargo revises dollar, yen, euro estimates amid rate hike outlook",
+      "url": "https://www.investing.com/news/forex-news/wells-fargo-revises-dollar-yen-euro-estimates-amid-rate-hike-outlook-4923047",
+      "impactScore": -0.21,
+      "priceAtDetect": 4192.8,
+      "createdAt": "2026-09-29T15:24:16.748Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T15:25:16.748Z",
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 4187.1,
+          "realizedPct": -0.136
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T15:29:16.748Z",
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 4187.1,
+          "realizedPct": -0.136
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-29T15:39:16.748Z",
+          "capturedAt": "2026-09-29T15:52:45.395Z",
+          "price": 4187.1,
+          "realizedPct": -0.136
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-29T15:54:16.748Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 4205.6,
+          "realizedPct": 0.305
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-29T16:24:16.748Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 4205.6,
+          "realizedPct": 0.305
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-29T19:24:16.748Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 4205.6,
+          "realizedPct": 0.305
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T15:24:16.748Z",
+          "capturedAt": "2026-09-30T16:41:06.005Z",
+          "price": 4190.8,
+          "realizedPct": -0.048
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T15:24:16.748Z",
+          "capturedAt": "2026-10-06T16:07:56.647Z",
+          "price": 4193.1,
+          "realizedPct": 0.007
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T15:24:16.748Z",
+          "capturedAt": "2026-10-29T15:34:29.157Z",
+          "price": 4031.7,
+          "realizedPct": -3.842
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 0.305,
+        "maePct": -3.842
+      },
+      "completedAt": "2026-10-29T15:34:29.157Z"
+    },
     {
       "key": "news:forex:EUR/USD: Lagarde’s dovish tilt weighs on Euro – ING",
       "tabId": "forex",
@@ -16677,186 +16941,6 @@
       "realizedPct": 0.03,
       "verdict": "flat",
       "settledAt": "2026-09-22T12:23:29.230Z"
-    },
-    {
-      "key": "news:crypto:Silver Price Forecast: XAG/USD holds losses near $66.00 amid Fed rate hike bets",
-      "tabId": "crypto",
-      "kind": "news",
-      "title": "Silver Price Forecast: XAG/USD holds losses near $66.00 amid Fed rate hike bets",
-      "url": "https://www.fxstreet.com/news/silver-price-forecast-xag-usd-holds-losses-near-6600-amid-fed-rate-hike-bets-202609220525",
-      "predictedPct": -0.14,
-      "priceAtDetect": 85533.19,
-      "createdAt": "2026-09-22T06:41:38.153Z",
-      "settleAt": "2026-09-22T07:26:38.153Z",
-      "priceAtSettle": 85932.59,
-      "realizedPct": 0.47,
-      "verdict": "wrong",
-      "settledAt": "2026-09-22T12:23:29.230Z"
-    },
-    {
-      "key": "news:crypto:Gold struggles below $4,350 as hawkish Fed offsets sliding bond yields, softer USD",
-      "tabId": "crypto",
-      "kind": "news",
-      "title": "Gold struggles below $4,350 as hawkish Fed offsets sliding bond yields, softer USD",
-      "url": "https://www.fxstreet.com/news/gold-struggles-to-lure-buyers-amid-hawkish-fed-counters-sliding-us-bond-yields-202609220419",
-      "predictedPct": -0.14,
-      "priceAtDetect": 85533.19,
-      "createdAt": "2026-09-22T06:41:38.153Z",
-      "settleAt": "2026-09-22T07:26:38.153Z",
-      "priceAtSettle": 85932.59,
-      "realizedPct": 0.47,
-      "verdict": "wrong",
-      "settledAt": "2026-09-22T12:23:29.230Z"
-    },
-    {
-      "key": "news:crypto:Canadian Dollar strengthens on rising oil prices ahead of potential US-Iran talks",
-      "tabId": "crypto",
-      "kind": "news",
-      "title": "Canadian Dollar strengthens on rising oil prices ahead of potential US-Iran talks",
-      "url": "https://www.fxstreet.com/news/canadian-dollar-strengthens-on-rising-oil-prices-ahead-of-potential-us-iran-talks-202609220552",
-      "predictedPct": -0.14,
-      "priceAtDetect": 85533.19,
-      "createdAt": "2026-09-22T06:41:38.153Z",
-      "settleAt": "2026-09-22T07:26:38.153Z",
-      "priceAtSettle": 85932.59,
-      "realizedPct": 0.47,
-      "verdict": "wrong",
-      "settledAt": "2026-09-22T12:23:29.230Z"
-    },
-    {
-      "key": "news:crypto:US Dollar: Fed support seen fading – Commerzbank",
-      "tabId": "crypto",
-      "kind": "news",
-      "title": "US Dollar: Fed support seen fading – Commerzbank",
-      "url": "https://www.fxstreet.com/news/us-dollar-fed-support-seen-fading-commerzbank-202609220614",
-      "predictedPct": -0.14,
-      "priceAtDetect": 85533.19,
-      "createdAt": "2026-09-22T06:41:38.153Z",
-      "settleAt": "2026-09-22T07:26:38.153Z",
-      "priceAtSettle": 85932.59,
-      "realizedPct": 0.47,
-      "verdict": "wrong",
-      "settledAt": "2026-09-22T12:23:29.230Z"
-    },
-    {
-      "key": "news:gold:Silver Price Forecast: XAG/USD holds losses near $66.00 amid Fed rate hike bets",
-      "tabId": "gold",
-      "kind": "news",
-      "title": "Silver Price Forecast: XAG/USD holds losses near $66.00 amid Fed rate hike bets",
-      "url": "https://www.fxstreet.com/news/silver-price-forecast-xag-usd-holds-losses-near-6600-amid-fed-rate-hike-bets-202609220525",
-      "predictedPct": -0.12,
-      "priceAtDetect": 4355.6,
-      "createdAt": "2026-09-22T06:41:38.153Z",
-      "settleAt": "2026-09-22T07:26:38.153Z",
-      "priceAtSettle": 4359.5,
-      "realizedPct": 0.09,
-      "verdict": "wrong",
-      "settledAt": "2026-09-22T12:23:29.230Z"
-    },
-    {
-      "key": "news:gold:Gold struggles below $4,350 as hawkish Fed offsets sliding bond yields, softer USD",
-      "tabId": "gold",
-      "kind": "news",
-      "title": "Gold struggles below $4,350 as hawkish Fed offsets sliding bond yields, softer USD",
-      "url": "https://www.fxstreet.com/news/gold-struggles-to-lure-buyers-amid-hawkish-fed-counters-sliding-us-bond-yields-202609220419",
-      "predictedPct": -0.15,
-      "priceAtDetect": 4355.6,
-      "createdAt": "2026-09-22T06:41:38.153Z",
-      "settleAt": "2026-09-22T07:26:38.153Z",
-      "priceAtSettle": 4359.5,
-      "realizedPct": 0.09,
-      "verdict": "wrong",
-      "settledAt": "2026-09-22T12:23:29.230Z"
-    },
-    {
-      "key": "news:gold:Canadian Dollar strengthens on rising oil prices ahead of potential US-Iran talks",
-      "tabId": "gold",
-      "kind": "news",
-      "title": "Canadian Dollar strengthens on rising oil prices ahead of potential US-Iran talks",
-      "url": "https://www.fxstreet.com/news/canadian-dollar-strengthens-on-rising-oil-prices-ahead-of-potential-us-iran-talks-202609220552",
-      "predictedPct": -0.12,
-      "priceAtDetect": 4355.6,
-      "createdAt": "2026-09-22T06:41:38.153Z",
-      "settleAt": "2026-09-22T07:26:38.153Z",
-      "priceAtSettle": 4359.5,
-      "realizedPct": 0.09,
-      "verdict": "wrong",
-      "settledAt": "2026-09-22T12:23:29.230Z"
-    },
-    {
-      "key": "news:gold:US Dollar: Fed support seen fading – Commerzbank",
-      "tabId": "gold",
-      "kind": "news",
-      "title": "US Dollar: Fed support seen fading – Commerzbank",
-      "url": "https://www.fxstreet.com/news/us-dollar-fed-support-seen-fading-commerzbank-202609220614",
-      "predictedPct": -0.12,
-      "priceAtDetect": 4355.6,
-      "createdAt": "2026-09-22T06:41:38.153Z",
-      "settleAt": "2026-09-22T07:26:38.153Z",
-      "priceAtSettle": 4359.5,
-      "realizedPct": 0.09,
-      "verdict": "wrong",
-      "settledAt": "2026-09-22T12:23:29.230Z"
-    },
-    {
-      "key": "news:forex:Japanese Yen weakens on BoJ's lack of hawkish guidance, eyes on potential intervention",
-      "tabId": "forex",
-      "kind": "news",
-      "title": "Japanese Yen weakens on BoJ's lack of hawkish guidance, eyes on potential intervention",
-      "url": "https://www.fxstreet.com/news/japanese-yen-weakens-on-bojs-lack-of-hawkish-guidance-eyes-on-potential-intervention-202609220205",
-      "predictedPct": -0.79,
-      "priceAtDetect": 1.1478,
-      "createdAt": "2026-09-22T04:14:39.553Z",
-      "settleAt": "2026-09-22T04:59:39.553Z",
-      "priceAtSettle": 1.1464,
-      "realizedPct": -0.12,
-      "verdict": "correct",
-      "settledAt": "2026-09-22T06:41:38.153Z"
-    },
-    {
-      "key": "news:forex:New Zealand Dollar slips amid gradual RBNZ rate hike outlook, geopolitical tensions",
-      "tabId": "forex",
-      "kind": "news",
-      "title": "New Zealand Dollar slips amid gradual RBNZ rate hike outlook, geopolitical tensions",
-      "url": "https://www.fxstreet.com/news/new-zealand-dollar-slips-amid-gradual-rbnz-rate-hike-outlook-geopolitical-tensions-202609220218",
-      "predictedPct": -0.79,
-      "priceAtDetect": 1.1478,
-      "createdAt": "2026-09-22T04:14:39.553Z",
-      "settleAt": "2026-09-22T04:59:39.553Z",
-      "priceAtSettle": 1.1464,
-      "realizedPct": -0.12,
-      "verdict": "correct",
-      "settledAt": "2026-09-22T06:41:38.153Z"
-    },
-    {
-      "key": "news:crypto:Japanese Yen weakens on BoJ's lack of hawkish guidance, eyes on potential intervention",
-      "tabId": "crypto",
-      "kind": "news",
-      "title": "Japanese Yen weakens on BoJ's lack of hawkish guidance, eyes on potential intervention",
-      "url": "https://www.fxstreet.com/news/japanese-yen-weakens-on-bojs-lack-of-hawkish-guidance-eyes-on-potential-intervention-202609220205",
-      "predictedPct": -0.72,
-      "priceAtDetect": 85617,
-      "createdAt": "2026-09-22T04:14:39.553Z",
-      "settleAt": "2026-09-22T04:59:39.553Z",
-      "priceAtSettle": 85533.19,
-      "realizedPct": -0.1,
-      "verdict": "correct",
-      "settledAt": "2026-09-22T06:41:38.153Z"
-    },
-    {
-      "key": "news:crypto:New Zealand Dollar slips amid gradual RBNZ rate hike outlook, geopolitical tensions",
-      "tabId": "crypto",
-      "kind": "news",
-      "title": "New Zealand Dollar slips amid gradual RBNZ rate hike outlook, geopolitical tensions",
-      "url": "https://www.fxstreet.com/news/new-zealand-dollar-slips-amid-gradual-rbnz-rate-hike-outlook-geopolitical-tensions-202609220218",
-      "predictedPct": -0.72,
-      "priceAtDetect": 85617,
-      "createdAt": "2026-09-22T04:14:39.553Z",
-      "settleAt": "2026-09-22T04:59:39.553Z",
-      "priceAtSettle": 85533.19,
-      "realizedPct": -0.1,
-      "verdict": "correct",
-      "settledAt": "2026-09-22T06:41:38.153Z"
     }
   ]
 }
