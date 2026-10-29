@@ -3067,8 +3067,18 @@
     "reasons": [
       "trend_down"
     ],
-    "status": "PENDING",
-    "id": "2fd8bc6365dbe4a322f8"
+    "status": "SETTLED",
+    "id": "2fd8bc6365dbe4a322f8",
+    "settledAt": "2026-10-29T07:42:41.917Z",
+    "nextCandleTime": "2026-10-28T07:25:00.000Z",
+    "actualDirection": "UP",
+    "predictedDirection": "DOWN",
+    "correct": false,
+    "nextReturnPct": 0.0667,
+    "mfePct": 0.0667,
+    "maePct": -0.0371,
+    "rangePct": 0.1037,
+    "closeLocationPct": 100
   },
   {
     "schemaVersion": 4,
@@ -3103,8 +3113,18 @@
       "trend_down",
       "bb_momentum_down"
     ],
-    "status": "PENDING",
-    "id": "28ef8c4dbffe9ee3c6e4"
+    "status": "SETTLED",
+    "id": "28ef8c4dbffe9ee3c6e4",
+    "settledAt": "2026-10-29T07:42:41.917Z",
+    "nextCandleTime": "2026-10-28T07:15:00.000Z",
+    "actualDirection": "UP",
+    "predictedDirection": "DOWN",
+    "correct": false,
+    "nextReturnPct": 0.0939,
+    "mfePct": 0.0939,
+    "maePct": -0.0395,
+    "rangePct": 0.1334,
+    "closeLocationPct": 100
   },
   {
     "schemaVersion": 4,
@@ -3139,8 +3159,18 @@
       "bb_momentum_down",
       "squeeze_pre_breakout"
     ],
-    "status": "PENDING",
-    "id": "bef3b7988161712b14ec"
+    "status": "SETTLED",
+    "id": "bef3b7988161712b14ec",
+    "settledAt": "2026-10-29T07:42:41.917Z",
+    "nextCandleTime": "2026-10-28T07:00:00.000Z",
+    "actualDirection": "UP",
+    "predictedDirection": "FLAT",
+    "correct": false,
+    "nextReturnPct": 0.2028,
+    "mfePct": 0.2028,
+    "maePct": -0.0618,
+    "rangePct": 0.2647,
+    "closeLocationPct": 100
   },
   {
     "schemaVersion": 4,
@@ -3174,7 +3204,195 @@
     "reasons": [
       "trend_up"
     ],
+    "status": "SETTLED",
+    "id": "ff60b1c88f3f9ee31658",
+    "settledAt": "2026-10-29T07:42:41.917Z",
+    "nextCandleTime": "2026-10-28T07:00:00.000Z",
+    "actualDirection": "UP",
+    "predictedDirection": "UP",
+    "correct": true,
+    "nextReturnPct": 0.371,
+    "mfePct": 0.371,
+    "maePct": -0.0618,
+    "rangePct": 0.4328,
+    "closeLocationPct": 100
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-e3904722254cc18560c9",
+    "sourceGeneratedAt": "2026-10-29T06:06:11.040Z",
+    "symbol": "GC=F",
+    "tf": "M1",
+    "candleTime": "2026-10-29T07:32:37.000Z",
+    "createdAt": "2026-10-29T07:42:41.917Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "Advance GDP q/q",
+      "currency": "USD",
+      "impact": "HIGH",
+      "actual": null,
+      "forecast": "3.2%",
+      "previous": "1.5%",
+      "time": "2026-10-29T12:30:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "DOWN_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_down"
+    ],
     "status": "PENDING",
-    "id": "ff60b1c88f3f9ee31658"
+    "id": "e724fb815e871dd43954"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-e3904722254cc18560c9",
+    "sourceGeneratedAt": "2026-10-29T06:06:11.040Z",
+    "symbol": "GC=F",
+    "tf": "M5",
+    "candleTime": "2026-10-29T07:25:00.000Z",
+    "createdAt": "2026-10-29T07:42:41.917Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "Advance GDP q/q",
+      "currency": "USD",
+      "impact": "HIGH",
+      "actual": null,
+      "forecast": "3.2%",
+      "previous": "1.5%",
+      "time": "2026-10-29T12:30:00.000Z"
+    },
+    "location": "BELOW_LOW_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "MOMENTUM_DOWN",
+      "reentry": "NONE",
+      "csak": "CSAK_DOWN"
+    },
+    "squeeze": "NORMAL",
+    "state": "DOWN_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_down",
+      "bb_momentum_down"
+    ],
+    "status": "PENDING",
+    "id": "f0eb461ff0b3a5696326"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-e3904722254cc18560c9",
+    "sourceGeneratedAt": "2026-10-29T06:06:11.040Z",
+    "symbol": "GC=F",
+    "tf": "M15",
+    "candleTime": "2026-10-29T07:15:00.000Z",
+    "createdAt": "2026-10-29T07:42:41.917Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "Advance GDP q/q",
+      "currency": "USD",
+      "impact": "HIGH",
+      "actual": null,
+      "forecast": "3.2%",
+      "previous": "1.5%",
+      "time": "2026-10-29T12:30:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "REENTRY_DOWN_ZONE",
+      "csak": "CSAK_DOWN"
+    },
+    "squeeze": "NORMAL",
+    "state": "DOWN_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_down",
+      "reentry_down"
+    ],
+    "status": "PENDING",
+    "id": "0e656911cf0ad310e516"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-e3904722254cc18560c9",
+    "sourceGeneratedAt": "2026-10-29T06:06:11.040Z",
+    "symbol": "GC=F",
+    "tf": "M30",
+    "candleTime": "2026-10-29T07:00:00.000Z",
+    "createdAt": "2026-10-29T07:42:41.917Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "Advance GDP q/q",
+      "currency": "USD",
+      "impact": "HIGH",
+      "actual": null,
+      "forecast": "3.2%",
+      "previous": "1.5%",
+      "time": "2026-10-29T12:30:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "REENTRY_DOWN_ZONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "DOWN_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_down",
+      "reentry_down"
+    ],
+    "status": "PENDING",
+    "id": "2aea4e627a6b28c04e0b"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-e3904722254cc18560c9",
+    "sourceGeneratedAt": "2026-10-29T06:06:11.040Z",
+    "symbol": "GC=F",
+    "tf": "H1",
+    "candleTime": "2026-10-29T06:00:00.000Z",
+    "createdAt": "2026-10-29T07:42:41.917Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "Advance GDP q/q",
+      "currency": "USD",
+      "impact": "HIGH",
+      "actual": null,
+      "forecast": "3.2%",
+      "previous": "1.5%",
+      "time": "2026-10-29T12:30:00.000Z"
+    },
+    "location": "EMA50",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "CSAK_DOWN"
+    },
+    "squeeze": "UNKNOWN",
+    "state": "DOWN_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_down"
+    ],
+    "status": "PENDING",
+    "id": "a4f3f32a98c5b9281d2d"
   }
 ]
