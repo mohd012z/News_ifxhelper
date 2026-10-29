@@ -4909,33 +4909,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-10-29T20:35:11.116Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-29T21:27:49.566Z",
+          "price": 4033.3,
+          "realizedPct": -0.106
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-10-29T20:39:11.116Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-29T21:27:49.566Z",
+          "price": 4033.3,
+          "realizedPct": -0.106
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-10-29T20:49:11.116Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-29T21:27:49.566Z",
+          "price": 4033.3,
+          "realizedPct": -0.106
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-10-29T21:04:11.116Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-29T21:27:49.566Z",
+          "price": 4033.3,
+          "realizedPct": -0.106
         },
         {
           "key": "H1",
@@ -4977,7 +4977,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.106,
+        "maePct": -0.106
+      }
     },
     {
       "key": "news:crypto:Gold dips, with spot prices just above $4k, as U.S. data hints at more rate hikes",
@@ -4993,33 +4998,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-10-29T20:35:11.116Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-29T21:27:49.566Z",
+          "price": 79151.64,
+          "realizedPct": -0.904
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-10-29T20:39:11.116Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-29T21:27:49.566Z",
+          "price": 79151.64,
+          "realizedPct": -0.904
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-10-29T20:49:11.116Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-29T21:27:49.566Z",
+          "price": 79151.64,
+          "realizedPct": -0.904
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-10-29T21:04:11.116Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-29T21:27:49.566Z",
+          "price": 79151.64,
+          "realizedPct": -0.904
         },
         {
           "key": "H1",
@@ -5061,7 +5066,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.904,
+        "maePct": -0.904
+      }
     },
     {
       "key": "news:forex:Gold dips, with spot prices just above $4k, as U.S. data hints at more rate hikes",
@@ -5077,33 +5087,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-10-29T20:35:11.116Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-29T21:27:49.566Z",
+          "price": 1.1178,
+          "realizedPct": -0.045
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-10-29T20:39:11.116Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-29T21:27:49.566Z",
+          "price": 1.1178,
+          "realizedPct": -0.045
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-10-29T20:49:11.116Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-29T21:27:49.566Z",
+          "price": 1.1178,
+          "realizedPct": -0.045
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-10-29T21:04:11.116Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-29T21:27:49.566Z",
+          "price": 1.1178,
+          "realizedPct": -0.045
         },
         {
           "key": "H1",
@@ -5145,7 +5155,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.045,
+        "maePct": -0.045
+      }
     }
   ],
   "results": [
