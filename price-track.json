@@ -1,1074 +1,6 @@
 {
   "pending": [
     {
-      "key": "news:gold:Fed’s Williams says no rush after September hike",
-      "tabId": "gold",
-      "kind": "news",
-      "title": "Fed’s Williams says no rush after September hike",
-      "url": "https://www.fxstreet.com/news/feds-williams-says-no-rush-after-september-hike-202609291822",
-      "impactScore": -0.12,
-      "priceAtDetect": 4205.6,
-      "createdAt": "2026-09-29T20:08:19.361Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-29T20:09:19.361Z",
-          "capturedAt": "2026-09-29T20:28:23.864Z",
-          "price": 4205.9,
-          "realizedPct": 0.007
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-29T20:13:19.361Z",
-          "capturedAt": "2026-09-29T20:28:23.864Z",
-          "price": 4205.9,
-          "realizedPct": 0.007
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-29T20:23:19.361Z",
-          "capturedAt": "2026-09-29T20:28:23.864Z",
-          "price": 4205.9,
-          "realizedPct": 0.007
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-29T20:38:19.361Z",
-          "capturedAt": "2026-09-29T23:53:14.494Z",
-          "price": 4212.1,
-          "realizedPct": 0.155
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-29T21:08:19.361Z",
-          "capturedAt": "2026-09-29T23:53:14.494Z",
-          "price": 4212.1,
-          "realizedPct": 0.155
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-09-30T00:08:19.361Z",
-          "capturedAt": "2026-09-30T04:17:11.461Z",
-          "price": 4205.4,
-          "realizedPct": -0.005
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-09-30T20:08:19.361Z",
-          "capturedAt": "2026-09-30T21:14:42.079Z",
-          "price": 4189.1,
-          "realizedPct": -0.392
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-06T20:08:19.361Z",
-          "capturedAt": "2026-10-06T21:04:40.559Z",
-          "price": 4192.1,
-          "realizedPct": -0.321
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-29T20:08:19.361Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 0.155,
-        "maePct": -0.392
-      }
-    },
-    {
-      "key": "news:gold:Fed’s Barr calls economy “strikingly” resilient, defends last hike",
-      "tabId": "gold",
-      "kind": "news",
-      "title": "Fed’s Barr calls economy “strikingly” resilient, defends last hike",
-      "url": "https://www.fxstreet.com/news/feds-barr-calls-economy-strikingly-resilient-defends-last-hike-202609291735",
-      "impactScore": -0.08,
-      "priceAtDetect": 4205.6,
-      "createdAt": "2026-09-29T20:08:19.362Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-29T20:09:19.362Z",
-          "capturedAt": "2026-09-29T20:28:23.864Z",
-          "price": 4205.9,
-          "realizedPct": 0.007
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-29T20:13:19.362Z",
-          "capturedAt": "2026-09-29T20:28:23.864Z",
-          "price": 4205.9,
-          "realizedPct": 0.007
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-29T20:23:19.362Z",
-          "capturedAt": "2026-09-29T20:28:23.864Z",
-          "price": 4205.9,
-          "realizedPct": 0.007
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-29T20:38:19.362Z",
-          "capturedAt": "2026-09-29T23:53:14.494Z",
-          "price": 4212.1,
-          "realizedPct": 0.155
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-29T21:08:19.362Z",
-          "capturedAt": "2026-09-29T23:53:14.494Z",
-          "price": 4212.1,
-          "realizedPct": 0.155
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-09-30T00:08:19.362Z",
-          "capturedAt": "2026-09-30T04:17:11.461Z",
-          "price": 4205.4,
-          "realizedPct": -0.005
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-09-30T20:08:19.362Z",
-          "capturedAt": "2026-09-30T21:14:42.079Z",
-          "price": 4189.1,
-          "realizedPct": -0.392
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-06T20:08:19.362Z",
-          "capturedAt": "2026-10-06T21:04:40.559Z",
-          "price": 4192.1,
-          "realizedPct": -0.321
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-29T20:08:19.362Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 0.155,
-        "maePct": -0.392
-      }
-    },
-    {
-      "key": "news:gold:ECB’s DeMarco backs October hike as core inflation stays firm",
-      "tabId": "gold",
-      "kind": "news",
-      "title": "ECB’s DeMarco backs October hike as core inflation stays firm",
-      "url": "https://www.fxstreet.com/news/ecbs-demarco-backs-october-hike-as-core-inflation-stays-firm-202609291622",
-      "impactScore": -0.23,
-      "priceAtDetect": 4205.6,
-      "createdAt": "2026-09-29T20:08:19.362Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-29T20:09:19.362Z",
-          "capturedAt": "2026-09-29T20:28:23.864Z",
-          "price": 4205.9,
-          "realizedPct": 0.007
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-29T20:13:19.362Z",
-          "capturedAt": "2026-09-29T20:28:23.864Z",
-          "price": 4205.9,
-          "realizedPct": 0.007
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-29T20:23:19.362Z",
-          "capturedAt": "2026-09-29T20:28:23.864Z",
-          "price": 4205.9,
-          "realizedPct": 0.007
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-29T20:38:19.362Z",
-          "capturedAt": "2026-09-29T23:53:14.494Z",
-          "price": 4212.1,
-          "realizedPct": 0.155
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-29T21:08:19.362Z",
-          "capturedAt": "2026-09-29T23:53:14.494Z",
-          "price": 4212.1,
-          "realizedPct": 0.155
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-09-30T00:08:19.362Z",
-          "capturedAt": "2026-09-30T04:17:11.461Z",
-          "price": 4205.4,
-          "realizedPct": -0.005
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-09-30T20:08:19.362Z",
-          "capturedAt": "2026-09-30T21:14:42.079Z",
-          "price": 4189.1,
-          "realizedPct": -0.392
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-06T20:08:19.362Z",
-          "capturedAt": "2026-10-06T21:04:40.559Z",
-          "price": 4192.1,
-          "realizedPct": -0.321
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-29T20:08:19.362Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 0.155,
-        "maePct": -0.392
-      }
-    },
-    {
-      "key": "news:crypto:Fed’s Williams says no rush after September hike",
-      "tabId": "crypto",
-      "kind": "news",
-      "title": "Fed’s Williams says no rush after September hike",
-      "url": "https://www.fxstreet.com/news/feds-williams-says-no-rush-after-september-hike-202609291822",
-      "impactScore": -0.14,
-      "priceAtDetect": 83562.07,
-      "createdAt": "2026-09-29T20:08:19.362Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-29T20:09:19.362Z",
-          "capturedAt": "2026-09-29T20:28:23.864Z",
-          "price": 83608.03,
-          "realizedPct": 0.055
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-29T20:13:19.362Z",
-          "capturedAt": "2026-09-29T20:28:23.864Z",
-          "price": 83608.03,
-          "realizedPct": 0.055
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-29T20:23:19.362Z",
-          "capturedAt": "2026-09-29T20:28:23.864Z",
-          "price": 83608.03,
-          "realizedPct": 0.055
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-29T20:38:19.362Z",
-          "capturedAt": "2026-09-29T23:53:14.494Z",
-          "price": 83647.52,
-          "realizedPct": 0.102
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-29T21:08:19.362Z",
-          "capturedAt": "2026-09-29T23:53:14.494Z",
-          "price": 83647.52,
-          "realizedPct": 0.102
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-09-30T00:08:19.362Z",
-          "capturedAt": "2026-09-30T04:17:11.461Z",
-          "price": 83353.71,
-          "realizedPct": -0.249
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-09-30T20:08:19.362Z",
-          "capturedAt": "2026-09-30T21:14:42.079Z",
-          "price": 83704.82,
-          "realizedPct": 0.171
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-06T20:08:19.362Z",
-          "capturedAt": "2026-10-06T21:04:40.559Z",
-          "price": 85532.76,
-          "realizedPct": 2.358
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-29T20:08:19.362Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 2.358,
-        "maePct": -0.249
-      }
-    },
-    {
-      "key": "news:crypto:Fed’s Barr calls economy “strikingly” resilient, defends last hike",
-      "tabId": "crypto",
-      "kind": "news",
-      "title": "Fed’s Barr calls economy “strikingly” resilient, defends last hike",
-      "url": "https://www.fxstreet.com/news/feds-barr-calls-economy-strikingly-resilient-defends-last-hike-202609291735",
-      "impactScore": -0.08,
-      "priceAtDetect": 83562.07,
-      "createdAt": "2026-09-29T20:08:19.362Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-29T20:09:19.362Z",
-          "capturedAt": "2026-09-29T20:28:23.864Z",
-          "price": 83608.03,
-          "realizedPct": 0.055
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-29T20:13:19.362Z",
-          "capturedAt": "2026-09-29T20:28:23.864Z",
-          "price": 83608.03,
-          "realizedPct": 0.055
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-29T20:23:19.362Z",
-          "capturedAt": "2026-09-29T20:28:23.864Z",
-          "price": 83608.03,
-          "realizedPct": 0.055
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-29T20:38:19.362Z",
-          "capturedAt": "2026-09-29T23:53:14.494Z",
-          "price": 83647.52,
-          "realizedPct": 0.102
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-29T21:08:19.362Z",
-          "capturedAt": "2026-09-29T23:53:14.494Z",
-          "price": 83647.52,
-          "realizedPct": 0.102
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-09-30T00:08:19.362Z",
-          "capturedAt": "2026-09-30T04:17:11.461Z",
-          "price": 83353.71,
-          "realizedPct": -0.249
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-09-30T20:08:19.362Z",
-          "capturedAt": "2026-09-30T21:14:42.079Z",
-          "price": 83704.82,
-          "realizedPct": 0.171
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-06T20:08:19.362Z",
-          "capturedAt": "2026-10-06T21:04:40.560Z",
-          "price": 85532.76,
-          "realizedPct": 2.358
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-29T20:08:19.362Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 2.358,
-        "maePct": -0.249
-      }
-    },
-    {
-      "key": "news:crypto:ECB’s DeMarco backs October hike as core inflation stays firm",
-      "tabId": "crypto",
-      "kind": "news",
-      "title": "ECB’s DeMarco backs October hike as core inflation stays firm",
-      "url": "https://www.fxstreet.com/news/ecbs-demarco-backs-october-hike-as-core-inflation-stays-firm-202609291622",
-      "impactScore": -0.23,
-      "priceAtDetect": 83562.07,
-      "createdAt": "2026-09-29T20:08:19.362Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-29T20:09:19.362Z",
-          "capturedAt": "2026-09-29T20:28:23.864Z",
-          "price": 83608.03,
-          "realizedPct": 0.055
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-29T20:13:19.362Z",
-          "capturedAt": "2026-09-29T20:28:23.864Z",
-          "price": 83608.03,
-          "realizedPct": 0.055
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-29T20:23:19.362Z",
-          "capturedAt": "2026-09-29T20:28:23.864Z",
-          "price": 83608.03,
-          "realizedPct": 0.055
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-29T20:38:19.362Z",
-          "capturedAt": "2026-09-29T23:53:14.494Z",
-          "price": 83647.52,
-          "realizedPct": 0.102
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-29T21:08:19.362Z",
-          "capturedAt": "2026-09-29T23:53:14.494Z",
-          "price": 83647.52,
-          "realizedPct": 0.102
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-09-30T00:08:19.362Z",
-          "capturedAt": "2026-09-30T04:17:11.461Z",
-          "price": 83353.71,
-          "realizedPct": -0.249
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-09-30T20:08:19.362Z",
-          "capturedAt": "2026-09-30T21:14:42.079Z",
-          "price": 83704.82,
-          "realizedPct": 0.171
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-06T20:08:19.362Z",
-          "capturedAt": "2026-10-06T21:04:40.560Z",
-          "price": 85532.76,
-          "realizedPct": 2.358
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-29T20:08:19.362Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 2.358,
-        "maePct": -0.249
-      }
-    },
-    {
-      "key": "news:forex:Fed’s Williams says no rush after September hike",
-      "tabId": "forex",
-      "kind": "news",
-      "title": "Fed’s Williams says no rush after September hike",
-      "url": "https://www.fxstreet.com/news/feds-williams-says-no-rush-after-september-hike-202609291822",
-      "impactScore": -0.08,
-      "priceAtDetect": 1.1343,
-      "createdAt": "2026-09-29T20:08:19.362Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-29T20:09:19.362Z",
-          "capturedAt": "2026-09-29T20:28:23.864Z",
-          "price": 1.1339,
-          "realizedPct": -0.035
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-29T20:13:19.362Z",
-          "capturedAt": "2026-09-29T20:28:23.864Z",
-          "price": 1.1339,
-          "realizedPct": -0.035
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-29T20:23:19.362Z",
-          "capturedAt": "2026-09-29T20:28:23.864Z",
-          "price": 1.1339,
-          "realizedPct": -0.035
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-29T20:38:19.362Z",
-          "capturedAt": "2026-09-29T23:53:14.494Z",
-          "price": 1.1343,
-          "realizedPct": 0
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-29T21:08:19.362Z",
-          "capturedAt": "2026-09-29T23:53:14.494Z",
-          "price": 1.1343,
-          "realizedPct": 0
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-09-30T00:08:19.362Z",
-          "capturedAt": "2026-09-30T04:17:11.461Z",
-          "price": 1.1335,
-          "realizedPct": -0.071
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-09-30T20:08:19.362Z",
-          "capturedAt": "2026-09-30T21:14:42.079Z",
-          "price": 1.1337,
-          "realizedPct": -0.053
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-06T20:08:19.362Z",
-          "capturedAt": "2026-10-06T21:04:40.560Z",
-          "price": 1.1268,
-          "realizedPct": -0.661
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-29T20:08:19.362Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 0,
-        "maePct": -0.661
-      }
-    },
-    {
-      "key": "news:forex:Fed’s Barr calls economy “strikingly” resilient, defends last hike",
-      "tabId": "forex",
-      "kind": "news",
-      "title": "Fed’s Barr calls economy “strikingly” resilient, defends last hike",
-      "url": "https://www.fxstreet.com/news/feds-barr-calls-economy-strikingly-resilient-defends-last-hike-202609291735",
-      "impactScore": -0.08,
-      "priceAtDetect": 1.1343,
-      "createdAt": "2026-09-29T20:08:19.362Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-29T20:09:19.362Z",
-          "capturedAt": "2026-09-29T20:28:23.864Z",
-          "price": 1.1339,
-          "realizedPct": -0.035
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-29T20:13:19.362Z",
-          "capturedAt": "2026-09-29T20:28:23.864Z",
-          "price": 1.1339,
-          "realizedPct": -0.035
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-29T20:23:19.362Z",
-          "capturedAt": "2026-09-29T20:28:23.864Z",
-          "price": 1.1339,
-          "realizedPct": -0.035
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-29T20:38:19.362Z",
-          "capturedAt": "2026-09-29T23:53:14.494Z",
-          "price": 1.1343,
-          "realizedPct": 0
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-29T21:08:19.362Z",
-          "capturedAt": "2026-09-29T23:53:14.494Z",
-          "price": 1.1343,
-          "realizedPct": 0
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-09-30T00:08:19.362Z",
-          "capturedAt": "2026-09-30T04:17:11.461Z",
-          "price": 1.1335,
-          "realizedPct": -0.071
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-09-30T20:08:19.362Z",
-          "capturedAt": "2026-09-30T21:14:42.079Z",
-          "price": 1.1337,
-          "realizedPct": -0.053
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-06T20:08:19.362Z",
-          "capturedAt": "2026-10-06T21:04:40.560Z",
-          "price": 1.1268,
-          "realizedPct": -0.661
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-29T20:08:19.362Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 0,
-        "maePct": -0.661
-      }
-    },
-    {
-      "key": "news:forex:ECB’s DeMarco backs October hike as core inflation stays firm",
-      "tabId": "forex",
-      "kind": "news",
-      "title": "ECB’s DeMarco backs October hike as core inflation stays firm",
-      "url": "https://www.fxstreet.com/news/ecbs-demarco-backs-october-hike-as-core-inflation-stays-firm-202609291622",
-      "impactScore": -0.23,
-      "priceAtDetect": 1.1343,
-      "createdAt": "2026-09-29T20:08:19.362Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-29T20:09:19.362Z",
-          "capturedAt": "2026-09-29T20:28:23.864Z",
-          "price": 1.1339,
-          "realizedPct": -0.035
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-29T20:13:19.362Z",
-          "capturedAt": "2026-09-29T20:28:23.864Z",
-          "price": 1.1339,
-          "realizedPct": -0.035
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-29T20:23:19.362Z",
-          "capturedAt": "2026-09-29T20:28:23.864Z",
-          "price": 1.1339,
-          "realizedPct": -0.035
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-29T20:38:19.362Z",
-          "capturedAt": "2026-09-29T23:53:14.494Z",
-          "price": 1.1343,
-          "realizedPct": 0
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-29T21:08:19.362Z",
-          "capturedAt": "2026-09-29T23:53:14.494Z",
-          "price": 1.1343,
-          "realizedPct": 0
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-09-30T00:08:19.362Z",
-          "capturedAt": "2026-09-30T04:17:11.461Z",
-          "price": 1.1335,
-          "realizedPct": -0.071
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-09-30T20:08:19.362Z",
-          "capturedAt": "2026-09-30T21:14:42.079Z",
-          "price": 1.1337,
-          "realizedPct": -0.053
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-06T20:08:19.362Z",
-          "capturedAt": "2026-10-06T21:04:40.560Z",
-          "price": 1.1268,
-          "realizedPct": -0.661
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-29T20:08:19.362Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 0,
-        "maePct": -0.661
-      }
-    },
-    {
-      "key": "news:gold:Traders expecting a back-to-back rate hike from the Fed in October may have gotten ahead of themselves",
-      "tabId": "gold",
-      "kind": "news",
-      "title": "Traders expecting a back-to-back rate hike from the Fed in October may have gotten ahead of themselves",
-      "url": "https://www.marketwatch.com/story/traders-expecting-a-back-to-back-rate-hike-from-the-fed-in-october-may-have-gotten-ahead-of-themselves-e2cc5193?mod=mw_rss_topstories",
-      "impactScore": -0.08,
-      "priceAtDetect": 4205.9,
-      "createdAt": "2026-09-29T20:28:23.864Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-29T20:29:23.864Z",
-          "capturedAt": "2026-09-29T23:53:14.494Z",
-          "price": 4212.1,
-          "realizedPct": 0.147
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-29T20:33:23.864Z",
-          "capturedAt": "2026-09-29T23:53:14.494Z",
-          "price": 4212.1,
-          "realizedPct": 0.147
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-29T20:43:23.864Z",
-          "capturedAt": "2026-09-29T23:53:14.494Z",
-          "price": 4212.1,
-          "realizedPct": 0.147
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-29T20:58:23.864Z",
-          "capturedAt": "2026-09-29T23:53:14.494Z",
-          "price": 4212.1,
-          "realizedPct": 0.147
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-29T21:28:23.864Z",
-          "capturedAt": "2026-09-29T23:53:14.494Z",
-          "price": 4212.1,
-          "realizedPct": 0.147
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-09-30T00:28:23.864Z",
-          "capturedAt": "2026-09-30T04:17:11.461Z",
-          "price": 4205.4,
-          "realizedPct": -0.012
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-09-30T20:28:23.864Z",
-          "capturedAt": "2026-09-30T21:14:42.079Z",
-          "price": 4189.1,
-          "realizedPct": -0.399
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-06T20:28:23.864Z",
-          "capturedAt": "2026-10-06T21:04:40.560Z",
-          "price": 4192.1,
-          "realizedPct": -0.328
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-29T20:28:23.864Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 0.147,
-        "maePct": -0.399
-      }
-    },
-    {
-      "key": "news:crypto:Traders expecting a back-to-back rate hike from the Fed in October may have gotten ahead of themselves",
-      "tabId": "crypto",
-      "kind": "news",
-      "title": "Traders expecting a back-to-back rate hike from the Fed in October may have gotten ahead of themselves",
-      "url": "https://www.marketwatch.com/story/traders-expecting-a-back-to-back-rate-hike-from-the-fed-in-october-may-have-gotten-ahead-of-themselves-e2cc5193?mod=mw_rss_topstories",
-      "impactScore": -0.08,
-      "priceAtDetect": 83608.03,
-      "createdAt": "2026-09-29T20:28:23.864Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-29T20:29:23.864Z",
-          "capturedAt": "2026-09-29T23:53:14.494Z",
-          "price": 83647.52,
-          "realizedPct": 0.047
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-29T20:33:23.864Z",
-          "capturedAt": "2026-09-29T23:53:14.494Z",
-          "price": 83647.52,
-          "realizedPct": 0.047
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-29T20:43:23.864Z",
-          "capturedAt": "2026-09-29T23:53:14.494Z",
-          "price": 83647.52,
-          "realizedPct": 0.047
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-29T20:58:23.864Z",
-          "capturedAt": "2026-09-29T23:53:14.494Z",
-          "price": 83647.52,
-          "realizedPct": 0.047
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-29T21:28:23.864Z",
-          "capturedAt": "2026-09-29T23:53:14.494Z",
-          "price": 83647.52,
-          "realizedPct": 0.047
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-09-30T00:28:23.864Z",
-          "capturedAt": "2026-09-30T04:17:11.461Z",
-          "price": 83353.71,
-          "realizedPct": -0.304
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-09-30T20:28:23.864Z",
-          "capturedAt": "2026-09-30T21:14:42.079Z",
-          "price": 83704.82,
-          "realizedPct": 0.116
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-06T20:28:23.864Z",
-          "capturedAt": "2026-10-06T21:04:40.560Z",
-          "price": 85532.76,
-          "realizedPct": 2.302
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-29T20:28:23.864Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 2.302,
-        "maePct": -0.304
-      }
-    },
-    {
-      "key": "news:forex:Traders expecting a back-to-back rate hike from the Fed in October may have gotten ahead of themselves",
-      "tabId": "forex",
-      "kind": "news",
-      "title": "Traders expecting a back-to-back rate hike from the Fed in October may have gotten ahead of themselves",
-      "url": "https://www.marketwatch.com/story/traders-expecting-a-back-to-back-rate-hike-from-the-fed-in-october-may-have-gotten-ahead-of-themselves-e2cc5193?mod=mw_rss_topstories",
-      "impactScore": -0.08,
-      "priceAtDetect": 1.1339,
-      "createdAt": "2026-09-29T20:28:23.864Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-29T20:29:23.864Z",
-          "capturedAt": "2026-09-29T23:53:14.494Z",
-          "price": 1.1343,
-          "realizedPct": 0.035
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-29T20:33:23.864Z",
-          "capturedAt": "2026-09-29T23:53:14.494Z",
-          "price": 1.1343,
-          "realizedPct": 0.035
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-29T20:43:23.864Z",
-          "capturedAt": "2026-09-29T23:53:14.494Z",
-          "price": 1.1343,
-          "realizedPct": 0.035
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-29T20:58:23.864Z",
-          "capturedAt": "2026-09-29T23:53:14.494Z",
-          "price": 1.1343,
-          "realizedPct": 0.035
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-29T21:28:23.864Z",
-          "capturedAt": "2026-09-29T23:53:14.494Z",
-          "price": 1.1343,
-          "realizedPct": 0.035
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-09-30T00:28:23.864Z",
-          "capturedAt": "2026-09-30T04:17:11.461Z",
-          "price": 1.1335,
-          "realizedPct": -0.035
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-09-30T20:28:23.864Z",
-          "capturedAt": "2026-09-30T21:14:42.079Z",
-          "price": 1.1337,
-          "realizedPct": -0.018
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-06T20:28:23.864Z",
-          "capturedAt": "2026-10-06T21:04:40.560Z",
-          "price": 1.1268,
-          "realizedPct": -0.626
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-29T20:28:23.864Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 0.035,
-        "maePct": -0.626
-      }
-    },
-    {
       "key": "news:gold:Australian Dollar cracks 0.70 as Bullock dulls RBA hike, CPI looms",
       "tabId": "gold",
       "kind": "news",
@@ -5742,17 +4674,17 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-10-29T16:34:29.157Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-29T20:34:11.116Z",
+          "price": 4037.6,
+          "realizedPct": 0.146
         },
         {
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-10-29T19:34:29.157Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-29T20:34:11.116Z",
+          "price": 4037.6,
+          "realizedPct": 0.146
         },
         {
           "key": "D1",
@@ -5781,7 +4713,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": -0.099,
+        "mfePct": 0.146,
         "maePct": -0.099
       }
     },
@@ -5831,17 +4763,17 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-10-29T16:34:29.158Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-29T20:34:11.116Z",
+          "price": 79873.7,
+          "realizedPct": -2.06
         },
         {
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-10-29T19:34:29.158Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-29T20:34:11.116Z",
+          "price": 79873.7,
+          "realizedPct": -2.06
         },
         {
           "key": "D1",
@@ -5871,7 +4803,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.357,
-        "maePct": -0.357
+        "maePct": -2.06
       }
     },
     {
@@ -5920,17 +4852,17 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-10-29T16:34:29.158Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-29T20:34:11.116Z",
+          "price": 1.1183,
+          "realizedPct": 0.215
         },
         {
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-10-29T19:34:29.158Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-29T20:34:11.116Z",
+          "price": 1.1183,
+          "realizedPct": 0.215
         },
         {
           "key": "D1",
@@ -5959,12 +4891,1344 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.072,
+        "mfePct": 0.215,
         "maePct": 0.072
       }
+    },
+    {
+      "key": "news:gold:Gold dips, with spot prices just above $4k, as U.S. data hints at more rate hikes",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Gold dips, with spot prices just above $4k, as U.S. data hints at more rate hikes",
+      "url": "https://www.investing.com/news/commodities-news/gold-slips-after-fed-holds-rates-pce-inflation-data-in-focus-4981309",
+      "impactScore": -0.15,
+      "priceAtDetect": 4037.6,
+      "createdAt": "2026-10-29T20:34:11.116Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-10-29T20:35:11.116Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-10-29T20:39:11.116Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-10-29T20:49:11.116Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-10-29T21:04:11.116Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-10-29T21:34:11.116Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-10-30T00:34:11.116Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-10-30T20:34:11.116Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-05T20:34:11.116Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-11-28T20:34:11.116Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:crypto:Gold dips, with spot prices just above $4k, as U.S. data hints at more rate hikes",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Gold dips, with spot prices just above $4k, as U.S. data hints at more rate hikes",
+      "url": "https://www.investing.com/news/commodities-news/gold-slips-after-fed-holds-rates-pce-inflation-data-in-focus-4981309",
+      "impactScore": -0.08,
+      "priceAtDetect": 79873.7,
+      "createdAt": "2026-10-29T20:34:11.116Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-10-29T20:35:11.116Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-10-29T20:39:11.116Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-10-29T20:49:11.116Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-10-29T21:04:11.116Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-10-29T21:34:11.116Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-10-30T00:34:11.116Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-10-30T20:34:11.116Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-05T20:34:11.116Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-11-28T20:34:11.116Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:forex:Gold dips, with spot prices just above $4k, as U.S. data hints at more rate hikes",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Gold dips, with spot prices just above $4k, as U.S. data hints at more rate hikes",
+      "url": "https://www.investing.com/news/commodities-news/gold-slips-after-fed-holds-rates-pce-inflation-data-in-focus-4981309",
+      "impactScore": -0.08,
+      "priceAtDetect": 1.1183,
+      "createdAt": "2026-10-29T20:34:11.116Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-10-29T20:35:11.116Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-10-29T20:39:11.116Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-10-29T20:49:11.116Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-10-29T21:04:11.116Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-10-29T21:34:11.116Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-10-30T00:34:11.116Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-10-30T20:34:11.116Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-05T20:34:11.116Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-11-28T20:34:11.116Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
     }
   ],
   "results": [
+    {
+      "key": "news:forex:Traders expecting a back-to-back rate hike from the Fed in October may have gotten ahead of themselves",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Traders expecting a back-to-back rate hike from the Fed in October may have gotten ahead of themselves",
+      "url": "https://www.marketwatch.com/story/traders-expecting-a-back-to-back-rate-hike-from-the-fed-in-october-may-have-gotten-ahead-of-themselves-e2cc5193?mod=mw_rss_topstories",
+      "impactScore": -0.08,
+      "priceAtDetect": 1.1339,
+      "createdAt": "2026-09-29T20:28:23.864Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T20:29:23.864Z",
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 1.1343,
+          "realizedPct": 0.035
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T20:33:23.864Z",
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 1.1343,
+          "realizedPct": 0.035
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-29T20:43:23.864Z",
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 1.1343,
+          "realizedPct": 0.035
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-29T20:58:23.864Z",
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 1.1343,
+          "realizedPct": 0.035
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-29T21:28:23.864Z",
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 1.1343,
+          "realizedPct": 0.035
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-30T00:28:23.864Z",
+          "capturedAt": "2026-09-30T04:17:11.461Z",
+          "price": 1.1335,
+          "realizedPct": -0.035
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T20:28:23.864Z",
+          "capturedAt": "2026-09-30T21:14:42.079Z",
+          "price": 1.1337,
+          "realizedPct": -0.018
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T20:28:23.864Z",
+          "capturedAt": "2026-10-06T21:04:40.560Z",
+          "price": 1.1268,
+          "realizedPct": -0.626
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T20:28:23.864Z",
+          "capturedAt": "2026-10-29T20:34:11.116Z",
+          "price": 1.1183,
+          "realizedPct": -1.376
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 0.035,
+        "maePct": -1.376
+      },
+      "completedAt": "2026-10-29T20:34:11.116Z"
+    },
+    {
+      "key": "news:crypto:Traders expecting a back-to-back rate hike from the Fed in October may have gotten ahead of themselves",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Traders expecting a back-to-back rate hike from the Fed in October may have gotten ahead of themselves",
+      "url": "https://www.marketwatch.com/story/traders-expecting-a-back-to-back-rate-hike-from-the-fed-in-october-may-have-gotten-ahead-of-themselves-e2cc5193?mod=mw_rss_topstories",
+      "impactScore": -0.08,
+      "priceAtDetect": 83608.03,
+      "createdAt": "2026-09-29T20:28:23.864Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T20:29:23.864Z",
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 83647.52,
+          "realizedPct": 0.047
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T20:33:23.864Z",
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 83647.52,
+          "realizedPct": 0.047
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-29T20:43:23.864Z",
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 83647.52,
+          "realizedPct": 0.047
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-29T20:58:23.864Z",
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 83647.52,
+          "realizedPct": 0.047
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-29T21:28:23.864Z",
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 83647.52,
+          "realizedPct": 0.047
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-30T00:28:23.864Z",
+          "capturedAt": "2026-09-30T04:17:11.461Z",
+          "price": 83353.71,
+          "realizedPct": -0.304
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T20:28:23.864Z",
+          "capturedAt": "2026-09-30T21:14:42.079Z",
+          "price": 83704.82,
+          "realizedPct": 0.116
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T20:28:23.864Z",
+          "capturedAt": "2026-10-06T21:04:40.560Z",
+          "price": 85532.76,
+          "realizedPct": 2.302
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T20:28:23.864Z",
+          "capturedAt": "2026-10-29T20:34:11.116Z",
+          "price": 79873.7,
+          "realizedPct": -4.466
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 2.302,
+        "maePct": -4.466
+      },
+      "completedAt": "2026-10-29T20:34:11.116Z"
+    },
+    {
+      "key": "news:gold:Traders expecting a back-to-back rate hike from the Fed in October may have gotten ahead of themselves",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Traders expecting a back-to-back rate hike from the Fed in October may have gotten ahead of themselves",
+      "url": "https://www.marketwatch.com/story/traders-expecting-a-back-to-back-rate-hike-from-the-fed-in-october-may-have-gotten-ahead-of-themselves-e2cc5193?mod=mw_rss_topstories",
+      "impactScore": -0.08,
+      "priceAtDetect": 4205.9,
+      "createdAt": "2026-09-29T20:28:23.864Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T20:29:23.864Z",
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 4212.1,
+          "realizedPct": 0.147
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T20:33:23.864Z",
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 4212.1,
+          "realizedPct": 0.147
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-29T20:43:23.864Z",
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 4212.1,
+          "realizedPct": 0.147
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-29T20:58:23.864Z",
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 4212.1,
+          "realizedPct": 0.147
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-29T21:28:23.864Z",
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 4212.1,
+          "realizedPct": 0.147
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-30T00:28:23.864Z",
+          "capturedAt": "2026-09-30T04:17:11.461Z",
+          "price": 4205.4,
+          "realizedPct": -0.012
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T20:28:23.864Z",
+          "capturedAt": "2026-09-30T21:14:42.079Z",
+          "price": 4189.1,
+          "realizedPct": -0.399
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T20:28:23.864Z",
+          "capturedAt": "2026-10-06T21:04:40.560Z",
+          "price": 4192.1,
+          "realizedPct": -0.328
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T20:28:23.864Z",
+          "capturedAt": "2026-10-29T20:34:11.116Z",
+          "price": 4037.6,
+          "realizedPct": -4.002
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 0.147,
+        "maePct": -4.002
+      },
+      "completedAt": "2026-10-29T20:34:11.116Z"
+    },
+    {
+      "key": "news:forex:ECB’s DeMarco backs October hike as core inflation stays firm",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "ECB’s DeMarco backs October hike as core inflation stays firm",
+      "url": "https://www.fxstreet.com/news/ecbs-demarco-backs-october-hike-as-core-inflation-stays-firm-202609291622",
+      "impactScore": -0.23,
+      "priceAtDetect": 1.1343,
+      "createdAt": "2026-09-29T20:08:19.362Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T20:09:19.362Z",
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 1.1339,
+          "realizedPct": -0.035
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T20:13:19.362Z",
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 1.1339,
+          "realizedPct": -0.035
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-29T20:23:19.362Z",
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 1.1339,
+          "realizedPct": -0.035
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-29T20:38:19.362Z",
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 1.1343,
+          "realizedPct": 0
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-29T21:08:19.362Z",
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 1.1343,
+          "realizedPct": 0
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-30T00:08:19.362Z",
+          "capturedAt": "2026-09-30T04:17:11.461Z",
+          "price": 1.1335,
+          "realizedPct": -0.071
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T20:08:19.362Z",
+          "capturedAt": "2026-09-30T21:14:42.079Z",
+          "price": 1.1337,
+          "realizedPct": -0.053
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T20:08:19.362Z",
+          "capturedAt": "2026-10-06T21:04:40.560Z",
+          "price": 1.1268,
+          "realizedPct": -0.661
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T20:08:19.362Z",
+          "capturedAt": "2026-10-29T20:34:11.116Z",
+          "price": 1.1183,
+          "realizedPct": -1.411
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 0,
+        "maePct": -1.411
+      },
+      "completedAt": "2026-10-29T20:34:11.116Z"
+    },
+    {
+      "key": "news:forex:Fed’s Barr calls economy “strikingly” resilient, defends last hike",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Fed’s Barr calls economy “strikingly” resilient, defends last hike",
+      "url": "https://www.fxstreet.com/news/feds-barr-calls-economy-strikingly-resilient-defends-last-hike-202609291735",
+      "impactScore": -0.08,
+      "priceAtDetect": 1.1343,
+      "createdAt": "2026-09-29T20:08:19.362Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T20:09:19.362Z",
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 1.1339,
+          "realizedPct": -0.035
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T20:13:19.362Z",
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 1.1339,
+          "realizedPct": -0.035
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-29T20:23:19.362Z",
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 1.1339,
+          "realizedPct": -0.035
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-29T20:38:19.362Z",
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 1.1343,
+          "realizedPct": 0
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-29T21:08:19.362Z",
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 1.1343,
+          "realizedPct": 0
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-30T00:08:19.362Z",
+          "capturedAt": "2026-09-30T04:17:11.461Z",
+          "price": 1.1335,
+          "realizedPct": -0.071
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T20:08:19.362Z",
+          "capturedAt": "2026-09-30T21:14:42.079Z",
+          "price": 1.1337,
+          "realizedPct": -0.053
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T20:08:19.362Z",
+          "capturedAt": "2026-10-06T21:04:40.560Z",
+          "price": 1.1268,
+          "realizedPct": -0.661
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T20:08:19.362Z",
+          "capturedAt": "2026-10-29T20:34:11.116Z",
+          "price": 1.1183,
+          "realizedPct": -1.411
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 0,
+        "maePct": -1.411
+      },
+      "completedAt": "2026-10-29T20:34:11.116Z"
+    },
+    {
+      "key": "news:forex:Fed’s Williams says no rush after September hike",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Fed’s Williams says no rush after September hike",
+      "url": "https://www.fxstreet.com/news/feds-williams-says-no-rush-after-september-hike-202609291822",
+      "impactScore": -0.08,
+      "priceAtDetect": 1.1343,
+      "createdAt": "2026-09-29T20:08:19.362Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T20:09:19.362Z",
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 1.1339,
+          "realizedPct": -0.035
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T20:13:19.362Z",
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 1.1339,
+          "realizedPct": -0.035
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-29T20:23:19.362Z",
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 1.1339,
+          "realizedPct": -0.035
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-29T20:38:19.362Z",
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 1.1343,
+          "realizedPct": 0
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-29T21:08:19.362Z",
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 1.1343,
+          "realizedPct": 0
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-30T00:08:19.362Z",
+          "capturedAt": "2026-09-30T04:17:11.461Z",
+          "price": 1.1335,
+          "realizedPct": -0.071
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T20:08:19.362Z",
+          "capturedAt": "2026-09-30T21:14:42.079Z",
+          "price": 1.1337,
+          "realizedPct": -0.053
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T20:08:19.362Z",
+          "capturedAt": "2026-10-06T21:04:40.560Z",
+          "price": 1.1268,
+          "realizedPct": -0.661
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T20:08:19.362Z",
+          "capturedAt": "2026-10-29T20:34:11.116Z",
+          "price": 1.1183,
+          "realizedPct": -1.411
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 0,
+        "maePct": -1.411
+      },
+      "completedAt": "2026-10-29T20:34:11.116Z"
+    },
+    {
+      "key": "news:crypto:ECB’s DeMarco backs October hike as core inflation stays firm",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "ECB’s DeMarco backs October hike as core inflation stays firm",
+      "url": "https://www.fxstreet.com/news/ecbs-demarco-backs-october-hike-as-core-inflation-stays-firm-202609291622",
+      "impactScore": -0.23,
+      "priceAtDetect": 83562.07,
+      "createdAt": "2026-09-29T20:08:19.362Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T20:09:19.362Z",
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 83608.03,
+          "realizedPct": 0.055
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T20:13:19.362Z",
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 83608.03,
+          "realizedPct": 0.055
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-29T20:23:19.362Z",
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 83608.03,
+          "realizedPct": 0.055
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-29T20:38:19.362Z",
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 83647.52,
+          "realizedPct": 0.102
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-29T21:08:19.362Z",
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 83647.52,
+          "realizedPct": 0.102
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-30T00:08:19.362Z",
+          "capturedAt": "2026-09-30T04:17:11.461Z",
+          "price": 83353.71,
+          "realizedPct": -0.249
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T20:08:19.362Z",
+          "capturedAt": "2026-09-30T21:14:42.079Z",
+          "price": 83704.82,
+          "realizedPct": 0.171
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T20:08:19.362Z",
+          "capturedAt": "2026-10-06T21:04:40.560Z",
+          "price": 85532.76,
+          "realizedPct": 2.358
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T20:08:19.362Z",
+          "capturedAt": "2026-10-29T20:34:11.116Z",
+          "price": 79873.7,
+          "realizedPct": -4.414
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 2.358,
+        "maePct": -4.414
+      },
+      "completedAt": "2026-10-29T20:34:11.116Z"
+    },
+    {
+      "key": "news:crypto:Fed’s Barr calls economy “strikingly” resilient, defends last hike",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Fed’s Barr calls economy “strikingly” resilient, defends last hike",
+      "url": "https://www.fxstreet.com/news/feds-barr-calls-economy-strikingly-resilient-defends-last-hike-202609291735",
+      "impactScore": -0.08,
+      "priceAtDetect": 83562.07,
+      "createdAt": "2026-09-29T20:08:19.362Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T20:09:19.362Z",
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 83608.03,
+          "realizedPct": 0.055
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T20:13:19.362Z",
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 83608.03,
+          "realizedPct": 0.055
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-29T20:23:19.362Z",
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 83608.03,
+          "realizedPct": 0.055
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-29T20:38:19.362Z",
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 83647.52,
+          "realizedPct": 0.102
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-29T21:08:19.362Z",
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 83647.52,
+          "realizedPct": 0.102
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-30T00:08:19.362Z",
+          "capturedAt": "2026-09-30T04:17:11.461Z",
+          "price": 83353.71,
+          "realizedPct": -0.249
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T20:08:19.362Z",
+          "capturedAt": "2026-09-30T21:14:42.079Z",
+          "price": 83704.82,
+          "realizedPct": 0.171
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T20:08:19.362Z",
+          "capturedAt": "2026-10-06T21:04:40.560Z",
+          "price": 85532.76,
+          "realizedPct": 2.358
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T20:08:19.362Z",
+          "capturedAt": "2026-10-29T20:34:11.116Z",
+          "price": 79873.7,
+          "realizedPct": -4.414
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 2.358,
+        "maePct": -4.414
+      },
+      "completedAt": "2026-10-29T20:34:11.116Z"
+    },
+    {
+      "key": "news:crypto:Fed’s Williams says no rush after September hike",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Fed’s Williams says no rush after September hike",
+      "url": "https://www.fxstreet.com/news/feds-williams-says-no-rush-after-september-hike-202609291822",
+      "impactScore": -0.14,
+      "priceAtDetect": 83562.07,
+      "createdAt": "2026-09-29T20:08:19.362Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T20:09:19.362Z",
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 83608.03,
+          "realizedPct": 0.055
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T20:13:19.362Z",
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 83608.03,
+          "realizedPct": 0.055
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-29T20:23:19.362Z",
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 83608.03,
+          "realizedPct": 0.055
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-29T20:38:19.362Z",
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 83647.52,
+          "realizedPct": 0.102
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-29T21:08:19.362Z",
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 83647.52,
+          "realizedPct": 0.102
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-30T00:08:19.362Z",
+          "capturedAt": "2026-09-30T04:17:11.461Z",
+          "price": 83353.71,
+          "realizedPct": -0.249
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T20:08:19.362Z",
+          "capturedAt": "2026-09-30T21:14:42.079Z",
+          "price": 83704.82,
+          "realizedPct": 0.171
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T20:08:19.362Z",
+          "capturedAt": "2026-10-06T21:04:40.559Z",
+          "price": 85532.76,
+          "realizedPct": 2.358
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T20:08:19.362Z",
+          "capturedAt": "2026-10-29T20:34:11.116Z",
+          "price": 79873.7,
+          "realizedPct": -4.414
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 2.358,
+        "maePct": -4.414
+      },
+      "completedAt": "2026-10-29T20:34:11.116Z"
+    },
+    {
+      "key": "news:gold:ECB’s DeMarco backs October hike as core inflation stays firm",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "ECB’s DeMarco backs October hike as core inflation stays firm",
+      "url": "https://www.fxstreet.com/news/ecbs-demarco-backs-october-hike-as-core-inflation-stays-firm-202609291622",
+      "impactScore": -0.23,
+      "priceAtDetect": 4205.6,
+      "createdAt": "2026-09-29T20:08:19.362Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T20:09:19.362Z",
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 4205.9,
+          "realizedPct": 0.007
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T20:13:19.362Z",
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 4205.9,
+          "realizedPct": 0.007
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-29T20:23:19.362Z",
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 4205.9,
+          "realizedPct": 0.007
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-29T20:38:19.362Z",
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 4212.1,
+          "realizedPct": 0.155
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-29T21:08:19.362Z",
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 4212.1,
+          "realizedPct": 0.155
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-30T00:08:19.362Z",
+          "capturedAt": "2026-09-30T04:17:11.461Z",
+          "price": 4205.4,
+          "realizedPct": -0.005
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T20:08:19.362Z",
+          "capturedAt": "2026-09-30T21:14:42.079Z",
+          "price": 4189.1,
+          "realizedPct": -0.392
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T20:08:19.362Z",
+          "capturedAt": "2026-10-06T21:04:40.559Z",
+          "price": 4192.1,
+          "realizedPct": -0.321
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T20:08:19.362Z",
+          "capturedAt": "2026-10-29T20:34:11.116Z",
+          "price": 4037.6,
+          "realizedPct": -3.995
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 0.155,
+        "maePct": -3.995
+      },
+      "completedAt": "2026-10-29T20:34:11.116Z"
+    },
+    {
+      "key": "news:gold:Fed’s Barr calls economy “strikingly” resilient, defends last hike",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Fed’s Barr calls economy “strikingly” resilient, defends last hike",
+      "url": "https://www.fxstreet.com/news/feds-barr-calls-economy-strikingly-resilient-defends-last-hike-202609291735",
+      "impactScore": -0.08,
+      "priceAtDetect": 4205.6,
+      "createdAt": "2026-09-29T20:08:19.362Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T20:09:19.362Z",
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 4205.9,
+          "realizedPct": 0.007
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T20:13:19.362Z",
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 4205.9,
+          "realizedPct": 0.007
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-29T20:23:19.362Z",
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 4205.9,
+          "realizedPct": 0.007
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-29T20:38:19.362Z",
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 4212.1,
+          "realizedPct": 0.155
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-29T21:08:19.362Z",
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 4212.1,
+          "realizedPct": 0.155
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-30T00:08:19.362Z",
+          "capturedAt": "2026-09-30T04:17:11.461Z",
+          "price": 4205.4,
+          "realizedPct": -0.005
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T20:08:19.362Z",
+          "capturedAt": "2026-09-30T21:14:42.079Z",
+          "price": 4189.1,
+          "realizedPct": -0.392
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T20:08:19.362Z",
+          "capturedAt": "2026-10-06T21:04:40.559Z",
+          "price": 4192.1,
+          "realizedPct": -0.321
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T20:08:19.362Z",
+          "capturedAt": "2026-10-29T20:34:11.116Z",
+          "price": 4037.6,
+          "realizedPct": -3.995
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 0.155,
+        "maePct": -3.995
+      },
+      "completedAt": "2026-10-29T20:34:11.116Z"
+    },
+    {
+      "key": "news:gold:Fed’s Williams says no rush after September hike",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Fed’s Williams says no rush after September hike",
+      "url": "https://www.fxstreet.com/news/feds-williams-says-no-rush-after-september-hike-202609291822",
+      "impactScore": -0.12,
+      "priceAtDetect": 4205.6,
+      "createdAt": "2026-09-29T20:08:19.361Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T20:09:19.361Z",
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 4205.9,
+          "realizedPct": 0.007
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T20:13:19.361Z",
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 4205.9,
+          "realizedPct": 0.007
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-29T20:23:19.361Z",
+          "capturedAt": "2026-09-29T20:28:23.864Z",
+          "price": 4205.9,
+          "realizedPct": 0.007
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-29T20:38:19.361Z",
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 4212.1,
+          "realizedPct": 0.155
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-29T21:08:19.361Z",
+          "capturedAt": "2026-09-29T23:53:14.494Z",
+          "price": 4212.1,
+          "realizedPct": 0.155
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-30T00:08:19.361Z",
+          "capturedAt": "2026-09-30T04:17:11.461Z",
+          "price": 4205.4,
+          "realizedPct": -0.005
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T20:08:19.361Z",
+          "capturedAt": "2026-09-30T21:14:42.079Z",
+          "price": 4189.1,
+          "realizedPct": -0.392
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T20:08:19.361Z",
+          "capturedAt": "2026-10-06T21:04:40.559Z",
+          "price": 4192.1,
+          "realizedPct": -0.321
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T20:08:19.361Z",
+          "capturedAt": "2026-10-29T20:34:11.116Z",
+          "price": 4037.6,
+          "realizedPct": -3.995
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 0.155,
+        "maePct": -3.995
+      },
+      "completedAt": "2026-10-29T20:34:11.116Z"
+    },
     {
       "key": "news:forex:Euro falls to three-month low as hawkish Fed outlook weighs",
       "tabId": "forex",
@@ -16734,186 +16998,6 @@
       "realizedPct": 0.58,
       "verdict": "correct",
       "settledAt": "2026-09-22T17:09:31.862Z"
-    },
-    {
-      "key": "news:crypto:South African Rand: SARB hike and hawkish tone – Commerzbank",
-      "tabId": "crypto",
-      "kind": "news",
-      "title": "South African Rand: SARB hike and hawkish tone – Commerzbank",
-      "url": "https://www.fxstreet.com/news/south-african-rand-sarb-hike-and-hawkish-tone-commerzbank-202609221007",
-      "predictedPct": -0.08,
-      "priceAtDetect": 85932.59,
-      "createdAt": "2026-09-22T12:23:29.230Z",
-      "settleAt": "2026-09-22T13:08:29.230Z",
-      "priceAtSettle": 86432.14,
-      "realizedPct": 0.58,
-      "verdict": "wrong",
-      "settledAt": "2026-09-22T17:09:31.862Z"
-    },
-    {
-      "key": "news:crypto:US Dollar: Modestly stronger into year-end – OCBC",
-      "tabId": "crypto",
-      "kind": "news",
-      "title": "US Dollar: Modestly stronger into year-end – OCBC",
-      "url": "https://www.fxstreet.com/news/us-dollar-modestly-stronger-into-year-end-ocbc-202609221145",
-      "predictedPct": -0.14,
-      "priceAtDetect": 85932.59,
-      "createdAt": "2026-09-22T12:23:29.230Z",
-      "settleAt": "2026-09-22T13:08:29.230Z",
-      "priceAtSettle": 86432.14,
-      "realizedPct": 0.58,
-      "verdict": "wrong",
-      "settledAt": "2026-09-22T17:09:31.862Z"
-    },
-    {
-      "key": "news:crypto:British Pound: Fiscal squeeze risks dovish BoE – BBH",
-      "tabId": "crypto",
-      "kind": "news",
-      "title": "British Pound: Fiscal squeeze risks dovish BoE – BBH",
-      "url": "https://www.fxstreet.com/news/british-pound-fiscal-squeeze-risks-dovish-boe-bbh-202609221220",
-      "predictedPct": 0.41,
-      "priceAtDetect": 85932.59,
-      "createdAt": "2026-09-22T12:23:29.230Z",
-      "settleAt": "2026-09-22T13:08:29.230Z",
-      "priceAtSettle": 86432.14,
-      "realizedPct": 0.58,
-      "verdict": "correct",
-      "settledAt": "2026-09-22T17:09:31.862Z"
-    },
-    {
-      "key": "news:crypto:Sterling today: Pound slips as hawkish Fed talk lifts dollar broadly",
-      "tabId": "crypto",
-      "kind": "news",
-      "title": "Sterling today: Pound slips as hawkish Fed talk lifts dollar broadly",
-      "url": "https://www.investing.com/news/forex-news/sterling-today-pound-slips-as-hawkish-fed-talk-lifts-dollar-broadly-4910096",
-      "predictedPct": -0.14,
-      "priceAtDetect": 85932.59,
-      "createdAt": "2026-09-22T12:23:29.230Z",
-      "settleAt": "2026-09-22T13:08:29.230Z",
-      "priceAtSettle": 86432.14,
-      "realizedPct": 0.58,
-      "verdict": "wrong",
-      "settledAt": "2026-09-22T17:09:31.862Z"
-    },
-    {
-      "key": "news:crypto:Dollar holds on hawkish Fed pricing while yen languishes despite Tokyo support",
-      "tabId": "crypto",
-      "kind": "news",
-      "title": "Dollar holds on hawkish Fed pricing while yen languishes despite Tokyo support",
-      "url": "https://www.investing.com/news/forex-news/asian-currencies-mixed-as-dollar-steadies-yen-pressured-by-policy-gap-4909848",
-      "predictedPct": -0.14,
-      "priceAtDetect": 85932.59,
-      "createdAt": "2026-09-22T12:23:29.230Z",
-      "settleAt": "2026-09-22T13:08:29.230Z",
-      "priceAtSettle": 86432.14,
-      "realizedPct": 0.58,
-      "verdict": "wrong",
-      "settledAt": "2026-09-22T17:09:31.862Z"
-    },
-    {
-      "key": "news:gold:Hungarian Forint: NBH stance supports carry appeal – ING",
-      "tabId": "gold",
-      "kind": "news",
-      "title": "Hungarian Forint: NBH stance supports carry appeal – ING",
-      "url": "https://www.fxstreet.com/news/hungarian-forint-nbh-stance-supports-carry-appeal-ing-202609220947",
-      "predictedPct": 0.08,
-      "priceAtDetect": 4359.5,
-      "createdAt": "2026-09-22T12:23:29.230Z",
-      "settleAt": "2026-09-22T13:08:29.230Z",
-      "priceAtSettle": 4374.3,
-      "realizedPct": 0.34,
-      "verdict": "correct",
-      "settledAt": "2026-09-22T17:09:31.862Z"
-    },
-    {
-      "key": "news:gold:South African Rand: SARB hike and hawkish tone – Commerzbank",
-      "tabId": "gold",
-      "kind": "news",
-      "title": "South African Rand: SARB hike and hawkish tone – Commerzbank",
-      "url": "https://www.fxstreet.com/news/south-african-rand-sarb-hike-and-hawkish-tone-commerzbank-202609221007",
-      "predictedPct": -0.08,
-      "priceAtDetect": 4359.5,
-      "createdAt": "2026-09-22T12:23:29.230Z",
-      "settleAt": "2026-09-22T13:08:29.230Z",
-      "priceAtSettle": 4374.3,
-      "realizedPct": 0.34,
-      "verdict": "wrong",
-      "settledAt": "2026-09-22T17:09:31.862Z"
-    },
-    {
-      "key": "news:gold:US Dollar: Modestly stronger into year-end – OCBC",
-      "tabId": "gold",
-      "kind": "news",
-      "title": "US Dollar: Modestly stronger into year-end – OCBC",
-      "url": "https://www.fxstreet.com/news/us-dollar-modestly-stronger-into-year-end-ocbc-202609221145",
-      "predictedPct": -0.12,
-      "priceAtDetect": 4359.5,
-      "createdAt": "2026-09-22T12:23:29.230Z",
-      "settleAt": "2026-09-22T13:08:29.230Z",
-      "priceAtSettle": 4374.3,
-      "realizedPct": 0.34,
-      "verdict": "wrong",
-      "settledAt": "2026-09-22T17:09:31.862Z"
-    },
-    {
-      "key": "news:gold:British Pound: Fiscal squeeze risks dovish BoE – BBH",
-      "tabId": "gold",
-      "kind": "news",
-      "title": "British Pound: Fiscal squeeze risks dovish BoE – BBH",
-      "url": "https://www.fxstreet.com/news/british-pound-fiscal-squeeze-risks-dovish-boe-bbh-202609221220",
-      "predictedPct": 0.36,
-      "priceAtDetect": 4359.5,
-      "createdAt": "2026-09-22T12:23:29.230Z",
-      "settleAt": "2026-09-22T13:08:29.230Z",
-      "priceAtSettle": 4374.3,
-      "realizedPct": 0.34,
-      "verdict": "correct",
-      "settledAt": "2026-09-22T17:09:31.862Z"
-    },
-    {
-      "key": "news:gold:Sterling today: Pound slips as hawkish Fed talk lifts dollar broadly",
-      "tabId": "gold",
-      "kind": "news",
-      "title": "Sterling today: Pound slips as hawkish Fed talk lifts dollar broadly",
-      "url": "https://www.investing.com/news/forex-news/sterling-today-pound-slips-as-hawkish-fed-talk-lifts-dollar-broadly-4910096",
-      "predictedPct": -0.12,
-      "priceAtDetect": 4359.5,
-      "createdAt": "2026-09-22T12:23:29.230Z",
-      "settleAt": "2026-09-22T13:08:29.230Z",
-      "priceAtSettle": 4374.3,
-      "realizedPct": 0.34,
-      "verdict": "wrong",
-      "settledAt": "2026-09-22T17:09:31.862Z"
-    },
-    {
-      "key": "news:gold:Dollar holds on hawkish Fed pricing while yen languishes despite Tokyo support",
-      "tabId": "gold",
-      "kind": "news",
-      "title": "Dollar holds on hawkish Fed pricing while yen languishes despite Tokyo support",
-      "url": "https://www.investing.com/news/forex-news/asian-currencies-mixed-as-dollar-steadies-yen-pressured-by-policy-gap-4909848",
-      "predictedPct": -0.12,
-      "priceAtDetect": 4359.5,
-      "createdAt": "2026-09-22T12:23:29.230Z",
-      "settleAt": "2026-09-22T13:08:29.230Z",
-      "priceAtSettle": 4374.3,
-      "realizedPct": 0.34,
-      "verdict": "wrong",
-      "settledAt": "2026-09-22T17:09:31.862Z"
-    },
-    {
-      "key": "news:forex:Silver Price Forecast: XAG/USD holds losses near $66.00 amid Fed rate hike bets",
-      "tabId": "forex",
-      "kind": "news",
-      "title": "Silver Price Forecast: XAG/USD holds losses near $66.00 amid Fed rate hike bets",
-      "url": "https://www.fxstreet.com/news/silver-price-forecast-xag-usd-holds-losses-near-6600-amid-fed-rate-hike-bets-202609220525",
-      "predictedPct": -0.15,
-      "priceAtDetect": 1.1464,
-      "createdAt": "2026-09-22T06:41:38.153Z",
-      "settleAt": "2026-09-22T07:26:38.153Z",
-      "priceAtSettle": 1.1468,
-      "realizedPct": 0.03,
-      "verdict": "flat",
-      "settledAt": "2026-09-22T12:23:29.230Z"
     }
   ]
 }
