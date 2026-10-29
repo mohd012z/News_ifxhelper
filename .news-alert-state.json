@@ -757,6 +757,24 @@
     "result:news:gold:Gold tumbles below $4.150 as US bond yields, oil prices rise",
     "result:news:gold:British Pound softens to near 1.3250 as elevated US yields outweigh BoE’s hawkish tone",
     "remind:[EUR] Main Refinancing Rate|2026-10-29:30",
-    "remind:[EUR] Monetary Policy Statement|2026-10-29:30"
+    "remind:[EUR] Monetary Policy Statement|2026-10-29:30",
+    "news:European Central Bank keeps key interest rate on hold at 2.5%",
+    "result:news:forex:Australian Dollar: RBA hike to support AUD/USD – BBH",
+    "result:news:forex:Gold steadies after sharp drop as traders assess Fed outlook, Middle East risks",
+    "result:news:forex:India rates: Gradual hiking path – Standard Chartered",
+    "result:news:forex:Wells Fargo revises dollar, yen, euro estimates amid rate hike outlook",
+    "result:news:crypto:Australian Dollar: RBA hike to support AUD/USD – BBH",
+    "result:news:crypto:Gold steadies after sharp drop as traders assess Fed outlook, Middle East risks",
+    "result:news:crypto:India rates: Gradual hiking path – Standard Chartered",
+    "result:news:crypto:Wells Fargo revises dollar, yen, euro estimates amid rate hike outlook",
+    "result:news:gold:Australian Dollar: RBA hike to support AUD/USD – BBH",
+    "result:news:gold:Gold steadies after sharp drop as traders assess Fed outlook, Middle East risks",
+    "result:news:gold:India rates: Gradual hiking path – Standard Chartered",
+    "result:news:gold:Wells Fargo revises dollar, yen, euro estimates amid rate hike outlook",
+    "result:news:forex:EUR/USD: Lagarde’s dovish tilt weighs on Euro – ING",
+    "result:news:forex:ECB’s Kazimir: Key for me will be January repricing",
+    "result:news:forex:Dow Jones futures remain mixed as Fed rate hike concerns weigh on markets",
+    "result:news:crypto:EUR/USD: Lagarde’s dovish tilt weighs on Euro – ING",
+    "result:news:crypto:ECB’s Kazimir: Key for me will be January repricing"
   ]
 }
