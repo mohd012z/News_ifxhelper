@@ -1,273 +1,6 @@
 {
   "pending": [
     {
-      "key": "news:gold:Euro falls to three-month low as hawkish Fed outlook weighs",
-      "tabId": "gold",
-      "kind": "news",
-      "title": "Euro falls to three-month low as hawkish Fed outlook weighs",
-      "url": "https://www.fxstreet.com/news/euro-falls-to-three-month-low-as-hawkish-fed-outlook-weighs-202609291543",
-      "impactScore": -0.21,
-      "priceAtDetect": 4187.1,
-      "createdAt": "2026-09-29T15:52:45.395Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-29T15:53:45.395Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 4205.6,
-          "realizedPct": 0.442
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-29T15:57:45.395Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 4205.6,
-          "realizedPct": 0.442
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-29T16:07:45.395Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 4205.6,
-          "realizedPct": 0.442
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-29T16:22:45.395Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 4205.6,
-          "realizedPct": 0.442
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-29T16:52:45.395Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 4205.6,
-          "realizedPct": 0.442
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-09-29T19:52:45.395Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 4205.6,
-          "realizedPct": 0.442
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-09-30T15:52:45.395Z",
-          "capturedAt": "2026-09-30T16:41:06.005Z",
-          "price": 4190.8,
-          "realizedPct": 0.088
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-06T15:52:45.395Z",
-          "capturedAt": "2026-10-06T16:07:56.647Z",
-          "price": 4193.1,
-          "realizedPct": 0.143
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-29T15:52:45.395Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 0.442,
-        "maePct": 0.088
-      }
-    },
-    {
-      "key": "news:crypto:Euro falls to three-month low as hawkish Fed outlook weighs",
-      "tabId": "crypto",
-      "kind": "news",
-      "title": "Euro falls to three-month low as hawkish Fed outlook weighs",
-      "url": "https://www.fxstreet.com/news/euro-falls-to-three-month-low-as-hawkish-fed-outlook-weighs-202609291543",
-      "impactScore": -0.24,
-      "priceAtDetect": 83034,
-      "createdAt": "2026-09-29T15:52:45.395Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-29T15:53:45.395Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 83562.07,
-          "realizedPct": 0.636
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-29T15:57:45.395Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 83562.07,
-          "realizedPct": 0.636
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-29T16:07:45.395Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 83562.07,
-          "realizedPct": 0.636
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-29T16:22:45.395Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 83562.07,
-          "realizedPct": 0.636
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-29T16:52:45.395Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 83562.07,
-          "realizedPct": 0.636
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-09-29T19:52:45.395Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 83562.07,
-          "realizedPct": 0.636
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-09-30T15:52:45.395Z",
-          "capturedAt": "2026-09-30T16:41:06.005Z",
-          "price": 84249.87,
-          "realizedPct": 1.464
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-06T15:52:45.395Z",
-          "capturedAt": "2026-10-06T16:07:56.647Z",
-          "price": 85828.54,
-          "realizedPct": 3.366
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-29T15:52:45.395Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 3.366,
-        "maePct": 0.636
-      }
-    },
-    {
-      "key": "news:forex:Euro falls to three-month low as hawkish Fed outlook weighs",
-      "tabId": "forex",
-      "kind": "news",
-      "title": "Euro falls to three-month low as hawkish Fed outlook weighs",
-      "url": "https://www.fxstreet.com/news/euro-falls-to-three-month-low-as-hawkish-fed-outlook-weighs-202609291543",
-      "impactScore": -0.26,
-      "priceAtDetect": 1.1337,
-      "createdAt": "2026-09-29T15:52:45.395Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-29T15:53:45.395Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 1.1343,
-          "realizedPct": 0.053
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-29T15:57:45.395Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 1.1343,
-          "realizedPct": 0.053
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-29T16:07:45.395Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 1.1343,
-          "realizedPct": 0.053
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-29T16:22:45.395Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 1.1343,
-          "realizedPct": 0.053
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-29T16:52:45.395Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 1.1343,
-          "realizedPct": 0.053
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-09-29T19:52:45.395Z",
-          "capturedAt": "2026-09-29T20:08:19.361Z",
-          "price": 1.1343,
-          "realizedPct": 0.053
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-09-30T15:52:45.395Z",
-          "capturedAt": "2026-09-30T16:41:06.005Z",
-          "price": 1.134,
-          "realizedPct": 0.026
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-06T15:52:45.395Z",
-          "capturedAt": "2026-10-06T16:07:56.647Z",
-          "price": 1.1265,
-          "realizedPct": -0.635
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-29T15:52:45.395Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 0.053,
-        "maePct": -0.635
-      }
-    },
-    {
       "key": "news:gold:Fed’s Williams says no rush after September hike",
       "tabId": "gold",
       "kind": "news",
@@ -5977,33 +5710,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-10-29T15:35:29.157Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-29T16:33:03.214Z",
+          "price": 4027.7,
+          "realizedPct": -0.099
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-10-29T15:39:29.157Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-29T16:33:03.214Z",
+          "price": 4027.7,
+          "realizedPct": -0.099
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-10-29T15:49:29.157Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-29T16:33:03.214Z",
+          "price": 4027.7,
+          "realizedPct": -0.099
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-10-29T16:04:29.157Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-29T16:33:03.214Z",
+          "price": 4027.7,
+          "realizedPct": -0.099
         },
         {
           "key": "H1",
@@ -6045,7 +5778,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.099,
+        "maePct": -0.099
+      }
     },
     {
       "key": "news:crypto:European Central Bank keeps key interest rate on hold at 2.5%",
@@ -6061,33 +5799,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-10-29T15:35:29.158Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-29T16:33:03.214Z",
+          "price": 81262.07,
+          "realizedPct": -0.357
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-10-29T15:39:29.158Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-29T16:33:03.214Z",
+          "price": 81262.07,
+          "realizedPct": -0.357
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-10-29T15:49:29.158Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-29T16:33:03.214Z",
+          "price": 81262.07,
+          "realizedPct": -0.357
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-10-29T16:04:29.158Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-29T16:33:03.214Z",
+          "price": 81262.07,
+          "realizedPct": -0.357
         },
         {
           "key": "H1",
@@ -6129,7 +5867,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.357,
+        "maePct": -0.357
+      }
     },
     {
       "key": "news:forex:European Central Bank keeps key interest rate on hold at 2.5%",
@@ -6145,33 +5888,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-10-29T15:35:29.158Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-29T16:33:03.214Z",
+          "price": 1.1167,
+          "realizedPct": 0.072
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-10-29T15:39:29.158Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-29T16:33:03.214Z",
+          "price": 1.1167,
+          "realizedPct": 0.072
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-10-29T15:49:29.158Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-29T16:33:03.214Z",
+          "price": 1.1167,
+          "realizedPct": 0.072
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-10-29T16:04:29.158Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-29T16:33:03.214Z",
+          "price": 1.1167,
+          "realizedPct": 0.072
         },
         {
           "key": "H1",
@@ -6213,10 +5956,285 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.072,
+        "maePct": 0.072
+      }
     }
   ],
   "results": [
+    {
+      "key": "news:forex:Euro falls to three-month low as hawkish Fed outlook weighs",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Euro falls to three-month low as hawkish Fed outlook weighs",
+      "url": "https://www.fxstreet.com/news/euro-falls-to-three-month-low-as-hawkish-fed-outlook-weighs-202609291543",
+      "impactScore": -0.26,
+      "priceAtDetect": 1.1337,
+      "createdAt": "2026-09-29T15:52:45.395Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T15:53:45.395Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 1.1343,
+          "realizedPct": 0.053
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T15:57:45.395Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 1.1343,
+          "realizedPct": 0.053
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-29T16:07:45.395Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 1.1343,
+          "realizedPct": 0.053
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-29T16:22:45.395Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 1.1343,
+          "realizedPct": 0.053
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-29T16:52:45.395Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 1.1343,
+          "realizedPct": 0.053
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-29T19:52:45.395Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 1.1343,
+          "realizedPct": 0.053
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T15:52:45.395Z",
+          "capturedAt": "2026-09-30T16:41:06.005Z",
+          "price": 1.134,
+          "realizedPct": 0.026
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T15:52:45.395Z",
+          "capturedAt": "2026-10-06T16:07:56.647Z",
+          "price": 1.1265,
+          "realizedPct": -0.635
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T15:52:45.395Z",
+          "capturedAt": "2026-10-29T16:33:03.214Z",
+          "price": 1.1167,
+          "realizedPct": -1.5
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 0.053,
+        "maePct": -1.5
+      },
+      "completedAt": "2026-10-29T16:33:03.214Z"
+    },
+    {
+      "key": "news:crypto:Euro falls to three-month low as hawkish Fed outlook weighs",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Euro falls to three-month low as hawkish Fed outlook weighs",
+      "url": "https://www.fxstreet.com/news/euro-falls-to-three-month-low-as-hawkish-fed-outlook-weighs-202609291543",
+      "impactScore": -0.24,
+      "priceAtDetect": 83034,
+      "createdAt": "2026-09-29T15:52:45.395Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T15:53:45.395Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 83562.07,
+          "realizedPct": 0.636
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T15:57:45.395Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 83562.07,
+          "realizedPct": 0.636
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-29T16:07:45.395Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 83562.07,
+          "realizedPct": 0.636
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-29T16:22:45.395Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 83562.07,
+          "realizedPct": 0.636
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-29T16:52:45.395Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 83562.07,
+          "realizedPct": 0.636
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-29T19:52:45.395Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 83562.07,
+          "realizedPct": 0.636
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T15:52:45.395Z",
+          "capturedAt": "2026-09-30T16:41:06.005Z",
+          "price": 84249.87,
+          "realizedPct": 1.464
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T15:52:45.395Z",
+          "capturedAt": "2026-10-06T16:07:56.647Z",
+          "price": 85828.54,
+          "realizedPct": 3.366
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T15:52:45.395Z",
+          "capturedAt": "2026-10-29T16:33:03.214Z",
+          "price": 81262.07,
+          "realizedPct": -2.134
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 3.366,
+        "maePct": -2.134
+      },
+      "completedAt": "2026-10-29T16:33:03.214Z"
+    },
+    {
+      "key": "news:gold:Euro falls to three-month low as hawkish Fed outlook weighs",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Euro falls to three-month low as hawkish Fed outlook weighs",
+      "url": "https://www.fxstreet.com/news/euro-falls-to-three-month-low-as-hawkish-fed-outlook-weighs-202609291543",
+      "impactScore": -0.21,
+      "priceAtDetect": 4187.1,
+      "createdAt": "2026-09-29T15:52:45.395Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T15:53:45.395Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 4205.6,
+          "realizedPct": 0.442
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T15:57:45.395Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 4205.6,
+          "realizedPct": 0.442
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-29T16:07:45.395Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 4205.6,
+          "realizedPct": 0.442
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-29T16:22:45.395Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 4205.6,
+          "realizedPct": 0.442
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-29T16:52:45.395Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 4205.6,
+          "realizedPct": 0.442
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-29T19:52:45.395Z",
+          "capturedAt": "2026-09-29T20:08:19.361Z",
+          "price": 4205.6,
+          "realizedPct": 0.442
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T15:52:45.395Z",
+          "capturedAt": "2026-09-30T16:41:06.005Z",
+          "price": 4190.8,
+          "realizedPct": 0.088
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T15:52:45.395Z",
+          "capturedAt": "2026-10-06T16:07:56.647Z",
+          "price": 4193.1,
+          "realizedPct": 0.143
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T15:52:45.395Z",
+          "capturedAt": "2026-10-29T16:33:03.214Z",
+          "price": 4027.7,
+          "realizedPct": -3.807
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 0.442,
+        "maePct": -3.807
+      },
+      "completedAt": "2026-10-29T16:33:03.214Z"
+    },
     {
       "key": "news:forex:Australian Dollar: RBA hike to support AUD/USD – BBH",
       "tabId": "forex",
@@ -16889,51 +16907,6 @@
       "title": "Silver Price Forecast: XAG/USD holds losses near $66.00 amid Fed rate hike bets",
       "url": "https://www.fxstreet.com/news/silver-price-forecast-xag-usd-holds-losses-near-6600-amid-fed-rate-hike-bets-202609220525",
       "predictedPct": -0.15,
-      "priceAtDetect": 1.1464,
-      "createdAt": "2026-09-22T06:41:38.153Z",
-      "settleAt": "2026-09-22T07:26:38.153Z",
-      "priceAtSettle": 1.1468,
-      "realizedPct": 0.03,
-      "verdict": "flat",
-      "settledAt": "2026-09-22T12:23:29.230Z"
-    },
-    {
-      "key": "news:forex:Gold struggles below $4,350 as hawkish Fed offsets sliding bond yields, softer USD",
-      "tabId": "forex",
-      "kind": "news",
-      "title": "Gold struggles below $4,350 as hawkish Fed offsets sliding bond yields, softer USD",
-      "url": "https://www.fxstreet.com/news/gold-struggles-to-lure-buyers-amid-hawkish-fed-counters-sliding-us-bond-yields-202609220419",
-      "predictedPct": -0.15,
-      "priceAtDetect": 1.1464,
-      "createdAt": "2026-09-22T06:41:38.153Z",
-      "settleAt": "2026-09-22T07:26:38.153Z",
-      "priceAtSettle": 1.1468,
-      "realizedPct": 0.03,
-      "verdict": "flat",
-      "settledAt": "2026-09-22T12:23:29.230Z"
-    },
-    {
-      "key": "news:forex:Canadian Dollar strengthens on rising oil prices ahead of potential US-Iran talks",
-      "tabId": "forex",
-      "kind": "news",
-      "title": "Canadian Dollar strengthens on rising oil prices ahead of potential US-Iran talks",
-      "url": "https://www.fxstreet.com/news/canadian-dollar-strengthens-on-rising-oil-prices-ahead-of-potential-us-iran-talks-202609220552",
-      "predictedPct": -0.15,
-      "priceAtDetect": 1.1464,
-      "createdAt": "2026-09-22T06:41:38.153Z",
-      "settleAt": "2026-09-22T07:26:38.153Z",
-      "priceAtSettle": 1.1468,
-      "realizedPct": 0.03,
-      "verdict": "flat",
-      "settledAt": "2026-09-22T12:23:29.230Z"
-    },
-    {
-      "key": "news:forex:US Dollar: Fed support seen fading – Commerzbank",
-      "tabId": "forex",
-      "kind": "news",
-      "title": "US Dollar: Fed support seen fading – Commerzbank",
-      "url": "https://www.fxstreet.com/news/us-dollar-fed-support-seen-fading-commerzbank-202609220614",
-      "predictedPct": -0.08,
       "priceAtDetect": 1.1464,
       "createdAt": "2026-09-22T06:41:38.153Z",
       "settleAt": "2026-09-22T07:26:38.153Z",
