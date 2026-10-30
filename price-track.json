@@ -1,540 +1,6 @@
 {
   "pending": [
     {
-      "key": "news:gold:Swiss Franc remains near 16-month lows as rate hike odds lift US Dollar",
-      "tabId": "gold",
-      "kind": "news",
-      "title": "Swiss Franc remains near 16-month lows as rate hike odds lift US Dollar",
-      "url": "https://www.fxstreet.com/news/swiss-franc-remains-near-16-month-lows-as-rate-hike-odds-lift-us-dollar-202609300430",
-      "impactScore": -0.12,
-      "priceAtDetect": 4213,
-      "createdAt": "2026-09-30T04:58:07.764Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-30T04:59:07.764Z",
-          "capturedAt": "2026-09-30T05:23:31.085Z",
-          "price": 4205.7,
-          "realizedPct": -0.173
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-30T05:03:07.764Z",
-          "capturedAt": "2026-09-30T05:23:31.085Z",
-          "price": 4205.7,
-          "realizedPct": -0.173
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-30T05:13:07.764Z",
-          "capturedAt": "2026-09-30T05:23:31.085Z",
-          "price": 4205.7,
-          "realizedPct": -0.173
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-30T05:28:07.764Z",
-          "capturedAt": "2026-09-30T10:39:27.736Z",
-          "price": 4220.2,
-          "realizedPct": 0.171
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-30T05:58:07.764Z",
-          "capturedAt": "2026-09-30T10:39:27.736Z",
-          "price": 4220.2,
-          "realizedPct": 0.171
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-09-30T08:58:07.764Z",
-          "capturedAt": "2026-09-30T10:39:27.736Z",
-          "price": 4220.2,
-          "realizedPct": 0.171
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-10-01T04:58:07.764Z",
-          "capturedAt": "2026-10-01T05:11:26.660Z",
-          "price": 4209.3,
-          "realizedPct": -0.088
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-07T04:58:07.764Z",
-          "capturedAt": "2026-10-07T05:18:28.095Z",
-          "price": 4161.5,
-          "realizedPct": -1.222
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-30T04:58:07.764Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 0.171,
-        "maePct": -1.222
-      }
-    },
-    {
-      "key": "news:crypto:Swiss Franc remains near 16-month lows as rate hike odds lift US Dollar",
-      "tabId": "crypto",
-      "kind": "news",
-      "title": "Swiss Franc remains near 16-month lows as rate hike odds lift US Dollar",
-      "url": "https://www.fxstreet.com/news/swiss-franc-remains-near-16-month-lows-as-rate-hike-odds-lift-us-dollar-202609300430",
-      "impactScore": -0.14,
-      "priceAtDetect": 83181.67,
-      "createdAt": "2026-09-30T04:58:07.764Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-30T04:59:07.764Z",
-          "capturedAt": "2026-09-30T05:23:31.085Z",
-          "price": 83259.3,
-          "realizedPct": 0.093
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-30T05:03:07.764Z",
-          "capturedAt": "2026-09-30T05:23:31.085Z",
-          "price": 83259.3,
-          "realizedPct": 0.093
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-30T05:13:07.764Z",
-          "capturedAt": "2026-09-30T05:23:31.085Z",
-          "price": 83259.3,
-          "realizedPct": 0.093
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-30T05:28:07.764Z",
-          "capturedAt": "2026-09-30T10:39:27.736Z",
-          "price": 83857.5,
-          "realizedPct": 0.812
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-30T05:58:07.764Z",
-          "capturedAt": "2026-09-30T10:39:27.736Z",
-          "price": 83857.5,
-          "realizedPct": 0.812
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-09-30T08:58:07.764Z",
-          "capturedAt": "2026-09-30T10:39:27.736Z",
-          "price": 83857.5,
-          "realizedPct": 0.812
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-10-01T04:58:07.764Z",
-          "capturedAt": "2026-10-01T05:11:26.660Z",
-          "price": 84178.13,
-          "realizedPct": 1.198
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-07T04:58:07.764Z",
-          "capturedAt": "2026-10-07T05:18:28.095Z",
-          "price": 84146.58,
-          "realizedPct": 1.16
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-30T04:58:07.764Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 1.198,
-        "maePct": 0.093
-      }
-    },
-    {
-      "key": "news:forex:Swiss Franc remains near 16-month lows as rate hike odds lift US Dollar",
-      "tabId": "forex",
-      "kind": "news",
-      "title": "Swiss Franc remains near 16-month lows as rate hike odds lift US Dollar",
-      "url": "https://www.fxstreet.com/news/swiss-franc-remains-near-16-month-lows-as-rate-hike-odds-lift-us-dollar-202609300430",
-      "impactScore": -0.15,
-      "priceAtDetect": 1.1335,
-      "createdAt": "2026-09-30T04:58:07.764Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-30T04:59:07.764Z",
-          "capturedAt": "2026-09-30T05:23:31.085Z",
-          "price": 1.1338,
-          "realizedPct": 0.026
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-30T05:03:07.764Z",
-          "capturedAt": "2026-09-30T05:23:31.085Z",
-          "price": 1.1338,
-          "realizedPct": 0.026
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-30T05:13:07.764Z",
-          "capturedAt": "2026-09-30T05:23:31.085Z",
-          "price": 1.1338,
-          "realizedPct": 0.026
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-30T05:28:07.764Z",
-          "capturedAt": "2026-09-30T10:39:27.736Z",
-          "price": 1.1362,
-          "realizedPct": 0.238
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-30T05:58:07.764Z",
-          "capturedAt": "2026-09-30T10:39:27.736Z",
-          "price": 1.1362,
-          "realizedPct": 0.238
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-09-30T08:58:07.764Z",
-          "capturedAt": "2026-09-30T10:39:27.736Z",
-          "price": 1.1362,
-          "realizedPct": 0.238
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-10-01T04:58:07.764Z",
-          "capturedAt": "2026-10-01T05:11:26.660Z",
-          "price": 1.1321,
-          "realizedPct": -0.124
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-07T04:58:07.764Z",
-          "capturedAt": "2026-10-07T05:18:28.095Z",
-          "price": 1.1235,
-          "realizedPct": -0.882
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-30T04:58:07.764Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 0.238,
-        "maePct": -0.882
-      }
-    },
-    {
-      "key": "news:gold:GBP/USD Price Forecast: Weakens below 1.3250, technical barriers sustain bearish bias",
-      "tabId": "gold",
-      "kind": "news",
-      "title": "GBP/USD Price Forecast: Weakens below 1.3250, technical barriers sustain bearish bias",
-      "url": "https://www.fxstreet.com/news/gbp-usd-price-forecast-weakens-below-13250-technical-barriers-sustain-bearish-bias-202609300513",
-      "impactScore": -0.12,
-      "priceAtDetect": 4205.7,
-      "createdAt": "2026-09-30T05:23:31.085Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-30T05:24:31.085Z",
-          "capturedAt": "2026-09-30T10:39:27.736Z",
-          "price": 4220.2,
-          "realizedPct": 0.345
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-30T05:28:31.085Z",
-          "capturedAt": "2026-09-30T10:39:27.736Z",
-          "price": 4220.2,
-          "realizedPct": 0.345
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-30T05:38:31.085Z",
-          "capturedAt": "2026-09-30T10:39:27.736Z",
-          "price": 4220.2,
-          "realizedPct": 0.345
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-30T05:53:31.085Z",
-          "capturedAt": "2026-09-30T10:39:27.736Z",
-          "price": 4220.2,
-          "realizedPct": 0.345
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-30T06:23:31.085Z",
-          "capturedAt": "2026-09-30T10:39:27.736Z",
-          "price": 4220.2,
-          "realizedPct": 0.345
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-09-30T09:23:31.085Z",
-          "capturedAt": "2026-09-30T10:39:27.736Z",
-          "price": 4220.2,
-          "realizedPct": 0.345
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-10-01T05:23:31.085Z",
-          "capturedAt": "2026-10-01T06:39:04.601Z",
-          "price": 4219.3,
-          "realizedPct": 0.323
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-07T05:23:31.085Z",
-          "capturedAt": "2026-10-07T06:39:11.651Z",
-          "price": 4157,
-          "realizedPct": -1.158
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-30T05:23:31.085Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 0.345,
-        "maePct": -1.158
-      }
-    },
-    {
-      "key": "news:crypto:GBP/USD Price Forecast: Weakens below 1.3250, technical barriers sustain bearish bias",
-      "tabId": "crypto",
-      "kind": "news",
-      "title": "GBP/USD Price Forecast: Weakens below 1.3250, technical barriers sustain bearish bias",
-      "url": "https://www.fxstreet.com/news/gbp-usd-price-forecast-weakens-below-13250-technical-barriers-sustain-bearish-bias-202609300513",
-      "impactScore": -0.14,
-      "priceAtDetect": 83259.3,
-      "createdAt": "2026-09-30T05:23:31.085Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-30T05:24:31.085Z",
-          "capturedAt": "2026-09-30T10:39:27.736Z",
-          "price": 83857.5,
-          "realizedPct": 0.718
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-30T05:28:31.085Z",
-          "capturedAt": "2026-09-30T10:39:27.736Z",
-          "price": 83857.5,
-          "realizedPct": 0.718
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-30T05:38:31.085Z",
-          "capturedAt": "2026-09-30T10:39:27.736Z",
-          "price": 83857.5,
-          "realizedPct": 0.718
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-30T05:53:31.085Z",
-          "capturedAt": "2026-09-30T10:39:27.736Z",
-          "price": 83857.5,
-          "realizedPct": 0.718
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-30T06:23:31.085Z",
-          "capturedAt": "2026-09-30T10:39:27.736Z",
-          "price": 83857.5,
-          "realizedPct": 0.718
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-09-30T09:23:31.085Z",
-          "capturedAt": "2026-09-30T10:39:27.736Z",
-          "price": 83857.5,
-          "realizedPct": 0.718
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-10-01T05:23:31.085Z",
-          "capturedAt": "2026-10-01T06:39:04.601Z",
-          "price": 84133.08,
-          "realizedPct": 1.049
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-07T05:23:31.085Z",
-          "capturedAt": "2026-10-07T06:39:11.651Z",
-          "price": 84239.72,
-          "realizedPct": 1.178
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-30T05:23:31.085Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 1.178,
-        "maePct": 0.718
-      }
-    },
-    {
-      "key": "news:forex:GBP/USD Price Forecast: Weakens below 1.3250, technical barriers sustain bearish bias",
-      "tabId": "forex",
-      "kind": "news",
-      "title": "GBP/USD Price Forecast: Weakens below 1.3250, technical barriers sustain bearish bias",
-      "url": "https://www.fxstreet.com/news/gbp-usd-price-forecast-weakens-below-13250-technical-barriers-sustain-bearish-bias-202609300513",
-      "impactScore": -0.15,
-      "priceAtDetect": 1.1338,
-      "createdAt": "2026-09-30T05:23:31.085Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-30T05:24:31.085Z",
-          "capturedAt": "2026-09-30T10:39:27.736Z",
-          "price": 1.1362,
-          "realizedPct": 0.212
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-30T05:28:31.085Z",
-          "capturedAt": "2026-09-30T10:39:27.736Z",
-          "price": 1.1362,
-          "realizedPct": 0.212
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-30T05:38:31.085Z",
-          "capturedAt": "2026-09-30T10:39:27.736Z",
-          "price": 1.1362,
-          "realizedPct": 0.212
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-30T05:53:31.085Z",
-          "capturedAt": "2026-09-30T10:39:27.736Z",
-          "price": 1.1362,
-          "realizedPct": 0.212
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-30T06:23:31.085Z",
-          "capturedAt": "2026-09-30T10:39:27.736Z",
-          "price": 1.1362,
-          "realizedPct": 0.212
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-09-30T09:23:31.085Z",
-          "capturedAt": "2026-09-30T10:39:27.736Z",
-          "price": 1.1362,
-          "realizedPct": 0.212
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-10-01T05:23:31.085Z",
-          "capturedAt": "2026-10-01T06:39:04.601Z",
-          "price": 1.1321,
-          "realizedPct": -0.15
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-07T05:23:31.085Z",
-          "capturedAt": "2026-10-07T06:39:11.651Z",
-          "price": 1.123,
-          "realizedPct": -0.953
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-30T05:23:31.085Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 0.212,
-        "maePct": -0.953
-      }
-    },
-    {
       "key": "news:gold:US Dollar: Upcoming data to support hawkish Fed stance – BBH",
       "tabId": "gold",
       "kind": "news",
@@ -4630,6 +4096,546 @@
     }
   ],
   "results": [
+    {
+      "key": "news:forex:GBP/USD Price Forecast: Weakens below 1.3250, technical barriers sustain bearish bias",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "GBP/USD Price Forecast: Weakens below 1.3250, technical barriers sustain bearish bias",
+      "url": "https://www.fxstreet.com/news/gbp-usd-price-forecast-weakens-below-13250-technical-barriers-sustain-bearish-bias-202609300513",
+      "impactScore": -0.15,
+      "priceAtDetect": 1.1338,
+      "createdAt": "2026-09-30T05:23:31.085Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-30T05:24:31.085Z",
+          "capturedAt": "2026-09-30T10:39:27.736Z",
+          "price": 1.1362,
+          "realizedPct": 0.212
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-30T05:28:31.085Z",
+          "capturedAt": "2026-09-30T10:39:27.736Z",
+          "price": 1.1362,
+          "realizedPct": 0.212
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-30T05:38:31.085Z",
+          "capturedAt": "2026-09-30T10:39:27.736Z",
+          "price": 1.1362,
+          "realizedPct": 0.212
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-30T05:53:31.085Z",
+          "capturedAt": "2026-09-30T10:39:27.736Z",
+          "price": 1.1362,
+          "realizedPct": 0.212
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-30T06:23:31.085Z",
+          "capturedAt": "2026-09-30T10:39:27.736Z",
+          "price": 1.1362,
+          "realizedPct": 0.212
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-30T09:23:31.085Z",
+          "capturedAt": "2026-09-30T10:39:27.736Z",
+          "price": 1.1362,
+          "realizedPct": 0.212
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-10-01T05:23:31.085Z",
+          "capturedAt": "2026-10-01T06:39:04.601Z",
+          "price": 1.1321,
+          "realizedPct": -0.15
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-07T05:23:31.085Z",
+          "capturedAt": "2026-10-07T06:39:11.651Z",
+          "price": 1.123,
+          "realizedPct": -0.953
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-30T05:23:31.085Z",
+          "capturedAt": "2026-10-30T05:46:56.249Z",
+          "price": 1.1187,
+          "realizedPct": -1.332
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 0.212,
+        "maePct": -1.332
+      },
+      "completedAt": "2026-10-30T05:46:56.249Z"
+    },
+    {
+      "key": "news:crypto:GBP/USD Price Forecast: Weakens below 1.3250, technical barriers sustain bearish bias",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "GBP/USD Price Forecast: Weakens below 1.3250, technical barriers sustain bearish bias",
+      "url": "https://www.fxstreet.com/news/gbp-usd-price-forecast-weakens-below-13250-technical-barriers-sustain-bearish-bias-202609300513",
+      "impactScore": -0.14,
+      "priceAtDetect": 83259.3,
+      "createdAt": "2026-09-30T05:23:31.085Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-30T05:24:31.085Z",
+          "capturedAt": "2026-09-30T10:39:27.736Z",
+          "price": 83857.5,
+          "realizedPct": 0.718
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-30T05:28:31.085Z",
+          "capturedAt": "2026-09-30T10:39:27.736Z",
+          "price": 83857.5,
+          "realizedPct": 0.718
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-30T05:38:31.085Z",
+          "capturedAt": "2026-09-30T10:39:27.736Z",
+          "price": 83857.5,
+          "realizedPct": 0.718
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-30T05:53:31.085Z",
+          "capturedAt": "2026-09-30T10:39:27.736Z",
+          "price": 83857.5,
+          "realizedPct": 0.718
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-30T06:23:31.085Z",
+          "capturedAt": "2026-09-30T10:39:27.736Z",
+          "price": 83857.5,
+          "realizedPct": 0.718
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-30T09:23:31.085Z",
+          "capturedAt": "2026-09-30T10:39:27.736Z",
+          "price": 83857.5,
+          "realizedPct": 0.718
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-10-01T05:23:31.085Z",
+          "capturedAt": "2026-10-01T06:39:04.601Z",
+          "price": 84133.08,
+          "realizedPct": 1.049
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-07T05:23:31.085Z",
+          "capturedAt": "2026-10-07T06:39:11.651Z",
+          "price": 84239.72,
+          "realizedPct": 1.178
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-30T05:23:31.085Z",
+          "capturedAt": "2026-10-30T05:46:56.249Z",
+          "price": 78565.14,
+          "realizedPct": -5.638
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 1.178,
+        "maePct": -5.638
+      },
+      "completedAt": "2026-10-30T05:46:56.249Z"
+    },
+    {
+      "key": "news:gold:GBP/USD Price Forecast: Weakens below 1.3250, technical barriers sustain bearish bias",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "GBP/USD Price Forecast: Weakens below 1.3250, technical barriers sustain bearish bias",
+      "url": "https://www.fxstreet.com/news/gbp-usd-price-forecast-weakens-below-13250-technical-barriers-sustain-bearish-bias-202609300513",
+      "impactScore": -0.12,
+      "priceAtDetect": 4205.7,
+      "createdAt": "2026-09-30T05:23:31.085Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-30T05:24:31.085Z",
+          "capturedAt": "2026-09-30T10:39:27.736Z",
+          "price": 4220.2,
+          "realizedPct": 0.345
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-30T05:28:31.085Z",
+          "capturedAt": "2026-09-30T10:39:27.736Z",
+          "price": 4220.2,
+          "realizedPct": 0.345
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-30T05:38:31.085Z",
+          "capturedAt": "2026-09-30T10:39:27.736Z",
+          "price": 4220.2,
+          "realizedPct": 0.345
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-30T05:53:31.085Z",
+          "capturedAt": "2026-09-30T10:39:27.736Z",
+          "price": 4220.2,
+          "realizedPct": 0.345
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-30T06:23:31.085Z",
+          "capturedAt": "2026-09-30T10:39:27.736Z",
+          "price": 4220.2,
+          "realizedPct": 0.345
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-30T09:23:31.085Z",
+          "capturedAt": "2026-09-30T10:39:27.736Z",
+          "price": 4220.2,
+          "realizedPct": 0.345
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-10-01T05:23:31.085Z",
+          "capturedAt": "2026-10-01T06:39:04.601Z",
+          "price": 4219.3,
+          "realizedPct": 0.323
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-07T05:23:31.085Z",
+          "capturedAt": "2026-10-07T06:39:11.651Z",
+          "price": 4157,
+          "realizedPct": -1.158
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-30T05:23:31.085Z",
+          "capturedAt": "2026-10-30T05:46:56.249Z",
+          "price": 4015.3,
+          "realizedPct": -4.527
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 0.345,
+        "maePct": -4.527
+      },
+      "completedAt": "2026-10-30T05:46:56.249Z"
+    },
+    {
+      "key": "news:forex:Swiss Franc remains near 16-month lows as rate hike odds lift US Dollar",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Swiss Franc remains near 16-month lows as rate hike odds lift US Dollar",
+      "url": "https://www.fxstreet.com/news/swiss-franc-remains-near-16-month-lows-as-rate-hike-odds-lift-us-dollar-202609300430",
+      "impactScore": -0.15,
+      "priceAtDetect": 1.1335,
+      "createdAt": "2026-09-30T04:58:07.764Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-30T04:59:07.764Z",
+          "capturedAt": "2026-09-30T05:23:31.085Z",
+          "price": 1.1338,
+          "realizedPct": 0.026
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-30T05:03:07.764Z",
+          "capturedAt": "2026-09-30T05:23:31.085Z",
+          "price": 1.1338,
+          "realizedPct": 0.026
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-30T05:13:07.764Z",
+          "capturedAt": "2026-09-30T05:23:31.085Z",
+          "price": 1.1338,
+          "realizedPct": 0.026
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-30T05:28:07.764Z",
+          "capturedAt": "2026-09-30T10:39:27.736Z",
+          "price": 1.1362,
+          "realizedPct": 0.238
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-30T05:58:07.764Z",
+          "capturedAt": "2026-09-30T10:39:27.736Z",
+          "price": 1.1362,
+          "realizedPct": 0.238
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-30T08:58:07.764Z",
+          "capturedAt": "2026-09-30T10:39:27.736Z",
+          "price": 1.1362,
+          "realizedPct": 0.238
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-10-01T04:58:07.764Z",
+          "capturedAt": "2026-10-01T05:11:26.660Z",
+          "price": 1.1321,
+          "realizedPct": -0.124
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-07T04:58:07.764Z",
+          "capturedAt": "2026-10-07T05:18:28.095Z",
+          "price": 1.1235,
+          "realizedPct": -0.882
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-30T04:58:07.764Z",
+          "capturedAt": "2026-10-30T05:46:56.249Z",
+          "price": 1.1187,
+          "realizedPct": -1.306
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 0.238,
+        "maePct": -1.306
+      },
+      "completedAt": "2026-10-30T05:46:56.249Z"
+    },
+    {
+      "key": "news:crypto:Swiss Franc remains near 16-month lows as rate hike odds lift US Dollar",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Swiss Franc remains near 16-month lows as rate hike odds lift US Dollar",
+      "url": "https://www.fxstreet.com/news/swiss-franc-remains-near-16-month-lows-as-rate-hike-odds-lift-us-dollar-202609300430",
+      "impactScore": -0.14,
+      "priceAtDetect": 83181.67,
+      "createdAt": "2026-09-30T04:58:07.764Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-30T04:59:07.764Z",
+          "capturedAt": "2026-09-30T05:23:31.085Z",
+          "price": 83259.3,
+          "realizedPct": 0.093
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-30T05:03:07.764Z",
+          "capturedAt": "2026-09-30T05:23:31.085Z",
+          "price": 83259.3,
+          "realizedPct": 0.093
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-30T05:13:07.764Z",
+          "capturedAt": "2026-09-30T05:23:31.085Z",
+          "price": 83259.3,
+          "realizedPct": 0.093
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-30T05:28:07.764Z",
+          "capturedAt": "2026-09-30T10:39:27.736Z",
+          "price": 83857.5,
+          "realizedPct": 0.812
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-30T05:58:07.764Z",
+          "capturedAt": "2026-09-30T10:39:27.736Z",
+          "price": 83857.5,
+          "realizedPct": 0.812
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-30T08:58:07.764Z",
+          "capturedAt": "2026-09-30T10:39:27.736Z",
+          "price": 83857.5,
+          "realizedPct": 0.812
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-10-01T04:58:07.764Z",
+          "capturedAt": "2026-10-01T05:11:26.660Z",
+          "price": 84178.13,
+          "realizedPct": 1.198
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-07T04:58:07.764Z",
+          "capturedAt": "2026-10-07T05:18:28.095Z",
+          "price": 84146.58,
+          "realizedPct": 1.16
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-30T04:58:07.764Z",
+          "capturedAt": "2026-10-30T05:46:56.249Z",
+          "price": 78565.14,
+          "realizedPct": -5.55
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 1.198,
+        "maePct": -5.55
+      },
+      "completedAt": "2026-10-30T05:46:56.249Z"
+    },
+    {
+      "key": "news:gold:Swiss Franc remains near 16-month lows as rate hike odds lift US Dollar",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Swiss Franc remains near 16-month lows as rate hike odds lift US Dollar",
+      "url": "https://www.fxstreet.com/news/swiss-franc-remains-near-16-month-lows-as-rate-hike-odds-lift-us-dollar-202609300430",
+      "impactScore": -0.12,
+      "priceAtDetect": 4213,
+      "createdAt": "2026-09-30T04:58:07.764Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-30T04:59:07.764Z",
+          "capturedAt": "2026-09-30T05:23:31.085Z",
+          "price": 4205.7,
+          "realizedPct": -0.173
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-30T05:03:07.764Z",
+          "capturedAt": "2026-09-30T05:23:31.085Z",
+          "price": 4205.7,
+          "realizedPct": -0.173
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-30T05:13:07.764Z",
+          "capturedAt": "2026-09-30T05:23:31.085Z",
+          "price": 4205.7,
+          "realizedPct": -0.173
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-30T05:28:07.764Z",
+          "capturedAt": "2026-09-30T10:39:27.736Z",
+          "price": 4220.2,
+          "realizedPct": 0.171
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-30T05:58:07.764Z",
+          "capturedAt": "2026-09-30T10:39:27.736Z",
+          "price": 4220.2,
+          "realizedPct": 0.171
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-30T08:58:07.764Z",
+          "capturedAt": "2026-09-30T10:39:27.736Z",
+          "price": 4220.2,
+          "realizedPct": 0.171
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-10-01T04:58:07.764Z",
+          "capturedAt": "2026-10-01T05:11:26.660Z",
+          "price": 4209.3,
+          "realizedPct": -0.088
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-07T04:58:07.764Z",
+          "capturedAt": "2026-10-07T05:18:28.095Z",
+          "price": 4161.5,
+          "realizedPct": -1.222
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-30T04:58:07.764Z",
+          "capturedAt": "2026-10-30T05:46:56.249Z",
+          "price": 4015.3,
+          "realizedPct": -4.693
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 0.171,
+        "maePct": -4.693
+      },
+      "completedAt": "2026-10-30T05:46:56.249Z"
+    },
     {
       "key": "news:forex:The New Zealand Dollar breaks lower after Australia's rate hike",
       "tabId": "forex",
@@ -16839,96 +16845,6 @@
       "realizedPct": -0.16,
       "verdict": "correct",
       "settledAt": "2026-09-22T20:22:49.119Z"
-    },
-    {
-      "key": "news:crypto:Canadian Dollar dips as Oil slump, dovish BoC outlook underpin USD strength",
-      "tabId": "crypto",
-      "kind": "news",
-      "title": "Canadian Dollar dips as Oil slump, dovish BoC outlook underpin USD strength",
-      "url": "https://www.fxstreet.com/news/canadian-dollar-dips-as-oil-slump-dovish-boc-outlook-underpin-usd-strength-202609221557",
-      "predictedPct": 0.24,
-      "priceAtDetect": 86432.14,
-      "createdAt": "2026-09-22T17:09:31.862Z",
-      "settleAt": "2026-09-22T17:54:31.862Z",
-      "priceAtSettle": 86293.57,
-      "realizedPct": -0.16,
-      "verdict": "wrong",
-      "settledAt": "2026-09-22T20:22:49.119Z"
-    },
-    {
-      "key": "news:gold:Risk sentiment improved and Oil prices fell: Why the US Dollar is still holding firm",
-      "tabId": "gold",
-      "kind": "news",
-      "title": "Risk sentiment improved and Oil prices fell: Why the US Dollar is still holding firm",
-      "url": "https://www.fxstreet.com/news/risk-sentiment-improved-and-oil-prices-fell-why-the-us-dollar-is-still-holding-firm-202609221420",
-      "predictedPct": -0.12,
-      "priceAtDetect": 4374.3,
-      "createdAt": "2026-09-22T17:09:31.862Z",
-      "settleAt": "2026-09-22T17:54:31.862Z",
-      "priceAtSettle": 4398.2,
-      "realizedPct": 0.55,
-      "verdict": "wrong",
-      "settledAt": "2026-09-22T20:22:49.119Z"
-    },
-    {
-      "key": "news:gold:Fed’s Collins: More restrictive policy should help inflation return to 2%",
-      "tabId": "gold",
-      "kind": "news",
-      "title": "Fed’s Collins: More restrictive policy should help inflation return to 2%",
-      "url": "https://www.fxstreet.com/news/feds-collins-more-restrictive-policy-should-help-inflation-return-to-2-202609221422",
-      "predictedPct": -0.08,
-      "priceAtDetect": 4374.3,
-      "createdAt": "2026-09-22T17:09:31.862Z",
-      "settleAt": "2026-09-22T17:54:31.862Z",
-      "priceAtSettle": 4398.2,
-      "realizedPct": 0.55,
-      "verdict": "wrong",
-      "settledAt": "2026-09-22T20:22:49.119Z"
-    },
-    {
-      "key": "news:gold:Gold consolidates as Iran diplomacy hopes clash with hawkish Fed expectations",
-      "tabId": "gold",
-      "kind": "news",
-      "title": "Gold consolidates as Iran diplomacy hopes clash with hawkish Fed expectations",
-      "url": "https://www.fxstreet.com/news/gold-steadies-on-iran-diplomacy-hopes-fed-outlook-caps-upside-202609221120",
-      "predictedPct": -0.15,
-      "priceAtDetect": 4374.3,
-      "createdAt": "2026-09-22T17:09:31.862Z",
-      "settleAt": "2026-09-22T17:54:31.862Z",
-      "priceAtSettle": 4398.2,
-      "realizedPct": 0.55,
-      "verdict": "wrong",
-      "settledAt": "2026-09-22T20:22:49.119Z"
-    },
-    {
-      "key": "news:gold:Canadian Dollar dips as Oil slump, dovish BoC outlook underpin USD strength",
-      "tabId": "gold",
-      "kind": "news",
-      "title": "Canadian Dollar dips as Oil slump, dovish BoC outlook underpin USD strength",
-      "url": "https://www.fxstreet.com/news/canadian-dollar-dips-as-oil-slump-dovish-boc-outlook-underpin-usd-strength-202609221557",
-      "predictedPct": 0.21,
-      "priceAtDetect": 4374.3,
-      "createdAt": "2026-09-22T17:09:31.862Z",
-      "settleAt": "2026-09-22T17:54:31.862Z",
-      "priceAtSettle": 4398.2,
-      "realizedPct": 0.55,
-      "verdict": "correct",
-      "settledAt": "2026-09-22T20:22:49.119Z"
-    },
-    {
-      "key": "news:forex:Hungarian Forint: NBH stance supports carry appeal – ING",
-      "tabId": "forex",
-      "kind": "news",
-      "title": "Hungarian Forint: NBH stance supports carry appeal – ING",
-      "url": "https://www.fxstreet.com/news/hungarian-forint-nbh-stance-supports-carry-appeal-ing-202609220947",
-      "predictedPct": 0.08,
-      "priceAtDetect": 1.1468,
-      "createdAt": "2026-09-22T12:23:29.230Z",
-      "settleAt": "2026-09-22T13:08:29.230Z",
-      "priceAtSettle": 1.1438,
-      "realizedPct": -0.26,
-      "verdict": "wrong",
-      "settledAt": "2026-09-22T17:09:31.862Z"
     }
   ]
 }
