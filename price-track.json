@@ -2773,33 +2773,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-10-30T13:33:17.392Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-30T14:29:51.424Z",
+          "price": 3915,
+          "realizedPct": -1.031
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-10-30T13:37:17.392Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-30T14:29:51.424Z",
+          "price": 3915,
+          "realizedPct": -1.031
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-10-30T13:47:17.392Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-30T14:29:51.424Z",
+          "price": 3915,
+          "realizedPct": -1.031
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-10-30T14:02:17.392Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-30T14:29:51.424Z",
+          "price": 3915,
+          "realizedPct": -1.031
         },
         {
           "key": "H1",
@@ -2841,7 +2841,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -1.031,
+        "maePct": -1.031
+      }
     },
     {
       "key": "news:gold:This credit card is the &#x2018;best weapon&#x2019; to fight debt while interest rates keep climbing",
@@ -2857,33 +2862,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-10-30T13:33:17.392Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-30T14:29:51.424Z",
+          "price": 3915,
+          "realizedPct": -1.031
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-10-30T13:37:17.392Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-30T14:29:51.424Z",
+          "price": 3915,
+          "realizedPct": -1.031
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-10-30T13:47:17.392Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-30T14:29:51.424Z",
+          "price": 3915,
+          "realizedPct": -1.031
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-10-30T14:02:17.392Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-30T14:29:51.424Z",
+          "price": 3915,
+          "realizedPct": -1.031
         },
         {
           "key": "H1",
@@ -2925,7 +2930,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -1.031,
+        "maePct": -1.031
+      }
     },
     {
       "key": "news:crypto:UBS sees Bank of England rate hikes supporting pound vs franc",
@@ -2941,33 +2951,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-10-30T13:33:17.392Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-30T14:29:51.424Z",
+          "price": 76716.31,
+          "realizedPct": -0.32
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-10-30T13:37:17.392Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-30T14:29:51.424Z",
+          "price": 76716.31,
+          "realizedPct": -0.32
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-10-30T13:47:17.392Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-30T14:29:51.424Z",
+          "price": 76716.31,
+          "realizedPct": -0.32
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-10-30T14:02:17.392Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-30T14:29:51.424Z",
+          "price": 76716.31,
+          "realizedPct": -0.32
         },
         {
           "key": "H1",
@@ -3009,7 +3019,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.32,
+        "maePct": -0.32
+      }
     },
     {
       "key": "news:crypto:This credit card is the &#x2018;best weapon&#x2019; to fight debt while interest rates keep climbing",
@@ -3025,33 +3040,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-10-30T13:33:17.392Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-30T14:29:51.424Z",
+          "price": 76716.31,
+          "realizedPct": -0.32
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-10-30T13:37:17.392Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-30T14:29:51.424Z",
+          "price": 76716.31,
+          "realizedPct": -0.32
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-10-30T13:47:17.392Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-30T14:29:51.424Z",
+          "price": 76716.31,
+          "realizedPct": -0.32
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-10-30T14:02:17.392Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-30T14:29:51.424Z",
+          "price": 76716.31,
+          "realizedPct": -0.32
         },
         {
           "key": "H1",
@@ -3093,7 +3108,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.32,
+        "maePct": -0.32
+      }
     },
     {
       "key": "news:forex:UBS sees Bank of England rate hikes supporting pound vs franc",
@@ -3109,33 +3129,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-10-30T13:33:17.392Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-30T14:29:51.424Z",
+          "price": 1.1148,
+          "realizedPct": -0.179
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-10-30T13:37:17.392Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-30T14:29:51.424Z",
+          "price": 1.1148,
+          "realizedPct": -0.179
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-10-30T13:47:17.392Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-30T14:29:51.424Z",
+          "price": 1.1148,
+          "realizedPct": -0.179
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-10-30T14:02:17.392Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-30T14:29:51.424Z",
+          "price": 1.1148,
+          "realizedPct": -0.179
         },
         {
           "key": "H1",
@@ -3177,7 +3197,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.179,
+        "maePct": -0.179
+      }
     },
     {
       "key": "news:forex:This credit card is the &#x2018;best weapon&#x2019; to fight debt while interest rates keep climbing",
@@ -3193,33 +3218,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-10-30T13:33:17.392Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-30T14:29:51.424Z",
+          "price": 1.1148,
+          "realizedPct": -0.179
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-10-30T13:37:17.392Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-30T14:29:51.424Z",
+          "price": 1.1148,
+          "realizedPct": -0.179
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-10-30T13:47:17.392Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-30T14:29:51.424Z",
+          "price": 1.1148,
+          "realizedPct": -0.179
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-10-30T14:02:17.392Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-30T14:29:51.424Z",
+          "price": 1.1148,
+          "realizedPct": -0.179
         },
         {
           "key": "H1",
@@ -3261,7 +3286,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.179,
+        "maePct": -0.179
+      }
     }
   ],
   "results": [
