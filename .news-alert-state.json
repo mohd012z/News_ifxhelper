@@ -800,6 +800,12 @@
     "result:news:gold:Australian Dollar cracks 0.70 as Bullock dulls RBA hike, CPI looms",
     "remind:[JPY] BOJ Outlook Report|2026-10-30:30",
     "remind:[JPY] BOJ Outlook Report|2026-10-30:10",
-    "remind:[JPY] BOJ Outlook Report|2026-10-30:2"
+    "remind:[JPY] BOJ Outlook Report|2026-10-30:2",
+    "result:news:forex:GBP/USD Price Forecast: Weakens below 1.3250, technical barriers sustain bearish bias",
+    "result:news:crypto:GBP/USD Price Forecast: Weakens below 1.3250, technical barriers sustain bearish bias",
+    "result:news:gold:GBP/USD Price Forecast: Weakens below 1.3250, technical barriers sustain bearish bias",
+    "result:news:forex:Swiss Franc remains near 16-month lows as rate hike odds lift US Dollar",
+    "result:news:crypto:Swiss Franc remains near 16-month lows as rate hike odds lift US Dollar",
+    "result:news:gold:Swiss Franc remains near 16-month lows as rate hike odds lift US Dollar"
   ]
 }
