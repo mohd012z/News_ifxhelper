@@ -1,540 +1,6 @@
 {
   "pending": [
     {
-      "key": "news:gold:U.S. dollar sees best month since June on hawkish Fed, U.S. Treasury bond rout",
-      "tabId": "gold",
-      "kind": "news",
-      "title": "U.S. dollar sees best month since June on hawkish Fed, U.S. Treasury bond rout",
-      "url": "https://www.investing.com/news/forex-news/asian-currencies-mixed-as-yen-rebounds-dollar-stays-near-twomonth-high-4924061",
-      "impactScore": -0.12,
-      "priceAtDetect": 4189.1,
-      "createdAt": "2026-09-30T21:14:42.079Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-30T21:15:42.079Z",
-          "capturedAt": "2026-09-30T21:23:35.983Z",
-          "price": 4189.1,
-          "realizedPct": 0
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-30T21:19:42.079Z",
-          "capturedAt": "2026-09-30T21:23:35.983Z",
-          "price": 4189.1,
-          "realizedPct": 0
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-30T21:29:42.079Z",
-          "capturedAt": "2026-10-01T00:41:51.328Z",
-          "price": 4173.4,
-          "realizedPct": -0.375
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-30T21:44:42.079Z",
-          "capturedAt": "2026-10-01T00:41:51.328Z",
-          "price": 4173.4,
-          "realizedPct": -0.375
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-30T22:14:42.079Z",
-          "capturedAt": "2026-10-01T00:41:51.328Z",
-          "price": 4173.4,
-          "realizedPct": -0.375
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-10-01T01:14:42.079Z",
-          "capturedAt": "2026-10-01T05:11:26.661Z",
-          "price": 4209.3,
-          "realizedPct": 0.482
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-10-01T21:14:42.079Z",
-          "capturedAt": "2026-10-01T23:23:43.643Z",
-          "price": 4208.8,
-          "realizedPct": 0.47
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-07T21:14:42.079Z",
-          "capturedAt": "2026-10-08T00:07:56.957Z",
-          "price": 4134.3,
-          "realizedPct": -1.308
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-30T21:14:42.079Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 0.482,
-        "maePct": -1.308
-      }
-    },
-    {
-      "key": "news:gold:Gold can’t catch a PCE break as long US yields keep climbing",
-      "tabId": "gold",
-      "kind": "news",
-      "title": "Gold can’t catch a PCE break as long US yields keep climbing",
-      "url": "https://www.fxstreet.com/news/gold-cant-catch-a-pce-break-as-long-us-yields-keep-climbing-202609301802",
-      "impactScore": -0.15,
-      "priceAtDetect": 4189.1,
-      "createdAt": "2026-09-30T21:14:42.080Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-30T21:15:42.080Z",
-          "capturedAt": "2026-09-30T21:23:35.983Z",
-          "price": 4189.1,
-          "realizedPct": 0
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-30T21:19:42.080Z",
-          "capturedAt": "2026-09-30T21:23:35.983Z",
-          "price": 4189.1,
-          "realizedPct": 0
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-30T21:29:42.080Z",
-          "capturedAt": "2026-10-01T00:41:51.328Z",
-          "price": 4173.4,
-          "realizedPct": -0.375
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-30T21:44:42.080Z",
-          "capturedAt": "2026-10-01T00:41:51.328Z",
-          "price": 4173.4,
-          "realizedPct": -0.375
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-30T22:14:42.080Z",
-          "capturedAt": "2026-10-01T00:41:51.328Z",
-          "price": 4173.4,
-          "realizedPct": -0.375
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-10-01T01:14:42.080Z",
-          "capturedAt": "2026-10-01T05:11:26.661Z",
-          "price": 4209.3,
-          "realizedPct": 0.482
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-10-01T21:14:42.080Z",
-          "capturedAt": "2026-10-01T23:23:43.643Z",
-          "price": 4208.8,
-          "realizedPct": 0.47
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-07T21:14:42.080Z",
-          "capturedAt": "2026-10-08T00:07:56.957Z",
-          "price": 4134.3,
-          "realizedPct": -1.308
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-30T21:14:42.080Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 0.482,
-        "maePct": -1.308
-      }
-    },
-    {
-      "key": "news:crypto:U.S. dollar sees best month since June on hawkish Fed, U.S. Treasury bond rout",
-      "tabId": "crypto",
-      "kind": "news",
-      "title": "U.S. dollar sees best month since June on hawkish Fed, U.S. Treasury bond rout",
-      "url": "https://www.investing.com/news/forex-news/asian-currencies-mixed-as-yen-rebounds-dollar-stays-near-twomonth-high-4924061",
-      "impactScore": -0.14,
-      "priceAtDetect": 83704.82,
-      "createdAt": "2026-09-30T21:14:42.080Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-30T21:15:42.080Z",
-          "capturedAt": "2026-09-30T21:23:35.983Z",
-          "price": 83729.97,
-          "realizedPct": 0.03
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-30T21:19:42.080Z",
-          "capturedAt": "2026-09-30T21:23:35.983Z",
-          "price": 83729.97,
-          "realizedPct": 0.03
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-30T21:29:42.080Z",
-          "capturedAt": "2026-10-01T00:41:51.328Z",
-          "price": 83466.06,
-          "realizedPct": -0.285
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-30T21:44:42.080Z",
-          "capturedAt": "2026-10-01T00:41:51.328Z",
-          "price": 83466.06,
-          "realizedPct": -0.285
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-30T22:14:42.080Z",
-          "capturedAt": "2026-10-01T00:41:51.328Z",
-          "price": 83466.06,
-          "realizedPct": -0.285
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-10-01T01:14:42.080Z",
-          "capturedAt": "2026-10-01T05:11:26.661Z",
-          "price": 84178.13,
-          "realizedPct": 0.565
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-10-01T21:14:42.080Z",
-          "capturedAt": "2026-10-01T23:23:43.643Z",
-          "price": 84726.79,
-          "realizedPct": 1.221
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-07T21:14:42.080Z",
-          "capturedAt": "2026-10-08T00:07:56.957Z",
-          "price": 83237.13,
-          "realizedPct": -0.559
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-30T21:14:42.080Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 1.221,
-        "maePct": -0.559
-      }
-    },
-    {
-      "key": "news:crypto:Gold can’t catch a PCE break as long US yields keep climbing",
-      "tabId": "crypto",
-      "kind": "news",
-      "title": "Gold can’t catch a PCE break as long US yields keep climbing",
-      "url": "https://www.fxstreet.com/news/gold-cant-catch-a-pce-break-as-long-us-yields-keep-climbing-202609301802",
-      "impactScore": -0.14,
-      "priceAtDetect": 83704.82,
-      "createdAt": "2026-09-30T21:14:42.080Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-30T21:15:42.080Z",
-          "capturedAt": "2026-09-30T21:23:35.983Z",
-          "price": 83729.97,
-          "realizedPct": 0.03
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-30T21:19:42.080Z",
-          "capturedAt": "2026-09-30T21:23:35.983Z",
-          "price": 83729.97,
-          "realizedPct": 0.03
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-30T21:29:42.080Z",
-          "capturedAt": "2026-10-01T00:41:51.328Z",
-          "price": 83466.06,
-          "realizedPct": -0.285
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-30T21:44:42.080Z",
-          "capturedAt": "2026-10-01T00:41:51.328Z",
-          "price": 83466.06,
-          "realizedPct": -0.285
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-30T22:14:42.080Z",
-          "capturedAt": "2026-10-01T00:41:51.328Z",
-          "price": 83466.06,
-          "realizedPct": -0.285
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-10-01T01:14:42.080Z",
-          "capturedAt": "2026-10-01T05:11:26.661Z",
-          "price": 84178.13,
-          "realizedPct": 0.565
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-10-01T21:14:42.080Z",
-          "capturedAt": "2026-10-01T23:23:43.643Z",
-          "price": 84726.79,
-          "realizedPct": 1.221
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-07T21:14:42.080Z",
-          "capturedAt": "2026-10-08T00:07:56.957Z",
-          "price": 83237.13,
-          "realizedPct": -0.559
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-30T21:14:42.080Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 1.221,
-        "maePct": -0.559
-      }
-    },
-    {
-      "key": "news:forex:U.S. dollar sees best month since June on hawkish Fed, U.S. Treasury bond rout",
-      "tabId": "forex",
-      "kind": "news",
-      "title": "U.S. dollar sees best month since June on hawkish Fed, U.S. Treasury bond rout",
-      "url": "https://www.investing.com/news/forex-news/asian-currencies-mixed-as-yen-rebounds-dollar-stays-near-twomonth-high-4924061",
-      "impactScore": -0.08,
-      "priceAtDetect": 1.1337,
-      "createdAt": "2026-09-30T21:14:42.080Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-30T21:15:42.080Z",
-          "capturedAt": "2026-09-30T21:23:35.983Z",
-          "price": 1.1335,
-          "realizedPct": -0.018
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-30T21:19:42.080Z",
-          "capturedAt": "2026-09-30T21:23:35.983Z",
-          "price": 1.1335,
-          "realizedPct": -0.018
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-30T21:29:42.080Z",
-          "capturedAt": "2026-10-01T00:41:51.328Z",
-          "price": 1.1335,
-          "realizedPct": -0.018
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-30T21:44:42.080Z",
-          "capturedAt": "2026-10-01T00:41:51.328Z",
-          "price": 1.1335,
-          "realizedPct": -0.018
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-30T22:14:42.080Z",
-          "capturedAt": "2026-10-01T00:41:51.328Z",
-          "price": 1.1335,
-          "realizedPct": -0.018
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-10-01T01:14:42.080Z",
-          "capturedAt": "2026-10-01T05:11:26.661Z",
-          "price": 1.1321,
-          "realizedPct": -0.141
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-10-01T21:14:42.080Z",
-          "capturedAt": "2026-10-01T23:23:43.643Z",
-          "price": 1.1247,
-          "realizedPct": -0.794
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-07T21:14:42.080Z",
-          "capturedAt": "2026-10-08T00:07:56.957Z",
-          "price": 1.1204,
-          "realizedPct": -1.173
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-30T21:14:42.080Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": -0.018,
-        "maePct": -1.173
-      }
-    },
-    {
-      "key": "news:forex:Gold can’t catch a PCE break as long US yields keep climbing",
-      "tabId": "forex",
-      "kind": "news",
-      "title": "Gold can’t catch a PCE break as long US yields keep climbing",
-      "url": "https://www.fxstreet.com/news/gold-cant-catch-a-pce-break-as-long-us-yields-keep-climbing-202609301802",
-      "impactScore": -0.15,
-      "priceAtDetect": 1.1337,
-      "createdAt": "2026-09-30T21:14:42.080Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-30T21:15:42.080Z",
-          "capturedAt": "2026-09-30T21:23:35.983Z",
-          "price": 1.1335,
-          "realizedPct": -0.018
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-30T21:19:42.080Z",
-          "capturedAt": "2026-09-30T21:23:35.983Z",
-          "price": 1.1335,
-          "realizedPct": -0.018
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-30T21:29:42.080Z",
-          "capturedAt": "2026-10-01T00:41:51.328Z",
-          "price": 1.1335,
-          "realizedPct": -0.018
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-30T21:44:42.080Z",
-          "capturedAt": "2026-10-01T00:41:51.328Z",
-          "price": 1.1335,
-          "realizedPct": -0.018
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-30T22:14:42.080Z",
-          "capturedAt": "2026-10-01T00:41:51.328Z",
-          "price": 1.1335,
-          "realizedPct": -0.018
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-10-01T01:14:42.080Z",
-          "capturedAt": "2026-10-01T05:11:26.661Z",
-          "price": 1.1321,
-          "realizedPct": -0.141
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-10-01T21:14:42.080Z",
-          "capturedAt": "2026-10-01T23:23:43.643Z",
-          "price": 1.1247,
-          "realizedPct": -0.794
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-07T21:14:42.080Z",
-          "capturedAt": "2026-10-08T00:07:56.957Z",
-          "price": 1.1204,
-          "realizedPct": -1.173
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-30T21:14:42.080Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": -0.018,
-        "maePct": -1.173
-      }
-    },
-    {
       "key": "news:gold:Euro weakens below 1.1350 on higher US Treasury yields, Lagarde's dovish tilt",
       "tabId": "gold",
       "kind": "news",
@@ -1219,9 +685,9 @@
           "key": "D1",
           "minutes": 1440,
           "dueAt": "2026-10-30T20:34:11.116Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-30T23:00:23.751Z",
+          "price": 3884.9,
+          "realizedPct": -3.782
         },
         {
           "key": "W1",
@@ -1243,7 +709,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.106,
-        "maePct": -0.589
+        "maePct": -3.782
       }
     },
     {
@@ -1308,9 +774,9 @@
           "key": "D1",
           "minutes": 1440,
           "dueAt": "2026-10-30T20:34:11.116Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-30T23:00:23.751Z",
+          "price": 76776.67,
+          "realizedPct": -3.877
         },
         {
           "key": "W1",
@@ -1332,7 +798,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.904,
-        "maePct": -3.757
+        "maePct": -3.877
       }
     },
     {
@@ -1397,9 +863,9 @@
           "key": "D1",
           "minutes": 1440,
           "dueAt": "2026-10-30T20:34:11.116Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-30T23:00:23.751Z",
+          "price": 1.1166,
+          "realizedPct": -0.152
         },
         {
           "key": "W1",
@@ -1421,7 +887,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.304,
-        "maePct": -0.045
+        "maePct": -0.152
       }
     },
     {
@@ -1957,9 +1423,801 @@
         "mfePct": 0.009,
         "maePct": -0.179
       }
+    },
+    {
+      "key": "news:gold:Warsh wants the Fed to say less. Two officials are pushing for more transparency.",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Warsh wants the Fed to say less. Two officials are pushing for more transparency.",
+      "url": "https://www.marketwatch.com/story/the-fed-held-interest-rates-steady-but-these-officials-see-more-hikes-coming-soon-2098bbd8?mod=mw_rss_topstories",
+      "impactScore": -0.25,
+      "priceAtDetect": 3884.9,
+      "createdAt": "2026-10-30T23:00:23.751Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-10-30T23:01:23.751Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-10-30T23:05:23.751Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-10-30T23:15:23.751Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-10-30T23:30:23.751Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-10-31T00:00:23.751Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-10-31T03:00:23.751Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-10-31T23:00:23.751Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-06T23:00:23.751Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-11-29T23:00:23.751Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:crypto:Warsh wants the Fed to say less. Two officials are pushing for more transparency.",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Warsh wants the Fed to say less. Two officials are pushing for more transparency.",
+      "url": "https://www.marketwatch.com/story/the-fed-held-interest-rates-steady-but-these-officials-see-more-hikes-coming-soon-2098bbd8?mod=mw_rss_topstories",
+      "impactScore": -0.26,
+      "priceAtDetect": 76776.67,
+      "createdAt": "2026-10-30T23:00:23.751Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-10-30T23:01:23.751Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-10-30T23:05:23.751Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-10-30T23:15:23.751Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-10-30T23:30:23.751Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-10-31T00:00:23.751Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-10-31T03:00:23.751Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-10-31T23:00:23.751Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-06T23:00:23.751Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-11-29T23:00:23.751Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:forex:Warsh wants the Fed to say less. Two officials are pushing for more transparency.",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Warsh wants the Fed to say less. Two officials are pushing for more transparency.",
+      "url": "https://www.marketwatch.com/story/the-fed-held-interest-rates-steady-but-these-officials-see-more-hikes-coming-soon-2098bbd8?mod=mw_rss_topstories",
+      "impactScore": -0.25,
+      "priceAtDetect": 1.1166,
+      "createdAt": "2026-10-30T23:00:23.751Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-10-30T23:01:23.751Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-10-30T23:05:23.751Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-10-30T23:15:23.751Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-10-30T23:30:23.751Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-10-31T00:00:23.751Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-10-31T03:00:23.751Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-10-31T23:00:23.751Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-06T23:00:23.751Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-11-29T23:00:23.751Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
     }
   ],
   "results": [
+    {
+      "key": "news:forex:Gold can’t catch a PCE break as long US yields keep climbing",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Gold can’t catch a PCE break as long US yields keep climbing",
+      "url": "https://www.fxstreet.com/news/gold-cant-catch-a-pce-break-as-long-us-yields-keep-climbing-202609301802",
+      "impactScore": -0.15,
+      "priceAtDetect": 1.1337,
+      "createdAt": "2026-09-30T21:14:42.080Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-30T21:15:42.080Z",
+          "capturedAt": "2026-09-30T21:23:35.983Z",
+          "price": 1.1335,
+          "realizedPct": -0.018
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-30T21:19:42.080Z",
+          "capturedAt": "2026-09-30T21:23:35.983Z",
+          "price": 1.1335,
+          "realizedPct": -0.018
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-30T21:29:42.080Z",
+          "capturedAt": "2026-10-01T00:41:51.328Z",
+          "price": 1.1335,
+          "realizedPct": -0.018
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-30T21:44:42.080Z",
+          "capturedAt": "2026-10-01T00:41:51.328Z",
+          "price": 1.1335,
+          "realizedPct": -0.018
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-30T22:14:42.080Z",
+          "capturedAt": "2026-10-01T00:41:51.328Z",
+          "price": 1.1335,
+          "realizedPct": -0.018
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-10-01T01:14:42.080Z",
+          "capturedAt": "2026-10-01T05:11:26.661Z",
+          "price": 1.1321,
+          "realizedPct": -0.141
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-10-01T21:14:42.080Z",
+          "capturedAt": "2026-10-01T23:23:43.643Z",
+          "price": 1.1247,
+          "realizedPct": -0.794
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-07T21:14:42.080Z",
+          "capturedAt": "2026-10-08T00:07:56.957Z",
+          "price": 1.1204,
+          "realizedPct": -1.173
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-30T21:14:42.080Z",
+          "capturedAt": "2026-10-30T23:00:23.751Z",
+          "price": 1.1166,
+          "realizedPct": -1.508
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": -0.018,
+        "maePct": -1.508
+      },
+      "completedAt": "2026-10-30T23:00:23.751Z"
+    },
+    {
+      "key": "news:forex:U.S. dollar sees best month since June on hawkish Fed, U.S. Treasury bond rout",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "U.S. dollar sees best month since June on hawkish Fed, U.S. Treasury bond rout",
+      "url": "https://www.investing.com/news/forex-news/asian-currencies-mixed-as-yen-rebounds-dollar-stays-near-twomonth-high-4924061",
+      "impactScore": -0.08,
+      "priceAtDetect": 1.1337,
+      "createdAt": "2026-09-30T21:14:42.080Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-30T21:15:42.080Z",
+          "capturedAt": "2026-09-30T21:23:35.983Z",
+          "price": 1.1335,
+          "realizedPct": -0.018
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-30T21:19:42.080Z",
+          "capturedAt": "2026-09-30T21:23:35.983Z",
+          "price": 1.1335,
+          "realizedPct": -0.018
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-30T21:29:42.080Z",
+          "capturedAt": "2026-10-01T00:41:51.328Z",
+          "price": 1.1335,
+          "realizedPct": -0.018
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-30T21:44:42.080Z",
+          "capturedAt": "2026-10-01T00:41:51.328Z",
+          "price": 1.1335,
+          "realizedPct": -0.018
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-30T22:14:42.080Z",
+          "capturedAt": "2026-10-01T00:41:51.328Z",
+          "price": 1.1335,
+          "realizedPct": -0.018
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-10-01T01:14:42.080Z",
+          "capturedAt": "2026-10-01T05:11:26.661Z",
+          "price": 1.1321,
+          "realizedPct": -0.141
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-10-01T21:14:42.080Z",
+          "capturedAt": "2026-10-01T23:23:43.643Z",
+          "price": 1.1247,
+          "realizedPct": -0.794
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-07T21:14:42.080Z",
+          "capturedAt": "2026-10-08T00:07:56.957Z",
+          "price": 1.1204,
+          "realizedPct": -1.173
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-30T21:14:42.080Z",
+          "capturedAt": "2026-10-30T23:00:23.751Z",
+          "price": 1.1166,
+          "realizedPct": -1.508
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": -0.018,
+        "maePct": -1.508
+      },
+      "completedAt": "2026-10-30T23:00:23.751Z"
+    },
+    {
+      "key": "news:crypto:Gold can’t catch a PCE break as long US yields keep climbing",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Gold can’t catch a PCE break as long US yields keep climbing",
+      "url": "https://www.fxstreet.com/news/gold-cant-catch-a-pce-break-as-long-us-yields-keep-climbing-202609301802",
+      "impactScore": -0.14,
+      "priceAtDetect": 83704.82,
+      "createdAt": "2026-09-30T21:14:42.080Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-30T21:15:42.080Z",
+          "capturedAt": "2026-09-30T21:23:35.983Z",
+          "price": 83729.97,
+          "realizedPct": 0.03
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-30T21:19:42.080Z",
+          "capturedAt": "2026-09-30T21:23:35.983Z",
+          "price": 83729.97,
+          "realizedPct": 0.03
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-30T21:29:42.080Z",
+          "capturedAt": "2026-10-01T00:41:51.328Z",
+          "price": 83466.06,
+          "realizedPct": -0.285
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-30T21:44:42.080Z",
+          "capturedAt": "2026-10-01T00:41:51.328Z",
+          "price": 83466.06,
+          "realizedPct": -0.285
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-30T22:14:42.080Z",
+          "capturedAt": "2026-10-01T00:41:51.328Z",
+          "price": 83466.06,
+          "realizedPct": -0.285
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-10-01T01:14:42.080Z",
+          "capturedAt": "2026-10-01T05:11:26.661Z",
+          "price": 84178.13,
+          "realizedPct": 0.565
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-10-01T21:14:42.080Z",
+          "capturedAt": "2026-10-01T23:23:43.643Z",
+          "price": 84726.79,
+          "realizedPct": 1.221
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-07T21:14:42.080Z",
+          "capturedAt": "2026-10-08T00:07:56.957Z",
+          "price": 83237.13,
+          "realizedPct": -0.559
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-30T21:14:42.080Z",
+          "capturedAt": "2026-10-30T23:00:23.751Z",
+          "price": 76776.67,
+          "realizedPct": -8.277
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 1.221,
+        "maePct": -8.277
+      },
+      "completedAt": "2026-10-30T23:00:23.751Z"
+    },
+    {
+      "key": "news:crypto:U.S. dollar sees best month since June on hawkish Fed, U.S. Treasury bond rout",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "U.S. dollar sees best month since June on hawkish Fed, U.S. Treasury bond rout",
+      "url": "https://www.investing.com/news/forex-news/asian-currencies-mixed-as-yen-rebounds-dollar-stays-near-twomonth-high-4924061",
+      "impactScore": -0.14,
+      "priceAtDetect": 83704.82,
+      "createdAt": "2026-09-30T21:14:42.080Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-30T21:15:42.080Z",
+          "capturedAt": "2026-09-30T21:23:35.983Z",
+          "price": 83729.97,
+          "realizedPct": 0.03
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-30T21:19:42.080Z",
+          "capturedAt": "2026-09-30T21:23:35.983Z",
+          "price": 83729.97,
+          "realizedPct": 0.03
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-30T21:29:42.080Z",
+          "capturedAt": "2026-10-01T00:41:51.328Z",
+          "price": 83466.06,
+          "realizedPct": -0.285
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-30T21:44:42.080Z",
+          "capturedAt": "2026-10-01T00:41:51.328Z",
+          "price": 83466.06,
+          "realizedPct": -0.285
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-30T22:14:42.080Z",
+          "capturedAt": "2026-10-01T00:41:51.328Z",
+          "price": 83466.06,
+          "realizedPct": -0.285
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-10-01T01:14:42.080Z",
+          "capturedAt": "2026-10-01T05:11:26.661Z",
+          "price": 84178.13,
+          "realizedPct": 0.565
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-10-01T21:14:42.080Z",
+          "capturedAt": "2026-10-01T23:23:43.643Z",
+          "price": 84726.79,
+          "realizedPct": 1.221
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-07T21:14:42.080Z",
+          "capturedAt": "2026-10-08T00:07:56.957Z",
+          "price": 83237.13,
+          "realizedPct": -0.559
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-30T21:14:42.080Z",
+          "capturedAt": "2026-10-30T23:00:23.751Z",
+          "price": 76776.67,
+          "realizedPct": -8.277
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 1.221,
+        "maePct": -8.277
+      },
+      "completedAt": "2026-10-30T23:00:23.751Z"
+    },
+    {
+      "key": "news:gold:Gold can’t catch a PCE break as long US yields keep climbing",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Gold can’t catch a PCE break as long US yields keep climbing",
+      "url": "https://www.fxstreet.com/news/gold-cant-catch-a-pce-break-as-long-us-yields-keep-climbing-202609301802",
+      "impactScore": -0.15,
+      "priceAtDetect": 4189.1,
+      "createdAt": "2026-09-30T21:14:42.080Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-30T21:15:42.080Z",
+          "capturedAt": "2026-09-30T21:23:35.983Z",
+          "price": 4189.1,
+          "realizedPct": 0
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-30T21:19:42.080Z",
+          "capturedAt": "2026-09-30T21:23:35.983Z",
+          "price": 4189.1,
+          "realizedPct": 0
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-30T21:29:42.080Z",
+          "capturedAt": "2026-10-01T00:41:51.328Z",
+          "price": 4173.4,
+          "realizedPct": -0.375
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-30T21:44:42.080Z",
+          "capturedAt": "2026-10-01T00:41:51.328Z",
+          "price": 4173.4,
+          "realizedPct": -0.375
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-30T22:14:42.080Z",
+          "capturedAt": "2026-10-01T00:41:51.328Z",
+          "price": 4173.4,
+          "realizedPct": -0.375
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-10-01T01:14:42.080Z",
+          "capturedAt": "2026-10-01T05:11:26.661Z",
+          "price": 4209.3,
+          "realizedPct": 0.482
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-10-01T21:14:42.080Z",
+          "capturedAt": "2026-10-01T23:23:43.643Z",
+          "price": 4208.8,
+          "realizedPct": 0.47
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-07T21:14:42.080Z",
+          "capturedAt": "2026-10-08T00:07:56.957Z",
+          "price": 4134.3,
+          "realizedPct": -1.308
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-30T21:14:42.080Z",
+          "capturedAt": "2026-10-30T23:00:23.750Z",
+          "price": 3884.9,
+          "realizedPct": -7.262
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 0.482,
+        "maePct": -7.262
+      },
+      "completedAt": "2026-10-30T23:00:23.751Z"
+    },
+    {
+      "key": "news:gold:U.S. dollar sees best month since June on hawkish Fed, U.S. Treasury bond rout",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "U.S. dollar sees best month since June on hawkish Fed, U.S. Treasury bond rout",
+      "url": "https://www.investing.com/news/forex-news/asian-currencies-mixed-as-yen-rebounds-dollar-stays-near-twomonth-high-4924061",
+      "impactScore": -0.12,
+      "priceAtDetect": 4189.1,
+      "createdAt": "2026-09-30T21:14:42.079Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-30T21:15:42.079Z",
+          "capturedAt": "2026-09-30T21:23:35.983Z",
+          "price": 4189.1,
+          "realizedPct": 0
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-30T21:19:42.079Z",
+          "capturedAt": "2026-09-30T21:23:35.983Z",
+          "price": 4189.1,
+          "realizedPct": 0
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-30T21:29:42.079Z",
+          "capturedAt": "2026-10-01T00:41:51.328Z",
+          "price": 4173.4,
+          "realizedPct": -0.375
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-30T21:44:42.079Z",
+          "capturedAt": "2026-10-01T00:41:51.328Z",
+          "price": 4173.4,
+          "realizedPct": -0.375
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-30T22:14:42.079Z",
+          "capturedAt": "2026-10-01T00:41:51.328Z",
+          "price": 4173.4,
+          "realizedPct": -0.375
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-10-01T01:14:42.079Z",
+          "capturedAt": "2026-10-01T05:11:26.661Z",
+          "price": 4209.3,
+          "realizedPct": 0.482
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-10-01T21:14:42.079Z",
+          "capturedAt": "2026-10-01T23:23:43.643Z",
+          "price": 4208.8,
+          "realizedPct": 0.47
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-07T21:14:42.079Z",
+          "capturedAt": "2026-10-08T00:07:56.957Z",
+          "price": 4134.3,
+          "realizedPct": -1.308
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-30T21:14:42.079Z",
+          "capturedAt": "2026-10-30T23:00:23.750Z",
+          "price": 3884.9,
+          "realizedPct": -7.262
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 0.482,
+        "maePct": -7.262
+      },
+      "completedAt": "2026-10-30T23:00:23.750Z"
+    },
     {
       "key": "news:forex:Canadian Dollar gains as US inflation cools Fed October rate hike bets",
       "tabId": "forex",
@@ -16869,96 +17127,6 @@
       "realizedPct": -0.55,
       "verdict": "correct",
       "settledAt": "2026-09-23T12:55:52.044Z"
-    },
-    {
-      "key": "news:gold:Indian Rupee resumes decline amid hawkish Fed expectations",
-      "tabId": "gold",
-      "kind": "news",
-      "title": "Indian Rupee resumes decline amid hawkish Fed expectations",
-      "url": "https://www.fxstreet.com/news/indian-rupee-comes-under-pressure-amid-hawkish-fed-expectations-202609230526",
-      "predictedPct": -0.12,
-      "priceAtDetect": 4363.4,
-      "createdAt": "2026-09-23T07:25:38.777Z",
-      "settleAt": "2026-09-23T08:10:38.777Z",
-      "priceAtSettle": 4339.5,
-      "realizedPct": -0.55,
-      "verdict": "correct",
-      "settledAt": "2026-09-23T12:55:52.044Z"
-    },
-    {
-      "key": "news:gold:New Zealand Dollar declines to near 0.5700 on hawkish Fed remarks ahead US PMI data",
-      "tabId": "gold",
-      "kind": "news",
-      "title": "New Zealand Dollar declines to near 0.5700 on hawkish Fed remarks ahead US PMI data",
-      "url": "https://www.fxstreet.com/news/new-zealand-dollar-declines-to-near-05700-on-hawkish-fed-remarks-ahead-us-pmi-data-202609230654",
-      "predictedPct": -0.12,
-      "priceAtDetect": 4363.4,
-      "createdAt": "2026-09-23T07:25:38.777Z",
-      "settleAt": "2026-09-23T08:10:38.777Z",
-      "priceAtSettle": 4339.5,
-      "realizedPct": -0.55,
-      "verdict": "correct",
-      "settledAt": "2026-09-23T12:55:52.044Z"
-    },
-    {
-      "key": "news:forex:Japanese Yen softens on BoJ's lack of hawkish guidance, potential intervention eyed",
-      "tabId": "forex",
-      "kind": "news",
-      "title": "Japanese Yen softens on BoJ's lack of hawkish guidance, potential intervention eyed",
-      "url": "https://www.fxstreet.com/news/japanese-yen-softens-on-bojs-lack-of-hawkish-guidance-potential-intervention-eyed-202609230208",
-      "predictedPct": -0.79,
-      "priceAtDetect": 1.1429,
-      "createdAt": "2026-09-23T04:11:44.361Z",
-      "settleAt": "2026-09-23T04:56:44.361Z",
-      "priceAtSettle": 1.1429,
-      "realizedPct": 0,
-      "verdict": "flat",
-      "settledAt": "2026-09-23T07:25:38.777Z"
-    },
-    {
-      "key": "news:forex:Silver Price Forecast: XAG/USD falls to near $66.50 as Fed signals further rate hikes",
-      "tabId": "forex",
-      "kind": "news",
-      "title": "Silver Price Forecast: XAG/USD falls to near $66.50 as Fed signals further rate hikes",
-      "url": "https://www.fxstreet.com/news/silver-price-forecast-xag-usd-falls-to-near-6650-as-fed-signals-further-rate-hikes-202609230239",
-      "predictedPct": -0.15,
-      "priceAtDetect": 1.1429,
-      "createdAt": "2026-09-23T04:11:44.361Z",
-      "settleAt": "2026-09-23T04:56:44.361Z",
-      "priceAtSettle": 1.1429,
-      "realizedPct": 0,
-      "verdict": "flat",
-      "settledAt": "2026-09-23T07:25:38.777Z"
-    },
-    {
-      "key": "news:crypto:Japanese Yen softens on BoJ's lack of hawkish guidance, potential intervention eyed",
-      "tabId": "crypto",
-      "kind": "news",
-      "title": "Japanese Yen softens on BoJ's lack of hawkish guidance, potential intervention eyed",
-      "url": "https://www.fxstreet.com/news/japanese-yen-softens-on-bojs-lack-of-hawkish-guidance-potential-intervention-eyed-202609230208",
-      "predictedPct": -0.72,
-      "priceAtDetect": 86836.68,
-      "createdAt": "2026-09-23T04:11:44.361Z",
-      "settleAt": "2026-09-23T04:56:44.361Z",
-      "priceAtSettle": 86330.66,
-      "realizedPct": -0.58,
-      "verdict": "correct",
-      "settledAt": "2026-09-23T07:25:38.777Z"
-    },
-    {
-      "key": "news:crypto:Silver Price Forecast: XAG/USD falls to near $66.50 as Fed signals further rate hikes",
-      "tabId": "crypto",
-      "kind": "news",
-      "title": "Silver Price Forecast: XAG/USD falls to near $66.50 as Fed signals further rate hikes",
-      "url": "https://www.fxstreet.com/news/silver-price-forecast-xag-usd-falls-to-near-6650-as-fed-signals-further-rate-hikes-202609230239",
-      "predictedPct": -0.14,
-      "priceAtDetect": 86836.68,
-      "createdAt": "2026-09-23T04:11:44.361Z",
-      "settleAt": "2026-09-23T04:56:44.361Z",
-      "priceAtSettle": 86330.66,
-      "realizedPct": -0.58,
-      "verdict": "correct",
-      "settledAt": "2026-09-23T07:25:38.777Z"
     }
   ]
 }
