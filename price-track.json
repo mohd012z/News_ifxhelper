@@ -1,540 +1,6 @@
 {
   "pending": [
     {
-      "key": "news:gold:Australian Dollar cracks 0.70 as Bullock dulls RBA hike, CPI looms",
-      "tabId": "gold",
-      "kind": "news",
-      "title": "Australian Dollar cracks 0.70 as Bullock dulls RBA hike, CPI looms",
-      "url": "https://www.fxstreet.com/news/australian-dollar-cracks-070-as-bullock-dulls-rba-hike-cpi-looms-202609292326",
-      "impactScore": -0.36,
-      "priceAtDetect": 4212.1,
-      "createdAt": "2026-09-29T23:53:14.494Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-29T23:54:14.494Z",
-          "capturedAt": "2026-09-29T23:56:04.783Z",
-          "price": 4214.8,
-          "realizedPct": 0.064
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-29T23:58:14.494Z",
-          "capturedAt": "2026-09-30T04:17:11.461Z",
-          "price": 4205.4,
-          "realizedPct": -0.159
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-30T00:08:14.494Z",
-          "capturedAt": "2026-09-30T04:17:11.461Z",
-          "price": 4205.4,
-          "realizedPct": -0.159
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-30T00:23:14.494Z",
-          "capturedAt": "2026-09-30T04:17:11.461Z",
-          "price": 4205.4,
-          "realizedPct": -0.159
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-30T00:53:14.494Z",
-          "capturedAt": "2026-09-30T04:17:11.461Z",
-          "price": 4205.4,
-          "realizedPct": -0.159
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-09-30T03:53:14.494Z",
-          "capturedAt": "2026-09-30T04:17:11.461Z",
-          "price": 4205.4,
-          "realizedPct": -0.159
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-09-30T23:53:14.494Z",
-          "capturedAt": "2026-10-01T00:41:51.328Z",
-          "price": 4173.4,
-          "realizedPct": -0.919
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-06T23:53:14.494Z",
-          "capturedAt": "2026-10-07T00:43:35.209Z",
-          "price": 4183.8,
-          "realizedPct": -0.672
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-29T23:53:14.494Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 0.064,
-        "maePct": -0.919
-      }
-    },
-    {
-      "key": "news:gold:The New Zealand Dollar breaks lower after Australia's rate hike",
-      "tabId": "gold",
-      "kind": "news",
-      "title": "The New Zealand Dollar breaks lower after Australia's rate hike",
-      "url": "https://www.fxstreet.com/news/the-new-zealand-dollar-breaks-lower-after-australias-rate-hike-202609292302",
-      "impactScore": -0.12,
-      "priceAtDetect": 4212.1,
-      "createdAt": "2026-09-29T23:53:14.494Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-29T23:54:14.494Z",
-          "capturedAt": "2026-09-29T23:56:04.783Z",
-          "price": 4214.8,
-          "realizedPct": 0.064
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-29T23:58:14.494Z",
-          "capturedAt": "2026-09-30T04:17:11.461Z",
-          "price": 4205.4,
-          "realizedPct": -0.159
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-30T00:08:14.494Z",
-          "capturedAt": "2026-09-30T04:17:11.461Z",
-          "price": 4205.4,
-          "realizedPct": -0.159
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-30T00:23:14.494Z",
-          "capturedAt": "2026-09-30T04:17:11.461Z",
-          "price": 4205.4,
-          "realizedPct": -0.159
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-30T00:53:14.494Z",
-          "capturedAt": "2026-09-30T04:17:11.461Z",
-          "price": 4205.4,
-          "realizedPct": -0.159
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-09-30T03:53:14.494Z",
-          "capturedAt": "2026-09-30T04:17:11.461Z",
-          "price": 4205.4,
-          "realizedPct": -0.159
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-09-30T23:53:14.494Z",
-          "capturedAt": "2026-10-01T00:41:51.328Z",
-          "price": 4173.4,
-          "realizedPct": -0.919
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-06T23:53:14.494Z",
-          "capturedAt": "2026-10-07T00:43:35.209Z",
-          "price": 4183.8,
-          "realizedPct": -0.672
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-29T23:53:14.494Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 0.064,
-        "maePct": -0.919
-      }
-    },
-    {
-      "key": "news:crypto:Australian Dollar cracks 0.70 as Bullock dulls RBA hike, CPI looms",
-      "tabId": "crypto",
-      "kind": "news",
-      "title": "Australian Dollar cracks 0.70 as Bullock dulls RBA hike, CPI looms",
-      "url": "https://www.fxstreet.com/news/australian-dollar-cracks-070-as-bullock-dulls-rba-hike-cpi-looms-202609292326",
-      "impactScore": -0.41,
-      "priceAtDetect": 83647.52,
-      "createdAt": "2026-09-29T23:53:14.494Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-29T23:54:14.494Z",
-          "capturedAt": "2026-09-29T23:56:04.783Z",
-          "price": 83632.51,
-          "realizedPct": -0.018
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-29T23:58:14.494Z",
-          "capturedAt": "2026-09-30T04:17:11.461Z",
-          "price": 83353.71,
-          "realizedPct": -0.351
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-30T00:08:14.494Z",
-          "capturedAt": "2026-09-30T04:17:11.461Z",
-          "price": 83353.71,
-          "realizedPct": -0.351
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-30T00:23:14.494Z",
-          "capturedAt": "2026-09-30T04:17:11.461Z",
-          "price": 83353.71,
-          "realizedPct": -0.351
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-30T00:53:14.494Z",
-          "capturedAt": "2026-09-30T04:17:11.461Z",
-          "price": 83353.71,
-          "realizedPct": -0.351
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-09-30T03:53:14.494Z",
-          "capturedAt": "2026-09-30T04:17:11.461Z",
-          "price": 83353.71,
-          "realizedPct": -0.351
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-09-30T23:53:14.494Z",
-          "capturedAt": "2026-10-01T00:41:51.328Z",
-          "price": 83466.06,
-          "realizedPct": -0.217
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-06T23:53:14.494Z",
-          "capturedAt": "2026-10-07T00:43:35.209Z",
-          "price": 85487.42,
-          "realizedPct": 2.2
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-29T23:53:14.494Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 2.2,
-        "maePct": -0.351
-      }
-    },
-    {
-      "key": "news:crypto:The New Zealand Dollar breaks lower after Australia's rate hike",
-      "tabId": "crypto",
-      "kind": "news",
-      "title": "The New Zealand Dollar breaks lower after Australia's rate hike",
-      "url": "https://www.fxstreet.com/news/the-new-zealand-dollar-breaks-lower-after-australias-rate-hike-202609292302",
-      "impactScore": -0.14,
-      "priceAtDetect": 83647.52,
-      "createdAt": "2026-09-29T23:53:14.494Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-29T23:54:14.494Z",
-          "capturedAt": "2026-09-29T23:56:04.783Z",
-          "price": 83632.51,
-          "realizedPct": -0.018
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-29T23:58:14.494Z",
-          "capturedAt": "2026-09-30T04:17:11.461Z",
-          "price": 83353.71,
-          "realizedPct": -0.351
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-30T00:08:14.494Z",
-          "capturedAt": "2026-09-30T04:17:11.461Z",
-          "price": 83353.71,
-          "realizedPct": -0.351
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-30T00:23:14.494Z",
-          "capturedAt": "2026-09-30T04:17:11.461Z",
-          "price": 83353.71,
-          "realizedPct": -0.351
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-30T00:53:14.494Z",
-          "capturedAt": "2026-09-30T04:17:11.461Z",
-          "price": 83353.71,
-          "realizedPct": -0.351
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-09-30T03:53:14.494Z",
-          "capturedAt": "2026-09-30T04:17:11.461Z",
-          "price": 83353.71,
-          "realizedPct": -0.351
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-09-30T23:53:14.494Z",
-          "capturedAt": "2026-10-01T00:41:51.328Z",
-          "price": 83466.06,
-          "realizedPct": -0.217
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-06T23:53:14.494Z",
-          "capturedAt": "2026-10-07T00:43:35.209Z",
-          "price": 85487.42,
-          "realizedPct": 2.2
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-29T23:53:14.494Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 2.2,
-        "maePct": -0.351
-      }
-    },
-    {
-      "key": "news:forex:Australian Dollar cracks 0.70 as Bullock dulls RBA hike, CPI looms",
-      "tabId": "forex",
-      "kind": "news",
-      "title": "Australian Dollar cracks 0.70 as Bullock dulls RBA hike, CPI looms",
-      "url": "https://www.fxstreet.com/news/australian-dollar-cracks-070-as-bullock-dulls-rba-hike-cpi-looms-202609292326",
-      "impactScore": -0.23,
-      "priceAtDetect": 1.1343,
-      "createdAt": "2026-09-29T23:53:14.494Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-29T23:54:14.494Z",
-          "capturedAt": "2026-09-29T23:56:04.783Z",
-          "price": 1.1344,
-          "realizedPct": 0.009
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-29T23:58:14.494Z",
-          "capturedAt": "2026-09-30T04:17:11.461Z",
-          "price": 1.1335,
-          "realizedPct": -0.071
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-30T00:08:14.494Z",
-          "capturedAt": "2026-09-30T04:17:11.461Z",
-          "price": 1.1335,
-          "realizedPct": -0.071
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-30T00:23:14.494Z",
-          "capturedAt": "2026-09-30T04:17:11.461Z",
-          "price": 1.1335,
-          "realizedPct": -0.071
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-30T00:53:14.494Z",
-          "capturedAt": "2026-09-30T04:17:11.461Z",
-          "price": 1.1335,
-          "realizedPct": -0.071
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-09-30T03:53:14.494Z",
-          "capturedAt": "2026-09-30T04:17:11.461Z",
-          "price": 1.1335,
-          "realizedPct": -0.071
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-09-30T23:53:14.494Z",
-          "capturedAt": "2026-10-01T00:41:51.328Z",
-          "price": 1.1335,
-          "realizedPct": -0.071
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-06T23:53:14.494Z",
-          "capturedAt": "2026-10-07T00:43:35.209Z",
-          "price": 1.1254,
-          "realizedPct": -0.785
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-29T23:53:14.494Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 0.009,
-        "maePct": -0.785
-      }
-    },
-    {
-      "key": "news:forex:The New Zealand Dollar breaks lower after Australia's rate hike",
-      "tabId": "forex",
-      "kind": "news",
-      "title": "The New Zealand Dollar breaks lower after Australia's rate hike",
-      "url": "https://www.fxstreet.com/news/the-new-zealand-dollar-breaks-lower-after-australias-rate-hike-202609292302",
-      "impactScore": -0.15,
-      "priceAtDetect": 1.1343,
-      "createdAt": "2026-09-29T23:53:14.494Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-09-29T23:54:14.494Z",
-          "capturedAt": "2026-09-29T23:56:04.783Z",
-          "price": 1.1344,
-          "realizedPct": 0.009
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-09-29T23:58:14.494Z",
-          "capturedAt": "2026-09-30T04:17:11.461Z",
-          "price": 1.1335,
-          "realizedPct": -0.071
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-09-30T00:08:14.494Z",
-          "capturedAt": "2026-09-30T04:17:11.461Z",
-          "price": 1.1335,
-          "realizedPct": -0.071
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-09-30T00:23:14.494Z",
-          "capturedAt": "2026-09-30T04:17:11.461Z",
-          "price": 1.1335,
-          "realizedPct": -0.071
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-09-30T00:53:14.494Z",
-          "capturedAt": "2026-09-30T04:17:11.461Z",
-          "price": 1.1335,
-          "realizedPct": -0.071
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-09-30T03:53:14.494Z",
-          "capturedAt": "2026-09-30T04:17:11.461Z",
-          "price": 1.1335,
-          "realizedPct": -0.071
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-09-30T23:53:14.494Z",
-          "capturedAt": "2026-10-01T00:41:51.328Z",
-          "price": 1.1335,
-          "realizedPct": -0.071
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-06T23:53:14.494Z",
-          "capturedAt": "2026-10-07T00:43:35.209Z",
-          "price": 1.1254,
-          "realizedPct": -0.785
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-29T23:53:14.494Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 0.009,
-        "maePct": -0.785
-      }
-    },
-    {
       "key": "news:gold:Swiss Franc remains near 16-month lows as rate hike odds lift US Dollar",
       "tabId": "gold",
       "kind": "news",
@@ -4941,9 +4407,9 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-10-29T21:34:11.116Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-30T00:18:39.805Z",
+          "price": 4017.3,
+          "realizedPct": -0.503
         },
         {
           "key": "H4",
@@ -4981,7 +4447,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.106,
-        "maePct": -0.106
+        "maePct": -0.503
       }
     },
     {
@@ -5030,9 +4496,9 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-10-29T21:34:11.116Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-30T00:18:39.805Z",
+          "price": 77354.59,
+          "realizedPct": -3.154
         },
         {
           "key": "H4",
@@ -5070,7 +4536,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.904,
-        "maePct": -0.904
+        "maePct": -3.154
       }
     },
     {
@@ -5119,9 +4585,9 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-10-29T21:34:11.116Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-30T00:18:39.805Z",
+          "price": 1.1188,
+          "realizedPct": 0.045
         },
         {
           "key": "H4",
@@ -5158,12 +4624,552 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": -0.045,
+        "mfePct": 0.045,
         "maePct": -0.045
       }
     }
   ],
   "results": [
+    {
+      "key": "news:forex:The New Zealand Dollar breaks lower after Australia's rate hike",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "The New Zealand Dollar breaks lower after Australia's rate hike",
+      "url": "https://www.fxstreet.com/news/the-new-zealand-dollar-breaks-lower-after-australias-rate-hike-202609292302",
+      "impactScore": -0.15,
+      "priceAtDetect": 1.1343,
+      "createdAt": "2026-09-29T23:53:14.494Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T23:54:14.494Z",
+          "capturedAt": "2026-09-29T23:56:04.783Z",
+          "price": 1.1344,
+          "realizedPct": 0.009
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T23:58:14.494Z",
+          "capturedAt": "2026-09-30T04:17:11.461Z",
+          "price": 1.1335,
+          "realizedPct": -0.071
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-30T00:08:14.494Z",
+          "capturedAt": "2026-09-30T04:17:11.461Z",
+          "price": 1.1335,
+          "realizedPct": -0.071
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-30T00:23:14.494Z",
+          "capturedAt": "2026-09-30T04:17:11.461Z",
+          "price": 1.1335,
+          "realizedPct": -0.071
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-30T00:53:14.494Z",
+          "capturedAt": "2026-09-30T04:17:11.461Z",
+          "price": 1.1335,
+          "realizedPct": -0.071
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-30T03:53:14.494Z",
+          "capturedAt": "2026-09-30T04:17:11.461Z",
+          "price": 1.1335,
+          "realizedPct": -0.071
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T23:53:14.494Z",
+          "capturedAt": "2026-10-01T00:41:51.328Z",
+          "price": 1.1335,
+          "realizedPct": -0.071
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T23:53:14.494Z",
+          "capturedAt": "2026-10-07T00:43:35.209Z",
+          "price": 1.1254,
+          "realizedPct": -0.785
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T23:53:14.494Z",
+          "capturedAt": "2026-10-30T00:18:39.805Z",
+          "price": 1.1188,
+          "realizedPct": -1.366
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 0.009,
+        "maePct": -1.366
+      },
+      "completedAt": "2026-10-30T00:18:39.805Z"
+    },
+    {
+      "key": "news:forex:Australian Dollar cracks 0.70 as Bullock dulls RBA hike, CPI looms",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Australian Dollar cracks 0.70 as Bullock dulls RBA hike, CPI looms",
+      "url": "https://www.fxstreet.com/news/australian-dollar-cracks-070-as-bullock-dulls-rba-hike-cpi-looms-202609292326",
+      "impactScore": -0.23,
+      "priceAtDetect": 1.1343,
+      "createdAt": "2026-09-29T23:53:14.494Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T23:54:14.494Z",
+          "capturedAt": "2026-09-29T23:56:04.783Z",
+          "price": 1.1344,
+          "realizedPct": 0.009
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T23:58:14.494Z",
+          "capturedAt": "2026-09-30T04:17:11.461Z",
+          "price": 1.1335,
+          "realizedPct": -0.071
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-30T00:08:14.494Z",
+          "capturedAt": "2026-09-30T04:17:11.461Z",
+          "price": 1.1335,
+          "realizedPct": -0.071
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-30T00:23:14.494Z",
+          "capturedAt": "2026-09-30T04:17:11.461Z",
+          "price": 1.1335,
+          "realizedPct": -0.071
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-30T00:53:14.494Z",
+          "capturedAt": "2026-09-30T04:17:11.461Z",
+          "price": 1.1335,
+          "realizedPct": -0.071
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-30T03:53:14.494Z",
+          "capturedAt": "2026-09-30T04:17:11.461Z",
+          "price": 1.1335,
+          "realizedPct": -0.071
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T23:53:14.494Z",
+          "capturedAt": "2026-10-01T00:41:51.328Z",
+          "price": 1.1335,
+          "realizedPct": -0.071
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T23:53:14.494Z",
+          "capturedAt": "2026-10-07T00:43:35.209Z",
+          "price": 1.1254,
+          "realizedPct": -0.785
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T23:53:14.494Z",
+          "capturedAt": "2026-10-30T00:18:39.805Z",
+          "price": 1.1188,
+          "realizedPct": -1.366
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 0.009,
+        "maePct": -1.366
+      },
+      "completedAt": "2026-10-30T00:18:39.805Z"
+    },
+    {
+      "key": "news:crypto:The New Zealand Dollar breaks lower after Australia's rate hike",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "The New Zealand Dollar breaks lower after Australia's rate hike",
+      "url": "https://www.fxstreet.com/news/the-new-zealand-dollar-breaks-lower-after-australias-rate-hike-202609292302",
+      "impactScore": -0.14,
+      "priceAtDetect": 83647.52,
+      "createdAt": "2026-09-29T23:53:14.494Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T23:54:14.494Z",
+          "capturedAt": "2026-09-29T23:56:04.783Z",
+          "price": 83632.51,
+          "realizedPct": -0.018
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T23:58:14.494Z",
+          "capturedAt": "2026-09-30T04:17:11.461Z",
+          "price": 83353.71,
+          "realizedPct": -0.351
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-30T00:08:14.494Z",
+          "capturedAt": "2026-09-30T04:17:11.461Z",
+          "price": 83353.71,
+          "realizedPct": -0.351
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-30T00:23:14.494Z",
+          "capturedAt": "2026-09-30T04:17:11.461Z",
+          "price": 83353.71,
+          "realizedPct": -0.351
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-30T00:53:14.494Z",
+          "capturedAt": "2026-09-30T04:17:11.461Z",
+          "price": 83353.71,
+          "realizedPct": -0.351
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-30T03:53:14.494Z",
+          "capturedAt": "2026-09-30T04:17:11.461Z",
+          "price": 83353.71,
+          "realizedPct": -0.351
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T23:53:14.494Z",
+          "capturedAt": "2026-10-01T00:41:51.328Z",
+          "price": 83466.06,
+          "realizedPct": -0.217
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T23:53:14.494Z",
+          "capturedAt": "2026-10-07T00:43:35.209Z",
+          "price": 85487.42,
+          "realizedPct": 2.2
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T23:53:14.494Z",
+          "capturedAt": "2026-10-30T00:18:39.805Z",
+          "price": 77354.59,
+          "realizedPct": -7.523
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 2.2,
+        "maePct": -7.523
+      },
+      "completedAt": "2026-10-30T00:18:39.805Z"
+    },
+    {
+      "key": "news:crypto:Australian Dollar cracks 0.70 as Bullock dulls RBA hike, CPI looms",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Australian Dollar cracks 0.70 as Bullock dulls RBA hike, CPI looms",
+      "url": "https://www.fxstreet.com/news/australian-dollar-cracks-070-as-bullock-dulls-rba-hike-cpi-looms-202609292326",
+      "impactScore": -0.41,
+      "priceAtDetect": 83647.52,
+      "createdAt": "2026-09-29T23:53:14.494Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T23:54:14.494Z",
+          "capturedAt": "2026-09-29T23:56:04.783Z",
+          "price": 83632.51,
+          "realizedPct": -0.018
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T23:58:14.494Z",
+          "capturedAt": "2026-09-30T04:17:11.461Z",
+          "price": 83353.71,
+          "realizedPct": -0.351
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-30T00:08:14.494Z",
+          "capturedAt": "2026-09-30T04:17:11.461Z",
+          "price": 83353.71,
+          "realizedPct": -0.351
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-30T00:23:14.494Z",
+          "capturedAt": "2026-09-30T04:17:11.461Z",
+          "price": 83353.71,
+          "realizedPct": -0.351
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-30T00:53:14.494Z",
+          "capturedAt": "2026-09-30T04:17:11.461Z",
+          "price": 83353.71,
+          "realizedPct": -0.351
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-30T03:53:14.494Z",
+          "capturedAt": "2026-09-30T04:17:11.461Z",
+          "price": 83353.71,
+          "realizedPct": -0.351
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T23:53:14.494Z",
+          "capturedAt": "2026-10-01T00:41:51.328Z",
+          "price": 83466.06,
+          "realizedPct": -0.217
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T23:53:14.494Z",
+          "capturedAt": "2026-10-07T00:43:35.209Z",
+          "price": 85487.42,
+          "realizedPct": 2.2
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T23:53:14.494Z",
+          "capturedAt": "2026-10-30T00:18:39.805Z",
+          "price": 77354.59,
+          "realizedPct": -7.523
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 2.2,
+        "maePct": -7.523
+      },
+      "completedAt": "2026-10-30T00:18:39.805Z"
+    },
+    {
+      "key": "news:gold:The New Zealand Dollar breaks lower after Australia's rate hike",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "The New Zealand Dollar breaks lower after Australia's rate hike",
+      "url": "https://www.fxstreet.com/news/the-new-zealand-dollar-breaks-lower-after-australias-rate-hike-202609292302",
+      "impactScore": -0.12,
+      "priceAtDetect": 4212.1,
+      "createdAt": "2026-09-29T23:53:14.494Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T23:54:14.494Z",
+          "capturedAt": "2026-09-29T23:56:04.783Z",
+          "price": 4214.8,
+          "realizedPct": 0.064
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T23:58:14.494Z",
+          "capturedAt": "2026-09-30T04:17:11.461Z",
+          "price": 4205.4,
+          "realizedPct": -0.159
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-30T00:08:14.494Z",
+          "capturedAt": "2026-09-30T04:17:11.461Z",
+          "price": 4205.4,
+          "realizedPct": -0.159
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-30T00:23:14.494Z",
+          "capturedAt": "2026-09-30T04:17:11.461Z",
+          "price": 4205.4,
+          "realizedPct": -0.159
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-30T00:53:14.494Z",
+          "capturedAt": "2026-09-30T04:17:11.461Z",
+          "price": 4205.4,
+          "realizedPct": -0.159
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-30T03:53:14.494Z",
+          "capturedAt": "2026-09-30T04:17:11.461Z",
+          "price": 4205.4,
+          "realizedPct": -0.159
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T23:53:14.494Z",
+          "capturedAt": "2026-10-01T00:41:51.328Z",
+          "price": 4173.4,
+          "realizedPct": -0.919
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T23:53:14.494Z",
+          "capturedAt": "2026-10-07T00:43:35.209Z",
+          "price": 4183.8,
+          "realizedPct": -0.672
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T23:53:14.494Z",
+          "capturedAt": "2026-10-30T00:18:39.805Z",
+          "price": 4017.3,
+          "realizedPct": -4.625
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 0.064,
+        "maePct": -4.625
+      },
+      "completedAt": "2026-10-30T00:18:39.805Z"
+    },
+    {
+      "key": "news:gold:Australian Dollar cracks 0.70 as Bullock dulls RBA hike, CPI looms",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Australian Dollar cracks 0.70 as Bullock dulls RBA hike, CPI looms",
+      "url": "https://www.fxstreet.com/news/australian-dollar-cracks-070-as-bullock-dulls-rba-hike-cpi-looms-202609292326",
+      "impactScore": -0.36,
+      "priceAtDetect": 4212.1,
+      "createdAt": "2026-09-29T23:53:14.494Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-09-29T23:54:14.494Z",
+          "capturedAt": "2026-09-29T23:56:04.783Z",
+          "price": 4214.8,
+          "realizedPct": 0.064
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-09-29T23:58:14.494Z",
+          "capturedAt": "2026-09-30T04:17:11.461Z",
+          "price": 4205.4,
+          "realizedPct": -0.159
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-09-30T00:08:14.494Z",
+          "capturedAt": "2026-09-30T04:17:11.461Z",
+          "price": 4205.4,
+          "realizedPct": -0.159
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-09-30T00:23:14.494Z",
+          "capturedAt": "2026-09-30T04:17:11.461Z",
+          "price": 4205.4,
+          "realizedPct": -0.159
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-09-30T00:53:14.494Z",
+          "capturedAt": "2026-09-30T04:17:11.461Z",
+          "price": 4205.4,
+          "realizedPct": -0.159
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-09-30T03:53:14.494Z",
+          "capturedAt": "2026-09-30T04:17:11.461Z",
+          "price": 4205.4,
+          "realizedPct": -0.159
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-09-30T23:53:14.494Z",
+          "capturedAt": "2026-10-01T00:41:51.328Z",
+          "price": 4173.4,
+          "realizedPct": -0.919
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-06T23:53:14.494Z",
+          "capturedAt": "2026-10-07T00:43:35.209Z",
+          "price": 4183.8,
+          "realizedPct": -0.672
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-29T23:53:14.494Z",
+          "capturedAt": "2026-10-30T00:18:39.805Z",
+          "price": 4017.3,
+          "realizedPct": -4.625
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 0.064,
+        "maePct": -4.625
+      },
+      "completedAt": "2026-10-30T00:18:39.805Z"
+    },
     {
       "key": "news:forex:Traders expecting a back-to-back rate hike from the Fed in October may have gotten ahead of themselves",
       "tabId": "forex",
@@ -16922,96 +16928,6 @@
       "priceAtSettle": 1.1438,
       "realizedPct": -0.26,
       "verdict": "wrong",
-      "settledAt": "2026-09-22T17:09:31.862Z"
-    },
-    {
-      "key": "news:forex:South African Rand: SARB hike and hawkish tone – Commerzbank",
-      "tabId": "forex",
-      "kind": "news",
-      "title": "South African Rand: SARB hike and hawkish tone – Commerzbank",
-      "url": "https://www.fxstreet.com/news/south-african-rand-sarb-hike-and-hawkish-tone-commerzbank-202609221007",
-      "predictedPct": -0.08,
-      "priceAtDetect": 1.1468,
-      "createdAt": "2026-09-22T12:23:29.230Z",
-      "settleAt": "2026-09-22T13:08:29.230Z",
-      "priceAtSettle": 1.1438,
-      "realizedPct": -0.26,
-      "verdict": "correct",
-      "settledAt": "2026-09-22T17:09:31.862Z"
-    },
-    {
-      "key": "news:forex:US Dollar: Modestly stronger into year-end – OCBC",
-      "tabId": "forex",
-      "kind": "news",
-      "title": "US Dollar: Modestly stronger into year-end – OCBC",
-      "url": "https://www.fxstreet.com/news/us-dollar-modestly-stronger-into-year-end-ocbc-202609221145",
-      "predictedPct": -0.15,
-      "priceAtDetect": 1.1468,
-      "createdAt": "2026-09-22T12:23:29.230Z",
-      "settleAt": "2026-09-22T13:08:29.230Z",
-      "priceAtSettle": 1.1438,
-      "realizedPct": -0.26,
-      "verdict": "correct",
-      "settledAt": "2026-09-22T17:09:31.862Z"
-    },
-    {
-      "key": "news:forex:British Pound: Fiscal squeeze risks dovish BoE – BBH",
-      "tabId": "forex",
-      "kind": "news",
-      "title": "British Pound: Fiscal squeeze risks dovish BoE – BBH",
-      "url": "https://www.fxstreet.com/news/british-pound-fiscal-squeeze-risks-dovish-boe-bbh-202609221220",
-      "predictedPct": 0.45,
-      "priceAtDetect": 1.1468,
-      "createdAt": "2026-09-22T12:23:29.230Z",
-      "settleAt": "2026-09-22T13:08:29.230Z",
-      "priceAtSettle": 1.1438,
-      "realizedPct": -0.26,
-      "verdict": "wrong",
-      "settledAt": "2026-09-22T17:09:31.862Z"
-    },
-    {
-      "key": "news:forex:Sterling today: Pound slips as hawkish Fed talk lifts dollar broadly",
-      "tabId": "forex",
-      "kind": "news",
-      "title": "Sterling today: Pound slips as hawkish Fed talk lifts dollar broadly",
-      "url": "https://www.investing.com/news/forex-news/sterling-today-pound-slips-as-hawkish-fed-talk-lifts-dollar-broadly-4910096",
-      "predictedPct": -0.08,
-      "priceAtDetect": 1.1468,
-      "createdAt": "2026-09-22T12:23:29.230Z",
-      "settleAt": "2026-09-22T13:08:29.230Z",
-      "priceAtSettle": 1.1438,
-      "realizedPct": -0.26,
-      "verdict": "correct",
-      "settledAt": "2026-09-22T17:09:31.862Z"
-    },
-    {
-      "key": "news:forex:Dollar holds on hawkish Fed pricing while yen languishes despite Tokyo support",
-      "tabId": "forex",
-      "kind": "news",
-      "title": "Dollar holds on hawkish Fed pricing while yen languishes despite Tokyo support",
-      "url": "https://www.investing.com/news/forex-news/asian-currencies-mixed-as-dollar-steadies-yen-pressured-by-policy-gap-4909848",
-      "predictedPct": -0.08,
-      "priceAtDetect": 1.1468,
-      "createdAt": "2026-09-22T12:23:29.230Z",
-      "settleAt": "2026-09-22T13:08:29.230Z",
-      "priceAtSettle": 1.1438,
-      "realizedPct": -0.26,
-      "verdict": "correct",
-      "settledAt": "2026-09-22T17:09:31.862Z"
-    },
-    {
-      "key": "news:crypto:Hungarian Forint: NBH stance supports carry appeal – ING",
-      "tabId": "crypto",
-      "kind": "news",
-      "title": "Hungarian Forint: NBH stance supports carry appeal – ING",
-      "url": "https://www.fxstreet.com/news/hungarian-forint-nbh-stance-supports-carry-appeal-ing-202609220947",
-      "predictedPct": 0.08,
-      "priceAtDetect": 85932.59,
-      "createdAt": "2026-09-22T12:23:29.230Z",
-      "settleAt": "2026-09-22T13:08:29.230Z",
-      "priceAtSettle": 86432.14,
-      "realizedPct": 0.58,
-      "verdict": "correct",
       "settledAt": "2026-09-22T17:09:31.862Z"
     }
   ]
