@@ -24,6 +24,7 @@ const fs = require('fs');
 const History = require('./lib/history-store');
 const ForexFactoryCalendar = require('./lib/forexfactory-calendar');
 const path = require('path');
+const { fetchBody } = require('./lib/source-fetch');
 
 const OUT = path.join(__dirname, 'news-auto.js');
 const TRACK_FILE = path.join(__dirname, 'price-track.json');
@@ -42,9 +43,7 @@ const TRACK_INSTRUMENTS = {
 const TRACK_QUOTES = {};
 async function yahooLast(sym) {
   const url = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(sym)}?range=1d&interval=1m`;
-  const r = await fetch(url, { headers: UA });
-  if (!r.ok) throw new Error('HTTP ' + r.status);
-  const j = await r.json();
+  const j = await fetchBody(url, { kind: 'json', headers: UA });
   const res = j.chart && j.chart.result && j.chart.result[0];
   const price = res && res.meta && res.meta.regularMarketPrice;
   const ts = Number(res && res.meta && res.meta.regularMarketTime) * 1000;
@@ -53,9 +52,7 @@ async function yahooLast(sym) {
 }
 async function coinbaseLast(product) {
   const url = `https://api.exchange.coinbase.com/products/${product}/ticker`;
-  const r = await fetch(url, { headers: UA });
-  if (!r.ok) throw new Error('HTTP ' + r.status);
-  const j = await r.json();
+  const j = await fetchBody(url, { kind: 'json', headers: UA });
   const price = j && +j.price;
   if (!price) throw new Error('no price');
   const marketAt = j.time && Number.isFinite(Date.parse(j.time)) ? new Date(j.time).toISOString() : null;
@@ -324,9 +321,7 @@ function isFresh(pubDate) {
 }
 
 async function fetchText(url) {
-  const r = await fetch(url, { headers: UA });
-  if (!r.ok) throw new Error('HTTP ' + r.status + ' ' + url);
-  return r.text();
+  return fetchBody(url, { kind: 'text', headers: UA });
 }
 
 const DAY_NAMES = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
