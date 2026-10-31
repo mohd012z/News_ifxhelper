@@ -1567,9 +1567,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-10-31T03:00:23.751Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-31T04:14:27.147Z",
+          "price": 77035.19,
+          "realizedPct": 0.337
         },
         {
           "key": "D1",
