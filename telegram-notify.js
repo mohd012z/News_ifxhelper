@@ -334,14 +334,16 @@ function newsCard(MARKET_DATA, tab, n, atrData, quoteSnapshots) {
   const atrId = tab.id === 'gold' ? 'XAUUSD' : tab.id === 'crypto' ? 'BTCUSD' : focusSym === 'EUR/USD' ? 'EURUSD' : null;
   const atrRow = atrId && findAtrRow(atrData, atrId);
   const atrSource = atrRow && String(atrRow.src || '').split(':').slice(1).join(':');
+  const ageH = n.publishedAt && Number.isFinite(Date.parse(n.publishedAt)) ? (Date.now() - Date.parse(n.publishedAt)) / 3600000 : Infinity;
+  const freshHeadline = ageH >= 0 && ageH <= 2;
   const plan = MarketReview.buildAtrTargets({
-    signal: n.signal, price: quote && quote.price, atr: atrRow && atrRow.atr,
+    signal: freshHeadline ? n.signal : 'NEUTRAL', price: quote && quote.price, atr: atrRow && atrRow.atr,
     quoteSymbol: quote && quote.symbol, atrSymbol: atrSource,
     quoteAt: quote && quote.marketAt, atrAt: atrData && atrData.asOf
   });
   const priceLine = plan.valid
     ? `🧮 ATR14 scenario (${esc(plan.instrument)}${tab.id === 'gold' ? ' gold FUTURES, not spot XAU/USD' : ''}): Entry <b>${fmtPrice(plan.entry)}</b> · SL <b>${fmtPrice(plan.sl)}</b> · TP1 <b>${fmtPrice(plan.tp1)}</b> · TP2 <b>${fmtPrice(plan.tp2)}</b> (illustrative only)`
-    : `🧮 TP/SL unavailable: ${esc(plan.reason)} (needs fresh matching quote and ATR)`;
+    : `🧮 TP/SL unavailable: ${esc(freshHeadline ? plan.reason : 'STALE_OR_UNDATED_HEADLINE')} (needs news <2h old, fresh matching quote and ATR)`;
   const caption = [
     `<b>${esc(tab.label)}</b> — auto-classified news`,
     orderCallLine(n.signal),
@@ -654,7 +656,9 @@ function buildWeeklyOutlook(MARKET_DATA, NEWS_AUTO) {
   return messages;
 }
 
-(async () => {
+module.exports = { resultCard, newsCard, speakerCard };
+
+if (require.main === module) (async () => {
   const MARKET_DATA = loadJsModule('xauusd-data.js', 'MARKET_DATA');
   const NEWS_AUTO = loadJsModule('news-auto.js', 'NEWS_AUTO');
   const ATR_DATA = loadJsModule('atr.js', 'ATR_DATA'); // real Wilder ATR(14) per instrument, for the ATR-based price-target line
@@ -715,7 +719,7 @@ function buildWeeklyOutlook(MARKET_DATA, NEWS_AUTO) {
     const sampleAutoByTab = NEWS_AUTO && NEWS_AUTO.byTab && NEWS_AUTO.byTab[sampleTab.id];
     const sampleNews = ((sampleAutoByTab && sampleAutoByTab.news) || [])[0] || (sampleTab.news || [])[0];
     const evtCard = sampleEvent ? eventCard(MARKET_DATA, ATR_DATA, sampleEvent, COMMENTARY_POOL) : null;
-    const nwsCard = sampleNews ? newsCard(MARKET_DATA, sampleTab, sampleNews) : null;
+    const nwsCard = sampleNews ? newsCard(MARKET_DATA, sampleTab, sampleNews, ATR_DATA, NEWS_AUTO && NEWS_AUTO.priceTrack && NEWS_AUTO.priceTrack.quoteSnapshots) : null;
     console.log('===== EVENT CARD PREVIEW =====\n' + (evtCard ? evtCard.caption + '\n[chart] ' + evtCard.chartUrl : '(no incoming events loaded)'));
     console.log('\n===== NEWS CARD PREVIEW =====\n' + (nwsCard ? nwsCard.caption + '\n[chart] ' + nwsCard.chartUrl : '(no news loaded)'));
     if (TOKEN && CHAT_ID && evtCard) {
