@@ -409,7 +409,7 @@ function speakerCard(MARKET_DATA, tab, s) {
 /* Display historical observed reactions using the current timestamped checkpoint schema.
  * Do not confuse a monthly completion notification with a 45-minute price reaction. */
 function resultCard(r) {
-  const focusSym = TRACK_LABEL[r.tabId] || r.tabId;
+  const focusSym = (typeof r.priceSymbol === 'string' && r.priceSymbol.trim()) || (r.tabId === 'gold' ? 'GC=F gold futures proxy' : TRACK_LABEL[r.tabId] || r.tabId);
   const obs = MarketReview.normalizePriceTrack(r);
   const signed = value => value == null ? '—' : (value > 0 ? '+' : '') + value.toFixed(3);
   const checked = obs.capturedAt
