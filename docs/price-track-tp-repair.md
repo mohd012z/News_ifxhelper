@@ -57,3 +57,44 @@ Telegram chat is required. Feed/network tests require network access.
   instrument digits and M15/H1 ATR, and add spread/slippage/risk checks.
 - Historical messages already delivered cannot be edited by this PR; keys
   remain marked sent, avoiding retroactive duplicate notifications.
+
+## Nine-timeframe extension (M1, M5, M15, M30, H1, H4, D1, W1, MN1)
+This PR now includes \`lib/atr-mtf-engine.js\` and \`build-atr-mtf.js\`.
+Four independently sourced Yahoo GC=F futures OHLC tiers feed exactly nine
+Wilder ATR(14) frame calculations:
+
+| Frame | Input OHLC | Calculation |
+| --- | --- | --- |
+| M1 | Yahoo 1m, 5d | 1-minute closed bars |
+| M5 | Yahoo 5m, 1mo | 5-minute closed bars |
+| M15 / M30 | Yahoo 5m, 1mo | Exact contiguous 5m resampling |
+| H1 | Yahoo 1h, 3mo | 1-hour closed bars |
+| H4 | Yahoo 1h, 3mo | Exact contiguous 1h resampling |
+| D1 | Yahoo 1d, 5y | Completed daily bars |
+| W1 | Yahoo 1d, 5y | Completed Monday–Monday UTC weekly buckets, trading days only |
+| MN1 | Yahoo 1d, 5y | Completed UTC calendar months, trading days only |
+
+**No forward fill:** partial/invalid/duplicate/insufficient/old candles
+render individual timeframe rows as unavailable. ATR requires at least 15
+completed candles in each frame. Per-timeframe SL/TP levels use ATR(14)
+from that frame only, with source equality against the quote (symbol AND
+provider). W1 / MN1 use true calendar boundaries, not 7- or 30-day
+rolling durations. The futures default is labelled **GC=F**, not XAU/USD spot.
+
+A genuine broker XAU/USD spot adapter may pass four granular OHLC sets to
+\`analyzeAll(sets, {instrument:'XAU/USD',provider:'BROKER',
+source:'broker:XAU/USD'})\` and an independently timestamped matching spot
+quote to \`buildMultiTimeframeTargets\`. The repository does **not** contain
+an authenticated real-time spot broker feed; it must not emit purported
+live XAU/USD spot entry/TP prices until that is configured and validated.
+
+Collector runs at the existing 30-minute News Watch and daily refresh
+schedules, before notifications. It introduces no extra scheduled workflow
+or paid AI provider. A market-closed weekend or Yahoo rate-limit may cause
+individual/all unavailable statuses. Existing downstream consumers can
+inspect \`window.ATR_MTF.timeframes\` in the web/APK bundle after the first
+successful scheduled refresh.
+
+Checks: \`npm run test:atr-mtf\`, \`npm run test:market-review\`,
+\`npm run test:market-card\`, and \`npm test\`. The scope is read-only
+market analysis, never automatic orders or a backtested guarantee.
