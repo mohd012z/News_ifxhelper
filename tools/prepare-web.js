@@ -4,7 +4,7 @@
 const fs=require('fs'), path=require('path');
 const root=path.resolve(__dirname,'..'), out=path.join(root,'www');
 const FILES=['index.html','trade-plan.html','app.js','bbma-runtime.js','bbma-dashboard-ui.js','bbma-router-fix.js','bbma-link.js','bbma-news-dashboard.css','trade-plan.js','live.js','shared-market-logic.js',
-  'xauusd-data.js','atr.js','news-auto.js','macro-auto.js','data-manifest.json',
+  'xauusd-data.js','atr.js','atr-mtf.js','spot-mtf.js','news-auto.js','macro-auto.js','data-manifest.json',
   'manifest.webmanifest','sw.js','pwa.js'];
 const DIRS=['icons','lib'];
 fs.rmSync(out,{recursive:true,force:true}); fs.mkdirSync(out,{recursive:true});

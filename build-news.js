@@ -35,10 +35,11 @@ const UA = { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) XAU-Desk-N
 // right granularity to measure "did price actually move the way the model predicted", not a
 // full per-pair price. XAU for gold, BTC for crypto, EUR/USD (dollar's most-traded pair) for forex.
 const TRACK_INSTRUMENTS = {
-  gold: { label: 'XAU/USD', kind: 'yahoo', sym: 'GC=F' },
+  gold: { label: 'GC=F gold futures proxy (not spot XAU/USD)', kind: 'yahoo', sym: 'GC=F' },
   crypto: { label: 'BTC/USD', kind: 'coinbase', product: 'BTC-USD' },
   forex: { label: 'EUR/USD', kind: 'yahoo', sym: 'EURUSD=X' }
 };
+const TRACK_QUOTES = {};
 async function yahooLast(sym) {
   const url = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(sym)}?range=1d&interval=1m`;
   const r = await fetch(url, { headers: UA });
@@ -46,8 +47,9 @@ async function yahooLast(sym) {
   const j = await r.json();
   const res = j.chart && j.chart.result && j.chart.result[0];
   const price = res && res.meta && res.meta.regularMarketPrice;
-  if (price == null) throw new Error('no price');
-  return price;
+  const ts = Number(res && res.meta && res.meta.regularMarketTime) * 1000;
+  if (!(Number(price) > 0) || !Number.isFinite(ts) || ts <= 0) throw new Error('missing price or exchange timestamp');
+  return { price: Number(price), marketAt: new Date(ts).toISOString(), source: 'yahoo:' + sym };
 }
 async function coinbaseLast(product) {
   const url = `https://api.exchange.coinbase.com/products/${product}/ticker`;
@@ -56,13 +58,23 @@ async function coinbaseLast(product) {
   const j = await r.json();
   const price = j && +j.price;
   if (!price) throw new Error('no price');
-  return price;
+  const marketAt = j.time && Number.isFinite(Date.parse(j.time)) ? new Date(j.time).toISOString() : null;
+  if (!marketAt) throw new Error('missing exchange timestamp');
+  return { price, marketAt, source: 'coinbase:' + product };
 }
 async function fetchSpot(tabId) {
   const cfg = TRACK_INSTRUMENTS[tabId];
   if (!cfg) return null;
-  try { return cfg.kind === 'yahoo' ? await yahooLast(cfg.sym) : await coinbaseLast(cfg.product); }
-  catch (e) { console.log('WARN spot: ' + tabId + ' -> ' + e.message); return null; }
+  try {
+    const q = cfg.kind === 'yahoo' ? await yahooLast(cfg.sym) : await coinbaseLast(cfg.product);
+    // A Friday close is not a Saturday spot quote; fail closed when no fresh market observation exists.
+    const ageMs = Date.now() - Date.parse(q.marketAt);
+    if (!Number.isFinite(ageMs) || ageMs < -60000 || ageMs > 15 * 60000)
+      throw new Error('stale exchange quote (' + Math.round(ageMs / 60000) + ' min)');
+    TRACK_QUOTES[tabId] = { ...q, symbol: cfg.sym || cfg.product,
+      priceKind: tabId === 'gold' ? 'FUTURES' : tabId === 'crypto' ? 'CRYPTO' : 'FOREX' };
+    return q.price;
+  } catch (e) { console.log('WARN quote: ' + tabId + ' -> ' + e.message); return null; }
 }
 async function fetchAllSpots() {
   const out = {};
@@ -91,6 +103,8 @@ function trackNewRow(state, tabId, kind, title, url, impactScore, spotNow) {
   const now = Date.now();
   state.pending.push({
     key, tabId, kind, title, url, impactScore,
+    priceSource: (TRACK_QUOTES[tabId] || {}).source || null,
+    priceSymbol: (TRACK_QUOTES[tabId] || {}).symbol || null,
     priceAtDetect: spotNow, createdAt: new Date(now).toISOString(),
     checkpoints: REACTION_WINDOWS.map(w => ({ key: w.key, minutes: w.minutes, dueAt: new Date(now + w.minutes * 60000).toISOString(), capturedAt: null, price: null, realizedPct: null }))
   });
@@ -583,6 +597,7 @@ function buildNewsRow(it, tab, instrumentScale) {
   const signedScore = d.signal === 'BUY' ? Math.abs(rawScore || 0.01) : d.signal === 'SELL' ? -Math.abs(rawScore || 0.01) : 0;
   return {
     time: formatMytFull(parseFeedDate(it.pubDate)) || 'unknown time',
+    publishedAt: parseFeedDate(it.pubDate) ? parseFeedDate(it.pubDate).toISOString() : null,
     tf: 'Intraday',
     title: it.title,
     summary: 'Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.',
@@ -667,7 +682,7 @@ function buildSpeakerRow(it, instrumentScale) {
   } catch (e) { console.log('FAIL history         -> ' + e.message); }
 
   // ---- Price-reaction tracking: "did the predicted move actually happen" ----
-  // Real, free spot price per tab (see TRACK_INSTRUMENTS above) - not a model estimate.
+  // Timestamp-validated provider quotes (gold uses GC=F futures, NOT XAU/USD spot).
   let priceTrack = { pending: 0, resultsRecent: [], accuracy: null };
   try {
     const spots = await fetchAllSpots();
@@ -683,6 +698,7 @@ function buildSpeakerRow(it, instrumentScale) {
     priceTrack = {
       pending: state.pending.length,
       resultsRecent: state.results.slice(0, 20),
+      quoteSnapshots: TRACK_QUOTES,
       observationModel: 'M1/M5/M15/M30/H1/H4/D1/W1/MN1',
       note: 'Observed post-evidence price reactions only; no directional accuracy claim.'
     };

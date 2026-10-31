@@ -166,6 +166,7 @@ function sessionAtMyt(sessions, hour) {
 
 // ==================== Currency / pair inference (shared-market-logic.js - see that file for why) ====================
 const SharedLogic = require('./shared-market-logic.js');
+const MarketReview = require('./lib/market-signal-review.js');
 const eventCurrency = SharedLogic.eventCurrency;
 function bestPairFor(MARKET_DATA, ccy) { return SharedLogic.bestPairFor(MARKET_DATA.fxPairs, MARKET_DATA.currencies, ccy); }
 /* Live snapshot price for a named pair (e.g. "USD/JPY") from fxPairs, or null if not loaded. */
@@ -272,7 +273,7 @@ function chartImageUrl(title, value, signal) {
   const color = signal === 'BUY' ? '#16a34a' : signal === 'SELL' ? '#dc2626' : '#9ca3af';
   const spec = {
     type: 'bar',
-    data: { labels: [title], datasets: [{ label: 'Predicted move %', data: [value], backgroundColor: [color] }] },
+    data: { labels: [title], datasets: [{ label: 'Heuristic impact score', data: [value], backgroundColor: [color] }] },
     options: {
       indexAxis: 'y',
       plugins: { legend: { display: false }, title: { display: true, text: `${title} — ${signal}`, color, font: { size: 16 } } },
@@ -298,7 +299,8 @@ function eventCard(MARKET_DATA, atrData, e, pool) {
     : ccy ? `${esc(ccy)}-driven event → currency-bias model applied to ${esc(ccy)}'s direct pair against USD`
       : 'No single currency driver — gauge via gold/DXY instead';
   const atrRow = top ? findAtrRow(atrData, top.pair) : null;
-  const priceLine = atrRow ? priceMoveLineFromAtr(atrRow, atrRow.last, signal, e.importance) : null;
+  // A stored daily close is not a fresh event-time quote. Never advertise it as an executable TP.
+  const priceLine = '🧮 TP/SL pending: requires a fresh matching instrument quote and ATR near the event';
   const caption = [
     badge,
     `<b>${esc(e.event)}</b>`,
@@ -320,20 +322,55 @@ function eventCard(MARKET_DATA, atrData, e, pool) {
   ].filter(Boolean).join('\n');
   return { caption, chartUrl: chartImageUrl(top ? top.pair : (ccy || e.event.slice(0, 20)), top ? +top.s.score.toFixed(2) : 0, signal) };
 }
-function newsCard(MARKET_DATA, tab, n) {
+function newsCard(MARKET_DATA, tab, n, atrData, quoteSnapshots, atrMtfData, spotMtfData) {
   const forexFocus = tab.id === 'forex' ? resolveForexFocus(MARKET_DATA, tab, `${n.title || ''} ${n.summary || ''}`) : null;
   const focusSym = tab.id === 'gold' ? 'XAU/USD' : tab.id === 'crypto' ? 'BTC/USD (+ ETH/USD)' : forexFocus.sym;
   const chart = TF_CHART[n.tf] || n.tf || '—';
   const reasoning = n.impact === 'bearish' ? 'Headline classified bearish (keyword heuristic on real news text) → SELL bias'
     : n.impact === 'bullish' ? 'Headline classified bullish (keyword heuristic on real news text) → BUY bias'
       : 'Headline classified neutral — no clear directional keyword match';
-  const priceLine = priceMoveLine(tab.id === 'gold' ? 'XAU/USD' : tab.id === 'crypto' ? 'BTC' : focusSym, tab.id === 'forex' ? forexFocus.spot : (tab.price && tab.price.spot), n.impactPct);
+  // Nine independent closed-candle ATR14 estimates. Never borrow D1 ATR
+  // for a missing intraday timeframe, and never call futures a spot XAU TP.
+  // Gold uses only broker XAU/USD spot data here. Never silently take GC=F
+  // futures as an account-specific XAU/USD bid/ask replacement.
+  const isSpot=tab.id==='gold';
+  const brokerQuote=isSpot&&spotMtfData&&spotMtfData.quote;
+  const quote=isSpot?(brokerQuote&&brokerQuote.state==='READY'?brokerQuote:null)
+    :(quoteSnapshots&&quoteSnapshots[tab.id]);
+  const activeMtf=isSpot?spotMtfData:atrMtfData;
+  const newsAgeHours = n.publishedAt && Number.isFinite(Date.parse(n.publishedAt))
+    ? (Date.now() - Date.parse(n.publishedAt)) / 3600000 : Infinity;
+  const headlineFresh = newsAgeHours >= 0 && newsAgeHours <= 2;
+  const mtf = MarketReview.buildMultiTimeframeTargets({
+    signal: headlineFresh ? n.signal : 'NEUTRAL',
+    quote, atrMtf: activeMtf, marketOpen: quote && quote.marketOpen
+  });
+  const levels = ['M1','M5','M15','M30','H1','H4','D1','W1','MN1'].map(tf => {
+    const x = mtf.timeframes[tf];
+    if (!headlineFresh) return '  ' + tf + ': — STALE_OR_UNDATED_HEADLINE';
+    if (!x || !x.valid) return '  ' + tf + ': — ' + (
+      isSpot&&!quote?(brokerQuote&&brokerQuote.reason||'BROKER_SPOT_NOT_CONFIGURED'):
+      x&&x.reason||'UNAVAILABLE');
+    return '  ' + tf + ' ATR14 ' + x.atr.toFixed(3)
+      + ' · ' + (x.priceSide||'REFERENCE') + ' Entry ' + fmtPrice(x.entry)
+      + ' · SL ' + fmtPrice(x.sl)
+      + ' · TP1 ' + fmtPrice(x.tp1)
+      + ' · TP2 ' + fmtPrice(x.tp2);
+  });
+  const priceLine = [
+    '🧮 MTF ATR14 scenarios (' + mtf.readyCount + '/9 available; illustrative, not trade orders)',
+    '🔎 Data: ' + (isSpot?'OANDA broker XAU/USD spot (NOT GC=F futures) · ':'')
+      + esc(quote && quote.source || 'broker quote unavailable'),
+    isSpot&&quote?'↔ Bid '+fmtPrice(quote.bid)+' / Ask '+fmtPrice(quote.ask)
+      +' (spread '+fmtPrice(quote.spread)+')':null,
+    ...levels
+  ].filter(Boolean).join('\n');
   const caption = [
     `<b>${esc(tab.label)}</b> — auto-classified news`,
     orderCallLine(n.signal),
     `ℹ️ ${reasoning}`,
     `🎯 Focus symbol: <b>${esc(focusSym)}</b>`,
-    `📊 Predicted move: <b>${n.impactPct > 0 ? '+' : ''}${n.impactPct}%</b> (model estimate)`,
+    `📊 Headline impact score: <b>${Number.isFinite(n.impactPct) ? n.impactPct.toFixed(2) : '—'}</b> (heuristic, NOT predicted price %)`,
     IMPACT_TIER_LABEL[impactTier(n.impactPct)],
     movementLabel(n.impactPct),
     priceLine,
@@ -350,14 +387,14 @@ function speakerCard(MARKET_DATA, tab, s) {
   const forexFocus = tab.id === 'forex' ? resolveForexFocus(MARKET_DATA, tab, `${s.name || ''} ${s.role || ''} ${s.quote || ''}`) : null;
   const focusSym = tab.id === 'gold' ? 'XAU/USD' : tab.id === 'crypto' ? 'BTC/USD (+ ETH/USD)' : forexFocus.sym;
   const arrow = s.side === 'hawkish' ? '🦅 HAWKISH' : '🕊️ DOVISH';
-  const priceLine = priceMoveLine(tab.id === 'gold' ? 'XAU/USD' : tab.id === 'crypto' ? 'BTC' : focusSym, tab.id === 'forex' ? forexFocus.spot : (tab.price && tab.price.spot), s.impactPct);
+  const priceLine = '🧮 TP/SL unavailable for speech alerts without a validated fresh same-instrument quote and ATR';
   const caption = [
     `<b>${esc(tab.label)}</b> — speaker/central-bank alert`,
     orderCallLine(s.signal),
     `ℹ️ ${esc(reasonFromDirRule(tab, s.side))}`,
     `🗣 ${arrow}: <b>${esc(s.name)}</b> (${esc(s.role)})`,
     `🎯 Focus symbol: <b>${esc(focusSym)}</b>`,
-    `📊 Predicted move: <b>${s.impactPct > 0 ? '+' : ''}${s.impactPct}%</b> (weight ${s.w != null ? s.w : '—'} × strength ${s.s != null ? s.s : '—'} × surprise ${s.f != null ? s.f : '—'})`,
+    `📊 Headline impact score: <b>${Number.isFinite(s.impactPct) ? s.impactPct.toFixed(2) : '—'}</b> (heuristic, not forecast %) · weights ${s.w != null ? s.w : '—'} × ${s.s != null ? s.s : '—'} × ${s.f != null ? s.f : '—'}`,
     IMPACT_TIER_LABEL[impactTier(s.impactPct)],
     movementLabel(s.impactPct),
     priceLine,
@@ -369,27 +406,29 @@ function speakerCard(MARKET_DATA, tab, s) {
   ].filter(Boolean).join('\n');
   return { caption, chartUrl: chartImageUrl(focusSym, s.impactPct || 0, s.signal) };
 }
-/* Closes the loop build-news.js's price-tracker opens: instead of asking the user to go verify a
- * headline's real price reaction themselves, report what price ACTUALLY did (real spot fetched
- * ~45 min after detection) against what the classifier PREDICTED, with a plain correct/wrong
- * verdict. r is one entry from NEWS_AUTO.priceTrack.resultsRecent (see build-news.js). */
+/* Display historical observed reactions using the current timestamped checkpoint schema.
+ * Do not confuse a monthly completion notification with a 45-minute price reaction. */
 function resultCard(r) {
-  const focusSym = TRACK_LABEL[r.tabId] || r.tabId;
-  const verdictLine = r.verdict === 'correct' ? '✅✅✅ <b>RESULT: CORRECT</b> ✅✅✅'
-    : r.verdict === 'wrong' ? '❌❌❌ <b>RESULT: WRONG</b> ❌❌❌'
-      : '⚪⚪⚪ <b>RESULT: FLAT / INCONCLUSIVE</b> ⚪⚪⚪';
+  const focusSym = (typeof r.priceSymbol === 'string' && r.priceSymbol.trim()) || (r.tabId === 'gold' ? 'GC=F gold futures proxy' : TRACK_LABEL[r.tabId] || r.tabId);
+  const obs = MarketReview.normalizePriceTrack(r);
+  const signed = value => value == null ? '—' : (value > 0 ? '+' : '') + value.toFixed(3);
+  const checked = obs.capturedAt
+    ? new Date(obs.capturedAt).toLocaleString('en-GB', { timeZone: 'Asia/Kuala_Lumpur', hour12: false })
+    : 'Unavailable';
   const caption = [
-    `<b>${esc(focusSym)}</b> — price-track result`,
-    verdictLine,
-    'ℹ️ Predicted from the headline classifier at detection time, checked against a real spot price ~45 min later',
-    `🎯 Focus symbol: <b>${esc(focusSym)}</b>`,
-    `📊 Predicted move: <b>${r.predictedPct > 0 ? '+' : ''}${r.predictedPct}%</b> (model estimate)`,
-    IMPACT_TIER_LABEL[impactTier(r.predictedPct)],
-    movementLabel(r.predictedPct),
-    `📏 Actual move: <b>${fmtPrice(r.priceAtDetect)} → ${fmtPrice(r.priceAtSettle)}</b> (${r.realizedPct > 0 ? '+' : ''}${r.realizedPct}%)`,
-    `🕒 Checked (MYT): <b>${esc(nowMyt())}</b>`,
-    `📝 ${esc(r.title)}`,
-    r.url ? `🔗 Source: ${r.url}` : null,
+    `<b>${esc(focusSym)}</b> — historical price reaction`,
+    obs.status === 'OBSERVED' ? '📊 <b>RESULT: OBSERVED (NOT A FORECAST VERDICT)</b>' : '⚪ <b>RESULT: UNVERIFIED (MISSING PRICE)</b>',
+    `🎯 Tracked instrument: <b>${esc(obs.symbol)}</b> · ${esc(obs.priceSource)}`,
+    `📉 Headline impact score: <b>${obs.impactScore == null ? '—' : signed(obs.impactScore)}</b> (heuristic, not predicted price %)`,
+    `📍 Checkpoint: <b>${esc(obs.checkpoint || '—')}</b> · sample quality: <b>${esc(obs.timing)}</b>`,
+    obs.status === 'OBSERVED'
+      ? `📏 Recorded move: <b>${fmtPrice(obs.priceAtDetect)} → ${fmtPrice(obs.priceAtObservation)}</b> (${signed(obs.observedPct)}%)`
+      : '📏 Recorded move: unavailable — no reliable observed closing value',
+    obs.captureLagMinutes == null ? null : `⏳ Checkpoint capture lag: ${obs.captureLagMinutes} min after scheduled time`,
+    `🕒 Price captured (MYT): <b>${esc(checked)}</b>`,
+    '🧮 TP/SL: not applicable to a completed historical observation; fresh matching quote + ATR required',
+    `📝 ${esc(obs.title)}`,
+    obs.url ? `🔗 Source: ${obs.url}` : null,
     CREDIT_LINE,
     `📤 Alert sent (MYT): ${nowMyt()}`
   ].filter(Boolean).join('\n');
@@ -638,10 +677,14 @@ function buildWeeklyOutlook(MARKET_DATA, NEWS_AUTO) {
   return messages;
 }
 
-(async () => {
+module.exports = { resultCard, newsCard, speakerCard };
+
+if (require.main === module) (async () => {
   const MARKET_DATA = loadJsModule('xauusd-data.js', 'MARKET_DATA');
   const NEWS_AUTO = loadJsModule('news-auto.js', 'NEWS_AUTO');
-  const ATR_DATA = loadJsModule('atr.js', 'ATR_DATA'); // real Wilder ATR(14) per instrument, for the ATR-based price-target line
+  const ATR_DATA = loadJsModule('atr.js', 'ATR_DATA');
+  const ATR_MTF = loadJsModule('atr-mtf.js', 'ATR_MTF');
+  const SPOT_MTF = loadJsModule('spot-mtf.js', 'SPOT_MTF'); // real Wilder ATR(14) per instrument, for the ATR-based price-target line
   const MACRO_AUTO = loadJsModule('macro-auto.js', 'MACRO_AUTO');
   if (!MARKET_DATA) { console.log('No xauusd-data.js found - nothing to check.'); return; }
   const COMMENTARY_POOL = buildCommentaryPool(MARKET_DATA, NEWS_AUTO); // shared "related commentary" search pool for every event card
@@ -699,7 +742,7 @@ function buildWeeklyOutlook(MARKET_DATA, NEWS_AUTO) {
     const sampleAutoByTab = NEWS_AUTO && NEWS_AUTO.byTab && NEWS_AUTO.byTab[sampleTab.id];
     const sampleNews = ((sampleAutoByTab && sampleAutoByTab.news) || [])[0] || (sampleTab.news || [])[0];
     const evtCard = sampleEvent ? eventCard(MARKET_DATA, ATR_DATA, sampleEvent, COMMENTARY_POOL) : null;
-    const nwsCard = sampleNews ? newsCard(MARKET_DATA, sampleTab, sampleNews) : null;
+    const nwsCard = sampleNews ? newsCard(MARKET_DATA, sampleTab, sampleNews, ATR_DATA, NEWS_AUTO && NEWS_AUTO.priceTrack && NEWS_AUTO.priceTrack.quoteSnapshots, ATR_MTF, SPOT_MTF) : null;
     console.log('===== EVENT CARD PREVIEW =====\n' + (evtCard ? evtCard.caption + '\n[chart] ' + evtCard.chartUrl : '(no incoming events loaded)'));
     console.log('\n===== NEWS CARD PREVIEW =====\n' + (nwsCard ? nwsCard.caption + '\n[chart] ' + nwsCard.chartUrl : '(no news loaded)'));
     if (TOKEN && CHAT_ID && evtCard) {
@@ -813,7 +856,7 @@ function buildWeeklyOutlook(MARKET_DATA, NEWS_AUTO) {
     ((autoByTab && autoByTab.news) || []).filter(n => n.signal && n.signal !== 'NEUTRAL').forEach(n => {
       const key = 'news:' + n.title;
       if (seen.has(key)) return;
-      toSend.push({ key, card: newsCard(MARKET_DATA, tab, n), category: 1, tiebreak: IMPACT_RANK[SharedLogic.impactTier(n.impactPct)] });
+      toSend.push({ key, card: newsCard(MARKET_DATA, tab, n, ATR_DATA, NEWS_AUTO && NEWS_AUTO.priceTrack && NEWS_AUTO.priceTrack.quoteSnapshots, ATR_MTF, SPOT_MTF), category: 1, tiebreak: IMPACT_RANK[SharedLogic.impactTier(n.impactPct)] });
     });
     ((autoByTab && autoByTab.speakers) || []).filter(s => s.side).forEach(s => {
       const key = 'spk:' + s.name + '|' + s.date;
@@ -829,7 +872,7 @@ function buildWeeklyOutlook(MARKET_DATA, NEWS_AUTO) {
   resultsRecent.forEach(r => {
     const key = 'result:' + r.key;
     if (seen.has(key)) return;
-    if (r.verdict === 'flat') { seen.add(key); return; } // inconclusive - record as seen, don't alert
+    if (MarketReview.normalizePriceTrack(r).status !== 'OBSERVED') return; // never announce an empty observation as flat
     toSend.push({ key, card: resultCard(r), category: 2, tiebreak: 0 });
   });
 
