@@ -42,7 +42,7 @@ assert.equal(all.timeframes.MN1.sourceInterval,'1d');
 assert(all.timeframes.MN1.atr!==all.timeframes.M1.atr);
 assert(all.timeframes.MN1.asOf < all.timeframes.W1.asOf);
 // Wilder TR math: constant 4 range, prior close stays inside future bar.
-assert.equal(E.wilderATR(createSeries(60000,30,NOW)),4);
+assert.equal(E.wilderATR(E.cleanRows(createSeries(60000,30,NOW),1,NOW).rows),4);
 // Missing bar prevents an otherwise complete synthetic H4 aggregate.
 const three=createSeries(3600000,4,NOW).filter(x=>Date.parse(x.time)!==NOW-2*3600000);
 assert.equal(E.aggregateBars(three,240,60,NOW).length,0);
