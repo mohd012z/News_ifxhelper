@@ -10,7 +10,8 @@ function createSeries(stepMs,count,lastClosedAt,{weekdays=false}={}){
     const ms=lastClosedAt-i*stepMs;
     if(weekdays&&[0,6].includes(new Date(ms).getUTCDay()))continue;
     const o=4000+(count-i)*0.015;
-    rows.push({time:new Date(ms).toISOString(),open:o,high:o+2,low:o-2,close:o+.5});
+    const span=stepMs>=86400000?10:2; // separate daily volatility regime
+    rows.push({time:new Date(ms).toISOString(),open:o,high:o+span,low:o-span,close:o+.5});
   }
   return rows;
 }
