@@ -268,95 +268,6 @@
       }
     },
     {
-      "key": "news:crypto:Euro weakens below 1.1350 on higher US Treasury yields, Lagarde's dovish tilt",
-      "tabId": "crypto",
-      "kind": "news",
-      "title": "Euro weakens below 1.1350 on higher US Treasury yields, Lagarde's dovish tilt",
-      "url": "https://www.fxstreet.com/news/euro-weakens-below-11350-on-higher-us-treasury-yields-lagardes-dovish-tilt-202610010252",
-      "impactScore": 0.14,
-      "priceAtDetect": 84178.13,
-      "createdAt": "2026-10-01T05:11:26.661Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-10-01T05:12:26.661Z",
-          "capturedAt": "2026-10-01T06:39:04.601Z",
-          "price": 84133.08,
-          "realizedPct": -0.054
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-10-01T05:16:26.661Z",
-          "capturedAt": "2026-10-01T06:39:04.601Z",
-          "price": 84133.08,
-          "realizedPct": -0.054
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-10-01T05:26:26.661Z",
-          "capturedAt": "2026-10-01T06:39:04.601Z",
-          "price": 84133.08,
-          "realizedPct": -0.054
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-10-01T05:41:26.661Z",
-          "capturedAt": "2026-10-01T06:39:04.601Z",
-          "price": 84133.08,
-          "realizedPct": -0.054
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-10-01T06:11:26.661Z",
-          "capturedAt": "2026-10-01T06:39:04.601Z",
-          "price": 84133.08,
-          "realizedPct": -0.054
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-10-01T09:11:26.661Z",
-          "capturedAt": "2026-10-01T13:56:06.643Z",
-          "price": 83832.84,
-          "realizedPct": -0.41
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-10-02T05:11:26.661Z",
-          "capturedAt": "2026-10-02T08:58:51.693Z",
-          "price": 86238.43,
-          "realizedPct": 2.448
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-08T05:11:26.661Z",
-          "capturedAt": "2026-10-08T05:28:02.363Z",
-          "price": 82892.83,
-          "realizedPct": -1.527
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-31T05:11:26.661Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 2.448,
-        "maePct": -1.527
-      }
-    },
-    {
       "key": "news:gold:European Central Bank keeps key interest rate on hold at 2.5%",
       "tabId": "gold",
       "kind": "news",
@@ -1693,6 +1604,96 @@
     }
   ],
   "results": [
+    {
+      "key": "news:crypto:Euro weakens below 1.1350 on higher US Treasury yields, Lagarde's dovish tilt",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Euro weakens below 1.1350 on higher US Treasury yields, Lagarde's dovish tilt",
+      "url": "https://www.fxstreet.com/news/euro-weakens-below-11350-on-higher-us-treasury-yields-lagardes-dovish-tilt-202610010252",
+      "impactScore": 0.14,
+      "priceAtDetect": 84178.13,
+      "createdAt": "2026-10-01T05:11:26.661Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-10-01T05:12:26.661Z",
+          "capturedAt": "2026-10-01T06:39:04.601Z",
+          "price": 84133.08,
+          "realizedPct": -0.054
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-10-01T05:16:26.661Z",
+          "capturedAt": "2026-10-01T06:39:04.601Z",
+          "price": 84133.08,
+          "realizedPct": -0.054
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-10-01T05:26:26.661Z",
+          "capturedAt": "2026-10-01T06:39:04.601Z",
+          "price": 84133.08,
+          "realizedPct": -0.054
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-10-01T05:41:26.661Z",
+          "capturedAt": "2026-10-01T06:39:04.601Z",
+          "price": 84133.08,
+          "realizedPct": -0.054
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-10-01T06:11:26.661Z",
+          "capturedAt": "2026-10-01T06:39:04.601Z",
+          "price": 84133.08,
+          "realizedPct": -0.054
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-10-01T09:11:26.661Z",
+          "capturedAt": "2026-10-01T13:56:06.643Z",
+          "price": 83832.84,
+          "realizedPct": -0.41
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-10-02T05:11:26.661Z",
+          "capturedAt": "2026-10-02T08:58:51.693Z",
+          "price": 86238.43,
+          "realizedPct": 2.448
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-08T05:11:26.661Z",
+          "capturedAt": "2026-10-08T05:28:02.363Z",
+          "price": 82892.83,
+          "realizedPct": -1.527
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-31T05:11:26.661Z",
+          "capturedAt": "2026-10-31T05:40:26.317Z",
+          "price": 77108.02,
+          "realizedPct": -8.399
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 2.448,
+        "maePct": -8.399
+      },
+      "completedAt": "2026-10-31T05:40:26.317Z"
+    },
     {
       "key": "news:forex:Gold can’t catch a PCE break as long US yields keep climbing",
       "tabId": "forex",
@@ -17125,21 +17126,6 @@
       "settleAt": "2026-09-23T08:10:38.777Z",
       "priceAtSettle": 85434.83,
       "realizedPct": -1.04,
-      "verdict": "correct",
-      "settledAt": "2026-09-23T12:55:52.044Z"
-    },
-    {
-      "key": "news:gold:Gold retains intraday bearish bias as hawkish Fed lifts USD to fresh high since July 30",
-      "tabId": "gold",
-      "kind": "news",
-      "title": "Gold retains intraday bearish bias as hawkish Fed lifts USD to fresh high since July 30",
-      "url": "https://www.fxstreet.com/news/gold-edges-lower-on-fed-driven-usd-strength-as-markets-await-trump-xi-meeting-202609230343",
-      "predictedPct": -0.15,
-      "priceAtDetect": 4363.4,
-      "createdAt": "2026-09-23T07:25:38.777Z",
-      "settleAt": "2026-09-23T08:10:38.777Z",
-      "priceAtSettle": 4339.5,
-      "realizedPct": -0.55,
       "verdict": "correct",
       "settledAt": "2026-09-23T12:55:52.044Z"
     }
