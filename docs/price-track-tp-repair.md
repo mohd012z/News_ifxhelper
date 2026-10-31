@@ -98,3 +98,83 @@ successful scheduled refresh.
 Checks: \`npm run test:atr-mtf\`, \`npm run test:market-review\`,
 \`npm run test:market-card\`, and \`npm test\`. The scope is read-only
 market analysis, never automatic orders or a backtested guarantee.
+
+
+## Read-only broker XAU/USD integration (OANDA v20, nine timeframes)
+
+### Verified provider contracts
+OANDA account pricing supplies account-specific bid/ask, quote time and
+tradeable status. Its v20 candle API directly supports M1, M5, M15, M30,
+H1, H4, D, W and M, and returns a \`complete\` flag and midpoint OHLC.
+This project uses the **direct provider candle intervals** to respect its
+session alignment (especially D/W/M), without pretending UTC-resampled
+futures bars are broker XAU/USD spot candles.
+
+Official references:
+- https://developer.oanda.com/rest-live-v20/pricing-ep/
+- https://developer.oanda.com/rest-live-v20/instrument-df/
+- https://developer.oanda.com/rest-live-v20/development-guide/
+
+The broker XAU_USD instrument is an **account-specific OTC quotation**.
+It is not a global consolidated spot exchange price. Symbol access and
+quote availability depend on the authorized broker account.
+
+### Modules
+- \`lib/oanda-spot-adapter.js\`: read-only v20 GET client and nine provider-
+  native ATR14 validators, data-status/error normalization, bid/ask spread.
+- \`build-oanda-spot.js\`: optional secure server-side collector. Produces
+  \`spot-mtf.js\` for the browser/Capacitor bundle. No token or account ID is
+  serialized. With no credentials it generates \`UNCONFIGURED\` and nine
+  unavailable rows (never a synthetic spot quote).
+- \`lib/market-signal-review.js\`: side-aware entry reference (BUY ask /
+  SELL bid) plus age, source equality and spread-to-ATR safety gates.
+- \`telegram-notify.js\`: gold uses broker XAU/USD quote and broker XAU/USD
+  OHLC for all nine timeframe rows. It does **not** substitute GC=F.
+- \`test/oanda-spot-adapter.test.js\` and
+  \`test/telegram-market-card.test.js\`: mock all nine data granularities,
+  missing instrument, market closed, stale quote, wide spread, mismatched
+  sources, and credential-free fallback.
+
+### Server-side configuration
+Only authorized, already-available credentials can enable the optional
+collector. Existing GitHub refresh workflows accept secret environment
+variables \`OANDA_API_TOKEN\` and \`OANDA_ACCOUNT_ID\`, and explicitly set
+\`OANDA_ENV=practice\`. Do not add credentials to repository files,
+public JavaScript, HTML, issues, PRs, Telegram messages, or commits.
+No token was supplied or inspected during this implementation.
+
+The collector requests **GET pricing and GET candles only**. No order,
+position, account-history or trade endpoints are implemented. The
+existing schedules run the collector before news notifications; no paid
+API, new recurring workflow or live order service is added.
+
+### Validity gates
+1. Pricing instrument must equal \`XAU_USD\`, have valid best bid <= ask,
+   an allowed tradeable status, and a source timestamp no older than 5 min.
+2. Candle response instrument and granularity must match the requested
+   one. Only \`complete:true\` midpoint OHLC candles are accepted;
+   >=15 valid nonduplicate bars are required for Wilder ATR14.
+3. ATR is computed **independently** per timeframe, from its own midpoint
+   candle history, not copied from a daily ATR. Incomplete or stale
+   frames return a distinct \`UNAVAILABLE\` reason.
+4. The quote and ATR must agree on \`XAU/USD\` **and** exact
+   \`oanda:practice:XAU_USD\` source identity. Forex/futures or another
+   broker's ATR may not be combined with it.
+5. BUY uses the ask for an indicative entry reference; SELL uses the bid.
+   When spread exceeds half the frame ATR, that frame's price levels
+   are suppressed as \`SPREAD_TOO_WIDE_FOR_ATR\`. The levels remain
+   illustrations, not executable orders or statistically validated targets.
+6. If credentials, instrument permission, provider response, quote
+   freshness or market status is missing, show **no spot TP**.
+
+### Honest operational status
+The code and mocked provider contracts can be tested without real
+broker access. Real OANDA pricing, geographic/product eligibility and
+all nine real market-data response streams remain **unverified** until
+an authorized existing broker connection is available and the market
+is trading. Historical \`GC=F\` futures price-track records remain
+labelled separately: their stored prices must never be merged with
+broker XAU/USD spot quotes.
+
+Run \`npm run test:spot-broker\` and \`npm test\`. The PR stays draft
+until real-data validation; production / live trading is out of scope.
