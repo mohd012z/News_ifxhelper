@@ -597,6 +597,7 @@ function buildNewsRow(it, tab, instrumentScale) {
   const signedScore = d.signal === 'BUY' ? Math.abs(rawScore || 0.01) : d.signal === 'SELL' ? -Math.abs(rawScore || 0.01) : 0;
   return {
     time: formatMytFull(parseFeedDate(it.pubDate)) || 'unknown time',
+    publishedAt: parseFeedDate(it.pubDate) ? parseFeedDate(it.pubDate).toISOString() : null,
     tf: 'Intraday',
     title: it.title,
     summary: 'Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.',
