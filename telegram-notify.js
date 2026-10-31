@@ -299,7 +299,8 @@ function eventCard(MARKET_DATA, atrData, e, pool) {
     : ccy ? `${esc(ccy)}-driven event → currency-bias model applied to ${esc(ccy)}'s direct pair against USD`
       : 'No single currency driver — gauge via gold/DXY instead';
   const atrRow = top ? findAtrRow(atrData, top.pair) : null;
-  const priceLine = atrRow ? priceMoveLineFromAtr(atrRow, atrRow.last, signal, e.importance) : null;
+  // A stored daily close is not a fresh event-time quote. Never advertise it as an executable TP.
+  const priceLine = '🧮 TP/SL pending: requires a fresh matching instrument quote and ATR near the event';
   const caption = [
     badge,
     `<b>${esc(e.event)}</b>`,
