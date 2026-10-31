@@ -1462,17 +1462,17 @@
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-10-30T23:30:23.751Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-31T02:21:00.670Z",
+          "price": 3884.9,
+          "realizedPct": 0
         },
         {
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-10-31T00:00:23.751Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-31T02:21:00.670Z",
+          "price": 3884.9,
+          "realizedPct": 0
         },
         {
           "key": "H4",
@@ -1551,17 +1551,17 @@
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-10-30T23:30:23.751Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-31T02:21:00.670Z",
+          "price": 77233.39,
+          "realizedPct": 0.595
         },
         {
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-10-31T00:00:23.751Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-31T02:21:00.670Z",
+          "price": 77233.39,
+          "realizedPct": 0.595
         },
         {
           "key": "H4",
@@ -1598,7 +1598,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.162,
+        "mfePct": 0.595,
         "maePct": 0.162
       }
     },
@@ -1640,17 +1640,17 @@
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-10-30T23:30:23.751Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-31T02:21:00.670Z",
+          "price": 1.1166,
+          "realizedPct": 0
         },
         {
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-10-31T00:00:23.751Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-10-31T02:21:00.670Z",
+          "price": 1.1166,
+          "realizedPct": 0
         },
         {
           "key": "H4",
