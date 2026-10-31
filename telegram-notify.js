@@ -322,7 +322,7 @@ function eventCard(MARKET_DATA, atrData, e, pool) {
   ].filter(Boolean).join('\n');
   return { caption, chartUrl: chartImageUrl(top ? top.pair : (ccy || e.event.slice(0, 20)), top ? +top.s.score.toFixed(2) : 0, signal) };
 }
-function newsCard(MARKET_DATA, tab, n, atrData, quoteSnapshots, atrMtfData) {
+function newsCard(MARKET_DATA, tab, n, atrData, quoteSnapshots, atrMtfData, spotMtfData) {
   const forexFocus = tab.id === 'forex' ? resolveForexFocus(MARKET_DATA, tab, `${n.title || ''} ${n.summary || ''}`) : null;
   const focusSym = tab.id === 'gold' ? 'XAU/USD' : tab.id === 'crypto' ? 'BTC/USD (+ ETH/USD)' : forexFocus.sym;
   const chart = TF_CHART[n.tf] || n.tf || '—';
@@ -331,29 +331,40 @@ function newsCard(MARKET_DATA, tab, n, atrData, quoteSnapshots, atrMtfData) {
       : 'Headline classified neutral — no clear directional keyword match';
   // Nine independent closed-candle ATR14 estimates. Never borrow D1 ATR
   // for a missing intraday timeframe, and never call futures a spot XAU TP.
-  const quote = quoteSnapshots && quoteSnapshots[tab.id];
+  // Gold uses only broker XAU/USD spot data here. Never silently take GC=F
+  // futures as an account-specific XAU/USD bid/ask replacement.
+  const isSpot=tab.id==='gold';
+  const brokerQuote=isSpot&&spotMtfData&&spotMtfData.quote;
+  const quote=isSpot?(brokerQuote&&brokerQuote.state==='READY'?brokerQuote:null)
+    :(quoteSnapshots&&quoteSnapshots[tab.id]);
+  const activeMtf=isSpot?spotMtfData:atrMtfData;
   const newsAgeHours = n.publishedAt && Number.isFinite(Date.parse(n.publishedAt))
     ? (Date.now() - Date.parse(n.publishedAt)) / 3600000 : Infinity;
   const headlineFresh = newsAgeHours >= 0 && newsAgeHours <= 2;
   const mtf = MarketReview.buildMultiTimeframeTargets({
     signal: headlineFresh ? n.signal : 'NEUTRAL',
-    quote, atrMtf: atrMtfData, marketOpen: quote && quote.marketOpen
+    quote, atrMtf: activeMtf, marketOpen: quote && quote.marketOpen
   });
   const levels = ['M1','M5','M15','M30','H1','H4','D1','W1','MN1'].map(tf => {
     const x = mtf.timeframes[tf];
     if (!headlineFresh) return '  ' + tf + ': — STALE_OR_UNDATED_HEADLINE';
-    if (!x || !x.valid) return '  ' + tf + ': — ' + (x && x.reason || 'UNAVAILABLE');
+    if (!x || !x.valid) return '  ' + tf + ': — ' + (
+      isSpot&&!quote?(brokerQuote&&brokerQuote.reason||'BROKER_SPOT_NOT_CONFIGURED'):
+      x&&x.reason||'UNAVAILABLE');
     return '  ' + tf + ' ATR14 ' + x.atr.toFixed(3)
+      + ' · ' + (x.priceSide||'REFERENCE') + ' Entry ' + fmtPrice(x.entry)
       + ' · SL ' + fmtPrice(x.sl)
       + ' · TP1 ' + fmtPrice(x.tp1)
       + ' · TP2 ' + fmtPrice(x.tp2);
   });
   const priceLine = [
     '🧮 MTF ATR14 scenarios (' + mtf.readyCount + '/9 available; illustrative, not trade orders)',
-    '🔎 Data: ' + esc(quote && quote.source || 'quote unavailable')
-       + (tab.id === 'gold' ? ' · GC=F gold FUTURES, not spot XAU/USD' : ''),
+    '🔎 Data: ' + (isSpot?'OANDA broker XAU/USD spot (NOT GC=F futures) · ':'')
+      + esc(quote && quote.source || 'broker quote unavailable'),
+    isSpot&&quote?'↔ Bid '+fmtPrice(quote.bid)+' / Ask '+fmtPrice(quote.ask)
+      +' (spread '+fmtPrice(quote.spread)+')':null,
     ...levels
-  ].join('\n');
+  ].filter(Boolean).join('\n');
   const caption = [
     `<b>${esc(tab.label)}</b> — auto-classified news`,
     orderCallLine(n.signal),
@@ -672,7 +683,8 @@ if (require.main === module) (async () => {
   const MARKET_DATA = loadJsModule('xauusd-data.js', 'MARKET_DATA');
   const NEWS_AUTO = loadJsModule('news-auto.js', 'NEWS_AUTO');
   const ATR_DATA = loadJsModule('atr.js', 'ATR_DATA');
-  const ATR_MTF = loadJsModule('atr-mtf.js', 'ATR_MTF'); // real Wilder ATR(14) per instrument, for the ATR-based price-target line
+  const ATR_MTF = loadJsModule('atr-mtf.js', 'ATR_MTF');
+  const SPOT_MTF = loadJsModule('spot-mtf.js', 'SPOT_MTF'); // real Wilder ATR(14) per instrument, for the ATR-based price-target line
   const MACRO_AUTO = loadJsModule('macro-auto.js', 'MACRO_AUTO');
   if (!MARKET_DATA) { console.log('No xauusd-data.js found - nothing to check.'); return; }
   const COMMENTARY_POOL = buildCommentaryPool(MARKET_DATA, NEWS_AUTO); // shared "related commentary" search pool for every event card
@@ -730,7 +742,7 @@ if (require.main === module) (async () => {
     const sampleAutoByTab = NEWS_AUTO && NEWS_AUTO.byTab && NEWS_AUTO.byTab[sampleTab.id];
     const sampleNews = ((sampleAutoByTab && sampleAutoByTab.news) || [])[0] || (sampleTab.news || [])[0];
     const evtCard = sampleEvent ? eventCard(MARKET_DATA, ATR_DATA, sampleEvent, COMMENTARY_POOL) : null;
-    const nwsCard = sampleNews ? newsCard(MARKET_DATA, sampleTab, sampleNews, ATR_DATA, NEWS_AUTO && NEWS_AUTO.priceTrack && NEWS_AUTO.priceTrack.quoteSnapshots, ATR_MTF) : null;
+    const nwsCard = sampleNews ? newsCard(MARKET_DATA, sampleTab, sampleNews, ATR_DATA, NEWS_AUTO && NEWS_AUTO.priceTrack && NEWS_AUTO.priceTrack.quoteSnapshots, ATR_MTF, SPOT_MTF) : null;
     console.log('===== EVENT CARD PREVIEW =====\n' + (evtCard ? evtCard.caption + '\n[chart] ' + evtCard.chartUrl : '(no incoming events loaded)'));
     console.log('\n===== NEWS CARD PREVIEW =====\n' + (nwsCard ? nwsCard.caption + '\n[chart] ' + nwsCard.chartUrl : '(no news loaded)'));
     if (TOKEN && CHAT_ID && evtCard) {
@@ -844,7 +856,7 @@ if (require.main === module) (async () => {
     ((autoByTab && autoByTab.news) || []).filter(n => n.signal && n.signal !== 'NEUTRAL').forEach(n => {
       const key = 'news:' + n.title;
       if (seen.has(key)) return;
-      toSend.push({ key, card: newsCard(MARKET_DATA, tab, n, ATR_DATA, NEWS_AUTO && NEWS_AUTO.priceTrack && NEWS_AUTO.priceTrack.quoteSnapshots, ATR_MTF), category: 1, tiebreak: IMPACT_RANK[SharedLogic.impactTier(n.impactPct)] });
+      toSend.push({ key, card: newsCard(MARKET_DATA, tab, n, ATR_DATA, NEWS_AUTO && NEWS_AUTO.priceTrack && NEWS_AUTO.priceTrack.quoteSnapshots, ATR_MTF, SPOT_MTF), category: 1, tiebreak: IMPACT_RANK[SharedLogic.impactTier(n.impactPct)] });
     });
     ((autoByTab && autoByTab.speakers) || []).filter(s => s.side).forEach(s => {
       const key = 'spk:' + s.name + '|' + s.date;
