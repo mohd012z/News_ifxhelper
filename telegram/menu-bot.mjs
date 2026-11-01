@@ -66,7 +66,7 @@ export async function renderAction(action, {fetcher=fetch, now=Date.now()}={}) {
     }
    } catch {} // A missing secondary research feed must not erase manifest freshness.
    return {text:'<b>📰 News desk</b>\nManifest generation: '+esc(ageLabel(manifest.generatedAt,now))+'\n'+headline+'\nThis is historical research context, not a live news headline or evidence of delivered alerts. Original sources are on the dashboard.',reply_markup:keys};
-  } catch {return {text:'<b>📰 News desk</b>\nSource freshness unavailable. Do not assume headlines are current. Use the dashboard to inspect source links.',reply_markup:keys};
+  } catch {return {text:'<b>📰 News desk</b>\nSource freshness unavailable. Do not assume headlines are current. Use the dashboard to inspect source links.',reply_markup:keys};}
  }
  // Calendar callback format is bounded to two digits, keeping Telegram payloads small.
  const calendarRoute=/^(calendar(?:_high)?)(?::p:(\d{1,2}))?$/.exec(action);
