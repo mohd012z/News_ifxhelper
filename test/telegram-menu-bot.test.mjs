@@ -57,3 +57,7 @@ test('edit "message is not modified" is safe; other nonretry 400 can send new re
  assert.equal((await handleWebhook(req(cb('menu')),config,fetcher)).status,200);
  assert(!m.calls.some(x=>x.url.endsWith('/sendMessage')));
 });
+test('Alert History button opens the actual history view', async()=>{
+ const p=await renderAction('alerts');
+ assert(p.reply_markup.inline_keyboard.flat().some(b=>b.url?.includes('open=bbma&view=history')));
+});
