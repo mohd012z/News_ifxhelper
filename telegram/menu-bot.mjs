@@ -1,3 +1,4 @@
+import {renderCalendar,isCalendarAction} from './calendar-filters.mjs';
 import {withTelegramReceipt} from './update-receipts.mjs';
 /** News_ifxhelper Telegram menu (read-only). No order execution or synthetic quotes. */
 export const WEB_ROOT = 'https://mohd012z.github.io/News_ifxhelper/';
@@ -68,39 +69,7 @@ export async function renderAction(action, {fetcher=fetch, now=Date.now()}={}) {
    return {text:'<b>📰 News desk</b>\nManifest generation: '+esc(ageLabel(manifest.generatedAt,now))+'\n'+headline+'\nThis is historical research context, not a live news headline or evidence of delivered alerts. Original sources are on the dashboard.',reply_markup:keys};
   } catch {return {text:'<b>📰 News desk</b>\nSource freshness unavailable. Do not assume headlines are current. Use the dashboard to inspect source links.',reply_markup:keys};}
  }
- // Calendar callback format is bounded to two digits, keeping Telegram payloads small.
- const calendarRoute=/^(calendar(?:_high)?)(?::p:(\d{1,2}))?$/.exec(action);
- if(calendarRoute) {
-  const kind=calendarRoute[1], requestedPage=Number(calendarRoute[2]||0);
-  const page=Math.min(31,requestedPage), pageSize=8;
-  try {
-   const arr=await getJSON(CALENDAR_URL,fetcher);
-   if(!Array.isArray(arr))throw new Error('invalid calendar');
-   const seen=new Set(), within=[];
-   for(const e of arr){
-    if(!e||typeof e!=='object')continue;
-    const t=Date.parse(e.date||'');
-    if(!Number.isFinite(t)||t<now-3600000||t>=now+8*86400000)continue;
-    if(kind==='calendar_high'&&!/high/i.test(String(e.impact||'')))continue;
-    const key=[t,String(e.country||e.currency||'').trim().toUpperCase(),String(e.title||'').trim().toLowerCase(),String(e.impact||'').trim().toLowerCase()].join('|');
-    if(seen.has(key))continue;
-    seen.add(key);within.push(e);
-   }
-   within.sort((a,b)=>Date.parse(a.date)-Date.parse(b.date));
-   const pages=Math.max(1,Math.ceil(within.length/pageSize));
-   const current=Math.min(page,pages-1);
-   const shown=within.slice(current*pageSize,(current+1)*pageSize);
-   const summary=shown.length?shown.map(e=>`• ${esc(mytTime(e.date))} · ${esc(String(e.country||e.currency||'—').slice(0,12))} · ${esc(String(e.title||'Untitled').slice(0,110))} (${esc(String(e.impact||'unknown').slice(0,20))} impact)`).join('\n'):'No matching upcoming events in the current-week feed.';
-   const title=kind==='calendar_high'?'High-impact current-week calendar':'Current-week economic calendar';
-   const controls=[];
-   if(current>0)controls.push(callback('◀ Previous',`${kind}:p:${current-1}`));
-   if(current+1<pages&&current<31)controls.push(callback('Next ▶',`${kind}:p:${current+1}`));
-   const extra=[[callback('📅 All week','calendar'),callback('🔴 High impact','calendar_high')]];
-   if(controls.length)extra.push(controls);
-   const suffix=pages>32?' · first 32 pages available':'';
-   return {text:`<b>📅 ${title}</b>\nTimes: MYT · Feed: Forex Factory structured current week\n${summary}\nPage ${current+1}/${pages} · ${within.length} unique matching events${suffix}. Feed source age unverified; check releases against the original calendar.`,reply_markup:backKeys(extra)};
-  } catch {return {text:'<b>📅 Economic calendar</b>\nThe upstream feed is unavailable. No event times are confirmed.',reply_markup:backKeys([[callback('🔄 Retry calendar',kind)]])};}
- }
+ if(isCalendarAction(action))return renderCalendar(action,{fetcher,now});
  if(action==='bbma'||action.startsWith('tf:')) {
   const tf=action.startsWith('tf:')?action.slice(3):null;
   if(tf&&!TFS.has(tf))return {text:'Unsupported timeframe.',reply_markup:backKeys()};
@@ -124,7 +93,7 @@ export async function renderAction(action, {fetcher=fetch, now=Date.now()}={}) {
  }
  return {text:'Unknown button action. Select an item below.',reply_markup:menuKeys()};
 }
-function actionFrom(data){if(typeof data!=='string'||!data.startsWith('ifx:v1:')||BufferSize(data)>64)return 'menu';const action=data.slice(7);return ACTIONS.has(action)||action.startsWith('tf:')&&TFS.has(action.slice(3))||/^calendar(?:_high)?:p:(?:[0-9]|[12][0-9]|3[01])$/.test(action)?action:'menu';}
+function actionFrom(data){if(typeof data!=='string'||!data.startsWith('ifx:v1:')||BufferSize(data)>64)return 'menu';const action=data.slice(7);return ACTIONS.has(action)||action.startsWith('tf:')&&TFS.has(action.slice(3))||isCalendarAction(action)?action:'menu';}
 function BufferSize(s){return new TextEncoder().encode(s).length;}
 function authorized(chatId, env){const raw=String(env.TELEGRAM_ALLOWED_CHAT_IDS||env.TELEGRAM_CHAT_ID||'');const ids=raw.split(',').map(s=>s.trim()).filter(s=>/^-?\d+$/.test(s));return ids.includes(String(chatId));}
 function equalSecret(a,b){const x=new TextEncoder().encode(String(a||'')),y=new TextEncoder().encode(String(b||''));if(!x.length||x.length!==y.length)return false;let n=0;for(let i=0;i<x.length;i++)n|=x[i]^y[i];return n===0;}

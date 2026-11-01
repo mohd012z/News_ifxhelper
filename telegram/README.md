@@ -34,3 +34,7 @@ New `telegram/update-receipts.mjs` supports optional D1 persistence with CAS lea
 ## November 1: calendar, news and health follow-up
 
 Calendar now paginates a bounded 8-event page of the current-week feed, offers Previous/Next callback actions, deduplicates events, escapes untrusted headlines and excludes invalid timestamps. A missing feed is labeled unavailable, and source age is explicitly unverified. The News callback displays a timestamped research event from `data/intelligence-360.json` only when present, distinguishing its stale age from a recent manifest generation. Health shows recorded market, intelligence and learning states; it does not imply live Telegram delivery. The test suite includes `test/telegram-calendar-pagination.test.mjs`. All changes are Draft-only; no secrets, live cutover, billing or deployed Worker state changed.
+
+## Calendar filters (1 November 2026)
+
+Country: ALL/USD/EUR/GBP/JPY/AUD/CAD/NZD/CHF. Impact: ALL/HIGH/MEDIUM. Period: current week/today/tomorrow using Malaysia UTC+8. Eight events per page with preserved filter state, strict callback whitelist (64-byte maximum), de-duplication, upstream failure labeling, and source-provenance disclaimer. Legacy calendar and calendar_high callbacks remain compatible. These changes are isolated to Draft PR #35 and do not configure Cloudflare, Telegram secrets or paid services.
