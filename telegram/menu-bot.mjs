@@ -91,7 +91,7 @@ export async function renderAction(action, {fetcher=fetch, now=Date.now()}={}) {
     const candleStatus=candleEvidence(tf,candleStamp,now);
     const proxy=data.symbol==='GC=F'?'Gold futures proxy; not XAUUSD spot.':'Instrument type not independently verified.';
     return {text:`<b>📊 BBMA ${esc(tf)} • ${esc(data.symbol||'Unknown')}</b>\nSource: ${esc(data.provider||'unknown')}\n${age}\nCandle evidence: ${candleStatus}\n${esc(proxy)}\nTrend: ${esc(a.trend||'Unknown')}\nReentry: ${esc(a.reentry||'None')}\nExtreme: ${esc(a.extreme||'None')}\nCSAK: ${esc(a.csak||'None')}\nClosed-candle timestamp: ${esc(a.values?.lastTime||a.lastTime||'unverified')}\nHistorical research only — not a real-time trading signal.`,reply_markup:keys};}
-   const rows=(data.dashboard?.rows||[]).slice(0,8).map(r=>`${esc(r.tf)}: ${esc(r.trend||'Unknown')} · ${esc(r.pattern||'No setup')}`).join('\n');
+   const rows=(data.dashboard?.rows||[]).slice(0,9).map(r=>`${esc(r.tf)}: ${esc(r.trend||'Unknown')} · ${esc(r.pattern||'No setup')}`).join('\n');
    return {text:`<b>📊 BBMA research snapshot</b>\nSymbol: ${esc(data.symbol||'Unknown')}\nProvider: ${esc(data.provider||'Unknown')}\n${age}\n${rows||'No dashboard rows'}\nIndicator classifications require independent broker/candle verification.`,reply_markup:keys};
   }catch{return {text:'<b>📊 BBMA research</b>\nNo validated snapshot available. No signal generated.',reply_markup:keys};}
  }
