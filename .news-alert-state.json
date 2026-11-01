@@ -887,6 +887,8 @@
     "evt:[GBP] GDP m/m|2026-11-12",
     "evt:[USD] Core PPI m/m|2026-11-13",
     "evt:[USD] PPI m/m|2026-11-13",
-    "evt:[CAD] CPI m/m|2026-11-16"
+    "evt:[CAD] CPI m/m|2026-11-16",
+    "evt:[GBP] GDP m/m|2026-11-11",
+    "evt:[GBP] CPI y/y|2026-11-17"
   ]
 }
