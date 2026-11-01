@@ -880,6 +880,13 @@
     "evt:[AUD] Trimmed Mean CPI m/m|2026-11-24",
     "evt:[USD] Core PCE Price Index m/m|2026-11-25",
     "evt:[USD] Prelim GDP q/q|2026-11-25",
-    "evt:[CAD] GDP m/m|2026-11-30"
+    "evt:[CAD] GDP m/m|2026-11-30",
+    "evt:[USD] Core CPI y/y|2026-11-10",
+    "evt:[USD] CPI m/m|2026-11-10",
+    "evt:[USD] CPI y/y|2026-11-10",
+    "evt:[GBP] GDP m/m|2026-11-12",
+    "evt:[USD] Core PPI m/m|2026-11-13",
+    "evt:[USD] PPI m/m|2026-11-13",
+    "evt:[CAD] CPI m/m|2026-11-16"
   ]
 }
