@@ -8,7 +8,7 @@ test('standalone labeled BBMA dashboard requires no external CDNs',()=>{
 });
 test('nine timeframes and source provenance labels are present',()=>{
  for(const tf of ['M1','M5','M15','M30','H1','H4','D1','W1','MN1'])assert.match(html,new RegExp(tf));
- for(const str of ['LWMA5 High','LWMA10 High','LWMA5 Low','LWMA10 Low','EMA50','Upper BB','Mid BB','Lower BB','sourceTime','REENTRY_DOWN_ZONE'])assert(html.includes(str),str);
+ for(const str of ['LWMA5 High','LWMA10 High','LWMA5 Low','LWMA10 Low','EMA50','Upper BB','Mid BB','Lower BB','sourceGeneratedAt','REENTRY_DOWN_ZONE'])assert(html.includes(str),str);
 });
 test('OHLC imports reject synthetic baselines and incomplete bars',()=>{
  assert.match(html,/Synthetic candle rejected/);
