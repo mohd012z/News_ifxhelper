@@ -21,8 +21,9 @@ Object.keys(TFS).forEach(function(tf){
     frames[tf].push({_b:b,time:new Date(ct).toISOString(),open:o,high:h,low:l,close:c,source:'BASELINE_CACHE'});
   }
 });
-lastPrice=basePrice;
-lastAt=new Date(now).toISOString();
+// Demo OHLC may be used for chart layout, never as a live quote.
+lastPrice=null;
+lastAt=null;
 
 function add(tf,p,t){
   var a=frames[tf],b=bucket(t,TFS[tf]),c=a[a.length-1];
@@ -97,40 +98,31 @@ function publish(){
   var mytTime=new Date().toLocaleTimeString('en-GB',{timeZone:'Asia/Kuala_Lumpur',hour:'2-digit',minute:'2-digit'})+' MYT';
   var out={
     symbol:'XAU/USD',
-    price:lastPrice?lastPrice.toFixed(2):'2658.50',
-    last:lastPrice?lastPrice.toFixed(2):'2658.50',
-    at:lastAt||new Date().toISOString(),
+    price:lastPrice?lastPrice.toFixed(2):null,
+    last:lastPrice?lastPrice.toFixed(2):null,
+    at:lastAt||null,
     updatedMYT:mytTime,
-    alertState:'PRE-EVENT',
-    fresh:true,
-    freshness:'FRESH_SNAPSHOT',
-    source:'LIVE_TICK_DERIVED',
+    alertState:'UNVERIFIED',
+    fresh:false,
+    freshness:lastAt?'UNVERIFIED_BROWSER_TICK':'DEMO_BASELINE',
+    source:lastAt?'UNVERIFIED_BROWSER_TICK':'BASELINE_CACHE',
     ohlc:frames,
     candles:frames,
     frames:{},
-    alerts:[
-      {id:'bbma-1',symbol:'XAU/USD',tf:'H4',timeframe:'H4',pattern:'MHV',type:'SETUP',level:'HIGH',impact:'HIGH',timeMYT:mytTime,summary:'H4 MHV confirmed rejection of Lower BB. MTF Trend aligned UP.'},
-      {id:'bbma-2',symbol:'XAU/USD',tf:'M15',timeframe:'M15',pattern:'RE-ENTRY',type:'CONFIRMED',level:'HIGH',impact:'HIGH',timeMYT:mytTime,summary:'M15 Re-entry armed inside mid-BB bounce zone with lower-wick rejection.'},
-      {id:'bbma-3',symbol:'XAU/USD',tf:'M5',timeframe:'M5',pattern:'EXTREME',type:'WATCH',level:'MEDIUM',impact:'MED',timeMYT:mytTime,summary:'M5 Extreme lower-band exhaustion reached.'}
-    ],
-    alertHistory:[
-      {id:'bbma-hist-1',symbol:'XAU/USD',tf:'H4',pattern:'MHV (Validated)',timeMYT:mytTime},
-      {id:'bbma-hist-2',symbol:'XAU/USD',tf:'M15',pattern:'RE-ENTRY (Armed)',timeMYT:mytTime},
-      {id:'bbma-hist-3',symbol:'XAU/USD',tf:'H1',pattern:'MOMENTUM (Breakout)',timeMYT:mytTime}
-    ],
-    event:{
-      name:'US Core PCE / Fed Policy Runway',
-      event:'US Core PCE / Fed Policy Runway',
-      timeMYT:mytTime,
-      mytDisplay:mytTime,
-      previous:'0.2%',
-      forecast:'0.2%',
-      actual:'Pending',
-      summary:'Runway clear for technical BBMA setups. No high-impact release within current session window.'
-    }
+    // Do not fabricate a validated setup, history, or macro event.
+    alerts:[],
+    alertHistory:[],
+    event:null
   };
 
-  Object.keys(frames).forEach(function(tf){out.frames[tf]=classify(frames[tf]);});
+  Object.keys(frames).forEach(function(tf){
+    var info=classify(frames[tf]);
+    // Mixed synthetic baseline and browser events cannot authenticate a BBMA setup.
+    info.state=lastAt?'UNVERIFIED_BROWSER_TICK':'DEMO_ONLY';
+    info.trend='—';info.momentum='—';info.reentry='—';info.csa='—';info.csak='—';
+    info.mhv='—';info.extreme='—';
+    out.frames[tf]=info;
+  });
   out.mtf=out.frames;
   out.timeframes=out.frames;
   window.BBMA_RUNTIME=out;
