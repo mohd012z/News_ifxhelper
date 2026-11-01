@@ -97,7 +97,7 @@ function formatBbmaAlertBox(alertData) {
 
   // Build clean URL buttons (NO callback queries - opens directly in browser or Telegram WebApp)
   const webUrl = DASHBOARD_URL.endsWith('/') ? `${DASHBOARD_URL}#bbma` : `${DASHBOARD_URL}/#bbma`;
-  const alertUrl = DASHBOARD_URL.endsWith('/') ? `${DASHBOARD_URL}?open=bbma` : `${DASHBOARD_URL}/?open=bbma`;
+  const alertUrl = DASHBOARD_URL.endsWith('/') ? `${DASHBOARD_URL}?open=bbma&view=history` : `${DASHBOARD_URL}/?open=bbma&view=history`;
 
   const inlineKeyboard = {
     inline_keyboard: [
