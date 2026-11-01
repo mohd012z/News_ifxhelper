@@ -53,21 +53,53 @@ export async function renderAction(action, {fetcher=fetch, now=Date.now()}={}) {
  if(action==='menu') return {text:'<b>NEWS IFXHELPER • Main menu</b>\nChoose a research panel. The bot does not place orders. Data is labeled by source and timestamp.',reply_markup:menuKeys()};
  if(action==='help') return {text:'<b>How to use the bot</b>\n/start or /menu — open all buttons\n/news — view news refresh status\n/calendar — week events (MYT)\n/bbma — historical BBMA scan\n/alerts — alert history link\n/health — snapshot status\n\nButtons open the selected panel. These are research observations, not live-price trade signals.',reply_markup:backKeys()};
  if(action==='news') {
-  try {const m=await getJSON(RAW_ROOT+'data-manifest.json',fetcher);return {text:'<b>📰 News desk</b>\nRefresh metadata: '+esc(ageLabel(m.generatedAt,now))+'\nNews details and original-source links are on the dashboard. A successful scheduled job is not proof of a delivered Telegram alert.',reply_markup:backKeys([[link('📰 News dashboard',WEB_ROOT)]])};}
-  catch {return {text:'<b>📰 News desk</b>\nSource freshness unavailable. Do not assume headlines are current. Use the dashboard to inspect source links.',reply_markup:backKeys([[link('📰 News dashboard',WEB_ROOT)]])};}
+  const keys=backKeys([[callback('🔄 Refresh news','news'),link('📰 News dashboard',WEB_ROOT)]]);
+  try {
+   const manifest=await getJSON(RAW_ROOT+'data-manifest.json',fetcher);
+   let headline='Most recent classified research event: unavailable (see dashboard for cited headlines).';
+   try {
+    const item=await getJSON(RAW_ROOT+'data/intelligence-360.json',fetcher);
+    const evt=item.news?.event;
+    if(evt?.title){
+     const when=evt.time?mytTime(evt.time):'timestamp unavailable';
+     headline=`Recorded event: ${esc(String(evt.title).slice(0,170))}\nCountry: ${esc(String(evt.currency||'unknown').slice(0,12))} · Impact: ${esc(String(evt.impact||'unknown').slice(0,20))}\nEvent time: ${esc(when)}\nResearch snapshot: ${esc(ageLabel(item.sourceGeneratedAt||item.generatedAt,now))}`;
+    }
+   } catch {} // A missing secondary research feed must not erase manifest freshness.
+   return {text:'<b>📰 News desk</b>\nManifest generation: '+esc(ageLabel(manifest.generatedAt,now))+'\n'+headline+'\nThis is historical research context, not a live news headline or evidence of delivered alerts. Original sources are on the dashboard.',reply_markup:keys};
+  } catch {return {text:'<b>📰 News desk</b>\nSource freshness unavailable. Do not assume headlines are current. Use the dashboard to inspect source links.',reply_markup:keys};
  }
- if(action==='calendar' || action==='calendar_high') {
+ // Calendar callback format is bounded to two digits, keeping Telegram payloads small.
+ const calendarRoute=/^(calendar(?:_high)?)(?::p:(\d{1,2}))?$/.exec(action);
+ if(calendarRoute) {
+  const kind=calendarRoute[1], requestedPage=Number(calendarRoute[2]||0);
+  const page=Math.min(31,requestedPage), pageSize=8;
   try {
    const arr=await getJSON(CALENDAR_URL,fetcher);
    if(!Array.isArray(arr))throw new Error('invalid calendar');
-   const within=arr.filter(e=>{const t=Date.parse(e.date||'');return Number.isFinite(t)&&t>=now-3600000&&t<now+8*86400000;})
-    .filter(e=>action!=='calendar_high'||/high/i.test(String(e.impact||'')))
-    .sort((a,b)=>Date.parse(a.date)-Date.parse(b.date));
-   const shown=within.slice(0,8);
-   const summary=shown.length?shown.map(e=>`• ${esc(mytTime(e.date))} · ${esc(String(e.country||e.currency||'—').slice(0,12))} · ${esc(String(e.title||'Untitled').slice(0,110))} (${esc(e.impact||'unknown')} impact)`).join('\n'):'No matching upcoming events in the current-week feed.';
-   const title=action==='calendar_high'?'High-impact current-week calendar':'Current-week economic calendar';
-   return {text:`<b>📅 ${title}</b>\nTimes: MYT · Feed: Forex Factory structured current week\n${summary}\nOnly ${shown.length} of ${within.length} matching future events displayed. This feed is not an all-month calendar.`,reply_markup:backKeys([[callback('📅 All week','calendar'),callback('🔴 High impact','calendar_high')]])};
-  } catch {return {text:'<b>📅 Economic calendar</b>\nThe upstream feed is unavailable. No event times are confirmed.',reply_markup:backKeys([[callback('🔄 Retry calendar',action)]])};}
+   const seen=new Set(), within=[];
+   for(const e of arr){
+    if(!e||typeof e!=='object')continue;
+    const t=Date.parse(e.date||'');
+    if(!Number.isFinite(t)||t<now-3600000||t>=now+8*86400000)continue;
+    if(kind==='calendar_high'&&!/high/i.test(String(e.impact||'')))continue;
+    const key=[t,String(e.country||e.currency||'').trim().toUpperCase(),String(e.title||'').trim().toLowerCase(),String(e.impact||'').trim().toLowerCase()].join('|');
+    if(seen.has(key))continue;
+    seen.add(key);within.push(e);
+   }
+   within.sort((a,b)=>Date.parse(a.date)-Date.parse(b.date));
+   const pages=Math.max(1,Math.ceil(within.length/pageSize));
+   const current=Math.min(page,pages-1);
+   const shown=within.slice(current*pageSize,(current+1)*pageSize);
+   const summary=shown.length?shown.map(e=>`• ${esc(mytTime(e.date))} · ${esc(String(e.country||e.currency||'—').slice(0,12))} · ${esc(String(e.title||'Untitled').slice(0,110))} (${esc(String(e.impact||'unknown').slice(0,20))} impact)`).join('\n'):'No matching upcoming events in the current-week feed.';
+   const title=kind==='calendar_high'?'High-impact current-week calendar':'Current-week economic calendar';
+   const controls=[];
+   if(current>0)controls.push(callback('◀ Previous',`${kind}:p:${current-1}`));
+   if(current+1<pages&&current<31)controls.push(callback('Next ▶',`${kind}:p:${current+1}`));
+   const extra=[[callback('📅 All week','calendar'),callback('🔴 High impact','calendar_high')]];
+   if(controls.length)extra.push(controls);
+   const suffix=pages>32?' · first 32 pages available':'';
+   return {text:`<b>📅 ${title}</b>\nTimes: MYT · Feed: Forex Factory structured current week\n${summary}\nPage ${current+1}/${pages} · ${within.length} unique matching events${suffix}. Feed source age unverified; check releases against the original calendar.`,reply_markup:backKeys(extra)};
+  } catch {return {text:'<b>📅 Economic calendar</b>\nThe upstream feed is unavailable. No event times are confirmed.',reply_markup:backKeys([[callback('🔄 Retry calendar',kind)]])};}
  }
  if(action==='bbma'||action.startsWith('tf:')) {
   const tf=action.startsWith('tf:')?action.slice(3):null;
@@ -84,12 +116,15 @@ export async function renderAction(action, {fetcher=fetch, now=Date.now()}={}) {
  }
  if(action==='alerts')return {text:'<b>🔔 Alerts &amp; history</b>\nScheduled news notifications and BBMA observations are different services. The web dashboard contains the available alert history. Telegram delivery receipts are not exposed here; a successful job is not proof of a message delivered to this chat.',reply_markup:backKeys([[link('🔔 Open BBMA history',WEB_ROOT+'?open=bbma&view=history')]])};
  if(action==='health'){
-  try{const h=await getJSON(RAW_ROOT+'data/agent-health.json',fetcher);return {text:'<b>🩺 Source health</b>\nLast health snapshot: '+esc(ageLabel(h.generatedAt,now))+'\nWebhook response: operational for this request.\nProvider connectivity and Telegram delivery remain separate acceptance gates.',reply_markup:backKeys([[callback('🔄 Refresh health','health')]])};}
-  catch{return {text:'<b>🩺 Source health</b>\nHealth snapshot unavailable. Webhook processing responded, but downstream health is unknown.',reply_markup:backKeys([[callback('🔄 Retry','health')]])};}
+  try{
+   const h=await getJSON(RAW_ROOT+'data/agent-health.json',fetcher);
+   const agents=['market','intelligence','learning'].map(k=>`${k}: ${esc(String(h.agents?.[k]?.state||h.agents?.[k]?.status||'UNKNOWN').slice(0,30))}`).join('\n');
+   return {text:'<b>🩺 Source health</b>\nLast recorded health: '+esc(ageLabel(h.generatedAt,now))+'\n'+agents+'\nWebhook responded to this request; real provider connectivity, Telegram delivery and receipt durability are separately unverified.',reply_markup:backKeys([[callback('🔄 Refresh health','health')]])};
+  }catch{return {text:'<b>🩺 Source health</b>\nHealth snapshot unavailable. Webhook processing responded, but downstream health is unknown.',reply_markup:backKeys([[callback('🔄 Retry','health')]])};}
  }
  return {text:'Unknown button action. Select an item below.',reply_markup:menuKeys()};
 }
-function actionFrom(data){if(typeof data!=='string'||!data.startsWith('ifx:v1:')||BufferSize(data)>64)return 'menu';const action=data.slice(7);return ACTIONS.has(action)||action.startsWith('tf:')&&TFS.has(action.slice(3))?action:'menu';}
+function actionFrom(data){if(typeof data!=='string'||!data.startsWith('ifx:v1:')||BufferSize(data)>64)return 'menu';const action=data.slice(7);return ACTIONS.has(action)||action.startsWith('tf:')&&TFS.has(action.slice(3))||/^calendar(?:_high)?:p:(?:[0-9]|[12][0-9]|3[01])$/.test(action)?action:'menu';}
 function BufferSize(s){return new TextEncoder().encode(s).length;}
 function authorized(chatId, env){const raw=String(env.TELEGRAM_ALLOWED_CHAT_IDS||env.TELEGRAM_CHAT_ID||'');const ids=raw.split(',').map(s=>s.trim()).filter(s=>/^-?\d+$/.test(s));return ids.includes(String(chatId));}
 function equalSecret(a,b){const x=new TextEncoder().encode(String(a||'')),y=new TextEncoder().encode(String(b||''));if(!x.length||x.length!==y.length)return false;let n=0;for(let i=0;i<x.length;i++)n|=x[i]^y[i];return n===0;}
@@ -99,8 +134,8 @@ export async function handleWebhook(request, env, fetcher=fetch) {
  if(!equalSecret(request.headers.get('x-telegram-bot-api-secret-token'),env.TELEGRAM_WEBHOOK_SECRET))return new Response('Forbidden',{status:403});
  if(Number(request.headers.get('content-length')||0)>32768)return new Response('Too large',{status:413});
  let update;
- try {const body=await request.text();if(body.length>32768)return new Response('Too large',{status:413});update=JSON.parse(body);}catch{return new Response('Bad JSON',{status:400});}
- if(!Number.isSafeInteger(update?.update_id)||update.update_id<0)return new Response('Invalid update',{status:400});
+ try {const body=await request.text();if(new TextEncoder().encode(body).length>32768)return new Response('Too large',{status:413});update=JSON.parse(body);}catch{return new Response('Bad JSON',{status:400});}
+ if(!update||typeof update!=='object'||!Number.isSafeInteger(update.update_id)||update.update_id<0)return new Response('Invalid update',{status:400});
  const cb=update.callback_query;
  const chatId=cb?.message?.chat?.id??update.message?.chat?.id;
  if(!authorized(chatId,env))return new Response('OK',{status:200});
