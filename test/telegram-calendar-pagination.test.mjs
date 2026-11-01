@@ -29,8 +29,15 @@ test('high impact filter does not show low impact events',async()=>{
  assert.doesNotMatch(p.text,/\(Low impact\)/);
 });
 test('calendar callback is acknowledged and yields editable pagination message',async()=>{
+ // The webhook uses Date.now(); keep its events relative to that clock, not NOW.
+ // Otherwise this test loses events as wall-clock time advances and falsely fails pagination.
+ const offset=Date.now()-NOW;
+ const callbackEvents=events.map(e=>{
+  const t=Date.parse(e.date);
+  return Number.isFinite(t)?{...e,date:new Date(t+offset).toISOString()}:e;
+ });
  const calls=[];
- const stub=async(url,opts={})=>{calls.push({url:String(url),opts});return String(url).startsWith('https://api.telegram.org/')?new Response(JSON.stringify({ok:true,result:true})):fetcher();};
+ const stub=async(url,opts={})=>{calls.push({url:String(url),opts});return String(url).startsWith('https://api.telegram.org/')?new Response(JSON.stringify({ok:true,result:true})):new Response(JSON.stringify(callbackEvents));};
  const update={update_id:17,callback_query:{id:'callback17',data:'ifx:v1:calendar:p:2',message:{chat:{id:123},message_id:45}}};
  const request=new Request('https://example.invalid/api/telegram/webhook',{method:'POST',headers:{'x-telegram-bot-api-secret-token':'secret'},body:JSON.stringify(update)});
  const resp=await handleWebhook(request,{TELEGRAM_BOT_TOKEN:'test',TELEGRAM_WEBHOOK_SECRET:'secret',TELEGRAM_ALLOWED_CHAT_IDS:'123'},stub);
