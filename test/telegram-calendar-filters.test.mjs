@@ -43,7 +43,9 @@ test('upstream error remains explicit and fail closed',async()=>{
  assert.match(p.text,/unavailable/);assert.doesNotMatch(p.text,/USD event/);
 });
 test('Telegram callback acknowledges before edit of filtered calendar',async()=>{
- const calls=[],f=async(url,opts={})=>{calls.push({url:String(url),opts});return String(url).includes('api.telegram.org')?new Response(JSON.stringify({ok:true,result:true})):source();};
+ const calls=[];
+ const futureEvents=Array.from({length:5},(_,i)=>({date:new Date(Date.now()+(i+1)*600000).toISOString(),country:'EUR',title:'Relative event '+i,impact:'Medium'}));
+ const f=async(url,opts={})=>{calls.push({url:String(url),opts});return String(url).includes('api.telegram.org')?new Response(JSON.stringify({ok:true,result:true})):new Response(JSON.stringify(futureEvents));};
  const r=new Request('https://unit.test/api/telegram/webhook',{method:'POST',headers:{'x-telegram-bot-api-secret-token':'secret'},body:JSON.stringify({update_id:777,callback_query:{id:'q777',data:'ifx:v1:cal2:EUR:M:W:0',message:{chat:{id:123},message_id:8}}})});
  const res=await handleWebhook(r,{TELEGRAM_BOT_TOKEN:'fake',TELEGRAM_WEBHOOK_SECRET:'secret',TELEGRAM_ALLOWED_CHAT_IDS:'123'},f);
  assert.equal(res.status,200);const tg=calls.filter(x=>x.url.includes('api.telegram.org'));
