@@ -1,273 +1,6 @@
 {
   "pending": [
     {
-      "key": "news:gold:Euro weakens below 1.1350 on higher US Treasury yields, Lagarde's dovish tilt",
-      "tabId": "gold",
-      "kind": "news",
-      "title": "Euro weakens below 1.1350 on higher US Treasury yields, Lagarde's dovish tilt",
-      "url": "https://www.fxstreet.com/news/euro-weakens-below-11350-on-higher-us-treasury-yields-lagardes-dovish-tilt-202610010252",
-      "impactScore": 0.12,
-      "priceAtDetect": 4209.3,
-      "createdAt": "2026-10-01T05:11:26.661Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-10-01T05:12:26.661Z",
-          "capturedAt": "2026-10-01T06:39:04.601Z",
-          "price": 4219.3,
-          "realizedPct": 0.238
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-10-01T05:16:26.661Z",
-          "capturedAt": "2026-10-01T06:39:04.601Z",
-          "price": 4219.3,
-          "realizedPct": 0.238
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-10-01T05:26:26.661Z",
-          "capturedAt": "2026-10-01T06:39:04.601Z",
-          "price": 4219.3,
-          "realizedPct": 0.238
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-10-01T05:41:26.661Z",
-          "capturedAt": "2026-10-01T06:39:04.601Z",
-          "price": 4219.3,
-          "realizedPct": 0.238
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-10-01T06:11:26.661Z",
-          "capturedAt": "2026-10-01T06:39:04.601Z",
-          "price": 4219.3,
-          "realizedPct": 0.238
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-10-01T09:11:26.661Z",
-          "capturedAt": "2026-10-01T13:56:06.643Z",
-          "price": 4193.3,
-          "realizedPct": -0.38
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-10-02T05:11:26.661Z",
-          "capturedAt": "2026-10-02T08:58:51.693Z",
-          "price": 4210.3,
-          "realizedPct": 0.024
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-08T05:11:26.661Z",
-          "capturedAt": "2026-10-08T05:28:02.363Z",
-          "price": 4155.7,
-          "realizedPct": -1.273
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-31T05:11:26.661Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 0.238,
-        "maePct": -1.273
-      }
-    },
-    {
-      "key": "news:gold:Fed path shaped by firm inflation – Societe Generale",
-      "tabId": "gold",
-      "kind": "news",
-      "title": "Fed path shaped by firm inflation – Societe Generale",
-      "url": "https://www.fxstreet.com/news/fed-path-shaped-by-firm-inflation-societe-generale-202610010225",
-      "impactScore": -0.13,
-      "priceAtDetect": 4209.3,
-      "createdAt": "2026-10-01T05:11:26.661Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-10-01T05:12:26.661Z",
-          "capturedAt": "2026-10-01T06:39:04.601Z",
-          "price": 4219.3,
-          "realizedPct": 0.238
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-10-01T05:16:26.661Z",
-          "capturedAt": "2026-10-01T06:39:04.601Z",
-          "price": 4219.3,
-          "realizedPct": 0.238
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-10-01T05:26:26.661Z",
-          "capturedAt": "2026-10-01T06:39:04.601Z",
-          "price": 4219.3,
-          "realizedPct": 0.238
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-10-01T05:41:26.661Z",
-          "capturedAt": "2026-10-01T06:39:04.601Z",
-          "price": 4219.3,
-          "realizedPct": 0.238
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-10-01T06:11:26.661Z",
-          "capturedAt": "2026-10-01T06:39:04.601Z",
-          "price": 4219.3,
-          "realizedPct": 0.238
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-10-01T09:11:26.661Z",
-          "capturedAt": "2026-10-01T13:56:06.643Z",
-          "price": 4193.3,
-          "realizedPct": -0.38
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-10-02T05:11:26.661Z",
-          "capturedAt": "2026-10-02T08:58:51.693Z",
-          "price": 4210.3,
-          "realizedPct": 0.024
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-08T05:11:26.661Z",
-          "capturedAt": "2026-10-08T05:28:02.363Z",
-          "price": 4155.7,
-          "realizedPct": -1.273
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-31T05:11:26.661Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 0.238,
-        "maePct": -1.273
-      }
-    },
-    {
-      "key": "news:gold:US Dollar: Fed outlook supported by robust data – TD Securities",
-      "tabId": "gold",
-      "kind": "news",
-      "title": "US Dollar: Fed outlook supported by robust data – TD Securities",
-      "url": "https://www.fxstreet.com/news/us-dollar-fed-outlook-supported-by-robust-data-td-securities-202610010222",
-      "impactScore": -0.21,
-      "priceAtDetect": 4209.3,
-      "createdAt": "2026-10-01T05:11:26.661Z",
-      "checkpoints": [
-        {
-          "key": "M1",
-          "minutes": 1,
-          "dueAt": "2026-10-01T05:12:26.661Z",
-          "capturedAt": "2026-10-01T06:39:04.601Z",
-          "price": 4219.3,
-          "realizedPct": 0.238
-        },
-        {
-          "key": "M5",
-          "minutes": 5,
-          "dueAt": "2026-10-01T05:16:26.661Z",
-          "capturedAt": "2026-10-01T06:39:04.601Z",
-          "price": 4219.3,
-          "realizedPct": 0.238
-        },
-        {
-          "key": "M15",
-          "minutes": 15,
-          "dueAt": "2026-10-01T05:26:26.661Z",
-          "capturedAt": "2026-10-01T06:39:04.601Z",
-          "price": 4219.3,
-          "realizedPct": 0.238
-        },
-        {
-          "key": "M30",
-          "minutes": 30,
-          "dueAt": "2026-10-01T05:41:26.661Z",
-          "capturedAt": "2026-10-01T06:39:04.601Z",
-          "price": 4219.3,
-          "realizedPct": 0.238
-        },
-        {
-          "key": "H1",
-          "minutes": 60,
-          "dueAt": "2026-10-01T06:11:26.661Z",
-          "capturedAt": "2026-10-01T06:39:04.601Z",
-          "price": 4219.3,
-          "realizedPct": 0.238
-        },
-        {
-          "key": "H4",
-          "minutes": 240,
-          "dueAt": "2026-10-01T09:11:26.661Z",
-          "capturedAt": "2026-10-01T13:56:06.643Z",
-          "price": 4193.3,
-          "realizedPct": -0.38
-        },
-        {
-          "key": "D1",
-          "minutes": 1440,
-          "dueAt": "2026-10-02T05:11:26.661Z",
-          "capturedAt": "2026-10-02T08:58:51.693Z",
-          "price": 4210.3,
-          "realizedPct": 0.024
-        },
-        {
-          "key": "W1",
-          "minutes": 10080,
-          "dueAt": "2026-10-08T05:11:26.661Z",
-          "capturedAt": "2026-10-08T05:28:02.363Z",
-          "price": 4155.7,
-          "realizedPct": -1.273
-        },
-        {
-          "key": "MN1",
-          "minutes": 43200,
-          "dueAt": "2026-10-31T05:11:26.661Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
-        }
-      ],
-      "reaction": {
-        "state": "OBSERVING",
-        "mfePct": 0.238,
-        "maePct": -1.273
-      }
-    },
-    {
       "key": "news:gold:European Central Bank keeps key interest rate on hold at 2.5%",
       "tabId": "gold",
       "kind": "news",
@@ -863,9 +596,9 @@
           "key": "D1",
           "minutes": 1440,
           "dueAt": "2026-10-31T13:32:17.392Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-01T23:11:30.419Z",
+          "price": 3898.9,
+          "realizedPct": -1.438
         },
         {
           "key": "W1",
@@ -952,9 +685,9 @@
           "key": "D1",
           "minutes": 1440,
           "dueAt": "2026-10-31T13:32:17.392Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-01T23:11:30.419Z",
+          "price": 3898.9,
+          "realizedPct": -1.438
         },
         {
           "key": "W1",
@@ -1219,9 +952,9 @@
           "key": "D1",
           "minutes": 1440,
           "dueAt": "2026-10-31T13:32:17.392Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-01T23:11:30.419Z",
+          "price": 1.1166,
+          "realizedPct": -0.018
         },
         {
           "key": "W1",
@@ -1308,9 +1041,9 @@
           "key": "D1",
           "minutes": 1440,
           "dueAt": "2026-10-31T13:32:17.392Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-01T23:11:30.419Z",
+          "price": 1.1166,
+          "realizedPct": -0.018
         },
         {
           "key": "W1",
@@ -1389,17 +1122,17 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-10-31T03:00:23.751Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-01T23:11:30.419Z",
+          "price": 3898.9,
+          "realizedPct": 0.36
         },
         {
           "key": "D1",
           "minutes": 1440,
           "dueAt": "2026-10-31T23:00:23.751Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-01T23:11:30.419Z",
+          "price": 3898.9,
+          "realizedPct": 0.36
         },
         {
           "key": "W1",
@@ -1420,7 +1153,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0,
+        "mfePct": 0.36,
         "maePct": 0
       }
     },
@@ -1567,17 +1300,17 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-10-31T03:00:23.751Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-01T23:11:30.419Z",
+          "price": 1.1166,
+          "realizedPct": 0
         },
         {
           "key": "D1",
           "minutes": 1440,
           "dueAt": "2026-10-31T23:00:23.751Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-01T23:11:30.419Z",
+          "price": 1.1166,
+          "realizedPct": 0
         },
         {
           "key": "W1",
@@ -1604,6 +1337,276 @@
     }
   ],
   "results": [
+    {
+      "key": "news:gold:US Dollar: Fed outlook supported by robust data – TD Securities",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "US Dollar: Fed outlook supported by robust data – TD Securities",
+      "url": "https://www.fxstreet.com/news/us-dollar-fed-outlook-supported-by-robust-data-td-securities-202610010222",
+      "impactScore": -0.21,
+      "priceAtDetect": 4209.3,
+      "createdAt": "2026-10-01T05:11:26.661Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-10-01T05:12:26.661Z",
+          "capturedAt": "2026-10-01T06:39:04.601Z",
+          "price": 4219.3,
+          "realizedPct": 0.238
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-10-01T05:16:26.661Z",
+          "capturedAt": "2026-10-01T06:39:04.601Z",
+          "price": 4219.3,
+          "realizedPct": 0.238
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-10-01T05:26:26.661Z",
+          "capturedAt": "2026-10-01T06:39:04.601Z",
+          "price": 4219.3,
+          "realizedPct": 0.238
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-10-01T05:41:26.661Z",
+          "capturedAt": "2026-10-01T06:39:04.601Z",
+          "price": 4219.3,
+          "realizedPct": 0.238
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-10-01T06:11:26.661Z",
+          "capturedAt": "2026-10-01T06:39:04.601Z",
+          "price": 4219.3,
+          "realizedPct": 0.238
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-10-01T09:11:26.661Z",
+          "capturedAt": "2026-10-01T13:56:06.643Z",
+          "price": 4193.3,
+          "realizedPct": -0.38
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-10-02T05:11:26.661Z",
+          "capturedAt": "2026-10-02T08:58:51.693Z",
+          "price": 4210.3,
+          "realizedPct": 0.024
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-08T05:11:26.661Z",
+          "capturedAt": "2026-10-08T05:28:02.363Z",
+          "price": 4155.7,
+          "realizedPct": -1.273
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-31T05:11:26.661Z",
+          "capturedAt": "2026-11-01T23:11:30.419Z",
+          "price": 3898.9,
+          "realizedPct": -7.374
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 0.238,
+        "maePct": -7.374
+      },
+      "completedAt": "2026-11-01T23:11:30.419Z"
+    },
+    {
+      "key": "news:gold:Fed path shaped by firm inflation – Societe Generale",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Fed path shaped by firm inflation – Societe Generale",
+      "url": "https://www.fxstreet.com/news/fed-path-shaped-by-firm-inflation-societe-generale-202610010225",
+      "impactScore": -0.13,
+      "priceAtDetect": 4209.3,
+      "createdAt": "2026-10-01T05:11:26.661Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-10-01T05:12:26.661Z",
+          "capturedAt": "2026-10-01T06:39:04.601Z",
+          "price": 4219.3,
+          "realizedPct": 0.238
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-10-01T05:16:26.661Z",
+          "capturedAt": "2026-10-01T06:39:04.601Z",
+          "price": 4219.3,
+          "realizedPct": 0.238
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-10-01T05:26:26.661Z",
+          "capturedAt": "2026-10-01T06:39:04.601Z",
+          "price": 4219.3,
+          "realizedPct": 0.238
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-10-01T05:41:26.661Z",
+          "capturedAt": "2026-10-01T06:39:04.601Z",
+          "price": 4219.3,
+          "realizedPct": 0.238
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-10-01T06:11:26.661Z",
+          "capturedAt": "2026-10-01T06:39:04.601Z",
+          "price": 4219.3,
+          "realizedPct": 0.238
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-10-01T09:11:26.661Z",
+          "capturedAt": "2026-10-01T13:56:06.643Z",
+          "price": 4193.3,
+          "realizedPct": -0.38
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-10-02T05:11:26.661Z",
+          "capturedAt": "2026-10-02T08:58:51.693Z",
+          "price": 4210.3,
+          "realizedPct": 0.024
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-08T05:11:26.661Z",
+          "capturedAt": "2026-10-08T05:28:02.363Z",
+          "price": 4155.7,
+          "realizedPct": -1.273
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-31T05:11:26.661Z",
+          "capturedAt": "2026-11-01T23:11:30.419Z",
+          "price": 3898.9,
+          "realizedPct": -7.374
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 0.238,
+        "maePct": -7.374
+      },
+      "completedAt": "2026-11-01T23:11:30.419Z"
+    },
+    {
+      "key": "news:gold:Euro weakens below 1.1350 on higher US Treasury yields, Lagarde's dovish tilt",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Euro weakens below 1.1350 on higher US Treasury yields, Lagarde's dovish tilt",
+      "url": "https://www.fxstreet.com/news/euro-weakens-below-11350-on-higher-us-treasury-yields-lagardes-dovish-tilt-202610010252",
+      "impactScore": 0.12,
+      "priceAtDetect": 4209.3,
+      "createdAt": "2026-10-01T05:11:26.661Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-10-01T05:12:26.661Z",
+          "capturedAt": "2026-10-01T06:39:04.601Z",
+          "price": 4219.3,
+          "realizedPct": 0.238
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-10-01T05:16:26.661Z",
+          "capturedAt": "2026-10-01T06:39:04.601Z",
+          "price": 4219.3,
+          "realizedPct": 0.238
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-10-01T05:26:26.661Z",
+          "capturedAt": "2026-10-01T06:39:04.601Z",
+          "price": 4219.3,
+          "realizedPct": 0.238
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-10-01T05:41:26.661Z",
+          "capturedAt": "2026-10-01T06:39:04.601Z",
+          "price": 4219.3,
+          "realizedPct": 0.238
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-10-01T06:11:26.661Z",
+          "capturedAt": "2026-10-01T06:39:04.601Z",
+          "price": 4219.3,
+          "realizedPct": 0.238
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-10-01T09:11:26.661Z",
+          "capturedAt": "2026-10-01T13:56:06.643Z",
+          "price": 4193.3,
+          "realizedPct": -0.38
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-10-02T05:11:26.661Z",
+          "capturedAt": "2026-10-02T08:58:51.693Z",
+          "price": 4210.3,
+          "realizedPct": 0.024
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-10-08T05:11:26.661Z",
+          "capturedAt": "2026-10-08T05:28:02.363Z",
+          "price": 4155.7,
+          "realizedPct": -1.273
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-10-31T05:11:26.661Z",
+          "capturedAt": "2026-11-01T23:11:30.419Z",
+          "price": 3898.9,
+          "realizedPct": -7.374
+        }
+      ],
+      "reaction": {
+        "state": "COMPLETE",
+        "mfePct": 0.238,
+        "maePct": -7.374
+      },
+      "completedAt": "2026-11-01T23:11:30.419Z"
+    },
     {
       "key": "news:crypto:Euro weakens below 1.1350 on higher US Treasury yields, Lagarde's dovish tilt",
       "tabId": "crypto",
@@ -17081,51 +17084,6 @@
       "settleAt": "2026-09-23T08:10:38.777Z",
       "priceAtSettle": 1.141,
       "realizedPct": -0.17,
-      "verdict": "correct",
-      "settledAt": "2026-09-23T12:55:52.044Z"
-    },
-    {
-      "key": "news:crypto:Gold retains intraday bearish bias as hawkish Fed lifts USD to fresh high since July 30",
-      "tabId": "crypto",
-      "kind": "news",
-      "title": "Gold retains intraday bearish bias as hawkish Fed lifts USD to fresh high since July 30",
-      "url": "https://www.fxstreet.com/news/gold-edges-lower-on-fed-driven-usd-strength-as-markets-await-trump-xi-meeting-202609230343",
-      "predictedPct": -0.14,
-      "priceAtDetect": 86330.66,
-      "createdAt": "2026-09-23T07:25:38.777Z",
-      "settleAt": "2026-09-23T08:10:38.777Z",
-      "priceAtSettle": 85434.83,
-      "realizedPct": -1.04,
-      "verdict": "correct",
-      "settledAt": "2026-09-23T12:55:52.044Z"
-    },
-    {
-      "key": "news:crypto:Indian Rupee resumes decline amid hawkish Fed expectations",
-      "tabId": "crypto",
-      "kind": "news",
-      "title": "Indian Rupee resumes decline amid hawkish Fed expectations",
-      "url": "https://www.fxstreet.com/news/indian-rupee-comes-under-pressure-amid-hawkish-fed-expectations-202609230526",
-      "predictedPct": -0.14,
-      "priceAtDetect": 86330.66,
-      "createdAt": "2026-09-23T07:25:38.777Z",
-      "settleAt": "2026-09-23T08:10:38.777Z",
-      "priceAtSettle": 85434.83,
-      "realizedPct": -1.04,
-      "verdict": "correct",
-      "settledAt": "2026-09-23T12:55:52.044Z"
-    },
-    {
-      "key": "news:crypto:New Zealand Dollar declines to near 0.5700 on hawkish Fed remarks ahead US PMI data",
-      "tabId": "crypto",
-      "kind": "news",
-      "title": "New Zealand Dollar declines to near 0.5700 on hawkish Fed remarks ahead US PMI data",
-      "url": "https://www.fxstreet.com/news/new-zealand-dollar-declines-to-near-05700-on-hawkish-fed-remarks-ahead-us-pmi-data-202609230654",
-      "predictedPct": -0.14,
-      "priceAtDetect": 86330.66,
-      "createdAt": "2026-09-23T07:25:38.777Z",
-      "settleAt": "2026-09-23T08:10:38.777Z",
-      "priceAtSettle": 85434.83,
-      "realizedPct": -1.04,
       "verdict": "correct",
       "settledAt": "2026-09-23T12:55:52.044Z"
     }
