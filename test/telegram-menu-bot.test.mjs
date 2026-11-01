@@ -61,3 +61,14 @@ test('Alert History button opens the actual history view', async()=>{
  const p=await renderAction('alerts');
  assert(p.reply_markup.inline_keyboard.flat().some(b=>b.url?.includes('open=bbma&view=history')));
 });
+
+test('BBMA summary includes all nine standard timeframes, including monthly', async () => {
+ const frames=['M1','M5','M15','M30','H1','H4','D1','W1','MN1'];
+ const fetcher=async()=>new Response(JSON.stringify({
+  sourceGeneratedAt:new Date(clock).toISOString(),symbol:'GC=F',provider:'TEST',
+  dashboard:{rows:frames.map(tf=>({tf,trend:'UP',pattern:'NONE'}))}
+ }));
+ const view=await renderAction('bbma',{fetcher,now:clock});
+ const lines=view.text.split('\n');
+ for(const tf of frames)assert(lines.some(line=>line.startsWith(tf+':')),tf+' omitted from BBMA summary');
+});
