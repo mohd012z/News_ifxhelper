@@ -1,0 +1,136 @@
+/** News_ifxhelper Telegram menu (read-only). No order execution or synthetic quotes. */
+export const WEB_ROOT = 'https://mohd012z.github.io/News_ifxhelper/';
+const RAW_ROOT = 'https://raw.githubusercontent.com/mohd012z/News_ifxhelper/main/';
+const CALENDAR_URL = 'https://nfs.faireconomy.media/ff_calendar_thisweek.json';
+const ACTIONS = new Set(['menu','news','calendar','calendar_high','bbma','alerts','health','help']);
+const TFS = new Set(['M1','M5','M15','M30','H1','H4','D1','W1','MN1']);
+const MAX_AGE_MS = 15 * 60 * 1000;
+export const COMMANDS = [
+  {command:'start',description:'Open interactive menu'},
+  {command:'menu',description:'Show all buttons'},
+  {command:'news',description:'News dashboard and source freshness'},
+  {command:'calendar',description:'Current-week economic calendar'},
+  {command:'bbma',description:'Read-only BBMA research snapshot'},
+  {command:'alerts',description:'Alert history and status'},
+  {command:'health',description:'Source and bot status'},
+  {command:'help',description:'Button and command guide'}
+];
+const esc = x => String(x == null ? '' : x).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const callback = (name, key) => ({text:name, callback_data:'ifx:v1:'+key});
+const link = (name, url) => ({text:name,url});
+const menuKeys = () => ({inline_keyboard:[
+ [callback('📰 News','news'),callback('📅 Calendar','calendar')],
+ [callback('📊 BBMA','bbma'),callback('📨 Alerts','alerts')],
+ [callback('🩺 Health','health'),callback('❔ Help','help')],
+ [link('🌐 Dashboard',WEB_ROOT)]
+]});
+const backKeys = (extras=[]) => ({inline_keyboard:[...extras,[callback('🏠 Main menu','menu')],[link('🌐 Open dashboard',WEB_ROOT)]]});
+function ageLabel(stamp,now) {
+ const t=Date.parse(stamp||'');
+ if (!Number.isFinite(t) || t>now+60000) return 'UNKNOWN (no trustworthy timestamp)';
+ const age=Math.max(0,now-t);
+ return `${Math.floor(age/60000)} minutes old · ${age<=MAX_AGE_MS?'RECENT SNAPSHOT':'STALE SNAPSHOT'}`;
+}
+async function getJSON(url, fetcher) {
+ const r=await fetcher(url,{headers:{accept:'application/json'},signal:AbortSignal.timeout(8000)});
+ if (!r.ok) throw new Error('upstream HTTP '+r.status);
+ const declared=Number(r.headers.get('content-length')||0);
+ if (declared>2_000_000) throw new Error('oversized upstream');
+ const body=await r.text();
+ if(body.length>2_000_000) throw new Error('oversized upstream');
+ return JSON.parse(body);
+}
+function mytTime(raw) {
+ const d=new Date(raw);
+ return Number.isFinite(d.getTime())?new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Kuala_Lumpur',day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit',hour12:false}).format(d)+' MYT':'time unverified';
+}
+function isTodayMyt(t,now) {
+ const dateKey = n=>new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Kuala_Lumpur',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(n));
+ return dateKey(t)===dateKey(now);
+}
+export async function renderAction(action, {fetcher=fetch, now=Date.now()}={}) {
+ if(action==='menu') return {text:'<b>NEWS IFXHELPER • Main menu</b>\nChoose a research panel. The bot does not place orders. Data is labeled by source and timestamp.',reply_markup:menuKeys()};
+ if(action==='help') return {text:'<b>How to use the bot</b>\n/start or /menu — open all buttons\n/news — view news refresh status\n/calendar — week events (MYT)\n/bbma — historical BBMA scan\n/alerts — alert history link\n/health — snapshot status\n\nButtons open the selected panel. These are research observations, not live-price trade signals.',reply_markup:backKeys()};
+ if(action==='news') {
+  try {const m=await getJSON(RAW_ROOT+'data-manifest.json',fetcher);return {text:'<b>📰 News desk</b>\nRefresh metadata: '+esc(ageLabel(m.generatedAt,now))+'\nNews details and original-source links are on the dashboard. A successful scheduled job is not proof of a delivered Telegram alert.',reply_markup:backKeys([[link('📰 News dashboard',WEB_ROOT)]])};}
+  catch {return {text:'<b>📰 News desk</b>\nSource freshness unavailable. Do not assume headlines are current. Use the dashboard to inspect source links.',reply_markup:backKeys([[link('📰 News dashboard',WEB_ROOT)]])};}
+ }
+ if(action==='calendar' || action==='calendar_high') {
+  try {
+   const arr=await getJSON(CALENDAR_URL,fetcher);
+   if(!Array.isArray(arr))throw new Error('invalid calendar');
+   const within=arr.filter(e=>{const t=Date.parse(e.date||'');return Number.isFinite(t)&&t>=now-3600000&&t<now+8*86400000;})
+    .filter(e=>action!=='calendar_high'||/high/i.test(String(e.impact||'')))
+    .sort((a,b)=>Date.parse(a.date)-Date.parse(b.date));
+   const shown=within.slice(0,8);
+   const summary=shown.length?shown.map(e=>`• ${esc(mytTime(e.date))} · ${esc(String(e.country||e.currency||'—').slice(0,12))} · ${esc(String(e.title||'Untitled').slice(0,110))} (${esc(e.impact||'unknown')} impact)`).join('\n'):'No matching upcoming events in the current-week feed.';
+   const title=action==='calendar_high'?'High-impact current-week calendar':'Current-week economic calendar';
+   return {text:`<b>📅 ${title}</b>\nTimes: MYT · Feed: Forex Factory structured current week\n${summary}\nOnly ${shown.length} of ${within.length} matching future events displayed. This feed is not an all-month calendar.`,reply_markup:backKeys([[callback('📅 All week','calendar'),callback('🔴 High impact','calendar_high')]])};
+  } catch {return {text:'<b>📅 Economic calendar</b>\nThe upstream feed is unavailable. No event times are confirmed.',reply_markup:backKeys([[callback('🔄 Retry calendar',action)]])};}
+ }
+ if(action==='bbma'||action.startsWith('tf:')) {
+  const tf=action.startsWith('tf:')?action.slice(3):null;
+  if(tf&&!TFS.has(tf))return {text:'Unsupported timeframe.',reply_markup:backKeys()};
+  const keys=backKeys([[callback('M15','tf:M15'),callback('H1','tf:H1'),callback('H4','tf:H4'),callback('D1','tf:D1')],[callback('📊 Summary','bbma'),link('📈 Chart',WEB_ROOT+'?open=bbma')]]);
+  try {
+   const data=await getJSON(RAW_ROOT+'data/bbma-watch.json',fetcher);
+   const age=esc(ageLabel(data.sourceGeneratedAt||data.generatedAt,now));
+   if(tf){const a=data.analysis?.[tf]?.bbma;if(!a)return {text:`<b>BBMA ${esc(tf)}</b>\nNo verified observation in the stored snapshot.\n${age}`,reply_markup:keys};
+    return {text:`<b>📊 BBMA ${esc(tf)} • ${esc(data.symbol||'Unknown')}</b>\nSource: ${esc(data.provider||'unknown')}\n${age}\nTrend: ${esc(a.trend||'Unknown')}\nReentry: ${esc(a.reentry||'None')}\nExtreme: ${esc(a.extreme||'None')}\nCSAK: ${esc(a.csak||'None')}\nClosed-candle timestamp: ${esc(a.values?.lastTime||a.lastTime||'unverified')}\nHistorical research only — not a real-time trading signal.`,reply_markup:keys};}
+   const rows=(data.dashboard?.rows||[]).slice(0,8).map(r=>`${esc(r.tf)}: ${esc(r.trend||'Unknown')} · ${esc(r.pattern||'No setup')}`).join('\n');
+   return {text:`<b>📊 BBMA research snapshot</b>\nSymbol: ${esc(data.symbol||'Unknown')}\nProvider: ${esc(data.provider||'Unknown')}\n${age}\n${rows||'No dashboard rows'}\nIndicator classifications require independent broker/candle verification.`,reply_markup:keys};
+  }catch{return {text:'<b>📊 BBMA research</b>\nNo validated snapshot available. No signal generated.',reply_markup:keys};}
+ }
+ if(action==='alerts')return {text:'<b>🔔 Alerts &amp; history</b>\nScheduled news notifications and BBMA observations are different services. The web dashboard contains the available alert history. Telegram delivery receipts are not exposed here; a successful job is not proof of a message delivered to this chat.',reply_markup:backKeys([[link('🔔 Open BBMA history',WEB_ROOT+'?open=bbma')]])};
+ if(action==='health'){
+  try{const h=await getJSON(RAW_ROOT+'data/agent-health.json',fetcher);return {text:'<b>🩺 Source health</b>\nLast health snapshot: '+esc(ageLabel(h.generatedAt,now))+'\nWebhook response: operational for this request.\nProvider connectivity and Telegram delivery remain separate acceptance gates.',reply_markup:backKeys([[callback('🔄 Refresh health','health')]])};}
+  catch{return {text:'<b>🩺 Source health</b>\nHealth snapshot unavailable. Webhook processing responded, but downstream health is unknown.',reply_markup:backKeys([[callback('🔄 Retry','health')]])};}
+ }
+ return {text:'Unknown button action. Select an item below.',reply_markup:menuKeys()};
+}
+function actionFrom(data){if(typeof data!=='string'||!data.startsWith('ifx:v1:')||BufferSize(data)>64)return 'menu';const action=data.slice(7);return ACTIONS.has(action)||action.startsWith('tf:')&&TFS.has(action.slice(3))?action:'menu';}
+function BufferSize(s){return new TextEncoder().encode(s).length;}
+function authorized(chatId, env){const raw=String(env.TELEGRAM_ALLOWED_CHAT_IDS||env.TELEGRAM_CHAT_ID||'');const ids=raw.split(',').map(s=>s.trim()).filter(s=>/^-?\d+$/.test(s));return ids.includes(String(chatId));}
+function equalSecret(a,b){const x=new TextEncoder().encode(String(a||'')),y=new TextEncoder().encode(String(b||''));if(!x.length||x.length!==y.length)return false;let n=0;for(let i=0;i<x.length;i++)n|=x[i]^y[i];return n===0;}
+export async function handleWebhook(request, env, fetcher=fetch) {
+ if(request.method!=='POST')return new Response('Method Not Allowed',{status:405});
+ if(!env?.TELEGRAM_BOT_TOKEN||!env.TELEGRAM_WEBHOOK_SECRET||!authorizedConfig(env))return new Response('Bot not configured',{status:503});
+ if(!equalSecret(request.headers.get('x-telegram-bot-api-secret-token'),env.TELEGRAM_WEBHOOK_SECRET))return new Response('Forbidden',{status:403});
+ if(Number(request.headers.get('content-length')||0)>32768)return new Response('Too large',{status:413});
+ let update;
+ try {const body=await request.text();if(body.length>32768)return new Response('Too large',{status:413});update=JSON.parse(body);}catch{return new Response('Bad JSON',{status:400});}
+ if(!Number.isSafeInteger(update?.update_id)||update.update_id<0)return new Response('Invalid update',{status:400});
+ const cb=update.callback_query;
+ const chatId=cb?.message?.chat?.id??update.message?.chat?.id;
+ if(!authorized(chatId,env))return new Response('OK',{status:200});
+ const api=async(method,payload)=>{
+  const r=await fetcher(`https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/${method}`,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(payload),signal:AbortSignal.timeout(10000)});
+  const body=await r.json().catch(()=>({}));
+  if(!r.ok||body.ok!==true){const e=new Error('Telegram '+method+' error '+r.status);e.status=r.status;e.description=String(body.description||'');throw e;}
+  return body.result;
+ };
+ try{
+  if(cb){
+   if(typeof cb.id!=='string'||!cb.id)return new Response('Invalid callback',{status:400});
+   await api('answerCallbackQuery',{callback_query_id:cb.id,cache_time:0});
+   const action=actionFrom(cb.data);
+   const view=await renderAction(action,{fetcher});
+   if(cb.message?.message_id!=null){
+    try{await api('editMessageText',{chat_id:chatId,message_id:cb.message.message_id,parse_mode:'HTML',disable_web_page_preview:true,...view});}
+    catch(e){if(e.status===400&&/message is not modified/i.test(e.description))return new Response('OK');
+      if(e.status!==400)throw e;
+      await api('sendMessage',{chat_id:chatId,parse_mode:'HTML',disable_web_page_preview:true,...view});}
+   }
+   return new Response('OK');
+  }
+  if(update.message){
+   const raw=String(update.message.text||'').trim();
+   const name=/^\/([a-z_]+)(?:@[A-Za-z0-9_]+)?(?:\s|$)/i.exec(raw)?.[1]?.toLowerCase();
+   const action=({start:'menu',menu:'menu',news:'news',calendar:'calendar',bbma:'bbma',alerts:'alerts',health:'health',help:'help'})[name]||'menu';
+   const view=await renderAction(action,{fetcher});
+   await api('sendMessage',{chat_id:chatId,parse_mode:'HTML',disable_web_page_preview:true,...view});
+  }
+  return new Response('OK');
+ }catch(e){return new Response('Telegram reply failed; retry may occur',{status:503});}
+}
+function authorizedConfig(env){return String(env.TELEGRAM_ALLOWED_CHAT_IDS||env.TELEGRAM_CHAT_ID||'').split(',').some(s=>/^-?\d+$/.test(s.trim()));}
