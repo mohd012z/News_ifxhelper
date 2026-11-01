@@ -18,6 +18,8 @@ const fs = require('fs');
 const path = require('path');
 
 const TOKEN = process.env.TELEGRAM_BOT_TOKEN;
+// Keep existing no-runtime broadcast suppression unchanged.
+const CHANNEL_ID = process.env.TELEGRAM_CHANNEL_ID || process.env.TELEGRAM_CHAT_ID || '';
 function getDashboardUrl() {
   const arg = process.argv.find(a => a.startsWith('--url='));
   if (arg) return arg.split('=')[1].trim();

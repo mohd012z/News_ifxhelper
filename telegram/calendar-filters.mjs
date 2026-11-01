@@ -11,20 +11,20 @@ export function parseCalendarAction(action){
  if(action==='calendar'||action==='calendar_high')return{country:'ALL',impact:action==='calendar_high'?'H':'A',period:'W',page:0,legacy:true};
  const legacy=/^(calendar|calendar_high):p:(\d{1,2})$/.exec(action);
  if(legacy&&+legacy[2]<=31)return{country:'ALL',impact:legacy[1]==='calendar_high'?'H':'A',period:'W',page:+legacy[2],legacy:true};
- const m=/^cal2:(ALL|USD|EUR|GBP|JPY|AUD|CAD|NZD|CHF):([AHM]):([WTN]):(\d{1,2})$/.exec(action);
+ const m=/^cal2:(ALL|USD|EUR|GBP|JPY|AUD|CAD|NZD|CHF):([AHML]):([WTN]):(\d{1,2})$/.exec(action);
  if(!m||+m[4]>31)return null;
  return{country:m[1],impact:m[2],period:m[3],page:+m[4],legacy:false};
 }
 export const isCalendarAction=action=>parseCalendarAction(action)!==null;
 function actionFor(cfg,page=0){
- if(cfg.legacy&&cfg.country==='ALL'&&cfg.period==='W'&&cfg.impact!=='M')return(cfg.impact==='H'?'calendar_high':'calendar')+':p:'+page;
+ if(cfg.legacy&&cfg.country==='ALL'&&cfg.period==='W'&&(cfg.impact==='H'||cfg.impact==='A'))return(cfg.impact==='H'?'calendar_high':'calendar')+':p:'+page;
  return 'cal2:'+cfg.country+':'+cfg.impact+':'+cfg.period+':'+page;
 }
 function keyboard(cfg,page,pages){
  const change=p=>({...cfg,...p,legacy:false,page:0});
  const choose=(label,opts)=>cb((cfg.country===opts.country&&cfg.impact===opts.impact&&cfg.period===opts.period?'✓ ':'')+label,actionFor(opts));
  const nations=COUNTRIES.map(country=>choose(country,change({country})));
- const impact=[choose('All impact',change({impact:'A'})),choose('High',change({impact:'H'})),choose('Medium',change({impact:'M'}))];
+ const impact=[choose('All impact',change({impact:'A'})),choose('High',change({impact:'H'})),choose('Medium',change({impact:'M'})),choose('Low',change({impact:'L'}))];
  const period=[choose('Week',change({period:'W'})),choose('Today',change({period:'T'})),choose('Tomorrow',change({period:'N'}))];
  const navigation=[];
  if(page>0)navigation.push(cb('◀ Previous',actionFor(cfg,page-1)));
@@ -52,6 +52,7 @@ export async function renderCalendar(action,{fetcher=fetch,now=Date.now()}={}){
    const impact=String(e.impact||'').toLowerCase();
    if(cfg.impact==='H'&&!/high/.test(impact))continue;
    if(cfg.impact==='M'&&!/medium|moderate/.test(impact))continue;
+   if(cfg.impact==='L'&&!/low/.test(impact))continue;
    const day=mytDay(t);
    if(cfg.period==='T'&&day!==today)continue;
    if(cfg.period==='N'&&day!==tomorrow)continue;
@@ -64,7 +65,7 @@ export async function renderCalendar(action,{fetcher=fetch,now=Date.now()}={}){
   const items=out.slice(page*8,page*8+8);
   const rows=items.length?items.map(e=>'• '+esc(mytTime(e.t))+' · '+esc(e.country.slice(0,12))+' · '+esc(e.title.slice(0,110))+' ('+esc(e.impact.slice(0,20))+' impact)').join('\n'):'No matching upcoming events in the current-week feed.';
   const period=cfg.period==='T'?'Today':cfg.period==='N'?'Tomorrow':'Current week';
-  const impact=cfg.impact==='H'?'High':cfg.impact==='M'?'Medium':'All';
+  const impact=cfg.impact==='H'?'High':cfg.impact==='M'?'Medium':cfg.impact==='L'?'Low':'All';
   return{text:'<b>📅 '+period+' · '+cfg.country+' · '+impact+' impact</b>\nTimes: MYT · Forex Factory structured current-week feed\n'+rows+'\nPage '+(page+1)+'/'+pages+' · '+out.length+' unique matching events'+(pages>32?' · first 32 pages navigable':'')+'. Source fetch does not prove live event accuracy.',reply_markup:keyboard(cfg,page,pages)};
  }catch{return failed;}
 }

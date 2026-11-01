@@ -50,6 +50,15 @@ function isTodayMyt(t,now) {
  const dateKey = n=>new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Kuala_Lumpur',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(n));
  return dateKey(t)===dateKey(now);
 }
+/** Staleness is evaluated from the individual candle, not the report-generation timestamp. */
+export function candleEvidence(frame, stamp, now=Date.now()) {
+ const periods={M1:60000,M5:300000,M15:900000,M30:1800000,H1:3600000,H4:14400000,D1:86400000,W1:604800000,MN1:2678400000};
+ const t=typeof stamp==='number'?stamp:Date.parse(String(stamp||''));
+ if(!Number.isFinite(t))return 'CANDLE_TIME_UNKNOWN';
+ if(t>now+60000)return 'CANDLE_TIME_INVALID_FUTURE';
+ if(!periods[frame])return 'TIMEFRAME_UNSUPPORTED';
+ return now-t<=Math.max(periods[frame]*3,1800000)?'RECENT_STORED_CANDLE':'STALE_STORED_CANDLE';
+}
 export async function renderAction(action, {fetcher=fetch, now=Date.now()}={}) {
  if(action==='menu') return {text:'<b>NEWS IFXHELPER • Main menu</b>\nChoose a research panel. The bot does not place orders. Data is labeled by source and timestamp.',reply_markup:menuKeys()};
  if(action==='help') return {text:'<b>How to use the bot</b>\n/start or /menu — open all buttons\n/news — view news refresh status\n/calendar — week events (MYT)\n/bbma — historical BBMA scan\n/alerts — alert history link\n/health — snapshot status\n\nButtons open the selected panel. These are research observations, not live-price trade signals.',reply_markup:backKeys()};
@@ -78,7 +87,10 @@ export async function renderAction(action, {fetcher=fetch, now=Date.now()}={}) {
    const data=await getJSON(RAW_ROOT+'data/bbma-watch.json',fetcher);
    const age=esc(ageLabel(data.sourceGeneratedAt||data.generatedAt,now));
    if(tf){const a=data.analysis?.[tf]?.bbma;if(!a)return {text:`<b>BBMA ${esc(tf)}</b>\nNo verified observation in the stored snapshot.\n${age}`,reply_markup:keys};
-    return {text:`<b>📊 BBMA ${esc(tf)} • ${esc(data.symbol||'Unknown')}</b>\nSource: ${esc(data.provider||'unknown')}\n${age}\nTrend: ${esc(a.trend||'Unknown')}\nReentry: ${esc(a.reentry||'None')}\nExtreme: ${esc(a.extreme||'None')}\nCSAK: ${esc(a.csak||'None')}\nClosed-candle timestamp: ${esc(a.values?.lastTime||a.lastTime||'unverified')}\nHistorical research only — not a real-time trading signal.`,reply_markup:keys};}
+    const candleStamp=a.values?.lastTime||a.lastTime||null;
+    const candleStatus=candleEvidence(tf,candleStamp,now);
+    const proxy=data.symbol==='GC=F'?'Gold futures proxy; not XAUUSD spot.':'Instrument type not independently verified.';
+    return {text:`<b>📊 BBMA ${esc(tf)} • ${esc(data.symbol||'Unknown')}</b>\nSource: ${esc(data.provider||'unknown')}\n${age}\nCandle evidence: ${candleStatus}\n${esc(proxy)}\nTrend: ${esc(a.trend||'Unknown')}\nReentry: ${esc(a.reentry||'None')}\nExtreme: ${esc(a.extreme||'None')}\nCSAK: ${esc(a.csak||'None')}\nClosed-candle timestamp: ${esc(a.values?.lastTime||a.lastTime||'unverified')}\nHistorical research only — not a real-time trading signal.`,reply_markup:keys};}
    const rows=(data.dashboard?.rows||[]).slice(0,8).map(r=>`${esc(r.tf)}: ${esc(r.trend||'Unknown')} · ${esc(r.pattern||'No setup')}`).join('\n');
    return {text:`<b>📊 BBMA research snapshot</b>\nSymbol: ${esc(data.symbol||'Unknown')}\nProvider: ${esc(data.provider||'Unknown')}\n${age}\n${rows||'No dashboard rows'}\nIndicator classifications require independent broker/candle verification.`,reply_markup:keys};
   }catch{return {text:'<b>📊 BBMA research</b>\nNo validated snapshot available. No signal generated.',reply_markup:keys};}

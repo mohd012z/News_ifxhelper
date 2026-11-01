@@ -38,3 +38,7 @@ Calendar now paginates a bounded 8-event page of the current-week feed, offers P
 ## Calendar filters (1 November 2026)
 
 Country: ALL/USD/EUR/GBP/JPY/AUD/CAD/NZD/CHF. Impact: ALL/HIGH/MEDIUM. Period: current week/today/tomorrow using Malaysia UTC+8. Eight events per page with preserved filter state, strict callback whitelist (64-byte maximum), de-duplication, upstream failure labeling, and source-provenance disclaimer. Legacy calendar and calendar_high callbacks remain compatible. These changes are isolated to Draft PR #35 and do not configure Cloudflare, Telegram secrets or paid services.
+
+## November 1 — Low impact, candle provenance and sender safety
+
+Added Low-impact calendar filter; legacy callbacks remain accepted. BBMA per-timeframe details report candle timestamp validity/staleness independently of dashboard generation and explicitly identify GC=F as a gold-futures proxy rather than a live XAUUSD spot price. Repaired an undeclared CHANNEL_ID constant in the separate BBMA sender, without bypassing its missing-runtime broadcast suppression. Focused offline regression tests were added to the PR CI script. No token, webhook, Worker binding, database, billing, merge or deployment changes were made.
