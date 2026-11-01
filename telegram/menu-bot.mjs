@@ -1,3 +1,4 @@
+import {withTelegramReceipt} from './update-receipts.mjs';
 /** News_ifxhelper Telegram menu (read-only). No order execution or synthetic quotes. */
 export const WEB_ROOT = 'https://mohd012z.github.io/News_ifxhelper/';
 const RAW_ROOT = 'https://raw.githubusercontent.com/mohd012z/News_ifxhelper/main/';
@@ -71,7 +72,7 @@ export async function renderAction(action, {fetcher=fetch, now=Date.now()}={}) {
  if(action==='bbma'||action.startsWith('tf:')) {
   const tf=action.startsWith('tf:')?action.slice(3):null;
   if(tf&&!TFS.has(tf))return {text:'Unsupported timeframe.',reply_markup:backKeys()};
-  const keys=backKeys([[callback('M15','tf:M15'),callback('H1','tf:H1'),callback('H4','tf:H4'),callback('D1','tf:D1')],[callback('📊 Summary','bbma'),link('📈 Chart',WEB_ROOT+'?open=bbma')]]);
+  const keys=backKeys([[callback('M1','tf:M1'),callback('M5','tf:M5'),callback('M15','tf:M15')],[callback('M30','tf:M30'),callback('H1','tf:H1'),callback('H4','tf:H4')],[callback('D1','tf:D1'),callback('W1','tf:W1'),callback('MN1','tf:MN1')],[callback('📊 Summary','bbma'),link('📈 Chart',WEB_ROOT+'?open=bbma')]]);
   try {
    const data=await getJSON(RAW_ROOT+'data/bbma-watch.json',fetcher);
    const age=esc(ageLabel(data.sourceGeneratedAt||data.generatedAt,now));
@@ -103,6 +104,8 @@ export async function handleWebhook(request, env, fetcher=fetch) {
  const cb=update.callback_query;
  const chatId=cb?.message?.chat?.id??update.message?.chat?.id;
  if(!authorized(chatId,env))return new Response('OK',{status:200});
+ if(env.TELEGRAM_REQUIRE_INBOX==='true' && !env.TELEGRAM_INBOX_DB?.prepare)return new Response('Inbox not configured',{status:503});
+ const processUpdate=async()=>{
  const api=async(method,payload)=>{
   const r=await fetcher(`https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/${method}`,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(payload),signal:AbortSignal.timeout(10000)});
   const body=await r.json().catch(()=>({}));
@@ -112,7 +115,8 @@ export async function handleWebhook(request, env, fetcher=fetch) {
  try{
   if(cb){
    if(typeof cb.id!=='string'||!cb.id)return new Response('Invalid callback',{status:400});
-   await api('answerCallbackQuery',{callback_query_id:cb.id,cache_time:0});
+   try {await api('answerCallbackQuery',{callback_query_id:cb.id,cache_time:0});}
+   catch(e){if(!(e.status===400&&/query is too old|query id is invalid|query_id_invalid/i.test(e.description)))throw e;}
    const action=actionFrom(cb.data);
    const view=await renderAction(action,{fetcher});
    if(cb.message?.message_id!=null){
@@ -126,11 +130,22 @@ export async function handleWebhook(request, env, fetcher=fetch) {
   if(update.message){
    const raw=String(update.message.text||'').trim();
    const name=/^\/([a-z_]+)(?:@[A-Za-z0-9_]+)?(?:\s|$)/i.exec(raw)?.[1]?.toLowerCase();
+   const addressed=/^\/([a-z_]+)@([A-Za-z0-9_]+)(?:\s|$)/i.exec(raw);
+   if(addressed&&String(env.TELEGRAM_BOT_USERNAME||'news_ifxhelperbot').toLowerCase()!==addressed[2].toLowerCase())return new Response('OK');
    const action=({start:'menu',menu:'menu',news:'news',calendar:'calendar',bbma:'bbma',alerts:'alerts',health:'health',help:'help'})[name]||'menu';
    const view=await renderAction(action,{fetcher});
    await api('sendMessage',{chat_id:chatId,parse_mode:'HTML',disable_web_page_preview:true,...view});
   }
   return new Response('OK');
  }catch(e){return new Response('Telegram reply failed; retry may occur',{status:503});}
+ };
+ if(env.TELEGRAM_INBOX_DB?.prepare){
+  try {const outcome=await withTelegramReceipt(env.TELEGRAM_INBOX_DB,update.update_id,processUpdate);
+   if(outcome.status==='duplicate')return new Response('OK');
+   if(outcome.status==='busy')return new Response('Update already processing',{status:503});
+   return outcome.value;
+  } catch {return new Response('Inbox failure',{status:503});}
+ }
+ return processUpdate();
 }
 function authorizedConfig(env){return String(env.TELEGRAM_ALLOWED_CHAT_IDS||env.TELEGRAM_CHAT_ID||'').split(',').some(s=>/^-?\d+$/.test(s.trim()));}

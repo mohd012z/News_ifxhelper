@@ -27,3 +27,6 @@ Every callback uses `ifx:v1:<action>` and is acknowledged with `answerCallbackQu
 7. Check restart, network-failure retry and duplicate update delivery. Stateless handler does not guarantee exactly-once message delivery. For strict persistent deduplication use durable storage before broad rollout.
 
 **Important**: Current news notifications use separate scheduled Actions. They remain unchanged. No runtime webhook is activated by this source package.
+## Receipt hardening — source-only (1 Nov 2026)
+
+New `telegram/update-receipts.mjs` supports optional D1 persistence with CAS lease epochs and duplicate-update suppression. All nine BBMA timeframe callbacks have buttons. Foreign-bot commands are ignored, and retrying a callback with an expired acknowledgment may recover safely. To require the ledger, initialize the schema in `telegram/receipts-schema.sql` on a **separately authorized** D1 database, bind it as `TELEGRAM_INBOX_DB`, and set `TELEGRAM_REQUIRE_INBOX=true`; otherwise this is an optional adapter, not deployed. Neither Cloudflare secrets nor bot token ownership are confirmed. Exactly-once Telegram sends cannot be guaranteed after ambiguous transport failures. Keep PR draft, no live cutover or billing changes.
