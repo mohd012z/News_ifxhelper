@@ -3,10 +3,10 @@
 const {inspectConfiguredChannel}=require('./lib/telegram-channel-inspector');
 (async()=>{
  const token=process.env.TELEGRAM_BOT_TOKEN;
- const channel=process.env.TELEGRAM_CHANNEL_ID;
+ const channel=process.env.TELEGRAM_CHANNEL_ID || (process.env.TELEGRAM_CHAT_ID === '@ifxhelper2' ? process.env.TELEGRAM_CHAT_ID : undefined);
  const chat=process.env.TELEGRAM_CHAT_ID;
  const destinationsDiffer=Boolean(chat&&channel&&chat!==channel);
- const presence={botTokenConfigured:Boolean(token),channelConfigured:Boolean(channel),channelMatchesExpected:channel==='@ifxhelper2',chatDestinationConfigured:Boolean(chat),chatAndChannelAreDifferent:destinationsDiffer};
+ const presence={botTokenConfigured:Boolean(token),channelConfigured:Boolean(channel),channelSecretConfigured:Boolean(process.env.TELEGRAM_CHANNEL_ID),channelMatchesExpected:channel==='@ifxhelper2',chatDestinationConfigured:Boolean(chat),chatAndChannelAreDifferent:destinationsDiffer};
  console.log('Telegram configuration:',JSON.stringify(presence));
  if(!presence.botTokenConfigured||!presence.channelMatchesExpected){process.exitCode=1;return;}
  const result=await inspectConfiguredChannel({token,chatId:channel});
