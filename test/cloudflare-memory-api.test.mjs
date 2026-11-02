@@ -13,4 +13,10 @@ const invalid=await worker.fetch(request('/research',{method:'POST',headers,body
 assert.equal(invalid.status,400);
 const tooLarge=await worker.fetch(request('/research',{method:'POST',headers,body:'x'.repeat(16385)}),env);
 assert.equal(tooLarge.status,413);
-console.log('Cloudflare D1 memory API authentication and validation checks passed');
+let inserted=null;
+const db={prepare(sql){return {bind(...args){if(sql.startsWith('INSERT'))inserted=args;return {all:async()=>({results:[]})};}}},batch:async statements=>({count:statements.length})};
+const valid={id:'event-0001',agent:'macro',skill:'macro',eventKey:'cpi-2026-11',sourceUrl:'https://example.gov/cpi',sourcePublishedAt:'2026-11-03T10:00:00Z',observedAt:'2026-11-03T10:01:00Z',summary:'Official macro release pending independent verification.',evidenceStatus:'confirmed'};
+const accepted=await worker.fetch(request('/research',{method:'POST',headers,body:JSON.stringify({records:[valid]})}),{...env,DB:db});
+assert.equal(accepted.status,200);
+assert.equal(inserted[8],'unverified','Caller cannot mark its own research as confirmed');
+console.log('Cloudflare D1 memory API authentication, quarantine and validation checks passed');
