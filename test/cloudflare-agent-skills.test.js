@@ -1,0 +1,13 @@
+'use strict';
+const assert=require('node:assert/strict');
+const {SKILLS,eligibleMemory,decisionBrief}=require('../lib/cloudflare-agent-skills');
+assert.equal(Object.keys(SKILLS).length,6);
+const record={skill:'macro',sourceUrl:'https://example.org/report',summary:'Officially published macroeconomic event evidence.',evidenceStatus:'confirmed',outcomeStatus:'pending'};
+assert.equal(eligibleMemory(record),true);
+assert.equal(eligibleMemory({...record,evidenceStatus:'unverified'}),false);
+assert.equal(eligibleMemory({...record,sourceUrl:'http://example.org'}),false);
+const brief=decisionBrief([record,{...record,evidenceStatus:'rejected'}]);
+assert.equal(brief.eligibleCount,1);
+assert.equal(brief.bySkill.macro,1);
+assert.equal(brief.decision,'human-review-required');
+console.log('Cloudflare agent skills and evidence memory checks passed');
