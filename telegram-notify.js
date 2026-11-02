@@ -893,6 +893,11 @@ if (require.main === module) (async () => {
   toSend.sort((a, b) => a.category - b.category || a.tiebreak - b.tiebreak);
 
   let sentCount = 0, failCount = 0, rateLimitedCount = 0, skippedNoCreds = false;
+  if (!PREVIEW && (!TOKEN || !CHAT_ID || DESTINATION_CONFLICT)) {
+    console.error('Telegram credentials missing or chat/channel destination conflict; refusing silent success even with zero news candidates');
+    process.exitCode = 1;
+    return;
+  }
   for (const item of toSend) {
     const r = await sendTelegramCard(item.card.caption, item.card.chartUrl);
     if (r.ok) { seen.add(item.key); sentCount++; console.log('SENT: ' + item.card.caption.split('\n')[1]); }
