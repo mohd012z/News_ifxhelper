@@ -103,9 +103,12 @@ async function sendTelegram(text) {
 async function sendTelegramCard(caption, chartUrl) {
   if (!TOKEN || !CHAT_ID || DESTINATION_CONFLICT) { console.error('Telegram configuration invalid: missing credentials or mismatched destinations'); return { ok: false, skipped: true }; }
   if (chartUrl && caption.length <= 1024) {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 15000);
     try {
       const r = await fetch(`https://api.telegram.org/bot${TOKEN}/sendPhoto`, {
         method: 'POST',
+        signal: controller.signal,
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ chat_id: CHAT_ID, photo: chartUrl, caption, parse_mode: 'HTML' })
       });
@@ -116,6 +119,7 @@ async function sendTelegramCard(caption, chartUrl) {
       }
       console.log('Photo send failed (' + (j.description || r.status) + ') - falling back to text.');
     } catch (e) { console.log('Photo send failed (network: ' + e.message + ') - falling back to text.'); }
+    finally { clearTimeout(timeout); }
   }
   return sendTelegram(caption);
 }
