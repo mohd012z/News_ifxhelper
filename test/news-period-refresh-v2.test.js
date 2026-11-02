@@ -60,7 +60,8 @@ const dailyStateIdx = dailyWorkflow.indexOf('Persist daily notification state');
 assert(dailyWorkflow.includes('cron: "11 0 * * *"'), 'daily refresh must run off the top-of-hour and before the morning digest');
 assert(dailyPublishIdx >= 0 && dailyTelegramIdx > dailyPublishIdx, 'daily data must publish before Telegram delivery');
 assert(dailyStateIdx > dailyTelegramIdx, 'daily notification state must persist after delivery');
-assert((dailyWorkflow.match(/continue-on-error: true/g) || []).length >= 2, 'daily notification steps must fail open');
+assert(!/name: Send Telegram alerts for anything new\n\s+continue-on-error: true/.test(dailyWorkflow), 'daily Telegram failure must be visible');
+assert(!/name: Send BBMA Alert to Channel\n\s+continue-on-error: true/.test(dailyWorkflow), 'daily BBMA failure must be visible');
 assert((dailyWorkflow.match(/timeout-minutes: 2/g) || []).length >= 2, 'daily notification steps must be time bounded');
 assert((dailyWorkflow.match(/git pull --rebase origin main/g) || []).length >= 2, 'daily writer must rebase before both pushes');
 
