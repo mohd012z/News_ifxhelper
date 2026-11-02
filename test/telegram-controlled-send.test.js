@@ -5,6 +5,7 @@ const calls=[];
 const fetchImpl=async(url,opts)=>{
  const method=url.split('/').pop();
  calls.push(method);
+ if(method==='sendMessage')assert.equal(JSON.parse(opts.body).disable_notification,false,'push test must not be silent');
  const result=method==='getMe'?{id:77,username:'news_ifxhelperbot'}:method==='getChat'?{type:'channel',username:'ifxhelper2'}:method==='getChatMember'?{status:'administrator',can_post_messages:true}:{message_id:321,chat:{username:'ifxhelper2'}};
  return {ok:true,json:async()=>({ok:true,result})};
 };
