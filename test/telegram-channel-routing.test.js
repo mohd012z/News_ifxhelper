@@ -1,0 +1,11 @@
+'use strict';
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const path=require('node:path');
+const sender=fs.readFileSync(path.join(__dirname,'..','send-bbma-telegram.js'),'utf8');
+const workflow=fs.readFileSync(path.join(__dirname,'..','.github','workflows','daily-refresh.yml'),'utf8');
+assert(sender.includes('const CHANNEL_ID = process.env.TELEGRAM_CHANNEL_ID || null;'));
+assert(!sender.includes('process.env.TELEGRAM_CHANNEL_ID || process.env.TELEGRAM_CHAT_ID'));
+assert(workflow.includes('TELEGRAM_CHANNEL_ID: ${{ secrets.TELEGRAM_CHANNEL_ID }}'));
+assert(!workflow.includes('secrets.TELEGRAM_CHANNEL_ID || secrets.TELEGRAM_CHAT_ID'));
+console.log('Telegram channel routing checks passed');
