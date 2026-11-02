@@ -1,0 +1,30 @@
+name: Telegram controlled channel send
+on:
+  workflow_dispatch:
+    inputs:
+      approval:
+        description: 'Type SEND to authorize one channel test notification'
+        required: true
+        type: string
+permissions:
+  contents: read
+concurrency:
+  group: telegram-controlled-channel-test
+  cancel-in-progress: false
+jobs:
+  send:
+    if: ${{ inputs.approval == 'SEND' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Verify and send one channel test
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHANNEL_ID: ${{ secrets.TELEGRAM_CHANNEL_ID }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          TELEGRAM_SEND_APPROVED: 'YES'
+        run: node telegram-channel-send-test.js
