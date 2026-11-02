@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>News_ifxhelper · Telegram review</title>
+<style>:root{color-scheme:dark;font:16px system-ui;background:#0b1220;color:#eaf1ff}*{box-sizing:border-box}body{margin:0;padding:18px;max-width:780px;margin-inline:auto}h1{font-size:1.45rem}h2{font-size:1.1rem}.card{background:#142238;border:1px solid #30425d;border-radius:14px;padding:16px;margin:14px 0}p,small{color:#aebed4}label{display:block;margin:10px 0 5px}input,textarea,select{width:100%;padding:12px;background:#091625;color:#fff;border:1px solid #506582;border-radius:9px;font:inherit}textarea{min-height:145px}button{background:#2e78e6;color:#fff;border:0;border-radius:9px;padding:12px 16px;font-weight:700;cursor:pointer;margin:7px 6px 0 0}button:disabled{opacity:.4}button.secondary{background:#35485f}.tag{display:inline-block;border-radius:20px;padding:5px 9px;background:#33485d;font-size:12px}.warn{color:#ffd47c}.ok{color:#89e7b4}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#091625;padding:12px;border-radius:10px}a{color:#9bd1ff}summary{cursor:pointer}</style></head>
+<body><h1>Telegram notification review</h1><p>News_ifxhelper · Mobile manual control · Research only</p>
+<section class="card"><span class="tag">Offline review · No messages sent</span><h2>Destination configuration</h2><label>Bot identity</label><input id="bot" value="@news_ifxhelperbot" readonly><label>Group / channel destination</label><input id="target" value="@ifxhelper2" readonly><p>Destination type and bot administrator/posting permissions must be verified in Telegram. The bot username is not a private chat ID.</p><p><a href="https://t.me/ifxhelper2" target="_blank" rel="noopener noreferrer">Open destination</a> · <a href="https://t.me/news_ifxhelperbot" target="_blank" rel="noopener noreferrer">Open bot</a></p></section>
+<section class="card"><h2>Schedule and alert rules</h2><label>Alert type</label><select id="type"><option value="reminder">Economic-calendar reminder</option><option value="breaking">Breaking news</option></select><label>Reminder stage</label><select id="stage"><option value="30">T−30 minutes</option><option value="10">T−10 minutes</option><option value="2">T−2 minutes</option></select><label>Headline</label><input id="headline" maxlength="180" placeholder="Verified headline"><label>Evidence URL (HTTPS)</label><input id="evidence" type="url" placeholder="https://..."><label>Market relevance</label><select id="asset"><option>XAUUSD</option><option>OIL</option><option>BTCUSD</option><option>Multiple / not established</option></select><label>Verification</label><select id="verification"><option value="unverified">Unverified — review only</option><option value="verified">Evidence reviewed — draft label only</option></select><button id="preview">Generate draft</button><button id="copy" class="secondary" disabled>Copy draft</button><pre id="output" aria-live="polite">Enter a headline and select Generate draft.</pre><p class="warn">This interface never sends Telegram messages, stores tokens, or asserts that a market price moved.</p></section>
+<section class="card"><h2>Manual verification checklist</h2><label><input type="checkbox" id="c1" style="width:auto"> Bot added to @ifxhelper2</label><label><input type="checkbox" id="c2" style="width:auto"> Bot can post (admin if channel)</label><label><input type="checkbox" id="c3" style="width:auto"> Evidence reviewed</label><label><input type="checkbox" id="c4" style="width:auto"> Test message delivery confirmed separately</label><p id="readiness" class="warn">Not ready for live activation</p></section>
+<script>
+'use strict';
+const $=id=>document.getElementById(id);
+const checks=['c1','c2','c3','c4'];
+function update(){const ok=checks.every(id=>$(id).checked);$('readiness').textContent=ok?'Manual checklist complete — server-side verification still required':'Not ready for live activation';$('readiness').className=ok?'ok':'warn'}
+checks.forEach(id=>$(id).addEventListener('change',update));
+$('preview').addEventListener('click',()=>{
+ const headline=$('headline').value.trim();
+ if(!headline){$('output').textContent='Headline required';$('copy').disabled=true;return}
+ const url=$('evidence').value.trim();
+ if(url){try{const parsed=new URL(url);if(parsed.protocol!=='https:')throw Error('HTTPS required')}catch{$('output').textContent='Valid HTTPS evidence URL required';$('copy').disabled=true;return}}
+ const kind=$('type').value;
+ const prefix=kind==='breaking'?'BREAKING NEWS · MANUAL REVIEW':'ECONOMIC EVENT · T−'+$('stage').value+' MINUTES';
+ const verified=$('verification').value==='verified'?'Evidence reviewed by operator':'Unverified research lead';
+ $('output').textContent=[prefix,headline,'Relevance: '+$('asset').value,'Status: '+verified,'Evidence: '+(url||'Not supplied'),'Research only. No verified price reaction or trading instruction.'].join('\n');
+ $('copy').disabled=false;
+});
+$('copy').addEventListener('click',async()=>{try{await navigator.clipboard.writeText($('output').textContent);$('copy').textContent='Copied'}catch{$('output').focus();$('output').setAttribute('tabindex','0');$('copy').textContent='Select text to copy'}});
+</script></body></html>
