@@ -1,0 +1,14 @@
+'use strict';
+const assert=require('node:assert/strict');
+const {normalizeDestinations,fanoutDrafts}=require('../lib/telegram-multi-destination');
+const targets=[{type:'private',chatId:'123456789'},{type:'group',chatId:'-1001234567890'},{type:'channel',chatId:'@ExampleChannel'}];
+const draft={key:'alert-1',kind:'breaking',text:'Verified research event',stage:null};
+const jobs=fanoutDrafts([draft],targets);
+assert.equal(jobs.length,3);
+assert(jobs.every(j=>j.send===false&&j.status==='pending-approval'));
+assert.equal(fanoutDrafts([draft],targets,{sentKeys:[jobs[0].key]}).length,2);
+assert.equal(fanoutDrafts([draft,draft],targets).length,3);
+assert.throws(()=>normalizeDestinations([{type:'channel',chatId:'invalid'}]),/Invalid Telegram chat ID/);
+assert.throws(()=>normalizeDestinations([targets[0],targets[0]]),/Duplicate/);
+assert.throws(()=>normalizeDestinations([{type:'other',chatId:'123456789'}]),/type/);
+console.log('Telegram multi-destination fan-out tests passed');
