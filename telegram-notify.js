@@ -69,13 +69,17 @@ async function sendTelegram(text) {
   if (!TOKEN || !CHAT_ID || DESTINATION_CONFLICT) { console.error('Telegram configuration invalid: missing credentials or mismatched destinations'); return { ok: false, skipped: true }; }
   const url = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
   let r;
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 15000);
   try {
     r = await fetch(url, {
       method: 'POST',
+      signal: controller.signal,
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ chat_id: CHAT_ID, text, parse_mode: 'HTML', disable_web_page_preview: true })
     });
   } catch (e) { console.log('FAIL Telegram send (network): ' + e.message); return { ok: false }; }
+  finally { clearTimeout(timeout); }
   const j = await r.json().catch(() => ({}));
   if (!r.ok || !j.ok) {
     console.log('FAIL Telegram send: ' + (j.description || r.status));
