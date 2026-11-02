@@ -289,7 +289,7 @@ function eventCard(MARKET_DATA, atrData, e, pool) {
   const top = bestPairFor(MARKET_DATA, ccy);
   const hour = mytHourFromString(e.timeMyt);
   const session = sessionAtMyt(MARKET_DATA.sessions, hour);
-  const badge = e.importance === 'high' ? '🚨 <b>HIGH-IMPACT EVENT</b>' : '🔔 <b>Event</b>';
+  const badge = e.importance === 'high' ? '🚨 <b>HIGH-IMPACT EVENT</b>' : String(e.importance).toLowerCase() === 'low' ? '🔹 <b>LOW-IMPACT EVENT</b>' : '🔔 <b>MEDIUM-IMPACT EVENT</b>';
   const signal = top ? top.s.signal : 'NEUTRAL';
   const focusSym = top ? top.pair : (ccy ? `${ccy} exposure (XAU/USD + DXY)` : 'XAU/USD + DXY (broad risk)');
   const focusLine = top
@@ -664,7 +664,7 @@ function buildWeeklyOutlook(MARKET_DATA, NEWS_AUTO) {
   const dedupedPool = buildCommentaryPool(MARKET_DATA, NEWS_AUTO);
 
   const weekEvents = (MARKET_DATA.incoming || []).concat((NEWS_AUTO && NEWS_AUTO.incoming) || [])
-    .filter(e => e.importance === 'high')
+    .filter(e => ['low', 'medium', 'med', 'high'].includes(String(e.importance || '').toLowerCase()))
     .map(e => ({ e, at: parseMytToUtc(e.timeMyt) }))
     .sort((a, b) => (a.at ? a.at.getTime() : Infinity) - (b.at ? b.at.getTime() : Infinity));
 
@@ -761,7 +761,7 @@ if (require.main === module) (async () => {
     // best-effort only, GitHub Actions' free scheduler does not guarantee sub-5-minute accuracy.
     const state = loadState();
     const seen = new Set(state.sentKeys || []);
-    const incoming = (MARKET_DATA.incoming || []).concat((NEWS_AUTO && NEWS_AUTO.incoming) || []).filter(e => e.importance === 'high');
+    const incoming = (MARKET_DATA.incoming || []).concat((NEWS_AUTO && NEWS_AUTO.incoming) || []).filter(e => ['low', 'medium', 'med', 'high'].includes(String(e.importance || '').toLowerCase()));
     const now = Date.now();
     let sentCount = 0, failCount = 0;
     for (const e of incoming) {
@@ -805,7 +805,7 @@ if (require.main === module) (async () => {
     }
     state.sentKeys = Array.from(seen).slice(-2000);
     saveState(state);
-    console.log(`Reminder check: ${incoming.length} high-impact events in window, ${sentCount} sent, ${failCount} failed.`);
+    console.log(`Reminder check: ${incoming.length} low-to-high impact events considered, ${sentCount} sent, ${failCount} failed.`);
     if (failCount > 0) process.exitCode = 1;
     return;
   }
@@ -827,7 +827,7 @@ if (require.main === module) (async () => {
   // grace window covers events that started moments ago and are still actionable.
   const nowMs = Date.now();
   const incoming = (MARKET_DATA.incoming || []).concat((NEWS_AUTO && NEWS_AUTO.incoming) || []);
-  incoming.filter(e => e.importance === 'high').forEach(e => {
+  incoming.filter(e => ['low', 'medium', 'med', 'high'].includes(String(e.importance || '').toLowerCase())).forEach(e => {
     const key = 'evt:' + e.event + '|' + e.date;
     if (seen.has(key)) return;
     const at = parseMytToUtc(e.timeMyt);
