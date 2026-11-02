@@ -1,0 +1,10 @@
+'use strict';
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const source=fs.readFileSync(require('node:path').join(__dirname,'..','cloudflare','global-news-research-worker.mjs'),'utf8');
+assert(source.includes("url.pathname==='/health'"));
+assert(source.includes("url.pathname!=='/research'"));
+assert(source.includes("publishing:false"));
+assert(!source.includes('sendMessage'));
+assert(!source.includes('env.AI.run'));
+console.log('Cloudflare staging Worker source safety checks passed');
