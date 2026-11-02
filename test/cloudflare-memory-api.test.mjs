@@ -1,0 +1,16 @@
+import assert from 'node:assert/strict';
+import worker from '../cloudflare/global-news-research-worker.mjs';
+const request=(path,options={})=>new Request('https://example.test'+path,options);
+const health=await worker.fetch(request('/health'),{});
+assert.equal((await health.json()).publishing,false);
+const unconfigured=await worker.fetch(request('/memory'),{});
+assert.equal(unconfigured.status,503);
+const env={RESEARCH_API_KEY:'test-key',DB:{prepare(){throw Error('Should not query D1')}}};
+const unauthorized=await worker.fetch(request('/memory'),env);
+assert.equal(unauthorized.status,401);
+const headers={authorization:'Bearer test-key','content-type':'application/json'};
+const invalid=await worker.fetch(request('/research',{method:'POST',headers,body:JSON.stringify({records:[{skill:'unknown'}]})}),env);
+assert.equal(invalid.status,400);
+const tooLarge=await worker.fetch(request('/research',{method:'POST',headers,body:'x'.repeat(16385)}),env);
+assert.equal(tooLarge.status,413);
+console.log('Cloudflare D1 memory API authentication and validation checks passed');
