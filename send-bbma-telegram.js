@@ -3,7 +3,7 @@
  *
  * Requirements for Telegram Channel:
  * 1. Add your Bot as an Administrator in your Channel with "Post Messages" permission.
- * 2. Set TELEGRAM_CHAT_ID or TELEGRAM_CHANNEL_ID to your channel:
+ * 2. Set TELEGRAM_CHANNEL_ID explicitly for your channel:
  *    - Public channel: "@your_channel_name"
  *    - Private channel: "-100xxxxxxxxxx" (must start with -100)
  * 3. Set TELEGRAM_BOT_TOKEN from @BotFather.
@@ -18,6 +18,8 @@ const fs = require('fs');
 const path = require('path');
 
 const TOKEN = process.env.TELEGRAM_BOT_TOKEN;
+// Channel notifications must never silently fall back to a private chat.
+const CHANNEL_ID = process.env.TELEGRAM_CHANNEL_ID || null;
 function getDashboardUrl() {
   const arg = process.argv.find(a => a.startsWith('--url='));
   if (arg) return arg.split('=')[1].trim();
