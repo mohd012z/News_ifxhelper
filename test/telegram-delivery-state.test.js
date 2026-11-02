@@ -1,0 +1,15 @@
+'use strict';
+const assert=require('node:assert/strict');
+const {approve,reserve,recover}=require('../lib/telegram-delivery-state');
+const now=Date.parse('2026-11-03T12:00:00Z');
+const draft={key:'news-1',status:'pending-approval'};
+const approved=approve(draft,{reviewer:'operator',nowMs:now});
+assert.equal(approved.status,'approved');
+assert.throws(()=>approve(approved,{reviewer:'operator',nowMs:now}));
+const inFlight=reserve(approved,{attemptId:'attempt-1',nowMs:now});
+assert.equal(inFlight.status,'in-flight');
+assert.equal(recover(inFlight).status,'uncertain');
+assert.equal(recover(inFlight).nextAttemptAt,null);
+assert.throws(()=>reserve(recover(inFlight),{attemptId:'attempt-2',nowMs:now}));
+assert.throws(()=>reserve({...approved,status:'retry',nextAttemptAt:new Date(now+60000).toISOString()},{attemptId:'x',nowMs:now}));
+console.log('Telegram approval and crash recovery checks passed');
