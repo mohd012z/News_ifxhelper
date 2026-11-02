@@ -1,0 +1,16 @@
+'use strict';
+const assert=require('node:assert/strict');
+const {validateChannelReadiness,makeChannelReviewJobs}=require('../lib/telegram-channel-readiness');
+const valid={botUsername:'@news_ifxhelperbot',channelUsername:'@ifxhelper2',botIsAdministrator:true,canPostMessages:true,credentialsConfigured:true};
+assert.equal(validateChannelReadiness(valid).ready,true);
+for(const field of ['botIsAdministrator','canPostMessages','credentialsConfigured']) assert.equal(validateChannelReadiness({...valid,[field]:false}).ready,false);
+assert.equal(validateChannelReadiness({...valid,channelUsername:'@other'}).ready,false);
+assert.equal(validateChannelReadiness({...valid,botUsername:'@otherbot'}).ready,false);
+const drafts=[{key:'event:1',text:'Verified event',kind:'breaking'}];
+const jobs=makeChannelReviewJobs(drafts);
+assert.equal(jobs.length,1);
+assert.equal(jobs[0].chatId,'@ifxhelper2');
+assert.equal(jobs[0].status,'pending-approval');
+assert.equal(jobs[0].send,false);
+assert.equal(makeChannelReviewJobs(drafts,{sentKeys:[jobs[0].key]}).length,0);
+console.log('Telegram channel readiness checks passed');
