@@ -11,7 +11,7 @@ async function run({env=process.env,fetchImpl=globalThis.fetch,log=console.log}=
  const message='News_ifxhelper channel connectivity test. Research notifications only. No trading instructions.';
  const response=await fetchImpl('https://api.telegram.org/bot'+token+'/sendMessage',{
   method:'POST',headers:{'Content-Type':'application/json'},
-  body:JSON.stringify({chat_id:channel,text:message,disable_notification:true})
+  body:JSON.stringify({chat_id:channel,text:message,disable_notification:false})
  });
  const body=await response.json();
  if(!response.ok||body.ok!==true||!Number.isInteger(body.result?.message_id))throw Error('Telegram did not confirm message delivery');
