@@ -16,6 +16,7 @@ for(const [name,wf] of [['daily',daily],['frequent',frequent]]){
  assert(wf.includes('if: always()'),name+' must persist notification state after failure');
 }
 assert(notifier.includes('DESTINATION_CONFLICT'),'chat/channel mismatch not blocked');
+assert(notifier.includes('AbortController'),'Telegram network timeout must be bounded');
 assert(notifier.includes('message_id'),'Telegram receipt not validated');
 assert(notifier.includes('even with zero news candidates'),'empty news queue must not hide missing credentials');
 assert(bbma.includes('process.exitCode = 1'),'BBMA sender missing exit failure');
