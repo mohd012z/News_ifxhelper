@@ -31,7 +31,8 @@ const path = require('path');
 
 const STATE_FILE = path.join(__dirname, '.news-alert-state.json');
 const TOKEN = process.env.TELEGRAM_BOT_TOKEN;
-const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
+const CHAT_ID = process.env.TELEGRAM_CHANNEL_ID || process.env.TELEGRAM_CHAT_ID;
+const DESTINATION_CONFLICT = Boolean(process.env.TELEGRAM_CHANNEL_ID && process.env.TELEGRAM_CHAT_ID && process.env.TELEGRAM_CHANNEL_ID !== process.env.TELEGRAM_CHAT_ID);
 const PREVIEW = process.argv.includes('--preview');
 const REMINDERS = process.argv.includes('--reminders');
 const DAILY = process.argv.includes('--daily-summary');
@@ -65,7 +66,7 @@ function saveState(state) {
  * have been RE-sent as duplicates on the next run). A network throw is treated exactly like a
  * failed send: not marked as sent, retried next run - same as any other failure path here. */
 async function sendTelegram(text) {
-  if (!TOKEN || !CHAT_ID) { console.log('SKIP (no Telegram credentials configured):\n' + text + '\n'); return { ok: false, skipped: true }; }
+  if (!TOKEN || !CHAT_ID || DESTINATION_CONFLICT) { console.error('Telegram configuration invalid: missing credentials or mismatched destinations'); return { ok: false, skipped: true }; }
   const url = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
   let r;
   try {
@@ -83,7 +84,12 @@ async function sendTelegram(text) {
     // Treating it as a hard failure only trains everyone to ignore the real red X's.
     return { ok: false, rateLimited: /too many requests/i.test(j.description || '') };
   }
-  return { ok: true };
+  if (!j.result || !Number.isInteger(j.result.message_id) || String(j.result.chat?.username || '').toLowerCase() !== String(CHAT_ID).replace(/^@/, '').toLowerCase() && String(j.result.chat?.id) !== String(CHAT_ID)) {
+    console.error('Telegram API did not confirm message ID and expected destination');
+    return { ok: false };
+  }
+  console.log('Telegram delivery acknowledged: message_id=' + j.result.message_id);
+  return { ok: true, messageId: j.result.message_id };
 }
 /* Sends the card as a photo with the full card as its caption (QuickChart.io - free, key-free,
  * renders a real PNG bar from a JSON chart spec, no account needed). Falls back to a plain text
@@ -91,7 +97,7 @@ async function sendTelegram(text) {
  * photo-caption limit, QuickChart hiccup, or a network-level throw - see sendTelegram() above)
  * so a chart problem never costs you the alert itself. */
 async function sendTelegramCard(caption, chartUrl) {
-  if (!TOKEN || !CHAT_ID) { console.log('SKIP (no Telegram credentials configured):\n' + caption + '\n'); return { ok: false, skipped: true }; }
+  if (!TOKEN || !CHAT_ID || DESTINATION_CONFLICT) { console.error('Telegram configuration invalid: missing credentials or mismatched destinations'); return { ok: false, skipped: true }; }
   if (chartUrl && caption.length <= 1024) {
     try {
       const r = await fetch(`https://api.telegram.org/bot${TOKEN}/sendPhoto`, {
@@ -100,7 +106,10 @@ async function sendTelegramCard(caption, chartUrl) {
         body: JSON.stringify({ chat_id: CHAT_ID, photo: chartUrl, caption, parse_mode: 'HTML' })
       });
       const j = await r.json().catch(() => ({}));
-      if (r.ok && j.ok) return { ok: true };
+      if (r.ok && j.ok && Number.isInteger(j.result?.message_id) && (String(j.result.chat?.username || '').toLowerCase() === String(CHAT_ID).replace(/^@/, '').toLowerCase() || String(j.result.chat?.id) === String(CHAT_ID))) {
+        console.log('Telegram photo acknowledged: message_id=' + j.result.message_id);
+        return { ok: true, messageId: j.result.message_id };
+      }
       console.log('Photo send failed (' + (j.description || r.status) + ') - falling back to text.');
     } catch (e) { console.log('Photo send failed (network: ' + e.message + ') - falling back to text.'); }
   }
