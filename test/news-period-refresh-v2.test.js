@@ -50,7 +50,8 @@ const telegramIdx = newsWorkflow.indexOf('Send Telegram alerts for anything new'
 const stateIdx = newsWorkflow.indexOf('Persist notification state');
 assert(publishIdx >= 0 && telegramIdx > publishIdx, 'validated news data must be published before Telegram notification delivery');
 assert(stateIdx > telegramIdx, 'notification state must persist after notification delivery');
-assert((newsWorkflow.match(/continue-on-error: true/g) || []).length >= 2, 'notification steps must fail open');
+assert(!/name: Send Telegram alerts for anything new\n\s+continue-on-error: true/.test(newsWorkflow), 'frequent Telegram failures must be visible');
+assert(!/name: Send BBMA Alert to Channel\n\s+continue-on-error: true/.test(newsWorkflow), 'frequent BBMA failures must be visible');
 assert((newsWorkflow.match(/timeout-minutes: 2/g) || []).length >= 2, 'notification steps must be time bounded');
 assert(newsWorkflow.includes('cron: "7,37 * * * *"'), 'frequent news schedule must avoid busy :00/:30 scheduler windows');
 
