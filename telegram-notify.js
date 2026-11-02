@@ -32,7 +32,7 @@ const path = require('path');
 const STATE_FILE = path.join(__dirname, '.news-alert-state.json');
 const TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const CHAT_ID = process.env.TELEGRAM_CHANNEL_ID || process.env.TELEGRAM_CHAT_ID;
-const DESTINATION_CONFLICT = Boolean(process.env.TELEGRAM_CHANNEL_ID && process.env.TELEGRAM_CHAT_ID && process.env.TELEGRAM_CHANNEL_ID !== process.env.TELEGRAM_CHAT_ID);
+// A private chat and a channel may intentionally have different IDs; channel takes priority.
 const PREVIEW = process.argv.includes('--preview');
 const REMINDERS = process.argv.includes('--reminders');
 const DAILY = process.argv.includes('--daily-summary');
@@ -66,7 +66,7 @@ function saveState(state) {
  * have been RE-sent as duplicates on the next run). A network throw is treated exactly like a
  * failed send: not marked as sent, retried next run - same as any other failure path here. */
 async function sendTelegram(text) {
-  if (!TOKEN || !CHAT_ID || DESTINATION_CONFLICT) { console.error('Telegram configuration invalid: missing credentials or mismatched destinations'); return { ok: false, skipped: true }; }
+  if (!TOKEN || !CHAT_ID) { console.error('Telegram configuration invalid: missing credentials'); return { ok: false, skipped: true }; }
   const url = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
   let r;
   const controller = new AbortController();
@@ -101,7 +101,7 @@ async function sendTelegram(text) {
  * photo-caption limit, QuickChart hiccup, or a network-level throw - see sendTelegram() above)
  * so a chart problem never costs you the alert itself. */
 async function sendTelegramCard(caption, chartUrl) {
-  if (!TOKEN || !CHAT_ID || DESTINATION_CONFLICT) { console.error('Telegram configuration invalid: missing credentials or mismatched destinations'); return { ok: false, skipped: true }; }
+  if (!TOKEN || !CHAT_ID) { console.error('Telegram configuration invalid: missing credentials'); return { ok: false, skipped: true }; }
   if (chartUrl && caption.length <= 1024) {
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 15000);
@@ -901,8 +901,8 @@ if (require.main === module) (async () => {
   toSend.sort((a, b) => a.category - b.category || a.tiebreak - b.tiebreak);
 
   let sentCount = 0, failCount = 0, rateLimitedCount = 0, skippedNoCreds = false;
-  if (!PREVIEW && (!TOKEN || !CHAT_ID || DESTINATION_CONFLICT)) {
-    console.error('Telegram credentials missing or chat/channel destination conflict; refusing silent success even with zero news candidates');
+  if (!PREVIEW && (!TOKEN || !CHAT_ID)) {
+    console.error('Telegram credentials missing; refusing silent success even with zero news candidates');
     process.exitCode = 1;
     return;
   }
