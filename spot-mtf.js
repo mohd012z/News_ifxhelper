@@ -1,7 +1,7 @@
 /* Read-only broker XAU/USD snapshot. No bearer token or account ID stored. */
 window.SPOT_MTF = {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-02T19:53:07.438Z",
+  "generatedAt": "2026-11-02T23:51:26.126Z",
   "instrument": "XAU/USD",
   "source": "oanda:practice:XAU_USD",
   "provider": "OANDA_V20",
