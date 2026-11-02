@@ -1,0 +1,18 @@
+'use strict';
+const assert=require('node:assert/strict');
+const {usgsFeatureToStory,usgsFeedToStories,socialPostToLead}=require('../lib/global-event-source-adapters');
+const quake={type:'Feature',properties:{mag:7.1,place:'Example region',time:1793692800000,url:'https://earthquake.usgs.gov/earthquakes/eventpage/example'}};
+const story=usgsFeatureToStory(quake);
+assert.equal(story.provider,'usgs');
+assert.equal(story.importance,'high');
+assert.equal(story.marketReactionVerified,false);
+assert.equal(story.infrastructureImpactConfirmed,false);
+assert.equal(usgsFeedToStories({features:[quake]}).length,1);
+assert.equal(usgsFeedToStories({features:[quake]},{minMagnitude:8}).length,0);
+assert.throws(()=>usgsFeatureToStory({...quake,properties:{...quake.properties,url:'https://evil.example/'}}),/Untrusted/);
+assert.throws(()=>usgsFeatureToStory({...quake,properties:{...quake.properties,mag:NaN}}),/magnitude/);
+const lead=socialPostToLead({provider:'instagram',text:'Rumor: Bitcoin ETF approval',id:'test'});
+assert.equal(lead.publishableAsConfirmed,false);
+assert.equal(lead.verification,'unverified');
+assert.throws(()=>socialPostToLead({provider:'unknown',text:'test'}),/Unsupported/);
+console.log('USGS and social lead adapter tests passed');
