@@ -1,0 +1,17 @@
+'use strict';
+const assert=require('node:assert/strict');
+const {planStagingTriggers}=require('../lib/global-event-scheduler');
+const now=Date.parse('2026-11-03T12:00:00Z');
+const event={provider:'news',verified:true,independentSources:2,evidenceUrls:['https://source-a.example/news','https://source-b.example/news'],publishedAt:'2026-11-03T11:00:00Z',timeUtc:'2026-11-03T12:29:00Z',date:'2026-11-03',event:'US CPI inflation',title:'US CPI inflation',currency:'USD',importance:'high'};
+const jobs=planStagingTriggers([event],now);
+assert.equal(jobs.length,1);
+assert.equal(jobs[0].stage,30);
+assert.equal(jobs[0].networkSend,false);
+assert.equal(jobs[0].requiresApproval,true);
+assert.equal(jobs[0].job.status,'staging-review');
+assert.equal(planStagingTriggers([event],now,{sentKeys:[jobs[0].key]}).length,0);
+assert.equal(planStagingTriggers([{...event,verified:false}],now).length,0);
+assert.equal(planStagingTriggers([{...event,publishedAt:'2026-10-01T11:00:00Z'}],now).length,0);
+assert.equal(planStagingTriggers([event],now+31*60000).length,0);
+assert.throws(()=>planStagingTriggers([event],now,{destination:'live-channel'}),/Unsupported/);
+console.log('Staging notification scheduler tests passed');
