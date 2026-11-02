@@ -1,0 +1,10 @@
+'use strict';
+const assert=require('node:assert/strict');
+const {assessChannelProbe}=require('../lib/telegram-channel-probe');
+const valid={getMe:{ok:true,result:{username:'news_ifxhelperbot'}},getChat:{ok:true,result:{type:'channel',username:'ifxhelper2'}},getChatMember:{ok:true,result:{status:'administrator',can_post_messages:true}}};
+assert.equal(assessChannelProbe(valid).ready,true);
+assert.equal(assessChannelProbe({...valid,getChatMember:{ok:false,result:valid.getChatMember.result}}).ready,false);
+assert.equal(assessChannelProbe({...valid,getChatMember:{ok:true,result:{status:'administrator',can_post_messages:false}}}).ready,false);
+assert.equal(assessChannelProbe({...valid,getMe:{ok:true,result:{username:'different_bot'}}}).ready,false);
+assert.throws(()=>assessChannelProbe(null),TypeError);
+console.log('Telegram channel API probe checks passed');
