@@ -1,0 +1,11 @@
+'use strict';
+const assert=require('node:assert/strict');
+const {assessResearch,rankMemory}=require('../lib/cloudflare-memory-quality');
+const nowMs=Date.parse('2026-11-03T12:00:00Z');
+const record={sourceUrl:'https://example.gov/report',sourcePublishedAt:'2026-11-03T11:00:00Z',corroboratingUrls:['https://another.gov/report'],evidenceStatus:'confirmed',contradictions:[]};
+assert.equal(assessResearch(record,{nowMs}).eligible,true);
+assert.equal(assessResearch({...record,corroboratingUrls:['https://example.gov/other']},{nowMs}).eligible,false);
+assert.equal(assessResearch({...record,sourcePublishedAt:'2026-10-01T00:00:00Z'},{nowMs}).eligible,false);
+assert.equal(assessResearch({...record,contradictions:['Conflicting publication']},{nowMs}).eligible,false);
+assert.equal(rankMemory([record,{...record,evidenceStatus:'unverified'}],{nowMs}).length,1);
+console.log('Cloudflare memory evidence-quality checks passed');

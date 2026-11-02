@@ -1,0 +1,15 @@
+'use strict';
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const path=require('node:path');
+const html=fs.readFileSync(path.join(__dirname,'..','telegram-review.html'),'utf8');
+for(const token of ['@ifxhelper2','@news_ifxhelperbot','T−30','T−10','T−2','Generate draft','Copy draft','Not ready for live activation','Research only']) assert(html.includes(token),'Missing UI requirement: '+token);
+assert(!/api\.telegram\.org\/bot\$/.test(html),'UI must not embed bot API calls');
+assert(!/localStorage|sessionStorage/.test(html),'UI must not persist sensitive data');
+const {fanoutDrafts}=require('../lib/telegram-multi-destination');
+const drafts=[{key:'breaking-1',kind:'breaking',stage:null,text:'Research event'}];
+const jobs=fanoutDrafts(drafts,[{type:'channel',chatId:'@ifxhelper2'}]);
+assert.equal(jobs.length,1);
+assert.equal(jobs[0].send,false);
+assert.equal(jobs[0].status,'pending-approval');
+console.log('Telegram manual UI static checks passed');

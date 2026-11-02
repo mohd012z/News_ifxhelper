@@ -1,0 +1,11 @@
+'use strict';
+const assert=require('node:assert/strict');
+const {VERSION,safeEnvelope}=require('../lib/research-evidence-contract');
+const sample={schemaVersion:VERSION,eventId:'cpi-20261103',summary:'Official economic publication requiring independent source review.',evidenceStatus:'confirmed',sources:[{url:'https://example.gov/report',publishedAt:'2026-11-03T10:00:00Z'}],observedAt:'2026-11-03T10:05:00Z'};
+const safe=safeEnvelope(sample);
+assert.equal(safe.ok,true);
+assert.equal(safe.value.evidenceStatus,'unverified');
+assert.equal(safe.value.publish,false);
+assert.equal(safeEnvelope({...sample,tradeAction:'BUY'}).ok,false);
+assert.equal(safeEnvelope({...sample,sources:[{url:'http://example.gov',publishedAt:'2026-11-03T10:00:00Z'}]}).ok,false);
+console.log('Cross-repository research evidence contract checks passed');

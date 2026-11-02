@@ -1,0 +1,16 @@
+'use strict';
+const assert=require('node:assert/strict');
+const {planTelegramDrafts}=require('../lib/telegram-global-alert-drafts');
+const now=Date.parse('2026-11-03T12:00:00Z');
+const base={provider:'news',verified:true,independentSources:2,evidenceUrls:['https://example.org/story','https://another.example/story'],publishedAt:'2026-11-03T11:59:00Z',timeUtc:'2026-11-03T12:30:00Z',date:'2026-11-03',timeMyt:'2026-11-03 20:30',title:'US CPI inflation release',importance:'high',currency:'USD'};
+const reminders=planTelegramDrafts([base],now);
+assert.equal(reminders.length,1);
+assert.equal(reminders[0].stage,30);
+assert.equal(reminders[0].requiresApproval,true);
+assert.equal(planTelegramDrafts([base],now,{sentKeys:[reminders[0].key]}).length,0);
+const breaking=planTelegramDrafts([{...base,breaking:true}],now);
+assert.equal(breaking.filter(x=>x.kind==='breaking').length,1);
+assert.equal(planTelegramDrafts([{...base,verified:false,breaking:true}],now).length,0);
+assert.equal(planTelegramDrafts([{...base,breaking:true,publishedAt:'2026-10-01T00:00:00Z'}],now).length,0);
+assert.equal(planTelegramDrafts([base,base],now).length,1);
+console.log('Telegram draft scheduler checks passed');

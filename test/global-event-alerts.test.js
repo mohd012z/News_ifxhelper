@@ -1,0 +1,14 @@
+'use strict';
+const assert=require('node:assert/strict');
+const {buildResearchAlert}=require('../lib/global-event-alerts');
+const quake=buildResearchAlert({provider:'usgs',verified:true,title:'Magnitude 7.1 earthquake',summary:'Seismic activity',importance:'high'});
+assert.equal(quake.confirmed,true);
+assert.equal(quake.marketEffect,'not-established');
+assert.match(quake.text,/no BUY\/SELL inference/);
+const rumor=buildResearchAlert({provider:'x',verified:false,title:'Bitcoin ETF rumor',importance:'high'});
+assert.equal(rumor.confirmed,false);
+assert(rumor.assets.includes('BTCUSD'));
+const oil=buildResearchAlert({provider:'news',verified:true,independentSources:2,title:'Oil tanker shipping disruption',infrastructureImpactConfirmed:true});
+assert(oil.assets.includes('OIL'));
+assert.equal(oil.marketEffect,'not-established');
+console.log('Global research alert tests passed');

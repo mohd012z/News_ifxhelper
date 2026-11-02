@@ -1,0 +1,14 @@
+'use strict';
+const assert=require('node:assert/strict');
+const {surprise,returns,realizedVolatility,atr,historicalScenario}=require('../lib/cloudflare-market-research');
+assert.deepEqual(surprise(3.4,3.1,.2),{difference:0.2999999999999998,standardized:1.4999999999999991});
+assert.equal(surprise(3,2,0),null);
+assert.equal(returns([100,110]).length,1);
+assert.equal(realizedVolatility([100,101]),null);
+assert.equal(atr([{close:100},{high:105,low:99,close:104}],1),6);
+assert.equal(historicalScenario([.1,-.2]).status,'insufficient-history');
+const s=historicalScenario(Array.from({length:30},(_,i)=>(i-15)/100));
+assert.equal(s.status,'descriptive-only');
+assert.equal(s.sampleSize,30);
+assert(s.p10<=s.median&&s.median<=s.p90);
+console.log('Cloudflare market research calculation checks passed');

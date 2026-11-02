@@ -1,0 +1,16 @@
+'use strict';
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const path=require('node:path');
+const root=path.join(__dirname,'..');
+const check=fs.readFileSync(path.join(root,'telegram-channel-check.js'),'utf8');
+const workflow=fs.readFileSync(path.join(root,'.github','workflows','telegram-channel-readiness.yml'),'utf8');
+assert(check.includes('inspectConfiguredChannel'));
+assert(check.includes("channel==='@ifxhelper2'"));
+assert(!check.includes('sendMessage'));
+assert(workflow.includes('workflow_dispatch'));
+assert(workflow.includes('contents: read'));
+assert(!workflow.includes('schedule:'));
+assert(!workflow.includes('sendMessage'));
+assert(workflow.includes('secrets.TELEGRAM_CHANNEL_ID'));
+console.log('Telegram read-only workflow safety checks passed');

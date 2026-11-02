@@ -3,7 +3,7 @@
  *
  * Requirements for Telegram Channel:
  * 1. Add your Bot as an Administrator in your Channel with "Post Messages" permission.
- * 2. Set TELEGRAM_CHAT_ID or TELEGRAM_CHANNEL_ID to your channel:
+ * 2. Set TELEGRAM_CHANNEL_ID explicitly for your channel:
  *    - Public channel: "@your_channel_name"
  *    - Private channel: "-100xxxxxxxxxx" (must start with -100)
  * 3. Set TELEGRAM_BOT_TOKEN from @BotFather.
@@ -18,6 +18,8 @@ const fs = require('fs');
 const path = require('path');
 
 const TOKEN = process.env.TELEGRAM_BOT_TOKEN;
+// Channel notifications must never silently fall back to a private chat.
+const CHANNEL_ID = process.env.TELEGRAM_CHANNEL_ID || null;
 function getDashboardUrl() {
   const arg = process.argv.find(a => a.startsWith('--url='));
   if (arg) return arg.split('=')[1].trim();
@@ -115,17 +117,15 @@ function formatBbmaAlertBox(alertData) {
 
 async function sendTelegramBox(messageObj) {
   if (!TOKEN || !CHANNEL_ID) {
-    console.log('[Notice] No TELEGRAM_BOT_TOKEN or TELEGRAM_CHANNEL_ID set.');
-    console.log('[Channel Setup Instructions]:');
-    console.log('1. Add bot to Telegram channel as Administrator with "Post Messages" permission.');
-    console.log('2. Provide TELEGRAM_BOT_TOKEN and TELEGRAM_CHANNEL_ID (@channel_name or -100xxxxxxxxxx).');
+    console.error('Telegram channel send blocked: missing token or channel ID');
     return { ok: false, skipped: true };
   }
-
-  const url = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 15000);
   try {
-    const r = await fetch(url, {
+    const r = await fetch('https://api.telegram.org/bot' + TOKEN + '/sendMessage', {
       method: 'POST',
+      signal: controller.signal,
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         chat_id: CHANNEL_ID,
@@ -136,18 +136,27 @@ async function sendTelegramBox(messageObj) {
       })
     });
     const j = await r.json().catch(() => ({}));
-    if (r.ok && j.ok) {
-      console.log(`✅ BBMA Alert Box successfully posted to channel/chat: ${CHANNEL_ID}`);
+    const receipt = j?.result;
+    const expectedUsername = String(CHANNEL_ID).replace(/^@/, '').toLowerCase();
+    const destinationMatches =
+      String(receipt?.chat?.username || '').toLowerCase() === expectedUsername ||
+      String(receipt?.chat?.id ?? '') === String(CHANNEL_ID);
+    if (r.ok && j?.ok === true && Number.isInteger(receipt?.message_id) &&
+        receipt.message_id > 0 && destinationMatches) {
+      console.log('Telegram BBMA delivery acknowledged: message_id=' + receipt.message_id);
       return { ok: true, data: j };
     }
-    console.error(`❌ Telegram send error:`, j.description || r.statusText);
-    return { ok: false, error: j.description };
+    console.error('Telegram BBMA delivery not confirmed:', j?.description || 'missing or mismatched receipt');
+    return { ok: false, error: j?.description || 'unverified-delivery-receipt' };
   } catch (e) {
-    console.error(`❌ Network error sending to Telegram:`, e.message);
+    console.error('Telegram BBMA send failed:', e.message);
     return { ok: false, error: e.message };
+  } finally {
+    clearTimeout(timeout);
   }
 }
 
+if (require.main === module) {
 (async () => {
   // Guard: never broadcast a demo/placeholder box to a real channel.
   // When there is no live BBMA runtime (loadRuntime() -> null), the box falls back
@@ -158,6 +167,7 @@ async function sendTelegramBox(messageObj) {
   if (!hasRuntime && !PREVIEW) {
     console.log('⏭️  No live BBMA runtime data (loadRuntime() null) — suppressing Telegram post to avoid sending demo values.');
     console.log('   (Use --preview to inspect the box layout with sample data.)');
+    if (!PREVIEW) process.exitCode = 1;
     return { ok: false, skipped: true, reason: 'no_runtime' };
   }
   const box = formatBbmaAlertBox();
@@ -174,13 +184,20 @@ async function sendTelegramBox(messageObj) {
 
   if (TOKEN && CHANNEL_ID) {
     console.log(`Sending BBMA Alert Box to Telegram (${CHANNEL_ID})...`);
-    await sendTelegramBox(box);
+    const result = await sendTelegramBox(box);
+    if (!result.ok) process.exitCode = 1;
   } else {
+    process.exitCode = 1;
+    console.error('Telegram channel send blocked: missing token or channel ID');
     console.log('💡 To broadcast to your channel:');
     console.log('   set TELEGRAM_BOT_TOKEN="your_token"');
     console.log('   set TELEGRAM_CHANNEL_ID="@your_channel" or "-100xxxxxxxxx"');
     console.log('   node send-bbma-telegram.js');
   }
-})();
+})().catch(error => {
+  console.error('Telegram BBMA sender failed:', error.message);
+  process.exitCode = 1;
+});
+}
 
 module.exports = { formatBbmaAlertBox, sendTelegramBox };

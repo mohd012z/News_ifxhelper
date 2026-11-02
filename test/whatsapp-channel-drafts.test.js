@@ -1,0 +1,15 @@
+'use strict';
+const assert=require('node:assert/strict');
+const {channelDraft,buildChannelDrafts}=require('../lib/whatsapp-channel-drafts');
+const sample={event:'CPI Release',importance:'high',currency:'USD',timeMyt:'2026-11-03 20:30',date:'2026-11-03'};
+const draft=channelDraft(sample);
+assert.equal(draft.requiresManualPublication,true);
+assert.equal(draft.networkPublishSupported,false);
+assert.match(draft.text,/CPI Release/);
+assert.match(draft.text,/USD/);
+assert.equal(buildChannelDrafts([sample,{...sample,event:'Survey',importance:'low'}]).length,2);
+assert.equal(buildChannelDrafts([sample],{impacts:['low']}).length,0);
+assert.throws(()=>channelDraft({...sample,importance:'unknown'}),/impact/);
+assert.throws(()=>channelDraft({...sample,currency:'USD\\nmalicious'}),/currency/);
+assert.throws(()=>channelDraft({...sample,timeMyt:''}),/time/);
+console.log('WhatsApp Channel manual-publishing draft tests passed');

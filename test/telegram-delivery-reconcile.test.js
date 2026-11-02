@@ -1,0 +1,18 @@
+'use strict';
+const assert=require('node:assert/strict');
+const {reconcileDelivery}=require('../lib/telegram-delivery-reconcile');
+const now=Date.parse('2026-11-03T12:00:00Z');
+const base={key:'channel:alert-1',status:'pending',attempts:0};
+const delivered=reconcileDelivery(base,{ok:true,messageId:12},now);
+assert.equal(delivered.status,'delivered');
+assert.equal(delivered.messageId,12);
+assert.deepEqual(reconcileDelivery(delivered,{ok:false},now),delivered);
+const limited=reconcileDelivery(base,{ok:false,status:429,retryAfter:60},now);
+assert.equal(limited.status,'retry');
+assert.equal(limited.failureCategory,'rate-limited');
+assert.equal(Date.parse(limited.nextAttemptAt)-now,60000);
+assert.equal(reconcileDelivery({...base,attempts:4},{ok:false},now).status,'dead-letter');
+assert.equal(reconcileDelivery(base,{ok:true},now).status,'retry');
+assert.equal(reconcileDelivery(base,{uncertain:true},now).failureCategory,'uncertain');
+assert.throws(()=>reconcileDelivery({}, {},now),/Invalid/);
+console.log('Telegram delivery reconciliation checks passed');

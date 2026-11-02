@@ -1,0 +1,16 @@
+'use strict';
+const assert=require('node:assert/strict');
+const {planReminders,nextRetry}=require('../lib/notification-planner.js');
+const now=Date.parse('2026-11-03T10:00:00Z');
+const event=(mins,importance='high')=>({event:'CPI',date:'2026-11-03',timeMyt:'18:30',importance,eventAtUtc:new Date(now+mins*60000).toISOString()});
+assert.deepEqual(planReminders([event(29)],now).map(x=>x.stage),[30]);
+assert.deepEqual(planReminders([event(9,'medium')],now).map(x=>x.stage),[10]);
+assert.deepEqual(planReminders([event(1,'low')],now).map(x=>x.stage),[2]);
+assert.equal(planReminders([event(-1),event(40)],now).length,0);
+assert.equal(planReminders([event(1,'low')],now,{impacts:['high']}).length,0);
+assert.equal(planReminders([event(1)],now,{stages:[30]}).length,0);
+assert.equal(nextRetry(0,now),now+30000);
+assert.equal(nextRetry(8,now),now+3600000);
+assert.equal(nextRetry(1,now,60),now+60000);
+assert.throws(()=>nextRetry(-1,now),/Invalid/);
+console.log('Notification planner tests passed');

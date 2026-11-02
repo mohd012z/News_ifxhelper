@@ -1,0 +1,18 @@
+'use strict';
+const assert=require('node:assert/strict');
+const {matchEvents,draftMatchedAlert}=require('../lib/cross-source-news-match');
+const base={currency:'USD',event:'Nonfarm Payrolls',scheduledAt:'2026-11-06T13:30:00Z'};
+const events=[{...base,provider:'forexfactory',url:'https://www.forexfactory.com/calendar'},{...base,provider:'investing',url:'https://www.investing.com/economic-calendar/'},{...base,provider:'tradingview',url:'https://www.tradingview.com/economic-calendar/'}];
+const groups=matchEvents(events);
+assert.equal(groups.length,1);
+assert.equal(groups[0].providers.length,3);
+assert.equal(draftMatchedAlert(groups[0]).send,false);
+assert.equal(draftMatchedAlert(groups[0]).requiresApproval,true);
+assert.equal(matchEvents([events[0]]).length,0);
+assert.equal(matchEvents([events[0],{...events[1],scheduledAt:'2026-11-06T14:30:00Z'}]).length,0);
+assert.equal(matchEvents([...events,events[0]]).length,1);
+assert.equal(matchEvents(events.map(e=>({...e,scheduledAt:'2026-11-06T13:30:00'}))).length,0);
+assert.equal(matchEvents([{...events[0],provider:'Forex Factory'},{...events[1],provider:'Investing.com'}]).length,1);
+assert.equal(matchEvents([events[0],{...events[1],url:'https://investing.com.evil.example/calendar'}]).length,0);
+assert.equal(matchEvents([events[0],{...events[1],url:'http://www.investing.com/calendar'}]).length,0);
+console.log('Cross-source event identity, deduplication and approval tests passed');

@@ -1,0 +1,20 @@
+'use strict';
+const assert=require('node:assert/strict');
+const {selectEvents,eventKey,sendApprovedTemplate}=require('../lib/whatsapp-notify.js');
+const config={phoneNumberId:'12345678901',accessToken:'test_token_not_real_12345',recipient:'60123456789',templateName:'economic_event_alert'};
+(async()=>{
+  const events=[{event:'CPI',importance:'high',date:'2026-11-03'},{event:'PMI',importance:'med'},{event:'Survey',impact:'low'},{event:'Unknown',impact:'invalid'}];
+  assert.deepEqual(selectEvents(events).map(x=>x.event),['CPI','PMI','Survey']);
+  assert.deepEqual(selectEvents(events,['high']).map(x=>x.event),['CPI']);
+  assert.notEqual(eventKey(events[0],'30'),eventKey(events[0],'10'));
+  await assert.rejects(()=>sendApprovedTemplate(config,['CPI']),/opt-in/);
+  let called=0;
+  const mock=async(url,options)=>{called++;assert.match(url,/graph.facebook.com/);assert.equal(options.method,'POST');return {ok:true,status:200,json:async()=>({messages:[{id:'mock-id'}]})};};
+  const preview=await sendApprovedTemplate(config,['CPI'],{optedIn:true,fetchImpl:mock});
+  assert.equal(preview.dryRun,true);assert.equal(called,0);
+  const result=await sendApprovedTemplate(config,['CPI'],{optedIn:true,dryRun:false,fetchImpl:mock});
+  assert.equal(result.messageId,'mock-id');assert.equal(called,1);
+  const fail=await sendApprovedTemplate(config,['CPI'],{optedIn:true,dryRun:false,fetchImpl:async()=>({ok:false,status:429,json:async()=>({error:{code:4}})})});
+  assert.deepEqual(fail,{ok:false,status:429,errorCode:4});
+  console.log('WhatsApp staging adapter tests passed');
+})().catch(e=>{console.error(e);process.exitCode=1;});

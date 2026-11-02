@@ -1,0 +1,11 @@
+'use strict';
+const assert=require('node:assert/strict');
+const {assessTelegramResponses}=require('../lib/telegram-api-readiness-review');
+const valid={me:{username:'news_ifxhelperbot'},chat:{username:'ifxhelper2',type:'channel'},member:{status:'administrator',can_post_messages:true}};
+assert.equal(assessTelegramResponses(valid).ready,true);
+assert.equal(assessTelegramResponses({...valid,member:{status:'administrator',can_post_messages:false}}).ready,false);
+assert.equal(assessTelegramResponses({...valid,member:{status:'member'}}).ready,false);
+assert.equal(assessTelegramResponses({...valid,me:{username:'another_bot'}}).ready,false);
+assert.equal(assessTelegramResponses({...valid,chat:{username:'ifxhelper2',type:'supergroup'}}).ready,false);
+assert.equal(assessTelegramResponses({}).ready,false);
+console.log('Telegram Bot API readiness parser checks passed');

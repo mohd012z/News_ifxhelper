@@ -31,7 +31,8 @@ const path = require('path');
 
 const STATE_FILE = path.join(__dirname, '.news-alert-state.json');
 const TOKEN = process.env.TELEGRAM_BOT_TOKEN;
-const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
+const CHAT_ID = process.env.TELEGRAM_CHANNEL_ID || process.env.TELEGRAM_CHAT_ID;
+// A private chat and a channel may intentionally have different IDs; channel takes priority.
 const PREVIEW = process.argv.includes('--preview');
 const REMINDERS = process.argv.includes('--reminders');
 const DAILY = process.argv.includes('--daily-summary');
@@ -65,16 +66,20 @@ function saveState(state) {
  * have been RE-sent as duplicates on the next run). A network throw is treated exactly like a
  * failed send: not marked as sent, retried next run - same as any other failure path here. */
 async function sendTelegram(text) {
-  if (!TOKEN || !CHAT_ID) { console.log('SKIP (no Telegram credentials configured):\n' + text + '\n'); return { ok: false, skipped: true }; }
+  if (!TOKEN || !CHAT_ID) { console.error('Telegram configuration invalid: missing credentials'); return { ok: false, skipped: true }; }
   const url = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
   let r;
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 15000);
   try {
     r = await fetch(url, {
       method: 'POST',
+      signal: controller.signal,
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ chat_id: CHAT_ID, text, parse_mode: 'HTML', disable_web_page_preview: true })
     });
   } catch (e) { console.log('FAIL Telegram send (network): ' + e.message); return { ok: false }; }
+  finally { clearTimeout(timeout); }
   const j = await r.json().catch(() => ({}));
   if (!r.ok || !j.ok) {
     console.log('FAIL Telegram send: ' + (j.description || r.status));
@@ -83,7 +88,12 @@ async function sendTelegram(text) {
     // Treating it as a hard failure only trains everyone to ignore the real red X's.
     return { ok: false, rateLimited: /too many requests/i.test(j.description || '') };
   }
-  return { ok: true };
+  if (!j.result || !Number.isInteger(j.result.message_id) || String(j.result.chat?.username || '').toLowerCase() !== String(CHAT_ID).replace(/^@/, '').toLowerCase() && String(j.result.chat?.id) !== String(CHAT_ID)) {
+    console.error('Telegram API did not confirm message ID and expected destination');
+    return { ok: false };
+  }
+  console.log('Telegram delivery acknowledged: message_id=' + j.result.message_id);
+  return { ok: true, messageId: j.result.message_id };
 }
 /* Sends the card as a photo with the full card as its caption (QuickChart.io - free, key-free,
  * renders a real PNG bar from a JSON chart spec, no account needed). Falls back to a plain text
@@ -91,18 +101,25 @@ async function sendTelegram(text) {
  * photo-caption limit, QuickChart hiccup, or a network-level throw - see sendTelegram() above)
  * so a chart problem never costs you the alert itself. */
 async function sendTelegramCard(caption, chartUrl) {
-  if (!TOKEN || !CHAT_ID) { console.log('SKIP (no Telegram credentials configured):\n' + caption + '\n'); return { ok: false, skipped: true }; }
+  if (!TOKEN || !CHAT_ID) { console.error('Telegram configuration invalid: missing credentials'); return { ok: false, skipped: true }; }
   if (chartUrl && caption.length <= 1024) {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 15000);
     try {
       const r = await fetch(`https://api.telegram.org/bot${TOKEN}/sendPhoto`, {
         method: 'POST',
+        signal: controller.signal,
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ chat_id: CHAT_ID, photo: chartUrl, caption, parse_mode: 'HTML' })
       });
       const j = await r.json().catch(() => ({}));
-      if (r.ok && j.ok) return { ok: true };
+      if (r.ok && j.ok && Number.isInteger(j.result?.message_id) && (String(j.result.chat?.username || '').toLowerCase() === String(CHAT_ID).replace(/^@/, '').toLowerCase() || String(j.result.chat?.id) === String(CHAT_ID))) {
+        console.log('Telegram photo acknowledged: message_id=' + j.result.message_id);
+        return { ok: true, messageId: j.result.message_id };
+      }
       console.log('Photo send failed (' + (j.description || r.status) + ') - falling back to text.');
     } catch (e) { console.log('Photo send failed (network: ' + e.message + ') - falling back to text.'); }
+    finally { clearTimeout(timeout); }
   }
   return sendTelegram(caption);
 }
@@ -289,7 +306,7 @@ function eventCard(MARKET_DATA, atrData, e, pool) {
   const top = bestPairFor(MARKET_DATA, ccy);
   const hour = mytHourFromString(e.timeMyt);
   const session = sessionAtMyt(MARKET_DATA.sessions, hour);
-  const badge = e.importance === 'high' ? '🚨 <b>HIGH-IMPACT EVENT</b>' : '🔔 <b>Event</b>';
+  const badge = e.importance === 'high' ? '🚨 <b>HIGH-IMPACT EVENT</b>' : String(e.importance).toLowerCase() === 'low' ? '🔹 <b>LOW-IMPACT EVENT</b>' : '🔔 <b>MEDIUM-IMPACT EVENT</b>';
   const signal = top ? top.s.signal : 'NEUTRAL';
   const focusSym = top ? top.pair : (ccy ? `${ccy} exposure (XAU/USD + DXY)` : 'XAU/USD + DXY (broad risk)');
   const focusLine = top
@@ -664,7 +681,7 @@ function buildWeeklyOutlook(MARKET_DATA, NEWS_AUTO) {
   const dedupedPool = buildCommentaryPool(MARKET_DATA, NEWS_AUTO);
 
   const weekEvents = (MARKET_DATA.incoming || []).concat((NEWS_AUTO && NEWS_AUTO.incoming) || [])
-    .filter(e => e.importance === 'high')
+    .filter(e => ['low', 'medium', 'med', 'high'].includes(String(e.importance || '').toLowerCase()))
     .map(e => ({ e, at: parseMytToUtc(e.timeMyt) }))
     .sort((a, b) => (a.at ? a.at.getTime() : Infinity) - (b.at ? b.at.getTime() : Infinity));
 
@@ -761,7 +778,7 @@ if (require.main === module) (async () => {
     // best-effort only, GitHub Actions' free scheduler does not guarantee sub-5-minute accuracy.
     const state = loadState();
     const seen = new Set(state.sentKeys || []);
-    const incoming = (MARKET_DATA.incoming || []).concat((NEWS_AUTO && NEWS_AUTO.incoming) || []).filter(e => e.importance === 'high');
+    const incoming = (MARKET_DATA.incoming || []).concat((NEWS_AUTO && NEWS_AUTO.incoming) || []).filter(e => ['low', 'medium', 'med', 'high'].includes(String(e.importance || '').toLowerCase()));
     const now = Date.now();
     let sentCount = 0, failCount = 0;
     for (const e of incoming) {
@@ -805,7 +822,7 @@ if (require.main === module) (async () => {
     }
     state.sentKeys = Array.from(seen).slice(-2000);
     saveState(state);
-    console.log(`Reminder check: ${incoming.length} high-impact events in window, ${sentCount} sent, ${failCount} failed.`);
+    console.log(`Reminder check: ${incoming.length} low-to-high impact events considered, ${sentCount} sent, ${failCount} failed.`);
     if (failCount > 0) process.exitCode = 1;
     return;
   }
@@ -827,7 +844,7 @@ if (require.main === module) (async () => {
   // grace window covers events that started moments ago and are still actionable.
   const nowMs = Date.now();
   const incoming = (MARKET_DATA.incoming || []).concat((NEWS_AUTO && NEWS_AUTO.incoming) || []);
-  incoming.filter(e => e.importance === 'high').forEach(e => {
+  incoming.filter(e => ['low', 'medium', 'med', 'high'].includes(String(e.importance || '').toLowerCase())).forEach(e => {
     const key = 'evt:' + e.event + '|' + e.date;
     if (seen.has(key)) return;
     const at = parseMytToUtc(e.timeMyt);
@@ -884,6 +901,11 @@ if (require.main === module) (async () => {
   toSend.sort((a, b) => a.category - b.category || a.tiebreak - b.tiebreak);
 
   let sentCount = 0, failCount = 0, rateLimitedCount = 0, skippedNoCreds = false;
+  if (!PREVIEW && (!TOKEN || !CHAT_ID)) {
+    console.error('Telegram credentials missing; refusing silent success even with zero news candidates');
+    process.exitCode = 1;
+    return;
+  }
   for (const item of toSend) {
     const r = await sendTelegramCard(item.card.caption, item.card.chartUrl);
     if (r.ok) { seen.add(item.key); sentCount++; console.log('SENT: ' + item.card.caption.split('\n')[1]); }
@@ -902,8 +924,8 @@ if (require.main === module) (async () => {
   // next run, same mechanism as any other pending item. Only a GENUINE failure (bad token, malformed
   // request, real network error) should turn the workflow red - otherwise every busy news day
   // trains everyone to ignore a red X that doesn't mean anything is actually broken.
-  if (failCount > 0 && !skippedNoCreds) {
-    console.error(`${failCount} Telegram send(s) genuinely failed (not rate-limiting) - check the TELEGRAM_BOT_TOKEN/TELEGRAM_CHAT_ID secrets and Telegram API errors above.`);
+  if (failCount > 0 || skippedNoCreds) {
+    console.error(`Telegram delivery incomplete: ${failCount} failed, missing credentials=${skippedNoCreds}. Verify bot token, destination and API response.`);
     process.exitCode = 1; // surface as a red X in CI instead of a silent green checkmark
   }
 })();

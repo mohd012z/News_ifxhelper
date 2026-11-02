@@ -1,0 +1,15 @@
+'use strict';
+const assert=require('node:assert/strict');
+const {canonicalUrl,evaluateEvidence,dedupeStories}=require('../lib/global-evidence-review');
+const now=Date.parse('2026-11-03T12:00:00Z');
+const base={provider:'news',title:'Oil disruption',verified:true,publishedAt:'2026-11-03T11:00:00Z',evidenceUrls:['https://example.org/report','https://another.example/news'],marketReactionVerified:true};
+assert.equal(evaluateEvidence(base,{nowMs:now}).confirmed,true);
+assert.equal(evaluateEvidence(base,{nowMs:now}).marketEffect,'not-established');
+assert.equal(evaluateEvidence({...base,marketDataEvidence:true},{nowMs:now}).marketEffect,'observed');
+assert.equal(evaluateEvidence({...base,publishedAt:'2026-10-01T11:00:00Z'},{nowMs:now}).confirmed,false);
+assert.equal(evaluateEvidence({...base,evidenceUrls:['https://example.org/a','https://example.org/b']},{nowMs:now}).independent,false);
+assert.equal(evaluateEvidence({...base,provider:'instagram',evidenceUrls:[]},{nowMs:now}).confirmed,false);
+assert.equal(canonicalUrl('http://example.org'),null);
+assert.equal(canonicalUrl('https://user:password@example.org'),null);
+assert.equal(dedupeStories([base,{...base}, {...base,title:'Different event'}]).length,2);
+console.log('Global evidence review tests passed');

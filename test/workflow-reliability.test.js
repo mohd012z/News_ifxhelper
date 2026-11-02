@@ -33,7 +33,9 @@ assert(reminderIdx>publishIdx,'reminders must evaluate the published fresh calen
 assert(reminders.includes('node refresh-calendar-snapshot.js'),'calendar heartbeat script missing from reminder workflow');
 assert(reminders.includes('node build-data-manifest.js'),'manifest rebuild missing after heartbeat');
 assert(reminders.includes('npm run test:calendar-heartbeat'),'heartbeat regression test missing from workflow');
-assert(reminders.includes('continue-on-error: true'),'reminder delivery must fail open');
+assert(!reminders.includes('continue-on-error: true'),'reminder delivery failures must be visible');
+assert(reminders.includes('Validate Telegram notification configuration'),'reminder credentials must be validated');
+assert(reminders.includes('TELEGRAM_BOT_TOKEN') && reminders.includes('TELEGRAM_CHAT_ID'),'required Telegram credentials must be named');
 assert(reminders.includes('timeout-minutes: 2'),'reminder delivery must be time bounded');
 
 const bbmaWatch=fs.readFileSync(path.join(wfDir,'bbma-watch.yml'),'utf8');

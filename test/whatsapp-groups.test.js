@@ -1,0 +1,22 @@
+'use strict';
+const assert=require('node:assert/strict');
+const {GROUP_FIELDS,assessEligibility,buildGroupMessage,sendGroupMessage}=require('../lib/whatsapp-groups');
+const eligibility={officialBusinessAccount:true,cloudApiNumber:true,messagingPermission:true,webhookFields:GROUP_FIELDS,billingAuthorized:true,approvedForGroupApi:true};
+const base={phoneNumberId:'12345678901',accessToken:'fake-token-for-mocked-test',groupId:'group-test-1234',text:'High impact CPI at 16:30 MYT',impact:'high',eligibility};
+(async()=>{
+ assert.equal(assessEligibility({}).eligible,false);
+ assert.equal(assessEligibility(eligibility).eligible,true);
+ assert.equal(buildGroupMessage(base).recipient_type,'group');
+ assert.throws(()=>buildGroupMessage({...base,impact:'unknown'}),/impact/);
+ let calls=0;
+ const transport=async(_url,opts)=>{calls++;assert.equal(JSON.parse(opts.body).recipient_type,'group');return {ok:true,status:200,json:async()=>({messages:[{id:'mock-group-message'}]})}};
+ const preview=await sendGroupMessage({...base,eligibility:{}},{fetchImpl:transport});
+ assert.equal(preview.dryRun,true);assert.equal(preview.eligible,false);assert.equal(calls,0);
+ await assert.rejects(()=>sendGroupMessage({...base,eligibility:{}},{dryRun:false,fetchImpl:transport}),/eligibility/);
+ assert.equal(calls,0);
+ const sent=await sendGroupMessage(base,{dryRun:false,fetchImpl:transport});
+ assert.equal(sent.messageId,'mock-group-message');assert.equal(calls,1);
+ const failure=await sendGroupMessage(base,{dryRun:false,fetchImpl:async()=>({ok:false,status:400,json:async()=>({error:{code:131215}})})});
+ assert.deepEqual(failure,{ok:false,status:400,providerCode:131215});
+ console.log('WhatsApp Groups API staging tests passed');
+})().catch(e=>{console.error(e);process.exitCode=1});
