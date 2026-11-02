@@ -10,7 +10,7 @@ function validateRecord(r){
  try {const u=new URL(r.sourceUrl);if(u.protocol!=='https:'||u.username||u.password)return false;}catch{return false;}
  return ['unverified','reviewed','confirmed','rejected'].includes(r.evidenceStatus);
 }
-function safeRecord(r){return {id:r.id,agent:String(r.agent||r.skill).slice(0,80),skill:r.skill,event_key:r.eventKey,source_url:r.sourceUrl,source_published_at:r.sourcePublishedAt,observed_at:r.observedAt,summary:r.summary,evidence_status:r.evidenceStatus,outcome_status:'pending',confidence:Number.isFinite(r.confidence)?Math.max(0,Math.min(1,r.confidence)):null};}
+function safeRecord(r){return {id:r.id,agent:String(r.agent||r.skill).slice(0,80),skill:r.skill,event_key:r.eventKey,source_url:r.sourceUrl,source_published_at:r.sourcePublishedAt,observed_at:r.observedAt,summary:r.summary,evidence_status:'unverified',outcome_status:'pending',confidence:Number.isFinite(r.confidence)?Math.max(0,Math.min(1,r.confidence)):null};}
 export default {
  async fetch(request,env) {
   const url=new URL(request.url);
@@ -39,6 +39,6 @@ export default {
    statements.push(env.DB.prepare('INSERT OR IGNORE INTO research_memory (id,agent,skill,event_key,source_url,source_published_at,observed_at,summary,evidence_status,outcome_status,confidence) VALUES (?,?,?,?,?,?,?,?,?,?,?)').bind(r.id,r.agent,r.skill,r.event_key,r.source_url,r.source_published_at,r.observed_at,r.summary,r.evidence_status,r.outcome_status,r.confidence));
   }
   if(statements.length)await env.DB.batch(statements);
-  return Response.json({accepted:data.records.length,mode:'staging',publishing:false,verification:'caller-asserted; not independently verified'});
+  return Response.json({accepted:data.records.length,mode:'staging',publishing:false,verification:'all submitted records quarantined as unverified; independent review required'});
  }
 };
