@@ -15,7 +15,8 @@ for(const [name,wf] of [['daily',daily],['frequent',frequent]]){
  }
  assert(wf.includes('if: always()'),name+' must persist notification state after failure');
 }
-assert(notifier.includes('DESTINATION_CONFLICT'),'chat/channel mismatch not blocked');
+assert(notifier.includes('process.env.TELEGRAM_CHANNEL_ID || process.env.TELEGRAM_CHAT_ID'),'channel must take priority over private chat');
+assert(!notifier.includes('DESTINATION_CONFLICT'),'legitimate separate chat and channel must not be rejected');
 assert(notifier.includes('AbortController'),'Telegram network timeout must be bounded');
 assert(notifier.includes('message_id'),'Telegram receipt not validated');
 assert(notifier.includes('even with zero news candidates'),'empty news queue must not hide missing credentials');
