@@ -3503,8 +3503,18 @@
     "reasons": [
       "trend_up"
     ],
-    "status": "PENDING",
-    "id": "cd6f0ef5b22ee461006d"
+    "status": "SETTLED",
+    "id": "cd6f0ef5b22ee461006d",
+    "settledAt": "2026-11-02T08:28:51.630Z",
+    "nextCandleTime": "2026-10-30T07:40:00.000Z",
+    "actualDirection": "DOWN",
+    "predictedDirection": "UP",
+    "correct": false,
+    "nextReturnPct": -0.0976,
+    "mfePct": 0.01,
+    "maePct": -0.1027,
+    "rangePct": 0.1127,
+    "closeLocationPct": 4.44
   },
   {
     "schemaVersion": 4,
@@ -3538,8 +3548,18 @@
     "reasons": [
       "trend_down"
     ],
-    "status": "PENDING",
-    "id": "075e10dc49013657f2c9"
+    "status": "SETTLED",
+    "id": "075e10dc49013657f2c9",
+    "settledAt": "2026-11-02T08:28:51.630Z",
+    "nextCandleTime": "2026-10-30T07:30:00.000Z",
+    "actualDirection": "DOWN",
+    "predictedDirection": "DOWN",
+    "correct": true,
+    "nextReturnPct": -0.1026,
+    "mfePct": 0.0225,
+    "maePct": -0.1402,
+    "rangePct": 0.1627,
+    "closeLocationPct": 23.08
   },
   {
     "schemaVersion": 4,
@@ -3573,8 +3593,18 @@
     "reasons": [
       "trend_down"
     ],
-    "status": "PENDING",
-    "id": "089d63d04b4d405691a4"
+    "status": "SETTLED",
+    "id": "089d63d04b4d405691a4",
+    "settledAt": "2026-11-02T08:28:51.630Z",
+    "nextCandleTime": "2026-10-30T07:30:00.000Z",
+    "actualDirection": "DOWN",
+    "predictedDirection": "DOWN",
+    "correct": true,
+    "nextReturnPct": -0.2428,
+    "mfePct": 0.0225,
+    "maePct": -0.4907,
+    "rangePct": 0.5132,
+    "closeLocationPct": 48.29
   },
   {
     "schemaVersion": 4,
@@ -3609,7 +3639,195 @@
       "trend_down",
       "squeeze_pre_breakout"
     ],
+    "status": "SETTLED",
+    "id": "0c5d80a063f444316d95",
+    "settledAt": "2026-11-02T08:28:51.630Z",
+    "nextCandleTime": "2026-10-30T07:00:00.000Z",
+    "actualDirection": "DOWN",
+    "predictedDirection": "FLAT",
+    "correct": false,
+    "nextReturnPct": -0.1929,
+    "mfePct": 0.1328,
+    "maePct": -0.4409,
+    "rangePct": 0.5736,
+    "closeLocationPct": 43.23
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-e97d6d2a430c886828f7",
+    "sourceGeneratedAt": "2026-11-02T03:30:10.749Z",
+    "symbol": "GC=F",
+    "tf": "M1",
+    "candleTime": "2026-11-02T08:18:49.000Z",
+    "createdAt": "2026-11-02T08:28:51.631Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "Final Manufacturing PMI",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "56.0",
+      "previous": "56.0",
+      "time": "2026-11-02T14:45:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "SQUEEZE",
+    "state": "RANGE_OR_BREAKOUT_WATCH",
+    "confidence": 50,
+    "reasons": [
+      "trend_down",
+      "squeeze_pre_breakout"
+    ],
     "status": "PENDING",
-    "id": "0c5d80a063f444316d95"
+    "id": "3ab55939a9e4df7275fc"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-e97d6d2a430c886828f7",
+    "sourceGeneratedAt": "2026-11-02T03:30:10.749Z",
+    "symbol": "GC=F",
+    "tf": "M5",
+    "candleTime": "2026-11-02T08:15:00.000Z",
+    "createdAt": "2026-11-02T08:28:51.631Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "Final Manufacturing PMI",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "56.0",
+      "previous": "56.0",
+      "time": "2026-11-02T14:45:00.000Z"
+    },
+    "location": "MID_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "REENTRY_DOWN_ZONE",
+      "csak": "CSAK_DOWN"
+    },
+    "squeeze": "NORMAL",
+    "state": "DOWN_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_down",
+      "reentry_down"
+    ],
+    "status": "PENDING",
+    "id": "8947a81c840ed4042d6e"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-e97d6d2a430c886828f7",
+    "sourceGeneratedAt": "2026-11-02T03:30:10.749Z",
+    "symbol": "GC=F",
+    "tf": "M15",
+    "candleTime": "2026-11-02T08:00:00.000Z",
+    "createdAt": "2026-11-02T08:28:51.631Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "Final Manufacturing PMI",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "56.0",
+      "previous": "56.0",
+      "time": "2026-11-02T14:45:00.000Z"
+    },
+    "location": "MID_BB",
+    "bbma": {
+      "trend": "MIXED",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "RANGE_OR_BREAKOUT_WATCH",
+    "confidence": 100,
+    "reasons": [],
+    "status": "PENDING",
+    "id": "113601d20578c7bf6ef1"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-e97d6d2a430c886828f7",
+    "sourceGeneratedAt": "2026-11-02T03:30:10.749Z",
+    "symbol": "GC=F",
+    "tf": "M30",
+    "candleTime": "2026-11-02T07:30:00.000Z",
+    "createdAt": "2026-11-02T08:28:51.631Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "Final Manufacturing PMI",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "56.0",
+      "previous": "56.0",
+      "time": "2026-11-02T14:45:00.000Z"
+    },
+    "location": "MID_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "REENTRY_DOWN_ZONE",
+      "csak": "CSAK_DOWN"
+    },
+    "squeeze": "SQUEEZE",
+    "state": "DOWN_BIAS",
+    "confidence": 60,
+    "reasons": [
+      "trend_down",
+      "reentry_down",
+      "squeeze_pre_breakout"
+    ],
+    "status": "PENDING",
+    "id": "9892df4aed0e0fbec73c"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-e97d6d2a430c886828f7",
+    "sourceGeneratedAt": "2026-11-02T03:30:10.749Z",
+    "symbol": "GC=F",
+    "tf": "H1",
+    "candleTime": "2026-11-02T07:00:00.000Z",
+    "createdAt": "2026-11-02T08:28:51.631Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "Final Manufacturing PMI",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "56.0",
+      "previous": "56.0",
+      "time": "2026-11-02T14:45:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "REENTRY_DOWN_ZONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "DOWN_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_down",
+      "reentry_down"
+    ],
+    "status": "PENDING",
+    "id": "dfaa79b5e374c8c820ae"
   }
 ]
