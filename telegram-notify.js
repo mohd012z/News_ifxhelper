@@ -902,8 +902,8 @@ if (require.main === module) (async () => {
   // next run, same mechanism as any other pending item. Only a GENUINE failure (bad token, malformed
   // request, real network error) should turn the workflow red - otherwise every busy news day
   // trains everyone to ignore a red X that doesn't mean anything is actually broken.
-  if (failCount > 0 && !skippedNoCreds) {
-    console.error(`${failCount} Telegram send(s) genuinely failed (not rate-limiting) - check the TELEGRAM_BOT_TOKEN/TELEGRAM_CHAT_ID secrets and Telegram API errors above.`);
+  if (failCount > 0 || skippedNoCreds) {
+    console.error(`Telegram delivery incomplete: ${failCount} failed, missing credentials=${skippedNoCreds}. Verify bot token, destination and API response.`);
     process.exitCode = 1; // surface as a red X in CI instead of a silent green checkmark
   }
 })();
