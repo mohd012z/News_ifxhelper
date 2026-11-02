@@ -160,6 +160,7 @@ async function sendTelegramBox(messageObj) {
   if (!hasRuntime && !PREVIEW) {
     console.log('⏭️  No live BBMA runtime data (loadRuntime() null) — suppressing Telegram post to avoid sending demo values.');
     console.log('   (Use --preview to inspect the box layout with sample data.)');
+    if (!PREVIEW) process.exitCode = 1;
     return { ok: false, skipped: true, reason: 'no_runtime' };
   }
   const box = formatBbmaAlertBox();
@@ -176,7 +177,8 @@ async function sendTelegramBox(messageObj) {
 
   if (TOKEN && CHANNEL_ID) {
     console.log(`Sending BBMA Alert Box to Telegram (${CHANNEL_ID})...`);
-    await sendTelegramBox(box);
+    const result = await sendTelegramBox(box);
+    if (!result.ok) process.exitCode = 1;
   } else {
     console.log('💡 To broadcast to your channel:');
     console.log('   set TELEGRAM_BOT_TOKEN="your_token"');
