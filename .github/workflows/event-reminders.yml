@@ -62,8 +62,17 @@ jobs:
             git push
           fi
 
+      - name: Validate Telegram notification configuration
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          if [ -z "$TELEGRAM_BOT_TOKEN" ] || [ -z "$TELEGRAM_CHAT_ID" ]; then
+            echo '::error::Telegram notification secrets are missing; verify TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID.'
+            exit 1
+          fi
+
       - name: Check for events entering a reminder window
-        continue-on-error: true
         timeout-minutes: 2
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
