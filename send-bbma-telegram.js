@@ -180,11 +180,16 @@ async function sendTelegramBox(messageObj) {
     const result = await sendTelegramBox(box);
     if (!result.ok) process.exitCode = 1;
   } else {
+    process.exitCode = 1;
+    console.error('Telegram channel send blocked: missing token or channel ID');
     console.log('💡 To broadcast to your channel:');
     console.log('   set TELEGRAM_BOT_TOKEN="your_token"');
     console.log('   set TELEGRAM_CHANNEL_ID="@your_channel" or "-100xxxxxxxxx"');
     console.log('   node send-bbma-telegram.js');
   }
-})();
+})().catch(error => {
+  console.error('Telegram BBMA sender failed:', error.message);
+  process.exitCode = 1;
+});
 
 module.exports = { formatBbmaAlertBox, sendTelegramBox };
