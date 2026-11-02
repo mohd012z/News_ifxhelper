@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-01T09:47:17.208Z",
+  "generatedAt": "2026-11-02T09:36:51.757Z",
   "days": 30,
-  "samples": 61,
+  "samples": 65,
   "groups": {
     "M5|NORMAL|MID_BB|NORMAL": {
       "samples": 4,
@@ -9,9 +9,9 @@
       "accuracyPct": 25
     },
     "M15|NORMAL|INSIDE_BB|NORMAL": {
-      "samples": 7,
-      "correct": 4,
-      "accuracyPct": 57.1
+      "samples": 8,
+      "correct": 5,
+      "accuracyPct": 62.5
     },
     "M30|NORMAL|MID_BB|SQUEEZE": {
       "samples": 4,
@@ -24,17 +24,17 @@
       "accuracyPct": 50
     },
     "M5|NORMAL|EMA50|NORMAL": {
-      "samples": 4,
+      "samples": 5,
       "correct": 1,
-      "accuracyPct": 25
+      "accuracyPct": 20
     },
     "M30|NORMAL|INSIDE_BB|NORMAL": {
-      "samples": 3,
-      "correct": 1,
-      "accuracyPct": 33.3
+      "samples": 4,
+      "correct": 2,
+      "accuracyPct": 50
     },
     "H1|NORMAL|INSIDE_BB|SQUEEZE": {
-      "samples": 1,
+      "samples": 2,
       "correct": 0,
       "accuracyPct": 0
     },
