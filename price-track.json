@@ -1624,41 +1624,41 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-03T14:39:18.648Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-03T17:43:52.339Z",
+          "price": 3937.8,
+          "realizedPct": -0.372
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-03T14:43:18.648Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-03T17:43:52.339Z",
+          "price": 3937.8,
+          "realizedPct": -0.372
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-03T14:53:18.648Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-03T17:43:52.339Z",
+          "price": 3937.8,
+          "realizedPct": -0.372
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-03T15:08:18.648Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-03T17:43:52.339Z",
+          "price": 3937.8,
+          "realizedPct": -0.372
         },
         {
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-03T15:38:18.648Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-03T17:43:52.339Z",
+          "price": 3937.8,
+          "realizedPct": -0.372
         },
         {
           "key": "H4",
@@ -1692,7 +1692,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.372,
+        "maePct": -0.372
+      }
     },
     {
       "key": "news:crypto:This indicator has triggered just 5 times since 2000 &#x2014; and it warns of a trap for stocks",
@@ -1710,41 +1715,41 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-03T14:39:18.648Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-03T17:43:52.339Z",
+          "price": 77572.41,
+          "realizedPct": 0.498
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-03T14:43:18.648Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-03T17:43:52.339Z",
+          "price": 77572.41,
+          "realizedPct": 0.498
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-03T14:53:18.648Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-03T17:43:52.339Z",
+          "price": 77572.41,
+          "realizedPct": 0.498
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-03T15:08:18.648Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-03T17:43:52.339Z",
+          "price": 77572.41,
+          "realizedPct": 0.498
         },
         {
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-03T15:38:18.648Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-03T17:43:52.339Z",
+          "price": 77572.41,
+          "realizedPct": 0.498
         },
         {
           "key": "H4",
@@ -1778,7 +1783,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.498,
+        "maePct": 0.498
+      }
     },
     {
       "key": "news:forex:This indicator has triggered just 5 times since 2000 &#x2014; and it warns of a trap for stocks",
@@ -1796,41 +1806,41 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-03T14:39:18.648Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-03T17:43:52.339Z",
+          "price": 1.1201,
+          "realizedPct": 0.089
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-03T14:43:18.648Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-03T17:43:52.339Z",
+          "price": 1.1201,
+          "realizedPct": 0.089
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-03T14:53:18.648Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-03T17:43:52.339Z",
+          "price": 1.1201,
+          "realizedPct": 0.089
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-03T15:08:18.648Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-03T17:43:52.339Z",
+          "price": 1.1201,
+          "realizedPct": 0.089
         },
         {
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-03T15:38:18.648Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-03T17:43:52.339Z",
+          "price": 1.1201,
+          "realizedPct": 0.089
         },
         {
           "key": "H4",
@@ -1864,7 +1874,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.089,
+        "maePct": 0.089
+      }
     }
   ],
   "results": [
