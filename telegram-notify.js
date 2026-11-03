@@ -78,19 +78,20 @@ async function sendTelegram(text) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ chat_id: CHAT_ID, text, parse_mode: 'HTML', disable_web_page_preview: true })
     });
-  } catch (e) { console.log('FAIL Telegram send (network): ' + e.message); return { ok: false }; }
+  } catch (e) { console.error('Telegram send outcome uncertain (network): ' + e.message); return { ok: false, uncertain: true }; }
   finally { clearTimeout(timeout); }
-  const j = await r.json().catch(() => ({}));
-  if (!r.ok || !j.ok) {
-    console.log('FAIL Telegram send: ' + (j.description || r.status));
-    // Telegram's own rate limit (~20 msg/min/chat) is an EXPECTED outcome on a big catch-up batch,
-    // not a broken integration - the item is correctly left unsent above and retried next run.
-    // Treating it as a hard failure only trains everyone to ignore the real red X's.
-    return { ok: false, rateLimited: /too many requests/i.test(j.description || '') };
+  const j = await r.json().catch(() => null);
+  if (!r.ok || j?.ok !== true) {
+    const rateLimited = r.status === 429 || j?.error_code === 429;
+    const uncertain = !rateLimited && (r.ok || r.status >= 500);
+    console.error('Telegram send not confirmed: ' + (j?.description || r.status));
+    return { ok: false, rateLimited, uncertain };
   }
-  if (!j.result || !Number.isInteger(j.result.message_id) || String(j.result.chat?.username || '').toLowerCase() !== String(CHAT_ID).replace(/^@/, '').toLowerCase() && String(j.result.chat?.id) !== String(CHAT_ID)) {
-    console.error('Telegram API did not confirm message ID and expected destination');
-    return { ok: false };
+  if (!Number.isSafeInteger(j.result?.message_id) || j.result.message_id <= 0 ||
+      (String(j.result.chat?.username || '').toLowerCase() !== String(CHAT_ID).replace(/^@/, '').toLowerCase() &&
+       String(j.result.chat?.id) !== String(CHAT_ID))) {
+    console.error('Telegram message receipt unverified; manual reconciliation required');
+    return { ok: false, uncertain: true };
   }
   console.log('Telegram delivery acknowledged: message_id=' + j.result.message_id);
   return { ok: true, messageId: j.result.message_id };
@@ -106,22 +107,38 @@ async function sendTelegramCard(caption, chartUrl) {
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 15000);
     try {
-      const r = await fetch(`https://api.telegram.org/bot${TOKEN}/sendPhoto`, {
-        method: 'POST',
-        signal: controller.signal,
+      const r = await fetch('https://api.telegram.org/bot' + TOKEN + '/sendPhoto', {
+        method: 'POST', signal: controller.signal,
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ chat_id: CHAT_ID, photo: chartUrl, caption, parse_mode: 'HTML' })
       });
-      const j = await r.json().catch(() => ({}));
-      if (r.ok && j.ok && Number.isInteger(j.result?.message_id) && (String(j.result.chat?.username || '').toLowerCase() === String(CHAT_ID).replace(/^@/, '').toLowerCase() || String(j.result.chat?.id) === String(CHAT_ID))) {
-        console.log('Telegram photo acknowledged: message_id=' + j.result.message_id);
-        return { ok: true, messageId: j.result.message_id };
+      const j = await r.json().catch(() => null);
+      if (r.ok && j?.ok === true) {
+        if (Number.isSafeInteger(j.result?.message_id) && j.result.message_id > 0 &&
+            (String(j.result.chat?.username || '').toLowerCase() === String(CHAT_ID).replace(/^@/, '').toLowerCase() ||
+             String(j.result.chat?.id) === String(CHAT_ID))) {
+          console.log('Telegram photo acknowledged: message_id=' + j.result.message_id);
+          return { ok: true, messageId: j.result.message_id };
+        }
+        console.error('Photo receipt unverified; refusing duplicate text fallback');
+        return { ok: false, uncertain: true };
       }
-      console.log('Photo send failed (' + (j.description || r.status) + ') - falling back to text.');
-    } catch (e) { console.log('Photo send failed (network: ' + e.message + ') - falling back to text.'); }
-    finally { clearTimeout(timeout); }
+      if (r.status === 429 || j?.error_code === 429) return { ok: false, rateLimited: true };
+      if (r.ok || r.status >= 500) {
+        console.error('Photo outcome uncertain; refusing duplicate text fallback');
+        return { ok: false, uncertain: true };
+      }
+      if (![400, 404, 413, 422].includes(r.status)) return { ok: false };
+      console.log('Photo explicitly rejected (' + (j?.description || r.status) + '); falling back to text');
+    } catch (e) {
+      console.error('Photo outcome uncertain (network): ' + e.message);
+      return { ok: false, uncertain: true };
+    } finally { clearTimeout(timeout); }
   }
   return sendTelegram(caption);
+}
+function shouldAttemptDelivery(key, seen, uncertain) {
+  return !seen.has(key) && !uncertain.has(key);
 }
 
 function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
@@ -694,7 +711,7 @@ function buildWeeklyOutlook(MARKET_DATA, NEWS_AUTO) {
   return messages;
 }
 
-module.exports = { resultCard, newsCard, speakerCard };
+module.exports = { resultCard, newsCard, speakerCard, sendTelegram, sendTelegramCard, shouldAttemptDelivery };
 
 if (require.main === module) (async () => {
   const MARKET_DATA = loadJsModule('xauusd-data.js', 'MARKET_DATA');
@@ -778,6 +795,7 @@ if (require.main === module) (async () => {
     // best-effort only, GitHub Actions' free scheduler does not guarantee sub-5-minute accuracy.
     const state = loadState();
     const seen = new Set(state.sentKeys || []);
+    const uncertain = new Set(state.uncertainKeys || []);
     const incoming = (MARKET_DATA.incoming || []).concat((NEWS_AUTO && NEWS_AUTO.incoming) || []).filter(e => ['low', 'medium', 'med', 'high'].includes(String(e.importance || '').toLowerCase()));
     const now = Date.now();
     let sentCount = 0, failCount = 0;
@@ -791,10 +809,11 @@ if (require.main === module) (async () => {
       for (const stage of REMINDER_STAGES) {
         if (minutesUntil > stage || minutesUntil < 0) continue; // not within this stage's window (or already past)
         const key = `remind:${e.event}|${e.date}:${stage}`;
-        if (seen.has(key)) continue;
+        if (!shouldAttemptDelivery(key, seen, uncertain)) continue;
         const card = reminderCard(MARKET_DATA, ATR_DATA, e, Math.max(0, minutesUntil), stage, COMMENTARY_POOL);
         const r = await sendTelegramCard(card.caption, card.chartUrl);
         if (r.ok) { seen.add(key); sentCount++; console.log(`SENT reminder (T-${stage}): ${e.event}`); }
+        else if (r.uncertain) { uncertain.add(key); failCount++; console.error(`UNCERTAIN reminder (manual reconciliation): ${e.event}`); }
         else if (!r.skipped) { failCount++; console.log(`NOT SENT reminder (T-${stage}, will retry): ${e.event}`); }
         await new Promise(res => setTimeout(res, 1500)); // Telegram's real limit is ~20 msg/min per chat
       }
@@ -804,7 +823,7 @@ if (require.main === module) (async () => {
       // stay silent or invent a number, nudge once to go check the real source and re-read the chart.
       if (minutesUntil <= -10 && minutesUntil >= -20) {
         const key = `followup:${e.event}|${e.date}`;
-        if (!seen.has(key)) {
+        if (shouldAttemptDelivery(key, seen, uncertain)) {
           const caption = [
             '🔔 <b>RESULT CHECK</b>',
             `<b>${esc(e.event)}</b> should be out by now (was due ${esc(mytDisplay(e.timeMyt))} MYT).`,
@@ -815,20 +834,23 @@ if (require.main === module) (async () => {
           ].filter(Boolean).join('\n');
           const r = await sendTelegram(caption);
           if (r.ok) { seen.add(key); sentCount++; console.log(`SENT follow-up: ${e.event}`); }
+          else if (r.uncertain) { uncertain.add(key); failCount++; console.error(`UNCERTAIN follow-up (manual reconciliation): ${e.event}`); }
           else if (!r.skipped) { failCount++; console.log(`NOT SENT follow-up (will retry): ${e.event}`); }
           await new Promise(res => setTimeout(res, 1500));
         }
       }
     }
     state.sentKeys = Array.from(seen).slice(-2000);
+    state.uncertainKeys = Array.from(uncertain);
     saveState(state);
     console.log(`Reminder check: ${incoming.length} low-to-high impact events considered, ${sentCount} sent, ${failCount} failed.`);
-    if (failCount > 0) process.exitCode = 1;
+    if (failCount > 0 || uncertain.size > 0) process.exitCode = 1;
     return;
   }
 
   const state = loadState();
   const seen = new Set(state.sentKeys || []);
+  const uncertain = new Set(state.uncertainKeys || []);
   // key is recorded as sent ONLY after a confirmed Telegram delivery (see loop below) - queuing
   // a candidate must never mark it as sent, or a delivery failure would silently drop it forever.
   const toSend = [];
@@ -846,7 +868,7 @@ if (require.main === module) (async () => {
   const incoming = (MARKET_DATA.incoming || []).concat((NEWS_AUTO && NEWS_AUTO.incoming) || []);
   incoming.filter(e => ['low', 'medium', 'med', 'high'].includes(String(e.importance || '').toLowerCase())).forEach(e => {
     const key = 'evt:' + e.event + '|' + e.date;
-    if (seen.has(key)) return;
+    if (!shouldAttemptDelivery(key, seen, uncertain)) return;
     const at = parseMytToUtc(e.timeMyt);
     if (at && at.getTime() < nowMs - 5 * 60000) {
       seen.add(key); // mark as seen anyway so a stale row never gets re-evaluated on every future run
@@ -872,12 +894,12 @@ if (require.main === module) (async () => {
     const IMPACT_RANK = { High: 0, Med: 1, Low: 2 };
     ((autoByTab && autoByTab.news) || []).filter(n => n.signal && n.signal !== 'NEUTRAL').forEach(n => {
       const key = 'news:' + n.title;
-      if (seen.has(key)) return;
+      if (!shouldAttemptDelivery(key, seen, uncertain)) return;
       toSend.push({ key, card: newsCard(MARKET_DATA, tab, n, ATR_DATA, NEWS_AUTO && NEWS_AUTO.priceTrack && NEWS_AUTO.priceTrack.quoteSnapshots, ATR_MTF, SPOT_MTF), category: 1, tiebreak: IMPACT_RANK[SharedLogic.impactTier(n.impactPct)] });
     });
     ((autoByTab && autoByTab.speakers) || []).filter(s => s.side).forEach(s => {
       const key = 'spk:' + s.name + '|' + s.date;
-      if (seen.has(key)) return;
+      if (!shouldAttemptDelivery(key, seen, uncertain)) return;
       toSend.push({ key, card: speakerCard(MARKET_DATA, tab, s), category: 1, tiebreak: IMPACT_RANK[SharedLogic.impactTier(s.impactPct)] });
     });
   });
@@ -888,7 +910,7 @@ if (require.main === module) (async () => {
   const resultsRecent = (NEWS_AUTO && NEWS_AUTO.priceTrack && NEWS_AUTO.priceTrack.resultsRecent) || [];
   resultsRecent.forEach(r => {
     const key = 'result:' + r.key;
-    if (seen.has(key)) return;
+    if (!shouldAttemptDelivery(key, seen, uncertain)) return;
     if (MarketReview.normalizePriceTrack(r).status !== 'OBSERVED') return; // never announce an empty observation as flat
     toSend.push({ key, card: resultCard(r), category: 2, tiebreak: 0 });
   });
@@ -910,12 +932,14 @@ if (require.main === module) (async () => {
     const r = await sendTelegramCard(item.card.caption, item.card.chartUrl);
     if (r.ok) { seen.add(item.key); sentCount++; console.log('SENT: ' + item.card.caption.split('\n')[1]); }
     else if (r.skipped) { skippedNoCreds = true; } // no credentials configured (local/dev run) - don't mark as sent, don't count as a failure
+    else if (r.uncertain) { uncertain.add(item.key); failCount++; console.error('UNCERTAIN delivery; manual reconciliation required: ' + item.key); }
     else if (r.rateLimited) { rateLimitedCount++; console.log('RATE-LIMITED (will retry next run, not a real failure): ' + item.card.caption.split('\n')[1]); }
     else { failCount++; console.log('NOT SENT (will retry next run): ' + item.card.caption.split('\n')[1]); }
     await new Promise(res => setTimeout(res, 1500)); // Telegram's real limit is ~20 msg/min per chat - 400ms was too tight and caused 429s on the first real catch-up burst
   }
 
   state.sentKeys = Array.from(seen).slice(-2000); // cap growth - only the most recent 2000 keys matter
+  state.uncertainKeys = Array.from(uncertain);
   saveState(state);
   console.log(`State saved: ${state.sentKeys.length} confirmed-sent keys. (${sentCount} sent, ${rateLimitedCount} rate-limited, ${failCount} failed this run.)`);
 
@@ -924,7 +948,7 @@ if (require.main === module) (async () => {
   // next run, same mechanism as any other pending item. Only a GENUINE failure (bad token, malformed
   // request, real network error) should turn the workflow red - otherwise every busy news day
   // trains everyone to ignore a red X that doesn't mean anything is actually broken.
-  if (failCount > 0 || skippedNoCreds) {
+  if (failCount > 0 || skippedNoCreds || uncertain.size > 0) {
     console.error(`Telegram delivery incomplete: ${failCount} failed, missing credentials=${skippedNoCreds}. Verify bot token, destination and API response.`);
     process.exitCode = 1; // surface as a red X in CI instead of a silent green checkmark
   }
