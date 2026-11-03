@@ -1391,9 +1391,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-03T10:34:36.530Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-03T14:38:18.648Z",
+          "price": 3952.5,
+          "realizedPct": 0.59
         },
         {
           "key": "D1",
@@ -1422,7 +1422,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.104,
+        "mfePct": 0.59,
         "maePct": -0.316
       }
     },
@@ -1482,9 +1482,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-03T10:34:36.530Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-03T14:38:18.648Z",
+          "price": 77187.89,
+          "realizedPct": 0.696
         },
         {
           "key": "D1",
@@ -1513,7 +1513,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.345,
+        "mfePct": 0.696,
         "maePct": -0.142
       }
     },
@@ -1573,9 +1573,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-03T10:34:36.530Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-03T14:38:18.648Z",
+          "price": 1.1191,
+          "realizedPct": -0.054
         },
         {
           "key": "D1",
@@ -1605,8 +1605,266 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.009,
-        "maePct": -0.027
+        "maePct": -0.054
       }
+    },
+    {
+      "key": "news:gold:This indicator has triggered just 5 times since 2000 &#x2014; and it warns of a trap for stocks",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "This indicator has triggered just 5 times since 2000 &#x2014; and it warns of a trap for stocks",
+      "url": "https://www.marketwatch.com/story/this-indicator-has-triggered-just-5-times-since-2000-and-it-warns-of-a-trap-for-stocks-a1cbd579?mod=mw_rss_topstories",
+      "impactScore": 0.08,
+      "priceSource": "yahoo:GC=F",
+      "priceSymbol": "GC=F",
+      "priceAtDetect": 3952.5,
+      "createdAt": "2026-11-03T14:38:18.648Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-03T14:39:18.648Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-03T14:43:18.648Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-03T14:53:18.648Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-03T15:08:18.648Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-03T15:38:18.648Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-03T18:38:18.648Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-04T14:38:18.648Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-10T14:38:18.648Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-03T14:38:18.648Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:crypto:This indicator has triggered just 5 times since 2000 &#x2014; and it warns of a trap for stocks",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "This indicator has triggered just 5 times since 2000 &#x2014; and it warns of a trap for stocks",
+      "url": "https://www.marketwatch.com/story/this-indicator-has-triggered-just-5-times-since-2000-and-it-warns-of-a-trap-for-stocks-a1cbd579?mod=mw_rss_topstories",
+      "impactScore": 0.08,
+      "priceSource": "coinbase:BTC-USD",
+      "priceSymbol": "BTC-USD",
+      "priceAtDetect": 77187.89,
+      "createdAt": "2026-11-03T14:38:18.648Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-03T14:39:18.648Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-03T14:43:18.648Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-03T14:53:18.648Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-03T15:08:18.648Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-03T15:38:18.648Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-03T18:38:18.648Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-04T14:38:18.648Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-10T14:38:18.648Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-03T14:38:18.648Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:forex:This indicator has triggered just 5 times since 2000 &#x2014; and it warns of a trap for stocks",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "This indicator has triggered just 5 times since 2000 &#x2014; and it warns of a trap for stocks",
+      "url": "https://www.marketwatch.com/story/this-indicator-has-triggered-just-5-times-since-2000-and-it-warns-of-a-trap-for-stocks-a1cbd579?mod=mw_rss_topstories",
+      "impactScore": 0.08,
+      "priceSource": "yahoo:EURUSD=X",
+      "priceSymbol": "EURUSD=X",
+      "priceAtDetect": 1.1191,
+      "createdAt": "2026-11-03T14:38:18.648Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-03T14:39:18.648Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-03T14:43:18.648Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-03T14:53:18.648Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-03T15:08:18.648Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-03T15:38:18.648Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-03T18:38:18.648Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-04T14:38:18.648Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-10T14:38:18.648Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-03T14:38:18.648Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
     }
   ],
   "results": [
