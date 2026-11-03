@@ -1351,17 +1351,17 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-03T06:35:36.530Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-03T06:44:24.089Z",
+          "price": 3933.4,
+          "realizedPct": 0.104
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-03T06:39:36.530Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-03T06:44:24.089Z",
+          "price": 3933.4,
+          "realizedPct": 0.104
         },
         {
           "key": "M15",
@@ -1419,7 +1419,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.104,
+        "maePct": 0.104
+      }
     },
     {
       "key": "news:crypto:Australia hikes rates to 18-year high to fight inflation",
@@ -1437,17 +1442,17 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-03T06:35:36.530Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-03T06:44:24.089Z",
+          "price": 76545.2,
+          "realizedPct": -0.142
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-03T06:39:36.530Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-03T06:44:24.089Z",
+          "price": 76545.2,
+          "realizedPct": -0.142
         },
         {
           "key": "M15",
@@ -1505,7 +1510,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.142,
+        "maePct": -0.142
+      }
     },
     {
       "key": "news:forex:Australia hikes rates to 18-year high to fight inflation",
@@ -1523,17 +1533,17 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-03T06:35:36.530Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-03T06:44:24.089Z",
+          "price": 1.1194,
+          "realizedPct": -0.027
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-03T06:39:36.530Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-03T06:44:24.089Z",
+          "price": 1.1194,
+          "realizedPct": -0.027
         },
         {
           "key": "M15",
@@ -1591,7 +1601,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.027,
+        "maePct": -0.027
+      }
     }
   ],
   "results": [
