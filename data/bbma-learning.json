@@ -3721,8 +3721,18 @@
       "trend_down",
       "reentry_down"
     ],
-    "status": "PENDING",
-    "id": "8947a81c840ed4042d6e"
+    "status": "SETTLED",
+    "id": "8947a81c840ed4042d6e",
+    "settledAt": "2026-11-03T08:41:54.066Z",
+    "nextCandleTime": "2026-11-02T08:20:00.000Z",
+    "actualDirection": "UP",
+    "predictedDirection": "DOWN",
+    "correct": false,
+    "nextReturnPct": 0.0564,
+    "mfePct": 0.1205,
+    "maePct": -0.0205,
+    "rangePct": 0.141,
+    "closeLocationPct": 54.55
   },
   {
     "schemaVersion": 4,
@@ -3754,8 +3764,18 @@
     "state": "RANGE_OR_BREAKOUT_WATCH",
     "confidence": 100,
     "reasons": [],
-    "status": "PENDING",
-    "id": "113601d20578c7bf6ef1"
+    "status": "SETTLED",
+    "id": "113601d20578c7bf6ef1",
+    "settledAt": "2026-11-03T08:41:54.066Z",
+    "nextCandleTime": "2026-11-02T08:15:00.000Z",
+    "actualDirection": "DOWN",
+    "predictedDirection": "FLAT",
+    "correct": false,
+    "nextReturnPct": -0.0717,
+    "mfePct": 0.0051,
+    "maePct": -0.174,
+    "rangePct": 0.1792,
+    "closeLocationPct": 57.14
   },
   {
     "schemaVersion": 4,
@@ -3791,8 +3811,18 @@
       "reentry_down",
       "squeeze_pre_breakout"
     ],
-    "status": "PENDING",
-    "id": "9892df4aed0e0fbec73c"
+    "status": "SETTLED",
+    "id": "9892df4aed0e0fbec73c",
+    "settledAt": "2026-11-03T08:41:54.066Z",
+    "nextCandleTime": "2026-11-02T08:00:00.000Z",
+    "actualDirection": "DOWN",
+    "predictedDirection": "DOWN",
+    "correct": true,
+    "nextReturnPct": -0.2172,
+    "mfePct": 0.0537,
+    "maePct": -0.3195,
+    "rangePct": 0.3731,
+    "closeLocationPct": 27.4
   },
   {
     "schemaVersion": 4,
@@ -3827,7 +3857,190 @@
       "trend_down",
       "reentry_down"
     ],
+    "status": "SETTLED",
+    "id": "dfaa79b5e374c8c820ae",
+    "settledAt": "2026-11-03T08:41:54.066Z",
+    "nextCandleTime": "2026-11-02T08:00:00.000Z",
+    "actualDirection": "DOWN",
+    "predictedDirection": "DOWN",
+    "correct": true,
+    "nextReturnPct": -0.1534,
+    "mfePct": 0.0562,
+    "maePct": -0.3195,
+    "rangePct": 0.3757,
+    "closeLocationPct": 44.22
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-5305ff655b4efef1d9fc",
+    "sourceGeneratedAt": "2026-11-03T02:42:59.397Z",
+    "symbol": "GC=F",
+    "tf": "M1",
+    "candleTime": "2026-11-03T08:31:44.000Z",
+    "createdAt": "2026-11-03T08:41:54.066Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "Loan Officer Survey",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-11-02T19:00:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "TIGHT",
+    "state": "DOWN_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_down"
+    ],
     "status": "PENDING",
-    "id": "dfaa79b5e374c8c820ae"
+    "id": "4dbb6dac1fe60d15d95f"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-5305ff655b4efef1d9fc",
+    "sourceGeneratedAt": "2026-11-03T02:42:59.397Z",
+    "symbol": "GC=F",
+    "tf": "M5",
+    "candleTime": "2026-11-03T08:25:00.000Z",
+    "createdAt": "2026-11-03T08:41:54.067Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "Loan Officer Survey",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-11-02T19:00:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "DOWN_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_down"
+    ],
+    "status": "PENDING",
+    "id": "e9b84c9eb14ab9b3a4bf"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-5305ff655b4efef1d9fc",
+    "sourceGeneratedAt": "2026-11-03T02:42:59.397Z",
+    "symbol": "GC=F",
+    "tf": "M15",
+    "candleTime": "2026-11-03T08:15:00.000Z",
+    "createdAt": "2026-11-03T08:41:54.067Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "Loan Officer Survey",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-11-02T19:00:00.000Z"
+    },
+    "location": "EMA50",
+    "bbma": {
+      "trend": "MIXED",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "SQUEEZE",
+    "state": "RANGE_OR_BREAKOUT_WATCH",
+    "confidence": 100,
+    "reasons": [
+      "squeeze_pre_breakout"
+    ],
+    "status": "PENDING",
+    "id": "20da8e4baf755fbcb745"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-5305ff655b4efef1d9fc",
+    "sourceGeneratedAt": "2026-11-03T02:42:59.397Z",
+    "symbol": "GC=F",
+    "tf": "M30",
+    "candleTime": "2026-11-03T08:00:00.000Z",
+    "createdAt": "2026-11-03T08:41:54.067Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "Loan Officer Survey",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-11-02T19:00:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "MIXED",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "SQUEEZE",
+    "state": "RANGE_OR_BREAKOUT_WATCH",
+    "confidence": 100,
+    "reasons": [
+      "squeeze_pre_breakout"
+    ],
+    "status": "PENDING",
+    "id": "caf27974e6c0903b6ed3"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-5305ff655b4efef1d9fc",
+    "sourceGeneratedAt": "2026-11-03T02:42:59.397Z",
+    "symbol": "GC=F",
+    "tf": "H1",
+    "candleTime": "2026-11-03T07:00:00.000Z",
+    "createdAt": "2026-11-03T08:41:54.067Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "Loan Officer Survey",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-11-02T19:00:00.000Z"
+    },
+    "location": "EMA50",
+    "bbma": {
+      "trend": "MIXED",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "RANGE_OR_BREAKOUT_WATCH",
+    "confidence": 100,
+    "reasons": [],
+    "status": "PENDING",
+    "id": "f315cb6b8bdbe2da299a"
   }
 ]
