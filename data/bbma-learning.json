@@ -3937,8 +3937,18 @@
     "reasons": [
       "trend_down"
     ],
-    "status": "PENDING",
-    "id": "e9b84c9eb14ab9b3a4bf"
+    "status": "SETTLED",
+    "id": "e9b84c9eb14ab9b3a4bf",
+    "settledAt": "2026-11-04T08:11:37.889Z",
+    "nextCandleTime": "2026-11-03T08:30:00.000Z",
+    "actualDirection": "DOWN",
+    "predictedDirection": "DOWN",
+    "correct": true,
+    "nextReturnPct": -0.0051,
+    "mfePct": 0.0434,
+    "maePct": -0.0153,
+    "rangePct": 0.0587,
+    "closeLocationPct": 17.39
   },
   {
     "schemaVersion": 4,
@@ -3972,8 +3982,18 @@
     "reasons": [
       "squeeze_pre_breakout"
     ],
-    "status": "PENDING",
-    "id": "20da8e4baf755fbcb745"
+    "status": "SETTLED",
+    "id": "20da8e4baf755fbcb745",
+    "settledAt": "2026-11-04T08:11:37.889Z",
+    "nextCandleTime": "2026-11-03T08:30:00.000Z",
+    "actualDirection": "DOWN",
+    "predictedDirection": "FLAT",
+    "correct": false,
+    "nextReturnPct": -0.1659,
+    "mfePct": 0.0434,
+    "maePct": -0.1787,
+    "rangePct": 0.2221,
+    "closeLocationPct": 5.75
   },
   {
     "schemaVersion": 4,
@@ -4007,8 +4027,18 @@
     "reasons": [
       "squeeze_pre_breakout"
     ],
-    "status": "PENDING",
-    "id": "caf27974e6c0903b6ed3"
+    "status": "SETTLED",
+    "id": "caf27974e6c0903b6ed3",
+    "settledAt": "2026-11-04T08:11:37.890Z",
+    "nextCandleTime": "2026-11-03T08:30:00.000Z",
+    "actualDirection": "DOWN",
+    "predictedDirection": "FLAT",
+    "correct": false,
+    "nextReturnPct": -0.3012,
+    "mfePct": 0.0434,
+    "maePct": -0.3216,
+    "rangePct": 0.365,
+    "closeLocationPct": 5.59
   },
   {
     "schemaVersion": 4,
@@ -4040,7 +4070,190 @@
     "state": "RANGE_OR_BREAKOUT_WATCH",
     "confidence": 100,
     "reasons": [],
+    "status": "SETTLED",
+    "id": "f315cb6b8bdbe2da299a",
+    "settledAt": "2026-11-04T08:11:37.890Z",
+    "nextCandleTime": "2026-11-03T08:00:00.000Z",
+    "actualDirection": "DOWN",
+    "predictedDirection": "FLAT",
+    "correct": false,
+    "nextReturnPct": -0.2605,
+    "mfePct": 0.1124,
+    "maePct": -0.2809,
+    "rangePct": 0.3933,
+    "closeLocationPct": 5.2
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-bf032d42480c9e6e5b68",
+    "sourceGeneratedAt": "2026-11-04T02:42:36.114Z",
+    "symbol": "GC=F",
+    "tf": "M1",
+    "candleTime": "2026-11-04T08:01:33.000Z",
+    "createdAt": "2026-11-04T08:11:37.890Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "API Weekly Statistical Bulletin",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-11-03T21:30:00.000Z"
+    },
+    "location": "EMA50",
+    "bbma": {
+      "trend": "MIXED",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "RANGE_OR_BREAKOUT_WATCH",
+    "confidence": 100,
+    "reasons": [],
     "status": "PENDING",
-    "id": "f315cb6b8bdbe2da299a"
+    "id": "399b64dca21418d80f94"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-bf032d42480c9e6e5b68",
+    "sourceGeneratedAt": "2026-11-04T02:42:36.114Z",
+    "symbol": "GC=F",
+    "tf": "M5",
+    "candleTime": "2026-11-04T07:55:00.000Z",
+    "createdAt": "2026-11-04T08:11:37.890Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "API Weekly Statistical Bulletin",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-11-03T21:30:00.000Z"
+    },
+    "location": "EMA50",
+    "bbma": {
+      "trend": "MIXED",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "RANGE_OR_BREAKOUT_WATCH",
+    "confidence": 100,
+    "reasons": [],
+    "status": "PENDING",
+    "id": "cd9219515980ca968107"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-bf032d42480c9e6e5b68",
+    "sourceGeneratedAt": "2026-11-04T02:42:36.114Z",
+    "symbol": "GC=F",
+    "tf": "M15",
+    "candleTime": "2026-11-04T07:45:00.000Z",
+    "createdAt": "2026-11-04T08:11:37.890Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "API Weekly Statistical Bulletin",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-11-03T21:30:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "UP",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "UP_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_up"
+    ],
+    "status": "PENDING",
+    "id": "48032c7a99475b8ec648"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-bf032d42480c9e6e5b68",
+    "sourceGeneratedAt": "2026-11-04T02:42:36.114Z",
+    "symbol": "GC=F",
+    "tf": "M30",
+    "candleTime": "2026-11-04T07:30:00.000Z",
+    "createdAt": "2026-11-04T08:11:37.890Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "API Weekly Statistical Bulletin",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-11-03T21:30:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "UP",
+      "extreme": "EXTREME_HIGH",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "SQUEEZE",
+    "state": "RANGE_OR_BREAKOUT_WATCH",
+    "confidence": 50,
+    "reasons": [
+      "trend_up",
+      "squeeze_pre_breakout"
+    ],
+    "status": "PENDING",
+    "id": "fdd694b6b69f8f7632f6"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-bf032d42480c9e6e5b68",
+    "sourceGeneratedAt": "2026-11-04T02:42:36.114Z",
+    "symbol": "GC=F",
+    "tf": "H1",
+    "candleTime": "2026-11-04T07:00:00.000Z",
+    "createdAt": "2026-11-04T08:11:37.890Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "API Weekly Statistical Bulletin",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-11-03T21:30:00.000Z"
+    },
+    "location": "MID_BB",
+    "bbma": {
+      "trend": "UP",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "CSAK_UP"
+    },
+    "squeeze": "SQUEEZE",
+    "state": "RANGE_OR_BREAKOUT_WATCH",
+    "confidence": 50,
+    "reasons": [
+      "trend_up",
+      "squeeze_pre_breakout"
+    ],
+    "status": "PENDING",
+    "id": "c8c578f770c8911894f3"
   }
 ]
