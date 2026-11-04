@@ -1897,41 +1897,41 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-04T16:13:01.704Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-04T17:58:40.814Z",
+          "price": 4079.4,
+          "realizedPct": 0.47
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-04T16:17:01.704Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-04T17:58:40.814Z",
+          "price": 4079.4,
+          "realizedPct": 0.47
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-04T16:27:01.704Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-04T17:58:40.814Z",
+          "price": 4079.4,
+          "realizedPct": 0.47
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-04T16:42:01.704Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-04T17:58:40.814Z",
+          "price": 4079.4,
+          "realizedPct": 0.47
         },
         {
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-04T17:12:01.704Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-04T17:58:40.814Z",
+          "price": 4079.4,
+          "realizedPct": 0.47
         },
         {
           "key": "H4",
@@ -1965,7 +1965,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.47,
+        "maePct": 0.47
+      }
     },
     {
       "key": "news:crypto:Euro zone inflation hits 4% for first time in three years as interest rate hike looms",
@@ -1983,41 +1988,41 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-04T16:13:01.704Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-04T17:58:40.814Z",
+          "price": 80331.55,
+          "realizedPct": -0.323
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-04T16:17:01.704Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-04T17:58:40.814Z",
+          "price": 80331.55,
+          "realizedPct": -0.323
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-04T16:27:01.704Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-04T17:58:40.814Z",
+          "price": 80331.55,
+          "realizedPct": -0.323
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-04T16:42:01.704Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-04T17:58:40.814Z",
+          "price": 80331.55,
+          "realizedPct": -0.323
         },
         {
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-04T17:12:01.704Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-04T17:58:40.814Z",
+          "price": 80331.55,
+          "realizedPct": -0.323
         },
         {
           "key": "H4",
@@ -2051,7 +2056,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.323,
+        "maePct": -0.323
+      }
     },
     {
       "key": "news:forex:Euro zone inflation hits 4% for first time in three years as interest rate hike looms",
@@ -2069,41 +2079,41 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-04T16:13:01.704Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-04T17:58:40.814Z",
+          "price": 1.124,
+          "realizedPct": 0.062
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-04T16:17:01.704Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-04T17:58:40.814Z",
+          "price": 1.124,
+          "realizedPct": 0.062
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-04T16:27:01.704Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-04T17:58:40.814Z",
+          "price": 1.124,
+          "realizedPct": 0.062
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-04T16:42:01.704Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-04T17:58:40.814Z",
+          "price": 1.124,
+          "realizedPct": 0.062
         },
         {
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-04T17:12:01.704Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-04T17:58:40.814Z",
+          "price": 1.124,
+          "realizedPct": 0.062
         },
         {
           "key": "H4",
@@ -2137,7 +2147,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.062,
+        "maePct": 0.062
+      }
     }
   ],
   "results": [
