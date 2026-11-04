@@ -896,6 +896,12 @@
     "news:Australia hikes rates to 18-year high to fight inflation",
     "news:This indicator has triggered just 5 times since 2000 &#x2014; and it warns of a trap for stocks",
     "followup:[NZD] Employment Change q/q|2026-11-03",
-    "followup:[NZD] Unemployment Rate|2026-11-03"
+    "followup:[NZD] Unemployment Rate|2026-11-03",
+    "evt:[NZD] Inflation Expectations q/q|2026-11-17",
+    "evt:[AUD] Employment Change|2026-11-19",
+    "evt:[AUD] Unemployment Rate|2026-11-19",
+    "evt:[AUD] CPI m/m|2026-11-25",
+    "evt:[AUD] CPI y/y|2026-11-25",
+    "evt:[AUD] Trimmed Mean CPI m/m|2026-11-25"
   ]
 }
