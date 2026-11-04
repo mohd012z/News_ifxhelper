@@ -1,6 +1,9 @@
+import {research, researchReport, researchMenuMarkup,
+        RESEARCH_SUBJECTS, subjectTopic} from "./research.mjs";
+
 const RAW_BASE = "https://raw.githubusercontent.com/mohd012z/News_ifxhelper/main/";
 const FF_WEEK = "https://nfs.faireconomy.media/ff_calendar_thisweek.json";
-const WORKER_VERSION = "2026-10-09-live-proxy-v2";
+const WORKER_VERSION = "2026-11-04-research-agent-v1";
 
 const MIME = {
   ".html": "text/html; charset=utf-8",
@@ -97,8 +100,24 @@ async function liveCalendar() {
   });
 }
 
+async function doResearch(subject, env = {}) {
+  try {
+    const report = await research(subject, env);
+    return { ok: true, subject, report: report,
+      text: researchReport(report),
+      nEbooks: report.nEbooks, nGlobal: report.nGlobal,
+      llm: report.llm,
+      sources: Object.fromEntries(
+        Object.entries(report.sources).map(([k, v]) =>
+          [k, v.map((it) => ({ id: it.id, url: it.url, desc: it.desc, count: it.count }))])),
+      ebooks: report.ebooks };
+  } catch (e) {
+    return { ok: false, subject, error: String(e && e.message || e) };
+  }
+}
+
 export default {
-  async fetch(request) {
+  async fetch(request, env = {}) {
     const url = new URL(request.url);
 
     if (request.method === "OPTIONS") {
@@ -118,6 +137,33 @@ export default {
     }
 
     if (url.pathname === "/api/ff-calendar") return liveCalendar();
+
+    // AI research agent (global, key-free, fail-open; deterministic digest
+    // with no external AI service). GET /api/research/<subject> or
+    // ?q=<subject>; ?menu=1 returns the 12-subject grid markup.
+    if (url.pathname === "/api/research" || url.pathname.startsWith("/api/research/")) {
+      const json = (obj, status = 200) => new Response(JSON.stringify(obj), {
+        status,
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+          "Cache-Control": "no-store",
+          "Access-Control-Allow-Origin": "*",
+          "X-IFXHelper-Worker-Version": WORKER_VERSION
+        }
+      });
+      if (url.pathname === "/api/research") {
+        if (url.searchParams.get("menu")) {
+          return json({ ok: true, subjects: RESEARCH_SUBJECTS,
+            markup: researchMenuMarkup() });
+        }
+        const q = url.searchParams.get("q");
+        if (!q || !q.trim()) return json({ ok: false, error: "missing subject: /api/research/<subject>" }, 400);
+        return json(await doResearch(q.trim(), env));
+      }
+      const subject = decodeURIComponent(url.pathname.slice("/api/research/".length));
+      if (!subject) return json({ ok: false, error: "missing subject" }, 400);
+      return json(await doResearch(subject, env));
+    }
 
     if (url.pathname === "/api/health") {
       return new Response(JSON.stringify({

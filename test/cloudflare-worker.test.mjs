@@ -41,7 +41,7 @@ try {
   assert.match(r.headers.get("content-type") || "", /application\/javascript/);
   assert.match(r.headers.get("cache-control") || "", /no-store/);
   assert.equal(await r.text(), "console.log('fresh app')");
-  assert.equal(r.headers.get("x-ifxhelper-worker-version"), "2026-10-09-live-proxy-v2");
+  assert.equal(r.headers.get("x-ifxhelper-worker-version"), "2026-11-04-research-agent-v1");
 
   r = await worker.fetch(new Request("https://gentle-violet-4a79.ifxhelper.workers.dev/data-manifest.json"));
   assert.match(r.headers.get("content-type") || "", /application\/json/);
@@ -72,7 +72,7 @@ try {
   const health = await r.json();
   assert.equal(health.ok, true);
   assert.equal(health.service, "ifxhelper-news-worker");
-  assert.equal(health.workerVersion, "2026-10-09-live-proxy-v2");
+  assert.equal(health.workerVersion, "2026-11-04-research-agent-v1");
   assert.equal(health.sourceMode, "github-main-live-proxy");
 
   assert(calls.some((u) => u.includes("raw.githubusercontent.com/mohd012z/News_ifxhelper/main/app.js?cf_refresh=")), "volatile upstream URL must be cache-busted");
