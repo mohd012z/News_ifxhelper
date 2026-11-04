@@ -28,8 +28,10 @@
 'use strict';
 const fs = require('fs');
 const path = require('path');
+const { DeliveryJournal } = require('./lib/telegram-delivery-journal');
 
 const STATE_FILE = path.join(__dirname, '.news-alert-state.json');
+const JOURNAL_FILE = path.join(__dirname, '.news-delivery-journal.jsonl');
 const TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 const PREVIEW = process.argv.includes('--preview');
@@ -760,6 +762,7 @@ if (require.main === module) (async () => {
     const REMINDER_STAGES = [30, 10, 2]; // minutes before - see readme/PR notes: 2-min stage is
     // best-effort only, GitHub Actions' free scheduler does not guarantee sub-5-minute accuracy.
     const state = loadState();
+    const journal = new DeliveryJournal(JOURNAL_FILE, String(CHAT_ID || 'unconfigured'), state.sentKeys || []);
     const seen = new Set(state.sentKeys || []);
     const incoming = (MARKET_DATA.incoming || []).concat((NEWS_AUTO && NEWS_AUTO.incoming) || []).filter(e => e.importance === 'high');
     const now = Date.now();
@@ -774,10 +777,10 @@ if (require.main === module) (async () => {
       for (const stage of REMINDER_STAGES) {
         if (minutesUntil > stage || minutesUntil < 0) continue; // not within this stage's window (or already past)
         const key = `remind:${e.event}|${e.date}:${stage}`;
-        if (seen.has(key)) continue;
+        if (journal.has(key)) continue;
         const card = reminderCard(MARKET_DATA, ATR_DATA, e, Math.max(0, minutesUntil), stage, COMMENTARY_POOL);
         const r = await sendTelegramCard(card.caption, card.chartUrl);
-        if (r.ok) { seen.add(key); sentCount++; console.log(`SENT reminder (T-${stage}): ${e.event}`); }
+        if (r.ok) { journal.confirm(key); seen.add(key); sentCount++; console.log(`SENT reminder (T-${stage}): ${e.event}`); }
         else if (!r.skipped) { failCount++; console.log(`NOT SENT reminder (T-${stage}, will retry): ${e.event}`); }
         await new Promise(res => setTimeout(res, 1500)); // Telegram's real limit is ~20 msg/min per chat
       }
@@ -787,7 +790,7 @@ if (require.main === module) (async () => {
       // stay silent or invent a number, nudge once to go check the real source and re-read the chart.
       if (minutesUntil <= -10 && minutesUntil >= -20) {
         const key = `followup:${e.event}|${e.date}`;
-        if (!seen.has(key)) {
+        if (!journal.has(key)) {
           const caption = [
             '🔔 <b>RESULT CHECK</b>',
             `<b>${esc(e.event)}</b> should be out by now (was due ${esc(mytDisplay(e.timeMyt))} MYT).`,
@@ -797,7 +800,7 @@ if (require.main === module) (async () => {
             CREDIT_LINE
           ].filter(Boolean).join('\n');
           const r = await sendTelegram(caption);
-          if (r.ok) { seen.add(key); sentCount++; console.log(`SENT follow-up: ${e.event}`); }
+          if (r.ok) { journal.confirm(key); seen.add(key); sentCount++; console.log(`SENT follow-up: ${e.event}`); }
           else if (!r.skipped) { failCount++; console.log(`NOT SENT follow-up (will retry): ${e.event}`); }
           await new Promise(res => setTimeout(res, 1500));
         }
@@ -811,6 +814,7 @@ if (require.main === module) (async () => {
   }
 
   const state = loadState();
+  const journal = new DeliveryJournal(JOURNAL_FILE, String(CHAT_ID || 'unconfigured'), state.sentKeys || []);
   const seen = new Set(state.sentKeys || []);
   // key is recorded as sent ONLY after a confirmed Telegram delivery (see loop below) - queuing
   // a candidate must never mark it as sent, or a delivery failure would silently drop it forever.
@@ -829,7 +833,7 @@ if (require.main === module) (async () => {
   const incoming = (MARKET_DATA.incoming || []).concat((NEWS_AUTO && NEWS_AUTO.incoming) || []);
   incoming.filter(e => e.importance === 'high').forEach(e => {
     const key = 'evt:' + e.event + '|' + e.date;
-    if (seen.has(key)) return;
+    if (journal.has(key) || seen.has(key)) return;
     const at = parseMytToUtc(e.timeMyt);
     if (at && at.getTime() < nowMs - 5 * 60000) {
       seen.add(key); // mark as seen anyway so a stale row never gets re-evaluated on every future run
@@ -855,12 +859,12 @@ if (require.main === module) (async () => {
     const IMPACT_RANK = { High: 0, Med: 1, Low: 2 };
     ((autoByTab && autoByTab.news) || []).filter(n => n.signal && n.signal !== 'NEUTRAL').forEach(n => {
       const key = 'news:' + n.title;
-      if (seen.has(key)) return;
+      if (journal.has(key) || seen.has(key)) return;
       toSend.push({ key, card: newsCard(MARKET_DATA, tab, n, ATR_DATA, NEWS_AUTO && NEWS_AUTO.priceTrack && NEWS_AUTO.priceTrack.quoteSnapshots, ATR_MTF, SPOT_MTF), category: 1, tiebreak: IMPACT_RANK[SharedLogic.impactTier(n.impactPct)] });
     });
     ((autoByTab && autoByTab.speakers) || []).filter(s => s.side).forEach(s => {
       const key = 'spk:' + s.name + '|' + s.date;
-      if (seen.has(key)) return;
+      if (journal.has(key) || seen.has(key)) return;
       toSend.push({ key, card: speakerCard(MARKET_DATA, tab, s), category: 1, tiebreak: IMPACT_RANK[SharedLogic.impactTier(s.impactPct)] });
     });
   });
@@ -871,7 +875,7 @@ if (require.main === module) (async () => {
   const resultsRecent = (NEWS_AUTO && NEWS_AUTO.priceTrack && NEWS_AUTO.priceTrack.resultsRecent) || [];
   resultsRecent.forEach(r => {
     const key = 'result:' + r.key;
-    if (seen.has(key)) return;
+    if (journal.has(key) || seen.has(key)) return;
     if (MarketReview.normalizePriceTrack(r).status !== 'OBSERVED') return; // never announce an empty observation as flat
     toSend.push({ key, card: resultCard(r), category: 2, tiebreak: 0 });
   });
@@ -886,7 +890,7 @@ if (require.main === module) (async () => {
   let sentCount = 0, failCount = 0, rateLimitedCount = 0, skippedNoCreds = false;
   for (const item of toSend) {
     const r = await sendTelegramCard(item.card.caption, item.card.chartUrl);
-    if (r.ok) { seen.add(item.key); sentCount++; console.log('SENT: ' + item.card.caption.split('\n')[1]); }
+    if (r.ok) { journal.confirm(item.key); seen.add(item.key); sentCount++; console.log('SENT: ' + item.card.caption.split('\n')[1]); }
     else if (r.skipped) { skippedNoCreds = true; } // no credentials configured (local/dev run) - don't mark as sent, don't count as a failure
     else if (r.rateLimited) { rateLimitedCount++; console.log('RATE-LIMITED (will retry next run, not a real failure): ' + item.card.caption.split('\n')[1]); }
     else { failCount++; console.log('NOT SENT (will retry next run): ' + item.card.caption.split('\n')[1]); }
