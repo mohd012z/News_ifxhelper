@@ -70,9 +70,9 @@
           "key": "W1",
           "minutes": 10080,
           "dueAt": "2026-11-05T15:34:29.157Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-05T18:41:27.535Z",
+          "price": 4116.1,
+          "realizedPct": 2.093
         },
         {
           "key": "MN1",
@@ -85,7 +85,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.146,
+        "mfePct": 2.093,
         "maePct": -3.445
       }
     },
@@ -159,9 +159,9 @@
           "key": "W1",
           "minutes": 10080,
           "dueAt": "2026-11-05T15:34:29.158Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-05T18:41:27.535Z",
+          "price": 75988.61,
+          "realizedPct": -6.824
         },
         {
           "key": "MN1",
@@ -175,7 +175,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.357,
-        "maePct": -6.498
+        "maePct": -6.824
       }
     },
     {
@@ -248,9 +248,9 @@
           "key": "W1",
           "minutes": 10080,
           "dueAt": "2026-11-05T15:34:29.158Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-05T18:41:27.535Z",
+          "price": 1.1233,
+          "realizedPct": 0.663
         },
         {
           "key": "MN1",
@@ -263,7 +263,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.215,
+        "mfePct": 0.663,
         "maePct": 0.072
       }
     },
@@ -1945,9 +1945,9 @@
           "key": "D1",
           "minutes": 1440,
           "dueAt": "2026-11-05T16:12:01.704Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-05T18:41:27.535Z",
+          "price": 4116.1,
+          "realizedPct": 1.374
         },
         {
           "key": "W1",
@@ -1968,7 +1968,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.47,
+        "mfePct": 1.374,
         "maePct": 0.244
       }
     },
@@ -2036,9 +2036,9 @@
           "key": "D1",
           "minutes": 1440,
           "dueAt": "2026-11-05T16:12:01.704Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-05T18:41:27.535Z",
+          "price": 75988.61,
+          "realizedPct": -5.712
         },
         {
           "key": "W1",
@@ -2060,7 +2060,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.323,
-        "maePct": -0.448
+        "maePct": -5.712
       }
     },
     {
@@ -2127,9 +2127,9 @@
           "key": "D1",
           "minutes": 1440,
           "dueAt": "2026-11-05T16:12:01.704Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-05T18:41:27.535Z",
+          "price": 1.1233,
+          "realizedPct": 0
         },
         {
           "key": "W1",
@@ -2151,8 +2151,266 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.062,
-        "maePct": 0.018
+        "maePct": 0
       }
+    },
+    {
+      "key": "news:gold:Bank of England hikes interest rate for the first time since Iran war, warns inflation will near 5%",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Bank of England hikes interest rate for the first time since Iran war, warns inflation will near 5%",
+      "url": "https://www.cnbc.com/2026/11/05/interest-rates-inflation-uk.html",
+      "impactScore": -0.23,
+      "priceSource": "yahoo:GC=F",
+      "priceSymbol": "GC=F",
+      "priceAtDetect": 4116.1,
+      "createdAt": "2026-11-05T18:41:27.536Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-05T18:42:27.536Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-05T18:46:27.536Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-05T18:56:27.536Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-05T19:11:27.536Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-05T19:41:27.536Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-05T22:41:27.536Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-06T18:41:27.536Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-12T18:41:27.536Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-05T18:41:27.536Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:crypto:Bank of England hikes interest rate for the first time since Iran war, warns inflation will near 5%",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Bank of England hikes interest rate for the first time since Iran war, warns inflation will near 5%",
+      "url": "https://www.cnbc.com/2026/11/05/interest-rates-inflation-uk.html",
+      "impactScore": -0.23,
+      "priceSource": "coinbase:BTC-USD",
+      "priceSymbol": "BTC-USD",
+      "priceAtDetect": 75988.61,
+      "createdAt": "2026-11-05T18:41:27.536Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-05T18:42:27.536Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-05T18:46:27.536Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-05T18:56:27.536Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-05T19:11:27.536Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-05T19:41:27.536Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-05T22:41:27.536Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-06T18:41:27.536Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-12T18:41:27.536Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-05T18:41:27.536Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:forex:Bank of England hikes interest rate for the first time since Iran war, warns inflation will near 5%",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Bank of England hikes interest rate for the first time since Iran war, warns inflation will near 5%",
+      "url": "https://www.cnbc.com/2026/11/05/interest-rates-inflation-uk.html",
+      "impactScore": -0.23,
+      "priceSource": "yahoo:EURUSD=X",
+      "priceSymbol": "EURUSD=X",
+      "priceAtDetect": 1.1233,
+      "createdAt": "2026-11-05T18:41:27.536Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-05T18:42:27.536Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-05T18:46:27.536Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-05T18:56:27.536Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-05T19:11:27.536Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-05T19:41:27.536Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-05T22:41:27.536Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-06T18:41:27.536Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-12T18:41:27.536Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-05T18:41:27.536Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
     }
   ],
   "results": [
