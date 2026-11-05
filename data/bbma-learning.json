@@ -4146,8 +4146,18 @@
     "state": "RANGE_OR_BREAKOUT_WATCH",
     "confidence": 100,
     "reasons": [],
-    "status": "PENDING",
-    "id": "cd9219515980ca968107"
+    "status": "SETTLED",
+    "id": "cd9219515980ca968107",
+    "settledAt": "2026-11-05T08:38:38.821Z",
+    "nextCandleTime": "2026-11-04T08:00:00.000Z",
+    "actualDirection": "UP",
+    "predictedDirection": "FLAT",
+    "correct": false,
+    "nextReturnPct": 0.0868,
+    "mfePct": 0.1166,
+    "maePct": -0.0372,
+    "rangePct": 0.1538,
+    "closeLocationPct": 80.64
   },
   {
     "schemaVersion": 4,
@@ -4181,8 +4191,18 @@
     "reasons": [
       "trend_up"
     ],
-    "status": "PENDING",
-    "id": "48032c7a99475b8ec648"
+    "status": "SETTLED",
+    "id": "48032c7a99475b8ec648",
+    "settledAt": "2026-11-05T08:38:38.821Z",
+    "nextCandleTime": "2026-11-04T08:00:00.000Z",
+    "actualDirection": "UP",
+    "predictedDirection": "UP",
+    "correct": true,
+    "nextReturnPct": 0.2976,
+    "mfePct": 0.4067,
+    "maePct": -0.0372,
+    "rangePct": 0.4439,
+    "closeLocationPct": 75.42
   },
   {
     "schemaVersion": 4,
@@ -4217,8 +4237,18 @@
       "trend_up",
       "squeeze_pre_breakout"
     ],
-    "status": "PENDING",
-    "id": "fdd694b6b69f8f7632f6"
+    "status": "SETTLED",
+    "id": "fdd694b6b69f8f7632f6",
+    "settledAt": "2026-11-05T08:38:38.822Z",
+    "nextCandleTime": "2026-11-04T08:00:00.000Z",
+    "actualDirection": "UP",
+    "predictedDirection": "FLAT",
+    "correct": false,
+    "nextReturnPct": 0.1513,
+    "mfePct": 0.4067,
+    "maePct": -0.0372,
+    "rangePct": 0.4439,
+    "closeLocationPct": 42.46
   },
   {
     "schemaVersion": 4,
@@ -4253,7 +4283,194 @@
       "trend_up",
       "squeeze_pre_breakout"
     ],
+    "status": "SETTLED",
+    "id": "c8c578f770c8911894f3",
+    "settledAt": "2026-11-05T08:38:38.822Z",
+    "nextCandleTime": "2026-11-04T08:00:00.000Z",
+    "actualDirection": "UP",
+    "predictedDirection": "FLAT",
+    "correct": false,
+    "nextReturnPct": 0.2802,
+    "mfePct": 0.4166,
+    "maePct": -0.0372,
+    "rangePct": 0.4538,
+    "closeLocationPct": 69.95
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-493702c71be130200bc3",
+    "sourceGeneratedAt": "2026-11-05T02:57:59.918Z",
+    "symbol": "GC=F",
+    "tf": "M1",
+    "candleTime": "2026-11-05T08:28:31.000Z",
+    "createdAt": "2026-11-05T08:38:38.822Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "Challenger Job Cuts y/y",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "-19.9%",
+      "time": "2026-11-05T10:30:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "UP",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "UP_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_up"
+    ],
     "status": "PENDING",
-    "id": "c8c578f770c8911894f3"
+    "id": "ed70e5a03741a5eca4c1"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-493702c71be130200bc3",
+    "sourceGeneratedAt": "2026-11-05T02:57:59.918Z",
+    "symbol": "GC=F",
+    "tf": "M5",
+    "candleTime": "2026-11-05T08:25:00.000Z",
+    "createdAt": "2026-11-05T08:38:38.822Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "Challenger Job Cuts y/y",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "-19.9%",
+      "time": "2026-11-05T10:30:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "UP",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "CSAK_UP"
+    },
+    "squeeze": "SQUEEZE",
+    "state": "RANGE_OR_BREAKOUT_WATCH",
+    "confidence": 50,
+    "reasons": [
+      "trend_up",
+      "squeeze_pre_breakout"
+    ],
+    "status": "PENDING",
+    "id": "625b8dd6683bc59014b2"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-493702c71be130200bc3",
+    "sourceGeneratedAt": "2026-11-05T02:57:59.918Z",
+    "symbol": "GC=F",
+    "tf": "M15",
+    "candleTime": "2026-11-05T08:15:00.000Z",
+    "createdAt": "2026-11-05T08:38:38.822Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "Challenger Job Cuts y/y",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "-19.9%",
+      "time": "2026-11-05T10:30:00.000Z"
+    },
+    "location": "INSIDE_BB",
+    "bbma": {
+      "trend": "UP",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "NORMAL",
+    "state": "UP_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_up"
+    ],
+    "status": "PENDING",
+    "id": "6bb849163dc0a521fa88"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-493702c71be130200bc3",
+    "sourceGeneratedAt": "2026-11-05T02:57:59.918Z",
+    "symbol": "GC=F",
+    "tf": "M30",
+    "candleTime": "2026-11-05T08:00:00.000Z",
+    "createdAt": "2026-11-05T08:38:38.822Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "Challenger Job Cuts y/y",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "-19.9%",
+      "time": "2026-11-05T10:30:00.000Z"
+    },
+    "location": "ABOVE_TOP_BB",
+    "bbma": {
+      "trend": "UP",
+      "extreme": "EXTREME_HIGH",
+      "momentum": "MOMENTUM_UP",
+      "reentry": "NONE",
+      "csak": "CSAK_UP"
+    },
+    "squeeze": "NORMAL",
+    "state": "UP_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_up",
+      "bb_momentum_up"
+    ],
+    "status": "PENDING",
+    "id": "8c3cd84b5b629df3b237"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-493702c71be130200bc3",
+    "sourceGeneratedAt": "2026-11-05T02:57:59.918Z",
+    "symbol": "GC=F",
+    "tf": "H1",
+    "candleTime": "2026-11-05T07:00:00.000Z",
+    "createdAt": "2026-11-05T08:38:38.822Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "Challenger Job Cuts y/y",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "-19.9%",
+      "time": "2026-11-05T10:30:00.000Z"
+    },
+    "location": "TOP_BB",
+    "bbma": {
+      "trend": "UP",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "CSAK_UP"
+    },
+    "squeeze": "TIGHT",
+    "state": "UP_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_up"
+    ],
+    "status": "PENDING",
+    "id": "1edc354850fcd8dfa2b5"
   }
 ]
