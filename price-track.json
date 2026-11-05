@@ -2170,25 +2170,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-05T18:42:27.536Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-05T19:03:56.269Z",
+          "price": 4115.3,
+          "realizedPct": -0.019
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-05T18:46:27.536Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-05T19:03:56.269Z",
+          "price": 4115.3,
+          "realizedPct": -0.019
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-05T18:56:27.536Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-05T19:03:56.269Z",
+          "price": 4115.3,
+          "realizedPct": -0.019
         },
         {
           "key": "M30",
@@ -2238,7 +2238,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.019,
+        "maePct": -0.019
+      }
     },
     {
       "key": "news:crypto:Bank of England hikes interest rate for the first time since Iran war, warns inflation will near 5%",
@@ -2256,25 +2261,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-05T18:42:27.536Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-05T19:03:56.269Z",
+          "price": 75926.88,
+          "realizedPct": -0.081
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-05T18:46:27.536Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-05T19:03:56.269Z",
+          "price": 75926.88,
+          "realizedPct": -0.081
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-05T18:56:27.536Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-05T19:03:56.269Z",
+          "price": 75926.88,
+          "realizedPct": -0.081
         },
         {
           "key": "M30",
@@ -2324,7 +2329,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.081,
+        "maePct": -0.081
+      }
     },
     {
       "key": "news:forex:Bank of England hikes interest rate for the first time since Iran war, warns inflation will near 5%",
@@ -2342,25 +2352,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-05T18:42:27.536Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-05T19:03:56.269Z",
+          "price": 1.1233,
+          "realizedPct": 0
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-05T18:46:27.536Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-05T19:03:56.269Z",
+          "price": 1.1233,
+          "realizedPct": 0
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-05T18:56:27.536Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-05T19:03:56.269Z",
+          "price": 1.1233,
+          "realizedPct": 0
         },
         {
           "key": "M30",
@@ -2410,7 +2420,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0,
+        "maePct": 0
+      }
     }
   ],
   "results": [
