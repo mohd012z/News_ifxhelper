@@ -115,7 +115,7 @@ export default {
         return new Response(JSON.stringify({ ok: false, description: "unauthorized" }), { status: 401, headers: { "Content-Type": "application/json" } });
       }
       const method = url.pathname.slice("/api/telegram/".length);
-      if (!/^[a-zA-Z]+$/.test(method)) {
+      if (!["sendMessage", "sendPhoto"].includes(method)) {
         return new Response(JSON.stringify({ ok: false, description: "bad method" }), { status: 400, headers: { "Content-Type": "application/json" } });
       }
       let body;
@@ -128,11 +128,11 @@ export default {
         return new Response(JSON.stringify({ ok: false, description: "relay not configured: missing TELEGRAM_BOT_TOKEN worker secret" }), { status: 503, headers: { "Content-Type": "application/json" } });
       }
       const allowedChats = (env.CHAT_IDS || "").split(",").map((s) => s.trim()).filter(Boolean);
-      if (body && body.chat_id != null) {
-        const cid = String(body.chat_id);
-        if (allowedChats.length && !allowedChats.includes(cid)) {
-          return new Response(JSON.stringify({ ok: false, description: "chat not allowed" }), { status: 403, headers: { "Content-Type": "application/json" } });
-        }
+      if (!allowedChats.length) {
+        return new Response(JSON.stringify({ ok: false, description: "chat allowlist not configured" }), { status: 503, headers: { "Content-Type": "application/json" } });
+      }
+      if (!body || typeof body !== "object" || Array.isArray(body) || body.chat_id == null || !allowedChats.includes(String(body.chat_id))) {
+        return new Response(JSON.stringify({ ok: false, description: "chat not allowed" }), { status: 403, headers: { "Content-Type": "application/json" } });
       }
       try {
         const tg = await fetch(`https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/${method}`, {
