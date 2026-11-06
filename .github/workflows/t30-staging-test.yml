@@ -23,8 +23,12 @@ jobs:
           node-version: '20'
       - name: Static module checks
         run: |
+          node --check worker/fundamental-research.mjs
+          node --check test/fundamental-research.test.mjs
           node --check worker/reminder.mjs
           node --check worker/index.mjs
           node --check test/t30-reminder.test.mjs
       - name: Run T30 regression suite
-        run: node test/t30-reminder.test.mjs
+        run: |
+          node test/t30-reminder.test.mjs
+          node test/fundamental-research.test.mjs
