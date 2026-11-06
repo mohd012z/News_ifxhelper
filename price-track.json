@@ -3717,25 +3717,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-06T19:07:11.398Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T19:36:09.352Z",
+          "price": 4077.4,
+          "realizedPct": -0.162
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-06T19:11:11.398Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T19:36:09.352Z",
+          "price": 4077.4,
+          "realizedPct": -0.162
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-06T19:21:11.398Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T19:36:09.352Z",
+          "price": 4077.4,
+          "realizedPct": -0.162
         },
         {
           "key": "M30",
@@ -3785,7 +3785,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.162,
+        "maePct": -0.162
+      }
     },
     {
       "key": "news:gold:Australian Dollar falls to lowest since March amid robust US NFP",
@@ -3803,25 +3808,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-06T19:07:11.398Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T19:36:09.352Z",
+          "price": 4077.4,
+          "realizedPct": -0.162
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-06T19:11:11.398Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T19:36:09.352Z",
+          "price": 4077.4,
+          "realizedPct": -0.162
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-06T19:21:11.398Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T19:36:09.352Z",
+          "price": 4077.4,
+          "realizedPct": -0.162
         },
         {
           "key": "M30",
@@ -3871,7 +3876,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.162,
+        "maePct": -0.162
+      }
     },
     {
       "key": "news:crypto:Gold dives below $4,100 as blowout NFP underpins Fed hike odds",
@@ -3889,25 +3899,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-06T19:07:11.399Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T19:36:09.352Z",
+          "price": 75561.76,
+          "realizedPct": -0.139
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-06T19:11:11.399Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T19:36:09.352Z",
+          "price": 75561.76,
+          "realizedPct": -0.139
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-06T19:21:11.399Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T19:36:09.352Z",
+          "price": 75561.76,
+          "realizedPct": -0.139
         },
         {
           "key": "M30",
@@ -3957,7 +3967,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.139,
+        "maePct": -0.139
+      }
     },
     {
       "key": "news:crypto:Australian Dollar falls to lowest since March amid robust US NFP",
@@ -3975,25 +3990,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-06T19:07:11.399Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T19:36:09.352Z",
+          "price": 75561.76,
+          "realizedPct": -0.139
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-06T19:11:11.399Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T19:36:09.352Z",
+          "price": 75561.76,
+          "realizedPct": -0.139
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-06T19:21:11.399Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T19:36:09.352Z",
+          "price": 75561.76,
+          "realizedPct": -0.139
         },
         {
           "key": "M30",
@@ -4043,7 +4058,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.139,
+        "maePct": -0.139
+      }
     },
     {
       "key": "news:forex:Gold dives below $4,100 as blowout NFP underpins Fed hike odds",
@@ -4061,25 +4081,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-06T19:07:11.399Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T19:36:09.352Z",
+          "price": 1.1145,
+          "realizedPct": -0.018
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-06T19:11:11.399Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T19:36:09.352Z",
+          "price": 1.1145,
+          "realizedPct": -0.018
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-06T19:21:11.399Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T19:36:09.352Z",
+          "price": 1.1145,
+          "realizedPct": -0.018
         },
         {
           "key": "M30",
@@ -4129,7 +4149,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.018,
+        "maePct": -0.018
+      }
     },
     {
       "key": "news:forex:Australian Dollar falls to lowest since March amid robust US NFP",
@@ -4147,25 +4172,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-06T19:07:11.399Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T19:36:09.352Z",
+          "price": 1.1145,
+          "realizedPct": -0.018
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-06T19:11:11.399Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T19:36:09.352Z",
+          "price": 1.1145,
+          "realizedPct": -0.018
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-06T19:21:11.399Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T19:36:09.352Z",
+          "price": 1.1145,
+          "realizedPct": -0.018
         },
         {
           "key": "M30",
@@ -4215,7 +4240,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.018,
+        "maePct": -0.018
+      }
     }
   ],
   "results": [
