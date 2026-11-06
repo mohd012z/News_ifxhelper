@@ -21,6 +21,12 @@ async function deliver(env,fetchImpl,key,destination,message,now){
   return 'uncertain';
  }
 }
+export async function inspectUncertainDeliveries(env){
+ if(!env.REMINDER_DB)throw Error('Missing REMINDER_DB');
+ const rows=await env.REMINDER_DB.prepare("SELECT event_key,lease_until,attempts FROM reminder_delivery WHERE status='uncertain' ORDER BY lease_until LIMIT 100").all();
+ if(!Array.isArray(rows.results))throw Error('Invalid D1 response');
+ return rows.results.map(r=>({eventKey:r.event_key,leaseUntil:r.lease_until,attempts:r.attempts,requiresManualReconciliation:true}));
+}
 export async function runFundamentalCycle(env,{now=Date.now(),fetchImpl=fetch}={}){
  if(env.ENABLE_FUNDAMENTAL_DELIVERY!=='true')return {disabled:true};
  const project=env.FUNDAMENTAL_PROJECT;
