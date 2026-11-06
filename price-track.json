@@ -2218,9 +2218,9 @@
           "key": "D1",
           "minutes": 1440,
           "dueAt": "2026-11-06T18:41:27.536Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T19:06:11.398Z",
+          "price": 4084,
+          "realizedPct": -0.78
         },
         {
           "key": "W1",
@@ -2242,7 +2242,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.019,
-        "maePct": -0.5
+        "maePct": -0.78
       }
     },
     {
@@ -2309,9 +2309,9 @@
           "key": "D1",
           "minutes": 1440,
           "dueAt": "2026-11-06T18:41:27.536Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T19:06:11.398Z",
+          "price": 75666.83,
+          "realizedPct": -0.423
         },
         {
           "key": "W1",
@@ -2333,7 +2333,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.106,
-        "maePct": -0.081
+        "maePct": -0.423
       }
     },
     {
@@ -2400,9 +2400,9 @@
           "key": "D1",
           "minutes": 1440,
           "dueAt": "2026-11-06T18:41:27.536Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T19:06:11.398Z",
+          "price": 1.1147,
+          "realizedPct": -0.766
         },
         {
           "key": "W1",
@@ -2424,7 +2424,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.036,
-        "maePct": 0
+        "maePct": -0.766
       }
     },
     {
@@ -2756,9 +2756,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-06T19:03:58.027Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T19:06:11.398Z",
+          "price": 4084,
+          "realizedPct": 0.805
         },
         {
           "key": "D1",
@@ -2787,7 +2787,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.313,
+        "mfePct": 0.805,
         "maePct": 0.039
       }
     },
@@ -2847,9 +2847,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-06T19:03:58.027Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T19:06:11.398Z",
+          "price": 4084,
+          "realizedPct": 0.805
         },
         {
           "key": "D1",
@@ -2878,7 +2878,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.313,
+        "mfePct": 0.805,
         "maePct": 0.039
       }
     },
@@ -2938,9 +2938,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-06T19:03:58.027Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T19:06:11.398Z",
+          "price": 75666.83,
+          "realizedPct": 0.716
         },
         {
           "key": "D1",
@@ -2969,7 +2969,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.595,
+        "mfePct": 0.716,
         "maePct": -0.398
       }
     },
@@ -3029,9 +3029,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-06T19:03:58.027Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T19:06:11.398Z",
+          "price": 75666.83,
+          "realizedPct": 0.716
         },
         {
           "key": "D1",
@@ -3060,7 +3060,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.595,
+        "mfePct": 0.716,
         "maePct": -0.398
       }
     },
@@ -3120,9 +3120,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-06T19:03:58.027Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T19:06:11.398Z",
+          "price": 75666.83,
+          "realizedPct": 0.716
         },
         {
           "key": "D1",
@@ -3151,7 +3151,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.595,
+        "mfePct": 0.716,
         "maePct": -0.398
       }
     },
@@ -3211,9 +3211,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-06T19:03:58.027Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T19:06:11.398Z",
+          "price": 1.1147,
+          "realizedPct": -0.045
         },
         {
           "key": "D1",
@@ -3243,7 +3243,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.054,
-        "maePct": -0.009
+        "maePct": -0.045
       }
     },
     {
@@ -3302,9 +3302,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-06T19:03:58.027Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T19:06:11.398Z",
+          "price": 1.1147,
+          "realizedPct": -0.045
         },
         {
           "key": "D1",
@@ -3334,7 +3334,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.054,
-        "maePct": -0.009
+        "maePct": -0.045
       }
     },
     {
@@ -3393,9 +3393,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-06T19:03:58.027Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T19:06:11.398Z",
+          "price": 1.1147,
+          "realizedPct": -0.045
         },
         {
           "key": "D1",
@@ -3425,7 +3425,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.054,
-        "maePct": -0.009
+        "maePct": -0.045
       }
     },
     {
@@ -3700,6 +3700,522 @@
         "mfePct": 0.018,
         "maePct": 0
       }
+    },
+    {
+      "key": "news:gold:Gold dives below $4,100 as blowout NFP underpins Fed hike odds",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Gold dives below $4,100 as blowout NFP underpins Fed hike odds",
+      "url": "https://www.fxstreet.com/news/gold-dives-below-4-100-as-blowout-nfp-underpins-fed-hike-odds-202611061839",
+      "impactScore": -0.15,
+      "priceSource": "yahoo:GC=F",
+      "priceSymbol": "GC=F",
+      "priceAtDetect": 4084,
+      "createdAt": "2026-11-06T19:06:11.398Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-06T19:07:11.398Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-06T19:11:11.398Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-06T19:21:11.398Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-06T19:36:11.398Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-06T20:06:11.398Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-06T23:06:11.398Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-07T19:06:11.398Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-13T19:06:11.398Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-06T19:06:11.398Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:gold:Australian Dollar falls to lowest since March amid robust US NFP",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Australian Dollar falls to lowest since March amid robust US NFP",
+      "url": "https://www.fxstreet.com/news/australian-dollar-falls-to-lowest-since-march-as-robust-nfp-reinforces-fed-hike-bets-202611061801",
+      "impactScore": -0.12,
+      "priceSource": "yahoo:GC=F",
+      "priceSymbol": "GC=F",
+      "priceAtDetect": 4084,
+      "createdAt": "2026-11-06T19:06:11.398Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-06T19:07:11.398Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-06T19:11:11.398Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-06T19:21:11.398Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-06T19:36:11.398Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-06T20:06:11.398Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-06T23:06:11.398Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-07T19:06:11.398Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-13T19:06:11.398Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-06T19:06:11.398Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:crypto:Gold dives below $4,100 as blowout NFP underpins Fed hike odds",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Gold dives below $4,100 as blowout NFP underpins Fed hike odds",
+      "url": "https://www.fxstreet.com/news/gold-dives-below-4-100-as-blowout-nfp-underpins-fed-hike-odds-202611061839",
+      "impactScore": -0.14,
+      "priceSource": "coinbase:BTC-USD",
+      "priceSymbol": "BTC-USD",
+      "priceAtDetect": 75666.83,
+      "createdAt": "2026-11-06T19:06:11.399Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-06T19:07:11.399Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-06T19:11:11.399Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-06T19:21:11.399Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-06T19:36:11.399Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-06T20:06:11.399Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-06T23:06:11.399Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-07T19:06:11.399Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-13T19:06:11.399Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-06T19:06:11.399Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:crypto:Australian Dollar falls to lowest since March amid robust US NFP",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Australian Dollar falls to lowest since March amid robust US NFP",
+      "url": "https://www.fxstreet.com/news/australian-dollar-falls-to-lowest-since-march-as-robust-nfp-reinforces-fed-hike-bets-202611061801",
+      "impactScore": -0.14,
+      "priceSource": "coinbase:BTC-USD",
+      "priceSymbol": "BTC-USD",
+      "priceAtDetect": 75666.83,
+      "createdAt": "2026-11-06T19:06:11.399Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-06T19:07:11.399Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-06T19:11:11.399Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-06T19:21:11.399Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-06T19:36:11.399Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-06T20:06:11.399Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-06T23:06:11.399Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-07T19:06:11.399Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-13T19:06:11.399Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-06T19:06:11.399Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:forex:Gold dives below $4,100 as blowout NFP underpins Fed hike odds",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Gold dives below $4,100 as blowout NFP underpins Fed hike odds",
+      "url": "https://www.fxstreet.com/news/gold-dives-below-4-100-as-blowout-nfp-underpins-fed-hike-odds-202611061839",
+      "impactScore": -0.15,
+      "priceSource": "yahoo:EURUSD=X",
+      "priceSymbol": "EURUSD=X",
+      "priceAtDetect": 1.1147,
+      "createdAt": "2026-11-06T19:06:11.399Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-06T19:07:11.399Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-06T19:11:11.399Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-06T19:21:11.399Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-06T19:36:11.399Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-06T20:06:11.399Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-06T23:06:11.399Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-07T19:06:11.399Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-13T19:06:11.399Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-06T19:06:11.399Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:forex:Australian Dollar falls to lowest since March amid robust US NFP",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Australian Dollar falls to lowest since March amid robust US NFP",
+      "url": "https://www.fxstreet.com/news/australian-dollar-falls-to-lowest-since-march-as-robust-nfp-reinforces-fed-hike-bets-202611061801",
+      "impactScore": -0.15,
+      "priceSource": "yahoo:EURUSD=X",
+      "priceSymbol": "EURUSD=X",
+      "priceAtDetect": 1.1147,
+      "createdAt": "2026-11-06T19:06:11.399Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-06T19:07:11.399Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-06T19:11:11.399Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-06T19:21:11.399Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-06T19:36:11.399Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-06T20:06:11.399Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-06T23:06:11.399Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-07T19:06:11.399Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-13T19:06:11.399Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-06T19:06:11.399Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
     }
   ],
   "results": [
