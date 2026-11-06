@@ -79,7 +79,7 @@ function saveState(state) {
  * have been RE-sent as duplicates on the next run). A network throw is treated exactly like a
  * failed send: not marked as sent, retried next run - same as any other failure path here. */
 async function sendTelegram(text) {
-  if (!TOKEN || !CHAT_ID) { console.log('SKIP (no Telegram credentials configured):\n' + text + '\n'); return { ok: false, skipped: true }; }
+  if ((!TELEGRAM_RELAY && !TOKEN) || !CHAT_ID || (TELEGRAM_RELAY && !TELEGRAM_RELAY_KEY)) { console.log('SKIP (no Telegram credentials configured):\n' + text + '\n'); return { ok: false, skipped: true }; }
   let r;
   try {
     r = await fetch(tgSendUrl('sendMessage'), {
