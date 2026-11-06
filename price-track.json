@@ -2748,9 +2748,9 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-06T16:03:58.027Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T16:06:09.186Z",
+          "price": 4064.1,
+          "realizedPct": 0.313
         },
         {
           "key": "H4",
@@ -2787,7 +2787,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.257,
+        "mfePct": 0.313,
         "maePct": 0.039
       }
     },
@@ -2839,9 +2839,9 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-06T16:03:58.027Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T16:06:09.186Z",
+          "price": 4064.1,
+          "realizedPct": 0.313
         },
         {
           "key": "H4",
@@ -2878,7 +2878,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.257,
+        "mfePct": 0.313,
         "maePct": 0.039
       }
     },
@@ -2930,9 +2930,9 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-06T16:03:58.027Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T16:06:09.186Z",
+          "price": 75576.27,
+          "realizedPct": 0.595
         },
         {
           "key": "H4",
@@ -2969,7 +2969,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.145,
+        "mfePct": 0.595,
         "maePct": -0.398
       }
     },
@@ -3021,9 +3021,9 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-06T16:03:58.027Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T16:06:09.186Z",
+          "price": 75576.27,
+          "realizedPct": 0.595
         },
         {
           "key": "H4",
@@ -3060,7 +3060,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.145,
+        "mfePct": 0.595,
         "maePct": -0.398
       }
     },
@@ -3112,9 +3112,9 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-06T16:03:58.027Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T16:06:09.186Z",
+          "price": 75576.27,
+          "realizedPct": 0.595
         },
         {
           "key": "H4",
@@ -3151,7 +3151,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.145,
+        "mfePct": 0.595,
         "maePct": -0.398
       }
     },
@@ -3203,9 +3203,9 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-06T16:03:58.027Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T16:06:09.186Z",
+          "price": 1.1151,
+          "realizedPct": -0.009
         },
         {
           "key": "H4",
@@ -3243,7 +3243,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.054,
-        "maePct": 0.018
+        "maePct": -0.009
       }
     },
     {
@@ -3294,9 +3294,9 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-06T16:03:58.027Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T16:06:09.186Z",
+          "price": 1.1151,
+          "realizedPct": -0.009
         },
         {
           "key": "H4",
@@ -3334,7 +3334,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.054,
-        "maePct": 0.018
+        "maePct": -0.009
       }
     },
     {
@@ -3385,9 +3385,9 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-06T16:03:58.027Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T16:06:09.186Z",
+          "price": 1.1151,
+          "realizedPct": -0.009
         },
         {
           "key": "H4",
@@ -3425,8 +3425,266 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.054,
-        "maePct": 0.018
+        "maePct": -0.009
       }
+    },
+    {
+      "key": "news:gold:Japanese Yen loses ground as upbeat US NFP reinforces hawkish Fed outlook",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Japanese Yen loses ground as upbeat US NFP reinforces hawkish Fed outlook",
+      "url": "https://www.fxstreet.com/news/japanese-yen-loses-ground-as-upbeat-us-nfp-reinforces-hawkish-fed-outlook-202611061523",
+      "impactScore": -0.21,
+      "priceSource": "yahoo:GC=F",
+      "priceSymbol": "GC=F",
+      "priceAtDetect": 4064.1,
+      "createdAt": "2026-11-06T16:06:09.187Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-06T16:07:09.187Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-06T16:11:09.187Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-06T16:21:09.187Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-06T16:36:09.187Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-06T17:06:09.187Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-06T20:06:09.187Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-07T16:06:09.187Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-13T16:06:09.187Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-06T16:06:09.187Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:crypto:Japanese Yen loses ground as upbeat US NFP reinforces hawkish Fed outlook",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Japanese Yen loses ground as upbeat US NFP reinforces hawkish Fed outlook",
+      "url": "https://www.fxstreet.com/news/japanese-yen-loses-ground-as-upbeat-us-nfp-reinforces-hawkish-fed-outlook-202611061523",
+      "impactScore": -0.24,
+      "priceSource": "coinbase:BTC-USD",
+      "priceSymbol": "BTC-USD",
+      "priceAtDetect": 75576.27,
+      "createdAt": "2026-11-06T16:06:09.187Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-06T16:07:09.187Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-06T16:11:09.187Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-06T16:21:09.187Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-06T16:36:09.187Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-06T17:06:09.187Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-06T20:06:09.187Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-07T16:06:09.187Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-13T16:06:09.187Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-06T16:06:09.187Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:forex:Japanese Yen loses ground as upbeat US NFP reinforces hawkish Fed outlook",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Japanese Yen loses ground as upbeat US NFP reinforces hawkish Fed outlook",
+      "url": "https://www.fxstreet.com/news/japanese-yen-loses-ground-as-upbeat-us-nfp-reinforces-hawkish-fed-outlook-202611061523",
+      "impactScore": -0.26,
+      "priceSource": "yahoo:EURUSD=X",
+      "priceSymbol": "EURUSD=X",
+      "priceAtDetect": 1.1151,
+      "createdAt": "2026-11-06T16:06:09.187Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-06T16:07:09.187Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-06T16:11:09.187Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-06T16:21:09.187Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-06T16:36:09.187Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-06T17:06:09.187Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-06T20:06:09.187Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-07T16:06:09.187Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-13T16:06:09.187Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-06T16:06:09.187Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
     }
   ],
   "results": [
