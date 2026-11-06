@@ -47,3 +47,26 @@ const ctx={waitUntil(p){this.task=p;}};
 await worker.scheduled({scheduledTime:now},{ENABLE_T30_REMINDERS:'false'},ctx);
 assert.equal(ctx.task,undefined);
 console.log('PASS T-30 mocked timing, concurrent claims, restart dedupe and disabled scheduler');
+
+
+const originalFetch = globalThis.fetch;
+try {
+  globalThis.fetch = async url => {
+    if (String(url).includes('nfs.faireconomy.media')) {
+      return {ok:true,json:async()=>({error:'upstream schema changed'})};
+    }
+    throw Error('unexpected network call');
+  };
+  const malformed = await worker.fetch(new Request('https://example.test/api/ff-calendar'));
+  assert.equal(malformed.status,502);
+  assert.match((await malformed.json()).error,/invalid event collection/);
+  globalThis.fetch = async url => {
+    if (String(url).includes('nfs.faireconomy.media')) return {ok:true,json:async()=>{throw SyntaxError('bad json')}};
+    throw Error('unexpected network call');
+  };
+  const invalidJson = await worker.fetch(new Request('https://example.test/api/ff-calendar'));
+  assert.equal(invalidJson.status,502);
+  assert.match((await invalidJson.json()).error,/invalid JSON/);
+} finally {
+  globalThis.fetch = originalFetch;
+}
