@@ -4364,8 +4364,18 @@
       "trend_up",
       "squeeze_pre_breakout"
     ],
-    "status": "PENDING",
-    "id": "625b8dd6683bc59014b2"
+    "status": "SETTLED",
+    "id": "625b8dd6683bc59014b2",
+    "settledAt": "2026-11-06T08:37:41.854Z",
+    "nextCandleTime": "2026-11-05T08:30:00.000Z",
+    "actualDirection": "DOWN",
+    "predictedDirection": "FLAT",
+    "correct": false,
+    "nextReturnPct": -0.0363,
+    "mfePct": 0,
+    "maePct": -0.0943,
+    "rangePct": 0.0943,
+    "closeLocationPct": 61.54
   },
   {
     "schemaVersion": 4,
@@ -4399,8 +4409,18 @@
     "reasons": [
       "trend_up"
     ],
-    "status": "PENDING",
-    "id": "6bb849163dc0a521fa88"
+    "status": "SETTLED",
+    "id": "6bb849163dc0a521fa88",
+    "settledAt": "2026-11-06T08:37:41.854Z",
+    "nextCandleTime": "2026-11-05T08:30:00.000Z",
+    "actualDirection": "DOWN",
+    "predictedDirection": "UP",
+    "correct": false,
+    "nextReturnPct": -0.0097,
+    "mfePct": 0.046,
+    "maePct": -0.0943,
+    "rangePct": 0.1403,
+    "closeLocationPct": 60.34
   },
   {
     "schemaVersion": 4,
@@ -4435,8 +4455,18 @@
       "trend_up",
       "bb_momentum_up"
     ],
-    "status": "PENDING",
-    "id": "8c3cd84b5b629df3b237"
+    "status": "SETTLED",
+    "id": "8c3cd84b5b629df3b237",
+    "settledAt": "2026-11-06T08:37:41.854Z",
+    "nextCandleTime": "2026-11-05T08:30:00.000Z",
+    "actualDirection": "UP",
+    "predictedDirection": "UP",
+    "correct": true,
+    "nextReturnPct": 0.0314,
+    "mfePct": 0.0967,
+    "maePct": -0.0943,
+    "rangePct": 0.1911,
+    "closeLocationPct": 65.83
   },
   {
     "schemaVersion": 4,
@@ -4470,7 +4500,194 @@
     "reasons": [
       "trend_up"
     ],
+    "status": "SETTLED",
+    "id": "1edc354850fcd8dfa2b5",
+    "settledAt": "2026-11-06T08:37:41.854Z",
+    "nextCandleTime": "2026-11-05T08:00:00.000Z",
+    "actualDirection": "UP",
+    "predictedDirection": "UP",
+    "correct": true,
+    "nextReturnPct": 0.0653,
+    "mfePct": 0.1694,
+    "maePct": -0.104,
+    "rangePct": 0.2734,
+    "closeLocationPct": 61.95
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-c8f70dcafe15604b0dce",
+    "sourceGeneratedAt": "2026-11-06T03:39:19.262Z",
+    "symbol": "GC=F",
+    "tf": "M1",
+    "candleTime": "2026-11-06T08:27:38.000Z",
+    "createdAt": "2026-11-06T08:37:41.854Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Williams Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-11-06T09:30:00.000Z"
+    },
+    "location": "MID_BB",
+    "bbma": {
+      "trend": "MIXED",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "SQUEEZE",
+    "state": "RANGE_OR_BREAKOUT_WATCH",
+    "confidence": 100,
+    "reasons": [
+      "squeeze_pre_breakout"
+    ],
     "status": "PENDING",
-    "id": "1edc354850fcd8dfa2b5"
+    "id": "dc0afafe6f27434d6a48"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-c8f70dcafe15604b0dce",
+    "sourceGeneratedAt": "2026-11-06T03:39:19.262Z",
+    "symbol": "GC=F",
+    "tf": "M5",
+    "candleTime": "2026-11-06T08:20:00.000Z",
+    "createdAt": "2026-11-06T08:37:41.854Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Williams Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-11-06T09:30:00.000Z"
+    },
+    "location": "LOW_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "TIGHT",
+    "state": "DOWN_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_down"
+    ],
+    "status": "PENDING",
+    "id": "3da63ebd9bff00609857"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-c8f70dcafe15604b0dce",
+    "sourceGeneratedAt": "2026-11-06T03:39:19.262Z",
+    "symbol": "GC=F",
+    "tf": "M15",
+    "candleTime": "2026-11-06T08:00:00.000Z",
+    "createdAt": "2026-11-06T08:37:41.854Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Williams Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-11-06T09:30:00.000Z"
+    },
+    "location": "LOW_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "NONE",
+      "reentry": "NONE",
+      "csak": "CSAK_DOWN"
+    },
+    "squeeze": "NORMAL",
+    "state": "DOWN_BIAS",
+    "confidence": 67,
+    "reasons": [
+      "trend_down",
+      "low_rejection_candidate"
+    ],
+    "status": "PENDING",
+    "id": "981e017db2ecb6a96777"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-c8f70dcafe15604b0dce",
+    "sourceGeneratedAt": "2026-11-06T03:39:19.262Z",
+    "symbol": "GC=F",
+    "tf": "M30",
+    "candleTime": "2026-11-06T07:30:00.000Z",
+    "createdAt": "2026-11-06T08:37:41.854Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Williams Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-11-06T09:30:00.000Z"
+    },
+    "location": "BELOW_LOW_BB",
+    "bbma": {
+      "trend": "DOWN",
+      "extreme": "NONE",
+      "momentum": "MOMENTUM_DOWN",
+      "reentry": "NONE",
+      "csak": "CSAK_DOWN"
+    },
+    "squeeze": "NORMAL",
+    "state": "DOWN_BIAS",
+    "confidence": 100,
+    "reasons": [
+      "trend_down",
+      "bb_momentum_down"
+    ],
+    "status": "PENDING",
+    "id": "d0518509c7492ece582c"
+  },
+  {
+    "schemaVersion": 4,
+    "generationId": "bbma-c8f70dcafe15604b0dce",
+    "sourceGeneratedAt": "2026-11-06T03:39:19.262Z",
+    "symbol": "GC=F",
+    "tf": "H1",
+    "candleTime": "2026-11-06T07:00:00.000Z",
+    "createdAt": "2026-11-06T08:37:41.854Z",
+    "marketMode": "NORMAL",
+    "event": {
+      "title": "FOMC Member Williams Speaks",
+      "currency": "USD",
+      "impact": "LOW",
+      "actual": null,
+      "forecast": "",
+      "previous": "",
+      "time": "2026-11-06T09:30:00.000Z"
+    },
+    "location": "BELOW_LOW_BB",
+    "bbma": {
+      "trend": "MIXED",
+      "extreme": "NONE",
+      "momentum": "MOMENTUM_DOWN",
+      "reentry": "NONE",
+      "csak": "NONE"
+    },
+    "squeeze": "TIGHT",
+    "state": "DOWN_BIAS",
+    "confidence": 67,
+    "reasons": [
+      "bb_momentum_down"
+    ],
+    "status": "PENDING",
+    "id": "b2ccc3d695432f684e78"
   }
 ]
