@@ -20,7 +20,7 @@ assert.equal(resultVerified({...event,actual:'2.5%'}),false);
 current=[{...event,actual:'2.5%',verifiedSource:'official',verifiedAt:new Date(now+30*60000).toISOString()}];
 a=await runFundamentalCycle(env,{now:now+31*60000,fetchImpl});assert.equal(a.pending,1);
 a=await runFundamentalCycle(env,{now:now+31*60000,fetchImpl,officialResolver});assert.equal(a.sent,1);
-a=await runFundamentalCycle(env,{now:now+31*60000,fetchImpl,officialResolver});assert.equal(a.skipped,1);
+a=await runFundamentalCycle(env,{now:now+31*60000,fetchImpl,officialResolver});assert.equal(a.skipped,2);
 const e2={...event,title:'PCE',date:new Date(now+29*60000).toISOString()};
 current=[e2];fail=true;
 a=await runFundamentalCycle(env,{now,fetchImpl});assert.equal(a.uncertain,1);
