@@ -2716,9 +2716,9 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-06T15:04:58.027Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T15:06:08.015Z",
+          "price": 4053,
+          "realizedPct": 0.039
         },
         {
           "key": "M5",
@@ -2784,7 +2784,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.039,
+        "maePct": 0.039
+      }
     },
     {
       "key": "news:gold:British Pound: Hawkish BoE but Pound upside capped – Commerzbank",
@@ -2802,9 +2807,9 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-06T15:04:58.027Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T15:06:08.015Z",
+          "price": 4053,
+          "realizedPct": 0.039
         },
         {
           "key": "M5",
@@ -2870,7 +2875,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.039,
+        "maePct": 0.039
+      }
     },
     {
       "key": "news:crypto:CEE FX: CNB dovish shift and NBP hawkish turn – ING",
@@ -2888,9 +2898,9 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-06T15:04:58.027Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T15:06:08.015Z",
+          "price": 74830,
+          "realizedPct": -0.398
         },
         {
           "key": "M5",
@@ -2956,7 +2966,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.398,
+        "maePct": -0.398
+      }
     },
     {
       "key": "news:crypto:Mexican Peso: Banxico cut leaves Peso vulnerable – ING",
@@ -2974,9 +2989,9 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-06T15:04:58.027Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T15:06:08.015Z",
+          "price": 74830,
+          "realizedPct": -0.398
         },
         {
           "key": "M5",
@@ -3042,7 +3057,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.398,
+        "maePct": -0.398
+      }
     },
     {
       "key": "news:crypto:British Pound: Hawkish BoE but Pound upside capped – Commerzbank",
@@ -3060,9 +3080,9 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-06T15:04:58.027Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T15:06:08.015Z",
+          "price": 74830,
+          "realizedPct": -0.398
         },
         {
           "key": "M5",
@@ -3128,7 +3148,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.398,
+        "maePct": -0.398
+      }
     },
     {
       "key": "news:forex:CEE FX: CNB dovish shift and NBP hawkish turn – ING",
@@ -3146,9 +3171,9 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-06T15:04:58.027Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T15:06:08.015Z",
+          "price": 1.1154,
+          "realizedPct": 0.018
         },
         {
           "key": "M5",
@@ -3214,7 +3239,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.018,
+        "maePct": 0.018
+      }
     },
     {
       "key": "news:forex:Mexican Peso: Banxico cut leaves Peso vulnerable – ING",
@@ -3232,9 +3262,9 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-06T15:04:58.027Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T15:06:08.015Z",
+          "price": 1.1154,
+          "realizedPct": 0.018
         },
         {
           "key": "M5",
@@ -3300,7 +3330,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.018,
+        "maePct": 0.018
+      }
     },
     {
       "key": "news:forex:British Pound: Hawkish BoE but Pound upside capped – Commerzbank",
@@ -3318,9 +3353,9 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-06T15:04:58.027Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T15:06:08.015Z",
+          "price": 1.1154,
+          "realizedPct": 0.018
         },
         {
           "key": "M5",
@@ -3386,7 +3421,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.018,
+        "maePct": 0.018
+      }
     }
   ],
   "results": [
