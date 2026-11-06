@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import {normalize,due,eventKey,format,runReminders} from '../worker/reminder.mjs';
+import worker from '../worker/index.mjs';
 const now=Date.parse('2026-11-06T12:00:00Z');
 const raw={title:'CPI y/y',country:'USD',impact:'High',date:new Date(now+29*60000).toISOString(),forecast:'2.4%',previous:'2.3%'};
 assert.equal(due(normalize(raw),now),true);
@@ -22,4 +23,25 @@ assert.deepEqual(await runReminders(env,{now,fetchImpl:mockFetch}),{sent:2,skipp
 assert.deepEqual(await runReminders(env,{now,fetchImpl:mockFetch}),{sent:0,skipped:2,failed:0});
 assert.equal(messages,2);
 await assert.rejects(runReminders({...env,REMINDER_DB:null},{now,fetchImpl:mockFetch}),/Missing/);
-console.log('PASS T-30 mock delivery and dedupe');
+// Concurrent schedules share one atomic D1 claim; no duplicate sends.
+const sameTime=Date.parse('2026-11-06T13:00:00Z');
+const parallelEvent={...raw,date:new Date(sameTime+29*60000).toISOString()};
+let concurrentSends=0;
+const concurrentFetch=async url=>url.includes('faireconomy')?{ok:true,json:async()=>[parallelEvent]}:(concurrentSends++,{ok:true,json:async()=>({ok:true,result:{message_id:concurrentSends}})});
+const runs=await Promise.all([runReminders(env,{now:sameTime,fetchImpl:concurrentFetch}),runReminders(env,{now:sameTime,fetchImpl:concurrentFetch})]);
+assert.equal(runs.reduce((n,r)=>n+r.sent,0),2);
+assert.equal(concurrentSends,2);
+// A restart must not resend even if a prior claim has expired.
+const staleTime=Date.parse('2026-11-06T14:00:00Z');
+const staleEvent={...raw,date:new Date(staleTime+29*60000).toISOString()};
+const staleKey=eventKey(normalize(staleEvent),'a');
+db.set(staleKey,{status:'sending',lease:staleTime-600000,attempts:1});
+let restartSends=0;
+const restartFetch=async url=>url.includes('faireconomy')?{ok:true,json:async()=>[staleEvent]}:(restartSends++,{ok:true,json:async()=>({ok:true,result:{message_id:9}})});
+const afterRestart=await runReminders({...env,TELEGRAM_CHANNEL_ID:null},{now:staleTime,fetchImpl:restartFetch});
+assert.equal(afterRestart.sent,0);
+assert.equal(restartSends,0);
+const ctx={waitUntil(p){this.task=p;}};
+await worker.scheduled({scheduledTime:now},{ENABLE_T30_REMINDERS:'false'},ctx);
+assert.equal(ctx.task,undefined);
+console.log('PASS T-30 mocked timing, concurrent claims, restart dedupe and disabled scheduler');
