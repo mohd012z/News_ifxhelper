@@ -98,6 +98,15 @@ try {
   assert.equal(relayJson.ok, true);
   assert(calls.some((u) => u.startsWith("https://api.telegram.org/bot123:TEST/sendMessage")), "relay must target the worker's own bot token");
 
+  for (const badMethod of ["getMe", "deleteWebhook"]) {
+    r = await worker.fetch(new Request(relayBase.replace("sendMessage", badMethod), { method: "POST", headers: { "Content-Type": "application/json", "x-ifx-relay-key": "test-relay-key" }, body: JSON.stringify(relayBody) }), relayEnv);
+    assert.equal(r.status, 400, "relay must reject non-send methods");
+  }
+  r = await worker.fetch(new Request(relayBase, { method: "POST", headers: { "Content-Type": "application/json", "x-ifx-relay-key": "test-relay-key" }, body: JSON.stringify(relayBody) }), { ...relayEnv, CHAT_IDS: "" });
+  assert.equal(r.status, 503, "empty chat allowlist must fail closed");
+  r = await worker.fetch(new Request(relayBase, { method: "POST", headers: { "Content-Type": "application/json", "x-ifx-relay-key": "test-relay-key" }, body: JSON.stringify({ text: "missing destination" }) }), relayEnv);
+  assert.equal(r.status, 403, "missing destination must fail closed");
+
   const photoReq = new Request("https://gentle-violet-4a79.ifxhelper.workers.dev/api/telegram/sendPhoto", { method: "POST", headers: { "Content-Type": "application/json", "x-ifx-relay-key": "test-relay-key" }, body: JSON.stringify({ chat_id: "30006405", photo: "https://quickchart.io/x" }) });
   r = await worker.fetch(photoReq, relayEnv);
   assert.equal(r.status, 200);
