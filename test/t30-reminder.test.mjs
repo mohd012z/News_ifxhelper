@@ -6,7 +6,9 @@ const raw={title:'CPI y/y',country:'USD',impact:'High',date:new Date(now+29*6000
 assert.equal(due(normalize(raw),now),true);
 assert.equal(due(normalize({...raw,date:new Date(now+31*60000).toISOString()}),now),false);
 assert.equal(due(normalize({...raw,date:new Date(now+25*60000).toISOString()}),now),false);
-assert.equal(normalize({...raw,impact:'Low'}),null);
+assert.equal(normalize({...raw,impact:'Low'}).impact,'Low');
+assert.equal(normalize({...raw,impact:'Medium'}).impact,'Medium');
+assert.equal(normalize({...raw,impact:'Invalid'}),null);
 assert.equal(normalize({...raw,date:'2026-11-06 12:29'}),null);
 assert.notEqual(eventKey(normalize(raw),'a'),eventKey(normalize(raw),'b'));
 assert.match(format(normalize({...raw,title:'<CPI>'})),/&lt;CPI&gt;/);
