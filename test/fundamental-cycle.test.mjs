@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import {runFundamentalCycle,resultVerified,inspectUncertainDeliveries,briefingDue,phaseDue} from '../worker/fundamental-cycle.mjs';
+import {runFundamentalCycle,resultVerified,inspectUncertainDeliveries,reconcileConfirmedDelivery,briefingDue,phaseDue} from '../worker/fundamental-cycle.mjs';
 const now=Date.parse('2026-11-06T00:00:00Z');
 const event={title:'CPI',country:'USD',impact:'Low',date:new Date(now+29*60000).toISOString(),forecast:'2.4%',previous:'2.3%',actual:''};
 const db=new Map();let sends=0;
@@ -34,4 +34,7 @@ assert.equal(phaseDue({time:now+29*60000},now+180*60000),'RESULT');
 assert.equal(phaseDue({time:now+29*60000},now+1500*60000),null);
 const inspection=await inspectUncertainDeliveries({REMINDER_DB:{prepare(sql){assert.match(sql,/status='uncertain'/);return {all:async()=>({results:[{event_key:'sample',lease_until:1,attempts:1}]})};}}});
 assert.equal(inspection[0].requiresManualReconciliation,true);
+await assert.rejects(reconcileConfirmedDelivery({REMINDER_DB:store},{eventKey:'sample',messageId:0}),/evidence/);
+const reconciled=await reconcileConfirmedDelivery({REMINDER_DB:{prepare(sql){assert.match(sql,/status='uncertain'/);return {bind(...args){assert.equal(args[0],'42');return {run:async()=>({meta:{changes:1}})};}}}}},{eventKey:'sample',messageId:42});
+assert.equal(reconciled.reconciled,true);
 console.log('PASS daily, T-30, T-10, verified results, pending, dedupe, uncertain and disabled delivery');
