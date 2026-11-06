@@ -61,4 +61,13 @@ assert.equal(safetyContext.eventAlertEligible({timeGmt:'bad'},new Date()),false)
 assert.match(source,/liveCalendarStatus\.state === "fresh"/);
 assert.match(source,/HISTORICAL \/ UNVERIFIED/);
 
+
+const tzContext={Date,Math,String};
+vm.createContext(tzContext);
+vm.runInContext(functionSource('mytCalendarKey'),tzContext);
+assert.equal(tzContext.mytCalendarKey(new Date('2026-11-06T15:59:59Z'),'day'),'2026-11-06');
+assert.equal(tzContext.mytCalendarKey(new Date('2026-11-06T16:00:00Z'),'day'),'2026-11-07');
+assert.equal(tzContext.mytCalendarKey(new Date('2026-11-08T15:59:59Z'),'week'),tzContext.mytCalendarKey(new Date('2026-11-02T00:00:00Z'),'week'));
+assert.notEqual(tzContext.mytCalendarKey(new Date('2026-11-08T15:59:59Z'),'week'),tzContext.mytCalendarKey(new Date('2026-11-08T16:00:00Z'),'week'));
+
 console.log('PASS calendar empty-state reconciliation, retained month, freshness status, timeout and schema gates');
