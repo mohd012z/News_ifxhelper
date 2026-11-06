@@ -3,7 +3,7 @@ export const ROUTES=Object.freeze({news_ifxhelper:['XAUUSD','BTCUSD'],helix:['EU
 const currencies=new Set(['USD','EUR','GBP','JPY','CHF','CAD','AUD','NZD','CNY']);
 const impacts=new Set(['Low','Medium','High']);
 export function normalizeEvent(raw){
- if(!raw||typeof raw.title!=='string'||!raw.title.trim()||!currencies.has(raw.country)||!impacts.has(raw.impact)||typeof raw.date!=='string'||!/(Z|[+-]\\d{2}:\\d{2})$/.test(raw.date))return null;
+ if(!raw||typeof raw.title!=='string'||!raw.title.trim()||!currencies.has(raw.country)||!impacts.has(raw.impact)||typeof raw.date!=='string'||!/(Z|[+-]\d{2}:\d{2})$/.test(raw.date))return null;
  const time=Date.parse(raw.date);if(!Number.isFinite(time))return null;
  return {title:raw.title.trim(),currency:raw.country,impact:raw.impact,time,forecast:raw.forecast??null,previous:raw.previous??null,actual:raw.actual??null,source:raw.source??'calendar'};
 }
