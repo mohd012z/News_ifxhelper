@@ -8,6 +8,7 @@ on:
       - 'worker/**'
       - 'app.js'
       - 'test/calendar-frontend-freshness.test.js'
+      - 'test/calendar-browser.test.cjs'
       - 'test/t30-reminder.test.mjs'
       - 'wrangler.toml'
       - 'migrations/**'
@@ -40,3 +41,18 @@ jobs:
           node test/t30-reminder.test.mjs
           node test/fundamental-research.test.mjs
           node test/fundamental-cycle.test.mjs
+
+  browser-calendar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install isolated browser test dependency
+        run: npm install --no-save --ignore-scripts --package-lock=false playwright@1.58.2
+      - name: Install headless Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Run Chromium DOM calendar regressions
+        run: node test/calendar-browser.test.cjs
