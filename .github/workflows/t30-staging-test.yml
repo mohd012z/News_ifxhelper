@@ -6,6 +6,8 @@ on:
   pull_request:
     paths:
       - 'worker/**'
+      - 'app.js'
+      - 'test/calendar-frontend-freshness.test.js'
       - 'test/t30-reminder.test.mjs'
       - 'wrangler.toml'
       - 'migrations/**'
@@ -29,9 +31,12 @@ jobs:
           node --check test/fundamental-research.test.mjs
           node --check worker/reminder.mjs
           node --check worker/index.mjs
+          node --check app.js
+          node --check test/calendar-frontend-freshness.test.js
           node --check test/t30-reminder.test.mjs
       - name: Run T30 regression suite
         run: |
+          node test/calendar-frontend-freshness.test.js
           node test/t30-reminder.test.mjs
           node test/fundamental-research.test.mjs
           node test/fundamental-cycle.test.mjs
