@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import {runFundamentalCycle,resultVerified} from '../worker/fundamental-cycle.mjs';
+import {runFundamentalCycle,resultVerified,inspectUncertainDeliveries} from '../worker/fundamental-cycle.mjs';
 const now=Date.parse('2026-11-06T00:00:00Z');
 const event={title:'CPI',country:'USD',impact:'Low',date:new Date(now+29*60000).toISOString(),forecast:'2.4%',previous:'2.3%',actual:''};
 const db=new Map();let sends=0;
@@ -24,4 +24,6 @@ current=[e2];fail=true;
 a=await runFundamentalCycle(env,{now,fetchImpl});assert.equal(a.uncertain,1);
 fail=false;a=await runFundamentalCycle(env,{now,fetchImpl});assert.equal(a.skipped,2);
 assert.equal(sends,4);
+const inspection=await inspectUncertainDeliveries({REMINDER_DB:{prepare(sql){assert.match(sql,/status='uncertain'/);return {all:async()=>({results:[{event_key:'sample',lease_until:1,attempts:1}]})};}}});
+assert.equal(inspection[0].requiresManualReconciliation,true);
 console.log('PASS daily, T-30, T-10, verified results, pending, dedupe, uncertain and disabled delivery');
