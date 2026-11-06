@@ -595,7 +595,15 @@
     "https://nfs.faireconomy.media/ff_calendar_thisweek.json"
   ];
   var liveCalendarTimer = null, lastLiveCalendarSignature = "";
-  var LIVE_CALENDAR_SOURCE_TIMEOUT_MS = 2500;
+  var LIVE_CALENDAR_SOURCE_TIMEOUT_MS = 8000;
+  var LIVE_CALENDAR_MAX_AGE_MS = 120000;
+  var liveCalendarStatus = {state:"initializing", source:null, checkedAt:null, fetchedAt:null, rows:null, error:null};
+  function publishCalendarStatus(next) {
+    liveCalendarStatus = next;
+    try { localStorage.setItem("xau-live-calendar-sync", JSON.stringify(next)); } catch (e) {}
+    var el = document.getElementById("calendar-source-status");
+    if (el) el.textContent = "Calendar: " + next.state + (next.rows == null ? "" : " · " + next.rows + " events") + (next.source ? " · " + next.source : "") + (next.fetchedAt ? " · fetched " + next.fetchedAt : "") + (next.error ? " · " + next.error : "");
+  }
   var DATA_CACHE_PREFIX = "xau-data-cache:";
   function sandboxEvalDataFile(text, globalName) {
     var win = {};
@@ -746,7 +754,6 @@
   }
   function applyLiveCalendar(events, fetchedAt, sourceLabel) {
     var rows = (events || []).map(function (e) { return liveCalendarRow(e, fetchedAt, sourceLabel); }).filter(Boolean);
-    if (!rows.length) return false;
     var signature = JSON.stringify(rows.map(function (e) { return [e.event, e.timeGmt, e.importance, e.actual, e.forecast, e.previous]; }));
     var changed = signature !== lastLiveCalendarSignature;
     lastLiveCalendarSignature = signature;
@@ -776,7 +783,7 @@
       return r.json();
     }).then(function (body) {
       var events = Array.isArray(body) ? body : body.events;
-      if (!Array.isArray(events)) throw new Error("shape invalid");
+      if (!Array.isArray(events) || events.length > 1000) throw new Error("shape invalid");
       return {
         events: events,
         fetchedAt: (body && body.fetchedAt) || new Date().toISOString(),
@@ -810,9 +817,14 @@
   function fetchLiveCalendar() {
     return fetchLiveCalendarSource(0, []).then(function (result) {
       try { localStorage.setItem("xau-live-calendar-source", JSON.stringify({ url: result.sourceUrl, at: result.fetchedAt })); } catch (x) {}
-      return applyLiveCalendar(result.events, result.fetchedAt, result.sourceLabel);
+      var checkedAt = new Date().toISOString();
+      var parsedTime = Date.parse(result.fetchedAt);
+      if (!Number.isFinite(parsedTime) || parsedTime > Date.now() + 60000 || Date.now() - parsedTime > LIVE_CALENDAR_MAX_AGE_MS) throw new Error("stale or invalid calendar timestamp");
+      var changed = applyLiveCalendar(result.events, result.fetchedAt, result.sourceLabel);
+      publishCalendarStatus({state: result.events.length ? "fresh" : "empty", source:result.sourceUrl, checkedAt:checkedAt, fetchedAt:result.fetchedAt, rows:result.events.length, error:null});
+      return changed;
     }).catch(function (e) {
-      try { localStorage.setItem("xau-live-calendar-sync", JSON.stringify({ checkedAt: new Date().toISOString(), error: e.message })); } catch (x) {}
+      publishCalendarStatus({state:"unavailable",source:null,checkedAt:new Date().toISOString(),fetchedAt:liveCalendarStatus.fetchedAt,rows:liveCalendarStatus.rows,error:e.message});
       return false;
     });
   }
