@@ -19,6 +19,7 @@ const context = {
   localStorage:{setItem:(k,v)=>writes.set(k,JSON.parse(v))},
   document:{getElementById:()=>el},
   lastLiveCalendarSignature:'',
+  liveCalendarValidated:false,
   renderAll:()=>{context.renders++},
   renders:0,
   liveCalendarRow:e=>e,
