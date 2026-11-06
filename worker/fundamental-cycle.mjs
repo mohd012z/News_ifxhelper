@@ -29,6 +29,11 @@ export async function inspectUncertainDeliveries(env){
  if(!Array.isArray(rows.results))throw Error('Invalid D1 response');
  return rows.results.map(r=>({eventKey:r.event_key,leaseUntil:r.lease_until,attempts:r.attempts,requiresManualReconciliation:true}));
 }
+export async function reconcileConfirmedDelivery(env,{eventKey,messageId}){
+ if(!env.REMINDER_DB||typeof eventKey!=='string'||!eventKey||!Number.isSafeInteger(messageId)||messageId<=0)throw Error('Verified Telegram message evidence required');
+ const saved=await env.REMINDER_DB.prepare("UPDATE reminder_delivery SET status='sent',lease_until=0,message_id=? WHERE event_key=? AND status='uncertain'").bind(String(messageId),eventKey).run();
+ return {reconciled:saved.meta?.changes===1};
+}
 export async function runFundamentalCycle(env,{now=Date.now(),fetchImpl=fetch,officialResolver=null}={}){
  if(env.ENABLE_FUNDAMENTAL_DELIVERY!=='true')return {disabled:true};
  const project=env.FUNDAMENTAL_PROJECT;
