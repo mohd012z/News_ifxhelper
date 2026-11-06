@@ -21,7 +21,7 @@ current=[{...event,actual:'2.5%',verifiedSource:'official',verifiedAt:new Date(n
 a=await runFundamentalCycle(env,{now:now+31*60000,fetchImpl});assert.equal(a.pending,1);
 a=await runFundamentalCycle(env,{now:now+31*60000,fetchImpl,officialResolver});assert.equal(a.sent,1);
 assert.match(telegramMessages.at(-1),/HAWKISH/);
-assert.match(telegramMessages.at(-1),/https:\/\/www\\.bls\\.gov\//);
+assert(telegramMessages.at(-1).includes('Source URL: https://www.bls.gov/'));
 assert.match(telegramMessages.at(-1),/independent source authentication not established/);
 a=await runFundamentalCycle(env,{now:now+31*60000,fetchImpl,officialResolver});assert.equal(a.skipped,2);
 const e2={...event,title:'PCE',date:new Date(now+29*60000).toISOString()};
