@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS reminder_delivery (event_key TEXT PRIMARY KEY, status TEXT NOT NULL CHECK(status IN ('sending','sent','uncertain')), lease_until INTEGER NOT NULL, attempts INTEGER NOT NULL DEFAULT 0, message_id TEXT);
