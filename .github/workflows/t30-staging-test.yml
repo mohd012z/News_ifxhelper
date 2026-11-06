@@ -23,6 +23,8 @@ jobs:
           node-version: '20'
       - name: Static module checks
         run: |
+          node --check worker/fundamental-cycle.mjs
+          node --check test/fundamental-cycle.test.mjs
           node --check worker/fundamental-research.mjs
           node --check test/fundamental-research.test.mjs
           node --check worker/reminder.mjs
@@ -32,3 +34,4 @@ jobs:
         run: |
           node test/t30-reminder.test.mjs
           node test/fundamental-research.test.mjs
+          node test/fundamental-cycle.test.mjs
