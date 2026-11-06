@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import {runFundamentalCycle} from '../worker/fundamental-cycle.mjs';
+import {runFundamentalCycle,resultVerified} from '../worker/fundamental-cycle.mjs';
 const now=Date.parse('2026-11-06T00:00:00Z');
 const event={title:'CPI',country:'USD',impact:'Low',date:new Date(now+29*60000).toISOString(),forecast:'2.4%',previous:'2.3%',actual:''};
 const db=new Map();let sends=0;
@@ -14,6 +14,9 @@ assert.equal(sends,2);
 a=await runFundamentalCycle(env,{now:now+19*60000,fetchImpl});assert.equal(a.sent,1);
 a=await runFundamentalCycle(env,{now:now+31*60000,fetchImpl});assert.equal(a.pending,1);
 current=[{...event,actual:'2.5%'}];
+a=await runFundamentalCycle(env,{now:now+31*60000,fetchImpl});assert.equal(a.pending,1);
+assert.equal(resultVerified({...event,actual:'2.5%'}),false);
+current=[{...event,actual:'2.5%',verifiedSource:'official',verifiedAt:new Date(now+30*60000).toISOString()}];
 a=await runFundamentalCycle(env,{now:now+31*60000,fetchImpl});assert.equal(a.sent,1);
 a=await runFundamentalCycle(env,{now:now+31*60000,fetchImpl});assert.equal(a.skipped,1);
 const e2={...event,title:'PCE',date:new Date(now+29*60000).toISOString()};
