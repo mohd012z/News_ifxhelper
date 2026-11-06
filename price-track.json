@@ -3484,9 +3484,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-06T20:06:09.187Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T20:06:09.366Z",
+          "price": 4071.5,
+          "realizedPct": 0.182
         },
         {
           "key": "D1",
@@ -3575,9 +3575,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-06T20:06:09.187Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T20:06:09.366Z",
+          "price": 75769.04,
+          "realizedPct": 0.255
         },
         {
           "key": "D1",
@@ -3666,9 +3666,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-06T20:06:09.187Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T20:06:09.366Z",
+          "price": 1.1142,
+          "realizedPct": -0.081
         },
         {
           "key": "D1",
@@ -3698,7 +3698,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.018,
-        "maePct": 0
+        "maePct": -0.081
       }
     },
     {
@@ -3741,9 +3741,9 @@
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-06T19:36:11.398Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T20:06:09.366Z",
+          "price": 4071.5,
+          "realizedPct": -0.306
         },
         {
           "key": "H1",
@@ -3789,7 +3789,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.162,
-        "maePct": -0.162
+        "maePct": -0.306
       }
     },
     {
@@ -3832,9 +3832,9 @@
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-06T19:36:11.398Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T20:06:09.366Z",
+          "price": 4071.5,
+          "realizedPct": -0.306
         },
         {
           "key": "H1",
@@ -3880,7 +3880,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.162,
-        "maePct": -0.162
+        "maePct": -0.306
       }
     },
     {
@@ -3923,9 +3923,9 @@
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-06T19:36:11.399Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T20:06:09.367Z",
+          "price": 75769.04,
+          "realizedPct": 0.135
         },
         {
           "key": "H1",
@@ -3970,7 +3970,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": -0.139,
+        "mfePct": 0.135,
         "maePct": -0.139
       }
     },
@@ -4014,9 +4014,9 @@
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-06T19:36:11.399Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T20:06:09.367Z",
+          "price": 75769.04,
+          "realizedPct": 0.135
         },
         {
           "key": "H1",
@@ -4061,7 +4061,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": -0.139,
+        "mfePct": 0.135,
         "maePct": -0.139
       }
     },
@@ -4105,9 +4105,9 @@
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-06T19:36:11.399Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T20:06:09.367Z",
+          "price": 1.1142,
+          "realizedPct": -0.045
         },
         {
           "key": "H1",
@@ -4153,7 +4153,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.018,
-        "maePct": -0.018
+        "maePct": -0.045
       }
     },
     {
@@ -4196,9 +4196,9 @@
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-06T19:36:11.399Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T20:06:09.367Z",
+          "price": 1.1142,
+          "realizedPct": -0.045
         },
         {
           "key": "H1",
@@ -4244,8 +4244,266 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.018,
-        "maePct": -0.018
+        "maePct": -0.045
       }
+    },
+    {
+      "key": "news:gold:Malaysian Ringgit: Range consolidation view against US Dollar – Commerzbank",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Malaysian Ringgit: Range consolidation view against US Dollar – Commerzbank",
+      "url": "https://www.fxstreet.com/news/malaysian-ringgit-range-consolidation-view-against-us-dollar-commerzbank-202611061938",
+      "impactScore": -0.12,
+      "priceSource": "yahoo:GC=F",
+      "priceSymbol": "GC=F",
+      "priceAtDetect": 4071.5,
+      "createdAt": "2026-11-06T20:06:09.367Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-06T20:07:09.367Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-06T20:11:09.367Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-06T20:21:09.367Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-06T20:36:09.367Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-06T21:06:09.367Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-07T00:06:09.367Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-07T20:06:09.367Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-13T20:06:09.367Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-06T20:06:09.367Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:crypto:Malaysian Ringgit: Range consolidation view against US Dollar – Commerzbank",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Malaysian Ringgit: Range consolidation view against US Dollar – Commerzbank",
+      "url": "https://www.fxstreet.com/news/malaysian-ringgit-range-consolidation-view-against-us-dollar-commerzbank-202611061938",
+      "impactScore": -0.14,
+      "priceSource": "coinbase:BTC-USD",
+      "priceSymbol": "BTC-USD",
+      "priceAtDetect": 75769.04,
+      "createdAt": "2026-11-06T20:06:09.367Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-06T20:07:09.367Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-06T20:11:09.367Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-06T20:21:09.367Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-06T20:36:09.367Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-06T21:06:09.367Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-07T00:06:09.367Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-07T20:06:09.367Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-13T20:06:09.367Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-06T20:06:09.367Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:forex:Malaysian Ringgit: Range consolidation view against US Dollar – Commerzbank",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Malaysian Ringgit: Range consolidation view against US Dollar – Commerzbank",
+      "url": "https://www.fxstreet.com/news/malaysian-ringgit-range-consolidation-view-against-us-dollar-commerzbank-202611061938",
+      "impactScore": -0.15,
+      "priceSource": "yahoo:EURUSD=X",
+      "priceSymbol": "EURUSD=X",
+      "priceAtDetect": 1.1142,
+      "createdAt": "2026-11-06T20:06:09.367Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-06T20:07:09.367Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-06T20:11:09.367Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-06T20:21:09.367Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-06T20:36:09.367Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-06T21:06:09.367Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-07T00:06:09.367Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-07T20:06:09.367Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-13T20:06:09.367Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-06T20:06:09.367Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
     }
   ],
   "results": [
