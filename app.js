@@ -595,6 +595,8 @@
     "https://nfs.faireconomy.media/ff_calendar_thisweek.json"
   ];
   var liveCalendarTimer = null, lastLiveCalendarSignature = "";
+  var liveCalendarRequestId = 0;
+  var liveCalendarValidated = false;
   var LIVE_CALENDAR_SOURCE_TIMEOUT_MS = 8000;
   var LIVE_CALENDAR_MAX_AGE_MS = 120000;
   var liveCalendarStatus = {state:"initializing", source:null, checkedAt:null, fetchedAt:null, rows:null, error:null};
@@ -650,6 +652,10 @@
       T = D.tabs.filter(function (t) { return t.id === activeId; })[0] || D.tabs[0];
     }
     if (remoteNewsAuto) {
+      if (liveCalendarValidated) {
+        remoteNewsAuto.calendarAll = (remoteNewsAuto.calendarAll || []).filter(function (e) { return e.sourceHorizon !== "this-week"; }).concat((window.NEWS_AUTO && window.NEWS_AUTO.calendarAll || []).filter(function (e) { return e.sourceHorizon === "this-week"; }));
+        remoteNewsAuto.incoming = (remoteNewsAuto.incoming || []).filter(function (e) { return e.sourceHorizon !== "this-week"; }).concat((window.NEWS_AUTO && window.NEWS_AUTO.incoming || []).filter(function (e) { return e.sourceHorizon === "this-week"; }));
+      }
       window.NEWS_AUTO = remoteNewsAuto;
       function replaceAuto(list, extra, key) {
         var base = (list || []).filter(function (x) { return !x.auto; });
@@ -657,6 +663,7 @@
         return base.concat((extra || []).filter(function (x) { return x[key] && !seen[x[key]]; }));
       }
       D.incoming = replaceAuto(D.incoming, remoteNewsAuto.incoming, "event");
+      if (liveCalendarValidated) D.incoming = D.incoming.filter(function (e) { return e.sourceHorizon !== "this-week"; }).concat(remoteNewsAuto.incoming.filter(function (e) { return e.sourceHorizon === "this-week"; }));
       (D.tabs || []).forEach(function (t) {
         var by = remoteNewsAuto.byTab && remoteNewsAuto.byTab[t.id]; if (!by) return;
         t.news = replaceAuto(t.news, by.news, "title");
@@ -755,6 +762,7 @@
   function applyLiveCalendar(events, fetchedAt, sourceLabel) {
     var rows = (events || []).map(function (e) { return liveCalendarRow(e, fetchedAt, sourceLabel); }).filter(Boolean);
     var signature = JSON.stringify(rows.map(function (e) { return [e.event, e.timeGmt, e.importance, e.actual, e.forecast, e.previous]; }));
+    if (!liveCalendarValidated) { lastLiveCalendarSignature = ""; liveCalendarValidated = true; }
     var changed = signature !== lastLiveCalendarSignature;
     lastLiveCalendarSignature = signature;
 
@@ -815,15 +823,20 @@
     });
   }
   function fetchLiveCalendar() {
+    var requestId = ++liveCalendarRequestId;
     return fetchLiveCalendarSource(0, []).then(function (result) {
-      try { localStorage.setItem("xau-live-calendar-source", JSON.stringify({ url: result.sourceUrl, at: result.fetchedAt })); } catch (x) {}
+      if (requestId !== liveCalendarRequestId) return false;
       var checkedAt = new Date().toISOString();
       var parsedTime = Date.parse(result.fetchedAt);
       if (!Number.isFinite(parsedTime) || parsedTime > Date.now() + 60000 || Date.now() - parsedTime > LIVE_CALENDAR_MAX_AGE_MS) throw new Error("stale or invalid calendar timestamp");
+      try { localStorage.setItem("xau-live-calendar-source", JSON.stringify({ url: result.sourceUrl, at: result.fetchedAt })); } catch (x) {}
+      var validRows = result.events.filter(function (e) { return liveCalendarRow(e, result.fetchedAt, result.sourceLabel); });
+      if (result.events.length && !validRows.length) throw new Error("calendar contains no parseable events");
       var changed = applyLiveCalendar(result.events, result.fetchedAt, result.sourceLabel);
       publishCalendarStatus({state: result.events.length ? "fresh" : "empty", source:result.sourceUrl, checkedAt:checkedAt, fetchedAt:result.fetchedAt, rows:result.events.length, error:null});
       return changed;
     }).catch(function (e) {
+      if (requestId !== liveCalendarRequestId) return false;
       publishCalendarStatus({state:"unavailable",source:null,checkedAt:new Date().toISOString(),fetchedAt:liveCalendarStatus.fetchedAt,rows:liveCalendarStatus.rows,error:e.message});
       return false;
     });
