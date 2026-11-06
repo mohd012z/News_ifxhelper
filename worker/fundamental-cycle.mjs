@@ -7,7 +7,7 @@ export function briefingDue(now){const local=new Intl.DateTimeFormat('en-GB',{ti
 export function phaseDue(event,now){const delta=(event.time-now)/60000;if(delta>25&&delta<=30)return 'T-30';if(delta>5&&delta<=10)return 'T-10';if(delta<=0&&delta>=-1440)return 'RESULT';return null;}
 function textFor(event,phase,project){
  const assets=instruments(event,project).join(', ');
- if(phase==='RESULT')return '📊 <b>Verified event result</b>\n'+esc(event.title)+' ('+esc(event.currency)+')\nActual: '+esc(event.actual)+' | Forecast: '+esc(event.forecast??'N/A')+' | Previous: '+esc(event.previous??'N/A')+'\nPolicy hint: '+esc(stance(event).bias)+' (preliminary)\nMarkets: '+esc(assets);
+ if(phase==='RESULT'){const hint=stance(event);const source=event.officialUrl||'';return '📊 <b>Economic release — source reported</b>\n'+esc(event.title)+' ('+esc(event.currency)+')\nActual: '+esc(event.actual)+' | Forecast: '+esc(event.forecast??'N/A')+' | Previous: '+esc(event.previous??'N/A')+'\n🧭 Data hint: <b>'+esc(hint.bias.toUpperCase())+'</b> (preliminary)\nEvidence: '+esc(hint.reason)+'\nSource URL: '+esc(source)+'\nSource timestamp (UTC): '+esc(event.verifiedAt)+'\nVerification: source attribution supplied; independent source authentication not established.\nMarkets monitored: '+esc(assets)+'\nNot a central-bank decision or trade recommendation.';}
  return '🔔 <b>'+esc(phase)+' '+esc(event.impact)+' impact</b>\n'+esc(event.title)+' ('+esc(event.currency)+')\nForecast: '+esc(event.forecast??'N/A')+' | Previous: '+esc(event.previous??'N/A')+'\nMarkets: '+esc(assets);
 }
 async function deliver(env,fetchImpl,key,destination,message,now){
