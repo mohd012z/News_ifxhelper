@@ -2,16 +2,16 @@ const FEED='https://nfs.faireconomy.media/ff_calendar_thisweek.json';
 const SOURCE='https://www.forexfactory.com/calendar';
 const esc=x=>String(x).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 export function normalize(e){
- if(!e||e.impact!=='High'||typeof e.title!=='string'||!e.title.trim()||typeof e.date!=='string'||!/(Z|[+-]\d\d:\d\d)$/.test(e.date))return null;
+ if(!e||!['Low','Medium','High'].includes(e.impact)||typeof e.title!=='string'||!e.title.trim()||typeof e.date!=='string'||!/(Z|[+-]\d\d:\d\d)$/.test(e.date))return null;
  const time=Date.parse(e.date);
  if(!Number.isFinite(time)||!['USD','CAD','EUR','GBP','JPY','CNY','AUD','NZD','CHF'].includes(e.country))return null;
- return {title:e.title.trim(),currency:e.country,time,forecast:e.forecast??null,previous:e.previous??null};
+ return {title:e.title.trim(),currency:e.country,impact:e.impact,time,forecast:e.forecast??null,previous:e.previous??null};
 }
 export function due(e,now){const minutes=(e.time-now)/60000;return minutes>25&&minutes<=30;}
 export function eventKey(e,destination){return JSON.stringify([e.currency,e.title.toLowerCase(),e.time,destination]);}
 export function format(e){
  const myt=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Kuala_Lumpur',year:'numeric',month:'short',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).format(e.time);
- return '🔔 <b>High-impact economic reminder — T−30</b>\n<b>'+esc(e.currency)+': '+esc(e.title)+'</b>\n🕒 '+myt+' MYT\nForecast: '+esc(e.forecast??'Not published')+' | Previous: '+esc(e.previous??'Not published')+'\nAffected assets: XAUUSD, oil, BTCUSD (relevance varies)\nConfirmed: Scheduled calendar event; time subject to change.\nInterpretation: Volatility may rise; direction is uncertain. No trade signal.\nSource: '+SOURCE;
+ return '🔔 <b>Economic reminder — T−30</b>\n<b>'+esc(e.currency)+': '+esc(e.title)+'</b>\n🕒 '+myt+' MYT\nForecast: '+esc(e.forecast??'Not published')+' | Previous: '+esc(e.previous??'Not published')+'\nAffected assets: XAUUSD, BTCUSD (USD macro relevance only)\nConfirmed: Scheduled calendar event; time subject to change.\nInterpretation: Volatility may rise; direction is uncertain. No trade signal.\nSource: '+SOURCE;
 }
 export async function runReminders(env,{now=Date.now(),fetchImpl=fetch}={}){
  if(!env.REMINDER_DB||!env.TELEGRAM_BOT_TOKEN||!env.TELEGRAM_CHAT_ID)throw Error('Missing REMINDER_DB or Telegram credentials');
@@ -22,7 +22,7 @@ export async function runReminders(env,{now=Date.now(),fetchImpl=fetch}={}){
  const destinations=[...new Set([env.TELEGRAM_CHAT_ID,env.TELEGRAM_CHANNEL_ID].filter(Boolean))];
  let sent=0,skipped=0,failed=0;
  for(const raw of events.slice(0,1000)){
-  const e=normalize(raw);if(!e||!due(e,now))continue;
+  const e=normalize(raw);if(!e||e.currency!=='USD'||!due(e,now))continue;
   for(const destination of destinations){
    const key=eventKey(e,destination);
    const claim=await env.REMINDER_DB.prepare("INSERT OR IGNORE INTO reminder_delivery (event_key,status,lease_until,attempts) VALUES (?,'sending',?,1)").bind(key,now+120000).run();
