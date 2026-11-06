@@ -1,7 +1,14 @@
-name = "gentle-violet-4a79"
+name = "ifxhelper-t30-staging"
 main = "worker/index.mjs"
 compatibility_date = "2026-10-01"
 workers_dev = true
 
 [observability]
 enabled = true
+
+# Staging only. No production cron is modified by this branch.
+[triggers]
+crons = ["*/5 * * * *"]
+
+[vars]
+ENABLE_T30_REMINDERS = "false"
