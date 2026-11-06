@@ -47,4 +47,18 @@ assert.match(source,/Date\.now\(\) \+ 60000/,'future timestamp bound required');
 assert.match(source,/Date\.now\(\) - parsedTime > LIVE_CALENDAR_MAX_AGE_MS/,'stale timestamp bound required');
 assert.match(source,/stale or invalid calendar timestamp/);
 assert.match(source,/if \(!Array\.isArray\(events\) \|\| events\.length > 1000\)/);
+
+const safetyContext = {window:{NEWS_AUTO:{generatedAt:'2026-11-06 00:00:00Z'}},Date,Number,parseEventTime:(v)=>new Date(v),NEWS_MAX_AGE_MS:6*3600000,EVENT_ALERT_EXPIRY_MS:30*60000};
+vm.createContext(safetyContext);
+vm.runInContext(functionSource('newsSnapshotStatus')+'\n'+functionSource('eventAlertEligible'),safetyContext);
+assert.equal(safetyContext.newsSnapshotStatus(new Date('2026-11-06T05:59:59Z')),'CURRENT SNAPSHOT');
+assert.equal(safetyContext.newsSnapshotStatus(new Date('2026-11-06T06:00:01Z')),'HISTORICAL');
+safetyContext.window.NEWS_AUTO.generatedAt='invalid';
+assert.equal(safetyContext.newsSnapshotStatus(new Date('2026-11-06T06:00:01Z')),'UNVERIFIED');
+assert.equal(safetyContext.eventAlertEligible({timeGmt:'2026-11-06T00:00:00Z'},new Date('2026-11-06T00:30:00Z')),true);
+assert.equal(safetyContext.eventAlertEligible({timeGmt:'2026-11-06T00:00:00Z'},new Date('2026-11-06T00:30:01Z')),false);
+assert.equal(safetyContext.eventAlertEligible({timeGmt:'bad'},new Date()),false);
+assert.match(source,/liveCalendarStatus\.state === "fresh"/);
+assert.match(source,/HISTORICAL \/ UNVERIFIED/);
+
 console.log('PASS calendar empty-state reconciliation, retained month, freshness status, timeout and schema gates');
