@@ -16,4 +16,8 @@ assert.notEqual(deliveryKey('helix',e,'a','T-30'),deliveryKey('helix',e,'a','T-1
 assert(!normalizeEvent({...e,date:'2026-11-06T13:30:00'}));
 assert.deepEqual(instruments({...e,currency:'JPY'},'news_ifxhelper'),[]);
 assert.equal(stance({...e,actual:null}).bias,'Unverified');
+assert.equal(stance({...e,actual:'2.9%',forecast:'2.8%'}).bias,'Hawkish');
+assert.equal(stance({...e,actual:'2.7%',forecast:'2.8%'}).bias,'Dovish');
+assert.equal(stance({...e,title:'Unemployment Rate',actual:'4.3%',forecast:'4.1%'}).bias,'Dovish');
+assert.equal(stance({...e,actual:'unavailable',forecast:'2.8%'}).bias,'Unverified');
 console.log('PASS fundamental routing, MYT schedule, impact, result verification, stance, dedupe');
