@@ -83,11 +83,25 @@ async function liveCalendar() {
       }
     });
   }
-  const events = await upstream.json();
+  let events;
+  try {
+    events = await upstream.json();
+  } catch {
+    return new Response(JSON.stringify({error: "calendar upstream returned invalid JSON"}), {
+      status: 502,
+      headers: {"Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store", "Access-Control-Allow-Origin": "*"}
+    });
+  }
+  if (!Array.isArray(events) || events.length > 1000) {
+    return new Response(JSON.stringify({error: "calendar upstream returned invalid event collection"}), {
+      status: 502,
+      headers: {"Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store", "Access-Control-Allow-Origin": "*"}
+    });
+  }
   return new Response(JSON.stringify({
     fetchedAt: new Date().toISOString(),
     source: "ForexFactory current-week structured feed",
-    events: Array.isArray(events) ? events : []
+    events
   }), {
     status: 200,
     headers: {
