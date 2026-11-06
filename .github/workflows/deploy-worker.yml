@@ -39,7 +39,7 @@ jobs:
           const crypto=require('crypto');
           const base='https://gentle-violet-4a79.ifxhelper.workers.dev';
           const raw='https://raw.githubusercontent.com/mohd012z/News_ifxhelper/main/';
-          const expectedWorkerVersion='2026-10-09-live-proxy-v2';
+          const expectedWorkerVersion='2026-11-04-research-agent-v1';
 
           async function fetchText(url,type){
             const r=await fetch(url+(url.includes('?')?'&':'?')+'_verify='+Date.now(),{cache:'no-store'});
