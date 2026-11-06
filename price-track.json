@@ -3749,9 +3749,9 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-06T20:06:11.398Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T20:33:07.171Z",
+          "price": 4071.8,
+          "realizedPct": -0.299
         },
         {
           "key": "H4",
@@ -3840,9 +3840,9 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-06T20:06:11.398Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T20:33:07.171Z",
+          "price": 4071.8,
+          "realizedPct": -0.299
         },
         {
           "key": "H4",
@@ -3931,9 +3931,9 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-06T20:06:11.399Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T20:33:07.171Z",
+          "price": 75757.22,
+          "realizedPct": 0.119
         },
         {
           "key": "H4",
@@ -4022,9 +4022,9 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-06T20:06:11.399Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T20:33:07.171Z",
+          "price": 75757.22,
+          "realizedPct": 0.119
         },
         {
           "key": "H4",
@@ -4113,9 +4113,9 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-06T20:06:11.399Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T20:33:07.171Z",
+          "price": 1.1141,
+          "realizedPct": -0.054
         },
         {
           "key": "H4",
@@ -4153,7 +4153,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.018,
-        "maePct": -0.045
+        "maePct": -0.054
       }
     },
     {
@@ -4204,9 +4204,9 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-06T20:06:11.399Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T20:33:07.171Z",
+          "price": 1.1141,
+          "realizedPct": -0.054
         },
         {
           "key": "H4",
@@ -4244,7 +4244,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.018,
-        "maePct": -0.045
+        "maePct": -0.054
       }
     },
     {
@@ -4263,25 +4263,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-06T20:07:09.367Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T20:33:07.171Z",
+          "price": 4071.8,
+          "realizedPct": 0.007
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-06T20:11:09.367Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T20:33:07.171Z",
+          "price": 4071.8,
+          "realizedPct": 0.007
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-06T20:21:09.367Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T20:33:07.171Z",
+          "price": 4071.8,
+          "realizedPct": 0.007
         },
         {
           "key": "M30",
@@ -4331,7 +4331,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.007,
+        "maePct": 0.007
+      }
     },
     {
       "key": "news:crypto:Malaysian Ringgit: Range consolidation view against US Dollar – Commerzbank",
@@ -4349,25 +4354,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-06T20:07:09.367Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T20:33:07.171Z",
+          "price": 75757.22,
+          "realizedPct": -0.016
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-06T20:11:09.367Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T20:33:07.171Z",
+          "price": 75757.22,
+          "realizedPct": -0.016
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-06T20:21:09.367Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T20:33:07.171Z",
+          "price": 75757.22,
+          "realizedPct": -0.016
         },
         {
           "key": "M30",
@@ -4417,7 +4422,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.016,
+        "maePct": -0.016
+      }
     },
     {
       "key": "news:forex:Malaysian Ringgit: Range consolidation view against US Dollar – Commerzbank",
@@ -4435,25 +4445,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-06T20:07:09.367Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T20:33:07.171Z",
+          "price": 1.1141,
+          "realizedPct": -0.009
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-06T20:11:09.367Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T20:33:07.171Z",
+          "price": 1.1141,
+          "realizedPct": -0.009
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-06T20:21:09.367Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-06T20:33:07.171Z",
+          "price": 1.1141,
+          "realizedPct": -0.009
         },
         {
           "key": "M30",
@@ -4503,7 +4513,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.009,
+        "maePct": -0.009
+      }
     }
   ],
   "results": [
