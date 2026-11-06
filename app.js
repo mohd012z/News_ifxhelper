@@ -1300,6 +1300,19 @@
     $("#net-sig").style.color = s.netPct > 0 ? "var(--good)" : "var(--bad)";
     $("#net-note").textContent = s.netNote || "";
   }
+  var NEWS_MAX_AGE_MS = 6 * 3600000;
+  var EVENT_ALERT_EXPIRY_MS = 30 * 60000;
+  function newsSnapshotStatus(now) {
+    var src = window.NEWS_AUTO || {};
+    var stamp = Date.parse(String(src.generatedAt || "").replace(" ", "T"));
+    if (!Number.isFinite(stamp) || stamp > now.getTime() + 60000) return "UNVERIFIED";
+    return now.getTime() - stamp > NEWS_MAX_AGE_MS ? "HISTORICAL" : "CURRENT SNAPSHOT";
+  }
+  function eventAlertEligible(e, now) {
+    var t = parseEventTime(e.timeGmt);
+    if (!t || !Number.isFinite(t.getTime())) return false;
+    return t.getTime() >= now.getTime() - EVENT_ALERT_EXPIRY_MS;
+  }
   function calendarAlertRows(view) {
     var now = new Date();
     var items = fullCalendarRows()
@@ -1331,8 +1344,9 @@
     fill("#alerts-today", today);
     fill("#alerts-week", week);
     fill("#alerts-month", month);
+    var eligibleToday = fullCalendarRows().filter(function (e) { return (e.importance === "high" || e.importance === "med") && eventAlertEligible(e, new Date()); });
     var key = activeId + ":" + today.length + ":" + (today[0] ? today[0].text : "");
-    if (today.length && key !== lastAnnouncedAlerts) {
+    if (today.length && eligibleToday.length && liveCalendarStatus.state === "fresh" && key !== lastAnnouncedAlerts) {
       lastAnnouncedAlerts = key;
       fireAlert(today.length + (today.length === 1 ? " event" : " events") + " today — " + T.label, today[0].text);
     }
@@ -1465,7 +1479,7 @@
     var sortedAll = all.slice().sort(function (a, b) { return calendarSortMs(a) - calendarSortMs(b); });
     var nextEvent = null;
     sortedAll.some(function (it) { if (it.t && it.t.getTime() >= now.getTime()) { nextEvent = it; return true; } return false; });
-    if (nextEvent) {
+    if (nextEvent && liveCalendarStatus.state === "fresh") {
       var ne = nextEvent.e, nkey = activeId + ":" + ne.event + ":" + ne.timeGmt;
       if (nkey !== lastAnnouncedNext) {
         lastAnnouncedNext = nkey;
@@ -1480,7 +1494,7 @@
     var status = $("#calendar-source-status");
     if (status) {
       var a = window.NEWS_AUTO || {}, hz = (a.calendarHorizon || {}).loaded || [];
-      status.textContent = "Snapshot " + (a.generatedAt || "bundled") + (a.calendarGeneratedAt ? " · calendar " + a.calendarGeneratedAt : "") + (a.liveGeneratedAt ? " · live " + a.liveGeneratedAt : "") + " · horizon " + (hz.length ? hz.join(" + ") : "loaded calendar only") + (a.calendarHorizon && a.calendarHorizon.live ? " · " + a.calendarHorizon.live : "") + (a.calendarHorizon && a.calendarHorizon.heartbeat ? " · " + a.calendarHorizon.heartbeat : "") + (incomingView === "month" ? " · month view includes only events present in the loaded horizon" : "");
+      status.textContent = "News " + newsSnapshotStatus(now) + " · calendar " + liveCalendarStatus.state + (liveCalendarStatus.fetchedAt ? " · fetched " + liveCalendarStatus.fetchedAt : "") + (liveCalendarStatus.error ? " · " + liveCalendarStatus.error : "") + " · Snapshot " + (a.generatedAt || "bundled") + (a.calendarGeneratedAt ? " · calendar " + a.calendarGeneratedAt : "") + (a.liveGeneratedAt ? " · live " + a.liveGeneratedAt : "") + " · horizon " + (hz.length ? hz.join(" + ") : "loaded calendar only") + (a.calendarHorizon && a.calendarHorizon.live ? " · " + a.calendarHorizon.live : "") + (a.calendarHorizon && a.calendarHorizon.heartbeat ? " · " + a.calendarHorizon.heartbeat : "") + (incomingView === "month" ? " · month view includes only events present in the loaded horizon" : "");
     }
 
     var lastDay = null;
@@ -1492,9 +1506,11 @@
       var isSoon = it.t && it.t.getTime() - now.getTime() <= 2 * 3600000 && it.t.getTime() >= now.getTime();
       var isNext = nextEvent && e.event === nextEvent.e.event && e.timeGmt === nextEvent.e.timeGmt;
       var lead = e.reminderLeadMin != null ? " · alert ~" + e.reminderLeadMin + "m" : "";
+      var provenanceLabel = e.sourceClass === "LIVE_CALENDAR_PROXY" && liveCalendarStatus.state === "fresh" ? "LIVE FEED · UNVERIFIED RESULT" : "HISTORICAL / UNVERIFIED";
       box.insertAdjacentHTML("beforeend",
         '<div class="inc"><div class="hd"><div>' + (isNext ? '<span class="badge b-hawk" style="margin-right:6px">NEXT</span>' : "") + '<span class="nm">' + esc(e.event) + '</span> <span class="rl' + (isSoon ? " countdown-live" : "") + '">· ' + esc(when) + "</span></div>" +
         '<div style="display:flex;gap:6px;align-items:center"><span class="badge ' + impactBadgeClass(e.importance) + '">' + esc((e.importance || "").toUpperCase()) + '</span><span class="badge b-tf">' + esc(e.focusTf || "") + "</span></div></div>" +
+        '<div class="im">' + esc(provenanceLabel) + "</div>" +
         '<div class="im">' + esc(e.note || "") + "</div>" +
         '<div class="mt">' + (it.t
           ? ("MYT " + esc(mytDisplay(e.timeMyt || e.timeSgt)) + "  ·  GMT " + esc(e.timeGmt || "—"))
