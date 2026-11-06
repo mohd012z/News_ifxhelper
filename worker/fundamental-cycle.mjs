@@ -2,6 +2,7 @@ import {normalizeEvent,instruments,morningDue,stage,deliveryKey,stance} from './
 const FEED='https://nfs.faireconomy.media/ff_calendar_thisweek.json';
 const esc=x=>String(x).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 const localDate=ms=>new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Kuala_Lumpur',year:'numeric',month:'2-digit',day:'2-digit'}).format(ms);
+export function resultVerified(event){return event.actual!==null&&String(event.actual).trim()!==''&&event.verifiedSource==='official'&&typeof event.verifiedAt==='string'&&Number.isFinite(Date.parse(event.verifiedAt))&&event.verifiedAt.endsWith('Z')&&Number.isFinite(event.time)&&Date.parse(event.verifiedAt)>=event.time;}
 function textFor(event,phase,project){
  const assets=instruments(event,project).join(', ');
  if(phase==='RESULT')return '📊 <b>Verified event result</b>\n'+esc(event.title)+' ('+esc(event.currency)+')\nActual: '+esc(event.actual)+' | Forecast: '+esc(event.forecast??'N/A')+' | Previous: '+esc(event.previous??'N/A')+'\nPolicy hint: '+esc(stance(event).bias)+' (preliminary)\nMarkets: '+esc(assets);
@@ -27,7 +28,7 @@ export async function runFundamentalCycle(env,{now=Date.now(),fetchImpl=fetch}={
  const res=await fetchImpl(FEED,{signal:AbortSignal.timeout(10000)});
  if(!res.ok)throw Error('Calendar unavailable');
  const raw=await res.json();if(!Array.isArray(raw)||raw.length>1000)throw Error('Invalid feed');
- const events=raw.map(normalizeEvent).filter(e=>e&&instruments(e,project).length);
+ const events=raw.map(item=>{const e=normalizeEvent(item);return e?{...e,verifiedSource:item.verifiedSource??null,verifiedAt:item.verifiedAt??null}:null;}).filter(e=>e&&instruments(e,project).length);
  const destinations=[...new Set([env.TELEGRAM_CHAT_ID,env.TELEGRAM_CHANNEL_ID].filter(Boolean))];
  const report={sent:0,skipped:0,uncertain:0,pending:0};
  for(const destination of destinations){
@@ -39,7 +40,7 @@ export async function runFundamentalCycle(env,{now=Date.now(),fetchImpl=fetch}={
   }
   for(const e of events){
    const phase=stage(e,now);if(!phase)continue;
-   if(phase==='RESULT'&&(e.actual===null||String(e.actual).trim()==='')){report.pending++;continue;}
+   if(phase==='RESULT'&&!resultVerified(e)){report.pending++;continue;}
    const result=await deliver(env,fetchImpl,deliveryKey(project,e,destination,phase),destination,textFor(e,phase,project),now);report[result]++;
   }
  }
