@@ -595,7 +595,17 @@
     "https://nfs.faireconomy.media/ff_calendar_thisweek.json"
   ];
   var liveCalendarTimer = null, lastLiveCalendarSignature = "";
-  var LIVE_CALENDAR_SOURCE_TIMEOUT_MS = 2500;
+  var liveCalendarRequestId = 0;
+  var liveCalendarValidated = false;
+  var LIVE_CALENDAR_SOURCE_TIMEOUT_MS = 8000;
+  var LIVE_CALENDAR_MAX_AGE_MS = 120000;
+  var liveCalendarStatus = {state:"initializing", source:null, checkedAt:null, fetchedAt:null, rows:null, error:null};
+  function publishCalendarStatus(next) {
+    liveCalendarStatus = next;
+    try { localStorage.setItem("xau-live-calendar-sync", JSON.stringify(next)); } catch (e) {}
+    var el = document.getElementById("calendar-source-status");
+    if (el) el.textContent = "Calendar: " + next.state + (next.rows == null ? "" : " · " + next.rows + " events") + (next.source ? " · " + next.source : "") + (next.fetchedAt ? " · fetched " + next.fetchedAt : "") + (next.error ? " · " + next.error : "");
+  }
   var DATA_CACHE_PREFIX = "xau-data-cache:";
   function sandboxEvalDataFile(text, globalName) {
     var win = {};
@@ -642,6 +652,10 @@
       T = D.tabs.filter(function (t) { return t.id === activeId; })[0] || D.tabs[0];
     }
     if (remoteNewsAuto) {
+      if (liveCalendarValidated) {
+        remoteNewsAuto.calendarAll = (remoteNewsAuto.calendarAll || []).filter(function (e) { return e.sourceHorizon !== "this-week"; }).concat((window.NEWS_AUTO && window.NEWS_AUTO.calendarAll || []).filter(function (e) { return e.sourceHorizon === "this-week"; }));
+        remoteNewsAuto.incoming = (remoteNewsAuto.incoming || []).filter(function (e) { return e.sourceHorizon !== "this-week"; }).concat((window.NEWS_AUTO && window.NEWS_AUTO.incoming || []).filter(function (e) { return e.sourceHorizon === "this-week"; }));
+      }
       window.NEWS_AUTO = remoteNewsAuto;
       function replaceAuto(list, extra, key) {
         var base = (list || []).filter(function (x) { return !x.auto; });
@@ -649,6 +663,7 @@
         return base.concat((extra || []).filter(function (x) { return x[key] && !seen[x[key]]; }));
       }
       D.incoming = replaceAuto(D.incoming, remoteNewsAuto.incoming, "event");
+      if (liveCalendarValidated) D.incoming = D.incoming.filter(function (e) { return e.sourceHorizon !== "this-week"; }).concat(remoteNewsAuto.incoming.filter(function (e) { return e.sourceHorizon === "this-week"; }));
       (D.tabs || []).forEach(function (t) {
         var by = remoteNewsAuto.byTab && remoteNewsAuto.byTab[t.id]; if (!by) return;
         t.news = replaceAuto(t.news, by.news, "title");
@@ -746,8 +761,8 @@
   }
   function applyLiveCalendar(events, fetchedAt, sourceLabel) {
     var rows = (events || []).map(function (e) { return liveCalendarRow(e, fetchedAt, sourceLabel); }).filter(Boolean);
-    if (!rows.length) return false;
     var signature = JSON.stringify(rows.map(function (e) { return [e.event, e.timeGmt, e.importance, e.actual, e.forecast, e.previous]; }));
+    if (!liveCalendarValidated) { lastLiveCalendarSignature = ""; liveCalendarValidated = true; }
     var changed = signature !== lastLiveCalendarSignature;
     lastLiveCalendarSignature = signature;
 
@@ -776,7 +791,7 @@
       return r.json();
     }).then(function (body) {
       var events = Array.isArray(body) ? body : body.events;
-      if (!Array.isArray(events)) throw new Error("shape invalid");
+      if (!Array.isArray(events) || events.length > 1000) throw new Error("shape invalid");
       return {
         events: events,
         fetchedAt: (body && body.fetchedAt) || new Date().toISOString(),
@@ -808,11 +823,21 @@
     });
   }
   function fetchLiveCalendar() {
+    var requestId = ++liveCalendarRequestId;
     return fetchLiveCalendarSource(0, []).then(function (result) {
+      if (requestId !== liveCalendarRequestId) return false;
+      var checkedAt = new Date().toISOString();
+      var parsedTime = Date.parse(result.fetchedAt);
+      if (!Number.isFinite(parsedTime) || parsedTime > Date.now() + 60000 || Date.now() - parsedTime > LIVE_CALENDAR_MAX_AGE_MS) throw new Error("stale or invalid calendar timestamp");
       try { localStorage.setItem("xau-live-calendar-source", JSON.stringify({ url: result.sourceUrl, at: result.fetchedAt })); } catch (x) {}
-      return applyLiveCalendar(result.events, result.fetchedAt, result.sourceLabel);
+      var validRows = result.events.filter(function (e) { return liveCalendarRow(e, result.fetchedAt, result.sourceLabel); });
+      if (result.events.length && !validRows.length) throw new Error("calendar contains no parseable events");
+      var changed = applyLiveCalendar(result.events, result.fetchedAt, result.sourceLabel);
+      publishCalendarStatus({state: result.events.length ? "fresh" : "empty", source:result.sourceUrl, checkedAt:checkedAt, fetchedAt:result.fetchedAt, rows:result.events.length, error:null});
+      return changed;
     }).catch(function (e) {
-      try { localStorage.setItem("xau-live-calendar-sync", JSON.stringify({ checkedAt: new Date().toISOString(), error: e.message })); } catch (x) {}
+      if (requestId !== liveCalendarRequestId) return false;
+      publishCalendarStatus({state:"unavailable",source:null,checkedAt:new Date().toISOString(),fetchedAt:liveCalendarStatus.fetchedAt,rows:liveCalendarStatus.rows,error:e.message});
       return false;
     });
   }
@@ -1275,6 +1300,19 @@
     $("#net-sig").style.color = s.netPct > 0 ? "var(--good)" : "var(--bad)";
     $("#net-note").textContent = s.netNote || "";
   }
+  var NEWS_MAX_AGE_MS = 6 * 3600000;
+  var EVENT_ALERT_EXPIRY_MS = 30 * 60000;
+  function newsSnapshotStatus(now) {
+    var src = window.NEWS_AUTO || {};
+    var stamp = Date.parse(String(src.generatedAt || "").replace(" ", "T"));
+    if (!Number.isFinite(stamp) || stamp > now.getTime() + 60000) return "UNVERIFIED";
+    return now.getTime() - stamp > NEWS_MAX_AGE_MS ? "HISTORICAL" : "CURRENT SNAPSHOT";
+  }
+  function eventAlertEligible(e, now) {
+    var t = parseEventTime(e.timeGmt);
+    if (!t || !Number.isFinite(t.getTime())) return false;
+    return t.getTime() >= now.getTime() - EVENT_ALERT_EXPIRY_MS;
+  }
   function calendarAlertRows(view) {
     var now = new Date();
     var items = fullCalendarRows()
@@ -1306,8 +1344,9 @@
     fill("#alerts-today", today);
     fill("#alerts-week", week);
     fill("#alerts-month", month);
+    var eligibleToday = fullCalendarRows().filter(function (e) { return (e.importance === "high" || e.importance === "med") && eventAlertEligible(e, new Date()); });
     var key = activeId + ":" + today.length + ":" + (today[0] ? today[0].text : "");
-    if (today.length && key !== lastAnnouncedAlerts) {
+    if (today.length && eligibleToday.length && liveCalendarStatus.state === "fresh" && key !== lastAnnouncedAlerts) {
       lastAnnouncedAlerts = key;
       fireAlert(today.length + (today.length === 1 ? " event" : " events") + " today — " + T.label, today[0].text);
     }
@@ -1440,7 +1479,7 @@
     var sortedAll = all.slice().sort(function (a, b) { return calendarSortMs(a) - calendarSortMs(b); });
     var nextEvent = null;
     sortedAll.some(function (it) { if (it.t && it.t.getTime() >= now.getTime()) { nextEvent = it; return true; } return false; });
-    if (nextEvent) {
+    if (nextEvent && liveCalendarStatus.state === "fresh") {
       var ne = nextEvent.e, nkey = activeId + ":" + ne.event + ":" + ne.timeGmt;
       if (nkey !== lastAnnouncedNext) {
         lastAnnouncedNext = nkey;
@@ -1455,7 +1494,7 @@
     var status = $("#calendar-source-status");
     if (status) {
       var a = window.NEWS_AUTO || {}, hz = (a.calendarHorizon || {}).loaded || [];
-      status.textContent = "Snapshot " + (a.generatedAt || "bundled") + (a.calendarGeneratedAt ? " · calendar " + a.calendarGeneratedAt : "") + (a.liveGeneratedAt ? " · live " + a.liveGeneratedAt : "") + " · horizon " + (hz.length ? hz.join(" + ") : "loaded calendar only") + (a.calendarHorizon && a.calendarHorizon.live ? " · " + a.calendarHorizon.live : "") + (a.calendarHorizon && a.calendarHorizon.heartbeat ? " · " + a.calendarHorizon.heartbeat : "") + (incomingView === "month" ? " · month view includes only events present in the loaded horizon" : "");
+      status.textContent = "News " + newsSnapshotStatus(now) + " · calendar " + liveCalendarStatus.state + (liveCalendarStatus.fetchedAt ? " · fetched " + liveCalendarStatus.fetchedAt : "") + (liveCalendarStatus.error ? " · " + liveCalendarStatus.error : "") + " · Snapshot " + (a.generatedAt || "bundled") + (a.calendarGeneratedAt ? " · calendar " + a.calendarGeneratedAt : "") + (a.liveGeneratedAt ? " · live " + a.liveGeneratedAt : "") + " · horizon " + (hz.length ? hz.join(" + ") : "loaded calendar only") + (a.calendarHorizon && a.calendarHorizon.live ? " · " + a.calendarHorizon.live : "") + (a.calendarHorizon && a.calendarHorizon.heartbeat ? " · " + a.calendarHorizon.heartbeat : "") + (incomingView === "month" ? " · month view includes only events present in the loaded horizon" : "");
     }
 
     var lastDay = null;
@@ -1467,9 +1506,11 @@
       var isSoon = it.t && it.t.getTime() - now.getTime() <= 2 * 3600000 && it.t.getTime() >= now.getTime();
       var isNext = nextEvent && e.event === nextEvent.e.event && e.timeGmt === nextEvent.e.timeGmt;
       var lead = e.reminderLeadMin != null ? " · alert ~" + e.reminderLeadMin + "m" : "";
+      var provenanceLabel = e.sourceClass === "LIVE_CALENDAR_PROXY" && liveCalendarStatus.state === "fresh" ? "LIVE FEED · UNVERIFIED RESULT" : "HISTORICAL / UNVERIFIED";
       box.insertAdjacentHTML("beforeend",
         '<div class="inc"><div class="hd"><div>' + (isNext ? '<span class="badge b-hawk" style="margin-right:6px">NEXT</span>' : "") + '<span class="nm">' + esc(e.event) + '</span> <span class="rl' + (isSoon ? " countdown-live" : "") + '">· ' + esc(when) + "</span></div>" +
         '<div style="display:flex;gap:6px;align-items:center"><span class="badge ' + impactBadgeClass(e.importance) + '">' + esc((e.importance || "").toUpperCase()) + '</span><span class="badge b-tf">' + esc(e.focusTf || "") + "</span></div></div>" +
+        '<div class="im">' + esc(provenanceLabel) + "</div>" +
         '<div class="im">' + esc(e.note || "") + "</div>" +
         '<div class="mt">' + (it.t
           ? ("MYT " + esc(mytDisplay(e.timeMyt || e.timeSgt)) + "  ·  GMT " + esc(e.timeGmt || "—"))
