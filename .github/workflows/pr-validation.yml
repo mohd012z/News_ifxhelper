@@ -31,6 +31,12 @@ jobs:
         run: npm ci
       - name: Full Node test suite
         run: npm test
+      - name: Setup Node 24 for built-in SQLite integration
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: SQLite delivery journal integration
+        run: npm run test:helix-d1-sqlite
       - name: Syntax-check runtime/build scripts
         run: |
           node --check build-news.js
