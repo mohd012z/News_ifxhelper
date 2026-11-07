@@ -61,6 +61,7 @@ footer a{color:var(--accent2)}
   <div class="seg" id="seg">
     <button data-tab="weekly">Weekly News</button>
     <button data-tab="upcoming">Upcoming Events</button>
+    <button data-tab="pivots">Camarilla Pivots</button>
   </div>
   <div id="list"></div>
   <footer>
@@ -125,22 +126,39 @@ footer a{color:var(--accent2)}
       <div class="body"><div class="title"><a href="${esc(n.url||'#')}" target="_blank" rel="noopener">${esc(n.title)}</a></div>
       <div class="sub">${n.tabId?`<span class="tag">${esc(n.tabId)}</span>`:''}<span>${esc(n.time||'')}</span> · <span>${esc(n.source||'')}</span></div>
       </div></div></div>`).join(''); }
+  function renderPivots(pv){
+    if(!pv||!pv.symbols) return '<div class="empty">No pivot data loaded yet (refreshes every 30 min).</div>';
+    const list=Object.values(pv.symbols).filter(s=>s&&s.ok);
+    if(!list.length) return '<div class="empty">No pivot symbols available this cycle.</div>';
+    const fmt=(n,d)=>Number(n).toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});
+    const head=`<div class="pill" style="margin-bottom:10px">Camarilla · prev session <b>${esc(pv.session||'—')}</b> · gen ${esc(pv.generatedAt||'')}</div>`;
+    return head+list.map(s=>{
+      const d=s.decimals!=null?s.decimals:(Math.abs(s.c)<10?4:2);
+      const pos=Math.round((s.closePos||0)*100);
+      const cls=pos>=60?'sig-buy':pos<=40?'sig-sell':'sig-neu';
+      const tag=pos>=60?'bull close':pos<=40?'bear close':'mid close';
+      return `<div class="card"><div class="nw"><div class="sig ${cls}">${esc(s.label)}</div>
+      <div class="body"><div class="title">${fmt(s.h,d)} H · C ${fmt(s.c,d)} · L ${fmt(s.l,d)}  <span class="tag">${esc(tag)}</span></div>
+      <div class="sub">R4 ${fmt(s.R4,d)} · R3 ${fmt(s.R3,d)} · R2 ${fmt(s.R2,d)} · R1 ${fmt(s.R1,d)} · <b>C ${fmt(s.c,d)}</b> · S1 ${fmt(s.S1,d)} · S2 ${fmt(s.S2,d)} · S3 ${fmt(s.S3,d)} · S4 ${fmt(s.S4,d)}</div>
+      </div></div></div>`; }).join('')+
+      '<div style="margin-top:8px" class="empty" style="padding:10px">R3/S3 = mean-reversion targets · R4/S4 = trend-day breakout · levels from previous-session close</div>'; }
   function build(na){ const gen=na.generatedAt||'';
     const gUtc=/^\d{4}-\d{2}-\d{2}/.test(gen)?Date.parse(gen.replace(/Z$/,'').replace(' ','T')+'Z'):Date.now();
     document.getElementById('stamp').innerHTML=`data as of <b>${esc(mytStr(gUtc))} MYT</b><br>generated ${esc(gen)} UTC`;
-    document.getElementById('list').innerHTML= tab()==='upcoming'?renderUpcoming(na):renderWeekly(na); }
-  function tab(){ const m=new URLSearchParams(location.search).get('tab'); return (m==='upcoming')?'upcoming':'weekly'; }
+    document.getElementById('list').innerHTML= tab()==='upcoming'?renderUpcoming(na):tab()==='pivots'?renderPivots(window.PIVOTS_AUTO):renderWeekly(na); }
+  function tab(){ const m=new URLSearchParams(location.search).get('tab'); return (m==='upcoming'||m==='pivots')?m:'weekly'; }
   function syncSeg(){ document.querySelectorAll('#seg button').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab())); }
   function go(t){ const u=new URL(location.href); u.searchParams.set('tab',t); history.replaceState(null,'',u); syncSeg(); const na=window.NEWS_AUTO; if(na)build(na); }
   document.querySelectorAll('#seg button').forEach(b=>b.addEventListener('click',()=>go(b.dataset.tab)));
-  // minute-bucket cache-buster beats CDN staleness (per OpenViking standing note)
-  function load(){ const bucket=Math.floor(Date.now()/6e4);
-    const s=document.createElement('script'); s.src=`./news-auto.js?v=${bucket}`;
-    s.onload=()=>{ if(window.NEWS_AUTO){syncSeg();build(window.NEWS_AUTO);} };
-    s.onerror=()=>{ document.getElementById('list').innerHTML='<div class="empty">Couldn’t load news-auto.js — the poller may be mid-refresh. Auto-retrying in 60s.</div>'; };
-    document.head.appendChild(s); }
+  function loadScript(src){ return new Promise((res)=>{ const s=document.createElement('script'); s.src=src; s.onload=res; s.onerror=res; document.head.appendChild(s); }); }
+  // minute-bucket cache-buster beats CDN staleness (per OpenViking standing note).
+  // Load BOTH data files (news 5-min cadence, pivots 30-min cadence) then build.
+  async function load(){ const bucket=Math.floor(Date.now()/6e4);
+    await Promise.all([loadScript(`./news-auto.js?v=${bucket}`), loadScript(`./pivots.js?v=${bucket}`)]);
+    if(window.NEWS_AUTO){ syncSeg(); build(window.NEWS_AUTO); }
+    else { document.getElementById('list').innerHTML='<div class="empty">Couldn’t load news-auto.js — the poller may be mid-refresh. Auto-retrying in 60s.</div>'; } }
   syncSeg(); load();
-  // live auto-refresh (data file regenerates on main ~every 5 min)
+  // live auto-refresh (news regenerates on main ~every 5 min, pivots ~every 30 min)
   setInterval(load,60000);
 })();
 </script>
