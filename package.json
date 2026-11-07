@@ -10,7 +10,7 @@
     "macro": "node build-macro.js",
     "manifest:data": "node build-data-manifest.js",
     "refresh:data": "node build-news.js && node build-macro.js && node build-data-manifest.js",
-    "test": "npm run test:source-fetch && npm run test:spot-broker && npm run test:atr-mtf && npm run test:market-review && npm run test:market-card && npm run test:evidence && npm run test:history && npm run test:technical && npm run test:reaction && npm run test:timestamps && npm run test:intelligence && npm run test:bbma && npm run test:bbma-dashboard && npm run test:bbma-chart-ohlc && npm run test:bbma-alert-ui && npm run test:bbma-deeplink && npm run test:market-provider && npm run test:ohlc-backfill && npm run test:ohlc-resampler && npm run test:news-level-history && npm run test:bbma-learning && npm run test:evidence-envelope && npm run test:source-health && npm run test:orchestrator && npm run test:learning-store && npm run test:news-refresh-v2 && npm run test:ff-calendar && npm run test:worker && npm run test:realtime-news && npm run test:calendar-heartbeat && npm run test:workflow-reliability && npm run test:no-public-credentials && npm run test:t30-reminder && npm run test:helix-manual && npm run test:helix-menu && npm run test:helix-channel && npm run test:helix-weekly",
+    "test": "npm run test:source-fetch && npm run test:spot-broker && npm run test:atr-mtf && npm run test:market-review && npm run test:market-card && npm run test:evidence && npm run test:history && npm run test:technical && npm run test:reaction && npm run test:timestamps && npm run test:intelligence && npm run test:bbma && npm run test:bbma-dashboard && npm run test:bbma-chart-ohlc && npm run test:bbma-alert-ui && npm run test:bbma-deeplink && npm run test:market-provider && npm run test:ohlc-backfill && npm run test:ohlc-resampler && npm run test:news-level-history && npm run test:bbma-learning && npm run test:evidence-envelope && npm run test:source-health && npm run test:orchestrator && npm run test:learning-store && npm run test:news-refresh-v2 && npm run test:ff-calendar && npm run test:worker && npm run test:realtime-news && npm run test:calendar-heartbeat && npm run test:workflow-reliability && npm run test:no-public-credentials && npm run test:t30-reminder && npm run test:helix-manual && npm run test:helix-menu && npm run test:helix-channel && npm run test:helix-weekly && npm run test:helix-bbma-snd",
     "test:evidence": "node test/evidence-engine.test.js",
     "test:history": "node test/history-store.test.js",
     "test:technical": "node test/technical-context.test.js",
@@ -61,7 +61,8 @@
     "test:helix-manual": "node test/helix-review-policy.test.mjs && node test/helix-manual-webhook.test.mjs && node test/helix-manual-route.test.mjs",
     "test:helix-menu": "node test/helix-news-menu.test.mjs",
     "test:helix-channel": "node test/helix-channel-delivery.test.mjs",
-    "test:helix-weekly": "node test/helix-weekly-outlook.test.mjs"
+    "test:helix-weekly": "node test/helix-weekly-outlook.test.mjs",
+    "test:helix-bbma-snd": "node test/helix-bbma-snd.test.mjs"
   },
   "dependencies": {
     "@capacitor/android": "^7.0.0",
