@@ -1,0 +1,14 @@
+import assert from 'node:assert/strict';
+import worker from '../worker/index.mjs';
+const route='https://example.org/api/helix/manual';
+const post=(headers={})=>new Request(route,{method:'POST',headers,body:JSON.stringify({update_id:1,message:{from:{id:123},chat:{type:'private'},text:'/check'}})});
+const disabled=await worker.fetch(post(),{ENABLE_HELIX_MANUAL_REVIEW:'false'});
+assert.equal(disabled.status,404);
+const missingSecret=await worker.fetch(post(),{ENABLE_HELIX_MANUAL_REVIEW:'true'});
+assert.equal(missingSecret.status,503);
+const wrongMethod=await worker.fetch(new Request(route),{ENABLE_HELIX_MANUAL_REVIEW:'true'});
+assert.equal(wrongMethod.status,405);
+const secret='s'.repeat(32);
+const invalid=await worker.fetch(post({'X-Telegram-Bot-Api-Secret-Token':'wrong'}),{ENABLE_HELIX_MANUAL_REVIEW:'true',TELEGRAM_WEBHOOK_SECRET:secret});
+assert.equal(invalid.status,403);
+console.log('HELIX staging route regression tests passed');
