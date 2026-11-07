@@ -1,3 +1,4 @@
+import {handleHelixWebhook} from './helix-manual-webhook.mjs';
 import {runReminders} from './reminder.mjs';
 import {runFundamentalCycle} from './fundamental-cycle.mjs';
 const RAW_BASE = "https://raw.githubusercontent.com/mohd012z/News_ifxhelper/main/";
@@ -119,8 +120,10 @@ export default {
     if (env.ENABLE_T30_REMINDERS !== 'true') return;
     ctx.waitUntil(runReminders(env, {now: controller.scheduledTime}));
   },
-  async fetch(request) {
+  async fetch(request, env) {
     const url = new URL(request.url);
+    // Staging-only control plane. Never expose via the public asset proxy.
+    if (url.pathname === '/api/helix/manual') return handleHelixWebhook(request, env || {});
 
     if (request.method === "OPTIONS") {
       return new Response(null, {
