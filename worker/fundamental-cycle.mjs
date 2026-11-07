@@ -37,12 +37,15 @@ export async function reconcileConfirmedDelivery(env,{eventKey,messageId}){
 export async function runFundamentalCycle(env,{now=Date.now(),fetchImpl=fetch,officialResolver=null}={}){
  if(env.ENABLE_FUNDAMENTAL_DELIVERY!=='true')return {disabled:true};
  const project=env.FUNDAMENTAL_PROJECT;
- if(!['news_ifxhelper','helix'].includes(project)||!env.REMINDER_DB||!env.TELEGRAM_BOT_TOKEN||!env.TELEGRAM_CHAT_ID)throw Error('Missing research configuration');
+ if(!['news_ifxhelper','helix'].includes(project)||!env.REMINDER_DB||!env.TELEGRAM_BOT_TOKEN)throw Error('Missing research configuration');
+ const channelOnly=env.HELIX_CHANNEL_ONLY==='true';
+ if(channelOnly && (env.ENABLE_HELIX_CHANNEL_DELIVERY!=='true'||env.TELEGRAM_CHANNEL_ID!=='@ifxhelper2'))throw Error('Channel delivery requires explicit authorization and @ifxhelper2 target');
+ if(!channelOnly&&!env.TELEGRAM_CHAT_ID)throw Error('Missing TELEGRAM_CHAT_ID');
  const res=await fetchImpl(FEED,{signal:AbortSignal.timeout(10000)});
  if(!res.ok)throw Error('Calendar unavailable');
  const raw=await res.json();if(!Array.isArray(raw)||raw.length>1000)throw Error('Invalid feed');
  const events=raw.map(item=>{const e=normalizeEvent(item);return e?{...e,verifiedSource:item.verifiedSource??null,verifiedAt:item.verifiedAt??null}:null;}).filter(e=>e&&instruments(e,project).length);
- const destinations=[...new Set([env.TELEGRAM_CHAT_ID,env.TELEGRAM_CHANNEL_ID].filter(Boolean))];
+ const destinations=channelOnly?['@ifxhelper2']:[...new Set([env.TELEGRAM_CHAT_ID,env.TELEGRAM_CHANNEL_ID].filter(Boolean))];
  const report={sent:0,skipped:0,uncertain:0,pending:0};
  for(const destination of destinations){
   if(briefingDue(now)){
