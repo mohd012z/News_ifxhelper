@@ -1,3 +1,4 @@
+import {menuView,upcomingView,analysisView} from './helix-news-menu.mjs';
 import {authorizedAdmin,validateNewsCandidate,resendDecision} from './helix-review-policy.mjs';
 
 // Telegram update processing is intentionally staging-only and never publishes messages.
@@ -21,11 +22,17 @@ export async function handleHelixWebhook(request,env) {
   if(!authorizedAdmin(actor,env.HELIX_ADMIN_IDS))return new Response('Forbidden',{status:403});
   if(msg?.chat?.type!=='private')return new Response('Forbidden',{status:403});
   const cmd=typeof msg.text==='string'?msg.text.trim():'';
-  if(!/^\/(check|pending|resend)(?:\s|$)/.test(cmd))return Response.json({ok:true,action:'ignored'});
+  if(!/^\/(start|menu|upcoming|analysis|check|pending|resend)(?:\s|$)/.test(cmd))return Response.json({ok:true,action:'ignored'});
   if(!env.HELIX_REVIEW_DB)return new Response('Unavailable',{status:503});
   // One-time claim. Duplicate Telegram deliveries cannot execute a second action.
   const claim=await env.HELIX_REVIEW_DB.prepare('INSERT OR IGNORE INTO helix_update_receipts(update_id,actor_id,command,created_at) VALUES (?,?,?,?)').bind(update.update_id,String(actor),cmd.slice(0,256),Date.now()).run();
   if(claim.meta?.changes!==1)return Response.json({ok:true,action:'duplicate'});
+  if(cmd==='/start'||cmd==='/menu')return Response.json({ok:true,action:'menu_preview',preview:menuView(),delivery:'disabled'});
+  if(cmd==='/upcoming'||cmd==='/analysis'){
+    // A preview only: no network calls or Telegram sends. Production feed adapter is pending.
+    const view=cmd==='/upcoming'?upcomingView([],Date.now()):analysisView([],Date.now());
+    return Response.json({ok:true,action:'news_preview',preview:view,feedStatus:'not_connected',delivery:'disabled'});
+  }
   if(cmd==='/check'||cmd==='/pending'){
     return Response.json({ok:true,action:'review_requested',command:cmd,delivery:'disabled'});
   }
