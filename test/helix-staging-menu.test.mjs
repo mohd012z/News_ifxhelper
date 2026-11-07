@@ -7,7 +7,7 @@ function req(update,header=secret){return new Request('https://example.org/api/h
 const message={chat:{id:123,type:'private'},from:{id:123},text:'/start',message_id:42};
 assert.equal((await handleHelixStagingMenu(req({update_id:1,message}),{...env,ENABLE_HELIX_STAGING_MENU:'false'},{fetchImpl})).status,404);
 assert.equal((await handleHelixStagingMenu(req({update_id:1,message},'wrong'),env,{fetchImpl})).status,403);
-assert.equal((await handleHelixStagingMenu(req({update_id:1,message:{...message,chat:{id:-123,type:'supergroup'}}),env,{fetchImpl})).status,403);
+assert.equal((await handleHelixStagingMenu(req({update_id:1,message:{...message,chat:{id:-123,type:'supergroup'}}}),env,{fetchImpl})).status,403);
 assert.equal((await handleHelixStagingMenu(req({update_id:1,message}),env,{fetchImpl})).status,200);
 assert.match(calls[0].url,/sendMessage$/);
 assert.equal(calls[0].payload.chat_id,123);
