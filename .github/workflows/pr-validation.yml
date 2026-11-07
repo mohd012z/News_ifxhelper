@@ -36,7 +36,8 @@ jobs:
         with:
           node-version: "24"
       - name: SQLite delivery journal integration
-        run: npm run test:helix-d1-sqlite\n      - name: Syntax-check runtime/build scripts
+        run: npm run test:helix-d1-sqlite
+      - name: Syntax-check runtime/build scripts
         run: |
           node --check build-news.js
           node --check build-bbma-watch.js
