@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>IFX News Report — Weekly &amp; Upcoming</title>
+<meta name="description" content="Live IFX weekly classified news and upcoming high-impact events. Served fresh from the News_ifxhelper poller (auto-updates every ~5 minutes)." />
+<meta name="theme-color" content="#0a0f15" />
+<meta name="robots" content="index,follow" />
+<style>
+:root{--bg:#0a0f15;--panel:#101821;--panel2:#141f2b;--line:#243444;--text:#e9f0f7;--muted:#8ba0b5;
+--accent:#e2b04a;--accent2:#6fd3c7;--good:#3ecf8e;--bad:#ff5f7a;--warn:#f0c04a;--hawk:#ff6b6b;--dove:#4bb3ff;--chip:#16222f;}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:radial-gradient(1200px 600px at 20% -10%,#12203080,transparent),var(--bg);color:var(--text);
+font-family:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto;padding:14px 14px 40px}
+header{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:4px 0 14px}
+h1{font-size:20px;margin:0;letter-spacing:.02em;font-weight:800}
+h1 .dim{color:var(--muted);font-weight:600}
+.stamp{font-size:11px;color:var(--muted);font-family:"JetBrains Mono",ui-monospace,monospace;text-align:right}
+.stamp b{color:var(--accent2);font-weight:700}
+.seg{display:inline-flex;border:1px solid var(--line);background:var(--chip);border-radius:999px;padding:4px;margin:0 0 14px}
+.seg button{border:0;background:transparent;color:var(--muted);font-size:12px;font-weight:700;padding:7px 14px;border-radius:999px;cursor:pointer;letter-spacing:.03em}
+.seg button.active{background:linear-gradient(120deg,color-mix(in srgb,var(--accent) 24%,var(--panel)),var(--panel));color:var(--text)}
+.card{border:1px solid var(--line);background:linear-gradient(150deg,color-mix(in srgb,var(--panel) 97%,transparent),color-mix(in srgb,var(--panel2) 95%,transparent));border-radius:13px;padding:12px;margin-bottom:10px;position:relative;overflow:hidden}
+.ev{display:flex;gap:10px;align-items:flex-start}
+.cur{flex:0 0 auto;min-width:46px;text-align:center;font:800 12px "JetBrains Mono",ui-monospace,monospace;color:var(--text);background:var(--chip);border:1px solid var(--line);border-radius:8px;padding:6px 4px}
+.ev .body{flex:1;min-width:0}
+.ev .name{font-weight:700;font-size:13.5px;line-height:1.3}
+.ev .time{font:600 11px "JetBrains Mono",ui-monospace,monospace;color:var(--accent2);margin-top:3px}
+.ev .time .in{color:var(--warn);font-style:normal}
+.ev .meta{font-size:11.5px;color:var(--muted);margin-top:3px}
+.countdown{font-size:11.5px;color:var(--warn);margin-top:5px;font-weight:700}
+.nw{display:flex;gap:10px;align-items:flex-start}
+.sig{flex:0 0 auto;font:800 10px "JetBrains Mono",ui-monospace,monospace;letter-spacing:.05em;padding:5px 7px;border-radius:7px;border:1px solid var(--line);text-transform:uppercase}
+.sig-sell{background:color-mix(in srgb,var(--bad) 18%,transparent);color:var(--bad);border-color:color-mix(in srgb,var(--bad) 45%,var(--line))}
+.sig-buy{background:color-mix(in srgb,var(--good) 18%,transparent);color:var(--good);border-color:color-mix(in srgb,var(--good) 45%,var(--line))}
+.sig-neu{background:var(--chip);color:var(--muted)}
+.nw .body{flex:1;min-width:0}
+.nw .title{font-weight:700;font-size:13.5px;line-height:1.35}
+.nw .title a{color:var(--text);text-decoration:none}
+.nw .title a:hover{color:var(--accent)}
+.nw .sub{font-size:11.5px;color:var(--muted);margin-top:4px;display:flex;gap:8px;flex-wrap:wrap}
+.tag{font:700 10px "JetBrains Mono",ui-monospace,monospace;color:var(--accent2);background:var(--chip);border:1px solid var(--line);border-radius:6px;padding:2px 6px}
+.empty{border:1px dashed var(--line);border-radius:13px;padding:22px;text-align:center;color:var(--muted);font-size:13px}
+.empty b{color:var(--text)}
+footer{margin-top:18px;font-size:11px;color:var(--muted);line-height:1.6}
+footer a{color:var(--accent2)}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:11px;color:var(--muted);border:1px solid var(--line);background:var(--chip);border-radius:999px;padding:4px 10px}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 22%,transparent)}
+@media (max-width:480px){.nw .sub,.ev .meta{font-size:11px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>IFX <span class="dim">News Report</span></h1>
+    <div class="stamp" id="stamp">loading…</div>
+  </header>
+  <div class="seg" id="seg">
+    <button data-tab="weekly">Weekly News</button>
+    <button data-tab="upcoming">Upcoming Events</button>
+  </div>
+  <div id="list"></div>
+  <footer>
+    <div class="pill"><span class="dot"></span> Live — auto-refreshes every 60s · data <span id="genAge">…</span></div>
+    <div style="margin-top:8px">Source: <a href="https://github.com/mohd012z/News_ifxhelper">News_ifxhelper</a> (ForexFactory calendar + classified headline feeds, keyword-heuristic bias).
+    This page is an automated market briefing for the <b>ifxhelper_Trader</b> channel — educational, not financial advice.</div>
+  </footer>
+</div>
+<script>
+(function(){
+  'use strict';
+  const MONTHS={Jan:0,Feb:1,Mar:2,Apr:3,May:4,Jun:5,Jul:6,Aug:7,Sep:8,Oct:9,Nov:10,Dec:11};
+  const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const now=()=>Date.now();
+  // FF "Tue, 2026-11-03 11:30" = MYT (UTC+8) -> UTC ms
+  function parseMyt(t,nowMs){ if(!t)return null;
+    let m=/(\d{1,2})\s+([A-Za-z]{3})\s+(\d{1,2}):(\d{2})/.exec(t); let day,mo,h,mi;
+    if(m){day=+m[1];mo=MONTHS[m[2]];h=+m[3];mi=+m[4];}
+    else {m=/(\d{4})-(\d{2})-(\d{2})\s+(\d{1,2}):(\d{2})/.exec(t); if(!m)return null;
+      return Date.UTC(+m[1],+m[2]-1,+m[3],+m[4]-8,+m[5]);}
+    if(mo==null)return null;
+    const y=new Date(nowMs).getUTCFullYear(); let d=Date.UTC(y,mo,day,h-8,mi);
+    if(d<nowMs-200*864e5)d=Date.UTC(y+1,mo,day,h-8,mi); return d; }
+  function mytStr(ms){ return new Date(ms+8*36e5).toISOString().slice(0,16).replace('T',' '); }
+  function countdown(ms,nowMs){ const m=Math.round((ms-nowMs)/6e4);
+    if(m<0)return `past (${Math.abs(m)}m ago)`; if(m<60)return `in ${m}m`;
+    const h=Math.floor(m/60),mm=m%60; if(h<48)return `in ${h}h${mm? ' '+mm+'m':''}`; return `in ${Math.round(h/24)}d`; }
+  function sigClass(sig){ const s=String(sig||'NEUTRAL').toUpperCase();
+    if(s==='SELL')return 'sig-sell'; if(s==='BUY'||s==='BULLISH')return 'sig-buy'; return 'sig-neu'; }
+  // Upcoming high-impact events from NEWS_AUTO.incoming, soonest-first.
+  // Shows the 48h lookahead (honest: past events are excluded, quiet weekends
+  // show an "all clear" + what's on the horizon).
+  const LOOKAHEAD_MS = 48 * 3600 * 1000;
+  function upcomingList(na){ const n=now();
+    const all=(na.incoming||[]).filter(e=>e&&e.importance==='high').map(e=>({e,at:parseMyt(e.timeMyt,n)})).filter(x=>x.at);
+    const fut=all.filter(x=>x.at>=n-10*6e4 && x.at<=n+LOOKAHEAD_MS).sort((a,b)=>a.at-b.at);
+    if(fut.length) return fut.slice(0,12).map(x=>x.e);
+    const next=all.filter(x=>x.at>=n).sort((a,b)=>a.at-b.at).slice(0,5);
+    return { horizon: next.map(x=>x.e), clear: true }; }
+  // Classified headlines flattened across byTab[tab].news (+ speakers), non-NEUTRAL first, deduped.
+  function weeklyList(na){ const byTab=na.byTab||{}; const seen=new Set(); const out=[];
+    for(const t of Object.keys(byTab)){ const b=byTab[t]||{};
+      const arrs=[].concat(b.news||[], b.speakers||[]);
+      for(const n of arrs){ if(!n||!n.title)continue; const k=n.title.trim().toLowerCase(); if(seen.has(k))continue; seen.add(k); out.push({...n,tabId:t}); } }
+    out.sort((a,b)=>(String(a.signal||'NEUTRAL').toUpperCase()!=='NEUTRAL'?0:1)-(String(b.signal||'NEUTRAL').toUpperCase()!=='NEUTRAL'?0:1) || (b.impactScore||0)-(a.impactScore||0));
+    return out.slice(0,24); }
+  function renderUpcoming(na){ const res=upcomingList(na);
+    const row=(e)=>{ const at=parseMyt(e.timeMyt,now()); const cd=at?countdown(at,now()):'';
+      return `<div class="card"><div class="ev"><div class="cur">${esc((e.currency||'?').toUpperCase())}</div>
+      <div class="body"><div class="name">${esc(e.event)}</div>
+      <div class="time">${esc(mytStr(at||0))} MYT ${cd?`<span class="in">· ${esc(cd)}</span>`:''}</div>
+      <div class="meta">${esc(e.country||'')} · Forecast ${esc(e.forecast||'—')} · Prev ${esc(e.previous||'—')}${e.note?` · ${esc(e.note)}`:''}</div>
+      </div></div></div>`; };
+    if(Array.isArray(res)){ if(!res.length) return '<div class="empty">No upcoming high-impact events in the next 48h.</div>'; return res.map(row).join(''); }
+    return `<div class="empty">No high-impact events remain in this week’s feed — <b>all clear</b>. The calendar covers the current week; next week’s events load automatically on Monday (00:00 MYT).</div>`
+      + (res.horizon||[]).map(row).join(''); }
+  function renderWeekly(na){ const list=weeklyList(na);
+    if(!list.length) return '<div class="empty">No classified news captured yet this cycle.</div>';
+    const nonNeutral=list.filter(n=>String(n.signal||'NEUTRAL').toUpperCase()!=='NEUTRAL').length;
+    const head=`<div class="pill" style="margin-bottom:10px">${esc(nonNeutral)} of ${esc(list.length)} headlines carry a SELL/BUY bias (keyword-heuristic)</div>`;
+    return head+list.map(n=>`<div class="card"><div class="nw"><div class="sig ${sigClass(n.signal)}">${esc((n.signal||'NEUTRAL').toUpperCase())}</div>
+      <div class="body"><div class="title"><a href="${esc(n.url||'#')}" target="_blank" rel="noopener">${esc(n.title)}</a></div>
+      <div class="sub">${n.tabId?`<span class="tag">${esc(n.tabId)}</span>`:''}<span>${esc(n.time||'')}</span> · <span>${esc(n.source||'')}</span></div>
+      </div></div></div>`).join(''); }
+  function build(na){ const gen=na.generatedAt||'';
+    const gUtc=/^\d{4}-\d{2}-\d{2}/.test(gen)?Date.parse(gen.replace(/Z$/,'').replace(' ','T')+'Z'):Date.now();
+    document.getElementById('stamp').innerHTML=`data as of <b>${esc(mytStr(gUtc))} MYT</b><br>generated ${esc(gen)} UTC`;
+    document.getElementById('list').innerHTML= tab()==='upcoming'?renderUpcoming(na):renderWeekly(na); }
+  function tab(){ const m=new URLSearchParams(location.search).get('tab'); return (m==='upcoming')?'upcoming':'weekly'; }
+  function syncSeg(){ document.querySelectorAll('#seg button').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab())); }
+  function go(t){ const u=new URL(location.href); u.searchParams.set('tab',t); history.replaceState(null,'',u); syncSeg(); const na=window.NEWS_AUTO; if(na)build(na); }
+  document.querySelectorAll('#seg button').forEach(b=>b.addEventListener('click',()=>go(b.dataset.tab)));
+  // minute-bucket cache-buster beats CDN staleness (per OpenViking standing note)
+  function load(){ const bucket=Math.floor(Date.now()/6e4);
+    const s=document.createElement('script'); s.src=`./news-auto.js?v=${bucket}`;
+    s.onload=()=>{ if(window.NEWS_AUTO){syncSeg();build(window.NEWS_AUTO);} };
+    s.onerror=()=>{ document.getElementById('list').innerHTML='<div class="empty">Couldn’t load news-auto.js — the poller may be mid-refresh. Auto-retrying in 60s.</div>'; };
+    document.head.appendChild(s); }
+  syncSeg(); load();
+  // live auto-refresh (data file regenerates on main ~every 5 min)
+  setInterval(load,60000);
+})();
+</script>
+</body>
+</html>
