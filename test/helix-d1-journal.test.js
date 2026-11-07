@@ -6,17 +6,17 @@ const now=Date.parse('2026-11-07T00:00:00Z');
 const id='a'.repeat(64),token='lease_token_000001';
 function fakeDb(){
  const state={record:null,attempts:new Map()};
- const db={prepare(sql){return {bind(...v){return {
+ const db={async batch(stmts){const snapshot={record:state.record?{...state.record}:null,attempts:new Map([...state.attempts].map(([k,v])=>[k,{...v}]))};try{return await Promise.all(stmts.map(x=>x.run()));}catch(e){state.record=snapshot.record;state.attempts=snapshot.attempts;throw e;}},prepare(sql){return {bind(...v){return {
   async first(){return state.record&&state.record.report_hash===v[0]?{...state.record}:null;},
   async run(){
    let changes=0,r=state.record;
    if(sql.startsWith('INSERT OR IGNORE')){if(!r){state.record={report_hash:v[0],destination:v[1],payload:v[2],state:'AWAITING_APPROVAL',created_at:v[3],updated_at:v[4],attempts:0};changes=1;}}
    else if(sql.includes("state='APPROVED'")){if(r&&r.report_hash===v[4]&&r.state==='AWAITING_APPROVAL'){Object.assign(r,{state:'APPROVED',approved_by:v[0],approved_at:v[1],approval_expires_at:v[2]});changes=1;}}
-   else if(sql.includes("state='LEASED'")){if(r&&r.report_hash===v[3]&&['APPROVED','RETRY_WAIT'].includes(r.state)&&r.approval_expires_at>v[5]&&(r.next_retry_at==null||r.next_retry_at<=v[6])&&!state.attempts.has(v[7])){Object.assign(r,{state:'LEASED',lease_token:v[0],lease_expires_at:v[1],attempts:r.attempts+1});changes=1;}}
-   else if(sql.startsWith('INSERT INTO helix_delivery_attempts')){if(state.attempts.has(v[0]))throw new Error('duplicate attempt');state.attempts.set(v[0],{outcome:'STARTED'});changes=1;}
-   else if(sql.startsWith('UPDATE helix_research_delivery SET state=?')){if(r&&r.report_hash===v[5]&&r.state==='LEASED'&&r.lease_token===v[6]){Object.assign(r,{state:v[0],next_retry_at:v[1],telegram_message_id:v[2],last_error_code:v[3],lease_token:null,lease_expires_at:null});changes=1;}}
-   else if(sql.startsWith('UPDATE helix_delivery_attempts')){const a=state.attempts.get(v[4]);if(a&&a.outcome==='STARTED'){a.outcome=v[1];changes=1;}}
-   else if(sql.includes("state='UNCERTAIN'")){if(r&&r.state==='LEASED'&&r.lease_expires_at<=v[1]){Object.assign(r,{state:'UNCERTAIN',lease_token:null,lease_expires_at:null});changes=1;}}
+   else if(sql.includes("state='LEASED'")){if(r&&r.report_hash===v[3]&&['APPROVED','RETRY_WAIT'].includes(r.state)&&r.approval_expires_at>v[5]&&(r.next_retry_at==null||r.next_retry_at<=v[6])&&!state.attempts.has(v[7])){Object.assign(r,{state:'LEASED',lease_token:v[0],lease_expires_at:v[1],updated_at:v[2],attempts:r.attempts+1});changes=1;}}
+   else if(sql.startsWith('INSERT INTO helix_delivery_attempts')){if(r&&r.report_hash===v[3]&&r.state==='LEASED'&&r.lease_token===v[4]&&r.updated_at===v[5]&&!state.attempts.has(v[0])){state.attempts.set(v[0],{outcome:'STARTED'});changes=1;}}
+   else if(sql.startsWith('UPDATE helix_research_delivery SET state=?')){if(r&&r.report_hash===v[5]&&r.state==='LEASED'&&r.lease_token===v[6]&&state.attempts.get(v[7])?.outcome===v[9]){Object.assign(r,{state:v[0],next_retry_at:v[1],telegram_message_id:v[2],last_error_code:v[3],lease_token:null,lease_expires_at:null});changes=1;}}
+   else if(sql.startsWith('UPDATE helix_delivery_attempts')){if(sql.includes("outcome='UNCERTAIN'")){if(r&&r.state==='LEASED'&&r.lease_expires_at<=v[1]){const a=state.attempts.get(r.lease_token);if(a&&a.outcome==='STARTED'){a.outcome='UNCERTAIN';changes=1;}}}else{const a=state.attempts.get(v[4]);if(r&&r.state==='LEASED'&&r.lease_token===v[7]&&a&&a.outcome==='STARTED'){a.outcome=v[1];changes=1;}}}
+   else if(sql.includes("SET state='UNCERTAIN'")){if(r&&r.state==='LEASED'&&r.lease_expires_at<=v[1]){Object.assign(r,{state:'UNCERTAIN',lease_token:null,lease_expires_at:null});changes=1;}}
    else throw new Error('unexpected SQL');
    return {meta:{changes}};
   }
