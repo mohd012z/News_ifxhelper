@@ -1,3 +1,4 @@
+import {runWeeklyOutlook} from './helix-weekly-outlook.mjs';
 import {handleHelixWebhook} from './helix-manual-webhook.mjs';
 import {runReminders} from './reminder.mjs';
 import {runFundamentalCycle} from './fundamental-cycle.mjs';
@@ -116,6 +117,7 @@ async function liveCalendar() {
 
 export default {
   async scheduled(controller, env, ctx) {
+    if (env.ENABLE_HELIX_WEEKLY_OUTLOOK === 'true') ctx.waitUntil(runWeeklyOutlook(env, {now: controller.scheduledTime}));
     if (env.ENABLE_FUNDAMENTAL_DELIVERY === 'true') { ctx.waitUntil(runFundamentalCycle(env, {now: controller.scheduledTime})); return; }
     if (env.ENABLE_T30_REMINDERS !== 'true') return;
     ctx.waitUntil(runReminders(env, {now: controller.scheduledTime}));
