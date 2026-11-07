@@ -1,0 +1,18 @@
+import assert from 'node:assert/strict';
+import {MARKET_SCHEMA,ingestCandles,readCandles,exportCandlesCSV,ingestSpread} from '../worker/helix-market-store.mjs';
+import {candlesFromCSV} from '../worker/helix-ohlc-csv.mjs';
+const now=Date.parse('2026-11-07T12:00:00Z');
+const records=[],spreads=[];
+const db={prepare(sql){let args;return {bind(...a){args=a;return this},async run(){if(sql.startsWith('INSERT OR IGNORE INTO helix_ohlc')){const key=args.slice(0,4).join('|');if(records.some(r=>r.key===key))return {meta:{changes:0}};records.push({key,args});return {meta:{changes:1}};}if(sql.startsWith('INSERT OR IGNORE INTO helix_spread')){const key=args.slice(0,3).join('|');if(spreads.some(r=>r.key===key))return {meta:{changes:0}};spreads.push({key,args});return {meta:{changes:1}};}throw Error('Unexpected SQL')},async all(){assert.match(sql,/ORDER BY open_time DESC LIMIT/);const [p,s,tf,limit]=args;return {results:records.filter(r=>r.args[0]===p&&r.args[1]===s&&r.args[2]===tf).sort((a,b)=>b.args[3]-a.args[3]).slice(0,limit).map(r=>{const [provider,symbol,timeframe,open_time,close_time,open,high,low,close]=r.args;return {provider,symbol,timeframe,open_time,close_time,open,high,low,close}})}}}}};
+assert.match(MARKET_SCHEMA,/PRIMARY KEY\(provider,symbol,timeframe,open_time\)/);
+const candle={provider:'kraken',symbol:'BTCUSD',timeframe:'M15',openTime:now-900000,closeTime:now,open:100,high:102,low:99,close:101};
+assert.deepEqual(await ingestCandles(db,[candle],{now}),{inserted:1,duplicates:0});
+assert.deepEqual(await ingestCandles(db,[candle],{now}),{inserted:0,duplicates:1});
+assert.deepEqual(await readCandles(db,{provider:'kraken',symbol:'BTCUSD',timeframe:'M15'}),[candle]);
+assert.deepEqual(candlesFromCSV(await exportCandlesCSV(db,{provider:'kraken',symbol:'BTCUSD',timeframe:'M15'},{now}),{now}),[candle]);
+assert.deepEqual(await ingestSpread(db,{provider:'kraken',symbol:'BTCUSD',observedAt:now,bid:100,ask:100.1},{now}),{inserted:true});
+assert.deepEqual(await ingestSpread(db,{provider:'kraken',symbol:'BTCUSD',observedAt:now,bid:100,ask:100.1},{now}),{inserted:false});
+await assert.rejects(()=>ingestSpread(db,{provider:'kraken',symbol:'BTCUSD',observedAt:now,bid:101,ask:100},{now}),/Invalid spread/);
+await assert.rejects(()=>ingestCandles(db,[{...candle,closeTime:now+900000}],{now}),/unfinished/);
+await assert.rejects(()=>readCandles(db,{provider:'kraken',symbol:'BTCUSD',timeframe:'M15',limit:5001}),/Invalid/);
+console.log('HELIX D1 OHLC/spread idempotency and CSV restart-read tests passed');

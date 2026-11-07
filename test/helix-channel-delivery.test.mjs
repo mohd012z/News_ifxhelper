@@ -1,0 +1,24 @@
+import assert from 'node:assert/strict';
+import {runFundamentalCycle} from '../worker/fundamental-cycle.mjs';
+const now=Date.parse('2026-11-07T00:00:00Z');
+const event={title:'USD Inflation Report',country:'USD',impact:'High',date:new Date(now+29*60000).toISOString(),forecast:'2.5%',previous:'2.4%'};
+const calls=[];
+const fetchImpl=async(url,options)=>{
+ if(url.includes('ff_calendar'))return {ok:true,json:async()=>[event]};
+ calls.push({url,payload:JSON.parse(options.body)});
+ return {ok:true,json:async()=>({ok:true,result:{message_id:123}})};
+};
+let claims=0;
+const db={prepare(sql){return {bind(...args){return {async run(){if(sql.includes('INSERT OR IGNORE')){claims++;return {meta:{changes:1}};}return {meta:{changes:1}};}}}}}};
+const base={ENABLE_FUNDAMENTAL_DELIVERY:'true',FUNDAMENTAL_PROJECT:'news_ifxhelper',REMINDER_DB:db,TELEGRAM_BOT_TOKEN:'mock-only',TELEGRAM_CHAT_ID:'12345',TELEGRAM_CHANNEL_ID:'@ifxhelper2',HELIX_CHANNEL_ONLY:'true'};
+await assert.rejects(()=>runFundamentalCycle({...base,ENABLE_HELIX_CHANNEL_DELIVERY:'false'},{now,fetchImpl}),/explicit authorization/);
+await assert.rejects(()=>runFundamentalCycle({...base,ENABLE_HELIX_CHANNEL_DELIVERY:'true',TELEGRAM_CHANNEL_ID:'@wrong'},{now,fetchImpl}),/@ifxhelper2/);
+assert.equal(calls.length,0);
+const result=await runFundamentalCycle({...base,ENABLE_HELIX_CHANNEL_DELIVERY:'true'},{now,fetchImpl});
+assert.equal(result.sent,2);
+assert.equal(calls.length,2);
+assert(calls.every(call=>call.payload.chat_id==='@ifxhelper2'));
+assert.equal(calls.filter(call=>call.payload.text.includes('08:00 MYT fundamental briefing')).length,1);
+assert.equal(calls.filter(call=>call.payload.text.includes('T-30')).length,1);
+assert.equal(claims,2);
+console.log('HELIX channel-only upcoming delivery tests passed');

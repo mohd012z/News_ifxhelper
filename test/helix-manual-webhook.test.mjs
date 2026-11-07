@@ -1,0 +1,24 @@
+import assert from 'node:assert/strict';
+import {handleHelixWebhook,claimReviewedResend} from '../worker/helix-manual-webhook.mjs';
+const secret='s'.repeat(32),env={ENABLE_HELIX_MANUAL_REVIEW:'true',TELEGRAM_WEBHOOK_SECRET:secret,HELIX_ADMIN_IDS:'123'};
+const seenUpdates=new Set();
+env.HELIX_REVIEW_DB={prepare(sql){assert.match(sql,/INSERT OR IGNORE/);return {bind(updateId){return {async run(){if(seenUpdates.has(updateId))return {meta:{changes:0}};seenUpdates.add(updateId);return {meta:{changes:1}}}}}}}};
+function req(command='/check',id=1,token=secret,actor=123){return new Request('https://example.org/helix/manual',{method:'POST',headers:{'X-Telegram-Bot-Api-Secret-Token':token},body:JSON.stringify({update_id:id,message:{from:{id:actor},chat:{type:'private'},text:command}})});}
+assert.equal((await handleHelixWebhook(req('/check',1,'wrong'),env)).status,403);
+assert.equal((await handleHelixWebhook(req('/check',1,secret,456),env)).status,403);
+assert.equal((await handleHelixWebhook(req('/check'),{...env,ENABLE_HELIX_MANUAL_REVIEW:'false'})).status,404);
+assert.equal((await handleHelixWebhook(req('/check'),{...env,TELEGRAM_WEBHOOK_SECRET:''})).status,503);
+assert.equal((await handleHelixWebhook(req('/check'),env)).status,200);
+assert.equal((await (await handleHelixWebhook(req('/check'),env)).json()).action,'duplicate');
+assert.equal((await (await handleHelixWebhook(req('/resend news:20261107:001',2),env)).json()).delivery,'disabled');
+const now=Date.parse('2026-11-07T00:00:00Z');
+const candidate={id:'news:20261107:001',title:'Official economic news release',sourceUrl:'https://example.org/release',publishedAt:now-1000,kind:'breaking',impact:'high',independentlyVerified:true};
+const record={eventKey:candidate.id,status:'sent',messageId:42};
+let count=0;
+const db={prepare(sql){assert.match(sql,/status='sent'/);return {bind(){return {async run(){count++;return {meta:{changes:count===1?1:0}}}}}}}};
+const args={eventKey:candidate.id,actorId:123,adminIds:'123',record,candidate,confirmation:'RESEND '+candidate.id,now};
+assert.equal((await claimReviewedResend(db,args)).claimed,true);
+assert.equal((await claimReviewedResend(db,args)).claimed,false);
+assert.equal((await claimReviewedResend(db,{...args,actorId:999})).reason,'unauthorized');
+assert.equal((await claimReviewedResend(db,{...args,record:{...record,status:'uncertain'}})).reason,'reconcile_first');
+console.log('HELIX webhook and atomic resend claim regression tests passed');

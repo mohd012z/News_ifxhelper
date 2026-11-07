@@ -1,3 +1,8 @@
+import {runWeeklyOutlook} from './helix-weekly-outlook.mjs';
+import {handleHelixWebhook} from './helix-manual-webhook.mjs';
+import {handleHelixStagingMenu} from './helix-staging-menu.mjs';
+import {runReminders} from './reminder.mjs';
+import {runFundamentalCycle} from './fundamental-cycle.mjs';
 const RAW_BASE = "https://raw.githubusercontent.com/mohd012z/News_ifxhelper/main/";
 const FF_WEEK = "https://nfs.faireconomy.media/ff_calendar_thisweek.json";
 const WORKER_VERSION = "2026-10-09-live-proxy-v2";
@@ -81,11 +86,25 @@ async function liveCalendar() {
       }
     });
   }
-  const events = await upstream.json();
+  let events;
+  try {
+    events = await upstream.json();
+  } catch {
+    return new Response(JSON.stringify({error: "calendar upstream returned invalid JSON"}), {
+      status: 502,
+      headers: {"Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store", "Access-Control-Allow-Origin": "*"}
+    });
+  }
+  if (!Array.isArray(events) || events.length > 1000) {
+    return new Response(JSON.stringify({error: "calendar upstream returned invalid event collection"}), {
+      status: 502,
+      headers: {"Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store", "Access-Control-Allow-Origin": "*"}
+    });
+  }
   return new Response(JSON.stringify({
     fetchedAt: new Date().toISOString(),
     source: "ForexFactory current-week structured feed",
-    events: Array.isArray(events) ? events : []
+    events
   }), {
     status: 200,
     headers: {
@@ -98,8 +117,17 @@ async function liveCalendar() {
 }
 
 export default {
-  async fetch(request) {
+  async scheduled(controller, env, ctx) {
+    if (env.ENABLE_HELIX_WEEKLY_OUTLOOK === 'true') ctx.waitUntil(runWeeklyOutlook(env, {now: controller.scheduledTime}));
+    if (env.ENABLE_FUNDAMENTAL_DELIVERY === 'true') { ctx.waitUntil(runFundamentalCycle(env, {now: controller.scheduledTime})); return; }
+    if (env.ENABLE_T30_REMINDERS !== 'true') return;
+    ctx.waitUntil(runReminders(env, {now: controller.scheduledTime}));
+  },
+  async fetch(request, env) {
     const url = new URL(request.url);
+    // Staging-only control plane. Never expose via the public asset proxy.
+    if (url.pathname === '/api/helix/manual') return handleHelixWebhook(request, env || {});
+    if (url.pathname === '/api/helix/staging-menu') return handleHelixStagingMenu(request, env || {});
 
     if (request.method === "OPTIONS") {
       return new Response(null, {

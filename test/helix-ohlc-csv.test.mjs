@@ -1,0 +1,16 @@
+import assert from 'node:assert/strict';
+import {candlesToCSV,candlesFromCSV,prepareBBMAFromCSV} from '../worker/helix-ohlc-csv.mjs';
+import {analyzeClosedBars} from '../worker/helix-bbma-snd.mjs';
+const now=Date.parse('2026-11-07T12:00:00Z'),base=now-70*900000;
+const bars=Array.from({length:65},(_,i)=>{const open=100+i*.1;return {provider:'kraken',symbol:'BTCUSD',timeframe:'M15',openTime:base+i*900000,closeTime:base+(i+1)*900000,open,high:open+1,low:open-1,close:open+.2};});
+const csv=candlesToCSV(bars,{now}),parsed=candlesFromCSV(csv,{now});
+assert.deepEqual(parsed,bars);
+assert.equal(prepareBBMAFromCSV(csv,{provider:'kraken',symbol:'BTCUSD',timeframe:'M15',now}).length,65);
+const result=analyzeClosedBars(parsed,{now,timeframe:'M15'});
+assert.equal(result.signal,'research_only');
+assert.throws(()=>candlesToCSV([...bars,bars[0]],{now}),/Duplicate/);
+assert.throws(()=>candlesToCSV([{...bars[0],closeTime:now+1}],{now}),/unfinished/);
+assert.throws(()=>candlesFromCSV(csv.replace('provider,symbol,timeframe','evil,symbol,timeframe'),{now}),/header/);
+assert.throws(()=>prepareBBMAFromCSV(candlesToCSV([...bars.slice(0,12),...bars.slice(13)],{now}),{provider:'kraken',symbol:'BTCUSD',timeframe:'M15',now}),/gap/);
+assert.throws(()=>candlesFromCSV(csv.replace(',100,101,99,100.2',',100,1,99,100.2'),{now}),/price/);
+console.log('HELIX OHLC CSV round-trip, BBMA input and corruption tests passed');

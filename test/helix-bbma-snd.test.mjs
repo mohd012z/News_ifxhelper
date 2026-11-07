@@ -1,0 +1,14 @@
+import assert from 'node:assert/strict';
+import {analyzeClosedBars,multiTimeframeSummary} from '../worker/helix-bbma-snd.mjs';
+const now=Date.parse('2026-11-07T00:00:00Z');
+const bars=Array.from({length:65},(_,i)=>{const open=1900+i*.5;return {openTime:now-(66-i)*3600000,closeTime:now-(65-i)*3600000,open,high:open+2,low:open-2,close:open+.7};});
+const a=analyzeClosedBars(bars,{now,timeframe:'H1'});
+assert.equal(a.bias,'bullish');assert.equal(a.signal,'research_only');
+assert.equal(a.barClose,bars.at(-1).closeTime);
+assert.ok(Number.isFinite(a.bbma.ema50));
+assert.equal(multiTimeframeSummary({H1:bars,H4:bars},{now}).higherTimeframeBias,'bullish');
+assert.throws(()=>analyzeClosedBars([...bars.slice(0,-1),{...bars.at(-1),closeTime:now+1}],{now}),/unfinished/);
+assert.throws(()=>analyzeClosedBars([...bars.slice(0,-1),{...bars.at(-1),high:1}],{now}),/Invalid/);
+assert.throws(()=>analyzeClosedBars(bars.slice(0,40),{now}),/Insufficient/);
+assert.throws(()=>analyzeClosedBars(bars,{now,timeframe:'M2'}),/Unsupported/);
+console.log('HELIX BBMA supply-demand closed-bar regressions passed');
