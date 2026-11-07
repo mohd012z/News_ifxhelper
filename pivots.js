@@ -3,11 +3,12 @@
  * R3/S3 = mean-reversion targets · R4/S4 = trend-day breakout. Research context only. */
 window.PIVOTS_AUTO = {
   "method": "camarilla",
-  "generatedAt": "2026-11-07 06:24:52Z",
+  "generatedAt": "2026-11-07 07:13:50Z",
   "session": "2026-11-06",
   "symbols": {
     "XAUUSD": {
       "ok": true,
+      "id": "XAUUSD",
       "label": "XAU/USD",
       "ticker": "GC=F",
       "decimals": 2,
@@ -28,6 +29,7 @@ window.PIVOTS_AUTO = {
     },
     "EURUSD": {
       "ok": true,
+      "id": "EURUSD",
       "label": "EUR/USD",
       "ticker": "EURUSD=X",
       "decimals": 4,
@@ -48,6 +50,7 @@ window.PIVOTS_AUTO = {
     },
     "GBPUSD": {
       "ok": true,
+      "id": "GBPUSD",
       "label": "GBP/USD",
       "ticker": "GBPUSD=X",
       "decimals": 4,
@@ -68,6 +71,7 @@ window.PIVOTS_AUTO = {
     },
     "USDJPY": {
       "ok": true,
+      "id": "USDJPY",
       "label": "USD/JPY",
       "ticker": "JPY=X",
       "decimals": 2,
@@ -88,6 +92,7 @@ window.PIVOTS_AUTO = {
     },
     "AUDUSD": {
       "ok": true,
+      "id": "AUDUSD",
       "label": "AUD/USD",
       "ticker": "AUDUSD=X",
       "decimals": 4,
@@ -108,6 +113,7 @@ window.PIVOTS_AUTO = {
     },
     "BTCUSD": {
       "ok": true,
+      "id": "BTCUSD",
       "label": "BTC/USD",
       "ticker": "BTC-USD",
       "decimals": 0,
@@ -128,6 +134,7 @@ window.PIVOTS_AUTO = {
     },
     "ETHUSD": {
       "ok": true,
+      "id": "ETHUSD",
       "label": "ETH/USD",
       "ticker": "ETH-USD",
       "decimals": 0,
@@ -148,6 +155,7 @@ window.PIVOTS_AUTO = {
     },
     "DXY": {
       "ok": true,
+      "id": "DXY",
       "label": "DXY",
       "ticker": "DX-Y.NYB",
       "decimals": 2,
@@ -168,6 +176,7 @@ window.PIVOTS_AUTO = {
     },
     "USDMYR": {
       "ok": true,
+      "id": "USDMYR",
       "label": "USD/MYR",
       "ticker": "USDMYR=X",
       "decimals": 4,
@@ -188,6 +197,7 @@ window.PIVOTS_AUTO = {
     },
     "NZDUSD": {
       "ok": true,
+      "id": "NZDUSD",
       "label": "NZD/USD",
       "ticker": "NZDUSD=X",
       "decimals": 4,
@@ -208,6 +218,7 @@ window.PIVOTS_AUTO = {
     },
     "USDCAD": {
       "ok": true,
+      "id": "USDCAD",
       "label": "USD/CAD",
       "ticker": "USDCAD=X",
       "decimals": 4,
@@ -228,6 +239,7 @@ window.PIVOTS_AUTO = {
     },
     "USDCHF": {
       "ok": true,
+      "id": "USDCHF",
       "label": "USD/CHF",
       "ticker": "USDCHF=X",
       "decimals": 4,
@@ -248,6 +260,7 @@ window.PIVOTS_AUTO = {
     },
     "EURJPY": {
       "ok": true,
+      "id": "EURJPY",
       "label": "EUR/JPY",
       "ticker": "EURJPY=X",
       "decimals": 2,
@@ -268,6 +281,7 @@ window.PIVOTS_AUTO = {
     },
     "GBPJPY": {
       "ok": true,
+      "id": "GBPJPY",
       "label": "GBP/JPY",
       "ticker": "GBPJPY=X",
       "decimals": 2,
@@ -288,6 +302,7 @@ window.PIVOTS_AUTO = {
     },
     "EURGBP": {
       "ok": true,
+      "id": "EURGBP",
       "label": "EUR/GBP",
       "ticker": "EURGBP=X",
       "decimals": 4,
@@ -308,6 +323,7 @@ window.PIVOTS_AUTO = {
     },
     "AUDJPY": {
       "ok": true,
+      "id": "AUDJPY",
       "label": "AUD/JPY",
       "ticker": "AUDJPY=X",
       "decimals": 2,
@@ -328,6 +344,7 @@ window.PIVOTS_AUTO = {
     },
     "USDIDR": {
       "ok": true,
+      "id": "USDIDR",
       "label": "USD/IDR",
       "ticker": "USDIDR=X",
       "decimals": 0,
@@ -348,6 +365,7 @@ window.PIVOTS_AUTO = {
     },
     "USDTHB": {
       "ok": true,
+      "id": "USDTHB",
       "label": "USD/THB",
       "ticker": "USDTHB=X",
       "decimals": 2,

@@ -113,7 +113,7 @@ async function main() {
       const lv = camarilla(prev);
       out.session = out.session || prev.day;
       out.symbols[s.id] = {
-        ok: true, label: s.label, ticker: s.ticker, decimals: s.decimals,
+        ok: true, id: s.id, label: s.label, ticker: s.ticker, decimals: s.decimals,
         session: prev.day, h: prev.h, l: prev.l, c: prev.c,
         ...lv, closePos: closePosition(prev),
       };
