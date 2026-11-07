@@ -28,7 +28,8 @@ const fs = require('fs');
 const path = require('path');
 
 const UA = 'Mozilla/5.0 (X11; Linux x86_64) ifxhelper-pivots/1.0';
-// Symbol universe for the Telegram surface (kept tight so the post stays readable).
+// Symbol universe for the Telegram surface. Core 8 get the full R4..S4 ladder
+// in the DM menu; the crosses/EM extras render as a compact C/R3/S3 block.
 const SYMBOLS = [
   { id: 'XAUUSD', label: 'XAU/USD', ticker: 'GC=F',     decimals: 2 },
   { id: 'EURUSD', label: 'EUR/USD', ticker: 'EURUSD=X', decimals: 4 },
@@ -38,6 +39,18 @@ const SYMBOLS = [
   { id: 'BTCUSD', label: 'BTC/USD', ticker: 'BTC-USD',  decimals: 0 },
   { id: 'ETHUSD', label: 'ETH/USD', ticker: 'ETH-USD',  decimals: 0 },
   { id: 'DXY',    label: 'DXY',     ticker: 'DX-Y.NYB', decimals: 2 },
+  // Crosses
+  { id: 'USDMYR', label: 'USD/MYR', ticker: 'USDMYR=X', decimals: 4 },
+  { id: 'NZDUSD', label: 'NZD/USD', ticker: 'NZDUSD=X', decimals: 4 },
+  { id: 'USDCAD', label: 'USD/CAD', ticker: 'USDCAD=X', decimals: 4 },
+  { id: 'USDCHF', label: 'USD/CHF', ticker: 'USDCHF=X', decimals: 4 },
+  { id: 'EURJPY', label: 'EUR/JPY', ticker: 'EURJPY=X', decimals: 2 },
+  { id: 'GBPJPY', label: 'GBP/JPY', ticker: 'GBPJPY=X', decimals: 2 },
+  { id: 'EURGBP', label: 'EUR/GBP', ticker: 'EURGBP=X', decimals: 4 },
+  { id: 'AUDJPY', label: 'AUD/JPY', ticker: 'AUDJPY=X', decimals: 2 },
+  // Emerging markets (MYR is the desk home market; IDR ticks in ~1000s)
+  { id: 'USDIDR', label: 'USD/IDR', ticker: 'USDIDR=X', decimals: 0 },
+  { id: 'USDTHB', label: 'USD/THB', ticker: 'USDTHB=X', decimals: 2 },
 ];
 
 async function fetchDaily(ticker, timeoutMs = 12000) {
