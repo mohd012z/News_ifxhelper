@@ -24,16 +24,16 @@ function fixture(t){
   handles.push(db);
   return {
    prepare(sql){return {bind(...args){return {
-    async first(){return db.prepare(sql).get(...args)??null;},
-    async run(){const r=db.prepare(sql).run(...args);return {meta:{changes:Number(r.changes)}};}
+    first(){return db.prepare(sql).get(...args)??null;},
+    run(){const r=db.prepare(sql).run(...args);return {meta:{changes:Number(r.changes)}};}
    };}};},
-   async batch(statements){
+   batch(statements){
     db.exec('BEGIN IMMEDIATE');
     try{
      const result=[];
      for(let i=0;i<statements.length;i++){
       if(failBatchAt===i+1)throw new Error('INJECTED_CRASH');
-      result.push(await statements[i].run());
+      result.push(statements[i].run());
      }
      db.exec('COMMIT');
      return result;
