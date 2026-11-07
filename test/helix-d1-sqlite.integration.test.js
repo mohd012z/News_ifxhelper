@@ -111,3 +111,14 @@ test('approval expires before lease; cannot claim',async t=>{
  const {j}=await seeded(t);
  assert.equal((await j.claim(id,'token_expired_00001',NOW+3600000)).claimed,false);
 });
+
+test('recovery crash rolls back both attempt and record; later restart quarantines',async t=>{
+ const {connect,j,raw}=await seeded(t);
+ assert.equal((await j.claim(id,'token_recovery_0001',NOW,1000)).claimed,true);
+ await assert.rejects(journal(connect({failBatchAt:2})).recover(NOW+1001),/INJECTED_CRASH/);
+ assert.equal((await j.inspect(id)).state,'LEASED');
+ assert.equal(raw().prepare('SELECT outcome FROM helix_delivery_attempts').get().outcome,'STARTED');
+ assert.equal((await journal(connect()).recover(NOW+1001)).quarantined,1);
+ assert.equal((await j.inspect(id)).state,'UNCERTAIN');
+ assert.equal(raw().prepare('SELECT outcome FROM helix_delivery_attempts').get().outcome,'UNCERTAIN');
+});
