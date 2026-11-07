@@ -1,8 +1,8 @@
 import assert from 'node:assert/strict';
 import {handleHelixWebhook,claimReviewedResend} from '../worker/helix-manual-webhook.mjs';
 const secret='s'.repeat(32),env={ENABLE_HELIX_MANUAL_REVIEW:'true',TELEGRAM_WEBHOOK_SECRET:secret,HELIX_ADMIN_IDS:'123'};
-let claims=0;
-env.HELIX_REVIEW_DB={prepare(sql){assert.match(sql,/INSERT OR IGNORE/);return {bind(...args){return {async run(){claims++;return {meta:{changes:claims===1?1:0}}}}}}}};
+const seenUpdates=new Set();
+env.HELIX_REVIEW_DB={prepare(sql){assert.match(sql,/INSERT OR IGNORE/);return {bind(updateId){return {async run(){if(seenUpdates.has(updateId))return {meta:{changes:0}};seenUpdates.add(updateId);return {meta:{changes:1}}}}}}}};
 function req(command='/check',id=1,token=secret,actor=123){return new Request('https://example.org/helix/manual',{method:'POST',headers:{'X-Telegram-Bot-Api-Secret-Token':token},body:JSON.stringify({update_id:id,message:{from:{id:actor},chat:{type:'private'},text:command}})});}
 assert.equal((await handleHelixWebhook(req('/check',1,'wrong'),env)).status,403);
 assert.equal((await handleHelixWebhook(req('/check',1,secret,456),env)).status,403);
