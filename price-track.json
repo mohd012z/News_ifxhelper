@@ -1227,9 +1227,9 @@
           "key": "W1",
           "minutes": 10080,
           "dueAt": "2026-11-06T23:00:23.751Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-07T00:17:29.968Z",
+          "price": 75847.63,
+          "realizedPct": -1.21
         },
         {
           "key": "MN1",
@@ -1243,7 +1243,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.974,
-        "maePct": 0.162
+        "maePct": -1.21
       }
     },
     {
@@ -3939,9 +3939,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-06T23:06:11.399Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-07T00:17:29.968Z",
+          "price": 75847.63,
+          "realizedPct": 0.239
         },
         {
           "key": "D1",
@@ -3970,7 +3970,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.135,
+        "mfePct": 0.239,
         "maePct": -0.139
       }
     },
@@ -4030,9 +4030,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-06T23:06:11.399Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-07T00:17:29.968Z",
+          "price": 75847.63,
+          "realizedPct": 0.239
         },
         {
           "key": "D1",
@@ -4061,7 +4061,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.135,
+        "mfePct": 0.239,
         "maePct": -0.139
       }
     },
@@ -4386,17 +4386,17 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-06T21:06:09.367Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-07T00:17:29.968Z",
+          "price": 75847.63,
+          "realizedPct": 0.104
         },
         {
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-07T00:06:09.367Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-07T00:17:29.968Z",
+          "price": 75847.63,
+          "realizedPct": 0.104
         },
         {
           "key": "D1",
@@ -4425,7 +4425,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": -0.016,
+        "mfePct": 0.104,
         "maePct": -0.037
       }
     },
@@ -4519,6 +4519,92 @@
         "mfePct": -0.009,
         "maePct": -0.009
       }
+    },
+    {
+      "key": "news:crypto:Gold prices fall as blowout U.S. jobs report boosts Fed rate hike bets",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Gold prices fall as blowout U.S. jobs report boosts Fed rate hike bets",
+      "url": "https://www.investing.com/news/commodities-news/gold-heads-for-best-week-since-august-as-us-political-shift-lifts-bonds-5006271",
+      "impactScore": -0.08,
+      "priceSource": "coinbase:BTC-USD",
+      "priceSymbol": "BTC-USD",
+      "priceAtDetect": 75847.63,
+      "createdAt": "2026-11-07T00:17:29.968Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-07T00:18:29.968Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-07T00:22:29.968Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-07T00:32:29.968Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-07T00:47:29.968Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-07T01:17:29.968Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-07T04:17:29.968Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-08T00:17:29.968Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-14T00:17:29.968Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-07T00:17:29.968Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
     }
   ],
   "results": [
