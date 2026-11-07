@@ -1,0 +1,22 @@
+import assert from 'node:assert/strict';
+import {handleHelixStagingMenu} from '../worker/helix-staging-menu.mjs';
+const secret='x'.repeat(32),token='123456:'+ 'A'.repeat(35),seen=new Set(),calls=[];
+const env={ENABLE_HELIX_STAGING_MENU:'true',TELEGRAM_WEBHOOK_SECRET:secret,HELIX_STAGING_BOT_TOKEN:token,HELIX_ADMIN_IDS:'123',HELIX_REVIEW_DB:{prepare(){return {bind(id){return {async run(){if(seen.has(id))return {meta:{changes:0}};seen.add(id);return {meta:{changes:1}}}}}}}}};
+const fetchImpl=async(url,options)=>{calls.push({url,payload:JSON.parse(options.body)});return {ok:true,json:async()=>({ok:true,result:{message_id:42}})}};
+function req(update,header=secret){return new Request('https://example.org/api/helix/staging-menu',{method:'POST',headers:{'X-Telegram-Bot-Api-Secret-Token':header},body:JSON.stringify(update)})}
+const message={chat:{id:123,type:'private'},from:{id:123},text:'/start',message_id:42};
+assert.equal((await handleHelixStagingMenu(req({update_id:1,message}),{...env,ENABLE_HELIX_STAGING_MENU:'false'},{fetchImpl})).status,404);
+assert.equal((await handleHelixStagingMenu(req({update_id:1,message},'wrong'),env,{fetchImpl})).status,403);
+assert.equal((await handleHelixStagingMenu(req({update_id:1,message:{...message,chat:{id:-123,type:'supergroup'}}}),env,{fetchImpl})).status,403);
+assert.equal((await handleHelixStagingMenu(req({update_id:1,message}),env,{fetchImpl})).status,200);
+assert.match(calls[0].url,/sendMessage$/);
+assert.equal(calls[0].payload.chat_id,123);
+assert.equal((await (await handleHelixStagingMenu(req({update_id:1,message}),env,{fetchImpl})).json()).action,'duplicate');
+const cb={update_id:2,callback_query:{id:'callback-1',from:{id:123},data:'hx:analysis',message}};
+assert.equal((await handleHelixStagingMenu(req(cb),env,{fetchImpl})).status,200);
+assert.match(calls[1].url,/editMessageText$/);
+assert.match(calls[1].payload.text,/preliminary analysis/);
+assert.match(calls[2].url,/answerCallbackQuery$/);
+assert.equal((await (await handleHelixStagingMenu(req({...cb,update_id:3,callback_query:{...cb.callback_query,data:'hx:unknown'}}),env,{fetchImpl})).json()).action,'ignored');
+assert.equal(calls.length,3);
+console.log('HELIX staging menu transport, callback, access control and duplicate tests passed');

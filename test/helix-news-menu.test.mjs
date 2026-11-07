@@ -1,0 +1,12 @@
+import assert from 'node:assert/strict';
+import {menuView,normalizeCalendar,upcomingView,analysisView} from '../worker/helix-news-menu.mjs';
+const now=Date.parse('2026-11-07T00:00:00Z');
+const events=[{title:'USD CPI <release>',country:'USD',impact:'High',date:new Date(now+3600000).toISOString(),forecast:'3.0%',previous:'2.9%'},{title:'Old event',country:'USD',impact:'High',date:new Date(now-1000).toISOString()}];
+assert.equal(menuView().reply_markup.inline_keyboard.length,3);
+assert.equal(normalizeCalendar(events,now).length,1);
+assert.match(upcomingView(events,now).text,/&lt;release&gt;/);
+assert.doesNotMatch(upcomingView(events,now).text,/<release>/);
+assert.match(analysisView(events,now).text,/XAUUSD, BTCUSD and Oil/);
+assert.throws(()=>normalizeCalendar({events},now),/Invalid/);
+assert.equal(normalizeCalendar([{title:'Bad',country:'USD',impact:'High',date:'2026-11-07'}],now).length,0);
+console.log('HELIX read-only news menu tests passed');

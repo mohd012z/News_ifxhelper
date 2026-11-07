@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import {authorizedAdmin,validateNewsCandidate,resendDecision} from '../worker/helix-review-policy.mjs';
+const now=Date.parse('2026-11-07T00:00:00Z');
+const candidate={id:'news:20261107:001',title:'Official central bank announcement',sourceUrl:'https://example.org/release',publishedAt:now-60000,kind:'breaking',impact:'high',independentlyVerified:true};
+const record={eventKey:candidate.id,status:'sent',messageId:123};
+assert.equal(authorizedAdmin(123,'123,456'),true);
+for(const id of [0,'1234','1x',null])assert.equal(authorizedAdmin(id,'123,456'),false);
+assert.equal(authorizedAdmin(123,''),false);
+assert.equal(authorizedAdmin(123,'123,invalid'),false);
+assert.deepEqual(validateNewsCandidate(candidate,now),{ok:true});
+for(const patch of [{sourceUrl:'http://example.org'}, {sourceUrl:'https://127.0.0.1/private'}, {sourceUrl:'https://user:pass@example.org'}, {publishedAt:now-49*3600000}, {publishedAt:now+3600000}, {independentlyVerified:false}, {kind:'unknown'}])assert.equal(validateNewsCandidate({...candidate,...patch},now).ok,false);
+const args={actorId:123,adminIds:'123',record,candidate,confirmation:'RESEND '+candidate.id,now};
+assert.deepEqual(resendDecision(args),{allowed:true,reason:'approved_for_atomic_claim'});
+for(const patch of [{actorId:456},{confirmation:'yes'},{record:{...record,status:'uncertain'}},{record:{...record,status:'pending'}},{record:{...record,status:'rejected'}},{record:{...record,messageId:0}},{record:{...record,eventKey:'different'}}])assert.equal(resendDecision({...args,...patch}).allowed,false);
+console.log('HELIX review policy regression tests passed');
