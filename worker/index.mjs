@@ -1,5 +1,6 @@
 import {runWeeklyOutlook} from './helix-weekly-outlook.mjs';
 import {handleHelixWebhook} from './helix-manual-webhook.mjs';
+import {handleHelixStagingMenu} from './helix-staging-menu.mjs';
 import {runReminders} from './reminder.mjs';
 import {runFundamentalCycle} from './fundamental-cycle.mjs';
 const RAW_BASE = "https://raw.githubusercontent.com/mohd012z/News_ifxhelper/main/";
@@ -126,6 +127,7 @@ export default {
     const url = new URL(request.url);
     // Staging-only control plane. Never expose via the public asset proxy.
     if (url.pathname === '/api/helix/manual') return handleHelixWebhook(request, env || {});
+    if (url.pathname === '/api/helix/staging-menu') return handleHelixStagingMenu(request, env || {});
 
     if (request.method === "OPTIONS") {
       return new Response(null, {
