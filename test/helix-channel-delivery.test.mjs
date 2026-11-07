@@ -15,9 +15,10 @@ await assert.rejects(()=>runFundamentalCycle({...base,ENABLE_HELIX_CHANNEL_DELIV
 await assert.rejects(()=>runFundamentalCycle({...base,ENABLE_HELIX_CHANNEL_DELIVERY:'true',TELEGRAM_CHANNEL_ID:'@wrong'},{now,fetchImpl}),/@ifxhelper2/);
 assert.equal(calls.length,0);
 const result=await runFundamentalCycle({...base,ENABLE_HELIX_CHANNEL_DELIVERY:'true'},{now,fetchImpl});
-assert.equal(result.sent,1);
-assert.equal(calls.length,1);
-assert.equal(calls[0].payload.chat_id,'@ifxhelper2');
-assert.match(calls[0].payload.text,/T-30/);
-assert.equal(claims,1);
+assert.equal(result.sent,2);
+assert.equal(calls.length,2);
+assert(calls.every(call=>call.payload.chat_id==='@ifxhelper2'));
+assert.equal(calls.filter(call=>call.payload.text.includes('08:00 MYT fundamental briefing')).length,1);
+assert.equal(calls.filter(call=>call.payload.text.includes('T-30')).length,1);
+assert.equal(claims,2);
 console.log('HELIX channel-only upcoming delivery tests passed');
