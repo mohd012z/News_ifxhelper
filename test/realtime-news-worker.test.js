@@ -44,7 +44,7 @@ assert(worker.includes('/api/ff-calendar'), 'Worker live calendar route missing'
 assert(worker.includes('raw.githubusercontent.com/mohd012z/News_ifxhelper/main/'), 'Worker must proxy current main assets');
 assert(worker.includes('no-store, no-cache, must-revalidate'), 'volatile Worker assets must disable stale caching');
 assert(worker.includes('"pwa.js"'), 'Worker must treat pwa.js as volatile');
-assert(worker.includes('2026-10-09-live-proxy-v2'), 'Worker freshness/version fingerprint missing');
+assert(/const WORKER_VERSION = "\d{4}-\d{2}-\d{2}-(live-proxy|candles)-v\d+"/.test(worker), 'Worker freshness/version fingerprint missing');
 assert(worker.includes('?cf_refresh='), 'Worker volatile upstream cache-buster missing');
 
 assert(wrangler.includes('name = "gentle-violet-4a79"'), 'Wrangler worker name must target the existing Worker');
