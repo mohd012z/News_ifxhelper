@@ -746,7 +746,8 @@
   }
   function applyLiveCalendar(events, fetchedAt, sourceLabel) {
     var rows = (events || []).map(function (e) { return liveCalendarRow(e, fetchedAt, sourceLabel); }).filter(Boolean);
-    if (!rows.length) return false;
+    // A successful empty feed is authoritative: clear the previous current-week slice.
+    // Network and schema errors are handled before this function and retain last-known data.
     var signature = JSON.stringify(rows.map(function (e) { return [e.event, e.timeGmt, e.importance, e.actual, e.forecast, e.previous]; }));
     var changed = signature !== lastLiveCalendarSignature;
     lastLiveCalendarSignature = signature;
