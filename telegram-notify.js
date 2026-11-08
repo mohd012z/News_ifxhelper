@@ -32,6 +32,20 @@ const path = require('path');
 const STATE_FILE = path.join(__dirname, '.news-alert-state.json');
 const TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
+// Optional Cloudflare relay (2026-11-06): when set, ALL Telegram sends go through
+// the gentle-violet worker's POST /api/telegram/:method endpoint (worker/index.mjs)
+// instead of api.telegram.org directly — the worker holds the bot token as a secret.
+// Unset (default) = direct api.telegram.org sends, exactly as before.
+const TELEGRAM_RELAY = (process.env.TELEGRAM_RELAY_URL || '').replace(/\/+$/, '');
+const TELEGRAM_RELAY_KEY = process.env.TELEGRAM_RELAY_KEY || '';
+function tgSendUrl(method) {
+  return TELEGRAM_RELAY ? TELEGRAM_RELAY + '/' + method : `https://api.telegram.org/bot${TOKEN}/${method}`;
+}
+function tgSendHeaders() {
+  const h = { 'Content-Type': 'application/json' };
+  if (TELEGRAM_RELAY && TELEGRAM_RELAY_KEY) h['x-ifx-relay-key'] = TELEGRAM_RELAY_KEY;
+  return h;
+}
 const PREVIEW = process.argv.includes('--preview');
 const REMINDERS = process.argv.includes('--reminders');
 const DAILY = process.argv.includes('--daily-summary');
@@ -65,13 +79,12 @@ function saveState(state) {
  * have been RE-sent as duplicates on the next run). A network throw is treated exactly like a
  * failed send: not marked as sent, retried next run - same as any other failure path here. */
 async function sendTelegram(text) {
-  if (!TOKEN || !CHAT_ID) { console.log('SKIP (no Telegram credentials configured):\n' + text + '\n'); return { ok: false, skipped: true }; }
-  const url = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
+  if ((!TELEGRAM_RELAY && !TOKEN) || !CHAT_ID || (TELEGRAM_RELAY && !TELEGRAM_RELAY_KEY)) { console.log('SKIP (no Telegram credentials configured):\n' + text + '\n'); return { ok: false, skipped: true }; }
   let r;
   try {
-    r = await fetch(url, {
+    r = await fetch(tgSendUrl('sendMessage'), {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: tgSendHeaders(),
       body: JSON.stringify({ chat_id: CHAT_ID, text, parse_mode: 'HTML', disable_web_page_preview: true })
     });
   } catch (e) { console.log('FAIL Telegram send (network): ' + e.message); return { ok: false }; }
@@ -94,9 +107,9 @@ async function sendTelegramCard(caption, chartUrl) {
   if (!TOKEN || !CHAT_ID) { console.log('SKIP (no Telegram credentials configured):\n' + caption + '\n'); return { ok: false, skipped: true }; }
   if (chartUrl && caption.length <= 1024) {
     try {
-      const r = await fetch(`https://api.telegram.org/bot${TOKEN}/sendPhoto`, {
+      const r = await fetch(tgSendUrl('sendPhoto'), {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: tgSendHeaders(),
         body: JSON.stringify({ chat_id: CHAT_ID, photo: chartUrl, caption, parse_mode: 'HTML' })
       });
       const j = await r.json().catch(() => ({}));
