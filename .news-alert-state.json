@@ -917,6 +917,10 @@
     "news:Gold dives below $4,100 as blowout NFP underpins Fed hike odds",
     "news:Australian Dollar falls to lowest since March amid robust US NFP",
     "news:Malaysian Ringgit: Range consolidation view against US Dollar – Commerzbank",
-    "news:Gold prices fall as blowout U.S. jobs report boosts Fed rate hike bets"
+    "news:Gold prices fall as blowout U.S. jobs report boosts Fed rate hike bets",
+    "evt:[AUD] Cash Rate|2026-11-02",
+    "evt:[AUD] RBA Monetary Policy Statement|2026-11-02",
+    "evt:[AUD] RBA Rate Statement|2026-11-02",
+    "evt:[AUD] RBA Press Conference|2026-11-02"
   ]
 }
