@@ -37,6 +37,26 @@ const trackingFetch = async (input) => {
   if (url.includes("cdn.jsdelivr.net/gh/mohd012z/News_ifxhelper@main/news-auto.js")) {
     return new Response('{"generatedAt":"2026-11-08 05:58:38Z","via":"jsdelivr-fallback"}', { status: 200, headers: { "Content-Type": "application/javascript" } });
   }
+  if (url.includes("query1.finance.yahoo.com/v8/finance/chart/GC=F")) {
+    // 4 x 1h bars in the same UTC 4h bucket (00,01,02,03h) + one earlier bar.
+    // Aggregated to H4 the first five bars must collapse to two 4h bars.
+    const base = 1762502400; // a fixed epoch hour, divisible by 3600
+    const mk = (o, h, l, c) => ({ o, h, l, c });
+    const rows = [
+      mk(4000, 4010, 3995, 4005), // t=base-3600 (previous 4h bucket)
+      mk(4005, 4020, 4000, 4015), // t=base      (new 4h bucket opens)
+      mk(4015, 4030, 4010, 4025), // t=base+3600
+      mk(4025, 4035, 4018, 4020), // t=base+7200
+      mk(4020, 4028, 4008, 4012)  // t=base+10800
+    ];
+    return new Response(JSON.stringify({
+      chart: { result: [{
+        meta: { regularMarketPrice: 4012 },
+        timestamp: [base - 3600, base, base + 3600, base + 7200, base + 10800],
+        indicators: { quote: [{ open: rows.map(r => r.o), high: rows.map(r => r.h), low: rows.map(r => r.l), close: rows.map(r => r.c) }] }
+      }]}
+    }), { status: 200, headers: { "Content-Type": "application/json" } });
+  }
   if (url.includes("/news-auto.js?cf_refresh=")) {
     return new Response("raw origin unavailable", { status: 500, headers: { "Content-Type": "text/plain" } });
   }
@@ -65,7 +85,7 @@ try {
   assert.match(r.headers.get("content-type") || "", /application\/javascript/);
   assert.match(r.headers.get("cache-control") || "", /no-store/);
   assert.equal(await r.text(), "console.log('fresh app')");
-  assert.equal(r.headers.get("x-ifxhelper-worker-version"), "2026-10-09-live-proxy-v2");
+  assert.equal(r.headers.get("x-ifxhelper-worker-version"), "2026-11-08-candles-v3");
   // GitHub raw's CSP (default-src 'none') must NOT leak through: it blocks
   // every external <script> and renders the dashboard empty.
   assert.equal(r.headers.get("content-security-policy"), null, "upstream CSP must be stripped");
@@ -117,8 +137,35 @@ try {
   const health = await r.json();
   assert.equal(health.ok, true);
   assert.equal(health.service, "ifxhelper-news-worker");
-  assert.equal(health.workerVersion, "2026-10-09-live-proxy-v2");
+  assert.equal(health.workerVersion, "2026-11-08-candles-v3");
   assert.equal(health.sourceMode, "github-main-live-proxy");
+
+  // /api/candles: real OHLC history proxied from Yahoo (keyless GC=F).
+  r = await worker.fetch(new Request("https://gentle-violet-4a79.ifxhelper.workers.dev/api/candles?tf=H4"));
+  assert.equal(r.status, 200, "candles H4 must be 200");
+  const cd = await r.json();
+  assert.equal(cd.ok, true);
+  assert.equal(cd.tf, "H4");
+  assert.equal(r.headers.get("access-control-allow-origin"), "*");
+  // 1h bars [base-1h][base..base+3h] must aggregate to TWO 4h bars:
+  // the first bucket closes at 4005 (only one bar), the second at 4012.
+  assert.equal(cd.bars.length, 2, "H4 aggregation must collapse 4x1h into one bucket");
+  assert.equal(cd.bars[0].o, 4000);
+  assert.equal(cd.bars[0].c, 4005);
+  assert.equal(cd.bars[1].o, 4005);
+  assert.equal(cd.bars[1].h, 4035);
+  assert.equal(cd.bars[1].l, 4000);
+  assert.equal(cd.bars[1].c, 4012);
+
+  // H1: pass-through, no aggregation
+  r = await worker.fetch(new Request("https://gentle-violet-4a79.ifxhelper.workers.dev/api/candles?tf=H1"));
+  const cd1 = await r.json();
+  assert.equal(cd1.ok, true);
+  assert.equal(cd1.bars.length, 5);
+
+  // unknown tf -> 400
+  r = await worker.fetch(new Request("https://gentle-violet-4a79.ifxhelper.workers.dev/api/candles?tf=XX"));
+  assert.equal(r.status, 400);
 
   assert(calls.some((u) => u.includes("raw.githubusercontent.com/mohd012z/News_ifxhelper/main/app.js?cf_refresh=")), "volatile upstream URL must be cache-busted");
   console.log("Cloudflare Worker proxy tests passed");

@@ -1,6 +1,8 @@
 const RAW_BASE = "https://raw.githubusercontent.com/mohd012z/News_ifxhelper/main/";
 const FF_WEEK = "https://nfs.faireconomy.media/ff_calendar_thisweek.json";
-const WORKER_VERSION = "2026-10-09-live-proxy-v2";
+const WORKER_VERSION = "2026-11-08-candles-v3";
+const YAHOO_BASE = "https://query1.finance.yahoo.com/v8/finance/chart/";
+const YAHOO_UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0 Safari/537.36";
 
 const MIME = {
   ".html": "text/html; charset=utf-8",
@@ -186,6 +188,102 @@ async function liveCalendar() {
   });
 }
 
+// --- /api/candles: real OHLC history (keyless Yahoo GC=F, the COMEX gold
+// futures that mirror XAU/USD spot) proxied server-side because Yahoo sends
+// no Access-Control-Allow-Origin to browsers. The worker fetches, trims, and
+// returns clean bar arrays for the 8 BBMA timeframes (H4/D1/W1/MN1 are
+// aggregated from 1h bars server-side; Yahoo's 4h/1wk/1mo buckets are not
+// aligned to the app's UTC day/week/month boundaries).
+const TF_YAHOO = {
+  M5: { interval: "5m", range: "1mo", baseMs: 300000, limit: 240 },
+  M15: { interval: "15m", range: "3mo", baseMs: 900000, limit: 240 },
+  M30: { interval: "30m", range: "3mo", baseMs: 1800000, limit: 240 },
+  H1: { interval: "60m", range: "1y", baseMs: 3600000, limit: 240 },
+  H4: { interval: "60m", range: "2y", baseMs: 14400000, limit: 240, aggregate: true },
+  D1: { interval: "60m", range: "2y", baseMs: 86400000, limit: 240, aggregate: true },
+  W1: { interval: "60m", range: "2y", baseMs: 604800000, limit: 240, aggregate: true },
+  MN1: { interval: "1mo", range: "10y", baseMs: 2592000000, limit: 240 }
+};
+
+function aggregateBars(bars, baseMs, limit) {
+  const out = [];
+  for (const b of bars) {
+    const bucket = Math.floor(b.t / baseMs) * baseMs;
+    const last = out[out.length - 1];
+    if (last && last.t === bucket) {
+      if (b.h > last.h) last.h = b.h;
+      if (b.l < last.l) last.l = b.l;
+      last.c = b.c;
+    } else {
+      out.push({ t: bucket, o: b.o, h: b.h, l: b.l, c: b.c });
+    }
+  }
+  // The in-progress bucket is kept (the app's own live-tick merge completes it),
+  // but everything older than the window is trimmed.
+  return out.slice(-limit);
+}
+
+async function candlesRoute(url) {
+  const tf = url.searchParams.get("tf") || "H1";
+  const cfg = TF_YAHOO[tf];
+  const jsonHead = {
+    "Content-Type": "application/json; charset=utf-8",
+    "Access-Control-Allow-Origin": "*",
+    "X-Content-Type-Options": "nosniff",
+    "Cache-Control": "public, max-age=60, s-maxage=60, stale-while-revalidate=120"
+  };
+  if (!cfg) {
+    return new Response(JSON.stringify({ error: "unknown tf", ok: false }), { status: 400, headers: jsonHead });
+  }
+  let upstream;
+  try {
+    upstream = await fetch(`${YAHOO_BASE}GC=F?interval=${cfg.interval}&range=${cfg.range}`, {
+      cache: "no-store",
+      headers: { "User-Agent": YAHOO_UA, "Accept": "application/json" }
+    });
+  } catch (e) {
+    return new Response(JSON.stringify({ error: "yahoo unreachable", ok: false }), { status: 502, headers: jsonHead });
+  }
+  if (!upstream.ok) {
+    return new Response(JSON.stringify({ error: "yahoo " + upstream.status, ok: false }), { status: 502, headers: jsonHead });
+  }
+  let doc;
+  try { doc = await upstream.json(); } catch (e) {
+    return new Response(JSON.stringify({ error: "yahoo bad json", ok: false }), { status: 502, headers: jsonHead });
+  }
+  const err = doc && doc.chart && doc.chart.error;
+  if (err) {
+    return new Response(JSON.stringify({ error: err.description || "yahoo error", ok: false }), { status: 502, headers: jsonHead });
+  }
+  const res = doc.chart && doc.chart.result && doc.chart.result[0];
+  if (!res || !Array.isArray(res.timestamp)) {
+    return new Response(JSON.stringify({ error: "no result", ok: false }), { status: 502, headers: jsonHead });
+  }
+  const q = res.indicators && res.indicators.quote && res.indicators.quote[0];
+  if (!q) return new Response(JSON.stringify({ error: "no quote", ok: false }), { status: 502, headers: jsonHead });
+  const raw = [];
+  for (let i = 0; i < res.timestamp.length; i++) {
+    const o = q.open[i], h = q.high[i], l = q.low[i], c = q.close[i];
+    if (o == null || h == null || l == null || c == null) continue;
+    raw.push({ t: res.timestamp[i] * 1000, o: +o, h: +h, l: +l, c: +c });
+  }
+  const bars = cfg.aggregate ? aggregateBars(raw, cfg.baseMs, cfg.limit) : raw.slice(-cfg.limit);
+  if (!bars.length) {
+    return new Response(JSON.stringify({ error: "no bars", ok: false }), { status: 502, headers: jsonHead });
+  }
+  const last = bars[bars.length - 1];
+  return new Response(JSON.stringify({
+    ok: true,
+    tf,
+    symbol: "GC=F",
+    label: "COMEX gold futures (XAU/USD proxy)",
+    fetchedAt: new Date().toISOString(),
+    lastPrice: res.meta ? res.meta.regularMarketPrice : last.c,
+    lastBarTime: last.t,
+    bars
+  }), { status: 200, headers: jsonHead });
+}
+
 export default {
   async fetch(request) {
     const url = new URL(request.url);
@@ -207,6 +305,8 @@ export default {
     }
 
     if (url.pathname === "/api/ff-calendar") return liveCalendar();
+
+    if (url.pathname === "/api/candles") return candlesRoute(url);
 
     if (url.pathname === "/api/health") {
       return new Response(JSON.stringify({

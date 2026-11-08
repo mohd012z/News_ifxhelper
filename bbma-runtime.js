@@ -1,7 +1,14 @@
-/* BBMA runtime bridge: validated XAU ticks -> rolling OHLC -> BBMA MTF context. */
+/* BBMA runtime bridge: validated XAU ticks -> rolling OHLC -> BBMA MTF context.
+ * History source ladder (per TF):
+ *   1. /api/candles?tf=… (worker proxy of keyless Yahoo GC=F = real COMEX bars,
+ *      the same shape TradingView charts; futures proxy, labelled as such)
+ *   2. Google gstatic CORS passthrough to Yahoo v8 directly (pages fallback)
+ *   3. genBaseline() synthetic sine seed (offline / all sources failed)
+ * Live ticks always merge on top via ingest() regardless of history source.
+ */
 (function(){'use strict';
 var TFS={M5:300000,M15:900000,M30:1800000,H1:3600000,H4:14400000,D1:86400000,W1:604800000,MN1:2592000000};
-var frames={},lastPrice=null,lastAt=null,max=240;
+var frames={},lastPrice=null,lastAt=null,max=240,realTfs={};
 
 function bucket(t,ms){return Math.floor(t/ms)*ms;}
 
@@ -28,6 +35,88 @@ var now=Date.now(),basePrice=2658.50,reseded=false;
 genBaseline(basePrice,now);
 lastPrice=basePrice;
 lastAt=new Date(now).toISOString();
+
+// --- Real history (TradingView-consistent) ---------------------------------
+// The worker's /api/candles proxies keyless Yahoo GC=F (COMEX gold futures —
+// the same bars TradingView charts for XAU/USD). On GitHub Pages (no worker)
+// we fall back to a public CORS passthrough, then to the synthetic baseline.
+var YF={M5:'5m/1mo',M15:'15m/3mo',M30:'30m/3mo',H1:'60m/1y',H4:'60m/2y',D1:'1d/2y',W1:'1d/2y',MN1:'1mo/10y'};
+function rebucket(bars,baseMs){
+  var out=[];
+  bars.forEach(function(b){
+    var bk=Math.floor(b.t/baseMs)*baseMs,last=out[out.length-1];
+    if(last&&last.t===bk){if(b.h>last.h)last.h=b.h;if(b.l<last.l)last.l=b.l;last.c=b.c;}
+    else out.push({t:bk,o:b.o,h:b.h,l:b.l,c:b.c});
+  });
+  return out.slice(-max);
+}
+function seedFromReal(tf,bars){
+  if(!bars||!bars.length)return false;
+  var clean=bars.filter(function(b){return isFinite(b.o)&&isFinite(b.h)&&isFinite(b.l)&&isFinite(b.c);});
+  if(!clean.length)return false;
+  clean=clean.slice(-max);
+  frames[tf]=clean.map(function(b){
+    return {_b:b.t,time:new Date(b.t).toISOString(),open:b.o,high:b.h,low:b.l,close:b.c,source:'REAL_YAHOO'};
+  });
+  realTfs[tf]=true;
+  // Anchor the live-tick price to the last real bar so the 2s ingest loop keeps
+  // updating THAT bar in place (no synthetic gap between history and live).
+  var lastBar=clean[clean.length-1];
+  if(tf==='H1'&&lastPrice!=null){lastPrice=lastBar.c;lastAt=new Date(lastBar.t).toISOString();}
+  return true;
+}
+function fetchWithTimeout(url,ms){
+  var ctl=typeof AbortController!=='undefined'?new AbortController():null;
+  var to=ctl?setTimeout(function(){try{ctl.abort();}catch(e){}},ms):null;
+  return fetch(url,{cache:'no-store',signal:ctl?ctl.signal:undefined}).finally(function(){if(to)clearTimeout(to);});
+}
+function yahooDirect(tf){
+  var spec=YF[tf]||'60m/1y';
+  var iv=spec.split('/')[0],rng=spec.split('/')[1];
+  var base='https://query1.finance.yahoo.com/v8/finance/chart/GC=F?interval='+iv+'&range='+rng;
+  return fetchWithTimeout('https://api.allorigins.win/raw?url='+encodeURIComponent(base),9000)
+    .then(function(r){return r.ok?r.json():null;})
+    .then(function(doc){
+      if(!doc||!doc.chart||!doc.chart.result||!doc.chart.result[0])return null;
+      var res=doc.chart.result[0];if(!Array.isArray(res.timestamp))return null;
+      var q=res.indicators&&res.indicators.quote&&res.indicators.quote[0];if(!q)return null;
+      var bars=[];
+      for(var i=0;i<res.timestamp.length;i++){
+        var o=q.open[i],h=q.high[i],l=q.low[i],c=q.close[i];
+        if(o==null||h==null||l==null||c==null)continue;
+        bars.push({t:res.timestamp[i]*1000,o:+o,h:+h,l:+l,c:+c});
+      }
+      return bars;
+    })
+    .catch(function(){return null;});
+}
+function workerCandles(tf){
+  // Only meaningful when served from the CF worker (same-origin /api/candles).
+  try{
+    if(!/workers\.dev$/.test(location.hostname))return Promise.resolve(null);
+  }catch(e){}
+  return fetchWithTimeout(location.origin+'/api/candles?tf='+tf,9000)
+    .then(function(r){return r.ok?r.json():null;})
+    .then(function(doc){return doc&&doc.ok?doc.bars:null;})
+    .catch(function(){return null;})
+    .then(function(bars){
+      if(bars)return bars;
+      // Pages fallback: public CORS passthrough to the same Yahoo v8 source.
+      return yahooDirect(tf).then(function(db){
+        if(!db)return null;
+        // The direct source may not be aligned to the app's UTC buckets
+        // (H4/D1/W1), so re-bucket on the client to the canonical base.
+        return (tf==='H4'||tf==='W1')?rebucket(db,TFS[tf]):db.slice(-max);
+      });
+    });
+}
+function loadRealHistory(){
+  Object.keys(TFS).forEach(function(tf){
+    workerCandles(tf).then(function(bars){
+      if(seedFromReal(tf,bars)){try{publish();}catch(e){}}
+    }).catch(function(){});
+  });
+}
 
 function add(tf,p,t){
   var a=frames[tf],b=bucket(t,TFS[tf]),c=a[a.length-1];
@@ -109,7 +198,7 @@ function publish(){
     alertState:'PRE-EVENT',
     fresh:true,
     freshness:'FRESH_SNAPSHOT',
-    source:'LIVE_TICK_DERIVED',
+    source:realTfs.H1?'REAL_YAHOO_GC_FUTURES':'LIVE_TICK_DERIVED',
     ohlc:frames,
     candles:frames,
     frames:{},
@@ -148,11 +237,13 @@ function ingest(p,at){
   if(!isFinite(p)||p<=0)return;
   var t=at?new Date(at).getTime():Date.now();
   if(!isFinite(t))t=Date.now();
-  // First real tick: re-anchor the synthetic 60-bar history to the live level so the
-  // chart/MTF indicators start from the true market price, not the 2658.50 seed.
+  // First real tick before any real history arrived: re-anchor the synthetic
+  // baseline to the live level so the chart starts from the true market price.
+  // (Once REAL_YAHOO history lands, seedFromReal replaces it wholesale.)
   if(!reseded){
     reseded=true;
-    genBaseline(p,t);
+    var anyReal=Object.keys(realTfs).some(function(k){return realTfs[k];});
+    if(!anyReal)genBaseline(p,t);
   }
   lastPrice=p;
   lastAt=new Date(t).toISOString();
@@ -160,7 +251,7 @@ function ingest(p,at){
   publish();
 }
 
-window.BBMARuntime={ingest:ingest,snapshot:function(){return window.BBMA_RUNTIME||null;},frames:frames};
+window.BBMARuntime={ingest:ingest,snapshot:function(){return window.BBMA_RUNTIME||null;},frames:frames,loadRealHistory:loadRealHistory,realTfs:realTfs};
 window.addEventListener('xau-live-tick',function(e){var d=e.detail||{};ingest(d.price,d.at);});
 
 setInterval(function(){
@@ -172,4 +263,6 @@ setInterval(function(){
 },2000);
 
 publish();
+// Pull real OHLC history for every TF (async; each arrival re-publishes).
+try{loadRealHistory();}catch(e){}
 })();
