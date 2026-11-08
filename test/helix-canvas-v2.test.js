@@ -1,0 +1,18 @@
+'use strict';
+const assert=require('node:assert/strict');
+const {indicators,closedReplay,geometry}=require('../helix-canvas-chart.js');
+const rows=Array.from({length:70},(_,i)=>({time:1700000000+i*60,open:100+i,high:102+i,low:99+i,close:101+i}));
+const studies=indicators(rows);
+assert.equal(studies[18].bbMiddle,null);
+assert.equal(studies[19].bbMiddle,110.5);
+assert.equal(studies[48].ema50,null);
+assert(Number.isFinite(studies[49].ema50));
+assert(Number.isFinite(studies[69].lwma10Low));
+const cutoff=new Date((rows[20].time+60)*1000).toISOString();
+assert.equal(closedReplay(rows,cutoff,1).length,21);
+assert.throws(()=>closedReplay(rows,'invalid',1),/INVALID_REPLAY_CUTOFF/);
+assert.throws(()=>closedReplay(rows,cutoff,0),/INVALID_REPLAY_CUTOFF/);
+const g=geometry(rows,[{pattern:'RBR',start:rows[5].time,end:rows[15].time,low:100,high:110}],700,300,{from:0,to:25},studies);
+assert.equal(g.candles.length,25);assert.equal(g.zones.length,1);
+assert.equal(g.lines.ema50.filter(Boolean).length,0);
+console.log('HELIX v2 closed-bar replay, BBMA warmup, geometry and S&D clipping PASS');
