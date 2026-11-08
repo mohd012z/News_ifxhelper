@@ -1,0 +1,14 @@
+'use strict';
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const html=fs.readFileSync('index.html','utf8');
+const ui=fs.readFileSync('bbma-dashboard-ui.js','utf8');
+const canvas=fs.readFileSync('helix-canvas-chart.js','utf8');
+assert(html.includes('./helix-canvas-chart.js'));
+assert(html.indexOf('./helix-canvas-chart.js')<html.indexOf('./bbma-dashboard-ui.js'));
+assert(ui.includes("get('helixRenderer')==='canvas'"));
+assert(ui.includes('window.HELIXCanvas.draw(cv,raw)'));
+assert(ui.includes('el.innerHTML=chart(x,f)'));
+assert(ui.includes('window.BBMAChart.hasLwc'));
+assert(canvas.includes('throw new RangeError'));
+console.log('HELIX opt-in Canvas/SVG fallback integration contract passed');
