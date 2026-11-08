@@ -137,12 +137,9 @@
       var pts = toPoints(bars, o.key);
       state.overlays[o.key].setData(pts);
     });
-    // Fit the last 48 bars into view (keeps the live edge in frame, allows pan-out to the rest).
-    try {
-      var ts = state.chart.timeScale();
-      var from = Math.max(0, bars.length - 48);
-      ts.setVisibleLogicalRange({ from: from, to: bars.length + 2 });
-    } catch (e) { try { state.chart.timeScale().fitContent(); } catch (e2) { /* ignore */ } }
+    // Show all bars (fit); the user pinches/drags to zoom. A fixed right-offset
+    // window overshoots past the last bar and collapses the visible range.
+    try { state.chart.timeScale().fitContent(); } catch (e) { /* ignore */ }
     return true;
   }
   // Live path: advance the last bar in place (no visible-range reset).
