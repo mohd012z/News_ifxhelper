@@ -1,0 +1,17 @@
+'use strict';
+const test=require('node:test');
+const assert=require('node:assert/strict');
+const {validateCoverageManifest,boundaryGate}=require('../lib/xauusd-calendar-coverage-gate');
+const t=s=>Date.parse(s);
+const w=t('2026-11-02T00:00:00Z'),we=t('2026-11-09T00:00:00Z');
+const manifest=(start,end,status='verified_schedule')=>({rangeStart:start,rangeEnd:end,segments:[{start,end,status}]});
+test('full verified weekly manifest accepted',()=>assert.equal(boundaryGate({timeframe:'W1',barStart:w,asOf:we,manifest:manifest(w,we)}).eligible,true));
+test('week partial manifest rejected',()=>assert.equal(boundaryGate({timeframe:'W1',barStart:w,asOf:we,manifest:manifest(w+60000,we)}).eligible,false));
+test('open week rejected',()=>assert.equal(boundaryGate({timeframe:'W1',barStart:w,asOf:we-1,manifest:manifest(w,we)}).reason,'open_bar'));
+test('provisional week rejected',()=>assert.equal(boundaryGate({timeframe:'W1',barStart:w,asOf:we,manifest:manifest(w,we,'provisional_schedule')}).reason,'calendar_unverified'));
+test('manifest gap rejected',()=>assert.throws(()=>validateCoverageManifest({rangeStart:w,rangeEnd:we,segments:[{start:w,end:w+60000,status:'verified_schedule'},{start:w+120000,end:we,status:'verified_schedule'}]}),/gap/));
+test('manifest overlap rejected',()=>assert.throws(()=>validateCoverageManifest({rangeStart:w,rangeEnd:we,segments:[{start:w,end:w+120000,status:'verified_schedule'},{start:w+60000,end:we,status:'verified_schedule'}]}),/gap/));
+test('monthly verified full boundary accepted',()=>{const a=t('2026-11-01T00:00:00Z'),b=t('2026-12-01T00:00:00Z');assert.equal(boundaryGate({timeframe:'MN1',barStart:a,asOf:b,manifest:manifest(a,b)}).eligible,true)});
+test('partial monthly manifest rejected',()=>{const a=t('2026-11-01T00:00:00Z'),b=t('2026-12-01T00:00:00Z');assert.equal(boundaryGate({timeframe:'MN1',barStart:a,asOf:b,manifest:manifest(a,b-60000)}).eligible,false)});
+test('invalid month alignment rejected',()=>assert.throws(()=>boundaryGate({timeframe:'MN1',barStart:w,asOf:we,manifest:manifest(w,we)}),/boundary/));
+test('unknown schedule never verified',()=>assert.equal(validateCoverageManifest(manifest(w,we,'unknown')).verified,false));
