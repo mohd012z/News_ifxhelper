@@ -84,10 +84,14 @@
     var last = null;
     var rt = window.BBMARuntime || window.BBMA_RUNTIME || d;
     if (rt) {
+      // Prefer the live runtime price (always current); fall back to the last
+      // H1 close (which may still be seeding / a stale synthetic baseline on
+      // the very first render before candles.H1 is fully populated).
       var sets = rt.candles || rt.ohlc || rt.marketCandles || {};
       var h1 = sets.H1;
-      if (h1 && h1.length) last = +h1[h1.length - 1].close;
-      else if (d && d.price != null) last = +d.price;
+      var h1Last = (h1 && h1.length) ? +h1[h1.length - 1].close : null;
+      if (d && d.price != null && isFinite(+d.price)) last = +d.price;
+      else if (h1Last != null && isFinite(h1Last)) last = h1Last;
     } else if (d && d.price != null) last = +d.price;
     return {
       XAU: {
