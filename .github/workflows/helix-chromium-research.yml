@@ -1,0 +1,39 @@
+name: HELIX Chromium Research Smoke (manual only)
+on:
+  workflow_dispatch:
+    inputs:
+      research_ack:
+        description: 'Enter RESEARCH_ONLY after verifying available no-billing Actions allowance'
+        required: true
+        type: string
+permissions:
+  contents: read
+concurrency:
+  group: helix-chromium-research
+  cancel-in-progress: true
+jobs:
+  chromium:
+    if: github.event.inputs.research_ack == 'RESEARCH_ONLY' && github.ref_name == 'research/bbma-lightweight-v5-snd-20261108'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      CI: 'true'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install isolated test-only browser dependencies
+        run: |
+          npm install --no-save --package-lock=false --ignore-scripts @playwright/test@1.58.2 lightweight-charts@5.2.0
+          npx playwright install --with-deps chromium
+      - name: Run isolated Chromium smoke test
+        run: npx playwright test test/browser/bbma-v5.chromium.spec.cjs --config=test/browser/playwright.config.cjs
+      - name: Upload smoke evidence on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: helix-chromium-research-failure
+          path: test-results/
+          retention-days: 1
+          if-no-files-found: ignore
