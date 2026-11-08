@@ -3,7 +3,7 @@
  * R3/S3 = mean-reversion targets · R4/S4 = trend-day breakout. Research context only. */
 window.PIVOTS_AUTO = {
   "method": "camarilla",
-  "generatedAt": "2026-11-08 05:13:05Z",
+  "generatedAt": "2026-11-08 05:43:03Z",
   "session": "2026-11-06",
   "symbols": {
     "XAUUSD": {
