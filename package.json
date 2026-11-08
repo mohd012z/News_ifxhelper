@@ -65,7 +65,8 @@
     "test:bbma-lightweight-v5": "node test/bbma-lightweight-v5.test.js",
     "test:bbma-lightweight-browser": "node test/bbma-lightweight-browser.test.js",
     "test:bbma-lightweight-offline": "node test/bbma-lightweight-offline.test.js",
-    "vendor:lightweight-charts": "node tools/vendor-lightweight-charts.js"
+    "vendor:lightweight-charts": "node tools/vendor-lightweight-charts.js",
+    "verify:offline-chart": "node tools/prepare-web.js && node tools/verify-offline-chart.js"
   },
   "dependencies": {
     "@capacitor/android": "^7.0.0",
