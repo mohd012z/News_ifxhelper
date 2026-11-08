@@ -270,6 +270,11 @@
     /* BBMA full chart (Charts tab) */
     .fv-toolbar{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
     .fv-row{display:flex;flex-wrap:wrap;gap:4px}
+    .fv-sel{background:#121b2e;border:1px solid #24324f;color:#d7e2f4;border-radius:8px;padding:5px 8px;font-size:12px;font-weight:600;cursor:pointer}
+    .fv-sel:focus{outline:none;border-color:#3d7bd8}
+    .fv-btn.ind{border-style:dashed}
+    .fv-btn.ind.on{background:#123a2b;border-color:#31df8b;color:#7cf0b6}
+    .fv-chips{margin-left:2px}
     .fv-btn{background:#121b2e;border:1px solid #24324f;color:#9db2d4;border-radius:8px;padding:5px 9px;font-size:12px;cursor:pointer;font-weight:600;line-height:1.2}
     .fv-btn:hover{border-color:#3b557e;color:#d7e2f4}
     .fv-btn.on{background:#1d3557;border-color:#3d7bd8;color:#eaf2ff}
@@ -569,7 +574,7 @@
         <div class="note">Real Dukascopy history + live tick (all timeframes). Zoom: pinch / ctrl+wheel &middot; Pan: drag &middot; Draw: pick a tool, then click the chart (trend/rect = 2 clicks) &middot; Double-click deletes an object &middot; Esc cancels. S/D: red = unmitigated supply, green = unmitigated demand.</div>
         <div id="fv-toolbar" class="fv-toolbar" style="margin-top:8px"></div>
         <div class="fv-chart-wrap" style="margin-top:8px"><div id="fv-chart" class="fv-chart"></div></div>
-        <div class="fv-foot"><span class="note" id="fv-hint"></span><span class="note" id="fv-zone-count"></span></div>
+        <div class="fv-foot"><span class="note" id="fv-hint"></span><span class="note" id="fv-zone-count"></span><span class="note" id="fv-smc-count"></span></div>
       </section>
 
       <section class="card" style="margin-top:10px" data-sec="charts">

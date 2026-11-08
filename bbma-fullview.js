@@ -142,7 +142,7 @@
     zoneSeries: null, annoSeries: null,
     rsiLine: null, rsiOver: null, rsiUnder: null,
     macdHist: null, macdLine: null, macdSig: null, smcSeries: null, rsiPane: null, macdPane: null,
-    tf: 'H1', tool: null, pending: null, fullscreen: false,
+    tf: 'H1', tool: null, pending: null, fullscreen: false, indOpen: false,
     ind: { bb: true, lwma: true, ema50: true, sd: true, vwap: false, ema200: false, sma20: false, rsi: false, macd: false, smc: false },
     template: 'BBMA Oma',
     drawings: {},
@@ -325,10 +325,10 @@
                   ctx.strokeRect(0, Math.min(yt, yb), W, Math.max(1, Math.abs(yb - yt)));
                   ctx.restore();
                 }
-                band(r.premTop, r.premBottom, COLORS.smcPrem, 0.08);
-                band(r.discTop, r.discBottom, COLORS.smcDisc, 0.08);
-                band(r.eqTop, r.eqBottom, COLORS.smcEq, 0.10);
-                ctx.save(); ctx.globalAlpha = 0.55; ctx.font = '9px sans-serif';
+                band(r.premTop, r.premBottom, COLORS.smcPrem, 0.16);
+                band(r.discTop, r.discBottom, COLORS.smcDisc, 0.16);
+                band(r.eqTop, r.eqBottom, COLORS.smcEq, 0.14);
+                ctx.save(); ctx.globalAlpha = 0.85; ctx.font = '10px sans-serif';
                 var ym = Y(r.mid); if (ym != null) { ctx.fillStyle = COLORS.smcEq; ctx.fillText('EQ', 4, ym - 3); }
                 var yp = Y(r.premTop); if (yp != null) { ctx.fillStyle = COLORS.smcPrem; ctx.fillText('PREMIUM', 4, yp + 10); }
                 var yd = Y(r.discBottom); if (yd != null) { ctx.fillStyle = COLORS.smcDisc; ctx.fillText('DISCOUNT', 4, yd - 3); }
@@ -341,10 +341,14 @@
                 var xt = X(z.time); y = Y(z.top != null ? z.top : z.high);
                 var yb2 = Y(z.bottom != null ? z.bottom : z.low);
                 if (xt == null || y == null || yb2 == null) continue;
-                ctx.save(); ctx.globalAlpha = 0.16; ctx.fillStyle = col;
+                ctx.save(); ctx.globalAlpha = 0.22; ctx.fillStyle = col;
                 ctx.fillRect(xt, Math.min(y, yb2), Math.max(2, xLast - xt), Math.max(1, Math.abs(yb2 - y)));
-                ctx.globalAlpha = 0.5; ctx.strokeStyle = col; ctx.lineWidth = 1;
+                ctx.globalAlpha = 0.75; ctx.strokeStyle = col; ctx.lineWidth = 1;
                 ctx.strokeRect(xt, Math.min(y, yb2), Math.max(2, xLast - xt), Math.max(1, Math.abs(yb2 - y)));
+                if (Math.abs(yb2 - y) > 12) {
+                  ctx.globalAlpha = 0.95; ctx.fillStyle = col; ctx.font = '10px sans-serif';
+                  ctx.fillText((z.kind === 'BULL_FVG' || z.kind === 'BEAR_FVG') ? 'FVG' : 'OB', xt + 3, Math.min(y, yb2) + 11);
+                }
                 ctx.restore();
               }
               var eq = d.eq || {};
@@ -355,7 +359,7 @@
                 if (ctx.setLineDash) ctx.setLineDash([2, 2]);
                 ctx.beginPath(); ctx.moveTo(x1, y); ctx.lineTo(x2, y); ctx.stroke();
                 if (ctx.setLineDash) ctx.setLineDash([]);
-                ctx.globalAlpha = 0.9; ctx.fillStyle = COLORS.smcLH; ctx.font = '9px sans-serif';
+                ctx.globalAlpha = 0.95; ctx.fillStyle = COLORS.smcLH; ctx.font = '10px sans-serif';
                 ctx.fillText('EQH', Math.min(x1, x2), y - 3); ctx.restore();
               });
               (eq.eql || []).forEach(function (it) {
@@ -365,16 +369,18 @@
                 if (ctx.setLineDash) ctx.setLineDash([2, 2]);
                 ctx.beginPath(); ctx.moveTo(x1, y); ctx.lineTo(x2, y); ctx.stroke();
                 if (ctx.setLineDash) ctx.setLineDash([]);
-                ctx.globalAlpha = 0.9; ctx.fillStyle = COLORS.smcHL; ctx.font = '9px sans-serif';
-                ctx.fillText('EQL', Math.min(x1, x2), y + 10); ctx.restore();
+                ctx.globalAlpha = 0.95; ctx.fillStyle = COLORS.smcHL; ctx.font = '10px sans-serif';
+                ctx.fillText('EQL', Math.min(x1, x2), y + 11); ctx.restore();
               });
               var labs = (d.struct && d.struct.labels) || [];
               for (i = 0; i < labs.length; i++) {
                 var lb = labs[i]; var xl = X(lb.time); var yl = Y(lb.price);
                 if (xl == null || yl == null) continue;
-                ctx.save(); ctx.globalAlpha = 0.95; ctx.font = 'bold 9px sans-serif';
+                ctx.save(); ctx.globalAlpha = 1; ctx.font = 'bold 11px sans-serif';
                 ctx.fillStyle = lb.tag === 'HH' ? COLORS.smcHH : lb.tag === 'HL' ? COLORS.smcHL : lb.tag === 'LH' ? COLORS.smcLH : COLORS.smcLL;
-                ctx.fillText(lb.tag, xl - 8, lb.kind === 'H' ? yl - 5 : yl + 12); ctx.restore();
+                var lx = xl - 10, ly = lb.kind === 'H' ? yl - 6 : yl + 14;
+                ctx.lineWidth = 3; ctx.strokeStyle = 'rgba(7,13,24,0.85)'; ctx.strokeText(lb.tag, lx, ly);
+                ctx.fillText(lb.tag, lx, ly); ctx.restore();
               }
               var brk = (d.struct && d.struct.breaks) || [];
               for (i = 0; i < brk.length; i++) {
@@ -382,7 +388,8 @@
                 if (xb == null || yb3 == null) continue;
                 ctx.save(); ctx.globalAlpha = 0.6; ctx.strokeStyle = bk.tag === 'CHoCH' ? COLORS.smcCHoCH : COLORS.smcBOS; ctx.lineWidth = 1;
                 ctx.beginPath(); ctx.moveTo(xb, yb3); ctx.lineTo(Math.max(xb, xLast - 40), yb3); ctx.stroke();
-                ctx.globalAlpha = 0.95; ctx.fillStyle = bk.tag === 'CHoCH' ? COLORS.smcCHoCH : COLORS.smcBOS; ctx.font = '9px sans-serif';
+                ctx.globalAlpha = 1; ctx.fillStyle = bk.tag === 'CHoCH' ? COLORS.smcCHoCH : COLORS.smcBOS; ctx.font = '10px sans-serif';
+                ctx.lineWidth = 3; ctx.strokeStyle = 'rgba(7,13,24,0.85)'; ctx.strokeText(bk.tag, xb + 2, yb3 - 3);
                 ctx.fillText(bk.tag, xb + 2, yb3 - 3); ctx.restore();
               }
               if (d.sweep) {
@@ -402,8 +409,10 @@
                   if (ctx.setLineDash) ctx.setLineDash((Lp.p === sv.entry) ? [] : [4, 3]);
                   ctx.beginPath(); ctx.moveTo(xs, yl2); ctx.lineTo(xLast, yl2); ctx.stroke();
                   if (ctx.setLineDash) ctx.setLineDash([]);
-                  ctx.globalAlpha = 1; ctx.fillStyle = Lp.c; ctx.font = (Lp.p === sv.entry ? 'bold ' : '') + '9px sans-serif';
-                  ctx.fillText((up ? '\u25b2 ' : '\u25bc ') + Lp.t, xs + 3, yl2 + (Lp.p === sv.entry ? (up ? 12 : -4) : -3));
+                  ctx.globalAlpha = 1; ctx.fillStyle = Lp.c; ctx.font = (Lp.p === sv.entry ? 'bold ' : '') + '10px sans-serif';
+                  var sTxt = (up ? '\u25b2 ' : '\u25bc ') + Lp.t, sY = yl2 + (Lp.p === sv.entry ? (up ? 13 : -4) : -3);
+                  ctx.lineWidth = 3; ctx.strokeStyle = 'rgba(7,13,24,0.85)'; ctx.strokeText(sTxt, xs + 3, sY);
+                  ctx.fillText(sTxt, xs + 3, sY);
                   ctx.restore();
                 }
               }
@@ -421,7 +430,9 @@
   // chart height). Panes are kept in a stable order (main, RSI, MACD).
   // ---- oscillator sub-panes (dynamic) ---------------------------------------------
   // RSI and MACD live in real LWC sub-panes. addSeries(def, opts, paneIndex) in this
-  // build auto-creates the target pane, and removePane(pane) destroys it + its series.
+  // build auto-creates the target pane, and removePane(INDEX) destroys it + its series
+  // (this build asserts on a numeric index — passing the pane wrapper throws
+  // 'Invalid pane index', which is why the pane used to stay behind after unpress).
   // We rebuild the oscillator pane stack ONLY when the enabled-set (rsi/macd) changes:
   // drop every non-main pane, then re-add the enabled ones in canonical order (RSI
   // first, MACD second). This leaves NO empty pane behind when an indicator is off
@@ -439,7 +450,7 @@
       var ps = state.chart.panes ? state.chart.panes() : [];
       while (ps.length > 1) {
         ps = state.chart.panes ? state.chart.panes() : [];
-        state.chart.removePane(ps[ps.length - 1]);
+        state.chart.removePane(ps.length - 1); // numeric index — required by this build
       }
       state.rsiLine = state.rsiOver = state.rsiUnder = null;
       state.macdHist = state.macdLine = state.macdSig = null;
@@ -627,10 +638,18 @@
   }
   function updateZoneCount() {
     var el = document.getElementById('fv-zone-count');
-    if (!el || !state._zones) return;
-    var s = 0, d = 0;
-    state._zones.forEach(function (z) { if (z.kind === 'SUPPLY') s++; else d++; });
-    el.textContent = 'S/D: ' + s + ' supply · ' + d + ' demand (unmitigated)';
+    if (el && state._zones) {
+      var s = 0, d = 0;
+      state._zones.forEach(function (z) { if (z.kind === 'SUPPLY') s++; else d++; });
+      el.textContent = 'S/D: ' + s + ' supply · ' + d + ' demand (unmitigated)';
+    }
+    var sm = document.getElementById('fv-smc-count');
+    if (!sm) return;
+    if (state.ind.smc && smcState.data) {
+      var d = smcState.data;
+      var t = d.struct.trend;
+      sm.textContent = 'SMC: ' + (t > 0 ? '\u25b2 up' : t < 0 ? '\u25bc down' : '\u2014 flat') + ' · ' + d.zones.length + ' OB/FVG · ' + d.struct.breaks.length + ' breaks' + (d.sweep ? ' · sweep ' + d.sweep.dir : '');
+    } else sm.textContent = '';
   }
 
   // ---- live updates -----------------------------------------------------------------
@@ -854,42 +873,68 @@
     });
     bar.appendChild(tfWrap);
 
-    var indWrap = document.createElement('div');
-    indWrap.className = 'fv-row';
-    [['bb', 'BB(20,2)'], ['lwma', 'LWMA H/L 5/10'], ['ema50', 'EMA50'], ['ema200', 'EMA200'], ['sma20', 'SMA20'], ['vwap', 'VWAP'], ['rsi', 'RSI14'], ['macd', 'MACD'], ['sd', 'S/D zones'], ['smc', 'SMC']].forEach(function (kv) {
-      var b = document.createElement('button');
-      b.textContent = kv[1];
-      b.className = 'fv-btn' + (state.ind[kv[0]] ? ' on' : '');
-      b.dataset.ind = kv[0];
-      b.addEventListener('click', function () {
-        state.ind[kv[0]] = !state.ind[kv[0]];
-        state.template = ''; // a manual toggle overrides the active preset label
-        b.className = 'fv-btn' + (state.ind[kv[0]] ? ' on' : '');
-        if (kv[0] === 'sd' || kv[0] === 'smc' || kv[0] === 'rsi' || kv[0] === 'macd') feed();
-        else applyOverlays();
-      });
-      indWrap.appendChild(b);
-    });
-    bar.appendChild(indWrap);
-
-    var tplWrap = document.createElement('div');
-    tplWrap.className = 'fv-row';
+    // Compact control row: ONE preset dropdown + an 'Ind' expander for the 10 fine
+    // toggles (collapsed by default). A manual chip toggle switches the dropdown
+    // to 'Custom' so the active set is always visible in one glance.
+    var ctrlWrap = document.createElement('div');
+    ctrlWrap.className = 'fv-row';
+    var sel = document.createElement('select');
+    sel.className = 'fv-sel';
+    sel.id = 'fv-ind-tpl';
     Object.keys(TEMPLATES).forEach(function (name) {
-      var b = document.createElement('button');
-      b.textContent = name;
-      b.className = 'fv-btn tpl' + (state.template === name ? ' on' : '');
-      b.dataset.tpl = name;
-      b.addEventListener('click', function () {
-        state.template = name;
-        state.ind = { bb: false, lwma: false, ema50: false, sd: false, vwap: false, ema200: false, sma20: false, rsi: false, macd: false, smc: false }
-          ; Object.keys(TEMPLATES[name]).forEach(function (k) { state.ind[k] = TEMPLATES[name][k]; });
-        buildToolbar();
-        flashHint('template ' + name + ' applied');
-        feed();
-      });
-      tplWrap.appendChild(b);
+      var o = document.createElement('option');
+      o.value = name; o.textContent = name;
+      sel.appendChild(o);
     });
-    bar.appendChild(tplWrap);
+    if (state.template === '') {
+      var o = document.createElement('option');
+      o.value = ''; o.textContent = 'Custom (current)';
+      sel.appendChild(o);
+    }
+    sel.value = state.template;
+    sel.addEventListener('change', function () {
+      state.template = sel.value;
+      if (state.template === '') return; // Custom: keep the current manual set
+      state.ind = { bb: false, lwma: false, ema50: false, sd: false, vwap: false, ema200: false, sma20: false, rsi: false, macd: false, smc: false };
+      Object.keys(TEMPLATES[state.template]).forEach(function (k) { state.ind[k] = TEMPLATES[state.template][k]; });
+      buildToolbar();
+      flashHint('template ' + state.template + ' applied');
+      feed();
+    });
+    ctrlWrap.appendChild(sel);
+    var indBtn = document.createElement('button');
+    var nOn = Object.keys(state.ind).filter(function (k) { return state.ind[k]; }).length;
+    indBtn.textContent = 'Ind ' + nOn + (state.indOpen ? ' \u25b2' : ' \u25be');
+    indBtn.className = 'fv-btn ind' + (state.indOpen ? ' on' : '');
+    indBtn.dataset.indopen = '1';
+    indBtn.title = 'Expand individual indicator toggles';
+    indBtn.addEventListener('click', function () {
+      state.indOpen = !state.indOpen;
+      buildToolbar();
+    });
+    ctrlWrap.appendChild(indBtn);
+    bar.appendChild(ctrlWrap);
+
+    var IND_DEFS = [['bb', 'BB(20,2)'], ['lwma', 'LWMA H/L 5/10'], ['ema50', 'EMA50'], ['ema200', 'EMA200'], ['sma20', 'SMA20'], ['vwap', 'VWAP'], ['rsi', 'RSI14'], ['macd', 'MACD'], ['sd', 'S/D zones'], ['smc', 'SMC']];
+    if (state.indOpen) {
+      var indWrap = document.createElement('div');
+      indWrap.className = 'fv-row fv-chips';
+      IND_DEFS.forEach(function (kv) {
+        var b = document.createElement('button');
+        b.textContent = kv[1];
+        b.className = 'fv-btn' + (state.ind[kv[0]] ? ' on' : '');
+        b.dataset.ind = kv[0];
+        b.addEventListener('click', function () {
+          state.ind[kv[0]] = !state.ind[kv[0]];
+          state.template = ''; // a manual toggle overrides the active preset
+          buildToolbar();
+          if (kv[0] === 'sd' || kv[0] === 'smc' || kv[0] === 'rsi' || kv[0] === 'macd') feed();
+          else applyOverlays();
+        });
+        indWrap.appendChild(b);
+      });
+      bar.appendChild(indWrap);
+    }
 
     var toolWrap = document.createElement('div');
     toolWrap.className = 'fv-row';
@@ -926,7 +971,14 @@
     if (!bar) return;
     bar.querySelectorAll('[data-tf]').forEach(function (b) { b.className = 'fv-btn' + (b.dataset.tf === state.tf ? ' on' : ''); });
     bar.querySelectorAll('[data-ind]').forEach(function (b) { b.className = 'fv-btn' + (state.ind[b.dataset.ind] ? ' on' : ''); });
-    bar.querySelectorAll('[data-tpl]').forEach(function (b) { b.className = 'fv-btn tpl' + (state.template === b.dataset.tpl ? ' on' : ''); });
+    var selEl = document.getElementById('fv-ind-tpl');
+    if (selEl) selEl.value = state.template;
+    var indBtnEl = bar.querySelector('[data-indopen]');
+    if (indBtnEl) {
+      var nOn2 = Object.keys(state.ind).filter(function (k) { return state.ind[k]; }).length;
+      indBtnEl.textContent = 'Ind ' + nOn2 + (state.indOpen ? ' ▲' : ' ▼');
+      indBtnEl.className = 'fv-btn ind' + (state.indOpen ? ' on' : '');
+    }
     bar.querySelectorAll('[data-tool]').forEach(function (b) { b.className = 'fv-btn tool' + (b.dataset.tool === state.tool ? ' on' : ''); });
     var fsb = bar.querySelector('[data-fs]');
     if (fsb) fsb.className = 'fv-btn tool fs' + ((state.fullscreen || fsEl()) ? ' on' : '');
