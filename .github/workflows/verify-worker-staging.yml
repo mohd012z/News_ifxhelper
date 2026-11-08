@@ -1,5 +1,13 @@
 name: Verify HELIX staging Worker
 on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/verify-worker-staging.yml'
+      - 'wrangler.staging.toml'
+      - 'worker/index.mjs'
+      - 'test/cloudflare-worker.test.mjs'
+      - 'test/realtime-news-worker.test.js'
   workflow_dispatch:
     inputs:
       source_sha:
@@ -12,15 +20,16 @@ jobs:
   staging-dry-run:
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    if: github.event_name != 'pull_request' || (github.event.pull_request.head.repo.full_name == github.repository && github.event.pull_request.head.ref == 'research/helix-staging-worker-20261108')
     steps:
       - name: Validate source SHA
         env:
-          SOURCE_SHA: ${{ inputs.source_sha }}
+          SOURCE_SHA: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || inputs.source_sha }}
         run: |
           [[ "$SOURCE_SHA" =~ ^[0-9a-f]{40}$ ]] || { echo 'Invalid source SHA'; exit 1; }
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
-          ref: ${{ inputs.source_sha }}
+          ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || inputs.source_sha }}
           persist-credentials: false
       - name: Verify checked out revision and staging isolation
         env:
