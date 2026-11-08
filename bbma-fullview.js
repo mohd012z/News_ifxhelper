@@ -142,7 +142,7 @@
     zoneSeries: null, annoSeries: null,
     rsiLine: null, rsiOver: null, rsiUnder: null,
     macdHist: null, macdLine: null, macdSig: null, smcSeries: null, rsiPane: null, macdPane: null,
-    tf: 'H1', tool: null, pending: null, fullscreen: false, indOpen: false,
+    tf: 'H1', tool: null, pending: null, fullscreen: false, indPanel: false, drawPanel: false,
     ind: { bb: true, lwma: true, ema50: true, sd: true, vwap: false, ema200: false, sma20: false, rsi: false, macd: false, smc: false },
     template: 'BBMA Oma',
     drawings: {},
@@ -813,6 +813,9 @@
     t.classList.add('fv-fullscreen');
     state.fullscreen = true;
     try { document.body.style.overflow = 'hidden'; } catch (e) { }
+    // In fullscreen the compact floating top bar owns the controls; hide the card's own rows.
+    var tbar = document.getElementById('fv-toolbar');
+    if (tbar) tbar.classList.add('fv-card-hidden');
     if (fsSupported()) {
       var req = t.requestFullscreen || t.webkitRequestFullscreen || t.mozRequestFullScreen || t.msRequestFullscreen;
       try {
@@ -828,6 +831,8 @@
     if (t) t.classList.remove('fv-fullscreen');
     state.fullscreen = false;
     try { document.body.style.overflow = ''; } catch (e) { }
+    var tbar = document.getElementById('fv-toolbar');
+    if (tbar) tbar.classList.remove('fv-card-hidden');
     if (fsEl()) {
       var ex = document.exitFullscreen || document.webkitExitFullscreen || document.mozCancelFullScreen || document.msExitFullscreen;
       try { ex.call(document); } catch (e) { }
@@ -842,6 +847,8 @@
     if (!fsEl() && state.fullscreen) {
       var t = fvTarget();
       if (t) t.classList.remove('fv-fullscreen');
+      var tbar = document.getElementById('fv-toolbar');
+      if (tbar) tbar.classList.remove('fv-card-hidden');
       try { document.body.style.overflow = ''; } catch (e) { }
       state.fullscreen = false;
     }
@@ -854,33 +861,55 @@
   }
 
   // ---- toolbar ---------------------------------------------------------------------------
-  function buildToolbar() {
-    var bar = document.getElementById('fv-toolbar');
-    if (!bar) return;
-    bar.innerHTML = '';
-    var tfWrap = document.createElement('div');
-    tfWrap.className = 'fv-row';
-    TF_LIST.forEach(function (tf) {
-      var b = document.createElement('button');
-      b.textContent = tf;
-      b.className = 'fv-btn' + (tf === state.tf ? ' on' : '');
-      b.dataset.tf = tf;
-      b.addEventListener('click', function () {
-        if (state.tf === tf) return;
-        cancelPending(); state.tf = tf; buildToolbar(); feed();
-      });
-      tfWrap.appendChild(b);
-    });
-    bar.appendChild(tfWrap);
+  // Compact layout: everything routes through dropdowns.
+  //   [TF select] [Preset select] [Ind N ▾] [Draw ▾] [⛶]
+  // "Ind N" opens a checkbox panel — every indicator toggles on/off individually;
+  // any individual change flips the preset select to Custom. "Draw" lists the
+  // drawing tools. In fullscreen the same controls move to a floating top bar.
+  var IND_DEFS = [['bb', 'BB(20,2)'], ['lwma', 'LWMA H/L 5/10'], ['ema50', 'EMA50'], ['ema200', 'EMA200'], ['sma20', 'SMA20'], ['vwap', 'VWAP'], ['rsi', 'RSI14'], ['macd', 'MACD'], ['sd', 'S/D zones'], ['smc', 'SMC']];
+  var DRAW_DEFS = [['trend', 'Trendline'], ['hline', 'Horizontal line'], ['rect', 'Rectangle'], ['text', 'Text']];
 
-    // Compact control row: ONE preset dropdown + an 'Ind' expander for the 10 fine
-    // toggles (collapsed by default). A manual chip toggle switches the dropdown
-    // to 'Custom' so the active set is always visible in one glance.
-    var ctrlWrap = document.createElement('div');
-    ctrlWrap.className = 'fv-row';
+  function onIndToggle(key) {
+    state.ind[key] = !state.ind[key];
+    state.template = ''; // a manual toggle overrides the active preset
+    buildToolbar();
+    if (key === 'sd' || key === 'smc' || key === 'rsi' || key === 'macd') feed();
+    else applyOverlays();
+  }
+  function onToolSelect(tool) {
+    if (tool === 'clear') {
+      state.drawings[state.tf] = [];
+      saveDrawings(); refreshAnno();
+      flashHint('drawings cleared for ' + state.tf);
+      state.tool = null;
+    } else {
+      cancelPending();
+      state.tool = (state.tool === tool) ? null : tool;
+      flashHint(state.tool ? 'draw ' + (DRAW_DEFS.filter(function (d) { return d[0] === state.tool; })[0] || [state.tool])[1].toLowerCase() + (state.tool === 'trend' || state.tool === 'rect' ? ' (2 clicks)' : '') + ' · double-click deletes' : 'draw off');
+    }
+    buildToolbar();
+  }
+  function makeTFSelect(idPrefix) {
     var sel = document.createElement('select');
     sel.className = 'fv-sel';
-    sel.id = 'fv-ind-tpl';
+    sel.id = (idPrefix || '') + 'fv-tf';
+    TF_LIST.forEach(function (tf) {
+      var o = document.createElement('option');
+      o.value = tf; o.textContent = tf;
+      sel.appendChild(o);
+    });
+    sel.value = state.tf;
+    sel.addEventListener('change', function () {
+      if (state.tf === sel.value) return;
+      cancelPending(); state.tf = sel.value;
+      buildToolbar(); feed();
+    });
+    return sel;
+  }
+  function makePresetSelect(idPrefix) {
+    var sel = document.createElement('select');
+    sel.className = 'fv-sel';
+    sel.id = (idPrefix || 'card-') + 'fv-ind-tpl';
     Object.keys(TEMPLATES).forEach(function (name) {
       var o = document.createElement('option');
       o.value = name; o.textContent = name;
@@ -901,87 +930,156 @@
       flashHint('template ' + state.template + ' applied');
       feed();
     });
-    ctrlWrap.appendChild(sel);
-    var indBtn = document.createElement('button');
+    return sel;
+  }
+  function makeIndButton() {
+    var b = document.createElement('button');
     var nOn = Object.keys(state.ind).filter(function (k) { return state.ind[k]; }).length;
-    indBtn.textContent = 'Ind ' + nOn + (state.indOpen ? ' \u25b2' : ' \u25be');
-    indBtn.className = 'fv-btn ind' + (state.indOpen ? ' on' : '');
-    indBtn.dataset.indopen = '1';
-    indBtn.title = 'Expand individual indicator toggles';
-    indBtn.addEventListener('click', function () {
-      state.indOpen = !state.indOpen;
+    b.textContent = 'Ind ' + nOn + (state.indPanel ? ' ▲' : ' ▾');
+    b.className = 'fv-btn ind' + (state.indPanel ? ' on' : '');
+    b.dataset.indpanel = '1';
+    b.title = 'Individual indicator on/off';
+    b.addEventListener('click', function () {
+      state.indPanel = !state.indPanel;
       buildToolbar();
     });
-    ctrlWrap.appendChild(indBtn);
-    bar.appendChild(ctrlWrap);
-
-    var IND_DEFS = [['bb', 'BB(20,2)'], ['lwma', 'LWMA H/L 5/10'], ['ema50', 'EMA50'], ['ema200', 'EMA200'], ['sma20', 'SMA20'], ['vwap', 'VWAP'], ['rsi', 'RSI14'], ['macd', 'MACD'], ['sd', 'S/D zones'], ['smc', 'SMC']];
-    if (state.indOpen) {
-      var indWrap = document.createElement('div');
-      indWrap.className = 'fv-row fv-chips';
-      IND_DEFS.forEach(function (kv) {
-        var b = document.createElement('button');
-        b.textContent = kv[1];
-        b.className = 'fv-btn' + (state.ind[kv[0]] ? ' on' : '');
-        b.dataset.ind = kv[0];
-        b.addEventListener('click', function () {
-          state.ind[kv[0]] = !state.ind[kv[0]];
-          state.template = ''; // a manual toggle overrides the active preset
-          buildToolbar();
-          if (kv[0] === 'sd' || kv[0] === 'smc' || kv[0] === 'rsi' || kv[0] === 'macd') feed();
-          else applyOverlays();
-        });
-        indWrap.appendChild(b);
-      });
-      bar.appendChild(indWrap);
-    }
-
-    var toolWrap = document.createElement('div');
-    toolWrap.className = 'fv-row';
-    [['trend', 'Trend'], ['hline', 'H-Line'], ['rect', 'Rect'], ['text', 'Text'], ['clear', 'Clear']].forEach(function (kv) {
-      var b = document.createElement('button');
-      b.textContent = kv[1];
-      b.className = 'fv-btn tool' + (state.tool === kv[0] ? ' on' : '');
-      b.dataset.tool = kv[0];
-      b.addEventListener('click', function () {
-        if (kv[0] === 'clear') {
-          state.drawings[state.tf] = [];
-          saveDrawings(); refreshAnno();
-          flashHint('drawings cleared for ' + state.tf);
-          return;
-        }
-        cancelPending();
-        state.tool = (state.tool === kv[0]) ? null : kv[0];
-        updateToolbar();
-        flashHint(state.tool ? 'click the chart to draw ' + kv[1].toLowerCase() + ((state.tool === 'trend' || state.tool === 'rect') ? ' (2 clicks)' : '') + ' · double-click deletes' : 'draw off');
-      });
-      toolWrap.appendChild(b);
+    return b;
+  }
+  function makeIndPanel() {
+    var wrap = document.createElement('div');
+    wrap.className = 'fv-panel';
+    wrap.id = 'fv-ind-panel';
+    var hd = document.createElement('div');
+    hd.className = 'fv-panel-hd';
+    hd.textContent = 'Indicators — tap to switch on/off';
+    wrap.appendChild(hd);
+    IND_DEFS.forEach(function (kv) {
+      var row = document.createElement('label');
+      row.className = 'fv-check';
+      var cb = document.createElement('input');
+      cb.type = 'checkbox';
+      cb.checked = !!state.ind[kv[0]];
+      cb.addEventListener('change', function () { onIndToggle(kv[0]); });
+      var sp = document.createElement('span');
+      sp.textContent = kv[1];
+      row.appendChild(cb);
+      row.appendChild(sp);
+      wrap.appendChild(row);
     });
-    var fsBtn = document.createElement('button');
-    fsBtn.textContent = '⛶ Fullscreen';
-    fsBtn.className = 'fv-btn tool fs' + ((state.fullscreen || fsEl()) ? ' on' : '');
-    fsBtn.dataset.fs = '1';
-    fsBtn.addEventListener('click', function () { toggleFullscreen(); });
-    toolWrap.appendChild(fsBtn);
-    bar.appendChild(toolWrap);
+    return wrap;
+  }
+  function makeDrawButton() {
+    var b = document.createElement('button');
+    b.textContent = 'Draw' + (state.tool ? ' · ' + state.tool : '');
+    b.className = 'fv-btn tool' + (state.tool ? ' on' : '');
+    b.dataset.drawbtn = '1';
+    b.title = 'Drawing tools';
+    b.addEventListener('click', function () {
+      state.drawPanel = !state.drawPanel;
+      buildToolbar();
+    });
+    return b;
+  }
+  function makeDrawPanel() {
+    var wrap = document.createElement('div');
+    wrap.className = 'fv-panel';
+    wrap.id = 'fv-draw-panel';
+    var hd = document.createElement('div');
+    hd.className = 'fv-panel-hd';
+    hd.textContent = 'Draw on the chart (tap, then click the chart)';
+    wrap.appendChild(hd);
+    [['off', 'Draw off (no tool)']].concat(DRAW_DEFS).forEach(function (kv) {
+      var row = document.createElement('label');
+      row.className = 'fv-check';
+      var rb = document.createElement('input');
+      rb.type = 'radio';
+      rb.name = 'fv-draw';
+      rb.checked = (kv[0] === 'off') ? !state.tool : state.tool === kv[0];
+      var sp = document.createElement('span');
+      sp.textContent = kv[1] + (kv[0] === 'trend' || kv[0] === 'rect' ? ' (2 clicks)' : '');
+      rb.addEventListener('change', function () { onToolSelect(kv[0] === 'off' ? null : kv[0]); });
+      row.appendChild(rb);
+      row.appendChild(sp);
+      wrap.appendChild(row);
+    });
+    var cl = document.createElement('button');
+    cl.className = 'fv-btn danger';
+    cl.textContent = 'Clear all drawings (' + (state.drawings[state.tf] ? state.drawings[state.tf].length : 0) + ')';
+    cl.addEventListener('click', function () { onToolSelect('clear'); });
+    wrap.appendChild(cl);
+    var note = document.createElement('div');
+    note.className = 'fv-panel-note';
+    note.textContent = 'Double-click an object on the chart to delete it.';
+    wrap.appendChild(note);
+    return wrap;
+  }
+  function makeFsButton() {
+    var b = document.createElement('button');
+    b.textContent = '⛶';
+    b.className = 'fv-btn tool fs' + ((state.fullscreen || fsEl()) ? ' on' : '');
+    b.dataset.fs = '1';
+    b.title = 'Fullscreen chart';
+    b.addEventListener('click', function () { toggleFullscreen(); });
+    return b;
+  }
+  function buildToolbar() {
+    var bar = document.getElementById('fv-toolbar');
+    if (!bar) return;
+    bar.innerHTML = '';
+    var row1 = document.createElement('div');
+    row1.className = 'fv-row';
+    row1.appendChild(makeTFSelect('card-'));
+    row1.appendChild(makePresetSelect('card-'));
+    row1.appendChild(makeIndButton());
+    row1.appendChild(makeDrawButton());
+    row1.appendChild(makeFsButton());
+    bar.appendChild(row1);
+    if (state.indPanel) bar.appendChild(makeIndPanel());
+    if (state.drawPanel) bar.appendChild(makeDrawPanel());
+    // Floating fullscreen control bar (reuses the same controls)
+    var fsbar = document.getElementById('fv-fs-bar');
+    if (fsbar) {
+      fsbar.innerHTML = '';
+      var frow = document.createElement('div');
+      frow.className = 'fv-row';
+      frow.appendChild(makeTFSelect('fs-'));
+      frow.appendChild(makePresetSelect('fs-'));
+      frow.appendChild(makeIndButton());
+      frow.appendChild(makeDrawButton());
+      var exitB = document.createElement('button');
+      exitB.textContent = '✕ Close';
+      exitB.className = 'fv-btn tool fs';
+      exitB.addEventListener('click', function () { exitFullscreen(); });
+      frow.appendChild(exitB);
+      fsbar.appendChild(frow);
+      if (state.indPanel) fsbar.appendChild(makeIndPanel());
+      if (state.drawPanel) fsbar.appendChild(makeDrawPanel());
+    }
     updateToolbar();
   }
   function updateToolbar() {
+    // Selects keep their value; only the count label + open-state need refresh.
     var bar = document.getElementById('fv-toolbar');
-    if (!bar) return;
-    bar.querySelectorAll('[data-tf]').forEach(function (b) { b.className = 'fv-btn' + (b.dataset.tf === state.tf ? ' on' : ''); });
-    bar.querySelectorAll('[data-ind]').forEach(function (b) { b.className = 'fv-btn' + (state.ind[b.dataset.ind] ? ' on' : ''); });
-    var selEl = document.getElementById('fv-ind-tpl');
-    if (selEl) selEl.value = state.template;
-    var indBtnEl = bar.querySelector('[data-indopen]');
-    if (indBtnEl) {
-      var nOn2 = Object.keys(state.ind).filter(function (k) { return state.ind[k]; }).length;
-      indBtnEl.textContent = 'Ind ' + nOn2 + (state.indOpen ? ' ▲' : ' ▼');
-      indBtnEl.className = 'fv-btn ind' + (state.indOpen ? ' on' : '');
+    if (bar) {
+      var indBtnEl = bar.querySelector('[data-indpanel]');
+      if (indBtnEl) {
+        var nOn = Object.keys(state.ind).filter(function (k) { return state.ind[k]; }).length;
+        indBtnEl.textContent = 'Ind ' + nOn + (state.indPanel ? ' ▲' : ' ▾');
+        indBtnEl.className = 'fv-btn ind' + (state.indPanel ? ' on' : '');
+      }
+      var drawBtnEl = bar.querySelector('[data-drawbtn]');
+      if (drawBtnEl) {
+        drawBtnEl.textContent = 'Draw' + (state.tool ? ' · ' + state.tool : '');
+        drawBtnEl.className = 'fv-btn tool' + (state.tool ? ' on' : '');
+      }
+      var fsb = bar.querySelector('[data-fs]');
+      if (fsb) fsb.className = 'fv-btn tool fs' + ((state.fullscreen || fsEl()) ? ' on' : '');
     }
-    bar.querySelectorAll('[data-tool]').forEach(function (b) { b.className = 'fv-btn tool' + (b.dataset.tool === state.tool ? ' on' : ''); });
-    var fsb = bar.querySelector('[data-fs]');
-    if (fsb) fsb.className = 'fv-btn tool fs' + ((state.fullscreen || fsEl()) ? ' on' : '');
+    var fsbar = document.getElementById('fv-fs-bar');
+    if (fsbar) {
+      var fsb2 = fsbar.querySelector('[data-fs]');
+      if (fsb2) fsb2.className = 'fv-btn tool fs' + ((state.fullscreen || fsEl()) ? ' on' : '');
+    }
   }
 
   document.addEventListener('keydown', function (e) {

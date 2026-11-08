@@ -289,8 +289,54 @@
     .fv-btn.fs.on{background:#1a2a4a;border-color:#3d7bd8;color:#bcd4ff}
     /* Fullscreen fallback (webviews without the Fullscreen API): fixed overlay */
     .fv-fullscreen{position:fixed !important;inset:0 !important;z-index:9999;background:#070d18;padding:10px;margin:0;border-radius:0;overflow:auto;display:flex;flex-direction:column}
-    .fv-fullscreen .fv-chart-wrap{height:auto;flex:1 1 auto;min-height:0}
+    .fv-fullscreen .fv-chart-wrap{height:auto;flex:1 1 auto;min-height:0;position:relative;border:none}
     .fv-fullscreen .fv-chart{height:100%}
+    .fv-fullscreen .k,.fv-fullscreen .note{display:none}
+    .fv-fullscreen #fv-toolbar{display:none}
+    .fv-card-hidden{display:none !important}
+    /* Floating control bar in fullscreen (top overlay over the chart) */
+    .fv-fs-bar{position:absolute;top:0;left:0;right:0;z-index:40;background:rgba(7,13,24,.88);backdrop-filter:blur(6px);padding:6px 8px;border-bottom:1px solid #24324f;display:none}
+    .fv-fullscreen .fv-fs-bar{display:block}
+    /* Dropdown panels (Indicators / Draw) */
+    .fv-panel{background:#0f1930;border:1px solid #24324f;border-radius:10px;padding:8px;margin-top:6px;max-height:52vh;overflow:auto}
+    .fv-fs-bar .fv-panel{position:absolute;left:0;right:0;top:100%;margin-top:0;box-shadow:0 12px 30px rgba(0,0,0,.45)}
+    .fv-panel-hd{font-size:11px;font-weight:700;color:#8fb0e8;margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em}
+    .fv-check{display:flex;align-items:center;gap:8px;padding:7px 6px;font-size:13px;color:#d7e2f4;cursor:pointer;border-radius:7px}
+    .fv-check:hover{background:#16233c}
+    .fv-check input{width:17px;height:17px;accent-color:#3d7bd8;flex:none}
+    .fv-btn.danger{background:#2a1220;border-color:#7f3756;color:#ff9db9}
+    .fv-btn.danger:active{background:#3d1a2e}
+    .fv-panel-note{font-size:11px;color:#8497bb;margin-top:6px}
+    /* Camarilla pivots dashboard */
+    .cp-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+    @media(min-width:700px){.cp-grid{grid-template-columns:repeat(3,1fr)}}
+    .cp-card{background:#0f1930;border:1px solid #24324f;border-radius:10px;padding:8px;cursor:pointer;position:relative;overflow:hidden}
+    .cp-card:hover{border-color:#3b557e}
+    .cp-card.on{border-color:#3d7bd8;background:#12233f}
+    .cp-card .cp-sym{font-size:13px;font-weight:700;color:#eaf2ff}
+    .cp-card .cp-pos{font-size:10px;margin-top:2px;color:#8497bb}
+    .cp-card .cp-px{position:absolute;top:8px;right:8px;font-size:11px;font-weight:700;color:#7aa2ff}
+    .cp-card .cp-bar{position:absolute;left:0;right:0;bottom:0;height:3px;background:#1b2c49}
+    .cp-card .cp-bar i{display:block;height:100%;background:#31df8b}
+    .cp-hero{background:#0f1930;border:1px solid #24324f;border-radius:10px;padding:10px;margin-top:4px}
+    .cp-hero .cp-h-title{font-size:15px;font-weight:800;color:#eaf2ff}
+    .cp-hero .cp-h-meta{font-size:11px;color:#8497bb;margin-top:2px}
+    .cp-ladder{margin-top:10px}
+    .cp-row{display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid #16233c}
+    .cp-row:last-child{border-bottom:none}
+    .cp-row .cp-lab{width:34px;font-size:12px;font-weight:700;flex:none}
+    .cp-row .cp-lab.res{color:#31df8b}
+    .cp-row .cp-lab.sup{color:#ff596d}
+    .cp-row .cp-lab.pp{color:#ffc928}
+    .cp-row .cp-val{font-size:13px;font-weight:600;color:#eaf2ff;flex:none;font-variant-numeric:tabular-nums}
+    .cp-row .cp-delta{font-size:10px;color:#8497bb}
+    .cp-track{flex:1;position:relative;height:22px;background:#0b1220;border-radius:5px;overflow:visible}
+    .cp-track .cp-seg{position:absolute;top:0;bottom:0;background:#1b2c49}
+    .cp-track .cp-price{position:absolute;top:-4px;bottom:-4px;width:2px;background:#31df8b}
+    .cp-track .cp-price i{position:absolute;top:0;left:3px;font-size:9px;color:#31df8b;white-space:nowrap;font-style:normal}
+    .cp-row.is-live .cp-track{box-shadow:inset 0 0 0 1px rgba(49,223,139,.35)}
+    .cp-calc{margin-top:10px;font-size:11px;color:#8497bb;line-height:1.7;background:#0b1220;border:1px solid #16233c;border-radius:8px;padding:8px}
+    .cp-calc b{color:#c9d8f2}
   </style>
 </head>
 <body>
@@ -517,6 +563,14 @@
       </section>
 
       <section class="card" style="margin-top:10px" data-sec="analysis">
+        <div class="k">Camarilla Pivots &mdash; all levels &middot; 18 symbols</div>
+        <div class="note">Camarilla from the <b>previous closed daily session</b> (auto-refreshes every 30 min). <b>Select any symbol</b> to see its full ladder: R4&middot;R3&middot;R2&middot;R1 &middot; PP(C) &middot; S1&middot;S2&middot;S3&middot;S4. Math: Range=H&minus;L, step=Range&times;1.1, R1=C+step/12 &hellip; R4=C+step/2, S mirrors. R3/S3 = mean-reversion targets &middot; R4/S4 = trend-day breakout. The green marker = live price. Research context only &mdash; not a direction call.</div>
+        <div style="margin-top:8px"><div class="wl-chips" id="cp-symbol-chips"></div></div>
+        <div id="cp-detail" style="margin-top:10px"></div>
+        <div class="note" id="cp-stamp" style="margin-top:8px">&mdash;</div>
+      </section>
+
+      <section class="card" style="margin-top:10px" data-sec="analysis">
         <div class="k">Analysis scope &mdash; which symbol is being analysed</div>
         <div class="note">The gauge, model and analysis below are all for the instrument selected here (same as the top-bar tabs).</div>
         <div class="seg" id="analysis-scope" style="margin-top:8px">
@@ -573,7 +627,10 @@
         <div class="k">BBMA Full Chart &middot; XAU/USD</div>
         <div class="note">Real Dukascopy history + live tick (all timeframes). Zoom: pinch / ctrl+wheel &middot; Pan: drag &middot; Draw: pick a tool, then click the chart (trend/rect = 2 clicks) &middot; Double-click deletes an object &middot; Esc cancels. S/D: red = unmitigated supply, green = unmitigated demand.</div>
         <div id="fv-toolbar" class="fv-toolbar" style="margin-top:8px"></div>
-        <div class="fv-chart-wrap" style="margin-top:8px"><div id="fv-chart" class="fv-chart"></div></div>
+        <div class="fv-chart-wrap" style="margin-top:8px">
+          <div id="fv-fs-bar" class="fv-fs-bar"></div>
+          <div id="fv-chart" class="fv-chart"></div>
+        </div>
         <div class="fv-foot"><span class="note" id="fv-hint"></span><span class="note" id="fv-zone-count"></span><span class="note" id="fv-smc-count"></span></div>
       </section>
 
@@ -796,6 +853,8 @@
 
   <script src="./xauusd-data.js"></script>
   <script src="./news-auto.js" onerror="console.warn('news-auto.js missing - run: node build-news.js')"></script>
+  <script src="./pivots.js" onerror="console.warn('pivots.js missing - poller regenerates every 30 min')"></script>
+  <script src="./bbma-camarilla-ui.js"></script>
   <script>window.mergeNewsAuto && window.mergeNewsAuto();</script>
   <script src="./macro-auto.js" onerror="console.warn('macro-auto.js missing - run: node build-macro.js')"></script>
   <script>window.mergeMacroAuto && window.mergeMacroAuto();</script>
