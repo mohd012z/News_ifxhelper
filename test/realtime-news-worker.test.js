@@ -12,6 +12,14 @@ const worker = fs.readFileSync(path.join(root, 'worker', 'index.mjs'), 'utf8');
 const wrangler = fs.readFileSync(path.join(root, 'wrangler.toml'), 'utf8');
 const deploy = fs.readFileSync(path.join(root, '.github', 'workflows', 'deploy-worker.yml'), 'utf8');
 
+assert(!app.includes('if (!rows.length) return false;'), 'empty valid calendar must clear current-week rows');
+assert(app.includes('a.calendarAll = keepAll.concat(rows);'), 'successful empty feed must replace current-week calendar');
+assert(app.includes('D.incoming = (D.incoming || []).filter'), 'successful empty feed must clear current-week incoming');
+const reminders = fs.readFileSync(path.join(root, 'telegram-notify.js'), 'utf8');
+assert(reminders.includes('const REMINDER_STAGES = [30, 10];'), 'T-2 reminder stage must be disabled');
+const reminderWorkflow = fs.readFileSync(path.join(root, '.github', 'workflows', 'event-reminders.yml'), 'utf8');
+assert(reminderWorkflow.includes('exit "$rc"'), 'calendar ingestion failure must fail the job');
+assert(!reminderWorkflow.includes('node telegram-notify.js --reminders'), 'research workflow must not send Telegram');
 assert(app.includes('LIVE_CALENDAR_URLS = ['), 'live calendar source chain missing');
 assert(app.includes('https://gentle-violet-4a79.ifxhelper.workers.dev/api/ff-calendar'), 'live Worker calendar endpoint missing');
 assert(app.includes('https://nfs.faireconomy.media/ff_calendar_thisweek.json'), 'direct structured-feed fallback missing');
