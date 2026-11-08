@@ -1,0 +1,23 @@
+'use strict';
+const assert=require('node:assert/strict');
+const {normalize,researchSnapshot,renderPreview}=require('../lib/helix-live-research');
+const asOf='2026-11-08T02:15:00Z',base=Date.parse('2026-11-08T02:00:00Z');
+const rows=Array.from({length:15},(_,i)=>({time:new Date(base+i*60000).toISOString(),receivedAt:new Date(base+(i+1)*60000).toISOString(),open:100+i,high:101+i,low:99+i,close:100.5+i}));
+const args={asOf,provider:'research.test',symbol:'XAUUSD'};
+const valid=normalize(rows,args);
+const snap=researchSnapshot(valid);
+assert.equal(snap.frameCounts.M15,1);
+assert.equal(snap.deliveryEnabled,false);
+assert.equal(snap.id,researchSnapshot(valid).id);
+assert.match(renderPreview(snap),/RESEARCH PREVIEW/);
+function fails(data,expected,opts=args){assert.throws(()=>normalize(data,opts),new RegExp(expected));}
+fails([...rows,rows[0]],'DUPLICATE_CANDLE');
+fails(rows.map((x,i)=>i===0?{...x,receivedAt:'2026-11-08T02:15:01Z'}:x),'FUTURE_RECEIPT');
+fails(rows.map((x,i)=>i===0?{...x,receivedAt:x.time}:x),'RECEIPT_BEFORE_CLOSE');
+fails([...rows,{...rows[0],time:'2026-11-08T02:15:00Z',receivedAt:'2026-11-08T02:16:00Z'}],'FUTURE_RECEIPT');
+fails(rows.map((x,i)=>i===0?{...x,high:1}:x),'INVALID_RANGE');
+fails(rows,'STALE_FEED',{...args,asOf:'2026-11-08T03:00:00Z'});
+fails(rows,'UNSUPPORTED_SYMBOL',{...args,symbol:'UNKNOWN'});
+const gap=rows.filter((_,i)=>i!==7);assert.equal(researchSnapshot(normalize(gap,args)).frameCounts.M15,0);
+assert.equal(researchSnapshot(normalize(rows.slice(0,14),{...args,asOf:'2026-11-08T02:14:00Z'})).frameCounts.M15,0);
+console.log('HELIX live research isolation, provenance, MTF and negative tests passed');
