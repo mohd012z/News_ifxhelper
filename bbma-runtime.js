@@ -1,7 +1,7 @@
 /* BBMA runtime bridge: validated XAU ticks -> rolling OHLC -> BBMA MTF context. */
 (function(){'use strict';
 var TFS={M5:300000,M15:900000,M30:1800000,H1:3600000,H4:14400000,D1:86400000,W1:604800000,MN1:0};
-var frames={},lastPrice=null,lastAt=null,max=240;
+var frames={},lastPrice=null,lastAt=null,max=240,liveMode=false;
 
 function bucket(t,ms){return Math.floor(t/ms)*ms;}
 function monthBucket(t){var d=new Date(t);return Date.UTC(d.getUTCFullYear(),d.getUTCMonth(),1);}
@@ -14,14 +14,14 @@ Object.keys(TFS).forEach(function(tf){
   frames[tf]=[];
   var stepMs=TFS[tf]||2592000000;
   for(var i=59;i>=0;i--){
-    var ct=now-i*stepMs;
+    var ct=tf==='MN1'?Date.UTC(new Date(now).getUTCFullYear(),new Date(now).getUTCMonth()-i,1):now-i*stepMs;
     var dev=(Math.sin(i*0.35)+Math.cos(i*0.18))*(tf==='D1'||tf==='H4'?12:3.5);
     var o=basePrice+dev-0.4;
     var c=basePrice+dev+(i%2===0?0.9:-0.7);
     var h=Math.max(o,c)+1.3;
     var l=Math.min(o,c)-1.2;
     var b=barBucket(tf,ct);
-    frames[tf].push({_b:b,time:new Date(ct).toISOString(),open:o,high:h,low:l,close:c,source:'SYNTHETIC_DEMO'});
+    if(!frames[tf].length||frames[tf][frames[tf].length-1]._b!==b)frames[tf].push({_b:b,time:new Date(b).toISOString(),open:o,high:h,low:l,close:c,source:'SYNTHETIC_DEMO'});
   }
 });
 lastPrice=basePrice;
@@ -31,7 +31,7 @@ function add(tf,p,t){
   var a=frames[tf],b=barBucket(tf,t),c=a[a.length-1];
   if(c&&b<c._b)return false;
   if(!c||c._b!==b){
-    c={_b:b,time:new Date(b).toISOString(),open:p,high:p,low:p,close:p,source:'LIVE_TICK_DERIVED'};
+    c={_b:b,time:new Date(b).toISOString(),open:p,high:p,low:p,close:p,source:'TICK_DERIVED_UNVERIFIED'};
     a.push(c);
     if(a.length>max)a.shift();
   }else{
@@ -109,7 +109,7 @@ function publish(){
     alertState:'PRE-EVENT',
     fresh:false,
     freshness:'UNVERIFIED_DEMO_BASELINE',
-    source:'SYNTHETIC_DEMO',
+    source:liveMode?'TICK_DERIVED_UNVERIFIED':'SYNTHETIC_DEMO',
     ohlc:frames,
     candles:frames,
     frames:{},
@@ -151,6 +151,7 @@ function ingest(p,at){
   var t=at?new Date(at).getTime():Date.now();
   if(!isFinite(t)||t>Date.now()+60000)return false;
   if(lastAt&&t<new Date(lastAt).getTime())return false;
+  if(!liveMode){Object.keys(frames).forEach(function(tf){frames[tf]=[];});liveMode=true;}
   lastPrice=p;
   lastAt=new Date(t).toISOString();
   Object.keys(TFS).forEach(function(tf){add(tf,p,t);});
