@@ -32,6 +32,12 @@ globalThis.fetch = async (input) => {
   if (url.includes("/route-without-extension")) {
     return new Response("not found", { status: 404, headers: { "Content-Type": "text/plain" } });
   }
+  if (url.includes("cdn.jsdelivr.net/gh/mohd012z/News_ifxhelper@main/news-auto.js")) {
+    return new Response('{"generatedAt":"2026-11-08 05:58:38Z","via":"jsdelivr-fallback"}', { status: 200, headers: { "Content-Type": "application/javascript" } });
+  }
+  if (url.includes("/news-auto.js?cf_refresh=")) {
+    return new Response("raw origin unavailable", { status: 500, headers: { "Content-Type": "text/plain" } });
+  }
   return new Response("not found", { status: 404 });
 };
 
@@ -51,6 +57,12 @@ try {
   assert.equal(r.status, 200);
   assert.match(r.headers.get("content-type") || "", /application\/javascript/);
   assert.match(r.headers.get("cache-control") || "", /no-store/);
+
+  // raw.githubusercontent 5xx -> worker must fall back to the jsDelivr mirror
+  r = await worker.fetch(new Request("https://gentle-violet-4a79.ifxhelper.workers.dev/news-auto.js"));
+  assert.equal(r.status, 200, "jsDelivr fallback must rescue a 5xx raw origin");
+  assert.match(await r.text(), /jsdelivr-fallback/);
+  assert(calls.some((u) => u.includes("cdn.jsdelivr.net/gh/mohd012z/News_ifxhelper@main/news-auto.js")), "fallback URL must be requested");
 
   r = await worker.fetch(new Request("https://gentle-violet-4a79.ifxhelper.workers.dev/api/ff-calendar"));
   assert.equal(r.status, 200);

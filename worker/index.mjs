@@ -55,15 +55,30 @@ function headersFor(path, upstream) {
 
 async function fetchRaw(path) {
   const volatile = VOLATILE.has(path) || path.startsWith("data/");
-  let target = RAW_BASE + path.split("/").map(encodeURIComponent).join("/");
-  // raw.githubusercontent.com is normally fast to update, but an intermediate CDN can still
-  // briefly reuse an older object. Give volatile files a minute-bucket query key so a Worker
-  // that is definitely on this revision cannot keep serving an old shell/data snapshot.
-  if (volatile) target += "?cf_refresh=" + Math.floor(Date.now() / 60000);
-  return fetch(target, {
+  const refresh = volatile ? "?cf_refresh=" + Math.floor(Date.now() / 60000) : "";
+  // Primary: raw.githubusercontent (fast, cache-busted for volatile files).
+  const target = RAW_BASE + path.split("/").map(encodeURIComponent).join("/") + refresh;
+  let upstream = await fetch(target, {
     cache: "no-store",
     cf: { cacheTtl: 0, cacheEverything: false }
   });
+  // 404 = genuinely missing -> keep it (the caller maps extensionless 404 to index.html).
+  if (upstream.status !== 404 && !upstream.ok) {
+    // 5xx (e.g. CF edge 1101 resolving raw.githubusercontent) or 429: fall back to
+    // the jsDelivr GitHub mirror (Cloudflare-hosted, resilient to the same DNS issue).
+    try {
+      const fb = await fetch(
+        "https://cdn.jsdelivr.net/gh/mohd012z/News_ifxhelper@main/" + path.split("/").map(encodeURIComponent).join("/") + refresh,
+        { cache: "no-store", cf: { cacheTtl: 0, cacheEverything: false } }
+      );
+      if (fb.ok) {
+        upstream = fb;
+      } else if (fb.status !== 404) {
+        upstream = fb; // prefer the freshest upstream signal
+      }
+    } catch (e) { /* keep the primary upstream as best-effort */ }
+  }
+  return upstream;
 }
 
 async function liveCalendar() {
