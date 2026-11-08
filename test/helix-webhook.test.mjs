@@ -1,0 +1,18 @@
+import assert from 'node:assert/strict';
+import {createWebhookHandler} from '../lib/helix-telegram-webhook.mjs';
+const secret='research_secret_123456789';
+let called=0;
+const handler=createWebhookHandler({secret,enabled:true,onPreview:async x=>{called++;assert.equal(x.updateId,42);}});
+const req=(token,body,method='POST')=>new Request('https://example.invalid/hook',{method,headers:{'X-Telegram-Bot-Api-Secret-Token':token},body:method==='POST'?body:undefined});
+const payload=JSON.stringify({update_id:42,callback_query:{id:'a',data:'helix:preview',from:{id:7}}});
+assert.equal((await handler(req('wrong',payload))).status,403);
+assert.equal((await handler(req(secret,'invalid'))).status,400);
+assert.equal((await handler(req(secret,payload,'GET'))).status,405);
+assert.equal((await handler(req(secret,JSON.stringify({update_id:42,callback_query:{data:'helix:send'}})))).status,200);
+assert.equal(called,0);
+assert.equal((await handler(req(secret,payload))).status,200);
+assert.equal(called,1);
+const disabled=createWebhookHandler({secret});
+assert.equal((await disabled(req(secret,payload))).status,404);
+assert.equal(called,1);
+console.log('HELIX simulated authenticated Telegram webhook tests passed');
