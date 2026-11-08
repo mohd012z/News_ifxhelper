@@ -80,7 +80,7 @@ test('mobile touch gesture does not crash overlay lifecycle',async({browser})=>{
 
 test('full dashboard retains SVG when TradingView is missing',async({page})=>{
  await page.goto(origin);
- await page.evaluate(()=>{document.body.insertAdjacentHTML('beforeend','<main class="main"><div></div></main><nav id="bottomnav"><button>Home</button></nav>');window.BBMA_RUNTIME={ohlc:{M15:Array.from({length:60},(_,i)=>({time:i,open:100+i,high:102+i,low:99+i,close:101+i}))},mtf:{M15:{}}};window.__bbmaV5Enabled=true;delete window.LightweightCharts;});
+ await page.evaluate(()=>{document.body.insertAdjacentHTML('beforeend','<main class="main"><div></div></main><nav id="bottomnav"><button>Home</button></nav>');window.BBMA_RUNTIME={ohlc:{H1:Array.from({length:60},(_,i)=>({time:i,open:100+i,high:102+i,low:99+i,close:101+i}))},mtf:{H1:{}}};window.__bbmaV5Enabled=true;delete window.LightweightCharts;});
  await page.addScriptTag({url:origin+'/dashboard.js'});
  await page.waitForFunction(()=>!!document.getElementById('bbma-chart'));
  await page.evaluate(()=>window.BBMADashboardUI.render());
