@@ -20,5 +20,5 @@ assert.equal(C.mount({},{}),null);
 const dashboard=fs.readFileSync(require.resolve('../bbma-dashboard-ui.js'),'utf8');
 assert(dashboard.includes('bbma-v5-toggle')&&dashboard.includes('window.__bbmaV5Instance.destroy()'));
 const html=fs.readFileSync(require.resolve('../index.html'),'utf8');
-assert(html.includes('bbma-lightweight-v5.js')&&html.includes('lightweight-charts@5.2.0'));
+assert(html.includes('bbma-lightweight-v5.js')&&html.includes('./vendor/lightweight-charts/5.2.0/lightweight-charts.standalone.production.js'));
 console.log('BBMA Lightweight Charts v5 deterministic adapter and SVG fallback tests passed');
