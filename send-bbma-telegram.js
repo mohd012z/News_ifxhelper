@@ -18,6 +18,8 @@ const fs = require('fs');
 const path = require('path');
 
 const TOKEN = process.env.TELEGRAM_BOT_TOKEN;
+// Keep existing no-runtime broadcast suppression unchanged.
+const CHANNEL_ID = process.env.TELEGRAM_CHANNEL_ID || process.env.TELEGRAM_CHAT_ID || '';
 function getDashboardUrl() {
   const arg = process.argv.find(a => a.startsWith('--url='));
   if (arg) return arg.split('=')[1].trim();
@@ -53,6 +55,30 @@ function loadRuntime() {
   return null;
 }
 
+/** Fail-closed market provenance contract. A truthy browser runtime does not
+ * establish a real provider quote; baseline candles and canned setup alerts
+ * must never be broadcast as fresh observations.
+ */
+function validateBbmaResearchSnapshot(rt, now = Date.now()) {
+  const fail = reason => ({ ok: false, reason });
+  if (!rt || typeof rt !== 'object') return fail('runtime_missing');
+  const p = rt.provenance;
+  if (!p || p.verified !== true || p.kind !== 'provider_market_data') return fail('source_unverified');
+  if (!p.provider || !p.providerQuoteId) return fail('provider_evidence_missing');
+  const timestamp = Date.parse(String(p.sourceTime || ''));
+  if (!Number.isFinite(timestamp)) return fail('quote_time_unknown');
+  if (timestamp > now + 1000) return fail('future_quote');
+  if (now - timestamp > 15000) return fail('quote_stale');
+  if (!Number.isFinite(Number(rt.price)) || Number(rt.price) <= 0) return fail('invalid_price');
+  if (!Array.isArray(rt.alerts) || !rt.alerts.some(a => a && a.validated === true && a.closedCandle === true && a.sourceTime)) return fail('validated_alert_missing');
+  const candles = rt.ohlc || rt.candles;
+  if (!candles || typeof candles !== 'object') return fail('candles_missing');
+  for (const frame of Object.values(candles)) {
+    if (!Array.isArray(frame) || !frame.length) continue;
+    if (frame.some(c => c && c.source === 'BASELINE_CACHE')) return fail('baseline_candle_present');
+  }
+  return {ok:true,reason:'internally_validated_snapshot'};
+}
 function formatBbmaAlertBox(alertData) {
   const rt = alertData || loadRuntime() || {};
   const alerts = rt.alerts || [];
@@ -69,7 +95,7 @@ function formatBbmaAlertBox(alertData) {
   const h1 = mtf.H1 || { trend: 'UP', location: 'MID_BB', reentry: 'ARMED' };
   const m15 = mtf.M15 || { trend: 'UP', location: 'LOWER_BB', momentum: 'NONE' };
 
-  const event = rt.event || { name: 'Macro Runway', actual: 'Clear', forecast: '0.2%' };
+  const event = rt.event || { name: 'No verified economic event', status: 'UNVERIFIED' };
   const price = rt.price || '3012.50';
 
   const box = [
@@ -88,7 +114,7 @@ function formatBbmaAlertBox(alertData) {
     ``,
     `📰 <b>MACRO & NEWS GATE</b>`,
     `• <b>Event:</b> ${esc(event.name || 'US Macro Runway')}`,
-    `• <b>Status:</b> 🟢 <b>CLEAR</b> (No high-impact release in window)`,
+    `• <b>Status:</b> ${esc(event.status || 'UNVERIFIED')} (independent news verification required)`,
     ``,
     `💡 <b>TACTICAL OBSERVATION</b>`,
     `${esc(primaryAlert.summary || 'MTF Trend is aligned. Await M15 re-entry confirmation before entering.')}`,
@@ -97,7 +123,7 @@ function formatBbmaAlertBox(alertData) {
 
   // Build clean URL buttons (NO callback queries - opens directly in browser or Telegram WebApp)
   const webUrl = DASHBOARD_URL.endsWith('/') ? `${DASHBOARD_URL}#bbma` : `${DASHBOARD_URL}/#bbma`;
-  const alertUrl = DASHBOARD_URL.endsWith('/') ? `${DASHBOARD_URL}?open=bbma` : `${DASHBOARD_URL}/?open=bbma`;
+  const alertUrl = DASHBOARD_URL.endsWith('/') ? `${DASHBOARD_URL}?open=bbma&view=history` : `${DASHBOARD_URL}/?open=bbma&view=history`;
 
   const inlineKeyboard = {
     inline_keyboard: [
@@ -154,13 +180,14 @@ async function sendTelegramBox(messageObj) {
   // to fabricated sample data (e.g. gold 3012.50 / "RE-ENTRY (Armed)") and posting
   // it would send false signals to subscribers. Suppress the broadcast in that case;
   // an explicit --preview still prints the demo box for layout inspection.
-  const hasRuntime = !!loadRuntime();
-  if (!hasRuntime && !PREVIEW) {
-    console.log('⏭️  No live BBMA runtime data (loadRuntime() null) — suppressing Telegram post to avoid sending demo values.');
-    console.log('   (Use --preview to inspect the box layout with sample data.)');
-    return { ok: false, skipped: true, reason: 'no_runtime' };
+  const runtime = loadRuntime();
+  const gate = validateBbmaResearchSnapshot(runtime);
+  if (!gate.ok && !PREVIEW) {
+    console.log('⏭️  BBMA Telegram research broadcast suppressed: ' + gate.reason + ' (no confirmed provider-backed, closed-candle alert).');
+    return {ok:false,skipped:true,reason:gate.reason};
   }
-  const box = formatBbmaAlertBox();
+  const box = formatBbmaAlertBox(runtime);
+  if (PREVIEW && !gate.ok) box.text = '🧪 <b>DEMO LAYOUT ONLY — NOT MARKET DATA</b>\n' + box.text;
 
   if (PREVIEW || TEST) {
     console.log('================ BBMA TELEGRAM CHANNEL ALERT BOX ================');
@@ -183,4 +210,4 @@ async function sendTelegramBox(messageObj) {
   }
 })();
 
-module.exports = { formatBbmaAlertBox, sendTelegramBox };
+module.exports = { formatBbmaAlertBox, sendTelegramBox, validateBbmaResearchSnapshot };

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#07121f">
+<title>BBMA Research Dashboard — Verified Labels</title>
+<style>
+:root{color-scheme:dark;--bg:#08121d;--panel:#0e2130;--line:#244053;--fg:#eaf6ff;--muted:#98b1c4;--warn:#ffce72;--green:#65d6a0;--red:#ff7e8d;--cyan:#55c8fa}*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--bg);color:var(--fg);font:14px/1.4 system-ui,-apple-system,Segoe UI,sans-serif}button,input,select{font:inherit}button,select,.input-label{border:1px solid #35536a;color:var(--fg);background:#153044;border-radius:9px;padding:9px 11px;cursor:pointer}button:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid #53c7ff;outline-offset:2px}button[aria-pressed=true]{background:#0c6384;border-color:#40caff}button:disabled{opacity:.45;cursor:not-allowed}.wrap{max-width:1440px;margin:auto;padding: max(12px,env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) max(30px,env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left))}header,.flex{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}h1{font-size:22px;margin:0}h2{font-size:15px;margin:0 0 8px}.sub,.muted{color:var(--muted)}.sub{font-size:12px}.stamp{background:#392e18;color:var(--warn);border:1px solid #735a2d;border-radius:999px;padding:5px 10px;font-size:12px;font-weight:750}.panel{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:14px;min-width:0}.controls{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin:12px 0}.controls label{display:flex;align-items:center;gap:6px;font-size:12px}.controls .input-label{position:relative;overflow:hidden}.input-label input{position:absolute;inset:0;opacity:0;cursor:pointer}.layout{display:grid;grid-template-columns:minmax(0,2.4fr) minmax(260px,1fr);gap:12px}.status{font-size:12px;color:#cde4f0;margin:6px 0}.chartbox{height:clamp(290px,56vh,540px);min-height:290px;position:relative;border:1px solid #29445a;border-radius:10px;overflow:hidden;background:#0a1726;touch-action:pan-y}canvas{width:100%;height:100%;display:block}.legend{display:flex;flex-wrap:wrap;gap:8px 12px;list-style:none;padding:0;margin:8px 0;font-size:11px}.legend li{display:flex;align-items:center;gap:5px}.swatch{width:16px;height:4px;border-radius:4px}.bad{color:var(--red)}.good{color:var(--green)}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.metric{border:1px solid #2c4859;background:#0a1b2b;padding:8px;border-radius:9px;min-width:0}.metric strong{display:block;overflow-wrap:anywhere;font-size:14px}.metric small{color:var(--muted);font-size:10px}.scanner{width:100%;border-collapse:collapse;font-size:12px}.scanner td,.scanner th{border-bottom:1px solid #2b4859;padding:8px 5px;text-align:left}.scanner tbody tr{cursor:pointer}.scanner tbody tr:hover,.scanner tbody tr.selected{background:#12344a}.scanner th{color:#a8cddd}.pill{padding:3px 6px;border:1px solid #315166;border-radius:6px;font-size:10px}.scroll{max-height:300px;overflow:auto}.info{padding:9px;border:1px solid #3b5567;border-radius:10px;background:#102738;color:#bfdeee;min-height:52px}.replay{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.replay input{width:min(100%,310px);flex:1}.note{font-size:12px;color:#b9cfdf}.wide{margin-top:12px}.small{font-size:11px}.src{overflow-wrap:anywhere}@media(max-width:860px){.layout{grid-template-columns:minmax(0,1fr)}.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.chartbox{height:390px}}@media(max-width:430px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}h1{font-size:18px}.wrap{padding-left:9px;padding-right:9px}.panel{padding:10px}.controls button,.controls select,.input-label{padding:8px}.chartbox{height:345px}}@media(orientation:landscape) and (max-height:450px){.chartbox{height:275px}.wrap{padding-top:max(8px,env(safe-area-inset-top))}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header><div><h1>📊 BBMA · Research Dashboard</h1><div class="sub">Bollinger Bands 20/2 · EMA50 · LWMA 5/10 High/Low · MYT</div></div><span class="stamp" id="mode">HISTORICAL · NO LIVE FEED</span></header>
+<div class="controls" aria-label="Chart controls">
+<label for="tf">Timeframe <select id="tf" aria-label="Timeframe"><option>M1</option><option>M5</option><option selected>M15</option><option>M30</option><option>H1</option><option>H4</option><option>D1</option><option>W1</option><option>MN1</option></select></label>
+<label class="input-label">📂 Import OHLC CSV / JSON<input id="file" type="file" accept=".csv,.json,text/csv,application/json" aria-label="Import OHLC source file"></label>
+<button id="reset" type="button">Fit chart</button><button id="zoomIn" type="button">Zoom +</button><button id="zoomOut" type="button">Zoom −</button><button id="clear" type="button">Clear imports</button>
+</div>
+<div class="layout">
+<section class="panel" aria-label="BBMA price chart">
+<div class="flex"><h2 id="chartTitle">GC=F · M15 historical indicator levels</h2><div class="sub" id="timestamp">31 Oct 2026 · recorded snapshot</div></div>
+<div class="status" id="chartStatus" role="status">No verified raw OHLC supplied. Showing indicator levels only.</div>
+<div class="chartbox"><canvas id="canvas" aria-label="BBMA chart with labeled indicator levels" role="img"></canvas></div>
+<ul class="legend" id="legend" aria-label="Indicator colors"></ul>
+<div class="replay wide"><label for="replay">Historical replay</label><input type="range" id="replay" min="0" max="0" value="0" disabled><span class="sub" id="replayTime">No candle replay available</span><button id="resume" type="button" disabled>Latest</button></div>
+<p class="note">Drag horizontally to pan; use Zoom ± or the mouse wheel. Tap a candle to inspect its values. Only completed, validated candles are shown. No trading orders or prediction calls.</p>
+</section>
+<aside class="panel" aria-label="BBMA scanner dashboard"><h2>Multi-timeframe scanner</h2><div class="scroll"><table class="scanner"><thead><tr><th scope="col">TF</th><th scope="col">Trend</th><th scope="col">Research setup</th><th scope="col">Source</th></tr></thead><tbody id="scanner"></tbody></table></div><h2 class="wide">Selected candle / levels</h2><div class="grid" id="metrics"></div><h2 class="wide">Data provenance</h2><div class="info" id="provenance"></div></aside>
+</div>
+<section class="panel wide"><h2>Labels and interpretation</h2><p id="readout" class="note">BBMA classifications are historical technical descriptions, not validated orders or live alerts.</p><p class="note">Importer format: JSON <code>{"symbol":"GC=F","provider":"YOUR_SOURCE","timeframe":"M1","candles":[{"time":"2026-10-30T12:00:00Z","open":1,"high":2,"low":1,"close":2}]}</code> or CSV with columns <code>time,open,high,low,close,volume</code>. CSV requires a separately specified symbol and provider. The timestamp is the candle's opening time, UTC or explicit offset. Bars are never generated to fill gaps. Historical snapshots do not contain reconstructable candlesticks.</p></section>
+<footer class="wide small muted">News_ifxhelper · Research-only visualization · Stored snapshots are never described as live market quotes.</footer>
+</main>
+<script>
+/* BBMA Research Chart core. Offline, deterministic, no external network and no trade execution.
+ * License: MIT. OHLC inputs must represent bar OPEN timestamps with timezone or epoch time.
+ */
+(function(root,factory){
+  const api=factory();
+  if(typeof module==='object'&&module.exports)module.exports=api;
+  if(root)root.BBMAResearchChart=api;
+})(typeof window!=='undefined'?window:null,function(){
+ 'use strict';
+ const TF_SECONDS=Object.freeze({M1:60,M5:300,M15:900,M30:1800,H1:3600,H4:14400,D1:86400,W1:604800,MN1:2592000});
+ const TIMEFRAMES=Object.freeze(Object.keys(TF_SECONDS));
+ const MAX_BARS=12000;
+ function parseTime(raw){
+   if(typeof raw==='number'&&Number.isFinite(raw))return raw>=1e12?Math.floor(raw/1000):Math.floor(raw);
+   if(typeof raw==='string'&&/^\d{10,13}$/.test(raw))return parseTime(Number(raw));
+   if(typeof raw==='string'&&/\d{4}-\d\d-\d\d[T ]\d\d:\d\d/.test(raw)&&/(Z|[+-]\d\d:?\d\d)$/i.test(raw)){
+     const t=Date.parse(raw);return Number.isFinite(t)?Math.floor(t/1000):null;
+   }
+   return null;
+ }
+ function number(v){return (typeof v==='number'||(typeof v==='string'&&v.trim()!==''))&&Number.isFinite(Number(v))?Number(v):null;}
+ function normalizeCandle(x){
+   if(!x||typeof x!=='object')throw Error('Candle must be an object');
+   const time=parseTime(x.time??x.openTime??x.timestamp);
+   const open=number(x.open),high=number(x.high),low=number(x.low),close=number(x.close);
+   if(!Number.isInteger(time)||time<1e9||[open,high,low,close].some(v=>v===null))throw Error('Invalid timestamp/OHLC');
+   if(open<=0||high<=0||low<=0||close<=0||low>high||open<low||open>high||close<low||close>high)throw Error('Inconsistent OHLC');
+   const volume=x.volume==null?null:number(x.volume);
+   if(volume!==null&&volume<0)throw Error('Negative volume');
+   if(x.isSynthetic===true||/BASELINE|DEMO|MOCK|SIMULATED/i.test(String(x.source||'')))throw Error('Synthetic candle rejected');
+   return {time,open,high,low,close,volume};
+ }
+ function cleanSeries(raw){
+   if(!Array.isArray(raw))throw Error('Expected candle array');
+   if(raw.length>MAX_BARS)throw Error('Candle limit exceeded');
+   const rows=raw.map((c,i)=>{try{return normalizeCandle(c);}catch(e){throw Error('Candle '+i+': '+e.message);}}).sort((a,b)=>a.time-b.time);
+   for(let i=1;i<rows.length;i++)if(rows[i].time===rows[i-1].time)throw Error('Duplicate candle timestamp');
+   return rows;
+ }
+ function closedOnly(rows,tf,asOf){
+   const span=TF_SECONDS[tf];if(!span)throw Error('Unsupported timeframe');
+   if(!Number.isFinite(asOf))throw Error('Invalid evaluation time');
+   return rows.filter(c=>c.time+span<=asOf);
+ }
+ function resampleComplete(rows,srcTf,targetTf,asOf){
+   const src=TF_SECONDS[srcTf],dst=TF_SECONDS[targetTf];
+   if(!src||!dst||dst<src||dst%src!==0||targetTf==='W1'||targetTf==='MN1')throw Error('Unsupported resampling pair');
+   if(src===dst)return closedOnly(rows,srcTf,asOf);
+   const expected=dst/src,buckets=new Map();
+   for(const c of closedOnly(rows,srcTf,asOf)){
+     const t=Math.floor(c.time/dst)*dst;
+     if(!buckets.has(t))buckets.set(t,[]);
+     buckets.get(t).push(c);
+   }
+   const result=[];
+   for(const [time,bars] of [...buckets].sort((a,b)=>a[0]-b[0])){
+     if(time+dst>asOf||bars.length!==expected)continue;
+     if(bars.some((c,i)=>c.time!==time+i*src))continue;
+     result.push({time,open:bars[0].open,high:Math.max(...bars.map(c=>c.high)),low:Math.min(...bars.map(c=>c.low)),close:bars[bars.length-1].close,volume:bars.some(c=>c.volume===null)?null:bars.reduce((s,c)=>s+c.volume,0),derived:true});
+   }
+   return result;
+ }
+ function sma(seq,n,i){if(i+1<n)return null;let sum=0;for(let k=i-n+1;k<=i;k++)sum+=seq[k];return sum/n;}
+ function lwma(seq,n,i){if(i+1<n)return null;let sum=0;for(let k=0;k<n;k++)sum+=seq[i-n+1+k]*(k+1);return sum/(n*(n+1)/2);}
+ function indicators(rows){
+   const c=rows.map(x=>x.close),h=rows.map(x=>x.high),l=rows.map(x=>x.low);
+   const out=[];let ema=null;
+   for(let i=0;i<rows.length;i++){
+     const mid=sma(c,20,i),dev=mid===null?null:Math.sqrt(c.slice(i-19,i+1).reduce((s,v)=>s+(v-mid)**2,0)/20);
+     if(i===49)ema=sma(c,50,i);
+     else if(i>49)ema=ema+(2/51)*(c[i]-ema);
+     out.push({time:rows[i].time,upper:dev===null?null:mid+2*dev,mid,lower:dev===null?null:mid-2*dev,ema50:ema,ma5High:lwma(h,5,i),ma10High:lwma(h,10,i),ma5Low:lwma(l,5,i),ma10Low:lwma(l,10,i)});
+   }
+   return out;
+ }
+ function assess(rows,overlay,{tf='M15',now=Math.floor(Date.now()/1000),replay=false}={}){
+   if(rows.length<50||!overlay.length)return {state:'INSUFFICIENT_DATA',trend:'UNKNOWN',setup:'NONE',ageSeconds:null};
+   const last=rows.at(-1),v=overlay.at(-1);
+   const age=Math.max(0,now-(last.time+TF_SECONDS[tf]));
+   const stale=!replay&&age>Math.max(1800,TF_SECONDS[tf]*3);
+   const trend=last.close>v.mid&&last.close>v.ema50?'UP':last.close<v.mid&&last.close<v.ema50?'DOWN':'MIXED';
+   const upRe=trend==='UP'&&last.low<=Math.max(v.ma5Low,v.ma10Low)&&last.close>v.mid&&last.close>v.ma5Low;
+   const dnRe=trend==='DOWN'&&last.high>=Math.min(v.ma5High,v.ma10High)&&last.close<v.mid&&last.close<v.ma5High;
+   const setup=upRe?'REENTRY_UP_ZONE':dnRe?'REENTRY_DOWN_ZONE':'NONE';
+   return {state:stale?'STALE':'HISTORICAL_RESEARCH',trend,setup,ageSeconds:age,confirmedSignal:false};
+ }
+ function frameSet(input,asOf){
+   if(!input||typeof input!=='object')throw Error('Invalid import');
+   const explicit=input.frames&&typeof input.frames==='object'?input.frames:{};
+   const baseTf=input.timeframe||'M1';if(!TF_SECONDS[baseTf])throw Error('Unsupported source timeframe');
+   if(!input.provider||!input.symbol)throw Error('Missing provider or symbol');
+   if(input.isSynthetic===true||/DEMO|SYNTH|MOCK/i.test(String(input.provider)))throw Error('Synthetic provider rejected');
+   const raw={...explicit};if(Array.isArray(input.candles))raw[baseTf]=input.candles;
+   const cleaned={};for(const [tf,bars] of Object.entries(raw)){if(!TF_SECONDS[tf])continue;cleaned[tf]=cleanSeries(bars);}
+   const frames={};
+   for(const tf of TIMEFRAMES){
+     if(cleaned[tf]){frames[tf]=closedOnly(cleaned[tf],tf,asOf);continue;}
+     const candidate=Object.keys(cleaned).filter(base=>base!==tf&&!['W1','MN1'].includes(tf)&&TF_SECONDS[base]<TF_SECONDS[tf]&&TF_SECONDS[tf]%TF_SECONDS[base]===0).sort((a,b)=>TF_SECONDS[b]-TF_SECONDS[a])[0];
+     frames[tf]=candidate?resampleComplete(cleaned[candidate],candidate,tf,asOf):[];
+   }
+   return frames;
+ }
+ function calculate(input,asOf=Math.floor(Date.now()/1000),now=Math.floor(Date.now()/1000)){
+   const frames=frameSet(input,asOf),out={};
+   for(const tf of TIMEFRAMES){const rows=frames[tf],overlay=indicators(rows);out[tf]={rows,overlay,assessment:assess(rows,overlay,{tf,now,replay:asOf<now-60})};}
+   return{symbol:input.symbol,provider:input.provider,asOf,frames:out};
+ }
+ function snapshotLevels(s){
+   const out={};for(const [tf,v] of Object.entries(s?.analysis||{})){
+     const x=v?.bbma;if(!x||!x.values)continue;
+     const y=x.values;out[tf]={lastTime:x.lastTime,close:y.close,upper:y.bb?.upper,mid:y.bb?.mid,lower:y.bb?.lower,ema50:y.ema50,ma5High:y.ma5High,ma10High:y.ma10High,ma5Low:y.ma5Low,ma10Low:y.ma10Low,trend:x.trend,setup:x.reentry};
+   }
+   return out;
+ }
+ return{TF_SECONDS,TIMEFRAMES,parseTime,normalizeCandle,cleanSeries,closedOnly,resampleComplete,indicators,assess,frameSet,calculate,snapshotLevels};
+});
+
+</script>
+<script>
+/* Historical indicator levels from main/data/bbma-watch.json; recorded Oct 31, 2026. NOT LIVE. */
+window.BBMA_SNAPSHOT={"schemaVersion":3,"generatedAt":"2026-10-31T02:39:16.079Z","sourceGeneratedAt":"2026-10-31T02:39:16.079Z","symbol":"GC=F","provider":"YAHOO_CHART","source":{"candles":6467,"valid":6467,"gaps":25,"duplicates":0},"analysis":{"M1":{"bbma":{"state":"READY","trend":"MIXED","reentry":"NONE","lastTime":"2026-10-30T20:59:59.000Z","values":{"bb":{"upper":3886.1355407096066,"mid":3883.5849853515624,"lower":3881.034429993518},"ema50":3885.7983880491324,"ma5High":3885.4666015625,"ma10High":3885.5326970880683,"ma5Low":3884.699983723958,"ma10Low":3884.441805752841,"close":3884.89990234375}}},"M5":{"bbma":{"state":"READY","trend":"DOWN","reentry":"REENTRY_DOWN_ZONE","lastTime":"2026-10-30T20:55:00.000Z","values":{"bb":{"upper":3895.4847031499366,"mid":3887.375,"lower":3879.2652968500634},"ema50":3893.8946590459273,"ma5High":3885.739990234375,"ma10High":3887.005437677557,"ma5Low":3882.886669921875,"ma10Low":3883.827272727273,"close":3884.89990234375}}},"M15":{"bbma":{"state":"READY","trend":"DOWN","reentry":"NONE","lastTime":"2026-10-30T20:45:00.000Z","values":{"bb":{"upper":3909.1604895430696,"mid":3893.15,"lower":3877.1395104569306},"ema50":3927.1905551164264,"ma5High":3890.6466796875,"ma10High":3891.285462535511,"ma5Low":3883.4333333333334,"ma10Low":3883.547274502841,"close":3884.89990234375}}},"M30":{"bbma":{"state":"READY","trend":"DOWN","reentry":"NONE","lastTime":"2026-10-30T20:30:00.000Z","values":{"bb":{"upper":3984.078202945847,"mid":3919.2599975585936,"lower":3854.4417921713402},"ema50":3962.3183774643035,"ma5High":3893.0133138020833,"ma10High":3895.339990234375,"ma5Low":3882.866666666667,"ma10Low":3885.541805752841,"close":3884.89990234375}}},"H1":{"bbma":{"state":"READY","trend":"DOWN","reentry":"NONE","lastTime":"2026-10-30T20:00:00.000Z","values":{"bb":{"upper":4075.130822749714,"mid":3965.5850219726562,"lower":3856.0392211955987},"ema50":3994.3040215600213,"ma5High":3898.13330078125,"ma10High":3913.269074041193,"ma5Low":3883.9466634114583,"ma10Low":3895.3745161576703,"close":3884.89990234375}}}},"dashboard":{"overall":"DOWN_ALIGNED","rows":[{"tf":"M1","trend":"MIXED","pattern":"NONE"},{"tf":"M5","trend":"DOWN","pattern":"REENTRY_DOWN_ZONE"},{"tf":"M15","trend":"DOWN","pattern":"NONE"},{"tf":"M30","trend":"DOWN","pattern":"NONE"},{"tf":"H1","trend":"DOWN","pattern":"NONE"}]}};
+
+</script>
+<script>
+(()=>{'use strict';
+const core=window.BBMAResearchChart,stored=window.BBMA_SNAPSHOT||null;
+const $=id=>document.getElementById(id),tfEl=$('tf'),canvas=$('canvas');
+const ctx=canvas.getContext('2d');const indicators=[['upper','Upper BB','#3ea8ff'],['mid','Mid BB','#ffce71'],['lower','Lower BB','#3ea8ff'],['ema50','EMA50','#e099ff'],['ma5High','LWMA5 High','#45d9bb'],['ma10High','LWMA10 High','#8bd66d'],['ma5Low','LWMA5 Low','#45d9bb'],['ma10Low','LWMA10 Low','#8bd66d']];
+let input=null,computed=null,frame='M15',viewCount=70,offset=0,selected=null,sourceRows=[],allFrames=null;
+const now=()=>Math.floor(Date.now()/1000);const fmt=n=>Number.isFinite(n)?Number(n).toFixed(2):'—';
+const date=s=>Number.isFinite(s)?new Date(s*1000).toLocaleString('en-GB',{timeZone:'Asia/Kuala_Lumpur',month:'short',day:'2-digit',hour:'2-digit',minute:'2-digit'})+' MYT':'—';
+function make(tag,text,cls=''){const n=document.createElement(tag);n.textContent=text;if(cls)n.className=cls;return n;}
+for(const [_,label,color] of indicators){const li=make('li',label);const sw=document.createElement('span');sw.className='swatch';sw.style.background=color;li.prepend(sw);$('legend').append(li);}
+const snapshot=core.snapshotLevels(stored||{});
+function activeFrame(){return computed?.frames[frame]||null;}
+function replaySetup(){
+ const all=allFrames?.[frame]||[];
+ const has=all.length>0;
+ $('replay').disabled=!has;$('resume').disabled=!has;
+ $('replay').max=Math.max(0,all.length-1);
+ $('replay').value=all.length?all.length-1:0;
+ $('replayTime').textContent=has?'Latest completed candle':'No candle replay available';
+}
+function updateScan(){const tbody=$('scanner');tbody.replaceChildren();const all=core.TIMEFRAMES;
+ for(const tf of all){const imported=computed?.frames[tf];const v=imported?.assessment;const historic=snapshot[tf];const trend=imported?.rows.length?v.trend:historic?.trend||'UNKNOWN';const setup=imported?.rows.length?v.setup:historic?.setup||'NONE';const source=imported?.rows.length?v.state:historic?'OLD SNAPSHOT':'NO DATA';
+ const tr=document.createElement('tr');if(tf===frame)tr.className='selected';tr.tabIndex=0;tr.setAttribute('aria-label','Select '+tf+' chart');
+ for(const text of [tf,trend,setup,source]){const td=make('td',text);tr.append(td);}
+ tr.onclick=()=>{tfEl.value=tf;chooseFrame(tf)};tr.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();tr.click();}};tbody.append(tr);
+ }
+}
+function updateMetrics(lev){const metrics=$('metrics');metrics.replaceChildren();const items=[['Close',lev?.close],...indicators.map(([key,label])=>[label,lev?.[key]])];for(const [name,value] of items){const card=make('div','', 'metric');card.append(make('small',name),make('strong',fmt(value)));metrics.append(card);}}
+function setLabels(){const curr=activeFrame(),bars=curr?.rows||[],last=bars.at(-1),overlay=curr?.overlay.at(-1);const snap=snapshot[frame];const lev=overlay?{...overlay,close:last.close}:snap;
+ const source=overlay?'IMPORTED OHLC':'STORED INDICATOR SNAPSHOT';
+ $('chartTitle').textContent=(input?.symbol||stored?.symbol||'Unknown')+' · '+frame+' · '+source;
+ $('timestamp').textContent=last?date(last.time):(snap?.lastTime?date(core.parseTime(snap.lastTime)):'No timestamp');
+ $('chartStatus').textContent=bars.length?'Validated closed candles: '+bars.length+' · '+curr.assessment.state+' · '+curr.assessment.trend+' trend':'No verified raw OHLC for '+frame+'; historical indicator levels only (no candle reconstruction).';
+ $('provenance').textContent=bars.length?'Imported '+input.provider+' · '+input.symbol+' · no provider authentication available · timestamp '+date(last.time):snap?(stored.provider+' / '+stored.symbol+' · snapshot '+stored.generatedAt+' · historical, stale, not spot XAUUSD'):'No candle or stored level data.';
+ const title=curr?.assessment.setup||snap?.setup||'NONE';
+ $('readout').textContent='Timeframe '+frame+'. Pattern '+title+'. '+(bars.length?'Indicator calculations require 50 closed bars and remain research-only.':'Historical levels are recorded observations, not a candle series.')+' Data are not live and do not authorize execution.';
+ updateMetrics(lev);updateScan();draw();
+}
+function chooseFrame(tf){frame=tf;selected=null;offset=0;replaySetup();setLabels();}
+function canvasSize(){const bounds=canvas.getBoundingClientRect(),dpr=Math.min(window.devicePixelRatio||1,2);const width=Math.max(320,Math.floor(bounds.width)),height=Math.max(250,Math.floor(bounds.height));canvas.width=Math.floor(width*dpr);canvas.height=Math.floor(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);return{w:width,h:height};}
+function draw(){const {w,h}=canvasSize();ctx.fillStyle='#0a1726';ctx.fillRect(0,0,w,h);const bars=activeFrame()?.rows||[];const overlay=activeFrame()?.overlay||[];const snap=snapshot[frame];if(!bars.length&&!snap){ctx.fillStyle='#93a8bc';ctx.font='15px system-ui';ctx.fillText('NO VERIFIED DATA — Import historical OHLC',18,h/2);return;}
+ const plot={left:58,right:w-99,top:28,bottom:h-37};const minW=80;plot.right=Math.max(plot.left+minW,plot.right);
+ const end=Math.max(0,bars.length-offset),begin=Math.max(0,end-viewCount),visible=bars.slice(begin,end),over=overlay.slice(begin,end);
+ const lev=visible.length?over.at(-1):snap;
+ const numbers=[];for(const b of visible)numbers.push(b.high,b.low);for(const row of (over.length?over:[snap]))if(row)for(const [key] of indicators)if(Number.isFinite(row[key]))numbers.push(row[key]);if(!numbers.length)return;
+ let low=Math.min(...numbers),high=Math.max(...numbers);const margin=Math.max((high-low)*.08,.05);low-=margin;high+=margin;const y=v=>plot.bottom-(v-low)/(high-low)*(plot.bottom-plot.top);
+ ctx.font='11px system-ui';ctx.lineWidth=1;for(let i=0;i<=4;i++){const val=low+(high-low)*i/4,yy=y(val);ctx.strokeStyle='#243749';ctx.beginPath();ctx.moveTo(plot.left,yy);ctx.lineTo(plot.right,yy);ctx.stroke();ctx.fillStyle='#93a8bc';ctx.fillText(fmt(val),4,yy+3);}
+ const n=Math.max(1,visible.length),step=(plot.right-plot.left)/n,x=i=>plot.left+step*(i+.5);
+ if(visible.length){for(let i=0;i<n;i++){const b=visible[i],xx=x(i),up=b.close>=b.open;ctx.strokeStyle=up?'#54d4a5':'#ff7b8e';ctx.fillStyle=ctx.strokeStyle;ctx.beginPath();ctx.moveTo(xx,y(b.low));ctx.lineTo(xx,y(b.high));ctx.stroke();const top=Math.min(y(b.open),y(b.close));ctx.fillRect(xx-Math.min(5,step*.35),top,Math.max(1,Math.min(10,step*.7)),Math.max(1,Math.abs(y(b.open)-y(b.close))));}
+ for(const [key,_,color] of indicators){ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=key==='mid'||key==='ema50'?2:1;let started=false;for(let i=0;i<over.length;i++){const v=over[i][key];if(!Number.isFinite(v)){started=false;continue;}if(!started){ctx.moveTo(x(i),y(v));started=true;}else ctx.lineTo(x(i),y(v));}ctx.stroke();}
+ ctx.fillStyle='#96b5cd';ctx.font='10px system-ui';for(let i=0;i<visible.length;i+=Math.max(1,Math.ceil(visible.length/5))){ctx.fillText(date(visible[i].time).replace(' MYT','').slice(-12),Math.max(plot.left,x(i)-26),h-16);}
+ if(selected!==null){const i=selected-begin;if(i>=0&&i<visible.length){ctx.strokeStyle='#eee';ctx.setLineDash([4,4]);ctx.beginPath();ctx.moveTo(x(i),plot.top);ctx.lineTo(x(i),plot.bottom);ctx.stroke();ctx.setLineDash([]);}}
+ }else{for(const [key,_,color] of indicators){const v=snap[key];if(!Number.isFinite(v))continue;ctx.strokeStyle=color;ctx.lineWidth=key==='mid'?2.5:1.2;ctx.beginPath();ctx.moveTo(plot.left,y(v));ctx.lineTo(plot.right,y(v));ctx.stroke();}ctx.font='12px system-ui';ctx.fillStyle='#d0e7ef';ctx.fillText('LEVEL MAP · No OHLC candles available',plot.left+6,h-16);}
+ // Collision-free right-hand indicator labels. Each label is tied to the true level by a colored connector.
+ const labels=indicators.filter(([key])=>lev&&Number.isFinite(lev[key])).map(([key,name,color])=>({name,color,val:lev[key],real:y(lev[key])})).sort((a,b)=>a.real-b.real);
+ const rowGap=13;for(let i=0;i<labels.length;i++){let yy=Math.max(plot.top+8,labels[i].real);if(i&&yy<labels[i-1].at+rowGap)yy=labels[i-1].at+rowGap;labels[i].at=yy;}if(labels.length&&labels.at(-1).at>plot.bottom){const overflow=labels.at(-1).at-plot.bottom;for(const l of labels)l.at-=overflow;}
+ ctx.textAlign='left';ctx.font='9px system-ui';for(const l of labels){ctx.strokeStyle=l.color;ctx.beginPath();ctx.moveTo(plot.right,l.real);ctx.lineTo(plot.right+8,l.at);ctx.stroke();ctx.fillStyle=l.color;ctx.fillText(l.name,plot.right+10,l.at-2);ctx.fillText(fmt(l.val),plot.right+10,l.at+8);}ctx.textAlign='left';
+}
+function parseCsv(text){const lines=text.replace(/^\uFEFF/,'').trim().split(/\r?\n/),head=lines.shift().split(',').map(x=>x.trim().toLowerCase());for(const k of ['time','open','high','low','close'])if(!head.includes(k))throw Error('CSV requires '+k+' column');return lines.filter(Boolean).map(l=>{const parts=l.split(',');return Object.fromEntries(head.map((k,i)=>[k,parts[i]?.trim()]))});}
+function receive(obj){if(!obj||typeof obj!=='object')throw Error('Import is not an object');const valid=core.calculate(obj,now(),now());input=obj;allFrames=core.frameSet(obj,Number.MAX_SAFE_INTEGER);computed=valid;selected=null;offset=0;replaySetup();$('mode').textContent='IMPORTED HISTORICAL · NOT LIVE';setLabels();}
+$('file').addEventListener('change',async e=>{const file=e.target.files?.[0];if(!file)return;try{if(file.size>7_000_000)throw Error('Input file too large (7 MB max)');const text=await file.text();let obj;if(file.name.toLowerCase().endsWith('.csv')){const symbol=window.prompt('Symbol name (required):','GC=F');const provider=window.prompt('Source/provider name (required):','IMPORTED_USER_FILE');const timeframe=window.prompt('Source timeframe M1, M5, M15, M30, H1, H4, D1, W1, MN1:','M1');obj={symbol,provider,timeframe,candles:parseCsv(text)};}else obj=JSON.parse(text);receive(obj);}catch(err){$('chartStatus').textContent='IMPORT REJECTED: '+err.message;}finally{e.target.value='';}});
+$('tf').onchange=()=>chooseFrame(tfEl.value);
+$('clear').onclick=()=>{input=null;computed=null;allFrames=null;selected=null;offset=0;$('mode').textContent='HISTORICAL · NO LIVE FEED';chooseFrame(frame);};
+$('reset').onclick=()=>{offset=0;viewCount=70;draw();};$('zoomIn').onclick=()=>{viewCount=Math.max(12,Math.round(viewCount*.8));draw();};$('zoomOut').onclick=()=>{viewCount=Math.min(200,Math.round(viewCount*1.25));draw();};
+$('resume').onclick=()=>{if(!input)return;computed=core.calculate(input,now(),now());offset=0;replaySetup();setLabels();};
+$('replay').oninput=e=>{if(!input)return;const rows=allFrames?.[frame]||[];const idx=Number(e.target.value);if(!rows[idx])return;const asOf=rows[idx].time+core.TF_SECONDS[frame];computed=core.calculate(input,asOf,now());offset=0;selected=null;$('replayTime').textContent='Replay through '+date(asOf);setLabels();};
+let drag=null;canvas.addEventListener('pointerdown',e=>{drag={x:e.clientX,start:offset,moved:false};canvas.setPointerCapture(e.pointerId);});canvas.addEventListener('pointermove',e=>{if(!drag||!activeFrame()?.rows.length)return;const dx=e.clientX-drag.x;if(Math.abs(dx)>6)drag.moved=true;const len=activeFrame().rows.length;offset=Math.min(Math.max(0,len-1),Math.max(0,drag.start+Math.round(dx/8)));draw();});canvas.addEventListener('pointerup',e=>{if(!drag)return;if(!drag.moved){const len=activeFrame()?.rows.length||0,rect=canvas.getBoundingClientRect(),relative=(e.clientX-rect.left-58)/Math.max(1,rect.width-157),count=Math.min(viewCount,len),start=Math.max(0,len-offset-count);const i=Math.max(0,Math.min(count-1,Math.floor(relative*count)));selected=start+i;const bar=activeFrame()?.rows[selected];if(bar)$('readout').textContent=date(bar.time)+': Open '+fmt(bar.open)+' · High '+fmt(bar.high)+' · Low '+fmt(bar.low)+' · Close '+fmt(bar.close)+' (historical)';}drag=null;draw();});
+canvas.addEventListener('wheel',e=>{if(!activeFrame()?.rows.length)return;e.preventDefault();viewCount=Math.max(12,Math.min(200,viewCount+(e.deltaY>0?8:-8)));draw();},{passive:false});
+new ResizeObserver(()=>draw()).observe(canvas);
+chooseFrame(frame);
+})();
+</script>
+</body>
+</html>

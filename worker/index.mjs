@@ -1,3 +1,4 @@
+import {handleWebhook} from '../telegram/menu-bot.mjs';
 const RAW_BASE = "https://raw.githubusercontent.com/mohd012z/News_ifxhelper/main/";
 const FF_WEEK = "https://nfs.faireconomy.media/ff_calendar_thisweek.json";
 const WORKER_VERSION = "2026-10-09-live-proxy-v2";
@@ -98,8 +99,9 @@ async function liveCalendar() {
 }
 
 export default {
-  async fetch(request) {
+  async fetch(request, env) {
     const url = new URL(request.url);
+    if (url.pathname === "/api/telegram/webhook") return handleWebhook(request, env);
 
     if (request.method === "OPTIONS") {
       return new Response(null, {
