@@ -76,11 +76,32 @@ async function fetchDaily(ticker, timeoutMs = 12000) {
   } finally { clearTimeout(t); }
 }
 
-function prevSession(rows) {
+/* True when a bar carries no usable intraday range (h==l). Yahoo emits these
+ * for spot FX when a session produced a single trade/quote (h=l=c). Feeding
+ * one to camarilla() gives step=0 and every level collapses to the close —
+ * a "18/18 ok" that is actually 9/18 usable. Skip them; fail closed if the
+ * whole recent window is flat. */
+function isFlatBar(r) {
+  return r != null && Number.isFinite(r.h) && Number.isFinite(r.l) && (r.h - r.l) <= 0;
+}
+
+function prevSession(rows, { lookback = 10 } = {}) {
   const today = new Date().toISOString().slice(0, 10);
   // last CLOSED bar: date strictly before today (UTC).
   const closed = rows.filter((r) => r.day < today);
-  return closed.length ? closed[closed.length - 1] : null;
+  // Walk back from the most recent closed bar for the newest one with a real
+  // range. Bounded by `lookback` so a genuinely flat market is reported as
+  // flat, not silently backdated to last month.
+  for (let i = closed.length - 1; i >= 0 && i >= closed.length - lookback; i--) {
+    if (!isFlatBar(closed[i])) return closed[i];
+  }
+  if (closed.length) {
+    const last = closed[closed.length - 1];
+    const err = new Error(`last closed daily bar is flat (H=L=${last.h}, ${last.day}) — no usable range`);
+    err.flat = true;
+    throw err;
+  }
+  return null;
 }
 
 /* Pure: previous-session HLC -> Camarilla levels. Exported for tests. */
@@ -119,8 +140,14 @@ async function main() {
       };
       console.log(`${s.label} ok session=${prev.day} C=${prev.c} R3=${lv.R3.toFixed(s.decimals)} S3=${lv.S3.toFixed(s.decimals)}`);
     } catch (e) {
-      out.symbols[s.id] = { ok: false, label: s.label, ticker: s.ticker, decimals: s.decimals, reason: String(e?.message || e) };
-      console.log(`${s.label} FAIL ${e.message}`);
+      const flat = Boolean(e?.flat);
+      out.symbols[s.id] = {
+        ok: false, flat, label: s.label, ticker: s.ticker, decimals: s.decimals,
+        reason: flat
+          ? 'previous session had no usable range (flat bar) — levels would all equal the close; skipped'
+          : String(e?.message || e),
+      };
+      console.log(`${s.label} ${flat ? 'FLAT (skipped, no usable range)' : 'FAIL'} ${e.message}`);
     }
   }
   const okCount = Object.values(out.symbols).filter((x) => x.ok).length;
@@ -133,4 +160,4 @@ async function main() {
 if (require.main === module) {
   main().catch((e) => { console.error('build-pivots fatal:', e); process.exit(1); });
 }
-module.exports = { camarilla, prevSession, closePosition };
+module.exports = { camarilla, prevSession, closePosition, isFlatBar };
