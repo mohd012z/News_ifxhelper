@@ -1,0 +1,31 @@
+name: HELIX BBMA Research Validation
+on:
+  push:
+    branches:
+      - research/helix-bbma-integrity-20261108
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  helix-bbma:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install locked dependencies
+        run: npm ci --ignore-scripts
+      - name: HELIX deterministic integrity and Canvas tests
+        run: |
+          node test/helix-bbma-integrity.test.js
+          node test/helix-canvas-chart.test.js
+          node test/helix-canvas-integration.test.js
+      - name: Existing BBMA regression suite
+        run: |
+          npm run test:bbma
+          npm run test:bbma-dashboard
+          npm run test:bbma-chart-ohlc
+          npm run test:bbma-alert-ui
+          npm run test:ohlc-resampler
