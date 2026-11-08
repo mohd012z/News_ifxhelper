@@ -1316,9 +1316,9 @@
           "key": "W1",
           "minutes": 10080,
           "dueAt": "2026-11-06T23:00:23.751Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-08T19:00:56.420Z",
+          "price": 1.1141,
+          "realizedPct": -0.224
         },
         {
           "key": "MN1",
@@ -1332,7 +1332,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0,
-        "maePct": 0
+        "maePct": -0.224
       }
     },
     {
@@ -2673,9 +2673,9 @@
           "key": "D1",
           "minutes": 1440,
           "dueAt": "2026-11-07T14:33:50.876Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-08T19:00:56.421Z",
+          "price": 1.1141,
+          "realizedPct": 0
         },
         {
           "key": "W1",
@@ -2697,7 +2697,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.153,
-        "maePct": 0.063
+        "maePct": 0
       }
     },
     {
@@ -3219,9 +3219,9 @@
           "key": "D1",
           "minutes": 1440,
           "dueAt": "2026-11-07T15:03:58.027Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-08T19:00:56.421Z",
+          "price": 1.1141,
+          "realizedPct": -0.099
         },
         {
           "key": "W1",
@@ -3243,7 +3243,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.054,
-        "maePct": -0.045
+        "maePct": -0.099
       }
     },
     {
@@ -3310,9 +3310,9 @@
           "key": "D1",
           "minutes": 1440,
           "dueAt": "2026-11-07T15:03:58.027Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-08T19:00:56.421Z",
+          "price": 1.1141,
+          "realizedPct": -0.099
         },
         {
           "key": "W1",
@@ -3334,7 +3334,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.054,
-        "maePct": -0.045
+        "maePct": -0.099
       }
     },
     {
@@ -3401,9 +3401,9 @@
           "key": "D1",
           "minutes": 1440,
           "dueAt": "2026-11-07T15:03:58.027Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-08T19:00:56.421Z",
+          "price": 1.1141,
+          "realizedPct": -0.099
         },
         {
           "key": "W1",
@@ -3425,7 +3425,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.054,
-        "maePct": -0.045
+        "maePct": -0.099
       }
     },
     {
@@ -3674,9 +3674,9 @@
           "key": "D1",
           "minutes": 1440,
           "dueAt": "2026-11-07T16:06:09.187Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-08T19:00:56.421Z",
+          "price": 1.1141,
+          "realizedPct": -0.09
         },
         {
           "key": "W1",
@@ -3698,7 +3698,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.018,
-        "maePct": -0.081
+        "maePct": -0.09
       }
     },
     {
@@ -4121,17 +4121,17 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-06T23:06:11.399Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-08T19:00:56.421Z",
+          "price": 1.1141,
+          "realizedPct": -0.054
         },
         {
           "key": "D1",
           "minutes": 1440,
           "dueAt": "2026-11-07T19:06:11.399Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-08T19:00:56.421Z",
+          "price": 1.1141,
+          "realizedPct": -0.054
         },
         {
           "key": "W1",
@@ -4212,17 +4212,17 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-06T23:06:11.399Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-08T19:00:56.421Z",
+          "price": 1.1141,
+          "realizedPct": -0.054
         },
         {
           "key": "D1",
           "minutes": 1440,
           "dueAt": "2026-11-07T19:06:11.399Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-08T19:00:56.421Z",
+          "price": 1.1141,
+          "realizedPct": -0.054
         },
         {
           "key": "W1",
@@ -4477,25 +4477,25 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-06T21:06:09.367Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-08T19:00:56.421Z",
+          "price": 1.1141,
+          "realizedPct": -0.009
         },
         {
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-07T00:06:09.367Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-08T19:00:56.421Z",
+          "price": 1.1141,
+          "realizedPct": -0.009
         },
         {
           "key": "D1",
           "minutes": 1440,
           "dueAt": "2026-11-07T20:06:09.367Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-08T19:00:56.421Z",
+          "price": 1.1141,
+          "realizedPct": -0.009
         },
         {
           "key": "W1",
@@ -4610,6 +4610,92 @@
         "mfePct": 0.108,
         "maePct": -0.199
       }
+    },
+    {
+      "key": "news:forex:Gold prices fall as blowout U.S. jobs report boosts Fed rate hike bets",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Gold prices fall as blowout U.S. jobs report boosts Fed rate hike bets",
+      "url": "https://www.investing.com/news/commodities-news/gold-heads-for-best-week-since-august-as-us-political-shift-lifts-bonds-5006271",
+      "impactScore": -0.08,
+      "priceSource": "yahoo:EURUSD=X",
+      "priceSymbol": "EURUSD=X",
+      "priceAtDetect": 1.1141,
+      "createdAt": "2026-11-08T19:00:56.423Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-08T19:01:56.423Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-08T19:05:56.423Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-08T19:15:56.423Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-08T19:30:56.423Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-08T20:00:56.423Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-08T23:00:56.423Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-09T19:00:56.423Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-15T19:00:56.423Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-08T19:00:56.423Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
     }
   ],
   "results": [
