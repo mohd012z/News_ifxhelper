@@ -46,6 +46,31 @@
     }
     return out;
   }
+  // BB(20,2) + EMA50 per bar — same math as the canonical bbma-runtime engine
+  // (population std dev over last 20 closes for the bands; SMA20 mid; EMA50).
+  // Runtime candles don't carry these fields, so the chart computes them here
+  // to render the overlays (the old SVG had the same latent gap).
+  function sma(arr, n, i) { if (i + 1 < n) return null; var s = 0; for (var j = i + 1 - n; j <= i; j++) s += arr[j]; return s / n; }
+  function popStd(arr, n, i) {
+    if (i + 1 < n) return null;
+    var m = 0; for (var j = i + 1 - n; j <= i; j++) m += arr[j]; m /= n;
+    var sq = 0; for (var k = i + 1 - n; k <= i; k++) sq += Math.pow(arr[k] - m, 2);
+    return Math.sqrt(sq / n);
+  }
+  function emaAt(arr, n, i) {
+    if (i + 1 < n) return null;
+    var k = 2 / (n + 1), e = 0;
+    for (var j = 0; j < i + 1; j++) { if (j === 0) e = arr[j]; else e = arr[j] * k + e * (1 - k); }
+    return e;
+  }
+  function computeBands(bars) {
+    var closes = bars.map(function (b) { return b.close; });
+    for (var i = 0; i < bars.length; i++) {
+      var m = sma(closes, 20, i), sd = popStd(closes, 20, i), e50 = emaAt(closes, 50, i);
+      if (m != null && sd != null) { bars[i].bbUpper = +(m + 2 * sd).toFixed(2); bars[i].bbMiddle = +m.toFixed(2); bars[i].bbLower = +(m - 2 * sd).toFixed(2); }
+      if (e50 != null) bars[i].ema50 = +e50.toFixed(2);
+    }
+  }
 
   var state = { chart: null, candles: null, overlays: {}, markers: null, container: null, tf: null, bars: [] };
 
@@ -106,6 +131,7 @@
     }
     if (!bars.length) return false;
     state.bars = bars;
+    computeBands(bars); // populate bbUpper/bbMiddle/bbLower/ema50 (runtime candles don't carry them)
     state.candles.setData(bars.map(function (b) { return { time: b.time, open: b.open, high: b.high, low: b.low, close: b.close }; }));
     OVERLAYS.forEach(function (o) {
       var pts = toPoints(bars, o.key);
