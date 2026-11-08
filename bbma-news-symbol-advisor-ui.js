@@ -220,6 +220,17 @@
     render();
     setInterval(render, 30000);
     document.addEventListener('bbma-runtime-updated', render);
+    // Re-render promptly when the XAU data signature changes — the runtime seeds
+    // a synthetic baseline on load and swaps in real Dukascopy candles shortly
+    // after; a signature poll catches that transition (and live price drift) far
+    // faster than the 30s interval, and only re-renders when something changed.
+    var lastSig = '';
+    setInterval(function () {
+      var rt = window.BBMA_RUNTIME || window.BBMA_DASHBOARD || {};
+      var x = rt.frames && rt.frames.H1 ? rt.frames.H1 : {};
+      var sig = [rt.price, x.trend, x.momentum, x.mhv, x.reentry, x.zone].join('|');
+      if (sig && sig !== lastSig) { lastSig = sig; render(); }
+    }, 5000);
     // news refresh: re-render when the calendar bundle is swapped (poll for a changing generatedAt)
     var lastGen = null;
     setInterval(function () {
