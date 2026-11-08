@@ -40,7 +40,7 @@ lastAt=new Date(now).toISOString();
 // The worker's /api/candles proxies keyless Yahoo GC=F (COMEX gold futures —
 // the same bars TradingView charts for XAU/USD). On GitHub Pages (no worker)
 // we fall back to a public CORS passthrough, then to the synthetic baseline.
-var YF={M5:'5m/1mo',M15:'15m/3mo',M30:'30m/3mo',H1:'60m/1y',H4:'60m/2y',D1:'1d/2y',W1:'1d/2y',MN1:'1mo/10y'};
+var YF={M5:'5m/2mo',M15:'15m/2mo',M30:'30m/2mo',H1:'60m/1y',H4:'60m/2y',D1:'1d/2y',W1:'1d/2y',MN1:'1mo/10y'};
 function rebucket(bars,baseMs){
   var out=[];
   bars.forEach(function(b){

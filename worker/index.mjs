@@ -194,10 +194,12 @@ async function liveCalendar() {
 // returns clean bar arrays for the 8 BBMA timeframes (H4/D1/W1/MN1 are
 // aggregated from 1h bars server-side; Yahoo's 4h/1wk/1mo buckets are not
 // aligned to the app's UTC day/week/month boundaries).
+// NOTE: Yahoo 422s when the response would exceed ~10k bars, so each range is
+// sized to stay well under that (bars are trimmed to `limit` afterwards anyway).
 const TF_YAHOO = {
-  M5: { interval: "5m", range: "1mo", baseMs: 300000, limit: 240 },
-  M15: { interval: "15m", range: "3mo", baseMs: 900000, limit: 240 },
-  M30: { interval: "30m", range: "3mo", baseMs: 1800000, limit: 240 },
+  M5: { interval: "5m", range: "2mo", baseMs: 300000, limit: 240 },
+  M15: { interval: "15m", range: "2mo", baseMs: 900000, limit: 240 },
+  M30: { interval: "30m", range: "2mo", baseMs: 1800000, limit: 240 },
   H1: { interval: "60m", range: "1y", baseMs: 3600000, limit: 240 },
   H4: { interval: "60m", range: "2y", baseMs: 14400000, limit: 240, aggregate: true },
   D1: { interval: "60m", range: "2y", baseMs: 86400000, limit: 240, aggregate: true },
@@ -237,10 +239,15 @@ async function candlesRoute(url) {
   }
   let upstream;
   try {
-    upstream = await fetch(`${YAHOO_BASE}GC=F?interval=${cfg.interval}&range=${cfg.range}`, {
-      cache: "no-store",
-      headers: { "User-Agent": YAHOO_UA, "Accept": "application/json" }
-    });
+    for (let attempt = 0; attempt < 2; attempt++) {
+      upstream = await fetch(`${YAHOO_BASE}GC=F?interval=${cfg.interval}&range=${cfg.range}`, {
+        cache: "no-store",
+        headers: { "User-Agent": YAHOO_UA, "Accept": "application/json" }
+      });
+      // 429/422 (rate-limit or >10k bars) -> one short retry.
+      if (upstream.status !== 429 && upstream.status !== 422) break;
+      await new Promise((r) => setTimeout(r, 600));
+    }
   } catch (e) {
     return new Response(JSON.stringify({ error: "yahoo unreachable", ok: false }), { status: 502, headers: jsonHead });
   }
