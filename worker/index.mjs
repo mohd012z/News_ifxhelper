@@ -195,15 +195,16 @@ async function liveCalendar() {
 // aggregated from 1h bars server-side; Yahoo's 4h/1wk/1mo buckets are not
 // aligned to the app's UTC day/week/month boundaries).
 // NOTE: Yahoo 422s when the response would exceed ~10k bars, so each range is
-// sized to stay well under that (bars are trimmed to `limit` afterwards anyway).
+// calibrated to stay well under that (bars are trimmed to `limit` afterwards):
+//   M5  1mo  ≈ 5.9k bars | M15 2mo ≈ 4.5k | M30 3mo ≈ 2.2k | H1 1y ≈ 6.7k
 const TF_YAHOO = {
-  M5: { interval: "5m", range: "2mo", baseMs: 300000, limit: 240 },
+  M5: { interval: "5m", range: "1mo", baseMs: 300000, limit: 240 },
   M15: { interval: "15m", range: "2mo", baseMs: 900000, limit: 240 },
-  M30: { interval: "30m", range: "2mo", baseMs: 1800000, limit: 240 },
+  M30: { interval: "30m", range: "3mo", baseMs: 1800000, limit: 240 },
   H1: { interval: "60m", range: "1y", baseMs: 3600000, limit: 240 },
-  H4: { interval: "60m", range: "2y", baseMs: 14400000, limit: 240, aggregate: true },
-  D1: { interval: "60m", range: "2y", baseMs: 86400000, limit: 240, aggregate: true },
-  W1: { interval: "60m", range: "2y", baseMs: 604800000, limit: 240, aggregate: true },
+  H4: { interval: "60m", range: "2y", fallbackRange: "1y", baseMs: 14400000, limit: 240, aggregate: true },
+  D1: { interval: "60m", range: "2y", fallbackRange: "1y", baseMs: 86400000, limit: 240, aggregate: true },
+  W1: { interval: "60m", range: "2y", fallbackRange: "1y", baseMs: 604800000, limit: 240, aggregate: true },
   MN1: { interval: "1mo", range: "10y", baseMs: 2592000000, limit: 240 }
 };
 
@@ -238,15 +239,24 @@ async function candlesRoute(url) {
     return new Response(JSON.stringify({ error: "unknown tf", ok: false }), { status: 400, headers: jsonHead });
   }
   let upstream;
+  let range = cfg.range;
   try {
     for (let attempt = 0; attempt < 2; attempt++) {
-      upstream = await fetch(`${YAHOO_BASE}GC=F?interval=${cfg.interval}&range=${cfg.range}`, {
+      upstream = await fetch(`${YAHOO_BASE}GC=F?interval=${cfg.interval}&range=${range}`, {
         cache: "no-store",
         headers: { "User-Agent": YAHOO_UA, "Accept": "application/json" }
       });
-      // 429/422 (rate-limit or >10k bars) -> one short retry.
-      if (upstream.status !== 429 && upstream.status !== 422) break;
-      await new Promise((r) => setTimeout(r, 600));
+      if (upstream.status === 422 && cfg.fallbackRange && range !== cfg.fallbackRange) {
+        // >10k-bar response cap -> retry with the shorter, sufficient range.
+        range = cfg.fallbackRange;
+        continue;
+      }
+      // 429 (keyless pool rate-limit) -> one short retry.
+      if (upstream.status === 429) {
+        await new Promise((r) => setTimeout(r, 600));
+        continue;
+      }
+      break;
     }
   } catch (e) {
     return new Response(JSON.stringify({ error: "yahoo unreachable", ok: false }), { status: 502, headers: jsonHead });
