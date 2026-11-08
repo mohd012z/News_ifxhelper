@@ -75,11 +75,12 @@
   var state = { chart: null, candles: null, overlays: {}, markers: null, container: null, tf: null, bars: [] };
 
   function teardown() {
+    if (state.ro) { try { state.ro.disconnect(); } catch (e) { /* ignore */ } state.ro = null; }
     if (state.chart && state.container) {
       // remove() is irreversible; clear the container so a fresh instance can be created.
       try { state.chart.remove(); } catch (e) { /* ignore */ }
     }
-    state.chart = state.candles = null; state.overlays = {}; state.markers = null;
+    state.chart = state.candles = null; state.overlays = {}; state.markers = null; state.fitted = false;
     if (state.container) { state.container.innerHTML = ''; }
   }
 
@@ -119,6 +120,22 @@
       });
     });
     try { state.markers = L.createSeriesMarkers(state.candles, []); } catch (e) { state.markers = null; }
+    // The dashboard renders on init while the BBMA section is hidden (width 0),
+    // so fitContent() computes spacing from an empty container and the view
+    // stays collapsed until the section is shown. Re-fit when the container
+    // first gets a real size (autoSize / tab switch).
+    state.fitted = false;
+    if (typeof ResizeObserver !== 'undefined') {
+      try {
+        state.ro = new ResizeObserver(function () {
+          if (state.fitted) return;
+          if (state.chart && state.bars.length && container.clientWidth > 0 && container.clientHeight > 0) {
+            try { state.chart.timeScale().fitContent(); state.fitted = true; } catch (e) { /* ignore */ }
+          }
+        });
+        state.ro.observe(container);
+      } catch (e) { /* ignore */ }
+    }
     return state.chart;
   }
 
