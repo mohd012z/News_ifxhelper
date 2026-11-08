@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
   "generationId": "bbma-0cb8900d7ad7e355ff0d",
-  "generatedAt": "2026-11-08T04:13:12.488Z",
+  "generatedAt": "2026-11-08T04:42:58.226Z",
   "lineage": {
     "status": "CONSISTENT",
     "generationId": "bbma-0cb8900d7ad7e355ff0d",
@@ -12,30 +12,30 @@
     {
       "file": "news-auto.js",
       "available": true,
-      "bytes": 346511,
-      "sha256": "c56b7bcb7e2dc5282c06f253adea0bc15c22b93344aab5bde7177b7a49748de2",
-      "modifiedAt": "2026-11-08T04:13:06.107Z"
+      "bytes": 194687,
+      "sha256": "2be550e617a192d0cf248818af7aa10b083ba0cb040402297e3dac5206aa3b31",
+      "modifiedAt": "2026-11-08T04:42:50.763Z"
     },
     {
       "file": "macro-auto.js",
       "available": true,
       "bytes": 1529,
-      "sha256": "a2cbdf803fb6fba46cd405b8213fdf9314c2529ff7d50debd2a264b7bacd1cce",
-      "modifiedAt": "2026-11-08T04:13:12.442Z"
+      "sha256": "3a7bd7c27ae3728a2639e49d1a21c8e80218482e71b3e4026acf0f9a1eadbf87",
+      "modifiedAt": "2026-11-08T04:42:58.171Z"
     },
     {
       "file": "atr.js",
       "available": true,
-      "bytes": 5805,
-      "sha256": "f220f672a5569a89cd602d59cc83c06353aeff68e24996e4fe40ac82a5698921",
-      "modifiedAt": "2026-11-08T04:13:11.060Z"
+      "bytes": 5804,
+      "sha256": "4cd37d2818531f6ef664639b16497ef67d50a36717a76e9608223c1170b3a66e",
+      "modifiedAt": "2026-11-08T04:42:56.195Z"
     },
     {
       "file": "atr-mtf.js",
       "available": true,
       "bytes": 5550,
-      "sha256": "39d49d4b92c45879db9779e983ac0b25672edd8086a36a0d7f542d4ec100c23d",
-      "modifiedAt": "2026-11-08T04:13:12.214Z"
+      "sha256": "8f58c8686fa77afa02abd9bb8e2b6e67d0d1ca53a80e482997001574e9b7f7d6",
+      "modifiedAt": "2026-11-08T04:42:57.795Z"
     },
     {
       "file": "spot-mtf.js",
@@ -47,9 +47,9 @@
     {
       "file": "xauusd-data.js",
       "available": true,
-      "bytes": 38228,
-      "sha256": "c00923b2bcee5baefd90e72384b9fcabb2de6e893c84a6119272ef9d9f5b0f7f",
-      "modifiedAt": "2026-11-06T12:37:38.005Z"
+      "bytes": 38318,
+      "sha256": "aa5f53d723fc0eb155e81e10e2e8c1e0944f49095d5e93a0344895ed4940bca4",
+      "modifiedAt": "2026-11-08T04:27:16.109Z"
     },
     {
       "file": "data/bbma-watch.json",
