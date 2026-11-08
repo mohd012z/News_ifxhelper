@@ -1,15 +1,18 @@
 /* BBMA runtime bridge: validated XAU ticks -> rolling OHLC -> BBMA MTF context. */
 (function(){'use strict';
-var TFS={M5:300000,M15:900000,M30:1800000,H1:3600000,H4:14400000,D1:86400000,W1:604800000,MN1:2592000000};
+var TFS={M5:300000,M15:900000,M30:1800000,H1:3600000,H4:14400000,D1:86400000,W1:604800000,MN1:0};
 var frames={},lastPrice=null,lastAt=null,max=240;
 
 function bucket(t,ms){return Math.floor(t/ms)*ms;}
+function monthBucket(t){var d=new Date(t);return Date.UTC(d.getUTCFullYear(),d.getUTCMonth(),1);}
+function barBucket(tf,t){return tf==='MN1'?monthBucket(t):bucket(t,TFS[tf]);}
+function barEnd(tf,b){return tf==='MN1'?Date.UTC(new Date(b).getUTCFullYear(),new Date(b).getUTCMonth()+1,1):b+TFS[tf];}
 
 // Generate baseline candles so chart, MTF matrix, and BBMA indicators populate immediately on startup
 var now=Date.now(),basePrice=2658.50;
 Object.keys(TFS).forEach(function(tf){
   frames[tf]=[];
-  var stepMs=TFS[tf];
+  var stepMs=TFS[tf]||2592000000;
   for(var i=59;i>=0;i--){
     var ct=now-i*stepMs;
     var dev=(Math.sin(i*0.35)+Math.cos(i*0.18))*(tf==='D1'||tf==='H4'?12:3.5);
@@ -17,15 +20,16 @@ Object.keys(TFS).forEach(function(tf){
     var c=basePrice+dev+(i%2===0?0.9:-0.7);
     var h=Math.max(o,c)+1.3;
     var l=Math.min(o,c)-1.2;
-    var b=bucket(ct,stepMs);
-    frames[tf].push({_b:b,time:new Date(ct).toISOString(),open:o,high:h,low:l,close:c,source:'BASELINE_CACHE'});
+    var b=barBucket(tf,ct);
+    frames[tf].push({_b:b,time:new Date(ct).toISOString(),open:o,high:h,low:l,close:c,source:'SYNTHETIC_DEMO'});
   }
 });
 lastPrice=basePrice;
 lastAt=new Date(now).toISOString();
 
 function add(tf,p,t){
-  var a=frames[tf],b=bucket(t,TFS[tf]),c=a[a.length-1];
+  var a=frames[tf],b=barBucket(tf,t),c=a[a.length-1];
+  if(c&&b<c._b)return false;
   if(!c||c._b!==b){
     c={_b:b,time:new Date(b).toISOString(),open:p,high:p,low:p,close:p,source:'LIVE_TICK_DERIVED'};
     a.push(c);
@@ -33,6 +37,7 @@ function add(tf,p,t){
   }else{
     c.high=Math.max(c.high,p);c.low=Math.min(c.low,p);c.close=p;
   }
+  return true;
 }
 
 function sma(a,n){if(a.length<n)return null;return a.slice(-n).reduce(function(s,v){return s+v;},0)/n;}
@@ -102,23 +107,25 @@ function publish(){
     at:lastAt||new Date().toISOString(),
     updatedMYT:mytTime,
     alertState:'PRE-EVENT',
-    fresh:true,
-    freshness:'FRESH_SNAPSHOT',
-    source:'LIVE_TICK_DERIVED',
+    fresh:false,
+    freshness:'UNVERIFIED_DEMO_BASELINE',
+    source:'SYNTHETIC_DEMO',
     ohlc:frames,
     candles:frames,
     frames:{},
-    alerts:[
+    alerts:[] /* synthetic alerts suppressed */,
+    demoAlerts:[
       {id:'bbma-1',symbol:'XAU/USD',tf:'H4',timeframe:'H4',pattern:'MHV',type:'SETUP',level:'HIGH',impact:'HIGH',timeMYT:mytTime,summary:'H4 MHV confirmed rejection of Lower BB. MTF Trend aligned UP.'},
       {id:'bbma-2',symbol:'XAU/USD',tf:'M15',timeframe:'M15',pattern:'RE-ENTRY',type:'CONFIRMED',level:'HIGH',impact:'HIGH',timeMYT:mytTime,summary:'M15 Re-entry armed inside mid-BB bounce zone with lower-wick rejection.'},
       {id:'bbma-3',symbol:'XAU/USD',tf:'M5',timeframe:'M5',pattern:'EXTREME',type:'WATCH',level:'MEDIUM',impact:'MED',timeMYT:mytTime,summary:'M5 Extreme lower-band exhaustion reached.'}
     ],
-    alertHistory:[
+    alertHistory:[] /* synthetic history suppressed */,
+    demoAlertHistory:[
       {id:'bbma-hist-1',symbol:'XAU/USD',tf:'H4',pattern:'MHV (Validated)',timeMYT:mytTime},
       {id:'bbma-hist-2',symbol:'XAU/USD',tf:'M15',pattern:'RE-ENTRY (Armed)',timeMYT:mytTime},
       {id:'bbma-hist-3',symbol:'XAU/USD',tf:'H1',pattern:'MOMENTUM (Breakout)',timeMYT:mytTime}
     ],
-    event:{
+    demoEvent:{
       name:'US Core PCE / Fed Policy Runway',
       event:'US Core PCE / Fed Policy Runway',
       timeMYT:mytTime,
@@ -130,7 +137,7 @@ function publish(){
     }
   };
 
-  Object.keys(frames).forEach(function(tf){out.frames[tf]=classify(frames[tf]);});
+  Object.keys(frames).forEach(function(tf){out.frames[tf]=classify(frames[tf].filter(function(c){return c.source!=='SYNTHETIC_DEMO'&&barEnd(tf,c._b)<=Date.now();}));});
   out.mtf=out.frames;
   out.timeframes=out.frames;
   window.BBMA_RUNTIME=out;
@@ -142,14 +149,16 @@ function ingest(p,at){
   p=Number(p);
   if(!isFinite(p)||p<=0)return;
   var t=at?new Date(at).getTime():Date.now();
-  if(!isFinite(t))t=Date.now();
+  if(!isFinite(t)||t>Date.now()+60000)return false;
+  if(lastAt&&t<new Date(lastAt).getTime())return false;
   lastPrice=p;
   lastAt=new Date(t).toISOString();
   Object.keys(TFS).forEach(function(tf){add(tf,p,t);});
   publish();
+  return true;
 }
 
-window.BBMARuntime={ingest:ingest,snapshot:function(){return window.BBMA_RUNTIME||null;},frames:frames};
+window.BBMARuntime={ingest:ingest,snapshot:function(){return window.BBMA_RUNTIME||null;},frames:frames,barBucket:barBucket,barEnd:barEnd};
 window.addEventListener('xau-live-tick',function(e){var d=e.detail||{};ingest(d.price,d.at);});
 
 setInterval(function(){
