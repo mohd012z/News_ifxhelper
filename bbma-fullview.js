@@ -392,20 +392,32 @@
     return { t: t, p: p };
   }
   function bindPointer() {
-    var host = state.container;
-    if (!host || host.__fvBound) return;
-    host.__fvBound = true;
-    host.addEventListener('click', function (ev) {
-      if (!state.tool) return;
-      if (ev.target && /CANVAS/i.test(ev.target.tagName)) {
-        var rect = host.getBoundingClientRect();
-        handleToolClick(ev.clientX - rect.left, ev.clientY - rect.top, ev);
-      }
-    });
-    host.addEventListener('dblclick', function (ev) {
+    // LWC's own chart mouse handlers stopPropagation on click, so a listener on
+    // the container never fires. Use the DOCUMENT in capture phase and filter to
+    // clicks that land inside this chart's canvas.
+    if (window.__fvBound) return;
+    window.__fvBound = true;
+    document.addEventListener('click', function (ev) {
+      if (!state.tool || !state.container) return;
+      var el = ev.target;
+      if (!el || !/CANVAS/i.test(el.tagName)) return;
+      var host = state.container;
+      var node = el;
+      while (node && node !== host) node = node.parentElement;
+      if (node !== host) return; // canvas of a different chart (e.g. BBMA tab)
       var rect = host.getBoundingClientRect();
+      handleToolClick(ev.clientX - rect.left, ev.clientY - rect.top, ev);
+    }, true);
+    document.addEventListener('dblclick', function (ev) {
+      if (!state.container) return;
+      var el = ev.target;
+      if (!el || !/CANVAS/i.test(el.tagName)) return;
+      var node = el;
+      while (node && node !== state.container) node = node.parentElement;
+      if (node !== state.container) return;
+      var rect = state.container.getBoundingClientRect();
       deleteNearest(ev.clientX - rect.left, ev.clientY - rect.top);
-    });
+    }, true);
   }
   function handleToolClick(x, y, ev) {
     if (!state.tool || !state.chart) return;
