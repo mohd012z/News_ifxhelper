@@ -757,8 +757,7 @@ if (require.main === module) (async () => {
     // Countdown reminders for high-importance events, independent of the "new item detected"
     // alerts above - own dedup namespace ("remind:...") in the same state file so they never
     // collide with or duplicate the detection alerts.
-    const REMINDER_STAGES = [30, 10, 2]; // minutes before - see readme/PR notes: 2-min stage is
-    // best-effort only, GitHub Actions' free scheduler does not guarantee sub-5-minute accuracy.
+    const REMINDER_STAGES = [30, 10]; // T-2 excluded from research and release policy.
     const state = loadState();
     const seen = new Set(state.sentKeys || []);
     const incoming = (MARKET_DATA.incoming || []).concat((NEWS_AUTO && NEWS_AUTO.incoming) || []).filter(e => e.importance === 'high');
