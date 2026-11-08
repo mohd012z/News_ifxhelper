@@ -2082,7 +2082,8 @@
     if (f === "bbma" && window.BBMADashboardUI && window.BBMADashboardUI.render) {
       window.BBMADashboardUI.render();
     }
-    var main = $(".main"); if (main) main.scrollTop = 0; window.scrollTo(0, 0);
+    var main = $$(".main"); if (main && main[0]) main[0].scrollTop = 0; window.scrollTo(0, 0);
+    try { window.dispatchEvent(new CustomEvent('xau-route-changed', { detail: { route: f } })); } catch (e) { }
   }
   function bindBottomNav() {
     $$("#bottomnav button").forEach(function (b) { b.onclick = function () { applyFilter(b.dataset.filter); }; });

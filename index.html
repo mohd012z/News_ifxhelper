@@ -267,6 +267,18 @@
       .v{font-size:19px}
       th:nth-child(n+5),td:nth-child(n+5){display:none}
     }
+    /* BBMA full chart (Charts tab) */
+    .fv-toolbar{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+    .fv-row{display:flex;flex-wrap:wrap;gap:4px}
+    .fv-btn{background:#121b2e;border:1px solid #24324f;color:#9db2d4;border-radius:8px;padding:5px 9px;font-size:12px;cursor:pointer;font-weight:600;line-height:1.2}
+    .fv-btn:hover{border-color:#3b557e;color:#d7e2f4}
+    .fv-btn.on{background:#1d3557;border-color:#3d7bd8;color:#eaf2ff}
+    .fv-btn.tool.on{background:#4a3413;border-color:#ffb703;color:#ffd166}
+    .fv-chart-wrap{width:100%;height:440px;border:1px solid #18233a;border-radius:10px;overflow:hidden;background:#0b1220}
+    @media(min-width:900px){.fv-chart-wrap{height:620px}}
+    .fv-chart{width:100%;height:100%}
+    .fv-foot{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-top:6px;min-height:16px}
+    .fv-sep{width:1px;align-self:stretch;background:#24324f;margin:0 2px}
   </style>
 </head>
 <body>
@@ -538,6 +550,14 @@
       </section>
 
       <section class="card" style="margin-top:10px" data-sec="charts">
+        <div class="k">BBMA Full Chart &middot; XAU/USD</div>
+        <div class="note">Real Dukascopy history + live tick (all timeframes). Zoom: pinch / ctrl+wheel &middot; Pan: drag &middot; Draw: pick a tool, then click the chart (trend/rect = 2 clicks) &middot; Double-click deletes an object &middot; Esc cancels. S/D: red = unmitigated supply, green = unmitigated demand.</div>
+        <div id="fv-toolbar" class="fv-toolbar" style="margin-top:8px"></div>
+        <div class="fv-chart-wrap" style="margin-top:8px"><div id="fv-chart" class="fv-chart"></div></div>
+        <div class="fv-foot"><span class="note" id="fv-hint"></span><span class="note" id="fv-zone-count"></span></div>
+      </section>
+
+      <section class="card" style="margin-top:10px" data-sec="charts">
         <div class="k">Pivot Levels</div>
         <div class="note">Classic pivot formula (PP = (H+L+C)/3). <b>H1/H4/D1 auto-fill</b> from live ticks collected this session (high/low/last of what has streamed in) &mdash; edit any field to override. <b>W1/M1 have no live weekly/monthly source, so enter those manually.</b> Each symbol+timeframe combination is saved separately on this device.</div>
         <div class="row-flex" style="margin-top:8px">
@@ -768,6 +788,8 @@
   <script src="./vendor/lightweight-charts.standalone.production.js" onerror="console.warn('lightweight-charts missing - BBMA chart uses SVG fallback')"></script>
   <script src="./bbma-chart-lwc.js"></script>
   <script src="./bbma-dashboard-ui.js"></script>
+  <script src="./lib/bbma-supply-demand.js"></script>
+  <script src="./bbma-fullview.js"></script>
   <script src="./bbma-router-fix.js"></script>
   <script src="./bbma-link.js"></script>
   <script src="./pwa.js?v=6" defer></script>

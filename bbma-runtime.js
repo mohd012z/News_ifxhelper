@@ -56,7 +56,7 @@ function seedFromReal(tf,bars){
   if(!clean.length)return false;
   clean=clean.slice(-max);
   frames[tf]=clean.map(function(b){
-    return {_b:b.t,time:new Date(b.t).toISOString(),open:b.o,high:b.h,low:b.l,close:b.c,source:'REAL_YAHOO'};
+    return {_b:b.t,time:new Date(b.t).toISOString(),open:b.o,high:b.h,low:b.l,close:b.c,source:'REAL_DUKASCOPY'};
   });
   realTfs[tf]=true;
   // Anchor the live-tick price to the last real bar so the 2s ingest loop keeps
@@ -198,7 +198,7 @@ function publish(){
     alertState:'PRE-EVENT',
     fresh:true,
     freshness:'FRESH_SNAPSHOT',
-    source:realTfs.H1?'REAL_YAHOO_GC_FUTURES':'LIVE_TICK_DERIVED',
+    source:realTfs.H1?'REAL_DUKASCOPY_SPOT':'LIVE_TICK_DERIVED',
     ohlc:frames,
     candles:frames,
     frames:{},
