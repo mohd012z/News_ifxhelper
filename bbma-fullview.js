@@ -374,7 +374,8 @@
     var t = null, p = null;
     try {
       var coord = state.chart.timeScale().coordinateToTime(x);
-      t = coord ? coord.from : null;
+      // v5.2.1 returns a UTC number; tolerate {from,to} if a future build changes it
+      t = (typeof coord === 'number') ? coord : (coord ? (coord.from != null ? coord.from : coord.to) : null);
     } catch (e) { }
     try {
       var cp = state.candles.coordinateToPrice(y);
