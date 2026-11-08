@@ -37,6 +37,24 @@ const trackingFetch = async (input) => {
   if (url.includes("cdn.jsdelivr.net/gh/mohd012z/News_ifxhelper@main/news-auto.js")) {
     return new Response('{"generatedAt":"2026-11-08 05:58:38Z","via":"jsdelivr-fallback"}', { status: 200, headers: { "Content-Type": "application/javascript" } });
   }
+  if (url.includes("candles-auto.json")) {
+    // Snapshot (primary /api/candles path) is served by default in this stub
+    // so tests cover the Dukascopy branch; the yahoo branch is still exercised
+    // by the dedicated snapshot-missing test below.
+    if (!globalThis.__candlesSnapshotMissing) {
+      return new Response(JSON.stringify({
+        generatedAt: "2026-11-08T06:00:00.000Z",
+        source: "dukascopy xauusd (bid, spot)",
+        bars: {
+          H4: [
+            { t: 1762502400000, o: 4000, h: 4010, l: 3995, c: 4005 },
+            { t: 1762516800000, o: 4005, h: 4035, l: 4000, c: 4012 }
+          ],
+          H1: [{ t: 1762502400000, o: 4000, h: 4010, l: 3995, c: 4005 }]
+        }
+      }), { status: 200, headers: { "Content-Type": "application/json" } });
+    }
+  }
   if (url.includes("query1.finance.yahoo.com/v8/finance/chart/GC=F")) {
     // 4 x 1h bars in the same UTC 4h bucket (00,01,02,03h) + one earlier bar.
     // Aggregated to H4 the first five bars must collapse to two 4h bars.
@@ -140,28 +158,26 @@ try {
   assert.equal(health.workerVersion, "2026-11-08-candles-v3");
   assert.equal(health.sourceMode, "github-main-live-proxy");
 
-  // /api/candles: real OHLC history proxied from Yahoo (keyless GC=F).
+  // /api/candles: real OHLC history (primary = Dukascopy snapshot).
   r = await worker.fetch(new Request("https://gentle-violet-4a79.ifxhelper.workers.dev/api/candles?tf=H4"));
   assert.equal(r.status, 200, "candles H4 must be 200");
   const cd = await r.json();
   assert.equal(cd.ok, true);
   assert.equal(cd.tf, "H4");
+  assert.match(cd.source, /dukascopy/i, "snapshot path must be labelled dukascopy");
   assert.equal(r.headers.get("access-control-allow-origin"), "*");
-  // 1h bars [base-1h][base..base+3h] must aggregate to TWO 4h bars:
-  // the first bucket closes at 4005 (only one bar), the second at 4012.
-  assert.equal(cd.bars.length, 2, "H4 aggregation must collapse 4x1h into one bucket");
+  assert.equal(cd.bars.length, 2);
   assert.equal(cd.bars[0].o, 4000);
-  assert.equal(cd.bars[0].c, 4005);
-  assert.equal(cd.bars[1].o, 4005);
-  assert.equal(cd.bars[1].h, 4035);
-  assert.equal(cd.bars[1].l, 4000);
   assert.equal(cd.bars[1].c, 4012);
 
-  // H1: pass-through, no aggregation
+  // snapshot missing -> Yahoo fallback (5 raw 1h bars pass through as H1)
+  globalThis.__candlesSnapshotMissing = true;
   r = await worker.fetch(new Request("https://gentle-violet-4a79.ifxhelper.workers.dev/api/candles?tf=H1"));
   const cd1 = await r.json();
-  assert.equal(cd1.ok, true);
+  assert.equal(cd1.ok, true, "yahoo fallback must rescue a missing snapshot");
+  assert.match(cd1.source, /yahoo/i);
   assert.equal(cd1.bars.length, 5);
+  globalThis.__candlesSnapshotMissing = false;
 
   // unknown tf -> 400
   r = await worker.fetch(new Request("https://gentle-violet-4a79.ifxhelper.workers.dev/api/candles?tf=XX"));

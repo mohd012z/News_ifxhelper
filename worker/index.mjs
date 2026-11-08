@@ -188,15 +188,14 @@ async function liveCalendar() {
   });
 }
 
-// --- /api/candles: real OHLC history (keyless Yahoo GC=F, the COMEX gold
-// futures that mirror XAU/USD spot) proxied server-side because Yahoo sends
-// no Access-Control-Allow-Origin to browsers. The worker fetches, trims, and
-// returns clean bar arrays for the 8 BBMA timeframes (H4/D1/W1/MN1 are
-// aggregated from 1h bars server-side; Yahoo's 4h/1wk/1mo buckets are not
-// aligned to the app's UTC day/week/month boundaries).
-// NOTE: Yahoo 422s when the response would exceed ~10k bars, so each range is
-// calibrated to stay well under that (bars are trimmed to `limit` afterwards):
-//   M5  1mo  ≈ 5.9k bars | M15 2mo ≈ 4.5k | M30 3mo ≈ 2.2k | H1 1y ≈ 6.7k
+// --- /api/candles: real OHLC history for the 8 BBMA timeframes.
+// Primary: the repo's candles-auto.json — Dukascopy spot XAU/USD bars (the same
+// feed class TradingView charts; listed since 2003, ~24k ticks/hour), built by
+// build-candles.js and committed every 30 min by the local poller. Served via
+// the GitHub/jsDelivr CDN proxy = no rate limits, no 429s, ~200ms.
+// Fallback: live keyless Yahoo v8 GC=F (rate-limited; last-ditch only).
+// The app's live-tick merge completes the freshest bar on top of either source.
+const TF_LIMIT = { M5: 240, M15: 240, M30: 240, H1: 240, H4: 240, D1: 240, W1: 240, MN1: 240 };
 const TF_YAHOO = {
   M5: { interval: "5m", range: "1mo", baseMs: 300000, limit: 240 },
   M15: { interval: "15m", range: "2mo", baseMs: 900000, limit: 240 },
@@ -226,56 +225,84 @@ function aggregateBars(bars, baseMs, limit) {
   return out.slice(-limit);
 }
 
+function candlePayload(tf, bars, source, generatedAt, lastPrice) {
+  const last = bars[bars.length - 1];
+  return {
+    ok: true, tf,
+    symbol: "XAU/USD", label: "Dukascopy spot (XAU/USD)",
+    fetchedAt: new Date().toISOString(),
+    generatedAt: generatedAt || null,
+    source,
+    lastPrice: lastPrice != null ? lastPrice : last.c,
+    lastBarTime: last.t,
+    bars
+  };
+}
+
 async function candlesRoute(url) {
   const tf = url.searchParams.get("tf") || "H1";
+  const limit = TF_LIMIT[tf];
   const cfg = TF_YAHOO[tf];
   const jsonHead = {
     "Content-Type": "application/json; charset=utf-8",
     "Access-Control-Allow-Origin": "*",
     "X-Content-Type-Options": "nosniff",
-    "Cache-Control": "public, max-age=60, s-maxage=60, stale-while-revalidate=120"
+    "Cache-Control": "public, max-age=60, s-maxage=120, stale-while-revalidate=300"
   };
-  if (!cfg) {
+  if (!limit || !cfg) {
     return new Response(JSON.stringify({ error: "unknown tf", ok: false }), { status: 400, headers: jsonHead });
   }
+
+  // 1) Primary: CDN-hosted Dukascopy snapshot (build-candles.js, 30-min cadence).
+  const snapResp = await fetchRaw("candles-auto.json");
+  if (snapResp.ok) {
+    try {
+      const snap = await snapResp.json();
+      const bars = snap && snap.bars && snap.bars[tf];
+      if (Array.isArray(bars) && bars.length) {
+        return new Response(JSON.stringify(candlePayload(
+          tf, bars.slice(-limit),
+          (snap.source || "candles-auto.json (dukascopy)") + " @ " + (snap.generatedAt || "?"),
+          snap.generatedAt
+        )), { status: 200, headers: jsonHead });
+      }
+    } catch (e) { /* malformed snapshot -> yahoo fallback */ }
+  }
+
+  // 2) Fallback: live keyless Yahoo (rate-limited; one 422 range-shrink + one
+  //    429 retry, then 502 with the reason for observability).
   let upstream;
   let range = cfg.range;
   try {
-    for (let attempt = 0; attempt < 2; attempt++) {
+    for (let attempt = 0; attempt < 3; attempt++) {
       upstream = await fetch(`${YAHOO_BASE}GC=F?interval=${cfg.interval}&range=${range}`, {
         cache: "no-store",
         headers: { "User-Agent": YAHOO_UA, "Accept": "application/json" }
       });
       if (upstream.status === 422 && cfg.fallbackRange && range !== cfg.fallbackRange) {
-        // >10k-bar response cap -> retry with the shorter, sufficient range.
-        range = cfg.fallbackRange;
+        range = cfg.fallbackRange; // >10k-bar response cap
         continue;
       }
-      // 429 (keyless pool rate-limit) -> one short retry.
       if (upstream.status === 429) {
-        await new Promise((r) => setTimeout(r, 600));
+        await new Promise((r) => setTimeout(r, 400));
         continue;
       }
       break;
     }
   } catch (e) {
-    return new Response(JSON.stringify({ error: "yahoo unreachable", ok: false }), { status: 502, headers: jsonHead });
+    upstream = null;
   }
-  if (!upstream.ok) {
-    return new Response(JSON.stringify({ error: "yahoo " + upstream.status, ok: false }), { status: 502, headers: jsonHead });
+  let doc = null;
+  if (upstream && upstream.ok) {
+    try { doc = await upstream.json(); } catch (e) { doc = null; }
+    if (!doc || !doc.chart || !doc.chart.result || !doc.chart.result[0] ||
+        !Array.isArray(doc.chart.result[0].timestamp) || doc.chart.error) doc = null;
   }
-  let doc;
-  try { doc = await upstream.json(); } catch (e) {
-    return new Response(JSON.stringify({ error: "yahoo bad json", ok: false }), { status: 502, headers: jsonHead });
+  if (!doc) {
+    const st = upstream ? upstream.status : 0;
+    return new Response(JSON.stringify({ error: "no snapshot + yahoo " + st, ok: false }), { status: 502, headers: jsonHead });
   }
-  const err = doc && doc.chart && doc.chart.error;
-  if (err) {
-    return new Response(JSON.stringify({ error: err.description || "yahoo error", ok: false }), { status: 502, headers: jsonHead });
-  }
-  const res = doc.chart && doc.chart.result && doc.chart.result[0];
-  if (!res || !Array.isArray(res.timestamp)) {
-    return new Response(JSON.stringify({ error: "no result", ok: false }), { status: 502, headers: jsonHead });
-  }
+  const res = doc.chart.result[0];
   const q = res.indicators && res.indicators.quote && res.indicators.quote[0];
   if (!q) return new Response(JSON.stringify({ error: "no quote", ok: false }), { status: 502, headers: jsonHead });
   const raw = [];
@@ -289,16 +316,12 @@ async function candlesRoute(url) {
     return new Response(JSON.stringify({ error: "no bars", ok: false }), { status: 502, headers: jsonHead });
   }
   const last = bars[bars.length - 1];
-  return new Response(JSON.stringify({
-    ok: true,
-    tf,
-    symbol: "GC=F",
-    label: "COMEX gold futures (XAU/USD proxy)",
-    fetchedAt: new Date().toISOString(),
-    lastPrice: res.meta ? res.meta.regularMarketPrice : last.c,
-    lastBarTime: last.t,
-    bars
-  }), { status: 200, headers: jsonHead });
+  return new Response(JSON.stringify(candlePayload(
+    tf, bars,
+    "yahoo GC=F (futures proxy) @ " + new Date().toISOString(),
+    null,
+    res.meta ? res.meta.regularMarketPrice : last.c
+  )), { status: 200, headers: jsonHead });
 }
 
 export default {
