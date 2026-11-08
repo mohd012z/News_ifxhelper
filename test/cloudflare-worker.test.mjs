@@ -17,7 +17,7 @@ const trackingFetch = async (input) => {
   }
 
   if (url.includes("/app.js?cf_refresh=")) {
-    return new Response("console.log('fresh app')", { status: 200, headers: { "Content-Type": "text/plain" } });
+    return new Response("console.log('fresh app')", { status: 200, headers: { "Content-Type": "text/plain", "Content-Security-Policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox", "Content-Encoding": "gzip" } });
   }
   if (url.includes("/pwa.js?cf_refresh=")) {
     return new Response("console.log('fresh pwa')", { status: 200, headers: { "Content-Type": "text/plain" } });
@@ -66,6 +66,10 @@ try {
   assert.match(r.headers.get("cache-control") || "", /no-store/);
   assert.equal(await r.text(), "console.log('fresh app')");
   assert.equal(r.headers.get("x-ifxhelper-worker-version"), "2026-10-09-live-proxy-v2");
+  // GitHub raw's CSP (default-src 'none') must NOT leak through: it blocks
+  // every external <script> and renders the dashboard empty.
+  assert.equal(r.headers.get("content-security-policy"), null, "upstream CSP must be stripped");
+  assert.equal(r.headers.get("content-encoding"), null, "upstream content-encoding must be stripped (body already decoded)");
 
   r = await worker.fetch(new Request("https://gentle-violet-4a79.ifxhelper.workers.dev/data-manifest.json"));
   assert.match(r.headers.get("content-type") || "", /application\/json/);

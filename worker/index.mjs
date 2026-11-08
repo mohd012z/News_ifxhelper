@@ -36,7 +36,25 @@ function cleanPath(pathname) {
 }
 
 function headersFor(path, upstream) {
-  const h = new Headers(upstream.headers);
+  // GitHub raw (and the jsDelivr mirror) stamp every object with
+  //   content-security-policy: default-src 'none'; style-src 'unsafe-inline'; sandbox
+  // For an app that loads external <script> files, default-src 'none' (no
+  // script-src) BLOCKS every external script -> the dashboard renders empty.
+  // So never forward upstream CSP / encoding / GH-meta headers: the body is
+  // already decoded by fetch(), and our own headers below are authoritative.
+  const h = new Headers();
+  for (const [k, v] of upstream.headers) {
+    const lk = k.toLowerCase();
+    if (lk === "content-security-policy" ||
+        lk === "content-security-policy-report-only" ||
+        lk === "content-encoding" ||
+        lk === "content-length" ||
+        lk === "etag" ||
+        lk === "age" ||
+        lk === "report-to" ||
+        lk === "x-content-type-options") continue;
+    h.set(k, v);
+  }
   const type = MIME[ext(path)];
   if (type) h.set("Content-Type", type);
   h.set("X-Content-Type-Options", "nosniff");
