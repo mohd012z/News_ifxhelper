@@ -33,7 +33,7 @@ jobs:
           node - <<'NODE'
           const fs=require('node:fs');
           const s=fs.readFileSync('wrangler.staging.toml','utf8');
-          if(!/^name\s*=\s*"helix-calendar-research-staging"\s*$/m.test(s)) process.exit(1);
+          if(!/^name\s*=\s*"helix-dashboard-proxy-research-staging"\s*$/m.test(s)) process.exit(1);
           if(!/^main\s*=\s*"worker\/index.mjs"\s*$/m.test(s)) process.exit(1);
           if(/gentle-violet-4a79|\[\[routes\]\]|^route\s*=|^routes\s*=|\[triggers\]|\[\[d1_databases\]\]|\[\[kv_namespaces\]\]/m.test(s)) process.exit(1);
           console.log('Staging configuration isolation passed');
