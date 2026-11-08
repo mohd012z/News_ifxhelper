@@ -1,8 +1,14 @@
 /* Service worker for XAU//DESK.
  * App shell is cached so the app opens offline; live-data endpoints are always network-only.
  * Note: service workers only run on http(s) origins - opening index.html from file:// skips this file.
+ *
+ * CACHE is bumped on every deploy that changes the app shell so clients drop
+ * any previously cached (possibly broken) bundle and re-fetch from the network.
+ * v7: 2026-11-08 - worker now strips GitHub's CSP; clients with the old v6 SW
+ *       were serving a stale shell whose default-src 'none' CSP blocked all
+ *       external <script>. Bump forces a clean re-fetch + re-claim.
  */
-const CACHE = "xaudesk-v6";
+const CACHE = "xaudesk-v7";
 const VOLATILE = new Set([
   "/",
   "/index.html",
@@ -74,8 +80,16 @@ self.addEventListener("fetch", (e) => {
     }).catch(() => caches.match(e.request).then((hit) => {
       if (hit && !contentTypeMismatch(url, hit)) return hit;
       // Only navigation/document requests may fall back to index.html. Never return HTML for JS/JSON.
-      if (e.request.mode === "navigate" || e.request.destination === "document") return caches.match("./index.html");
+      if (e.request.mode === "navigate" || e.request.destination === "document") {
+        return caches.match("./index.html").then((h) => h || fetch(e.request));
+      }
       return new Response("Offline asset unavailable", { status: 503, headers: { "Content-Type": "text/plain; charset=utf-8" } });
-    }))
+    })).catch((err) => {
+      // Last resort: a fetch handler that REJECTS turns the whole navigate into
+      // ERR_FAILED on the page. Never let that happen - return a response so the
+      // page always loads (re-fetch network if cache missed too).
+      console.warn("SW fetch failed, using last-resort response", err);
+      return new Response("Service worker recovery: reloading from network", { status: 200, headers: { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store" } });
+    })
   );
 });
