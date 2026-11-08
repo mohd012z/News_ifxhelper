@@ -32,9 +32,9 @@ assert(app.includes('function hardRefreshShell()'), 'Reload must use the stale-s
 assert(app.includes('searchParams.set("_fresh"'), 'hard refresh must add a cache-busting query');
 assert(app.includes('navigator.serviceWorker.getRegistration()'), 'hard refresh must ask the service worker to update before navigation');
 
-assert(sw.includes('const CACHE = "xaudesk-v6"'), 'service-worker cache version must be v6');
+assert(sw.includes('const CACHE = "xaudesk-v7"'), 'service-worker cache version must be v7');
 assert(sw.includes('"/index.html"') && sw.includes('"/pwa.js"'), 'service worker must network-first the HTML/PWA bootstrap');
-assert(pwa.includes('register("./sw.js?v=6", { updateViaCache: "none" })'), 'PWA must bypass stale HTTP cache when checking the service worker');
+assert(pwa.includes('register("./sw.js?v=7", { updateViaCache: "none" })'), 'PWA must bypass stale HTTP cache when checking the service worker');
 assert(pwa.includes('reg.update()'), 'PWA must actively check for a newer service worker');
 assert(pwa.includes('controllerchange'), 'PWA must react when a newer worker takes control');
 assert(sw.includes('contentTypeMismatch'), 'service worker must reject HTML returned for JS/JSON');
