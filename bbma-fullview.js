@@ -593,36 +593,43 @@
   function enterFullscreen() {
     var t = fvTarget();
     if (!t) return;
+    // CSS overlay is the primary, deterministic mechanism (works in webviews +
+    // headless); native Fullscreen is a bonus on top for true-screen behaviour.
+    t.classList.add('fv-fullscreen');
+    state.fullscreen = true;
+    try { document.body.style.overflow = 'hidden'; } catch (e) { }
     if (fsSupported()) {
       var req = t.requestFullscreen || t.webkitRequestFullscreen || t.mozRequestFullScreen || t.msRequestFullscreen;
-      try { Promise.resolve(req.call(t)).catch(function () { enterCssFs(t); }); }
-      catch (e) { enterCssFs(t); }
-    } else enterCssFs(t);
+      try {
+        var p = req.call(t);
+        if (p && typeof p.then === 'function') p.catch(function () { /* CSS overlay already active */ });
+      } catch (e) { /* CSS overlay already active */ }
+    }
+    updateToolbar();
+    setTimeout(function () { try { state.chart && state.chart.timeScale().fitContent(); } catch (e) { } }, 80);
   }
   function exitFullscreen() {
+    var t = fvTarget();
+    if (t) t.classList.remove('fv-fullscreen');
+    state.fullscreen = false;
+    try { document.body.style.overflow = ''; } catch (e) { }
     if (fsEl()) {
       var ex = document.exitFullscreen || document.webkitExitFullscreen || document.mozCancelFullScreen || document.msExitFullscreen;
       try { ex.call(document); } catch (e) { }
     }
-    exitCssFs();
-  }
-  function enterCssFs(t) {
-    state.fullscreen = true;
-    t.classList.add('fv-fullscreen');
-    try { document.body.style.overflow = 'hidden'; } catch (e) { }
     updateToolbar();
-  }
-  function exitCssFs() {
-    var t = fvTarget();
-    if (t) t.classList.remove('fv-fullscreen');
-    try { document.body.style.overflow = ''; } catch (e) { }
-    if (state.fullscreen) updateToolbar();
   }
   document.addEventListener('fullscreenchange', onFsChange);
   document.addEventListener('webkitfullscreenchange', onFsChange);
   function onFsChange() {
-    if (!fsEl()) exitCssFs();
-    state.fullscreen = !!fsEl();
+    // Native fullscreen exited (Esc / hardware) while the CSS overlay is still
+    // up -> clear it too so the view returns to the card.
+    if (!fsEl() && state.fullscreen) {
+      var t = fvTarget();
+      if (t) t.classList.remove('fv-fullscreen');
+      try { document.body.style.overflow = ''; } catch (e) { }
+      state.fullscreen = false;
+    }
     updateToolbar();
     setTimeout(function () { try { state.chart && state.chart.timeScale().fitContent(); } catch (e) { } }, 60);
   }
