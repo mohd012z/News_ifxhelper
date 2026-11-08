@@ -1,0 +1,18 @@
+'use strict';
+const test=require('node:test');
+const assert=require('node:assert/strict');
+const {auditCoverage}=require('../lib/xauusd-coverage-audit');
+const m=s=>Date.parse(s);
+const c=time=>({time,open:2000,high:2001,low:1999,close:2000});
+const base=m('2026-11-02T00:00:00Z');
+test('nine exact frames',()=>assert.deepEqual(Object.keys(auditCoverage([],{asOf:base}).timeframes),['M1','M5','M15','M30','H1','H4','D1','W1','MN1']));
+test('minimum shortage flagged',()=>assert.equal(auditCoverage([c(base)],{asOf:base+60000}).timeframes.M1.insufficientHistory,true));
+test('closed only',()=>assert.equal(auditCoverage([c(base)],{asOf:base+30000}).timeframes.M1.closedCount,0));
+test('full five-minute source interval',()=>{const a=Array.from({length:5},(_,i)=>c(base+i*60000));const r=auditCoverage(a,{asOf:base+300000});assert.equal(r.timeframes.M5.incompleteSourceBars,0);assert.equal(r.timeframes.M5.closedCount,1)});
+test('missing minute detected',()=>{const a=[0,1,3,4].map(i=>c(base+i*60000));assert.equal(auditCoverage(a,{asOf:base+300000}).timeframes.M5.incompleteSourceBars,1)});
+test('duplicate rejected',()=>assert.throws(()=>auditCoverage([c(base),c(base)],{asOf:base+60000}),/chronology/));
+test('unsorted rejected',()=>assert.throws(()=>auditCoverage([c(base+60000),c(base)],{asOf:base+120000}),/chronology/));
+test('invalid OHLC rejected',()=>assert.throws(()=>auditCoverage([{...c(base),low:2002}],{asOf:base+60000}),/OHLC/));
+test('unaligned M1 rejected',()=>assert.throws(()=>auditCoverage([c(base+1)],{asOf:base+60000}),/chronology/));
+test('calendar remains unverified',()=>assert.equal(auditCoverage([c(base)],{asOf:base+60000}).timeframes.M1.marketCalendarVerified,false));
+test('warmup accounting',()=>{const a=Array.from({length:201},(_,i)=>c(base+i*60000));assert.equal(auditCoverage(a,{asOf:base+201*60000}).timeframes.M1.usableAfterWarmup,1)});
