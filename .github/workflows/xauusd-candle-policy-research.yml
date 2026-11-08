@@ -30,4 +30,4 @@ jobs:
       - name: Run Node built-in offline deterministic tests
         run: |
           node --version
-          node --test test/xauusd-min-candle-policy.test.js test/xauusd-coverage-audit.test.js
+          node --test test/xauusd-min-candle-policy.test.js test/xauusd-coverage-audit.test.js test/xauusd-session-coverage.test.js
