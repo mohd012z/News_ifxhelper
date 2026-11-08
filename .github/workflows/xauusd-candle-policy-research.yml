@@ -1,0 +1,33 @@
+name: XAUUSD research offline validation
+on:
+  push:
+    branches:
+      - research/xauusd-min-candle-policy-20261108
+    paths:
+      - 'lib/xauusd-*'
+      - 'test/xauusd-*'
+      - '.github/workflows/xauusd-candle-policy-research.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  offline-policy-tests:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Checkout immutable triggering commit
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+          COMMIT: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          git init .
+          git remote add origin "https://x-access-token:${GH_TOKEN}@github.com/${REPOSITORY}.git"
+          git -c protocol.version=2 fetch --depth=1 origin "${COMMIT}"
+          git checkout --detach FETCH_HEAD
+          git remote remove origin
+      - name: Run Node built-in offline deterministic tests
+        run: |
+          node --version
+          node --test test/xauusd-min-candle-policy.test.js test/xauusd-coverage-audit.test.js
