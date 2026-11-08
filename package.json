@@ -10,7 +10,7 @@
     "macro": "node build-macro.js",
     "manifest:data": "node build-data-manifest.js",
     "refresh:data": "node build-news.js && node build-macro.js && node build-data-manifest.js",
-    "test": "npm run test:source-fetch && npm run test:spot-broker && npm run test:atr-mtf && npm run test:market-review && npm run test:market-card && npm run test:evidence && npm run test:history && npm run test:technical && npm run test:reaction && npm run test:timestamps && npm run test:pivots && npm run test:intelligence && npm run test:bbma && npm run test:bbma-dashboard && npm run test:bbma-chart-ohlc && npm run test:bbma-alert-ui && npm run test:bbma-deeplink && npm run test:market-provider && npm run test:ohlc-backfill && npm run test:ohlc-resampler && npm run test:news-level-history && npm run test:bbma-learning && npm run test:evidence-envelope && npm run test:source-health && npm run test:orchestrator && npm run test:learning-store && npm run test:news-refresh-v2 && npm run test:ff-calendar && npm run test:worker && npm run test:realtime-news && npm run test:calendar-heartbeat && npm run test:workflow-reliability && npm run test:no-public-credentials && npm run test:ohlc-temporal-p0 && npm run test:helix-live && npm run test:helix-webhook && npm run test:helix-d1 && npm run test:bbma-lightweight-v5",
+    "test": "npm run test:source-fetch && npm run test:spot-broker && npm run test:atr-mtf && npm run test:market-review && npm run test:market-card && npm run test:evidence && npm run test:history && npm run test:technical && npm run test:reaction && npm run test:timestamps && npm run test:pivots && npm run test:intelligence && npm run test:bbma && npm run test:bbma-dashboard && npm run test:bbma-chart-ohlc && npm run test:bbma-alert-ui && npm run test:bbma-deeplink && npm run test:market-provider && npm run test:ohlc-backfill && npm run test:ohlc-resampler && npm run test:news-level-history && npm run test:bbma-learning && npm run test:evidence-envelope && npm run test:source-health && npm run test:orchestrator && npm run test:learning-store && npm run test:news-refresh-v2 && npm run test:ff-calendar && npm run test:worker && npm run test:realtime-news && npm run test:calendar-heartbeat && npm run test:workflow-reliability && npm run test:no-public-credentials && npm run test:ohlc-temporal-p0 && npm run test:helix-live && npm run test:helix-webhook && npm run test:helix-d1 && npm run test:bbma-lightweight-v5 && npm run test:bbma-lightweight-browser",
     "test:evidence": "node test/evidence-engine.test.js",
     "test:history": "node test/history-store.test.js",
     "test:technical": "node test/technical-context.test.js",
@@ -62,7 +62,8 @@
     "test:helix-live": "node test/helix-live-integration.test.js",
     "test:helix-webhook": "node test/helix-webhook.test.mjs",
     "test:helix-d1": "node test/helix-d1-journal.test.mjs && python3 test/helix-d1-sqlite.test.py",
-    "test:bbma-lightweight-v5": "node test/bbma-lightweight-v5.test.js"
+    "test:bbma-lightweight-v5": "node test/bbma-lightweight-v5.test.js",
+    "test:bbma-lightweight-browser": "node test/bbma-lightweight-browser.test.js"
   },
   "dependencies": {
     "@capacitor/android": "^7.0.0",
