@@ -32,9 +32,9 @@ assert(app.includes('function hardRefreshShell()'), 'Reload must use the stale-s
 assert(app.includes('searchParams.set("_fresh"'), 'hard refresh must add a cache-busting query');
 assert(app.includes('navigator.serviceWorker.getRegistration()'), 'hard refresh must ask the service worker to update before navigation');
 
-assert(sw.includes('const CACHE = "xaudesk-v7"'), 'service-worker cache version must be v7');
+assert(sw.includes('const CACHE = "xaudesk-v8"'), 'service-worker cache version must be v8');
 assert(sw.includes('"/index.html"') && sw.includes('"/pwa.js"'), 'service worker must network-first the HTML/PWA bootstrap');
-assert(pwa.includes('register("./sw.js?v=7", { updateViaCache: "none" })'), 'PWA must bypass stale HTTP cache when checking the service worker');
+assert(pwa.includes('register("./sw.js?v=8", { updateViaCache: "none" })'), 'PWA must bypass stale HTTP cache when checking the service worker');
 assert(pwa.includes('reg.update()'), 'PWA must actively check for a newer service worker');
 assert(pwa.includes('controllerchange'), 'PWA must react when a newer worker takes control');
 assert(sw.includes('contentTypeMismatch'), 'service worker must reject HTML returned for JS/JSON');
@@ -44,7 +44,8 @@ assert(worker.includes('/api/ff-calendar'), 'Worker live calendar route missing'
 assert(worker.includes('raw.githubusercontent.com/mohd012z/News_ifxhelper/main/'), 'Worker must proxy current main assets');
 assert(worker.includes('no-store, no-cache, must-revalidate'), 'volatile Worker assets must disable stale caching');
 assert(worker.includes('"pwa.js"'), 'Worker must treat pwa.js as volatile');
-assert(/const WORKER_VERSION = "\d{4}-\d{2}-\d{2}-(live-proxy|candles)-v\d+"/.test(worker), 'Worker freshness/version fingerprint missing');
+assert(/const WORKER_VERSION = "\d{4}-\d{2}-\d{2}-(live-proxy|candles|fullview)-v\d+"/.test(worker), 'Worker freshness/version fingerprint missing');
+assert(worker.includes('"bbma-fullview.js"'), 'Worker must treat bbma-fullview.js as volatile (no stale cache for the Charts-tab chart)');
 assert(worker.includes('?cf_refresh='), 'Worker volatile upstream cache-buster missing');
 
 assert(wrangler.includes('name = "gentle-violet-4a79"'), 'Wrangler worker name must target the existing Worker');

@@ -4,11 +4,10 @@
  *
  * CACHE is bumped on every deploy that changes the app shell so clients drop
  * any previously cached (possibly broken) bundle and re-fetch from the network.
- * v7: 2026-11-08 - worker now strips GitHub's CSP; clients with the old v6 SW
- *       were serving a stale shell whose default-src 'none' CSP blocked all
- *       external <script>. Bump forces a clean re-fetch + re-claim.
+ * v8: 2026-11-08 - Charts-tab fullview (bbma-fullview.js) added; stale-client
+ *       re-claim. BBMA dashboard JS + candles snapshot marked volatile.
  */
-const CACHE = "xaudesk-v7";
+const CACHE = "xaudesk-v8";
 const VOLATILE = new Set([
   "/",
   "/index.html",
@@ -19,7 +18,15 @@ const VOLATILE = new Set([
   "/xauusd-data.js",
   "/macro-auto.js",
   "/atr.js",
-  "/sw.js"
+  "/sw.js",
+  "/bbma-fullview.js",
+  "/lib/bbma-supply-demand.js",
+  "/candles-auto.json",
+  "/bbma-runtime.js",
+  "/bbma-chart-lwc.js",
+  "/bbma-dashboard-ui.js",
+  "/bbma-router-fix.js",
+  "/bbma-link.js"
 ]);
 
 function contentTypeMismatch(url, res) {
