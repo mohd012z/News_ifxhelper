@@ -1,0 +1,13 @@
+'use strict';
+const assert=require('node:assert/strict');
+const {geometry}=require('../helix-canvas-chart.js');
+const rows=Array.from({length:12},(_,i)=>({time:1000+i*60,open:100+i,high:102+i,low:99+i,close:101+i}));
+const z=[{pattern:'DBR',start:1120,end:1360,low:99,high:105}];
+const g=geometry(rows,z,600,300,{from:0,to:12});
+assert.equal(g.candles.length,12);assert.equal(g.zones.length,1);
+assert(g.zones[0].w>0);assert(g.zones[0].h>0);
+assert.equal(geometry(rows,z,600,300,{from:9,to:12}).zones.length,0);
+assert.equal(geometry([],[],600,300).candles.length,0);
+assert.throws(()=>geometry(rows,[],0,300),/INVALID_VIEWPORT/);
+assert.throws(()=>geometry([{high:NaN,low:1}],[],600,300),/INVALID_OHLC/);
+console.log('HELIX independent canvas geometry, zone clipping, empty viewport and invalid input PASS');
