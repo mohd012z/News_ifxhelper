@@ -3,6 +3,7 @@ const http=require('node:http');
 const fs=require('node:fs');
 const path=require('node:path');
 const root=path.resolve(__dirname,'../..');
+const {mkdirSync}=require('node:fs');
 let server,origin;
 test.beforeAll(async()=>{
  server=http.createServer((req,res)=>{
@@ -31,15 +32,28 @@ test('real Chromium renders closed-bar BBMA, S&D zones, pan/zoom and mobile resi
  expect(result).toEqual({count:90,zones:2});
  expect(await page.locator('#chart canvas').count()).toBeGreaterThanOrEqual(2);
  const before=await page.locator('#chart canvas').last().evaluate(el=>({w:el.width,h:el.height}));
+ const initial=await page.evaluate(()=>({range:window.smokeChart.getVisibleRange(),rects:window.smokeChart.getZoneRects()}));
+ expect(initial.range).not.toBeNull();
+ expect(initial.rects).toHaveLength(2);
+ for(const rect of initial.rects){expect(rect.x2).toBeGreaterThan(rect.x1);expect(rect.y2).toBeGreaterThan(rect.y1);for(const v of [rect.x1,rect.x2,rect.y1,rect.y2])expect(Number.isFinite(v)).toBe(true);}
  expect(before.w).toBeGreaterThan(0);
  await page.mouse.move(200,180);await page.mouse.down();await page.mouse.move(110,180,{steps:8});await page.mouse.up();
+ const dragged=await page.evaluate(()=>window.smokeChart.getVisibleRange());
+ expect(dragged).not.toEqual(initial.range);
  await page.mouse.wheel(0,-350);
+ await page.waitForTimeout(100);
+ const zoomed=await page.evaluate(()=>window.smokeChart.getVisibleRange());
+ expect(zoomed.to-zoomed.from).not.toBeCloseTo(dragged.to-dragged.from,3);
  await page.setViewportSize({width:800,height:600});
  await page.waitForTimeout(250);
  const after=await page.locator('#chart canvas').last().evaluate(el=>({w:el.width,h:el.height}));
  expect(after.w).toBeGreaterThan(before.w);
+ const resized=await page.evaluate(()=>window.smokeChart.getZoneRects());
+ expect(resized).toHaveLength(2);
+ for(const rect of resized){expect(rect.x2).toBeGreaterThan(rect.x1);expect(rect.y2).toBeGreaterThan(rect.y1);}
  await page.evaluate(()=>window.smokeChart.paint());
  expect(errors).toEqual([]);
+ mkdirSync('test-results/helix-chromium',{recursive:true});
  await page.screenshot({path:'test-results/helix-chromium/chart.png',fullPage:true});
  await page.evaluate(()=>window.smokeChart.destroy());
 });
@@ -47,4 +61,19 @@ test('fallback when chart library is unavailable',async({page})=>{
  await page.goto(origin);
  const fallback=await page.evaluate(()=>window.BBMALightweightV5.mount(document.querySelector('#chart'),{library:{}}));
  expect(fallback).toBeNull();
+});
+
+test('mobile touch gesture does not crash overlay lifecycle',async({browser})=>{
+ const context=await browser.newContext({viewport:{width:390,height:780},hasTouch:true,isMobile:true});
+ const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.goto(origin);
+ await page.evaluate(()=>{const base=Date.parse('2026-11-08T00:00:00Z');const rows=Array.from({length:80},(_,i)=>({time:new Date(base+i*60000).toISOString(),open:100+i*.1,high:101+i*.1,low:99+i*.1,close:100.5+i*.1}));window.touchChart=window.BBMALightweightV5.mount(document.querySelector('#chart'));window.touchChart.setData(rows,{asOf:new Date(base+80*60000).toISOString(),minutes:1,zones:[{pattern:'DBR',confirmedAt:rows[10].time,low:100,high:103}]});});
+ const client=await context.newCDPSession(page);
+ await client.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:280,y:160}]});
+ for(let x=260;x>=140;x-=20)await client.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x,y:160}]});
+ await client.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});
+ await page.evaluate(()=>window.touchChart.paint());
+ expect(await page.evaluate(()=>window.touchChart.getZoneRects().length)).toBe(1);
+ expect(errors).toEqual([]);
+ await context.close();
 });
