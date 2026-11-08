@@ -103,7 +103,7 @@ try {
   assert.match(r.headers.get("content-type") || "", /application\/javascript/);
   assert.match(r.headers.get("cache-control") || "", /no-store/);
   assert.equal(await r.text(), "console.log('fresh app')");
-  assert.match(r.headers.get("x-ifxhelper-worker-version") || "", /^\d{4}-\d{2}-\d{2}-(live-proxy|candles|fullview)-v\d+$/);
+  assert.match(r.headers.get("x-ifxhelper-worker-version") || "", /^\d{4}-\d{2}-\d{2}-(live-proxy|candles|fullview|advisor)-v\d+$/);
   // GitHub raw's CSP (default-src 'none') must NOT leak through: it blocks
   // every external <script> and renders the dashboard empty.
   assert.equal(r.headers.get("content-security-policy"), null, "upstream CSP must be stripped");
@@ -155,7 +155,7 @@ try {
   const health = await r.json();
   assert.equal(health.ok, true);
   assert.equal(health.service, "ifxhelper-news-worker");
-  assert.match(String(health.workerVersion), /^\d{4}-\d{2}-\d{2}-(live-proxy|candles|fullview)-v\d+$/);
+  assert.match(String(health.workerVersion), /^\d{4}-\d{2}-\d{2}-(live-proxy|candles|fullview|advisor)-v\d+$/);
   assert.equal(health.sourceMode, "github-main-live-proxy");
 
   // /api/candles: real OHLC history (primary = Dukascopy snapshot).
