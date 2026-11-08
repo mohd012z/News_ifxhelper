@@ -59,8 +59,7 @@ async function fetchRaw(path) {
   // Primary: raw.githubusercontent (fast, cache-busted for volatile files).
   const target = RAW_BASE + path.split("/").map(encodeURIComponent).join("/") + refresh;
   let upstream = await fetch(target, {
-    cache: "no-store",
-    cf: { cacheTtl: 0, cacheEverything: false }
+    cache: "no-store"
   });
   // 404 = genuinely missing -> keep it (the caller maps extensionless 404 to index.html).
   if (upstream.status !== 404 && !upstream.ok) {
@@ -69,7 +68,7 @@ async function fetchRaw(path) {
     try {
       const fb = await fetch(
         "https://cdn.jsdelivr.net/gh/mohd012z/News_ifxhelper@main/" + path.split("/").map(encodeURIComponent).join("/") + refresh,
-        { cache: "no-store", cf: { cacheTtl: 0, cacheEverything: false } }
+        { cache: "no-store" }
       );
       if (fb.ok) {
         upstream = fb;
