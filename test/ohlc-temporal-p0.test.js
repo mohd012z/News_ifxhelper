@@ -22,4 +22,27 @@ assert.equal(selected.lagMinutes,0);
 const later=B.select(rows,new Date(base+5.5*60000).toISOString(),{timeframeMinutes:1,now:end});
 assert.equal(later.candle.time,rows[5].time,'next closed candle selected');
 assert.equal(later.lagMinutes,0.5);
+
+const replay=R.buildFrames(Array.from({length:60},(_,i)=>candle(i)),{asOf:end});
+assert.equal(replay.M1.length,15,'historical M1 cutoff');
+assert.equal(replay.M15.length,1,'historical M15 cutoff');
+assert.equal(replay.H1.length,0,'unfinished H1 excluded');
+const received=rows.map(r=>({...r,receivedAt:new Date(end).toISOString()}));
+assert.equal(R.resample(received,15,{asOf:end,requireReceiptTime:true}).length,1,'known receipt times accepted');
+assert.equal(R.resample(rows,15,{asOf:end,requireReceiptTime:true}).length,0,'unknown receipt times fail closed');
+const late=received.map((r,i)=>i===7?{...r,receivedAt:new Date(end+1).toISOString()}:r);
+assert.equal(R.resample(late,15,{asOf:end,requireReceiptTime:true}).length,0,'future receipt cannot leak into replay');
+const monday=Date.parse('2026-09-14T00:00:00Z');
+const sessions=[0,1,2,3,4].map(d=>new Date(monday+d*86400000).toISOString().slice(0,10));
+const daily=sessions.map((date,i)=>({time:date+'T00:00:00Z',open:100+i,high:102+i,low:99+i,close:101+i}));
+const weekEnd=monday+7*86400000;
+assert.equal(R.resampleCalendar(daily,'W1',{asOf:weekEnd-1,sessionDates:sessions}).length,0,'unfinished week excluded');
+assert.equal(R.resampleCalendar(daily,'W1',{asOf:weekEnd,sessionDates:sessions}).length,1,'five-session week complete');
+assert.equal(R.resampleCalendar(daily.slice(1),'W1',{asOf:weekEnd,sessionDates:sessions}).length,0,'missing session excluded');
+assert.equal(R.resampleCalendar([...daily,daily[4]],'W1',{asOf:weekEnd,sessionDates:sessions}).length,0,'duplicate session excluded');
+const september=Array.from({length:22},(_,i)=>new Date(Date.UTC(2026,8,i+1)).toISOString().slice(0,10)).filter(d=>![0,6].includes(new Date(d+'T00:00:00Z').getUTCDay()));
+const monthRows=september.map((date,i)=>({time:date+'T00:00:00Z',open:100+i,high:102+i,low:99+i,close:101+i}));
+assert.equal(R.resampleCalendar(monthRows,'MN1',{asOf:Date.parse('2026-10-01T00:00:00Z'),sessionDates:september}).length,1,'session-aware month accepted');
+assert.equal(R.resampleCalendar(monthRows,'MN1',{asOf:Date.parse('2026-09-30T23:59:59Z'),sessionDates:september}).length,0,'unfinished month excluded');
+
 console.log('P0 temporal integrity regression passed');
