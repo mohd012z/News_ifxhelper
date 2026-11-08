@@ -31,11 +31,29 @@
     bg: '#0b1220', text: '#d7e2f4', grid: '#18233a',
     up: '#31df8b', down: '#ff596d',
     bbUpper: '#28a9ff', bbMiddle: '#ffc928', bbLower: '#28a9ff', ema50: '#c05cff',
+    ema200: '#ff8fa3', sma20: '#7aa2ff', vwap: '#ffd166',
     supply: '#ff596d', demand: '#31df8b',
+    rsi: '#c05cff', rsiOver: '#ff596d', rsiUnder: '#31df8b',
+    macd: '#28a9ff', macdSig: '#ffd166', macdHistUp: '#31df8b', macdHistDn: '#ff596d',
     trend: '#ffd166', hline: '#7aa2ff', rect: '#4cc9f0', text: '#f4f4f4'
   };
   var SD_PARAMS = { baseBars: 3, impulseMultiplier: 1.5, minImpulseBody: 0 };
-  var STORE_KEY = 'xaudesk-fullview-v1';
+  var STORE_KEY = 'xaudesk-fullview-v2';
+
+  // Indicator math module (lib/bbma-indicators.js) — fail-closed if absent.
+  function IND() { return (typeof window !== 'undefined' && window.BBMA_Indicators) || null; }
+  // Overlay keys that live on the MAIN pane (visibility toggled per indicator).
+  var OVERLAY_KEYS = ['bbUpper', 'bbMiddle', 'bbLower', 'ema50', 'ema200', 'sma20', 'vwap'];
+  var OVERLAY_FOR = { bbUpper: 'bb', bbMiddle: 'bb', bbLower: 'bb', ema50: 'ema50', ema200: 'ema200', sma20: 'sma20', vwap: 'vwap' };
+  // Indicator presets ("templates"). Applying one sets the toggle set below.
+  var TEMPLATES = {
+    'TV Classic': { bb: true, ema50: true, sd: true, vwap: false, ema200: false, sma20: false, rsi: false, macd: false },
+    'BB + VWAP': { bb: true, ema50: true, sd: false, vwap: true, ema200: false, sma20: false, rsi: false, macd: false },
+    'Trend EMA': { bb: false, ema50: true, sd: false, vwap: false, ema200: true, sma20: true, rsi: false, macd: false },
+    'Momentum RSI': { bb: true, ema50: false, sd: false, vwap: false, ema200: false, sma20: false, rsi: true, macd: false },
+    'MACD': { bb: true, ema50: false, sd: false, vwap: false, ema200: false, sma20: false, rsi: false, macd: true },
+    'Full': { bb: true, ema50: true, sd: true, vwap: true, ema200: true, sma20: true, rsi: true, macd: true }
+  };
 
   function lwc() {
     return (typeof window !== 'undefined' && (window.LightweightCharts || window.lightweightCharts)) || null;
@@ -67,6 +85,7 @@
   }
   function computeOverlays(bars) {
     var closes = bars.map(function (b) { return b.close; });
+    var I = IND();
     for (var i = 0; i < bars.length; i++) {
       var m = smaAt(closes, 20, i);
       if (m != null) {
@@ -77,6 +96,19 @@
       }
       var e50 = emaAt(closes, 50, i);
       if (e50 != null) bars[i].ema50 = +e50.toFixed(2);
+      if (I) {
+        var e200 = I.emaAt(closes, 200, i);
+        if (e200 != null) bars[i].ema200 = +e200.toFixed(2);
+        var s20 = I.smaAt(closes, 20, i);
+        if (s20 != null) bars[i].sma20 = +s20.toFixed(2);
+      }
+    }
+    // Session-anchored VWAP (needs high/low/close + a per-bar UTC day bucket).
+    if (I && bars.length) {
+      var vw = I.vwap(bars.map(function (b) {
+        return { time: b.time, high: b.high, low: b.low, close: b.close, _day: Math.floor(b.time / 86400) };
+      }));
+      for (var k = 0; k < bars.length; k++) if (Number.isFinite(vw[k])) bars[k].vwap = +vw[k].toFixed(2);
     }
   }
 
@@ -84,8 +116,11 @@
   var state = {
     container: null, chart: null, candles: null, overlays: {},
     zoneSeries: null, annoSeries: null,
-    tf: 'H1', tool: null, pending: null,
-    ind: { bb: true, ema50: true, sd: true },
+    rsiLine: null, rsiOver: null, rsiUnder: null,
+    macdHist: null, macdLine: null, macdSig: null,
+    tf: 'H1', tool: null, pending: null, fullscreen: false,
+    ind: { bb: true, ema50: true, sd: true, vwap: false, ema200: false, sma20: false, rsi: false, macd: false },
+    template: 'TV Classic',
     drawings: {},
     _bars: [], _zones: [], lastKey: null
   };
@@ -262,9 +297,36 @@
     state.overlays.bbMiddle = ov(COLORS.bbMiddle, 2);
     state.overlays.bbLower = ov(COLORS.bbLower);
     state.overlays.ema50 = ov(COLORS.ema50);
+    state.overlays.ema200 = ov(COLORS.ema200);
+    state.overlays.sma20 = ov(COLORS.sma20);
+    state.overlays.vwap = ov(COLORS.vwap, 1); // VWAP dashed
     if (L.addCustomSeries) {
       state.zoneSeries = state.chart.addCustomSeries(makeZoneView(), { priceScaleId: 'right' });
       state.annoSeries = state.chart.addCustomSeries(makeAnnoView(), { priceScaleId: 'right' });
+    }
+    // Oscillator sub-panes (RSI = pane 1, MACD = pane 2). Created once; their
+    // series are hidden unless the indicator is enabled.
+    if (L.LineSeries) {
+      state.rsiLine = state.chart.addSeries(L.LineSeries, {
+        color: COLORS.rsi, lineWidth: 1, priceScaleId: 'right', lastValueVisible: true,
+        priceFormat: { type: 'price', precision: 1, minMove: 0.1 }
+      }, 1);
+      // 30 / 70 over-under reference lines (RSI pane only)
+      try {
+        state.rsiOver = state.rsiLine.createPriceLine ? state.rsiLine.createPriceLine({
+          price: 70, color: COLORS.rsiOver, lineWidth: 1, lineStyle: 2, axisLabelVisible: false, title: ''
+        }) : null;
+        state.rsiUnder = state.rsiLine.createPriceLine ? state.rsiLine.createPriceLine({
+          price: 30, color: COLORS.rsiUnder, lineWidth: 1, lineStyle: 2, axisLabelVisible: false, title: ''
+        }) : null;
+      } catch (e) { state.rsiOver = state.rsiUnder = null; }
+    }
+    if (L.HistogramSeries) {
+      state.macdHist = state.chart.addSeries(L.HistogramSeries, {
+        priceScaleId: 'right', lastValueVisible: true
+      }, 2);
+      state.macdLine = state.chart.addSeries(L.LineSeries, { color: COLORS.macd, lineWidth: 1, priceScaleId: 'right', lastValueVisible: false }, 2);
+      state.macdSig = state.chart.addSeries(L.LineSeries, { color: COLORS.macdSig, lineWidth: 1, priceScaleId: 'right', lastValueVisible: false }, 2);
     }
     bindPointer();
     return state.chart;
@@ -311,7 +373,7 @@
     computeOverlays(bars);
     state._bars = bars;
     state.candles.setData(bars);
-    setOverlayPts('bbUpper'); setOverlayPts('bbMiddle'); setOverlayPts('bbLower'); setOverlayPts('ema50');
+    applyOverlays();
     state._zones = state.ind.sd ? sdZones(bars) : [];
     zoneState.zones = state._zones;
     if (state.zoneSeries) {
@@ -324,7 +386,7 @@
   }
   function setOverlayPts(key) {
     if (!state.overlays[key]) return;
-    var on = key === 'ema50' ? state.ind.ema50 : state.ind.bb;
+    var on = state.ind[OVERLAY_FOR[key]];
     try {
       state.overlays[key].applyOptions({ visible: !!on });
       if (on) {
@@ -333,6 +395,39 @@
         state.overlays[key].setData(pts);
       }
     } catch (e) { }
+  }
+  // Oscillator sub-panes (RSI pane 1, MACD pane 2). Fail-closed: a missing
+  // indicator module or LWC sub-series leaves them empty, never breaking.
+  function setOscillators() {
+    var I = IND();
+    var bars = state._bars;
+    var closes = bars.map(function (b) { return b.close; });
+    if (state.rsiLine) {
+      try {
+        if (state.ind.rsi && I) {
+          var rv = I.rsi(closes, 14);
+          state.rsiLine.applyOptions({ visible: true });
+          state.rsiLine.setData(bars.map(function (b, i) { return rv[i] == null ? null : { time: b.time, value: +rv[i].toFixed(1) }; })
+            .filter(function (x) { return x; }));
+        } else state.rsiLine.applyOptions({ visible: false });
+      } catch (e) { }
+    }
+    if (state.macdHist) {
+      try {
+        if (state.ind.macd && I) {
+          var m = I.macd(closes, 12, 26, 9);
+          [state.macdHist, state.macdLine, state.macdSig].forEach(function (s) { s.applyOptions({ visible: true }); });
+          state.macdHist.setData(bars.map(function (b, i) { return m.hist[i] == null ? null : { time: b.time, value: +m.hist[i].toFixed(3), color: m.hist[i] >= 0 ? COLORS.macdHistUp : COLORS.macdHistDn }; })
+            .filter(function (x) { return x; }));
+          state.macdLine.setData(bars.map(function (b, i) { return m.line[i] == null ? null : { time: b.time, value: +m.line[i].toFixed(3) }; }).filter(function (x) { return x; }));
+          state.macdSig.setData(bars.map(function (b, i) { return m.signal[i] == null ? null : { time: b.time, value: +m.signal[i].toFixed(3) }; }).filter(function (x) { return x; }));
+        } else [state.macdHist, state.macdLine, state.macdSig].forEach(function (s) { s.applyOptions({ visible: false }); });
+      } catch (e) { }
+    }
+  }
+  function applyOverlays() {
+    OVERLAY_KEYS.forEach(setOverlayPts);
+    setOscillators();
   }
   function updateZoneCount() {
     var el = document.getElementById('fv-zone-count');
@@ -356,7 +451,7 @@
       var last = bars[bars.length - 1];
       try {
         state.candles.update(last);
-        ['bbUpper', 'bbMiddle', 'bbLower', 'ema50'].forEach(function (k) {
+        OVERLAY_KEYS.forEach(function (k) {
           if (Number.isFinite(last[k])) { try { state.overlays[k].update({ time: last.time, value: last[k] }); } catch (e) { } }
         });
       } catch (e) { feed(); }
@@ -480,6 +575,62 @@
   }
   function cancelPending() { state.pending = null; state.tool = null; updateToolbar(); }
 
+  // ---- fullscreen ------------------------------------------------------------
+  // The whole Charts card (toolbar + chart + foot) is the fullscreen target so
+  // the user keeps their TF/indicator/drawing controls. Esc exits (native
+  // fullscreenchange). Fallback: if the Fullscreen API is unavailable (some
+  // mobile webviews), we use a fixed-position CSS overlay instead.
+  function fvTarget() {
+    var c = state.container;
+    var sec = c && c.closest('[data-sec]');
+    return sec || c;
+  }
+  function fsSupported() {
+    return !!(document.documentElement.requestFullscreen || document.webkitRequestFullscreen ||
+      document.mozRequestFullScreen || document.msRequestFullscreen);
+  }
+  function fsEl() { return document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement; }
+  function enterFullscreen() {
+    var t = fvTarget();
+    if (!t) return;
+    if (fsSupported()) {
+      var req = t.requestFullscreen || t.webkitRequestFullscreen || t.mozRequestFullScreen || t.msRequestFullscreen;
+      try { Promise.resolve(req.call(t)).catch(function () { enterCssFs(t); }); }
+      catch (e) { enterCssFs(t); }
+    } else enterCssFs(t);
+  }
+  function exitFullscreen() {
+    if (fsEl()) {
+      var ex = document.exitFullscreen || document.webkitExitFullscreen || document.mozCancelFullScreen || document.msExitFullscreen;
+      try { ex.call(document); } catch (e) { }
+    }
+    exitCssFs();
+  }
+  function enterCssFs(t) {
+    state.fullscreen = true;
+    t.classList.add('fv-fullscreen');
+    try { document.body.style.overflow = 'hidden'; } catch (e) { }
+    updateToolbar();
+  }
+  function exitCssFs() {
+    var t = fvTarget();
+    if (t) t.classList.remove('fv-fullscreen');
+    try { document.body.style.overflow = ''; } catch (e) { }
+    if (state.fullscreen) updateToolbar();
+  }
+  document.addEventListener('fullscreenchange', onFsChange);
+  document.addEventListener('webkitfullscreenchange', onFsChange);
+  function onFsChange() {
+    if (!fsEl()) exitCssFs();
+    state.fullscreen = !!fsEl();
+    updateToolbar();
+    setTimeout(function () { try { state.chart && state.chart.timeScale().fitContent(); } catch (e) { } }, 60);
+  }
+  function toggleFullscreen() {
+    if (state.fullscreen || fsEl()) exitFullscreen();
+    else enterFullscreen();
+  }
+
   // ---- toolbar ---------------------------------------------------------------------------
   function buildToolbar() {
     var bar = document.getElementById('fv-toolbar');
@@ -502,20 +653,40 @@
 
     var indWrap = document.createElement('div');
     indWrap.className = 'fv-row';
-    [['bb', 'BB(20,2)'], ['ema50', 'EMA50'], ['sd', 'S/D zones']].forEach(function (kv) {
+    [['bb', 'BB(20,2)'], ['ema50', 'EMA50'], ['ema200', 'EMA200'], ['sma20', 'SMA20'], ['vwap', 'VWAP'], ['rsi', 'RSI14'], ['macd', 'MACD'], ['sd', 'S/D zones']].forEach(function (kv) {
       var b = document.createElement('button');
       b.textContent = kv[1];
       b.className = 'fv-btn' + (state.ind[kv[0]] ? ' on' : '');
       b.dataset.ind = kv[0];
       b.addEventListener('click', function () {
         state.ind[kv[0]] = !state.ind[kv[0]];
+        state.template = ''; // a manual toggle overrides the active preset label
         b.className = 'fv-btn' + (state.ind[kv[0]] ? ' on' : '');
         if (kv[0] === 'sd') feed();
-        else { setOverlayPts('bbUpper'); setOverlayPts('bbMiddle'); setOverlayPts('bbLower'); setOverlayPts('ema50'); }
+        else applyOverlays();
       });
       indWrap.appendChild(b);
     });
     bar.appendChild(indWrap);
+
+    var tplWrap = document.createElement('div');
+    tplWrap.className = 'fv-row';
+    Object.keys(TEMPLATES).forEach(function (name) {
+      var b = document.createElement('button');
+      b.textContent = name;
+      b.className = 'fv-btn tpl' + (state.template === name ? ' on' : '');
+      b.dataset.tpl = name;
+      b.addEventListener('click', function () {
+        state.template = name;
+        state.ind = { bb: false, ema50: false, sd: false, vwap: false, ema200: false, sma20: false, rsi: false, macd: false }
+          ; Object.keys(TEMPLATES[name]).forEach(function (k) { state.ind[k] = TEMPLATES[name][k]; });
+        buildToolbar();
+        flashHint('template ' + name + ' applied');
+        feed();
+      });
+      tplWrap.appendChild(b);
+    });
+    bar.appendChild(tplWrap);
 
     var toolWrap = document.createElement('div');
     toolWrap.className = 'fv-row';
@@ -538,6 +709,12 @@
       });
       toolWrap.appendChild(b);
     });
+    var fsBtn = document.createElement('button');
+    fsBtn.textContent = '⛶ Fullscreen';
+    fsBtn.className = 'fv-btn tool fs' + ((state.fullscreen || fsEl()) ? ' on' : '');
+    fsBtn.dataset.fs = '1';
+    fsBtn.addEventListener('click', function () { toggleFullscreen(); });
+    toolWrap.appendChild(fsBtn);
     bar.appendChild(toolWrap);
     updateToolbar();
   }
@@ -545,7 +722,11 @@
     var bar = document.getElementById('fv-toolbar');
     if (!bar) return;
     bar.querySelectorAll('[data-tf]').forEach(function (b) { b.className = 'fv-btn' + (b.dataset.tf === state.tf ? ' on' : ''); });
+    bar.querySelectorAll('[data-ind]').forEach(function (b) { b.className = 'fv-btn' + (state.ind[b.dataset.ind] ? ' on' : ''); });
+    bar.querySelectorAll('[data-tpl]').forEach(function (b) { b.className = 'fv-btn tpl' + (state.template === b.dataset.tpl ? ' on' : ''); });
     bar.querySelectorAll('[data-tool]').forEach(function (b) { b.className = 'fv-btn tool' + (b.dataset.tool === state.tool ? ' on' : ''); });
+    var fsb = bar.querySelector('[data-fs]');
+    if (fsb) fsb.className = 'fv-btn tool fs' + ((state.fullscreen || fsEl()) ? ' on' : '');
   }
 
   document.addEventListener('keydown', function (e) {

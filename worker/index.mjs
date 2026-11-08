@@ -1,6 +1,6 @@
 const RAW_BASE = "https://raw.githubusercontent.com/mohd012z/News_ifxhelper/main/";
 const FF_WEEK = "https://nfs.faireconomy.media/ff_calendar_thisweek.json";
-const WORKER_VERSION = "2026-11-08-advisor-v1";
+const WORKER_VERSION = "2026-11-08-fullview-v10";
 const YAHOO_BASE = "https://query1.finance.yahoo.com/v8/finance/chart/";
 const YAHOO_UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0 Safari/537.36";
 
@@ -23,7 +23,7 @@ const MIME = {
 const VOLATILE = new Set([
   "index.html", "pwa.js", "app.js", "news-auto.js", "data-manifest.json",
   "xauusd-data.js", "macro-auto.js", "atr.js", "sw.js",
-  "bbma-fullview.js", "lib/bbma-supply-demand.js", "candles-auto.json",
+  "bbma-fullview.js", "lib/bbma-supply-demand.js", "lib/bbma-indicators.js", "candles-auto.json",
   "bbma-runtime.js", "bbma-chart-lwc.js", "bbma-dashboard-ui.js",
   "lib/bbma-news-symbol-advisor.js", "bbma-news-symbol-advisor-ui.js",
   "bbma-router-fix.js", "bbma-link.js"
