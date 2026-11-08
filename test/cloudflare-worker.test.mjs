@@ -4,7 +4,9 @@ import worker from "../worker/index.mjs";
 const originalFetch = globalThis.fetch;
 const calls = [];
 
-globalThis.fetch = async (input) => {
+// Deterministic fetch stub (no real network). The raw origin 5xxs on
+// news-auto.js so the jsDelivr fallback path is exercised on every run.
+const trackingFetch = async (input) => {
   const url = String(input);
   calls.push(url);
 
@@ -41,6 +43,22 @@ globalThis.fetch = async (input) => {
   return new Response("not found", { status: 404 });
 };
 
+// FF-down variant: ForexFactory 429s; the repo news-auto.js carries a
+// calendarAll the worker must fall back to.
+const ffDownFetch = async (input) => {
+  const url = String(input);
+  calls.push(url);
+  if (url === "https://nfs.faireconomy.media/ff_calendar_thisweek.json") {
+    return new Response("rate limited", { status: 429 });
+  }
+  if (url.includes("/news-auto.js?cf_refresh=")) {
+    return new Response('window.NEWS_AUTO = {"generatedAt":"2026-11-08","calendarAll":[{"date":"2026-11-08","event":"[USD] Test Event"}]};\nfunction after(){}\n', { status: 200, headers: { "Content-Type": "text/javascript" } });
+  }
+  return trackingFetch(input);
+};
+
+globalThis.fetch = trackingFetch;
+
 try {
   let r = await worker.fetch(new Request("https://gentle-violet-4a79.ifxhelper.workers.dev/app.js"));
   assert.equal(r.status, 200);
@@ -73,21 +91,7 @@ try {
   assert.equal(live.events[0].title, "Example Event");
 
   // ForexFactory down (429) -> worker falls back to repo news-auto.js calendarAll
-  const ffCalls = [];
-  globalThis.fetch = async (input) => {
-    const url = String(input);
-    ffCalls.push(url);
-    if (url === "https://nfs.faireconomy.media/ff_calendar_thisweek.json") {
-      return new Response("rate limited", { status: 429 });
-    }
-    if (url.includes("cdn.jsdelivr.net/gh/mohd012z/News_ifxhelper@main/news-auto.js")) {
-      return new Response("not found", { status: 404 });
-    }
-    if (url.includes("/news-auto.js?cf_refresh=")) {
-      return new Response('window.NEWS_AUTO = {"generatedAt":"2026-11-08","calendarAll":[{"date":"2026-11-08","event":"[USD] Test Event"}]};\nfunction after(){}\n', { status: 200, headers: { "Content-Type": "text/javascript" } });
-    }
-    return new Response("not found", { status: 404 });
-  };
+  globalThis.fetch = ffDownFetch;
   r = await worker.fetch(new Request("https://gentle-violet-4a79.ifxhelper.workers.dev/api/ff-calendar"));
   assert.equal(r.status, 200, "FF 429 must be rescued by the repo calendar fallback");
   const fb = await r.json();
@@ -95,7 +99,8 @@ try {
   assert.equal(fb.events.length, 1);
   assert.equal(fb.events[0].event, "[USD] Test Event");
   assert.equal(fb.upstreamStatus, 429);
-  globalThis.fetch = originalFetch;
+  globalThis.fetch = trackingFetch;
+
   r = await worker.fetch(new Request("https://gentle-violet-4a79.ifxhelper.workers.dev/missing.js"));
   assert.equal(r.status, 404, "missing asset must stay 404 instead of receiving index.html");
   assert.doesNotMatch(await r.text(), /doctype html/i);
