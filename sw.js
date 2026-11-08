@@ -7,7 +7,7 @@
  * v8: 2026-11-08 - Charts-tab fullview (bbma-fullview.js) added; stale-client
  *       re-claim. BBMA dashboard JS + candles snapshot marked volatile.
  */
-const CACHE = "xaudesk-v10";
+const CACHE = "xaudesk-v11";
 const VOLATILE = new Set([
   "/",
   "/index.html",
@@ -22,6 +22,7 @@ const VOLATILE = new Set([
   "/bbma-fullview.js",
   "/lib/bbma-supply-demand.js",
   "/lib/bbma-indicators.js",
+  "/lib/bbma-smc.js",
   "/candles-auto.json",
   "/bbma-runtime.js",
   "/bbma-chart-lwc.js",

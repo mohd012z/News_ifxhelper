@@ -35,6 +35,13 @@
     supply: '#ff596d', demand: '#31df8b',
     rsi: '#c05cff', rsiOver: '#ff596d', rsiUnder: '#31df8b',
     macd: '#28a9ff', macdSig: '#ffd166', macdHistUp: '#31df8b', macdHistDn: '#ff596d',
+    // BBMA Oma Ally core lines: linear-weighted MA 5/10 on the HIGH and LOW series
+    lwmaH5: '#ffd166', lwmaH10: '#ff9f43', lwmaL5: '#4cc9f0', lwmaL10: '#7aa2ff',
+    // SMC (kxngHADES SMC-Marking + Sweep [pandich])
+    smcHH: '#ffeb3b', smcHL: '#ff9800', smcLH: '#e040fb', smcLL: '#ff5252',
+    smcBOS: '#00e5ff', smcCHoCH: '#00e676',
+    smcOBsupply: '#f23645', smcOBdemand: '#089981', smcFVGBull: '#089981', smcFVGBear: '#f23645',
+    smcPrem: '#f23645', smcDisc: '#089981', smcEq: '#787b86', smcSweep: '#ffd166',
     trend: '#ffd166', hline: '#7aa2ff', rect: '#4cc9f0', text: '#f4f4f4'
   };
   var SD_PARAMS = { baseBars: 3, impulseMultiplier: 1.5, minImpulseBody: 0 };
@@ -43,16 +50,18 @@
   // Indicator math module (lib/bbma-indicators.js) — fail-closed if absent.
   function IND() { return (typeof window !== 'undefined' && window.BBMA_Indicators) || null; }
   // Overlay keys that live on the MAIN pane (visibility toggled per indicator).
-  var OVERLAY_KEYS = ['bbUpper', 'bbMiddle', 'bbLower', 'ema50', 'ema200', 'sma20', 'vwap'];
-  var OVERLAY_FOR = { bbUpper: 'bb', bbMiddle: 'bb', bbLower: 'bb', ema50: 'ema50', ema200: 'ema200', sma20: 'sma20', vwap: 'vwap' };
+  var OVERLAY_KEYS = ['bbUpper', 'bbMiddle', 'bbLower', 'ema50', 'lwmaH5', 'lwmaH10', 'lwmaL5', 'lwmaL10', 'ema200', 'sma20', 'vwap'];
+  var OVERLAY_FOR = { bbUpper: 'bb', bbMiddle: 'bb', bbLower: 'bb', ema50: 'ema50', lwmaH5: 'lwma', lwmaH10: 'lwma', lwmaL5: 'lwma', lwmaL10: 'lwma', ema200: 'ema200', sma20: 'sma20', vwap: 'vwap' };
   // Indicator presets ("templates"). Applying one sets the toggle set below.
   var TEMPLATES = {
-    'TV Classic': { bb: true, ema50: true, sd: true, vwap: false, ema200: false, sma20: false, rsi: false, macd: false },
-    'BB + VWAP': { bb: true, ema50: true, sd: false, vwap: true, ema200: false, sma20: false, rsi: false, macd: false },
-    'Trend EMA': { bb: false, ema50: true, sd: false, vwap: false, ema200: true, sma20: true, rsi: false, macd: false },
-    'Momentum RSI': { bb: true, ema50: false, sd: false, vwap: false, ema200: false, sma20: false, rsi: true, macd: false },
-    'MACD': { bb: true, ema50: false, sd: false, vwap: false, ema200: false, sma20: false, rsi: false, macd: true },
-    'Full': { bb: true, ema50: true, sd: true, vwap: true, ema200: true, sma20: true, rsi: true, macd: true }
+    'BBMA Oma': { bb: true, lwma: true, ema50: true, sd: true, vwap: false, ema200: false, sma20: false, rsi: false, macd: false, smc: false },
+    'TV Classic': { bb: true, lwma: false, ema50: true, sd: true, vwap: false, ema200: false, sma20: false, rsi: false, macd: false, smc: false },
+    'BB + VWAP': { bb: true, lwma: false, ema50: true, sd: false, vwap: true, ema200: false, sma20: false, rsi: false, macd: false, smc: false },
+    'Trend EMA': { bb: false, lwma: false, ema50: true, sd: false, vwap: false, ema200: true, sma20: true, rsi: false, macd: false, smc: false },
+    'Momentum RSI': { bb: true, lwma: false, ema50: false, sd: false, vwap: false, ema200: false, sma20: false, rsi: true, macd: false, smc: false },
+    'MACD': { bb: true, lwma: false, ema50: false, sd: false, vwap: false, ema200: false, sma20: false, rsi: false, macd: true, smc: false },
+    'SMC': { bb: true, lwma: true, ema50: true, sd: false, vwap: false, ema200: false, sma20: false, rsi: false, macd: false, smc: true },
+    'Full': { bb: true, lwma: true, ema50: true, sd: true, vwap: true, ema200: true, sma20: true, rsi: true, macd: true, smc: true }
   };
 
   function lwc() {
@@ -83,8 +92,18 @@
     for (var j = 0; j <= i; j++) { e = (j === 0) ? arr[0] : arr[j] * k + e * (1 - k); }
     return e;
   }
+  // Linear-weighted moving average (weights 1..n on the most-recent bar) — the BBMA
+  // "linear weighted" MA on the HIGH and LOW series (Oma Ally core lines).
+  function lwmaAt(arr, n, i) {
+    if (i + 1 < n) return null;
+    var s = 0, den = n * (n + 1) / 2;
+    for (var j = i + 1 - n; j <= i; j++) s += arr[j] * (j - (i + 1 - n) + 1);
+    return s / den;
+  }
   function computeOverlays(bars) {
     var closes = bars.map(function (b) { return b.close; });
+    var highs = bars.map(function (b) { return b.high; });
+    var lows = bars.map(function (b) { return b.low; });
     var I = IND();
     for (var i = 0; i < bars.length; i++) {
       var m = smaAt(closes, 20, i);
@@ -96,6 +115,11 @@
       }
       var e50 = emaAt(closes, 50, i);
       if (e50 != null) bars[i].ema50 = +e50.toFixed(2);
+      // BBMA Oma Ally core: linear-weighted MA 5/10 on the HIGH and LOW series
+      var h5 = lwmaAt(highs, 5, i); if (h5 != null) bars[i].lwmaH5 = +h5.toFixed(2);
+      var h10 = lwmaAt(highs, 10, i); if (h10 != null) bars[i].lwmaH10 = +h10.toFixed(2);
+      var l5 = lwmaAt(lows, 5, i); if (l5 != null) bars[i].lwmaL5 = +l5.toFixed(2);
+      var l10 = lwmaAt(lows, 10, i); if (l10 != null) bars[i].lwmaL10 = +l10.toFixed(2);
       if (I) {
         var e200 = I.emaAt(closes, 200, i);
         if (e200 != null) bars[i].ema200 = +e200.toFixed(2);
@@ -117,10 +141,10 @@
     container: null, chart: null, candles: null, overlays: {},
     zoneSeries: null, annoSeries: null,
     rsiLine: null, rsiOver: null, rsiUnder: null,
-    macdHist: null, macdLine: null, macdSig: null,
+    macdHist: null, macdLine: null, macdSig: null, smcSeries: null, rsiPane: null, macdPane: null,
     tf: 'H1', tool: null, pending: null, fullscreen: false,
-    ind: { bb: true, ema50: true, sd: true, vwap: false, ema200: false, sma20: false, rsi: false, macd: false },
-    template: 'TV Classic',
+    ind: { bb: true, lwma: true, ema50: true, sd: true, vwap: false, ema200: false, sma20: false, rsi: false, macd: false, smc: false },
+    template: 'BBMA Oma',
     drawings: {},
     _bars: [], _zones: [], lastKey: null
   };
@@ -265,6 +289,182 @@
     };
   }
 
+  // ---- SMC layer (kxngHADES SMC-Marking + Sweep [pandich]) ------------------------
+  // One custom series draws: premium/discount/equilibrium bands, order blocks, FVGs,
+  // equal high/low liquidity lines, HH/HL/LH/LL swing labels, BOS/CHoCH break lines and
+  // the latest sweep-reversal plan (entry / stop / 1R 2R 3R). Reads a holder set by
+  // feed() before setData so repeated setData never accumulates stale marks.
+  var smcState = { data: null, on: false };
+  function makeSmcView() {
+    return {
+      update: function () { },
+      priceValueBuilder: function () { return []; }, // SMC marks never force autoscale
+      isWhitespace: function () { return true; },
+      defaultOptions: function () { return {}; },
+      renderer: function () {
+        return {
+          draw: function (target, priceConverter) {
+            var d = smcState.data;
+            if (!smcState.on || !d) return;
+            paintMedia(target, function (ctx, size) {
+              var W = size ? size.width : 0;
+              var ts = state.chart.timeScale();
+              var X = function (ms) { return ts.timeToCoordinate(Math.round(ms / 1000)); };
+              var Y = function (p) { return priceConverter ? priceConverter(p) : null; };
+              var xLast = (d.lastTime != null) ? X(d.lastTime) : null;
+              if (xLast == null) xLast = W;
+              var i, y, x1, x2;
+              if (d.range) {
+                var r = d.range;
+                function band(top, bot, col, alpha) {
+                  var yt = Y(top), yb = Y(bot);
+                  if (yt == null || yb == null) return;
+                  ctx.save(); ctx.globalAlpha = alpha; ctx.fillStyle = col;
+                  ctx.fillRect(0, Math.min(yt, yb), W, Math.max(1, Math.abs(yb - yt)));
+                  ctx.globalAlpha = 0.5; ctx.strokeStyle = col; ctx.lineWidth = 1;
+                  ctx.strokeRect(0, Math.min(yt, yb), W, Math.max(1, Math.abs(yb - yt)));
+                  ctx.restore();
+                }
+                band(r.premTop, r.premBottom, COLORS.smcPrem, 0.08);
+                band(r.discTop, r.discBottom, COLORS.smcDisc, 0.08);
+                band(r.eqTop, r.eqBottom, COLORS.smcEq, 0.10);
+                ctx.save(); ctx.globalAlpha = 0.55; ctx.font = '9px sans-serif';
+                var ym = Y(r.mid); if (ym != null) { ctx.fillStyle = COLORS.smcEq; ctx.fillText('EQ', 4, ym - 3); }
+                var yp = Y(r.premTop); if (yp != null) { ctx.fillStyle = COLORS.smcPrem; ctx.fillText('PREMIUM', 4, yp + 10); }
+                var yd = Y(r.discBottom); if (yd != null) { ctx.fillStyle = COLORS.smcDisc; ctx.fillText('DISCOUNT', 4, yd - 3); }
+                ctx.restore();
+              }
+              var zones = d.zones || [];
+              for (i = 0; i < zones.length; i++) {
+                var z = zones[i];
+                var col = (z.kind === 'SUPPLY_OB' || z.kind === 'BEAR_FVG') ? COLORS.smcOBsupply : COLORS.smcOBdemand;
+                var xt = X(z.time); y = Y(z.top != null ? z.top : z.high);
+                var yb2 = Y(z.bottom != null ? z.bottom : z.low);
+                if (xt == null || y == null || yb2 == null) continue;
+                ctx.save(); ctx.globalAlpha = 0.16; ctx.fillStyle = col;
+                ctx.fillRect(xt, Math.min(y, yb2), Math.max(2, xLast - xt), Math.max(1, Math.abs(yb2 - y)));
+                ctx.globalAlpha = 0.5; ctx.strokeStyle = col; ctx.lineWidth = 1;
+                ctx.strokeRect(xt, Math.min(y, yb2), Math.max(2, xLast - xt), Math.max(1, Math.abs(yb2 - y)));
+                ctx.restore();
+              }
+              var eq = d.eq || {};
+              (eq.eqh || []).forEach(function (it) {
+                y = Y(it.price); x1 = X(it.t1); x2 = X(it.t2);
+                if (y == null || x1 == null || x2 == null) return;
+                ctx.save(); ctx.globalAlpha = 0.7; ctx.strokeStyle = COLORS.smcLH; ctx.lineWidth = 1;
+                if (ctx.setLineDash) ctx.setLineDash([2, 2]);
+                ctx.beginPath(); ctx.moveTo(x1, y); ctx.lineTo(x2, y); ctx.stroke();
+                if (ctx.setLineDash) ctx.setLineDash([]);
+                ctx.globalAlpha = 0.9; ctx.fillStyle = COLORS.smcLH; ctx.font = '9px sans-serif';
+                ctx.fillText('EQH', Math.min(x1, x2), y - 3); ctx.restore();
+              });
+              (eq.eql || []).forEach(function (it) {
+                y = Y(it.price); x1 = X(it.t1); x2 = X(it.t2);
+                if (y == null || x1 == null || x2 == null) return;
+                ctx.save(); ctx.globalAlpha = 0.7; ctx.strokeStyle = COLORS.smcHL; ctx.lineWidth = 1;
+                if (ctx.setLineDash) ctx.setLineDash([2, 2]);
+                ctx.beginPath(); ctx.moveTo(x1, y); ctx.lineTo(x2, y); ctx.stroke();
+                if (ctx.setLineDash) ctx.setLineDash([]);
+                ctx.globalAlpha = 0.9; ctx.fillStyle = COLORS.smcHL; ctx.font = '9px sans-serif';
+                ctx.fillText('EQL', Math.min(x1, x2), y + 10); ctx.restore();
+              });
+              var labs = (d.struct && d.struct.labels) || [];
+              for (i = 0; i < labs.length; i++) {
+                var lb = labs[i]; var xl = X(lb.time); var yl = Y(lb.price);
+                if (xl == null || yl == null) continue;
+                ctx.save(); ctx.globalAlpha = 0.95; ctx.font = 'bold 9px sans-serif';
+                ctx.fillStyle = lb.tag === 'HH' ? COLORS.smcHH : lb.tag === 'HL' ? COLORS.smcHL : lb.tag === 'LH' ? COLORS.smcLH : COLORS.smcLL;
+                ctx.fillText(lb.tag, xl - 8, lb.kind === 'H' ? yl - 5 : yl + 12); ctx.restore();
+              }
+              var brk = (d.struct && d.struct.breaks) || [];
+              for (i = 0; i < brk.length; i++) {
+                var bk = brk[i]; var xb = X(bk.time); var yb3 = Y(bk.level);
+                if (xb == null || yb3 == null) continue;
+                ctx.save(); ctx.globalAlpha = 0.6; ctx.strokeStyle = bk.tag === 'CHoCH' ? COLORS.smcCHoCH : COLORS.smcBOS; ctx.lineWidth = 1;
+                ctx.beginPath(); ctx.moveTo(xb, yb3); ctx.lineTo(Math.max(xb, xLast - 40), yb3); ctx.stroke();
+                ctx.globalAlpha = 0.95; ctx.fillStyle = bk.tag === 'CHoCH' ? COLORS.smcCHoCH : COLORS.smcBOS; ctx.font = '9px sans-serif';
+                ctx.fillText(bk.tag, xb + 2, yb3 - 3); ctx.restore();
+              }
+              if (d.sweep) {
+                var sv = d.sweep, xs = X(sv.time), up = sv.dir === 'long';
+                var levels = [
+                  { p: sv.entry, t: 'E ' + sv.entry.toFixed(1), c: COLORS.smcSweep },
+                  { p: sv.stop, t: 'SL ' + sv.stop.toFixed(1), c: COLORS.smcOBsupply },
+                  { p: sv.tp1, t: '1R', c: COLORS.smcOBdemand },
+                  { p: sv.tp2, t: '2R', c: COLORS.smcOBdemand },
+                  { p: sv.tp3, t: '3R', c: COLORS.smcOBdemand }
+                ];
+                for (i = 0; i < levels.length; i++) {
+                  var Lp = levels[i]; var yl2 = Y(Lp.p);
+                  if (yl2 == null || xs == null) continue;
+                  ctx.save(); ctx.globalAlpha = 0.7; ctx.strokeStyle = Lp.c;
+                  ctx.lineWidth = (Lp.p === sv.entry) ? 2 : 1;
+                  if (ctx.setLineDash) ctx.setLineDash((Lp.p === sv.entry) ? [] : [4, 3]);
+                  ctx.beginPath(); ctx.moveTo(xs, yl2); ctx.lineTo(xLast, yl2); ctx.stroke();
+                  if (ctx.setLineDash) ctx.setLineDash([]);
+                  ctx.globalAlpha = 1; ctx.fillStyle = Lp.c; ctx.font = (Lp.p === sv.entry ? 'bold ' : '') + '9px sans-serif';
+                  ctx.fillText((up ? '\u25b2 ' : '\u25bc ') + Lp.t, xs + 3, yl2 + (Lp.p === sv.entry ? (up ? 12 : -4) : -3));
+                  ctx.restore();
+                }
+              }
+            });
+          }
+        };
+      }
+    };
+  }
+
+  // ---- oscillator sub-panes (dynamic) ---------------------------------------------
+  // RSI and MACD live in real LWC sub-panes that are added when the indicator is
+  // enabled and removed when it is disabled, so an off indicator leaves no empty
+  // pane (previously the panes were created once and only hidden, still occupying
+  // chart height). Panes are kept in a stable order (main, RSI, MACD).
+  // ---- oscillator sub-panes (dynamic) ---------------------------------------------
+  // RSI and MACD live in real LWC sub-panes. addSeries(def, opts, paneIndex) in this
+  // build auto-creates the target pane, and removePane(pane) destroys it + its series.
+  // We rebuild the oscillator pane stack ONLY when the enabled-set (rsi/macd) changes:
+  // drop every non-main pane, then re-add the enabled ones in canonical order (RSI
+  // first, MACD second). This leaves NO empty pane behind when an indicator is off
+  // (the old code created the panes once and only hid them, so a 147px empty strip
+  // stayed on screen) and avoids index gaps when only one of the two is on.
+  function syncOscPanes() {
+    if (!state.chart || !state.container) return;
+    var I = IND(), L = lwc();
+    var wantRsi = !!state.ind.rsi && !!I && !!L.LineSeries;
+    var wantMacd = !!state.ind.macd && !!I && !!L.HistogramSeries;
+    var sig = (wantRsi ? 'r' : '') + (wantMacd ? 'm' : '');
+    if (sig === state._oscSig) return; // enabled-set unchanged
+    try {
+      // Drop every non-main pane (from the end down) so we start from just the main pane.
+      var ps = state.chart.panes ? state.chart.panes() : [];
+      while (ps.length > 1) {
+        ps = state.chart.panes ? state.chart.panes() : [];
+        state.chart.removePane(ps[ps.length - 1]);
+      }
+      state.rsiLine = state.rsiOver = state.rsiUnder = null;
+      state.macdHist = state.macdLine = state.macdSig = null;
+      if (wantRsi) {
+        state.rsiLine = state.chart.addSeries(L.LineSeries, {
+          color: COLORS.rsi, lineWidth: 1, priceScaleId: 'right', lastValueVisible: true,
+          priceFormat: { type: 'price', precision: 1, minMove: 0.1 }
+        }, 1);
+        if (state.rsiLine && state.rsiLine.createPriceLine) {
+          try {
+            state.rsiOver = state.rsiLine.createPriceLine({ price: 70, color: COLORS.rsiOver, lineWidth: 1, lineStyle: 2, axisLabelVisible: false, title: '' });
+            state.rsiUnder = state.rsiLine.createPriceLine({ price: 30, color: COLORS.rsiUnder, lineWidth: 1, lineStyle: 2, axisLabelVisible: false, title: '' });
+          } catch (e) { state.rsiOver = state.rsiUnder = null; }
+        }
+      }
+      if (wantMacd) {
+        var mi = wantRsi ? 2 : 1;
+        state.macdHist = state.chart.addSeries(L.HistogramSeries, { priceScaleId: 'right', lastValueVisible: true }, mi);
+        state.macdLine = state.chart.addSeries(L.LineSeries, { color: COLORS.macd, lineWidth: 1, priceScaleId: 'right', lastValueVisible: false }, mi);
+        state.macdSig = state.chart.addSeries(L.LineSeries, { color: COLORS.macdSig, lineWidth: 1, priceScaleId: 'right', lastValueVisible: false }, mi);
+      }
+    } catch (e) { /* never break the chart over sub-pane churn */ }
+    state._oscSig = sig;
+  }
+
   // ---- chart lifecycle ------------------------------------------------------------
   function ensureChart() {
     var L = lwc();
@@ -300,34 +500,22 @@
     state.overlays.ema200 = ov(COLORS.ema200);
     state.overlays.sma20 = ov(COLORS.sma20);
     state.overlays.vwap = ov(COLORS.vwap, 1); // VWAP dashed
-    if (L.addCustomSeries) {
-      state.zoneSeries = state.chart.addCustomSeries(makeZoneView(), { priceScaleId: 'right' });
-      state.annoSeries = state.chart.addCustomSeries(makeAnnoView(), { priceScaleId: 'right' });
+    // BBMA Oma Ally core lines (LWMA 5/10 on HIGH and LOW)
+    state.overlays.lwmaH5 = ov(COLORS.lwmaH5);
+    state.overlays.lwmaH10 = ov(COLORS.lwmaH10, 2);
+    state.overlays.lwmaL5 = ov(COLORS.lwmaL5);
+    state.overlays.lwmaL10 = ov(COLORS.lwmaL10, 2);
+    // NOTE: addCustomSeries is a method on the CHART INSTANCE, not on the global
+    // LightweightCharts namespace — gating on `L.addCustomSeries` was always false and
+    // silently dropped every custom layer (S/D zones + drawings + SMC). Gate on the
+    // instance and guard each layer so one failure never blanks the rest.
+    if (typeof state.chart.addCustomSeries === 'function') {
+      try { state.zoneSeries = state.chart.addCustomSeries(makeZoneView(), { priceScaleId: 'right' }); } catch (e) { state.zoneSeries = null; }
+      try { state.annoSeries = state.chart.addCustomSeries(makeAnnoView(), { priceScaleId: 'right' }); } catch (e) { state.annoSeries = null; }
+      try { state.smcSeries = state.chart.addCustomSeries(makeSmcView(), { priceScaleId: 'right' }); } catch (e) { state.smcSeries = null; }
     }
-    // Oscillator sub-panes (RSI = pane 1, MACD = pane 2). Created once; their
-    // series are hidden unless the indicator is enabled.
-    if (L.LineSeries) {
-      state.rsiLine = state.chart.addSeries(L.LineSeries, {
-        color: COLORS.rsi, lineWidth: 1, priceScaleId: 'right', lastValueVisible: true,
-        priceFormat: { type: 'price', precision: 1, minMove: 0.1 }
-      }, 1);
-      // 30 / 70 over-under reference lines (RSI pane only)
-      try {
-        state.rsiOver = state.rsiLine.createPriceLine ? state.rsiLine.createPriceLine({
-          price: 70, color: COLORS.rsiOver, lineWidth: 1, lineStyle: 2, axisLabelVisible: false, title: ''
-        }) : null;
-        state.rsiUnder = state.rsiLine.createPriceLine ? state.rsiLine.createPriceLine({
-          price: 30, color: COLORS.rsiUnder, lineWidth: 1, lineStyle: 2, axisLabelVisible: false, title: ''
-        }) : null;
-      } catch (e) { state.rsiOver = state.rsiUnder = null; }
-    }
-    if (L.HistogramSeries) {
-      state.macdHist = state.chart.addSeries(L.HistogramSeries, {
-        priceScaleId: 'right', lastValueVisible: true
-      }, 2);
-      state.macdLine = state.chart.addSeries(L.LineSeries, { color: COLORS.macd, lineWidth: 1, priceScaleId: 'right', lastValueVisible: false }, 2);
-      state.macdSig = state.chart.addSeries(L.LineSeries, { color: COLORS.macdSig, lineWidth: 1, priceScaleId: 'right', lastValueVisible: false }, 2);
-    }
+    // Oscillator sub-panes (RSI, MACD) are created lazily in syncOscPanes() so a
+    // disabled indicator leaves NO empty pane behind.
     bindPointer();
     return state.chart;
   }
@@ -379,6 +567,20 @@
     if (state.zoneSeries) {
       try { state.zoneSeries.setData(state._zones.map(function (z) { return { time: Math.round(z.formTime / 1000), zone: z }; })); } catch (e) { }
     }
+    // SMC (premium/discount, order blocks, FVG, sweeps) — fail-closed if the engine is absent.
+    smcState.on = !!state.ind.smc;
+    if (state.smcSeries) {
+      var SMC = (typeof window !== 'undefined') && window.BBMA_SMC;
+      try {
+        if (smcState.on && SMC) {
+          var sc = bars.map(function (b) { return { time: b._ms, open: b.open, high: b.high, low: b.low, close: b.close, volume: b.volume || 0 }; });
+          var res = SMC.compute(sc, { swingLen: 3 });
+          res.lastTime = bars[bars.length - 1]._ms;
+          smcState.data = res;
+        } else smcState.data = null;
+      } catch (e) { smcState.data = null; }
+      try { state.smcSeries.setData([{ time: bars[0].time, on: smcState.on }]); } catch (e) { }
+    }
     refreshAnno();
     updateZoneCount();
     try { state.chart.timeScale().fitContent(); } catch (e) { }
@@ -399,29 +601,23 @@
   // Oscillator sub-panes (RSI pane 1, MACD pane 2). Fail-closed: a missing
   // indicator module or LWC sub-series leaves them empty, never breaking.
   function setOscillators() {
+    syncOscPanes();
     var I = IND();
     var bars = state._bars;
+    if (!bars || !bars.length) return;
     var closes = bars.map(function (b) { return b.close; });
-    if (state.rsiLine) {
+    if (state.ind.rsi && I && state.rsiLine) {
       try {
-        if (state.ind.rsi && I) {
-          var rv = I.rsi(closes, 14);
-          state.rsiLine.applyOptions({ visible: true });
-          state.rsiLine.setData(bars.map(function (b, i) { return rv[i] == null ? null : { time: b.time, value: +rv[i].toFixed(1) }; })
-            .filter(function (x) { return x; }));
-        } else state.rsiLine.applyOptions({ visible: false });
+        var rv = I.rsi(closes, 14);
+        state.rsiLine.setData(bars.map(function (b, i) { return rv[i] == null ? null : { time: b.time, value: +rv[i].toFixed(1) }; }).filter(function (x) { return x; }));
       } catch (e) { }
     }
-    if (state.macdHist) {
+    if (state.ind.macd && I && state.macdHist) {
       try {
-        if (state.ind.macd && I) {
-          var m = I.macd(closes, 12, 26, 9);
-          [state.macdHist, state.macdLine, state.macdSig].forEach(function (s) { s.applyOptions({ visible: true }); });
-          state.macdHist.setData(bars.map(function (b, i) { return m.hist[i] == null ? null : { time: b.time, value: +m.hist[i].toFixed(3), color: m.hist[i] >= 0 ? COLORS.macdHistUp : COLORS.macdHistDn }; })
-            .filter(function (x) { return x; }));
-          state.macdLine.setData(bars.map(function (b, i) { return m.line[i] == null ? null : { time: b.time, value: +m.line[i].toFixed(3) }; }).filter(function (x) { return x; }));
-          state.macdSig.setData(bars.map(function (b, i) { return m.signal[i] == null ? null : { time: b.time, value: +m.signal[i].toFixed(3) }; }).filter(function (x) { return x; }));
-        } else [state.macdHist, state.macdLine, state.macdSig].forEach(function (s) { s.applyOptions({ visible: false }); });
+        var m = I.macd(closes, 12, 26, 9);
+        state.macdHist.setData(bars.map(function (b, i) { return m.hist[i] == null ? null : { time: b.time, value: +m.hist[i].toFixed(3), color: m.hist[i] >= 0 ? COLORS.macdHistUp : COLORS.macdHistDn }; }).filter(function (x) { return x; }));
+        state.macdLine.setData(bars.map(function (b, i) { return m.line[i] == null ? null : { time: b.time, value: +m.line[i].toFixed(3) }; }).filter(function (x) { return x; }));
+        state.macdSig.setData(bars.map(function (b, i) { return m.signal[i] == null ? null : { time: b.time, value: +m.signal[i].toFixed(3) }; }).filter(function (x) { return x; }));
       } catch (e) { }
     }
   }
@@ -660,7 +856,7 @@
 
     var indWrap = document.createElement('div');
     indWrap.className = 'fv-row';
-    [['bb', 'BB(20,2)'], ['ema50', 'EMA50'], ['ema200', 'EMA200'], ['sma20', 'SMA20'], ['vwap', 'VWAP'], ['rsi', 'RSI14'], ['macd', 'MACD'], ['sd', 'S/D zones']].forEach(function (kv) {
+    [['bb', 'BB(20,2)'], ['lwma', 'LWMA H/L 5/10'], ['ema50', 'EMA50'], ['ema200', 'EMA200'], ['sma20', 'SMA20'], ['vwap', 'VWAP'], ['rsi', 'RSI14'], ['macd', 'MACD'], ['sd', 'S/D zones'], ['smc', 'SMC']].forEach(function (kv) {
       var b = document.createElement('button');
       b.textContent = kv[1];
       b.className = 'fv-btn' + (state.ind[kv[0]] ? ' on' : '');
@@ -669,7 +865,7 @@
         state.ind[kv[0]] = !state.ind[kv[0]];
         state.template = ''; // a manual toggle overrides the active preset label
         b.className = 'fv-btn' + (state.ind[kv[0]] ? ' on' : '');
-        if (kv[0] === 'sd') feed();
+        if (kv[0] === 'sd' || kv[0] === 'smc' || kv[0] === 'rsi' || kv[0] === 'macd') feed();
         else applyOverlays();
       });
       indWrap.appendChild(b);
@@ -685,7 +881,7 @@
       b.dataset.tpl = name;
       b.addEventListener('click', function () {
         state.template = name;
-        state.ind = { bb: false, ema50: false, sd: false, vwap: false, ema200: false, sma20: false, rsi: false, macd: false }
+        state.ind = { bb: false, lwma: false, ema50: false, sd: false, vwap: false, ema200: false, sma20: false, rsi: false, macd: false, smc: false }
           ; Object.keys(TEMPLATES[name]).forEach(function (k) { state.ind[k] = TEMPLATES[name][k]; });
         buildToolbar();
         flashHint('template ' + name + ' applied');

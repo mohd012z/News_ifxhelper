@@ -32,11 +32,11 @@ assert(app.includes('function hardRefreshShell()'), 'Reload must use the stale-s
 assert(app.includes('searchParams.set("_fresh"'), 'hard refresh must add a cache-busting query');
 assert(app.includes('navigator.serviceWorker.getRegistration()'), 'hard refresh must ask the service worker to update before navigation');
 
-assert(sw.includes('const CACHE = "xaudesk-v10"'), 'service-worker cache version must be v10');
+assert(sw.includes('const CACHE = "xaudesk-v11"'), 'service-worker cache version must be v10');
 assert(sw.includes('"/lib/bbma-indicators.js"'), 'service worker must treat the indicators lib as volatile (indicator templates)');
 assert(sw.includes('"/index.html"') && sw.includes('"/pwa.js"'), 'service worker must network-first the HTML/PWA bootstrap');
 assert(sw.includes('"/bbma-news-symbol-advisor-ui.js"') && sw.includes('"/lib/bbma-news-symbol-advisor.js"'), 'service worker must treat the news-symbol-advisor JS as volatile (no stale cache for the recommendation card)');
-assert(pwa.includes('register("./sw.js?v=10", { updateViaCache: "none" })'), 'PWA must bypass stale HTTP cache when checking the service worker');
+assert(pwa.includes('register("./sw.js?v=11", { updateViaCache: "none" })'), 'PWA must bypass stale HTTP cache when checking the service worker');
 assert(pwa.includes('reg.update()'), 'PWA must actively check for a newer service worker');
 assert(pwa.includes('controllerchange'), 'PWA must react when a newer worker takes control');
 assert(sw.includes('contentTypeMismatch'), 'service worker must reject HTML returned for JS/JSON');
