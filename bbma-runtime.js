@@ -5,22 +5,27 @@ var frames={},lastPrice=null,lastAt=null,max=240;
 
 function bucket(t,ms){return Math.floor(t/ms)*ms;}
 
-// Generate baseline candles so chart, MTF matrix, and BBMA indicators populate immediately on startup
-var now=Date.now(),basePrice=2658.50;
-Object.keys(TFS).forEach(function(tf){
-  frames[tf]=[];
-  var stepMs=TFS[tf];
-  for(var i=59;i>=0;i--){
-    var ct=now-i*stepMs;
-    var dev=(Math.sin(i*0.35)+Math.cos(i*0.18))*(tf==='D1'||tf==='H4'?12:3.5);
-    var o=basePrice+dev-0.4;
-    var c=basePrice+dev+(i%2===0?0.9:-0.7);
-    var h=Math.max(o,c)+1.3;
-    var l=Math.min(o,c)-1.2;
-    var b=bucket(ct,stepMs);
-    frames[tf].push({_b:b,time:new Date(ct).toISOString(),open:o,high:h,low:l,close:c,source:'BASELINE_CACHE'});
-  }
-});
+// Generate baseline candles so chart, MTF matrix, and BBMA indicators populate immediately on startup.
+// Parameterised by centre price + now so the FIRST live tick can re-anchor the synthetic
+// history to the real market level (avoids the flatline-to-spike jump from a stale seed).
+function genBaseline(price,now){
+  Object.keys(TFS).forEach(function(tf){
+    frames[tf]=[];
+    var stepMs=TFS[tf];
+    for(var i=59;i>=0;i--){
+      var ct=now-i*stepMs;
+      var dev=(Math.sin(i*0.35)+Math.cos(i*0.18))*(tf==='D1'||tf==='H4'?12:3.5);
+      var o=price+dev-0.4;
+      var c=price+dev+(i%2===0?0.9:-0.7);
+      var h=Math.max(o,c)+1.3;
+      var l=Math.min(o,c)-1.2;
+      var b=bucket(ct,stepMs);
+      frames[tf].push({_b:b,time:new Date(ct).toISOString(),open:o,high:h,low:l,close:c,source:'BASELINE_CACHE'});
+    }
+  });
+}
+var now=Date.now(),basePrice=2658.50,reseded=false;
+genBaseline(basePrice,now);
 lastPrice=basePrice;
 lastAt=new Date(now).toISOString();
 
@@ -143,6 +148,12 @@ function ingest(p,at){
   if(!isFinite(p)||p<=0)return;
   var t=at?new Date(at).getTime():Date.now();
   if(!isFinite(t))t=Date.now();
+  // First real tick: re-anchor the synthetic 60-bar history to the live level so the
+  // chart/MTF indicators start from the true market price, not the 2658.50 seed.
+  if(!reseded){
+    reseded=true;
+    genBaseline(p,t);
+  }
   lastPrice=p;
   lastAt=new Date(t).toISOString();
   Object.keys(TFS).forEach(function(tf){add(tf,p,t);});
@@ -154,8 +165,8 @@ window.addEventListener('xau-live-tick',function(e){var d=e.detail||{};ingest(d.
 
 setInterval(function(){
   try{
-    if(!window.LiveFeed||!window.LiveFeed.snapshot)return;
-    var s=window.LiveFeed.snapshot(),p=s&&s.metals&&(s.metals.XAU||s.metals['XAU/USD']);
+    if(!window.LiveFeed||!window.LiveFeed.prices)return;
+    var s=window.LiveFeed.prices(),p=s&&s.metals&&(s.metals.XAU||s.metals['XAU/USD']);
     if(p&&p!==lastPrice)ingest(p,new Date());
   }catch(e){}
 },2000);

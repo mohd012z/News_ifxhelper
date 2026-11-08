@@ -1951,6 +1951,12 @@
       if (p.crypto.BTC) updateCryptoHero(p.crypto.BTC, "BTC");
       if (p.crypto.ETH) updateCryptoHero(p.crypto.ETH, "ETH");
     }
+    if (p.metals) {
+      /* XAU drives the gold hero; the BBMA runtime's own 2s poller
+         (LiveFeed.prices().metals.XAU) feeds the chart — no double-ingest here.
+         XAG is display-only (tape/hero); the runtime is a single XAU/USD stream. */
+      if (p.metals.XAU) updateMetalHero(p.metals.XAU, "XAU");
+    }
     var note = $("#live-note");
     if (note) note.textContent = "Last poll " + fmtClock(p.at) + " \u00b7 " + changed + " FX pairs refreshed" + (p.crypto ? " \u00b7 crypto updated" : "") + ".";
     lastTick = p;
@@ -2031,7 +2037,7 @@
       return;
     }
     if (note) note.textContent = "Connecting to live endpoints\u2026";
-    window.LiveFeed.start({ intervalSec: cfg.intervalSec || 5, fxEndpoint: cfg.fxEndpoint, cryptoEndpoint: cfg.cryptoEndpoint }, onTick, onStatus);
+    window.LiveFeed.start({ intervalSec: cfg.intervalSec || 5, fxEndpoint: cfg.fxEndpoint, cryptoEndpoint: cfg.cryptoEndpoint, metals: cfg.metals }, onTick, onStatus);
     if (cfg.twelveDataApiKey && cfg.twelveDataSymbols && cfg.twelveDataSymbols.length) {
       window.LiveFeed.streamTwelveData(cfg.twelveDataApiKey, cfg.twelveDataSymbols, function (q) {
         updateMetalHero(q.price, q.symbol);
