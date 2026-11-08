@@ -4667,9 +4667,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-08T23:00:56.423Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-08T23:00:56.667Z",
+          "price": 1.1151,
+          "realizedPct": 0.09
         },
         {
           "key": "D1",
@@ -4698,7 +4698,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.009,
+        "mfePct": 0.09,
         "maePct": 0.009
       }
     }
