@@ -42,12 +42,15 @@
     return merged;
   }
 
-  // Supply/demand zones for XAU on H1 history (unmitigated only)
+  // Supply/demand zones for XAU on H1 history (unmitigated only).
+  // NOTE: runtime candles live in rt.candles.H1 (a {tf:[...]} dict of OHLC),
+  // NOT rt.frames.H1 (a per-TF state object with classify()). Use candles.
   function xauSd(d) {
     var SD = window.BBMA_SupplyDemand;
-    var rt = window.BBMARuntime;
-    if (!SD || !rt || !rt.frames) return null;
-    var raw = (rt.frames.H1 || []).slice(-120);
+    var rt = window.BBMARuntime || window.BBMA_RUNTIME || d;
+    if (!SD || !rt) return null;
+    var sets = rt.candles || rt.ohlc || rt.marketCandles || {};
+    var raw = (sets.H1 || []).slice(-120);
     if (!raw.length) return null;
     var candles = raw.map(function (c) {
       var ms = (typeof c.time === 'number') ? c.time : Date.parse(c.time);
@@ -79,9 +82,13 @@
   function buildTech(d) {
     var x = xauTech(d);
     var last = null;
-    var rt = window.BBMARuntime;
-    if (rt && rt.frames && rt.frames.H1 && rt.frames.H1.length) last = +rt.frames.H1[rt.frames.H1.length - 1].close;
-    else if (d && d.price != null) last = +d.price;
+    var rt = window.BBMARuntime || window.BBMA_RUNTIME || d;
+    if (rt) {
+      var sets = rt.candles || rt.ohlc || rt.marketCandles || {};
+      var h1 = sets.H1;
+      if (h1 && h1.length) last = +h1[h1.length - 1].close;
+      else if (d && d.price != null) last = +d.price;
+    } else if (d && d.price != null) last = +d.price;
     return {
       XAU: {
         name: 'XAU/USD', trend: x.trend || 'MIXED', momentum: x.momentum || 'NONE', mhv: x.mhv || 'NONE',
@@ -184,8 +191,9 @@
       el.innerHTML = '<div class="bbx-empty">No actionable symbol recommendation right now. Wait for a higher-impact release.</div>';
       return;
     }
-    // attach live prices
-    recs.forEach(function (r) { r.lastPrice = livePrice(r.symbol); });
+    // attach live prices (prefer live; keep the engine's real lastClose as a
+    // fallback so a not-yet-ready LiveFeed still shows a real price)
+    recs.forEach(function (r) { var lp = livePrice(r.symbol); if (lp != null && isFinite(lp)) r.lastPrice = lp; });
     var actionable = recs.filter(function (r) { return r.direction !== 'neutral'; });
     var html =
       '<div class="bbx-sub" style="margin-bottom:6px">Ranked by news impact + BBMA/S&amp;D confluence · ' +

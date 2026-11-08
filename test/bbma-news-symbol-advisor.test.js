@@ -83,4 +83,12 @@ assert(A.surpriseDir({ release: { surprisePct: -0.8 } }) === 1, 'negative (dovis
 assert(A.surpriseDir({ release: {} }) === 0, 'no surprise -> neutral');
 console.log('9 surpriseDir OK');
 
+// 10) rec carries lastPrice from lastClose (so the card shows a real price)
+const r10 = A.recommend(
+  [{ _ts: NOW + DAY, currency: 'USD', country: 'United States', event: '[USD] FOMC Statement', importance: 'high', release: { state: 'RELEASE_PENDING' } }],
+  tech(), { now: NOW });
+const xau10 = r10.recommendations.find(r => r.symbol === 'XAU');
+assert(xau10 && xau10.lastPrice === 4072, 'XAU rec must expose lastPrice = lastClose (4072)');
+console.log('10 lastPrice OK  XAU=' + xau10.lastPrice);
+
 console.log('\nAll news-symbol-advisor tests passed');
