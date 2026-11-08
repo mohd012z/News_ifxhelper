@@ -1,0 +1,22 @@
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
+const root=path.resolve(__dirname,'..');
+const html=fs.readFileSync(path.join(root,'index.html'),'utf8');
+const prep=fs.readFileSync(path.join(root,'tools/prepare-web.js'),'utf8');
+const vendor=fs.readFileSync(path.join(root,'tools/vendor-lightweight-charts.js'),'utf8');
+assert.match(html,/\.\/vendor\/lightweight-charts\/5\.2\.0\/lightweight-charts\.standalone\.production\.js/);
+assert.doesNotMatch(html,/unpkg\.com\/lightweight-charts/);
+assert.match(prep,/LIGHTWEIGHT_CHARTS_VENDOR_INTEGRITY_FAILED/);
+assert.match(vendor,/UNVERIFIED_LIGHTWEIGHT_CHARTS_PACKAGE/);
+assert.match(vendor,/NOTICE/);
+const {sha}=require('../tools/vendor-lightweight-charts.js');
+assert.equal(sha(Buffer.from('abc')),'ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad');
+const dir=path.join(root,'vendor/lightweight-charts/5.2.0');
+if(fs.existsSync(dir)){
+ const bytes=fs.readFileSync(path.join(dir,'lightweight-charts.standalone.production.js'));
+ const meta=JSON.parse(fs.readFileSync(path.join(dir,'integrity.json'),'utf8'));
+ assert.equal(meta.sha256,crypto.createHash('sha256').update(bytes).digest('hex'));
+ assert.equal(meta.version,'5.2.0');assert.equal(meta.license,'Apache-2.0');
+ assert(fs.existsSync(path.join(dir,'LICENSE')));assert(fs.existsSync(path.join(dir,'NOTICE')));
+}else console.log('Vendor bytes not committed: SVG fallback required until independently verified asset is staged');
+console.log('Offline chart path, integrity contract and fallback readiness checks passed');
