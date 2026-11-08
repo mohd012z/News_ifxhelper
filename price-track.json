@@ -4651,9 +4651,9 @@
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-08T19:30:56.423Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-08T19:35:57.759Z",
+          "price": 1.1142,
+          "realizedPct": 0.009
         },
         {
           "key": "H1",
