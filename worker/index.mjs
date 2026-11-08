@@ -80,12 +80,69 @@ async function fetchRaw(path) {
   return upstream;
 }
 
+// Extract window.NEWS_AUTO.calendarAll from a news-auto.js bundle via
+// string-aware brace matching (the file has JS after the JSON object, so a
+// naive /{[\s\S]*}$/ regex over-reaches). Returns the row array or null.
+function extractCalendarAll(text) {
+  const marker = "window.NEWS_AUTO = {";
+  const i = text.indexOf(marker);
+  if (i < 0) return null;
+  const start = text.indexOf("{", i);
+  if (start < 0) return null;
+  let depth = 0, inStr = false, esc = false, q = "";
+  for (let j = start; j < text.length; j++) {
+    const c = text[j];
+    if (inStr) {
+      if (esc) esc = false;
+      else if (c === "\\") esc = true;
+      else if (c === q) inStr = false;
+      continue;
+    }
+    if (c === '"' || c === "'") { inStr = true; q = c; }
+    else if (c === "{") depth++;
+    else if (c === "}") {
+      depth--;
+      if (depth === 0) {
+        try {
+          const data = JSON.parse(text.slice(start, j + 1));
+          return Array.isArray(data.calendarAll) ? data.calendarAll : null;
+        } catch (e) { return null; }
+      }
+    }
+  }
+  return null;
+}
+
 async function liveCalendar() {
   const upstream = await fetch(FF_WEEK, {
-    cache: "no-store",
-    cf: { cacheTtl: 20, cacheEverything: true }
+    cache: "no-store"
   });
   if (!upstream.ok) {
+    // ForexFactory flaky/down (429 rate-limit, 1101, 5xx): fall back to the repo's
+    // freshly-generated calendar (news-auto.js calendarAll) so the route never 500s.
+    try {
+      const fb = await fetchRaw("news-auto.js");
+      if (fb.ok) {
+        const text = await fb.text();
+        const rows = extractCalendarAll(text);
+        if (rows) {
+          return new Response(JSON.stringify({
+            fetchedAt: new Date().toISOString(),
+            source: "repo news-auto.js calendarAll (ForexFactory fallback)",
+            upstreamStatus: upstream.status,
+            events: rows
+          }), {
+            status: 200,
+            headers: {
+              "Content-Type": "application/json; charset=utf-8",
+              "Cache-Control": "public, max-age=10, s-maxage=20, stale-while-revalidate=10",
+              "Access-Control-Allow-Origin": "*",
+              "X-Content-Type-Options": "nosniff"
+            }
+          });
+        }
+      }
+    } catch (e) { /* fall through to the 502 */ }
     return new Response(JSON.stringify({ error: "calendar upstream unavailable", status: upstream.status }), {
       status: 502,
       headers: {

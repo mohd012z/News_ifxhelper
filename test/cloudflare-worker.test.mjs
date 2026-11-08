@@ -72,6 +72,30 @@ try {
   assert.equal(live.events.length, 1);
   assert.equal(live.events[0].title, "Example Event");
 
+  // ForexFactory down (429) -> worker falls back to repo news-auto.js calendarAll
+  const ffCalls = [];
+  globalThis.fetch = async (input) => {
+    const url = String(input);
+    ffCalls.push(url);
+    if (url === "https://nfs.faireconomy.media/ff_calendar_thisweek.json") {
+      return new Response("rate limited", { status: 429 });
+    }
+    if (url.includes("cdn.jsdelivr.net/gh/mohd012z/News_ifxhelper@main/news-auto.js")) {
+      return new Response("not found", { status: 404 });
+    }
+    if (url.includes("/news-auto.js?cf_refresh=")) {
+      return new Response('window.NEWS_AUTO = {"generatedAt":"2026-11-08","calendarAll":[{"date":"2026-11-08","event":"[USD] Test Event"}]};\nfunction after(){}\n', { status: 200, headers: { "Content-Type": "text/javascript" } });
+    }
+    return new Response("not found", { status: 404 });
+  };
+  r = await worker.fetch(new Request("https://gentle-violet-4a79.ifxhelper.workers.dev/api/ff-calendar"));
+  assert.equal(r.status, 200, "FF 429 must be rescued by the repo calendar fallback");
+  const fb = await r.json();
+  assert.match(fb.source, /ForexFactory fallback/);
+  assert.equal(fb.events.length, 1);
+  assert.equal(fb.events[0].event, "[USD] Test Event");
+  assert.equal(fb.upstreamStatus, 429);
+  globalThis.fetch = originalFetch;
   r = await worker.fetch(new Request("https://gentle-violet-4a79.ifxhelper.workers.dev/missing.js"));
   assert.equal(r.status, 404, "missing asset must stay 404 instead of receiving index.html");
   assert.doesNotMatch(await r.text(), /doctype html/i);
