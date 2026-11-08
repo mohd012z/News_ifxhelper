@@ -430,10 +430,13 @@
       list.push({ type: 'hline', p1: +pt.p.toFixed(2), color: color });
       state.tool = null; updateToolbar();
     } else if (state.tool === 'text') {
-      var txt = 'note';
-      try { var g = window.prompt('Label text:', txt); if (g != null && g.trim()) txt = g.trim().slice(0, 40); } catch (e) { }
-      list.push({ type: 'text', t1: pt.t, p1: +pt.p.toFixed(2), text: txt, color: color });
+      // non-blocking: place with a default label (no prompt, which blocks
+      // headless/automated contexts and mobile keyboards are awkward here).
+      var n = 0;
+      for (var k = 0; k < list.length; k++) if (list[k].type === 'text') n++;
+      list.push({ type: 'text', t1: pt.t, p1: +pt.p.toFixed(2), text: 'note ' + (n + 1), color: color });
       state.tool = null; updateToolbar();
+      flashHint('text placed — double-click deletes it');
     } else {
       if (!state.pending) {
         state.pending = { t1: pt.t, p1: +pt.p.toFixed(2) };
