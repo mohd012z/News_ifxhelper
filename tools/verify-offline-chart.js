@@ -21,7 +21,7 @@ try{
  const a=fs.readFileSync(path.join(dir,name));
  const b=fs.readFileSync(path.join(web,name));
  assert(a.equals(b),'Android asset differs from vendor asset');
- const html=fs.readFileSync(path.join(web,'../../../../index.html'),'utf8');
+ const html=fs.readFileSync(path.join(root,'www/index.html'),'utf8');
  assert(html.includes('vendor/lightweight-charts/5.2.0/'+name));
  assert(html.includes('https://www.tradingview.com/'));
  console.log('OFFLINE_CHART_READY: vendor, attribution, integrity and Android www asset verified');
