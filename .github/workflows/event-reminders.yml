@@ -63,22 +63,7 @@ jobs:
             git push
           fi
 
-      - name: Check for events entering a reminder window
-        continue-on-error: true
-        timeout-minutes: 2
-        env:
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: node telegram-notify.js --reminders
-
-      - name: Persist reminder state
-        if: always()
+      # Research branch: no Telegram delivery or reminder-state mutation.
+      - name: Verify T-30 and T-10 policy without sending
         run: |
-          git config user.name "xau-desk-bot"
-          git config user.email "actions@users.noreply.github.com"
-          git add .news-alert-state.json
-          if ! git diff --cached --quiet; then
-            git commit -m "bot: reminder state update [skip ci]"
-            git pull --rebase origin main
-            git push
-          fi
+          node -e "const fs=require('fs'); const s=fs.readFileSync('telegram-notify.js','utf8'); if(!s.includes('const REMINDER_STAGES = [30, 10];')) process.exit(1); console.log('T-30/T-10 policy verified, delivery disabled')"
