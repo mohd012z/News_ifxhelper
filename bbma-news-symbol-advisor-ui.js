@@ -103,11 +103,17 @@
     return arr.map(function (e) {
       var ev = {};
       for (var k in e) ev[k] = e[k];
-      var ts = Date.parse(e.date + (e.timeGmt ? '' : 'T00:00:00Z'));
-      // prefer timeGmt if present (has a time-of-day)
-      if (e.timeGmt) { var g = Date.parse(e.timeGmt); if (isFinite(g)) ts = g; }
-      if (!isFinite(ts)) ts = Date.parse(e.date + 'T00:00:00Z');
-      ev._ts = ts;
+      // epoch ms. timeGmt = "Dow, YYYY-MM-DD HH:MM" — Date.parse on the WHOLE
+      // string mis-aligns (the weekday prefix shifts the day), so parse the
+      // numeric date (e.date) and the time-of-day separately and build UTC.
+      var ts = NaN;
+      var dm = /(\d{4})-(\d{2})-(\d{2})/.exec(e.date || '');
+      if (dm) {
+        ts = Date.UTC(+dm[1], +dm[2] - 1, +dm[3], 0, 0, 0);
+        var tm = /(\d{2}):(\d{2})/.exec(e.timeGmt || '');
+        if (tm) ts = Date.UTC(+dm[1], +dm[2] - 1, +dm[3], +tm[1], +tm[2], 0);
+      }
+      ev._ts = isFinite(ts) ? ts : NaN;
       return ev;
     }).filter(function (e) { return isFinite(e._ts); });
   }
