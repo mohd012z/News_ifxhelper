@@ -91,4 +91,55 @@ const xau10 = r10.recommendations.find(r => r.symbol === 'XAU');
 assert(xau10 && xau10.lastPrice === 4072, 'XAU rec must expose lastPrice = lastClose (4072)');
 console.log('10 lastPrice OK  XAU=' + xau10.lastPrice);
 
+// 11) MTF analysis: HTF down + LTF up = counter-trend; aligned when both agree
+{
+  const mtf = A.mtfAnalysis;
+  const counter = mtf({ MN1: { trend: 'DOWN' }, W1: { trend: 'DOWN' }, D1: { trend: 'DOWN' }, H4: { trend: 'UP' }, H1: { trend: 'UP' }, M30: { trend: 'UP' }, M15: { trend: 'UP' }, M5: { trend: 'UP' } });
+  assert(counter.structure === 'counter-trend', 'HTF down + LTF up must be counter-trend, got ' + counter.structure);
+  assert(counter.hi === 'down' && counter.lo === 'up', 'counter: hi=down lo=up');
+  const aligned = mtf({ MN1: { trend: 'UP' }, W1: { trend: 'UP' }, D1: { trend: 'UP' }, H4: { trend: 'UP' }, H1: { trend: 'UP' }, M30: { trend: 'UP' }, M15: { trend: 'UP' }, M5: { trend: 'UP' } });
+  assert(aligned.structure === 'aligned up' && aligned.bias > 0.9, 'all-up must be aligned up, bias>0.9');
+  const empty = mtf({});
+  assert(empty === null, 'no frames -> null (fail-closed)');
+  console.log('11 MTF OK  counter.bias=' + counter.bias.toFixed(2) + ' aligned.bias=' + aligned.bias.toFixed(2));
+}
+
+// 12) tone hint: hawkish/dovish/mixed + dirRule carried through
+{
+  const th = A.toneHint;
+  const hawk = th('XAU', { bias: 'hawkish', tone: 'BEARISH', score: -0.62, dirRule: 'hawkish = SELL gold, dovish = BUY gold' });
+  assert(hawk.bias === 'hawkish' && hawk.label === 'HAWKISH', 'hawkish tone');
+  assert(/SELL gold/.test(hawk.rule) && /macro hawkish/.test(hawk.hint), 'dirRule + hint present');
+  const dov = th('XAU', { bias: 'dovish', tone: 'BULLISH', score: 0.4 });
+  assert(dov.bias === 'dovish' && dov.label === 'DOVISH', 'dovish tone');
+  assert(th('XAU', null) === null, 'no tone -> null (fail-closed)');
+  console.log('12 tone OK  hawk=' + hawk.label + ' dov=' + dov.label);
+}
+
+// 13) recommend(): counter-trend (HTF down) downgrades a weak long to neutral + risk note
+{
+  const frames = { MN1: { trend: 'DOWN' }, W1: { trend: 'DOWN' }, D1: { trend: 'DOWN' }, H4: { trend: 'UP' }, H1: { trend: 'UP' }, M30: { trend: 'UP' }, M15: { trend: 'UP' }, M5: { trend: 'UP' } };
+  const xUp = Object.assign({}, tech().XAU, { trend: 'UP' }); // intraday up, but HTF down
+  const t2 = Object.assign({}, tech(), { XAU: xUp });
+  const out = A.recommend(
+    [{ _ts: NOW + DAY, currency: 'USD', country: 'United States', event: '[USD] FOMC Statement', importance: 'high', release: { state: 'RELEASE_PENDING' } }],
+    t2, { now: NOW, frames: frames, mtfSymbol: 'XAU' });
+  const x = out.recommendations.find(r => r.symbol === 'XAU');
+  assert(x && x.mtf && x.mtf.structure === 'counter-trend', 'XAU rec must carry counter-trend MTF read');
+  assert(/Counter-trend/i.test(x.risk), 'counter-trend must carry a chop-risk note: ' + x.risk);
+  // a long fighting a down HTF with a modest edge must not stay "high" confidence
+  if (x.direction === 'long') assert(x.confidence !== 'high', 'counter-trend long cannot be high confidence');
+  console.log('13 MTF-in-rec OK  XAU dir=' + x.direction + ' mtf=' + x.mtf.structure + ' conf=' + x.confidence);
+}
+
+// 14) recommend(): tone hint surfaces on the rec (hawkish gold)
+{
+  const out = A.recommend(
+    [{ _ts: NOW + DAY, currency: 'USD', country: 'United States', event: '[USD] FOMC Statement', importance: 'high', release: { state: 'RELEASE_PENDING' } }],
+    tech(), { now: NOW, tones: { XAU: { bias: 'hawkish', tone: 'BEARISH', score: -0.62, dirRule: 'hawkish = SELL gold' } } });
+  const x = out.recommendations.find(r => r.symbol === 'XAU');
+  assert(x && x.tone && x.tone.label === 'HAWKISH' && /SELL gold/.test(x.tone.rule), 'XAU rec must carry the hawkish tone hint');
+  console.log('14 tone-in-rec OK  XAU tone=' + x.tone.label);
+}
+
 console.log('\nAll news-symbol-advisor tests passed');

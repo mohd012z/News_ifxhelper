@@ -129,6 +129,29 @@
     }).filter(function (e) { return isFinite(e._ts); });
   }
 
+  // Hawkish/dovish macro tone per symbol, from the desk's own sentiment model
+  // (window.MARKET_DATA.tabs[].sentiment). GOLD tab -> XAU, CRYPTO -> BTC,
+  // FOREX -> the USD pairs (the tone is a USD/Fed bias; dirRule carries the
+  // per-asset direction). Fail-closed: absent -> null (no fabricated tone).
+  function buildTones() {
+    var tones = {};
+    var M = window.MARKET_DATA;
+    if (!M || !M.tabs) return tones;
+    var byTitle = {};
+    M.tabs.forEach(function (t) { if (t && t.title) byTitle[String(t.title).toUpperCase()] = t; });
+    var gold = byTitle['GOLD · XAU/USD'] || byTitle['GOLD'] || null;
+    var crypto = byTitle['CRYPTO'] || null;
+    var forex = byTitle['FOREX'] || null;
+    if (gold && gold.sentiment) tones.XAU = gold.sentiment;
+    if (crypto && crypto.sentiment) tones.BTC = crypto.sentiment;
+    if (forex && forex.sentiment) {
+      tones.EURUSD = forex.sentiment;
+      tones.GBPUSD = forex.sentiment;
+      tones.USDJPY = forex.sentiment;
+    }
+    return tones;
+  }
+
   function fmtPrice(p, sym) {
     if (p == null || !isFinite(p)) return '—';
     var d = (sym === 'XAU' || sym === 'BTC') ? 2 : 4;
@@ -156,6 +179,8 @@
       : '';
     var body =
       '<div class="bbx-detail"><b>' + esc(r.setup) + '</b>' + tech + news + '</div>' +
+      (r.mtf ? '<div class="nsa-mtf"><span class="bbx-badge ' + (r.mtf.structure === 'counter-trend' ? 'warn' : 'info') + '">MTF ' + esc(String(r.mtf.structure).toUpperCase()) + '</span> ' + esc(r.mtf.labels || 'no TF data') + '</div>' : '') +
+      (r.tone ? '<div class="nsa-tone"><span class="bbx-badge ' + (r.tone.bias === 'hawkish' ? 'bad' : r.tone.bias === 'dovish' ? 'good' : 'info') + '">' + esc(r.tone.label) + '</span> ' + esc(r.tone.hint) + '</div>' : '') +
       (r.reasons && r.reasons.length ? '<div class="bbx-sub">Why: ' + esc(r.reasons.join('; ')) + '</div>' : '') +
       (r.events && r.events.length ?
         '<div class="nsa-evs">' + r.events.map(function (e) {
@@ -185,7 +210,12 @@
     var tech = buildTech(d);
     var out;
     try {
-      out = A.recommend(evs, tech, { now: Date.now(), horizonMs: 7 * 86400000, max: 5 });
+      out = A.recommend(evs, tech, {
+        now: Date.now(), horizonMs: 7 * 86400000, max: 5,
+        frames: (d && (d.frames || d.mtf || d.timeframes)) || null,   // all-TF classify state -> MTF read
+        mtfSymbol: 'XAU',                                             // runtime frames are XAU/USD
+        tones: buildTones()                                           // per-asset hawkish/dovish from MARKET_DATA
+      });
     } catch (e) {
       el.innerHTML = '<div class="bbx-empty">Recommendation error: ' + esc(e.message) + '</div>';
       return;
