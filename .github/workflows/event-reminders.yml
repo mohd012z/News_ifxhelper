@@ -1,4 +1,4 @@
-name: Event reminders (T-30 / T-10 / T-2)
+name: Event reminders (T-30 / T-10)
 
 # Five-minute redundancy path for the economic calendar.
 # It refreshes only the current-week structured calendar slice, publishes only when provider
@@ -35,8 +35,9 @@ jobs:
           rc=$?
           set -e
           if [ "$rc" -ne 0 ]; then
-            echo "::warning::Calendar heartbeat fetch failed; reminders will use the last committed snapshot."
+            echo "::error::Calendar heartbeat fetch failed; stale snapshot must not be treated as refreshed."
             echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit "$rc"
           elif git diff --quiet -- news-auto.js; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else
