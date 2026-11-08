@@ -33,7 +33,7 @@ jobs:
           persist-credentials: false
       - name: Verify checked out revision and staging isolation
         env:
-          SOURCE_SHA: ${{ inputs.source_sha }}
+          SOURCE_SHA: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || inputs.source_sha }}
         run: |
           test "$(git rev-parse HEAD)" = "$SOURCE_SHA"
           node --check worker/index.mjs
