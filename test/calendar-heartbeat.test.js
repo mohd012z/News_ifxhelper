@@ -40,4 +40,29 @@ assert.equal(changed.snapshot.calendarAll.some(x=>x.event==='[USD] Existing Mont
 assert.equal(changed.snapshot.incoming.some(x=>x.event==='[USD] CPI y/y'&&x.actual==='3.3%'),true);
 assert.notEqual(stableSignature(changed.snapshot.calendarAll.filter(x=>x.sourceHorizon==='this-week')),stableSignature([oldWeek]));
 
+// Flaky short-window fetch (the real 2026-11-08 failure): the FF this-week
+// feed sometimes returns only the remaining current week (~116 rows) instead
+// of the full month. A REPLACE merge wiped the 294 next-week rows -> "All
+// clear". A UNION merge must preserve them (fresh rows still upsert).
+const fullWeekNow=['2026-11-09T13:30:00Z','2026-11-10T07:30:00Z','2026-11-11T09:30:00Z','2026-11-12T10:00:00Z']
+  .map((t,i)=>{const d=new Date(t);const iso=t.slice(0,10);const day=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][d.getUTCDay()];const p=n=>String(n).padStart(2,'0');const myt=new Date(d.getTime()+8*3600000);const mytStr=day+', '+myt.getUTCFullYear()+'-'+p(myt.getUTCMonth()+1)+'-'+p(myt.getUTCDate())+' '+p(myt.getUTCHours())+':'+p(myt.getUTCMinutes());const gmtStr=day+', '+d.getUTCFullYear()+'-'+p(d.getUTCMonth()+1)+'-'+p(d.getUTCDate())+' '+p(d.getUTCHours())+':'+p(d.getUTCMinutes());return {date:iso,timeMyt:mytStr,timeGmt:gmtStr,event:['[CNY] CPI y/y','[USD] CPI y/y','[USD] Core CPI m/m','[GBP] GDP q/q'][i],currency:['CNY','USD','USD','GBP'][i],importance:['low','high','high','med'][i],actual:null,forecast:'1.0%',previous:'0.8%',sourceHorizon:'this-week',auto:true};});
+const shortFetch=[ // only the next few days (Nov-09, Nov-10) come back this time
+  {date:'2026-11-09T13:30:00Z',country:'CNY',title:'CPI y/y',impact:'Low',actual:'',forecast:'1.0%',previous:'0.8%'},
+  {date:'2026-11-10T07:30:00Z',country:'USD',title:'CPI y/y',impact:'High',actual:'',forecast:'0.3%',previous:'0.6%'}
+];
+const unionShort=mergeSnapshot({generatedAt:'x',calendarAll:[...fullWeekNow],incoming:fullWeekNow.filter(r=>r.importance!=='low'),calendarHorizon:{}},shortFetch,'2026-11-08T02:00:00Z');
+assert.equal(unionShort.changed,true);
+const kept=unionShort.snapshot.calendarAll.filter(x=>x.event==='[USD] Core CPI m/m');
+assert.equal(kept.length,1,'a short fetch must NOT drop next-week events the feed omitted');
+assert.equal(unionShort.snapshot.calendarAll.some(x=>x.event==='[GBP] GDP q/q'),true,'later-week rows must survive a short window');
+assert.equal(unionShort.snapshot.calendarAll.filter(x=>x.event==='[USD] CPI y/y').length,1,'fetched rows still upsert (no duplicates)');
+assert.equal(unionShort.snapshot.calendarAll.find(x=>x.event==='[USD] CPI y/y').forecast,'0.3%','fresh forecast wins on upsert');
+// A repeated identical short fetch is a no-op (no commit churn).
+const again=mergeSnapshot(unionShort.snapshot,shortFetch,'2026-11-08T02:05:00Z');
+assert.equal(again.changed,false,'identical re-fetch must not churn');
+// Old past events (>48h) are pruned so the store does not grow forever.
+const oldPast={date:'2026-11-04T00:00:00Z',timeMyt:'Wed, 2026-11-04 08:00',timeGmt:'Wed, 2026-11-04 00:00',event:'[EUR] Retail Sales m/m',currency:'EUR',importance:'low',actual:'0.4%',forecast:'0.2%',previous:'0.1%',sourceHorizon:'this-week',auto:true};
+const pruned=mergeSnapshot({generatedAt:'x',calendarAll:[oldPast,...fullWeekNow],incoming:[],calendarHorizon:{}},shortFetch,'2026-11-08T02:00:00Z');
+assert.equal(pruned.snapshot.calendarAll.some(x=>x.event==='[EUR] Retail Sales m/m'),false,'4+ day old past rows are pruned');
+
 console.log('calendar heartbeat tests passed');
