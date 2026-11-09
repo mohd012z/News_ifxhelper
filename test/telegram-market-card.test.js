@@ -27,43 +27,31 @@ FRAMES.forEach((f,i)=>mtf.timeframes[f.tf]={
   instrument:'XAU/USD',atr:(i+1)*12,asOf:date(Math.min(f.atrAgeHours*30,120)),
   sourceInterval:f.tf,provider:'OANDA_V20'
 });
+/* Compact card contract (Anam: full block was "too much"):
+ *   line1 label + direction + symbol + tier + movement
+ *   line2 order call (+ reason)
+ *   line3 📊 BBMA <sym> ... (compact one-liner, or n/a when source down)
+ *   line4 🧮 MTF ATR14: N/9 ... (one line, only when actionable)
+ *   line5 headline + source + time
+ * Per-TF ATR detail and the stale-headline row list are GONE from the card. */
 const render=(spot=mtf,n=news)=>newsCard({},tab,n,{},futures,{},spot).caption;
 const ok=render();
-assert(ok.includes('9/9 available'));
-assert(ok.includes('OANDA broker XAU/USD spot (NOT GC=F futures)'));
-assert(ok.includes('Bid 4050.100 / Ask 4050.400'));
-for(const tf of FRAMES.map(f=>f.tf))assert(ok.includes(tf+' ATR14'),tf);
-assert(ok.includes('M1 ATR14 12.000 · BID Entry 4050.100'));
-assert(ok.includes('MN1 ATR14 108.000 · BID Entry 4050.100'));
-assert(ok.includes('TP1 4032.100'));
-assert(!ok.includes('GC=F gold FUTURES, not spot XAU/USD'));
-const unconfigured={...mtf,state:'UNCONFIGURED',quote:{
-  state:'UNAVAILABLE',reason:'BROKER_CREDENTIALS_NOT_CONFIGURED'}};
-const missing=render(unconfigured);
-assert(missing.includes('0/9 available'));
-assert(missing.includes('M1: — BROKER_CREDENTIALS_NOT_CONFIGURED'));
-assert(!missing.includes('M1 ATR14'));
+assert(ok.includes('SELL'),'order call present');
+assert(ok.includes('🔴 BEARISH'),'direction tag on line 1');
+assert(ok.includes('MTF ATR14: 9/9 available'),'compact ATR one-liner');
+assert(!ok.includes('M1 ATR14 12.000'),'per-TF ATR detail removed');
+assert(!ok.includes('auto-classified news'),'old verbose header removed');
+assert(ok.includes('Fresh hawkish Fed text'),'headline retained');
+assert(!ok.includes('undefined'),'no undefined leakage');
+
+/* ATR unavailable -> one compact line (or hidden when headline fresh). */
 const noBroker=render(null);
-assert(noBroker.includes('0/9 available'));
-assert(noBroker.includes('M1: — BROKER_SPOT_NOT_CONFIGURED'));
-const oandaMismatch=structuredClone(mtf);
-oandaMismatch.quote.source='yahoo:GC=F';
-const mixed=render(oandaMismatch);
-assert(mixed.includes('0/9 available'));
-assert(mixed.includes('M1: — INSTRUMENT_MISMATCH'));
-const partial=structuredClone(mtf);
-partial.timeframes.M1={...partial.timeframes.M1,state:'UNAVAILABLE',
-  reason:'INSUFFICIENT_CLOSED_CANDLES',atr:null};
-assert(render(partial).includes('8/9 available'));
-assert(render(partial).includes('M1: — INSUFFICIENT_CLOSED_CANDLES'));
+assert(noBroker.includes('MTF ATR14'),'compact ATR line still present (0/9)');
+assert(!noBroker.includes('M1: — BROKER_SPOT_NOT_CONFIGURED'),'per-TF reason rows removed');
+
+/* Stale headline -> no price-targets line, no per-TF STALE rows. */
 const stale=render(mtf,{...news,publishedAt:date(300)});
-assert(stale.includes('STALE_OR_UNDATED_HEADLINE'));
+assert(!stale.includes('STALE_OR_UNDATED_HEADLINE'),'per-TF stale rows removed');
 assert(!stale.includes('M1 ATR14'));
-const staleQuote=structuredClone(mtf);
-staleQuote.quote.marketAt=date(300);
-assert(render(staleQuote).includes('M1: — STALE_QUOTE'));
-const wide=structuredClone(mtf);
-wide.quote.ask=4060;
-wide.quote.bid=4050;
-assert(render(wide).includes('M1: — SPREAD_TOO_WIDE_FOR_ATR'));
-console.log('Telegram nine-timeframe broker spot card tests passed');
+
+console.log('Telegram compact news card tests passed');

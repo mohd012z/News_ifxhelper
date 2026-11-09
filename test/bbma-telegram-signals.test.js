@@ -43,7 +43,7 @@ const MD = {
 };
 const card = N.newsCard(MD, MD.tabs[0], { title: 'Fed holds rates', summary: '', signal: 'SELL', impactPct: -0.26, impact: 'bearish', tf: 'H1', time: '13:19', source: 'Test', url: 'https://example.com' }, null, null, null, null,
   { ok: false, symbol: 'EUR/USD', reason: 'YAHOO_HTTP_429' });
-assert.ok(card.caption.includes('BBMA TIMEFRAME SIGNALS'), 'newsCard must carry the BBMA block even when the source is down');
+assert.ok(card.caption.includes('📊 BBMA'), 'newsCard must carry the compact BBMA line even when the source is down');
 assert.ok(card.caption.includes('YAHOO_HTTP_429'), 'fail-closed reason must be visible');
 assert.ok(card.caption.includes('ORDER CALL: SELL'));
 
@@ -56,6 +56,6 @@ assert.ok(readyCard.caption.includes('H1:'));
 // speakerCard also carries the block
 const spk = N.speakerCard(MD, MD.tabs[0], { name: 'Fed Chair', role: 'Fed', quote: 'inflation is high', side: 'hawkish', signal: 'BUY', impactPct: 0.5, date: '13:00', source: 'Test', url: 'https://example.com' },
   { ok: false, symbol: 'EUR/USD', reason: 'SNAPSHOT_DATA_LAG_120m' });
-assert.ok(spk.caption.includes('BBMA TIMEFRAME SIGNALS'));
+assert.ok(spk.caption.includes('📊 BBMA'));
 
 console.log('bbma-telegram-signals tests passed');

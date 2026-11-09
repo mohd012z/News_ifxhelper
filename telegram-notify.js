@@ -357,42 +357,15 @@ function newsCard(MARKET_DATA, tab, n, atrData, quoteSnapshots, atrMtfData, spot
     signal: headlineFresh ? n.signal : 'NEUTRAL',
     quote, atrMtf: activeMtf, marketOpen: quote && quote.marketOpen
   });
-  const levels = ['M1','M5','M15','M30','H1','H4','D1','W1','MN1'].map(tf => {
-    const x = mtf.timeframes[tf];
-    if (!headlineFresh) return '  ' + tf + ': — STALE_OR_UNDATED_HEADLINE';
-    if (!x || !x.valid) return '  ' + tf + ': — ' + (
-      isSpot&&!quote?(brokerQuote&&brokerQuote.reason||'BROKER_SPOT_NOT_CONFIGURED'):
-      x&&x.reason||'UNAVAILABLE');
-    return '  ' + tf + ' ATR14 ' + x.atr.toFixed(3)
-      + ' · ' + (x.priceSide||'REFERENCE') + ' Entry ' + fmtPrice(x.entry)
-      + ' · SL ' + fmtPrice(x.sl)
-      + ' · TP1 ' + fmtPrice(x.tp1)
-      + ' · TP2 ' + fmtPrice(x.tp2);
-  });
-  const priceLine = [
-    '🧮 MTF ATR14 scenarios (' + mtf.readyCount + '/9 available; illustrative, not trade orders)',
-    '🔎 Data: ' + (isSpot?'OANDA broker XAU/USD spot (NOT GC=F futures) · ':'')
-      + esc(quote && quote.source || 'broker quote unavailable'),
-    isSpot&&quote?'↔ Bid '+fmtPrice(quote.bid)+' / Ask '+fmtPrice(quote.ask)
-      +' (spread '+fmtPrice(quote.spread)+')':null,
-    ...levels
-  ].filter(Boolean).join('\n');
+  const priceLine = mtf.readyCount > 0
+    ? '🧮 MTF ATR14: ' + mtf.readyCount + '/9 available (Entry/SL/TP on the intraday chart)'
+    : (headlineFresh ? null : '🧮 MTF ATR14: n/a — stale/undated headline (no price targets)');
   const caption = [
-    `<b>${esc(tab.label)}</b> — auto-classified news`,
-    orderCallLine(n.signal),
-    `ℹ️ ${reasoning}`,
-    `🎯 Focus symbol: <b>${esc(focusSym)}</b>`,
-    `📊 Headline impact score: <b>${Number.isFinite(n.impactPct) ? n.impactPct.toFixed(2) : '—'}</b> (heuristic, NOT predicted price %)`,
-    IMPACT_TIER_LABEL[impactTier(n.impactPct)],
-    movementLabel(n.impactPct),
+    `<b>${esc(tab.label)}</b> — ${n.impact === 'bearish' ? '🔴 BEARISH' : n.impact === 'bullish' ? '🟢 BULLISH' : '⚪ NEUTRAL'} · ${esc(focusSym)} · ${IMPACT_TIER_LABEL[impactTier(n.impactPct)]} · ${movementLabel(n.impactPct)}`,
+    orderCallLine(n.signal) + '  <i>(' + reasoning + ')</i>',
+    BBMASignals.renderCompact(bbmaSignal),
     priceLine,
-    BBMASignals.renderLines(bbmaSignal).join('\n'),
-    `⏱ Timeframe: ${esc(n.tf || '—')} → chart: <b>${esc(chart)}</b>`,
-    `🕒 News time (MYT): <b>${esc(n.time || 'unknown time')}</b>`,
-    `📝 ${esc(n.title)}`,
-    `🔗 ${esc(n.source || 'Source')}${n.url ? ': ' + n.url : ''}`,
-    CREDIT_LINE,
-    `📤 Alert sent (MYT): ${nowMyt()}`
+    `📝 ${esc(n.title)} · ${esc(n.source || 'Source')}${n.url ? ' · ' + n.url : ''} · ${esc(n.time || '—')} MYT`
   ].filter(Boolean).join('\n');
   return { caption, chartUrl: chartImageUrl(focusSym, n.impactPct || 0, n.signal) };
 }
@@ -400,23 +373,11 @@ function speakerCard(MARKET_DATA, tab, s, bbmaSignal) {
   const forexFocus = tab.id === 'forex' ? resolveForexFocus(MARKET_DATA, tab, `${s.name || ''} ${s.role || ''} ${s.quote || ''}`) : null;
   const focusSym = tab.id === 'gold' ? 'XAU/USD' : tab.id === 'crypto' ? 'BTC/USD (+ ETH/USD)' : forexFocus.sym;
   const arrow = s.side === 'hawkish' ? '🦅 HAWKISH' : '🕊️ DOVISH';
-  const priceLine = '🧮 TP/SL unavailable for speech alerts without a validated fresh same-instrument quote and ATR';
   const caption = [
-    `<b>${esc(tab.label)}</b> — speaker/central-bank alert`,
-    orderCallLine(s.signal),
-    `ℹ️ ${esc(reasonFromDirRule(tab, s.side))}`,
-    `🗣 ${arrow}: <b>${esc(s.name)}</b> (${esc(s.role)})`,
-    `🎯 Focus symbol: <b>${esc(focusSym)}</b>`,
-    `📊 Headline impact score: <b>${Number.isFinite(s.impactPct) ? s.impactPct.toFixed(2) : '—'}</b> (heuristic, not forecast %) · weights ${s.w != null ? s.w : '—'} × ${s.s != null ? s.s : '—'} × ${s.f != null ? s.f : '—'}`,
-    IMPACT_TIER_LABEL[impactTier(s.impactPct)],
-    movementLabel(s.impactPct),
-    priceLine,
-    BBMASignals.renderLines(bbmaSignal).join('\n'),
-    `🕒 Speech time (MYT): <b>${esc(s.date || 'unknown time')}</b>`,
-    `📝 “${esc(s.quote)}”`,
-    `🔗 ${esc(s.source || 'Source')}${s.url ? ': ' + s.url : ''}`,
-    CREDIT_LINE,
-    `📤 Alert sent (MYT): ${nowMyt()}`
+    `<b>${esc(tab.label)}</b> — speaker · ${esc(focusSym)} · ${IMPACT_TIER_LABEL[impactTier(s.impactPct)]}`,
+    orderCallLine(s.signal) + '  <i>(' + esc(reasonFromDirRule(tab, s.side)) + ')</i>',
+    BBMASignals.renderCompact(bbmaSignal),
+    `🗣 ${arrow}: <b>${esc(s.name)}</b> (${esc(s.role)}) — “${esc(s.quote)}” · ${esc(s.source || 'Source')}${s.url ? ' · ' + s.url : ''}`
   ].filter(Boolean).join('\n');
   return { caption, chartUrl: chartImageUrl(focusSym, s.impactPct || 0, s.signal) };
 }
