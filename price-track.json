@@ -6487,9 +6487,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-09T22:46:40.662Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T23:16:41.893Z",
+          "price": 4144.7,
+          "realizedPct": 0.714
         },
         {
           "key": "D1",
@@ -6752,9 +6752,9 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-09T23:16:37.229Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T23:16:41.893Z",
+          "price": 75084.88,
+          "realizedPct": 0.172
         },
         {
           "key": "H4",
@@ -6792,7 +6792,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.252,
-        "maePct": 0.252
+        "maePct": 0.172
       }
     },
     {
@@ -6843,9 +6843,9 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-09T23:16:37.229Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T23:16:41.893Z",
+          "price": 1.1227,
+          "realizedPct": 0.009
         },
         {
           "key": "H4",
@@ -6882,9 +6882,95 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": -0.036,
+        "mfePct": 0.009,
         "maePct": -0.036
       }
+    },
+    {
+      "key": "news:gold:Banxico’s Governor Rodriguez: Considering rate cut since September – El Financiero",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Banxico’s Governor Rodriguez: Considering rate cut since September – El Financiero",
+      "url": "https://www.fxstreet.com/news/banxicos-governor-rodriguez-considering-rate-cut-since-september-el-financiero-202611092119",
+      "impactScore": 0.08,
+      "priceSource": "yahoo:GC=F",
+      "priceSymbol": "GC=F",
+      "priceAtDetect": 4144.7,
+      "createdAt": "2026-11-09T23:16:41.893Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-09T23:17:41.893Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-09T23:21:41.893Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-09T23:31:41.893Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-09T23:46:41.893Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-10T00:16:41.893Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-10T03:16:41.893Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-10T23:16:41.893Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-16T23:16:41.893Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-09T23:16:41.893Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
     }
   ],
   "results": [
