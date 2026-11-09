@@ -5205,9 +5205,9 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-09T08:14:06.416Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T08:18:37.813Z",
+          "price": 4100.4,
+          "realizedPct": -0.379
         },
         {
           "key": "H4",
@@ -5245,7 +5245,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.039,
-        "maePct": -0.328
+        "maePct": -0.379
       }
     },
     {
@@ -5296,9 +5296,9 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-09T08:14:06.416Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T08:18:37.813Z",
+          "price": 73979.75,
+          "realizedPct": 0.108
         },
         {
           "key": "H4",
@@ -5335,7 +5335,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.022,
+        "mfePct": 0.108,
         "maePct": -0.107
       }
     },
@@ -5387,9 +5387,9 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-09T08:14:06.416Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T08:18:37.813Z",
+          "price": 1.1182,
+          "realizedPct": 0.116
         },
         {
           "key": "H4",
@@ -5426,9 +5426,267 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.027,
+        "mfePct": 0.116,
         "maePct": 0
       }
+    },
+    {
+      "key": "news:gold:Federal Reserve: December rate hike view reinforced – Commerzbank",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Federal Reserve: December rate hike view reinforced – Commerzbank",
+      "url": "https://www.fxstreet.com/news/federal-reserve-december-rate-hike-view-reinforced-commerzbank-202611090801",
+      "impactScore": -0.08,
+      "priceSource": "yahoo:GC=F",
+      "priceSymbol": "GC=F",
+      "priceAtDetect": 4100.4,
+      "createdAt": "2026-11-09T08:18:37.814Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-09T08:19:37.814Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-09T08:23:37.814Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-09T08:33:37.814Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-09T08:48:37.814Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-09T09:18:37.814Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-09T12:18:37.814Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-10T08:18:37.814Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-16T08:18:37.814Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-09T08:18:37.814Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:crypto:Federal Reserve: December rate hike view reinforced – Commerzbank",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Federal Reserve: December rate hike view reinforced – Commerzbank",
+      "url": "https://www.fxstreet.com/news/federal-reserve-december-rate-hike-view-reinforced-commerzbank-202611090801",
+      "impactScore": -0.08,
+      "priceSource": "coinbase:BTC-USD",
+      "priceSymbol": "BTC-USD",
+      "priceAtDetect": 73979.75,
+      "createdAt": "2026-11-09T08:18:37.814Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-09T08:19:37.814Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-09T08:23:37.814Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-09T08:33:37.814Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-09T08:48:37.814Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-09T09:18:37.814Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-09T12:18:37.814Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-10T08:18:37.814Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-16T08:18:37.814Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-09T08:18:37.814Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:forex:Federal Reserve: December rate hike view reinforced – Commerzbank",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Federal Reserve: December rate hike view reinforced – Commerzbank",
+      "url": "https://www.fxstreet.com/news/federal-reserve-december-rate-hike-view-reinforced-commerzbank-202611090801",
+      "impactScore": -0.08,
+      "priceSource": "yahoo:EURUSD=X",
+      "priceSymbol": "EURUSD=X",
+      "priceAtDetect": 1.1182,
+      "createdAt": "2026-11-09T08:18:37.814Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-09T08:19:37.814Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-09T08:23:37.814Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-09T08:33:37.814Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-09T08:48:37.814Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-09T09:18:37.814Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-09T12:18:37.814Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-10T08:18:37.814Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-16T08:18:37.814Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-09T08:18:37.814Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
     }
   ],
   "results": [
