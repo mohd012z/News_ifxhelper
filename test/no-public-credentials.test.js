@@ -13,4 +13,6 @@ assert(!/twelveDataApiKey\s*:\s*["'][^"']+["']/.test(data),'public client data m
 assert(data.includes('No provider API keys embedded in public client assets'),'credential policy marker missing');
 assert(!/wss:\/\/ws\.twelvedata\.com\/v1\/quotes\/price\?apikey=[A-Za-z0-9_-]+/.test(data+app+live),'literal Twelve Data websocket credential must not appear in client files');
 
+const runtime=fs.readFileSync(path.join(root,'bbma-runtime.js'),'utf8');
+assert(/gold-api\.com\/price\/XAU[\s\S]{0,120}1000\)/.test(runtime),'real-time 1s gold tick loop missing from bbma-runtime.js');
 console.log('public credential regression tests passed');

@@ -262,6 +262,19 @@ setInterval(function(){
   }catch(e){}
 },2000);
 
+/* Real-time gold tick feed: key-free gold-api.com polled every 1s and merged
+ * straight into the open TF candles (ingest buckets in-place / rolls a new bar).
+ * This is what keeps the LAST candle moving in real time without any provider
+ * key in the client (Twelve Data WS stays optional / server-side only). */
+setInterval(function(){
+  try{
+    fetch('https://api.gold-api.com/price/XAU',{cache:'no-store'}).then(function(r){return r.ok?r.json():null;}).then(function(j){
+      var p=j&&j.price;
+      if(isFinite(p)&&p>0&&p!==lastPrice)ingest(p,new Date());
+    }).catch(function(){});
+  }catch(e){}
+},1000);
+
 publish();
 // Pull real OHLC history for every TF (async; each arrival re-publishes).
 try{loadRealHistory();}catch(e){}
