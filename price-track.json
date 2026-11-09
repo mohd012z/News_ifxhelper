@@ -4734,17 +4734,17 @@
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-09T05:46:06.810Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T06:14:07.351Z",
+          "price": 74499.37,
+          "realizedPct": 0.142
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-09T06:01:06.810Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T06:14:07.351Z",
+          "price": 74499.37,
+          "realizedPct": 0.142
         },
         {
           "key": "H1",
@@ -4789,7 +4789,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": -0.212,
+        "mfePct": 0.142,
         "maePct": -0.212
       }
     },
@@ -4825,17 +4825,17 @@
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-09T05:46:06.810Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T06:14:07.351Z",
+          "price": 1.1167,
+          "realizedPct": 0.036
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-09T06:01:06.810Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T06:14:07.351Z",
+          "price": 1.1167,
+          "realizedPct": 0.036
         },
         {
           "key": "H1",
@@ -4880,9 +4880,267 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0,
+        "mfePct": 0.036,
         "maePct": 0
       }
+    },
+    {
+      "key": "news:gold:Swiss Franc weakens as Fed hawkish outlook lifts USD/CHF",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Swiss Franc weakens as Fed hawkish outlook lifts USD/CHF",
+      "url": "https://www.fxstreet.com/news/swiss-franc-weakens-as-fed-hawkish-outlook-lifts-usd-chf-202611090519",
+      "impactScore": -0.21,
+      "priceSource": "yahoo:GC=F",
+      "priceSymbol": "GC=F",
+      "priceAtDetect": 4128.6,
+      "createdAt": "2026-11-09T06:14:07.352Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-09T06:15:07.352Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-09T06:19:07.352Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-09T06:29:07.352Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-09T06:44:07.352Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-09T07:14:07.352Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-09T10:14:07.352Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-10T06:14:07.352Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-16T06:14:07.352Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-09T06:14:07.352Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:crypto:Swiss Franc weakens as Fed hawkish outlook lifts USD/CHF",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Swiss Franc weakens as Fed hawkish outlook lifts USD/CHF",
+      "url": "https://www.fxstreet.com/news/swiss-franc-weakens-as-fed-hawkish-outlook-lifts-usd-chf-202611090519",
+      "impactScore": -0.24,
+      "priceSource": "coinbase:BTC-USD",
+      "priceSymbol": "BTC-USD",
+      "priceAtDetect": 74499.37,
+      "createdAt": "2026-11-09T06:14:07.352Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-09T06:15:07.352Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-09T06:19:07.352Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-09T06:29:07.352Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-09T06:44:07.352Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-09T07:14:07.352Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-09T10:14:07.352Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-10T06:14:07.352Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-16T06:14:07.352Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-09T06:14:07.352Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:forex:Swiss Franc weakens as Fed hawkish outlook lifts USD/CHF",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Swiss Franc weakens as Fed hawkish outlook lifts USD/CHF",
+      "url": "https://www.fxstreet.com/news/swiss-franc-weakens-as-fed-hawkish-outlook-lifts-usd-chf-202611090519",
+      "impactScore": -0.26,
+      "priceSource": "yahoo:EURUSD=X",
+      "priceSymbol": "EURUSD=X",
+      "priceAtDetect": 1.1167,
+      "createdAt": "2026-11-09T06:14:07.352Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-09T06:15:07.352Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-09T06:19:07.352Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-09T06:29:07.352Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-09T06:44:07.352Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-09T07:14:07.352Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-09T10:14:07.352Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-10T06:14:07.352Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-16T06:14:07.352Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-09T06:14:07.352Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
     }
   ],
   "results": [
