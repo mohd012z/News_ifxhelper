@@ -4,7 +4,7 @@ window.ATR_MTF = {
   "instrument": "GC=F",
   "provider": "YAHOO_CHART",
   "source": "yahoo:GC=F",
-  "generatedAt": "2026-11-09T03:01:09.960Z",
+  "generatedAt": "2026-11-09T03:31:09.996Z",
   "timeframes": {
     "M1": {
       "tf": "M1",
@@ -14,14 +14,14 @@ window.ATR_MTF = {
       "source": "yahoo:GC=F",
       "state": "READY",
       "reason": null,
-      "atr": 2.38969,
-      "last": 4133,
-      "asOf": "2026-11-09T02:52:07.000Z",
-      "closedBars": 5375,
+      "atr": 1.55673,
+      "last": 4127.899902,
+      "asOf": "2026-11-09T03:22:02.000Z",
+      "closedBars": 5405,
       "period": 14,
       "ageHours": 0.15,
       "evidence": {
-        "sourceCandles": 5375,
+        "sourceCandles": 5405,
         "rejected": 0,
         "duplicates": 0,
         "formingExcluded": 0
@@ -35,12 +35,12 @@ window.ATR_MTF = {
       "source": "yahoo:GC=F",
       "state": "READY",
       "reason": null,
-      "atr": 5.960864,
-      "last": 4133.399902,
-      "asOf": "2026-11-09T02:56:05.000Z",
+      "atr": 5.022572,
+      "last": 4127.899902,
+      "asOf": "2026-11-09T03:26:02.000Z",
       "closedBars": 5785,
       "period": 14,
-      "ageHours": 0.08,
+      "ageHours": 0.09,
       "evidence": {
         "sourceCandles": 5785,
         "rejected": 0,
@@ -56,9 +56,9 @@ window.ATR_MTF = {
       "source": "yahoo:GC=F",
       "state": "READY",
       "reason": null,
-      "atr": 10.552473,
-      "last": 4138.700195,
-      "asOf": "2026-11-09T02:45:00.000Z",
+      "atr": 10.38653,
+      "last": 4127,
+      "asOf": "2026-11-09T03:15:00.000Z",
       "closedBars": 1924,
       "period": 14,
       "ageHours": 0.27,
@@ -77,9 +77,9 @@ window.ATR_MTF = {
       "source": "yahoo:GC=F",
       "state": "READY",
       "reason": null,
-      "atr": 14.344984,
-      "last": 4137.299805,
-      "asOf": "2026-11-09T02:30:00.000Z",
+      "atr": 14.298893,
+      "last": 4129,
+      "asOf": "2026-11-09T03:00:00.000Z",
       "closedBars": 959,
       "period": 14,
       "ageHours": 0.52,
@@ -98,17 +98,17 @@ window.ATR_MTF = {
       "source": "yahoo:GC=F",
       "state": "READY",
       "reason": null,
-      "atr": 20.260482,
-      "last": 4132.299805,
+      "atr": 20.460468,
+      "last": 4129,
       "asOf": "2026-11-09T03:00:00.000Z",
       "closedBars": 1475,
       "period": 14,
-      "ageHours": 0.02,
+      "ageHours": 0.52,
       "evidence": {
         "sourceCandles": 1475,
         "rejected": 0,
         "duplicates": 0,
-        "formingExcluded": 1
+        "formingExcluded": 2
       }
     },
     "H4": {
@@ -124,12 +124,12 @@ window.ATR_MTF = {
       "asOf": "2026-11-06T20:00:00.000Z",
       "closedBars": 323,
       "period": 14,
-      "ageHours": 55.02,
+      "ageHours": 55.52,
       "evidence": {
         "sourceCandles": 1475,
         "rejected": 0,
         "duplicates": 0,
-        "formingExcluded": 1
+        "formingExcluded": 2
       }
     },
     "D1": {
@@ -145,7 +145,7 @@ window.ATR_MTF = {
       "asOf": "2026-11-07T00:00:00.000Z",
       "closedBars": 1258,
       "period": 14,
-      "ageHours": 51.02,
+      "ageHours": 51.52,
       "evidence": {
         "sourceCandles": 1258,
         "rejected": 0,
@@ -166,7 +166,7 @@ window.ATR_MTF = {
       "asOf": "2026-11-09T00:00:00.000Z",
       "closedBars": 261,
       "period": 14,
-      "ageHours": 3.02,
+      "ageHours": 3.52,
       "evidence": {
         "sourceCandles": 1258,
         "rejected": 0,
@@ -187,7 +187,7 @@ window.ATR_MTF = {
       "asOf": "2026-11-01T00:00:00.000Z",
       "closedBars": 60,
       "period": 14,
-      "ageHours": 195.02,
+      "ageHours": 195.52,
       "evidence": {
         "sourceCandles": 1258,
         "rejected": 0,
@@ -203,7 +203,7 @@ window.ATR_MTF = {
   "feeds": {
     "1m": {
       "state": "OK",
-      "count": 5375,
+      "count": 5405,
       "provider": "YAHOO_CHART"
     },
     "5m": {
@@ -213,7 +213,7 @@ window.ATR_MTF = {
     },
     "1h": {
       "state": "OK",
-      "count": 1476,
+      "count": 1477,
       "provider": "YAHOO_CHART"
     },
     "1d": {
