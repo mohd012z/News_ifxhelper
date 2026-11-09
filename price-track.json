@@ -4940,9 +4940,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-09T10:14:07.352Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T10:16:37.330Z",
+          "price": 4106.9,
+          "realizedPct": -0.526
         },
         {
           "key": "D1",
@@ -4972,7 +4972,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.225,
-        "maePct": -0.344
+        "maePct": -0.526
       }
     },
     {
@@ -5031,9 +5031,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-09T10:14:07.352Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T10:16:37.330Z",
+          "price": 74047.06,
+          "realizedPct": -0.607
         },
         {
           "key": "D1",
@@ -5062,7 +5062,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": -0.622,
+        "mfePct": -0.607,
         "maePct": -0.805
       }
     },
@@ -5122,9 +5122,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-09T10:14:07.352Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T10:16:37.330Z",
+          "price": 1.1198,
+          "realizedPct": 0.278
         },
         {
           "key": "D1",
@@ -5153,7 +5153,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.018,
+        "mfePct": 0.278,
         "maePct": 0.009
       }
     },
@@ -5719,33 +5719,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-09T09:47:37.198Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T10:16:37.330Z",
+          "price": 4106.9,
+          "realizedPct": 0.046
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-09T09:51:37.198Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T10:16:37.331Z",
+          "price": 4106.9,
+          "realizedPct": 0.046
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-09T10:01:37.198Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T10:16:37.331Z",
+          "price": 4106.9,
+          "realizedPct": 0.046
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-09T10:16:37.198Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T10:16:37.331Z",
+          "price": 4106.9,
+          "realizedPct": 0.046
         },
         {
           "key": "H1",
@@ -5787,7 +5787,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.046,
+        "maePct": 0.046
+      }
     },
     {
       "key": "news:crypto:Gold rebounds as weaker dollar offsets bets on December Fed rate hike",
@@ -5805,33 +5810,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-09T09:47:37.199Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T10:16:37.331Z",
+          "price": 74047.06,
+          "realizedPct": -0.166
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-09T09:51:37.199Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T10:16:37.331Z",
+          "price": 74047.06,
+          "realizedPct": -0.166
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-09T10:01:37.199Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T10:16:37.331Z",
+          "price": 74047.06,
+          "realizedPct": -0.166
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-09T10:16:37.199Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T10:16:37.331Z",
+          "price": 74047.06,
+          "realizedPct": -0.166
         },
         {
           "key": "H1",
@@ -5873,7 +5878,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.166,
+        "maePct": -0.166
+      }
     },
     {
       "key": "news:forex:Gold rebounds as weaker dollar offsets bets on December Fed rate hike",
@@ -5891,33 +5901,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-09T09:47:37.199Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T10:16:37.331Z",
+          "price": 1.1198,
+          "realizedPct": 0.054
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-09T09:51:37.199Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T10:16:37.331Z",
+          "price": 1.1198,
+          "realizedPct": 0.054
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-09T10:01:37.199Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T10:16:37.331Z",
+          "price": 1.1198,
+          "realizedPct": 0.054
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-09T10:16:37.199Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T10:16:37.331Z",
+          "price": 1.1198,
+          "realizedPct": 0.054
         },
         {
           "key": "H1",
@@ -5959,7 +5969,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.054,
+        "maePct": 0.054
+      }
     }
   ],
   "results": [
