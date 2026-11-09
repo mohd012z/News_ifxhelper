@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
   "generationId": "bbma-0cb8900d7ad7e355ff0d",
-  "generatedAt": "2026-11-09T02:01:08.627Z",
+  "generatedAt": "2026-11-09T02:31:10.197Z",
   "lineage": {
     "status": "CONSISTENT",
     "generationId": "bbma-0cb8900d7ad7e355ff0d",
@@ -12,30 +12,30 @@
     {
       "file": "news-auto.js",
       "available": true,
-      "bytes": 263890,
-      "sha256": "14556ad6f36d1978ee7dd88f12833e296d841a240ab9fc15db0f03e5f8474ac3",
-      "modifiedAt": "2026-11-09T02:01:00.524Z"
+      "bytes": 283043,
+      "sha256": "2caefbd8fcf54eaeefe3676c60af43b85a3e9a7c4be986300223cd532db4516c",
+      "modifiedAt": "2026-11-09T02:31:02.282Z"
     },
     {
       "file": "macro-auto.js",
       "available": true,
-      "bytes": 1549,
-      "sha256": "f68165e2ce28f382a41e4e7da49f785af141294e02deabf33090a3300030cc91",
-      "modifiedAt": "2026-11-09T02:01:08.583Z"
+      "bytes": 1529,
+      "sha256": "49a8a4bc747ea66888fa25a08894cc0f024c90f053cf740ba6dbcca10dddb334",
+      "modifiedAt": "2026-11-09T02:31:10.152Z"
     },
     {
       "file": "atr.js",
       "available": true,
-      "bytes": 5808,
-      "sha256": "8bf8a38bc18b697e739a802eaaad7335469b28646e4fff8c457cb86e6fb0cb95",
-      "modifiedAt": "2026-11-09T02:01:07.228Z"
+      "bytes": 5804,
+      "sha256": "b07e06c72ddf9c4869c48a7107d802eba5e04da04eb8d50a1a70a573d1130a1f",
+      "modifiedAt": "2026-11-09T02:31:08.740Z"
     },
     {
       "file": "atr-mtf.js",
       "available": true,
-      "bytes": 5451,
-      "sha256": "a490ae46991abe4f9aa3f7cc815d5db73eb807e8b48b0187ea966ecac0523470",
-      "modifiedAt": "2026-11-09T02:01:08.385Z"
+      "bytes": 5458,
+      "sha256": "2a221e242dcb2fdd50465b25ef95afb6cd3ee1e322f90b467ecd3d244ba08077",
+      "modifiedAt": "2026-11-09T02:31:09.934Z"
     },
     {
       "file": "spot-mtf.js",
@@ -49,7 +49,7 @@
       "available": true,
       "bytes": 38318,
       "sha256": "aa5f53d723fc0eb155e81e10e2e8c1e0944f49095d5e93a0344895ed4940bca4",
-      "modifiedAt": "2026-11-08T04:27:16.109Z"
+      "modifiedAt": "2026-11-09T02:30:39.445Z"
     },
     {
       "file": "data/bbma-watch.json",
