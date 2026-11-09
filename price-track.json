@@ -5992,25 +5992,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-09T11:17:39.599Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T11:46:38.647Z",
+          "price": 4118.6,
+          "realizedPct": 0.248
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-09T11:21:39.599Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T11:46:38.647Z",
+          "price": 4118.6,
+          "realizedPct": 0.248
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-09T11:31:39.599Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T11:46:38.647Z",
+          "price": 4118.6,
+          "realizedPct": 0.248
         },
         {
           "key": "M30",
@@ -6060,7 +6060,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.248,
+        "maePct": 0.248
+      }
     },
     {
       "key": "news:crypto:EUR/GBP: Sterling still too strong vs Euro – ING",
@@ -6078,25 +6083,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-09T11:17:39.599Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T11:46:38.647Z",
+          "price": 74415.92,
+          "realizedPct": 0.513
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-09T11:21:39.599Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T11:46:38.647Z",
+          "price": 74415.92,
+          "realizedPct": 0.513
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-09T11:31:39.599Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T11:46:38.647Z",
+          "price": 74415.92,
+          "realizedPct": 0.513
         },
         {
           "key": "M30",
@@ -6146,7 +6151,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.513,
+        "maePct": 0.513
+      }
     },
     {
       "key": "news:crypto:US Dollar: Correction risk as rates ease – ING",
@@ -6164,25 +6174,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-09T11:17:39.599Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T11:46:38.647Z",
+          "price": 74415.92,
+          "realizedPct": 0.513
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-09T11:21:39.599Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T11:46:38.647Z",
+          "price": 74415.92,
+          "realizedPct": 0.513
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-09T11:31:39.599Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T11:46:38.647Z",
+          "price": 74415.92,
+          "realizedPct": 0.513
         },
         {
           "key": "M30",
@@ -6232,7 +6242,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.513,
+        "maePct": 0.513
+      }
     },
     {
       "key": "news:forex:EUR/GBP: Sterling still too strong vs Euro – ING",
@@ -6250,25 +6265,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-09T11:17:39.599Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T11:46:38.647Z",
+          "price": 1.1197,
+          "realizedPct": 0
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-09T11:21:39.599Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T11:46:38.647Z",
+          "price": 1.1197,
+          "realizedPct": 0
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-09T11:31:39.599Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T11:46:38.647Z",
+          "price": 1.1197,
+          "realizedPct": 0
         },
         {
           "key": "M30",
@@ -6318,7 +6333,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0,
+        "maePct": 0
+      }
     },
     {
       "key": "news:forex:US Dollar: Correction risk as rates ease – ING",
@@ -6336,25 +6356,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-09T11:17:39.599Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T11:46:38.647Z",
+          "price": 1.1197,
+          "realizedPct": 0
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-09T11:21:39.599Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T11:46:38.647Z",
+          "price": 1.1197,
+          "realizedPct": 0
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-09T11:31:39.599Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T11:46:38.647Z",
+          "price": 1.1197,
+          "realizedPct": 0
         },
         {
           "key": "M30",
@@ -6404,7 +6424,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0,
+        "maePct": 0
+      }
     }
   ],
   "results": [
