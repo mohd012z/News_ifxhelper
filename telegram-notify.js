@@ -902,7 +902,7 @@ if (require.main === module) (async () => {
   // Priority order: calendar events first (soonest first), then news/speaker alerts (highest
   // Impact tier first), then price-track results last - see comments above each push(). A stable
   // sort so items with an identical priority keep their natural (fetch/detection) order.
-  toSend = await Promise.all(toSend); // candidate builders fetch per-symbol BBMA signals (10-min in-process cache)
+  { const resolved = await Promise.all(toSend); toSend.length = 0; toSend.push(...resolved); } // candidate builders fetch per-symbol BBMA signals (10-min in-process cache)
   toSend.sort((a, b) => a.category - b.category || a.tiebreak - b.tiebreak);
 
   let sentCount = 0, failCount = 0, rateLimitedCount = 0, skippedNoCreds = false;
