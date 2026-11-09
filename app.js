@@ -1798,8 +1798,10 @@
     var c = currentPriceFor(symbol);
     if (hist.length >= 2) return { h: Math.max.apply(null, hist), l: Math.min.apply(null, hist), c: c != null ? c : hist[hist.length - 1] };
     if (symbol === "XAU/USD" && D.ranges && D.ranges.prefill) {
+      // Last-resort fallback only: STATIC snapshot frozen in xauusd-data.js (2026-09-16),
+      // labelled (stale) so it is never mistaken for live data.
       var pf = D.ranges.prefill;
-      if (pf.high != null && pf.low != null) return { h: pf.high, l: pf.low, c: pf.prevClose != null ? pf.prevClose : pf.open };
+      if (pf.high != null && pf.low != null) return { h: pf.high, l: pf.low, c: pf.prevClose != null ? pf.prevClose : pf.open, stale: true };
     }
     return null;
   }
@@ -1827,7 +1829,7 @@
         pivotRealOHLC(pivotSymbol, pivotTf).then(function (realOHLC) {
           if (!realOHLC) {
             var det2 = autoDetectOHLC(pivotSymbol);
-            if (det2) { realOHLC = det2; pivotAuto[key] = "tick"; }
+            if (det2) { realOHLC = det2; pivotAuto[key] = det2.stale ? "stale" : "tick"; }
           } else { pivotAuto[key] = "real:" + PIVOT_TF_UP[pivotTf]; }
           if (realOHLC) {
             if (!$("#pv-high").value && realOHLC.h != null) $("#pv-high").value = round5(realOHLC.h);
@@ -1838,7 +1840,15 @@
         });
       } else {
         var det = autoDetectOHLC(pivotSymbol);
-        if (det) { src = det; tick = true; }
+        if (det) {
+          src = det;
+          tick = !det.stale;
+          $( "#pv-high" ).value = round5(det.h);
+          $( "#pv-low" ).value = round5(det.l);
+          $( "#pv-close" ).value = round5(det.c);
+          pivotAuto[key] = tick ? "tick" : "stale";
+          renderPivot();
+        }
       }
     }
     if (!src) {
@@ -1869,6 +1879,7 @@
       var st = pivotAuto[key];
       if (st && st.indexOf("real:") === 0) src.textContent = "Previous completed " + st.slice(5) + " bar for " + esc(pivotSymbol) + " (real Dukascopy history — the selected timeframe's previous close; edit any field to override).";
       else if (st === "tick") src.textContent = "Auto-detected from live ticks collected this session (edit any field to override and save your own).";
+      else if (st === "stale") src.textContent = "No live history available — showing a STATIC fallback snapshot (frozen 2026-09-16, not current market data). Edit any field to set your own."
       else src.textContent = "Using your saved values for " + esc(pivotSymbol) + " / " + pivotTf.toUpperCase() + ".";
     }
     var rows = pivotRows(h, l, c);
