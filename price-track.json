@@ -6578,9 +6578,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-09T22:46:40.662Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T22:46:50.111Z",
+          "price": 75144.94,
+          "realizedPct": 0.791
         },
         {
           "key": "D1",
@@ -6609,7 +6609,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.505,
+        "mfePct": 0.791,
         "maePct": 0.029
       }
     },
@@ -6669,9 +6669,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-09T22:46:40.662Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T22:46:50.111Z",
+          "price": 1.1222,
+          "realizedPct": 0.107
         },
         {
           "key": "D1",
@@ -6720,33 +6720,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-09T22:17:37.229Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T22:46:50.111Z",
+          "price": 75144.94,
+          "realizedPct": 0.252
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-09T22:21:37.229Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T22:46:50.111Z",
+          "price": 75144.94,
+          "realizedPct": 0.252
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-09T22:31:37.229Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T22:46:50.111Z",
+          "price": 75144.94,
+          "realizedPct": 0.252
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-09T22:46:37.229Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T22:46:50.111Z",
+          "price": 75144.94,
+          "realizedPct": 0.252
         },
         {
           "key": "H1",
@@ -6788,7 +6788,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.252,
+        "maePct": 0.252
+      }
     },
     {
       "key": "news:forex:Banxico’s Governor Rodriguez: Considering rate cut since September – El Financiero",
@@ -6806,33 +6811,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-09T22:17:37.229Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T22:46:50.111Z",
+          "price": 1.1222,
+          "realizedPct": -0.036
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-09T22:21:37.229Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T22:46:50.111Z",
+          "price": 1.1222,
+          "realizedPct": -0.036
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-09T22:31:37.229Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T22:46:50.111Z",
+          "price": 1.1222,
+          "realizedPct": -0.036
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-09T22:46:37.229Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T22:46:50.111Z",
+          "price": 1.1222,
+          "realizedPct": -0.036
         },
         {
           "key": "H1",
@@ -6874,7 +6879,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.036,
+        "maePct": -0.036
+      }
     }
   ],
   "results": [
