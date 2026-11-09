@@ -1766,6 +1766,14 @@
    * null = no source (non-worker host / no data) -> caller falls back. */
   var PIVOT_TF_UP = { h1: "H1", h4: "H4", d1: "D1" };
   var PIVOT_TF_MS = { H1: 3600000, H4: 14400000, D1: 86400000 };
+  function pivotBarTime(tf) {
+    var hit = pivotHistCache[PIVOT_TF_UP[tf]];
+    if (!hit || !hit.ohlc || !hit.ohlc.t) return null;
+    var d = new Date(hit.ohlc.t);
+    var DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    var p = function (n) { return (n < 10 ? "0" : "") + n; };
+    return DAYS[d.getUTCDay()] + " " + d.getUTCFullYear() + "-" + p(d.getUTCMonth() + 1) + "-" + p(d.getUTCDate()) + " " + p(d.getUTCHours()) + ":" + p(d.getUTCMinutes()) + "Z";
+  }
   var pivotHistCache = {};
   function pivotRealOHLC(symbol, tf) {
     if (symbol !== "XAU/USD" || !PIVOT_TF_UP[tf]) return Promise.resolve(null);
@@ -1783,9 +1791,9 @@
           // bar whose bucket has fully elapsed. Robust to either snapshot lag.
           var now = Date.now(), base = PIVOT_TF_MS[tfKey];
           for (var i = bars.length - 1; i >= 0; i--) {
-            if (bars[i].t + base <= now) { ohlc = { h: bars[i].h, l: bars[i].l, c: bars[i].c }; break; }
+            if (bars[i].t + base <= now) { ohlc = { h: bars[i].h, l: bars[i].l, c: bars[i].c, t: bars[i].t }; break; }
           }
-          if (!ohlc && bars.length >= 2) { var p2 = bars[bars.length - 2]; ohlc = { h: p2.h, l: p2.l, c: p2.c }; }
+          if (!ohlc && bars.length >= 2) { var p2 = bars[bars.length - 2]; ohlc = { h: p2.h, l: p2.l, c: p2.c, t: p2.t }; }
         }
         if (ohlc) pivotHistCache[tfKey] = { at: Date.now(), ohlc: ohlc };
         return ohlc;
@@ -1877,7 +1885,10 @@
     }
     if (src) {
       var st = pivotAuto[key];
-      if (st && st.indexOf("real:") === 0) src.textContent = "Previous completed " + st.slice(5) + " bar for " + esc(pivotSymbol) + " (real Dukascopy history — the selected timeframe's previous close; edit any field to override).";
+      if (st && st.indexOf("real:") === 0) {
+        var barT = (typeof pivotBarTime === "function") ? pivotBarTime(pivotTf) : null;
+        src.textContent = "Previous completed " + st.slice(5) + " bar for " + esc(pivotSymbol) + " — bar " + (barT ? barT : "n/a") + " (real Dukascopy history, the selected timeframe's previous close" + (barT && barT.indexOf("Sat") > -1 ? " · weekend gap: the prior session ended before the market closed" : "") + "; edit any field to override).";
+      }
       else if (st === "tick") src.textContent = "Auto-detected from live ticks collected this session (edit any field to override and save your own).";
       else if (st === "stale") src.textContent = "No live history available — showing a STATIC fallback snapshot (frozen 2026-09-16, not current market data). Edit any field to set your own."
       else src.textContent = "Using your saved values for " + esc(pivotSymbol) + " / " + pivotTf.toUpperCase() + ".";
