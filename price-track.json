@@ -6032,9 +6032,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-09T15:16:39.599Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T15:46:39.238Z",
+          "price": 4128.1,
+          "realizedPct": 0.48
         },
         {
           "key": "D1",
@@ -6063,7 +6063,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.397,
+        "mfePct": 0.48,
         "maePct": 0.212
       }
     },
@@ -6123,9 +6123,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-09T15:16:39.599Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T15:46:39.239Z",
+          "price": 75470.58,
+          "realizedPct": 1.937
         },
         {
           "key": "D1",
@@ -6154,7 +6154,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.91,
+        "mfePct": 1.937,
         "maePct": 0.5
       }
     },
@@ -6214,9 +6214,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-09T15:16:39.599Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T15:46:39.239Z",
+          "price": 75470.58,
+          "realizedPct": 1.937
         },
         {
           "key": "D1",
@@ -6245,7 +6245,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.91,
+        "mfePct": 1.937,
         "maePct": 0.5
       }
     },
@@ -6305,9 +6305,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-09T15:16:39.599Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T15:46:39.239Z",
+          "price": 1.1196,
+          "realizedPct": -0.009
         },
         {
           "key": "D1",
@@ -6396,9 +6396,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-09T15:16:39.599Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T15:46:39.239Z",
+          "price": 1.1196,
+          "realizedPct": -0.009
         },
         {
           "key": "D1",
