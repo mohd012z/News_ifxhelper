@@ -170,6 +170,15 @@ function sessionAtMyt(sessions, hour) {
 // ==================== Currency / pair inference (shared-market-logic.js - see that file for why) ====================
 const SharedLogic = require('./shared-market-logic.js');
 const MarketReview = require('./lib/market-signal-review.js');
+const BBMASignals = require('./lib/bbma-telegram-signals.js');
+/* Focus symbol for a tab (same resolution the card itself uses) - reused to fetch the
+ * per-timeframe BBMA signals that mirror the dashboard matrix. */
+function focusSymbolFor(MARKET_DATA, tab, text) {
+  if (tab.id === 'gold') return 'XAU/USD';
+  if (tab.id === 'crypto') return 'BTC/USD';
+  const f = resolveForexFocus(MARKET_DATA, tab, text || '');
+  return (f && f.sym) || 'EUR/USD';
+}
 const eventCurrency = SharedLogic.eventCurrency;
 function bestPairFor(MARKET_DATA, ccy) { return SharedLogic.bestPairFor(MARKET_DATA.fxPairs, MARKET_DATA.currencies, ccy); }
 /* Live snapshot price for a named pair (e.g. "USD/JPY") from fxPairs, or null if not loaded. */
@@ -325,7 +334,7 @@ function eventCard(MARKET_DATA, atrData, e, pool) {
   ].filter(Boolean).join('\n');
   return { caption, chartUrl: chartImageUrl(top ? top.pair : (ccy || e.event.slice(0, 20)), top ? +top.s.score.toFixed(2) : 0, signal) };
 }
-function newsCard(MARKET_DATA, tab, n, atrData, quoteSnapshots, atrMtfData, spotMtfData) {
+function newsCard(MARKET_DATA, tab, n, atrData, quoteSnapshots, atrMtfData, spotMtfData, bbmaSignal) {
   const forexFocus = tab.id === 'forex' ? resolveForexFocus(MARKET_DATA, tab, `${n.title || ''} ${n.summary || ''}`) : null;
   const focusSym = tab.id === 'gold' ? 'XAU/USD' : tab.id === 'crypto' ? 'BTC/USD (+ ETH/USD)' : forexFocus.sym;
   const chart = TF_CHART[n.tf] || n.tf || '—';
@@ -377,6 +386,7 @@ function newsCard(MARKET_DATA, tab, n, atrData, quoteSnapshots, atrMtfData, spot
     IMPACT_TIER_LABEL[impactTier(n.impactPct)],
     movementLabel(n.impactPct),
     priceLine,
+    BBMASignals.renderLines(bbmaSignal).join('\n'),
     `⏱ Timeframe: ${esc(n.tf || '—')} → chart: <b>${esc(chart)}</b>`,
     `🕒 News time (MYT): <b>${esc(n.time || 'unknown time')}</b>`,
     `📝 ${esc(n.title)}`,
@@ -386,7 +396,7 @@ function newsCard(MARKET_DATA, tab, n, atrData, quoteSnapshots, atrMtfData, spot
   ].filter(Boolean).join('\n');
   return { caption, chartUrl: chartImageUrl(focusSym, n.impactPct || 0, n.signal) };
 }
-function speakerCard(MARKET_DATA, tab, s) {
+function speakerCard(MARKET_DATA, tab, s, bbmaSignal) {
   const forexFocus = tab.id === 'forex' ? resolveForexFocus(MARKET_DATA, tab, `${s.name || ''} ${s.role || ''} ${s.quote || ''}`) : null;
   const focusSym = tab.id === 'gold' ? 'XAU/USD' : tab.id === 'crypto' ? 'BTC/USD (+ ETH/USD)' : forexFocus.sym;
   const arrow = s.side === 'hawkish' ? '🦅 HAWKISH' : '🕊️ DOVISH';
@@ -401,6 +411,7 @@ function speakerCard(MARKET_DATA, tab, s) {
     IMPACT_TIER_LABEL[impactTier(s.impactPct)],
     movementLabel(s.impactPct),
     priceLine,
+    BBMASignals.renderLines(bbmaSignal).join('\n'),
     `🕒 Speech time (MYT): <b>${esc(s.date || 'unknown time')}</b>`,
     `📝 “${esc(s.quote)}”`,
     `🔗 ${esc(s.source || 'Source')}${s.url ? ': ' + s.url : ''}`,
@@ -745,7 +756,8 @@ if (require.main === module) (async () => {
     const sampleAutoByTab = NEWS_AUTO && NEWS_AUTO.byTab && NEWS_AUTO.byTab[sampleTab.id];
     const sampleNews = ((sampleAutoByTab && sampleAutoByTab.news) || [])[0] || (sampleTab.news || [])[0];
     const evtCard = sampleEvent ? eventCard(MARKET_DATA, ATR_DATA, sampleEvent, COMMENTARY_POOL) : null;
-    const nwsCard = sampleNews ? newsCard(MARKET_DATA, sampleTab, sampleNews, ATR_DATA, NEWS_AUTO && NEWS_AUTO.priceTrack && NEWS_AUTO.priceTrack.quoteSnapshots, ATR_MTF, SPOT_MTF) : null;
+    const sampleBBMA = sampleNews ? await BBMASignals.buildSignalFor(focusSymbolFor(MARKET_DATA, sampleTab, `${sampleNews.title || ''} ${sampleNews.summary || ''}`)) : null;
+    const nwsCard = sampleNews ? newsCard(MARKET_DATA, sampleTab, sampleNews, ATR_DATA, NEWS_AUTO && NEWS_AUTO.priceTrack && NEWS_AUTO.priceTrack.quoteSnapshots, ATR_MTF, SPOT_MTF, sampleBBMA) : null;
     console.log('===== EVENT CARD PREVIEW =====\n' + (evtCard ? evtCard.caption + '\n[chart] ' + evtCard.chartUrl : '(no incoming events loaded)'));
     console.log('\n===== NEWS CARD PREVIEW =====\n' + (nwsCard ? nwsCard.caption + '\n[chart] ' + nwsCard.chartUrl : '(no news loaded)'));
     if (TOKEN && CHAT_ID && evtCard) {
@@ -859,12 +871,18 @@ if (require.main === module) (async () => {
     ((autoByTab && autoByTab.news) || []).filter(n => n.signal && n.signal !== 'NEUTRAL').forEach(n => {
       const key = 'news:' + n.title;
       if (seen.has(key)) return;
-      toSend.push({ key, card: newsCard(MARKET_DATA, tab, n, ATR_DATA, NEWS_AUTO && NEWS_AUTO.priceTrack && NEWS_AUTO.priceTrack.quoteSnapshots, ATR_MTF, SPOT_MTF), category: 1, tiebreak: IMPACT_RANK[SharedLogic.impactTier(n.impactPct)] });
+      toSend.push((async () => {
+        const bbmaSignal = await BBMASignals.buildSignalFor(focusSymbolFor(MARKET_DATA, tab, `${n.title || ''} ${n.summary || ''}`));
+        return { key, card: newsCard(MARKET_DATA, tab, n, ATR_DATA, NEWS_AUTO && NEWS_AUTO.priceTrack && NEWS_AUTO.priceTrack.quoteSnapshots, ATR_MTF, SPOT_MTF, bbmaSignal), category: 1, tiebreak: IMPACT_RANK[SharedLogic.impactTier(n.impactPct)] };
+      })());
     });
     ((autoByTab && autoByTab.speakers) || []).filter(s => s.side).forEach(s => {
       const key = 'spk:' + s.name + '|' + s.date;
       if (seen.has(key)) return;
-      toSend.push({ key, card: speakerCard(MARKET_DATA, tab, s), category: 1, tiebreak: IMPACT_RANK[SharedLogic.impactTier(s.impactPct)] });
+      toSend.push((async () => {
+        const bbmaSignal = await BBMASignals.buildSignalFor(focusSymbolFor(MARKET_DATA, tab, `${s.name || ''} ${s.role || ''} ${s.quote || ''}`));
+        return { key, card: speakerCard(MARKET_DATA, tab, s, bbmaSignal), category: 1, tiebreak: IMPACT_RANK[SharedLogic.impactTier(s.impactPct)] };
+      })());
     });
   });
 
@@ -884,6 +902,7 @@ if (require.main === module) (async () => {
   // Priority order: calendar events first (soonest first), then news/speaker alerts (highest
   // Impact tier first), then price-track results last - see comments above each push(). A stable
   // sort so items with an identical priority keep their natural (fetch/detection) order.
+  toSend = await Promise.all(toSend); // candidate builders fetch per-symbol BBMA signals (10-min in-process cache)
   toSend.sort((a, b) => a.category - b.category || a.tiebreak - b.tiebreak);
 
   let sentCount = 0, failCount = 0, rateLimitedCount = 0, skippedNoCreds = false;
