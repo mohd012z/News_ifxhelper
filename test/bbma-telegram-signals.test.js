@@ -47,11 +47,17 @@ assert.ok(card.caption.includes('📊 BBMA'), 'newsCard must carry the compact B
 assert.ok(card.caption.includes('YAHOO_HTTP_429'), 'fail-closed reason must be visible');
 assert.ok(card.caption.includes('ORDER CALL: SELL'));
 
-// ready signal renders per-TF rows
+// ready signal renders the compact BBMA line (symbol + arrows), no per-TF rows in the card
 const readyCard = N.newsCard(MD, MD.tabs[0], { title: 'Fed holds rates', summary: '', signal: 'SELL', impactPct: -0.26, impact: 'bearish', tf: 'H1', time: '13:19', source: 'Test', url: 'https://example.com' }, null, null, null, null,
   B.compose('EUR/USD', 'Yahoo EURUSD=X proxy', { H1: bars }));
-assert.ok(readyCard.caption.includes('Yahoo EURUSD=X proxy'));
-assert.ok(readyCard.caption.includes('H1:'));
+assert.ok(readyCard.caption.includes('📊 BBMA EUR/USD'));
+assert.ok(readyCard.caption.includes('↑') || readyCard.caption.includes('↓') || readyCard.caption.includes('·'), 'arrows/neutral marks in compact line');
+assert.ok(!readyCard.caption.includes('H1: '), 'compact card has no per-TF rows');
+
+// renderLines (full block) uses arrow symbols for directions (Anam: "use symbol for arrow up/down")
+const fullLines = B.renderLines(B.compose('EUR/USD', 'test', { H1: bars }));
+assert.ok(fullLines.some(l => /[↑↓]/.test(l)), 'full block rows carry ↑/↓ symbols');
+assert.ok(!fullLines.some(l => /\bUP\b|\bDOWN\b/.test(l)), 'no bare UP/DOWN words in full block rows');
 
 // speakerCard also carries the block
 const spk = N.speakerCard(MD, MD.tabs[0], { name: 'Fed Chair', role: 'Fed', quote: 'inflation is high', side: 'hawkish', signal: 'BUY', impactPct: 0.5, date: '13:00', source: 'Test', url: 'https://example.com' },
