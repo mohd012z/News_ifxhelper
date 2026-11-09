@@ -4675,9 +4675,9 @@
           "key": "D1",
           "minutes": 1440,
           "dueAt": "2026-11-09T19:00:56.423Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T19:16:36.495Z",
+          "price": 1.1208,
+          "realizedPct": 0.601
         },
         {
           "key": "W1",
@@ -4698,7 +4698,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.09,
+        "mfePct": 0.601,
         "maePct": 0.009
       }
     },
@@ -6447,25 +6447,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-09T18:47:40.662Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T19:16:36.495Z",
+          "price": 4112.6,
+          "realizedPct": -0.066
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-09T18:51:40.662Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T19:16:36.495Z",
+          "price": 4112.6,
+          "realizedPct": -0.066
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-09T19:01:40.662Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T19:16:36.495Z",
+          "price": 4112.6,
+          "realizedPct": -0.066
         },
         {
           "key": "M30",
@@ -6515,7 +6515,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.066,
+        "maePct": -0.066
+      }
     },
     {
       "key": "news:crypto:Hot U.S. inflation hasn&#x2019;t cooled off. Rising consumer prices to keep Fed rate hike on track.",
@@ -6533,25 +6538,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-09T18:47:40.662Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T19:16:36.495Z",
+          "price": 74576.76,
+          "realizedPct": 0.029
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-09T18:51:40.662Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T19:16:36.495Z",
+          "price": 74576.76,
+          "realizedPct": 0.029
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-09T19:01:40.662Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T19:16:36.495Z",
+          "price": 74576.76,
+          "realizedPct": 0.029
         },
         {
           "key": "M30",
@@ -6601,7 +6606,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.029,
+        "maePct": 0.029
+      }
     },
     {
       "key": "news:forex:Hot U.S. inflation hasn&#x2019;t cooled off. Rising consumer prices to keep Fed rate hike on track.",
@@ -6619,25 +6629,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-09T18:47:40.662Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T19:16:36.495Z",
+          "price": 1.1208,
+          "realizedPct": -0.018
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-09T18:51:40.662Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T19:16:36.495Z",
+          "price": 1.1208,
+          "realizedPct": -0.018
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-09T19:01:40.662Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T19:16:36.495Z",
+          "price": 1.1208,
+          "realizedPct": -0.018
         },
         {
           "key": "M30",
@@ -6687,7 +6697,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.018,
+        "maePct": -0.018
+      }
     }
   ],
   "results": [
