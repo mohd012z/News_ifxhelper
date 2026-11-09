@@ -31,7 +31,10 @@ const path = require('path');
 
 const STATE_FILE = path.join(__dirname, '.news-alert-state.json');
 const TOKEN = process.env.TELEGRAM_BOT_TOKEN;
-const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
+// Delivery destination: the @ifxhelper2 channel (TELEGRAM_CHANNEL_ID) is the
+// broadcast destination Anam asked for; TELEGRAM_CHAT_ID stays the DM fallback
+// (used when no channel is configured, e.g. local previews).
+const CHAT_ID = process.env.TELEGRAM_CHANNEL_ID || process.env.TELEGRAM_CHAT_ID;
 const PREVIEW = process.argv.includes('--preview');
 const REMINDERS = process.argv.includes('--reminders');
 const DAILY = process.argv.includes('--daily-summary');

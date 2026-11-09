@@ -45,6 +45,75 @@ function isoToday() {
   return new Date(Date.now() + 3600000).toISOString().slice(0, 10); // +1h: `to` is exclusive
 }
 
+// Yahoo (GC=F) backfill config — same mapping the worker uses for its /api/candles
+// fallback, so history stays one instrument (gold).
+const YAHOO_BASE = "https://query1.finance.yahoo.com/v8/finance/chart/";
+const YAHOO_UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0 Safari/537.36";
+const TF_YAHOO = {
+  M5: { interval: "5m", range: "1mo", baseMs: 300000 },
+  M15: { interval: "15m", range: "2mo", baseMs: 900000 },
+  M30: { interval: "30m", range: "3mo", baseMs: 1800000 },
+  H1: { interval: "60m", range: "1mo", baseMs: 3600000 },
+  H4: { interval: "60m", range: "3mo", baseMs: 14400000, aggregate: true },
+  D1: { interval: "60m", range: "6mo", baseMs: 86400000, aggregate: true },
+  W1: { interval: "60m", range: "2y", baseMs: 604800000, aggregate: true },
+  MN1: { interval: "1mo", range: "2y", baseMs: 2592000000 }
+};
+
+function aggregateBars(bars, baseMs) {
+  const out = [];
+  for (const b of bars) {
+    const bucket = Math.floor(b.t / baseMs) * baseMs;
+    const last = out[out.length - 1];
+    if (last && last.t === bucket) {
+      if (b.h > last.h) last.h = b.h;
+      if (b.l < last.l) last.l = b.l;
+      last.c = b.c;
+    } else {
+      out.push({ t: bucket, o: b.o, h: b.h, l: b.l, c: b.c });
+    }
+  }
+  return out;
+}
+
+async function fetchYahooBars(tfKey) {
+  const cfg = TF_YAHOO[tfKey];
+  if (!cfg) return [];
+  let upstream = null;
+  try {
+    // Yahoo free tier = 8 credits/min per IP. The poller runs every 30 min, so
+    // one burst of ~5 TFs is fine, but back-to-back manual runs can 429 hard;
+    // retry with long backoff (a 429 here just means "keep the Dukascopy bars").
+    for (let attempt = 0; attempt < 6; attempt++) {
+      upstream = await fetch(`${YAHOO_BASE}GC=F?interval=${cfg.interval}&range=${cfg.range}`, {
+        cache: "no-store",
+        headers: { "User-Agent": YAHOO_UA, "Accept": "application/json" }
+      });
+      if (upstream.status === 429) { await new Promise((r) => setTimeout(r, 8000 * (attempt + 1))); continue; }
+      break;
+    }
+  } catch (e) { return []; }
+  if (!upstream || !upstream.ok) return [];
+  let doc = null;
+  try { doc = await upstream.json(); } catch (e) { return []; }
+  const res = doc && doc.chart && doc.chart.result && doc.chart.result[0];
+  if (!res || !res.timestamp) return [];
+  const q = (res.indicators && res.indicators.quote && res.indicators.quote[0]) || {};
+  const raw = res.timestamp.map((t, i) => ({
+    t: t * 1000, o: q.open[i], h: q.high[i], l: q.low[i], c: q.close[i]
+  })).filter((b) => b.o != null && b.h != null && b.l != null && b.c != null);
+  // GC=F bars are aligned to COMEX session times, NOT UTC buckets (the worker
+  // rebuckets on the client for the same reason). Aggregate to canonical UTC
+  // buckets so the result splices into the Dukascopy UTC-aligned series.
+  return aggregateBars(raw, cfg.baseMs);
+}
+
+/* Dukascopy's feed can lag (observed ~6h: newest H1 bar = previous evening's
+ * reopen while gold trades ~70 higher). When that happens the chart shows a
+ * time gap and the "previous completed candle" pivot anchors go stale. Backfill
+ * the gap with Yahoo GC=F bars (same instrument, futures — consistent with the
+ * worker's existing Yahoo fallback): drop the still-forming Yahoo bucket and
+ * append only bars STRICTLY NEWER than the Dukascopy last bar. */
 // ISO-8601 week bucketing (weeks start Monday 00:00 UTC) — same boundaries
 // TradingView uses for its W1 chart.
 function isoWeekStartMs(ms) {
@@ -104,17 +173,44 @@ async function fetchTf(tf, fromDays, limit, resample) {
   const started = Date.now();
   const bars = {};
   let failures = 0;
+  const backfills = [];
   for (const [key, cfg] of Object.entries(RANGES)) {
     try {
       const got = await fetchTf(cfg.tf, cfg.fromDays, cfg.limit, cfg.resample);
       if (!got.length) throw new Error('empty response');
       bars[key] = got;
       console.log(`${key}: ${got.length} bars (last close ${got[got.length - 1].c})`);
+      // Only backfill intraday TFs (Dukascopy lag matters on M5..H4; D1/W1/MN1
+      // are full-period bars where the newest is always the forming one and the
+      // pivot logic already skips it).
+      if (["M5", "M15", "M30", "H1", "H4"].includes(key)) {
+        const lastDuk = got[got.length - 1];
+        const cfgY = TF_YAHOO[key];
+        const limit = cfg.limit;
+        backfills.push((async () => {
+          const yb = await fetchYahooBars(key);
+          if (!yb.length) return got;
+          const now = Date.now();
+          const out = got.slice();
+          for (const b of yb) {
+            if (b.t <= lastDuk.t) continue;       // only fill the gap
+            if (b.t + cfgY.baseMs > now) break;   // skip still-forming bucket
+            out.push(b);
+          }
+          const gained = out.length - got.length;
+          if (gained > 0) console.log(`${key}: +${gained} Yahoo GC=F bars backfilled the Dukascopy lag (newest ${new Date(out[out.length - 1].t).toISOString()})`);
+          return out.slice(-limit);
+        })().then((r) => ({ key, bars: r }), () => ({ key, bars: got })));
+      }
     } catch (e) {
       failures++;
       console.error(`${key}: FAILED — ${e.message}`);
     }
   }
+  await Promise.all(backfills.map(async (p) => {
+    const r = await p;
+    bars[r.key] = r.bars;
+  }));
   if (Object.keys(bars).length === 0) {
     console.error('all TFs failed; keeping the previous snapshot');
     process.exit(1);
@@ -130,9 +226,9 @@ async function fetchTf(tf, fromDays, limit, resample) {
   }
   const doc = {
     generatedAt: new Date().toISOString(),
-    source: 'dukascopy xauusd (bid, spot)',
+    source: 'dukascopy xauusd (bid, spot) + yahoo GC=F backfill',
     instrument: INSTRUMENT,
-    note: 'Real OHLC for the BBMA chart. Futures/spot basis: this is SPOT (matches TradingView XAUUSD).',
+    note: 'Real OHLC for the BBMA chart. History = Dukascopy SPOT; the recent Dukascopy lag (when it lags) is backfilled with Yahoo GC=F so the current candle and previous-candle pivots stay current.',
     bars
   };
   fs.writeFileSync(OUT, JSON.stringify(doc));
