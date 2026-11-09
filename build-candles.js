@@ -79,17 +79,19 @@ function aggregateBars(bars, baseMs) {
 async function fetchYahooBars(tfKey) {
   const cfg = TF_YAHOO[tfKey];
   if (!cfg) return [];
+  // Best-effort: Yahoo free tier is 8 credits/min per IP and can 429 hard. Try
+  // both query hosts, short backoff, and FAIL FAST (keep the Dukascopy bars) -
+  // a 429 here is not an error, the next 30-min poller cycle has fresh budget.
+  const hosts = ["https://query1.finance.yahoo.com", "https://query2.finance.yahoo.com"];
   let upstream = null;
   try {
-    // Yahoo free tier = 8 credits/min per IP. The poller runs every 30 min, so
-    // one burst of ~5 TFs is fine, but back-to-back manual runs can 429 hard;
-    // retry with long backoff (a 429 here just means "keep the Dukascopy bars").
-    for (let attempt = 0; attempt < 6; attempt++) {
-      upstream = await fetch(`${YAHOO_BASE}GC=F?interval=${cfg.interval}&range=${cfg.range}`, {
+    for (let attempt = 0; attempt < 3; attempt++) {
+      const host = hosts[attempt % hosts.length];
+      upstream = await fetch(`${host}/v8/finance/chart/GC=F?interval=${cfg.interval}&range=${cfg.range}`, {
         cache: "no-store",
         headers: { "User-Agent": YAHOO_UA, "Accept": "application/json" }
       });
-      if (upstream.status === 429) { await new Promise((r) => setTimeout(r, 8000 * (attempt + 1))); continue; }
+      if (upstream.status === 429) { await new Promise((r) => setTimeout(r, 3000)); continue; }
       break;
     }
   } catch (e) { return []; }
