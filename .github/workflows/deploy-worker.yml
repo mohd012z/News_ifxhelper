@@ -35,19 +35,18 @@ jobs:
 
       - name: Verify deployed Worker matches current main
         run: |
-          node - <<'NODE'
-          const crypto=require('crypto');
-          const fs=require('fs');
+          cat > /tmp/ifx-verify.mjs <<'VERIFY_MJS'
+          import crypto from 'crypto';
+          import fs from 'fs';
           const base='https://gentle-violet-4a79.ifxhelper.workers.dev';
           const raw='https://raw.githubusercontent.com/mohd012z/News_ifxhelper/main/';
-          // Self-maintaining: read the expected version from the LOCAL checkout
-          // (the exact commit this run deploys) so a version bump never breaks
-          // the verify step and main-lag can't cause a false negative.
+          // Self-maintaining: expected version = the LOCAL checkout's WORKER_VERSION
+          // (the exact commit this run deploys), so version bumps never break verify.
           const workerSrc=fs.readFileSync('worker/index.mjs','utf8');
           const vm=workerSrc.match(/const WORKER_VERSION = "([^"]+)"/);
           if(!vm) throw new Error('WORKER_VERSION not found in worker/index.mjs');
           const expectedWorkerVersion=vm[1];
-
+          const sleep=ms=>new Promise(r=>setTimeout(r,ms));
           async function fetchText(url,type){
             const r=await fetch(url+(url.includes('?')?'&':'?')+'_verify='+Date.now(),{cache:'no-store'});
             const ct=(r.headers.get('content-type')||'').toLowerCase();
@@ -56,39 +55,54 @@ jobs:
             return {r,text:await r.text()};
           }
           const sha=s=>crypto.createHash('sha256').update(s).digest('hex');
-
-          const healthRes=await fetch(base+'/api/health?verify='+Date.now(),{cache:'no-store'});
-          if(!healthRes.ok) throw new Error('/api/health HTTP '+healthRes.status);
-          const health=await healthRes.json();
-          if(!health.ok||health.service!=='ifxhelper-news-worker') throw new Error('unexpected health payload');
+          // CF edge propagation can take a few seconds after a deploy: retry the
+          // version check up to ~90s before failing.
+          let health=null;
+          for(let i=0;i<9;i++){
+            const hr=await fetch(base+'/api/health?verify='+Date.now(),{cache:'no-store'});
+            if(hr.ok){ health=await hr.json(); if(health.workerVersion===expectedWorkerVersion) break; }
+            console.log('worker still at '+String(health&&health.workerVersion)+' (want '+expectedWorkerVersion+'), retry '+i);
+            await sleep(10000);
+          }
+          if(!health||!health.ok||health.service!=='ifxhelper-news-worker') throw new Error('unexpected health payload');
           if(health.workerVersion!==expectedWorkerVersion) throw new Error('stale Worker revision: '+String(health.workerVersion||'missing'));
           if(health.sourceMode!=='github-main-live-proxy') throw new Error('unexpected Worker source mode');
-
+          // app.js / index.html / news-auto.js must serve current-main content (they
+          // change only on feature commits, so main-lag is rare). The 30-min poller
+          // also regenerates data-manifest.json, so a manifest SHA mismatch with
+          // main is expected noise -> warn only, never fail the deploy on it.
           const files=[
-            ['index.html',/text\/html/],
-            ['app.js',/javascript/],
-            ['news-auto.js',/javascript/],
-            ['data-manifest.json',/application\/json/]
+            ['index.html',/text\/html/,true],
+            ['app.js',/javascript/,true],
+            ['news-auto.js',/javascript/,true],
+            ['data-manifest.json',/application\/json/,false]
           ];
           const live={};
-          for(const [path,type] of files){
+          for(const [path,type,fatal] of files){
             const a=await fetchText(base+'/'+path,type);
-            const b=await fetchText(raw+path,null);
-            if(sha(a.text)!==sha(b.text)) throw new Error(path+' live SHA differs from current main');
             live[path]=a.text;
             const version=a.r.headers.get('x-ifxhelper-worker-version');
             if(version!==expectedWorkerVersion) throw new Error(path+' missing/current Worker version header');
+            try{
+              const b=await fetchText(raw+path,null);
+              if(sha(a.text)!==sha(b.text)){
+                const msg=path+' live SHA differs from current main';
+                if(fatal) throw new Error(msg);
+                console.log('warn: '+msg+' (30-min poller artifact - tolerated)');
+              }
+            }catch(e){
+              if(fatal) throw e;
+              console.log('warn: could not compare '+path+' against main: '+e.message);
+            }
           }
-
           for(const view of ['today','week','month']){
             if(!live['index.html'].includes('data-view="'+view+'"')) throw new Error('stale index.html: missing '+view+' calendar view');
           }
           if(!live['app.js'].includes('calendarAlertRows("today")')) throw new Error('stale app.js: live Today alerts missing');
           if(!live['app.js'].includes('setInterval(fetchLiveCalendar, 60000)')) throw new Error('stale app.js: live calendar refresh loop missing');
           if(!live['news-auto.js'].includes('"calendarAll"')) throw new Error('stale news-auto.js: calendarAll missing');
-
           const manifest=JSON.parse(live['data-manifest.json']);
           if(Number(manifest.schemaVersion)!==3||!manifest.generatedAt) throw new Error('invalid/stale data manifest');
-
           console.log('Cloudflare Worker verified current:',health.workerVersion,manifest.generatedAt);
-          NODE
+          VERIFY_MJS
+          node /tmp/ifx-verify.mjs
