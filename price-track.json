@@ -4758,9 +4758,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-09T09:31:06.810Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T09:46:37.197Z",
+          "price": 74170.16,
+          "realizedPct": -0.3
         },
         {
           "key": "D1",
@@ -4849,9 +4849,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-09T09:31:06.810Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T09:46:37.197Z",
+          "price": 1.1192,
+          "realizedPct": 0.26
         },
         {
           "key": "D1",
@@ -4880,7 +4880,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.045,
+        "mfePct": 0.26,
         "maePct": 0
       }
     },
@@ -5478,9 +5478,9 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-09T09:18:37.814Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T09:46:37.197Z",
+          "price": 4105,
+          "realizedPct": 0.112
         },
         {
           "key": "H4",
@@ -5569,9 +5569,9 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-09T09:18:37.814Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T09:46:37.197Z",
+          "price": 74170.16,
+          "realizedPct": 0.257
         },
         {
           "key": "H4",
@@ -5660,9 +5660,9 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-09T09:18:37.814Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T09:46:37.197Z",
+          "price": 1.1192,
+          "realizedPct": 0.089
         },
         {
           "key": "H4",
@@ -5699,9 +5699,267 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.063,
+        "mfePct": 0.089,
         "maePct": 0.045
       }
+    },
+    {
+      "key": "news:gold:Gold rebounds as weaker dollar offsets bets on December Fed rate hike",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Gold rebounds as weaker dollar offsets bets on December Fed rate hike",
+      "url": "https://www.investing.com/news/commodities-news/gold-rebounds-above-4100-as-traders-await-us-inflation-data-after-jobs-beat-5010397",
+      "impactScore": -0.15,
+      "priceSource": "yahoo:GC=F",
+      "priceSymbol": "GC=F",
+      "priceAtDetect": 4105,
+      "createdAt": "2026-11-09T09:46:37.198Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-09T09:47:37.198Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-09T09:51:37.198Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-09T10:01:37.198Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-09T10:16:37.198Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-09T10:46:37.198Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-09T13:46:37.198Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-10T09:46:37.198Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-16T09:46:37.198Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-09T09:46:37.198Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:crypto:Gold rebounds as weaker dollar offsets bets on December Fed rate hike",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Gold rebounds as weaker dollar offsets bets on December Fed rate hike",
+      "url": "https://www.investing.com/news/commodities-news/gold-rebounds-above-4100-as-traders-await-us-inflation-data-after-jobs-beat-5010397",
+      "impactScore": -0.14,
+      "priceSource": "coinbase:BTC-USD",
+      "priceSymbol": "BTC-USD",
+      "priceAtDetect": 74170.16,
+      "createdAt": "2026-11-09T09:46:37.199Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-09T09:47:37.199Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-09T09:51:37.199Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-09T10:01:37.199Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-09T10:16:37.199Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-09T10:46:37.199Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-09T13:46:37.199Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-10T09:46:37.199Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-16T09:46:37.199Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-09T09:46:37.199Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:forex:Gold rebounds as weaker dollar offsets bets on December Fed rate hike",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Gold rebounds as weaker dollar offsets bets on December Fed rate hike",
+      "url": "https://www.investing.com/news/commodities-news/gold-rebounds-above-4100-as-traders-await-us-inflation-data-after-jobs-beat-5010397",
+      "impactScore": -0.08,
+      "priceSource": "yahoo:EURUSD=X",
+      "priceSymbol": "EURUSD=X",
+      "priceAtDetect": 1.1192,
+      "createdAt": "2026-11-09T09:46:37.199Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-09T09:47:37.199Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-09T09:51:37.199Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-09T10:01:37.199Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-09T10:16:37.199Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-09T10:46:37.199Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-09T13:46:37.199Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-10T09:46:37.199Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-16T09:46:37.199Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-09T09:46:37.199Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
     }
   ],
   "results": [
