@@ -37,9 +37,16 @@ jobs:
         run: |
           node - <<'NODE'
           const crypto=require('crypto');
+          const fs=require('fs');
           const base='https://gentle-violet-4a79.ifxhelper.workers.dev';
           const raw='https://raw.githubusercontent.com/mohd012z/News_ifxhelper/main/';
-          const expectedWorkerVersion='2026-10-09-live-proxy-v2';
+          // Self-maintaining: read the expected version from the LOCAL checkout
+          // (the exact commit this run deploys) so a version bump never breaks
+          // the verify step and main-lag can't cause a false negative.
+          const workerSrc=fs.readFileSync('worker/index.mjs','utf8');
+          const vm=workerSrc.match(/const WORKER_VERSION = "([^"]+)"/);
+          if(!vm) throw new Error('WORKER_VERSION not found in worker/index.mjs');
+          const expectedWorkerVersion=vm[1];
 
           async function fetchText(url,type){
             const r=await fetch(url+(url.includes('?')?'&':'?')+'_verify='+Date.now(),{cache:'no-store'});
