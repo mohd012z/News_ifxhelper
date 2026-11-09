@@ -33,6 +33,7 @@ assert(app.includes('function hardRefreshShell()'), 'Reload must use the stale-s
 assert(app.includes('searchParams.set("_fresh"'), 'hard refresh must add a cache-busting query');
 assert(app.includes('navigator.serviceWorker.getRegistration()'), 'hard refresh must ask the service worker to update before navigation');
 assert(app.includes('pivotRealOHLC'), 'classic pivot must compute from the selected timeframe previous completed bar');
+assert(app.includes('w1: "W1", mn1: "MN1"'), 'classic pivot must cover W1/MN1 previous completed candles');
 assert(!index.includes('id="chart1"'), 'snapshot charts removed from the Charts tab');
 
 assert(sw.includes('const CACHE = "xaudesk-v13"'), 'service-worker cache version must be v13');

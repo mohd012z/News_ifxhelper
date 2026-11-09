@@ -1764,8 +1764,8 @@
    * PREVIOUS COMPLETED bar (the array's last bar is the in-progress one the
    * live-tick merge keeps updating, so it is excluded). 2-min TTL cache.
    * null = no source (non-worker host / no data) -> caller falls back. */
-  var PIVOT_TF_UP = { h1: "H1", h4: "H4", d1: "D1" };
-  var PIVOT_TF_MS = { H1: 3600000, H4: 14400000, D1: 86400000 };
+  var PIVOT_TF_UP = { h1: "H1", h4: "H4", d1: "D1", w1: "W1", mn1: "MN1" };
+  var PIVOT_TF_MS = { H1: 3600000, H4: 14400000, D1: 86400000, W1: 604800000, MN1: 2592000000 };
   function pivotBarTime(tf) {
     var hit = pivotHistCache[PIVOT_TF_UP[tf]];
     if (!hit || !hit.ohlc || !hit.ohlc.t) return null;
@@ -1838,7 +1838,7 @@
     var src = saved;
     var auto = false;
     var real = false, tick = false;
-    if (!src && (pivotTf === "h1" || pivotTf === "h4" || pivotTf === "d1")) {
+    if (!src && PIVOT_TF_UP[pivotTf]) {
       if (pivotSymbol === "XAU/USD") {
         pivotRealOHLC(pivotSymbol, pivotTf).then(function (realOHLC) {
           if (!realOHLC) {
@@ -1866,7 +1866,7 @@
       }
     }
     if (!src) {
-      var need = (pivotSymbol === "XAU/USD" && (pivotTf === "h1" || pivotTf === "h4" || pivotTf === "d1"));
+      var need = (pivotSymbol === "XAU/USD" && !!PIVOT_TF_UP[pivotTf]);
       pivotAuto[key] = need ? "loading" : "";
     } else {
       pivotAuto[key] = tick ? "tick" : "";
@@ -1883,9 +1883,8 @@
     var h = v("#pv-high"), l = v("#pv-low"), c = v("#pv-close");
     var key = pivotSymbol + "|" + pivotTf;
     if (h == null || l == null || c == null) {
-      var needAuto = (pivotTf === "w1" || pivotTf === "mn1");
       var loading = (pivotAuto[key] === "loading");
-      box.innerHTML = '<div class="note">' + (loading ? "Loading " + esc(pivotSymbol) + " " + pivotTf.toUpperCase() + " history… (pivot = previous completed bar on this timeframe)" : "Enter High, Low and Close for " + esc(pivotSymbol) + " (" + pivotTf.toUpperCase() + ")" + (needAuto ? " — no live weekly/monthly source, so this timeframe is always manual." : " — no auto source available; enter manually.")) + "</div>";
+      box.innerHTML = '<div class="note">' + (loading ? "Loading " + esc(pivotSymbol) + " " + pivotTf.toUpperCase() + " history… (pivot = previous completed bar on this timeframe)" : "Enter High, Low and Close for " + esc(pivotSymbol) + " (" + pivotTf.toUpperCase() + ") — no auto source available; enter manually.") + "</div>";
       if (src) src.textContent = "";
       return;
     }
@@ -1894,7 +1893,10 @@
       if (st && st.indexOf("real:") === 0) {
         var barT = (typeof pivotBarTime === "function") ? pivotBarTime(pivotTf) : null;
         var tfName = st.slice(5);
-        var what = tfName === "D1" ? "last completed D1 trading day (Mon-Fri, weekend reopen stubs skipped)" : "previous completed " + tfName + " bar";
+        var what = tfName === "D1" ? "last completed D1 trading day (Mon-Fri, weekend reopen stubs skipped)"
+          : tfName === "W1" ? "previous completed weekly (W1) candle"
+          : tfName === "MN1" ? "previous completed monthly (MN1) candle"
+          : "previous completed " + tfName + " bar";
         src.textContent = what + " for " + esc(pivotSymbol) + " — " + (barT ? "bar " + barT : "n/a") + " · real Dukascopy history (edit any field to override).";
       }
       else if (st === "tick") src.textContent = "Auto-detected from live ticks collected this session (edit any field to override and save your own).";
