@@ -1790,8 +1790,14 @@
           // merge keeps updating it), so the PREVIOUS COMPLETED bar = the last
           // bar whose bucket has fully elapsed. Robust to either snapshot lag.
           var now = Date.now(), base = PIVOT_TF_MS[tfKey];
+          var isWeekend = function (t) { var w = new Date(t).getUTCDay(); return w === 0 || w === 6; };
           for (var i = bars.length - 1; i >= 0; i--) {
-            if (bars[i].t + base <= now) { ohlc = { h: bars[i].h, l: bars[i].l, c: bars[i].c, t: bars[i].t }; break; }
+            var done = bars[i].t + base <= now;
+            // D1: anchor to the last full TRADING day (Mon-Fri). Skip weekend
+            // reopen stubs (e.g. the ~2h Sunday bar) - they are not a real daily
+            // range and would make the D1 pivot identical to H1/H4 over the weekend.
+            var skipStub = tfKey === "D1" && isWeekend(bars[i].t);
+            if (done && !skipStub) { ohlc = { h: bars[i].h, l: bars[i].l, c: bars[i].c, t: bars[i].t }; break; }
           }
           if (!ohlc && bars.length >= 2) { var p2 = bars[bars.length - 2]; ohlc = { h: p2.h, l: p2.l, c: p2.c, t: p2.t }; }
         }
@@ -1887,7 +1893,9 @@
       var st = pivotAuto[key];
       if (st && st.indexOf("real:") === 0) {
         var barT = (typeof pivotBarTime === "function") ? pivotBarTime(pivotTf) : null;
-        src.textContent = "Previous completed " + st.slice(5) + " bar for " + esc(pivotSymbol) + " — bar " + (barT ? barT : "n/a") + " (real Dukascopy history, the selected timeframe's previous close" + (barT && barT.indexOf("Sat") > -1 ? " · weekend gap: the prior session ended before the market closed" : "") + "; edit any field to override).";
+        var tfName = st.slice(5);
+        var what = tfName === "D1" ? "last completed D1 trading day (Mon-Fri, weekend reopen stubs skipped)" : "previous completed " + tfName + " bar";
+        src.textContent = what + " for " + esc(pivotSymbol) + " — " + (barT ? "bar " + barT : "n/a") + " · real Dukascopy history (edit any field to override).";
       }
       else if (st === "tick") src.textContent = "Auto-detected from live ticks collected this session (edit any field to override and save your own).";
       else if (st === "stale") src.textContent = "No live history available — showing a STATIC fallback snapshot (frozen 2026-09-16, not current market data). Edit any field to set your own."

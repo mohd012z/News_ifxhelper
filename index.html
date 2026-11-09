@@ -636,7 +636,7 @@
 
       <section class="card" style="margin-top:10px" data-sec="charts">
         <div class="k">Pivot Levels</div>
-        <div class="note">Classic pivot formula (PP = (H+L+C)/3). For <b>XAU/USD</b>, H/L/C auto-fill from the <b>PREVIOUS COMPLETED BAR on the selected timeframe</b> (H1 / H4 / D1) &mdash; switch the timeframe and the pivot recalculates against that TF's previous close. Edit any field to override. Other symbols auto-fill from live ticks collected this session, or enter manually. Each symbol+timeframe combination is saved separately on this device.</div>
+        <div class="note">Classic pivot formula (PP = (H+L+C)/3). For <b>XAU/USD</b>, H/L/C auto-fill from the <b>PREVIOUS COMPLETED BAR on the selected timeframe</b> (H1 / H4 / D1) &mdash; switch the timeframe and the pivot recalculates against that TF's previous close. <b>D1 uses the last full trading day (Mon&ndash;Fri)</b>, skipping weekend reopen stubs, so it stays a real daily range. Edit any field to override. Other symbols auto-fill from live ticks collected this session, or enter manually. Each symbol+timeframe combination is saved separately on this device.</div>
         <div class="row-flex" style="margin-top:8px">
           <span class="note" style="margin:0">Symbol:</span>
           <div class="wl-chips" id="pivot-symbol-chips"></div>
