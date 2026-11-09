@@ -5446,17 +5446,17 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-09T08:19:37.814Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T08:27:03.484Z",
+          "price": 4098.6,
+          "realizedPct": -0.044
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-09T08:23:37.814Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T08:27:03.484Z",
+          "price": 4098.6,
+          "realizedPct": -0.044
         },
         {
           "key": "M15",
@@ -5514,7 +5514,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.044,
+        "maePct": -0.044
+      }
     },
     {
       "key": "news:crypto:Federal Reserve: December rate hike view reinforced – Commerzbank",
@@ -5532,17 +5537,17 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-09T08:19:37.814Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T08:27:03.484Z",
+          "price": 74122.09,
+          "realizedPct": 0.192
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-09T08:23:37.814Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T08:27:03.484Z",
+          "price": 74122.09,
+          "realizedPct": 0.192
         },
         {
           "key": "M15",
@@ -5600,7 +5605,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.192,
+        "maePct": 0.192
+      }
     },
     {
       "key": "news:forex:Federal Reserve: December rate hike view reinforced – Commerzbank",
@@ -5618,17 +5628,17 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-09T08:19:37.814Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T08:27:03.484Z",
+          "price": 1.1187,
+          "realizedPct": 0.045
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-09T08:23:37.814Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T08:27:03.484Z",
+          "price": 1.1187,
+          "realizedPct": 0.045
         },
         {
           "key": "M15",
@@ -5686,7 +5696,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.045,
+        "maePct": 0.045
+      }
     }
   ],
   "results": [
