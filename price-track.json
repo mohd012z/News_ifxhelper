@@ -5486,9 +5486,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-09T12:18:37.814Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T12:46:36.540Z",
+          "price": 4124.7,
+          "realizedPct": 0.593
         },
         {
           "key": "D1",
@@ -5517,7 +5517,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.166,
+        "mfePct": 0.593,
         "maePct": -0.044
       }
     },
@@ -5577,9 +5577,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-09T12:18:37.814Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T12:46:36.540Z",
+          "price": 74710.19,
+          "realizedPct": 0.987
         },
         {
           "key": "D1",
@@ -5608,7 +5608,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.643,
+        "mfePct": 0.987,
         "maePct": 0.192
       }
     },
@@ -5668,9 +5668,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-09T12:18:37.814Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T12:46:36.540Z",
+          "price": 1.1191,
+          "realizedPct": 0.08
         },
         {
           "key": "D1",
@@ -6024,9 +6024,9 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-09T12:16:39.599Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T12:46:36.540Z",
+          "price": 4124.7,
+          "realizedPct": 0.397
         },
         {
           "key": "H4",
@@ -6063,7 +6063,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.248,
+        "mfePct": 0.397,
         "maePct": 0.212
       }
     },
@@ -6115,9 +6115,9 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-09T12:16:39.599Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T12:46:36.540Z",
+          "price": 74710.19,
+          "realizedPct": 0.91
         },
         {
           "key": "H4",
@@ -6154,7 +6154,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.513,
+        "mfePct": 0.91,
         "maePct": 0.5
       }
     },
@@ -6206,9 +6206,9 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-09T12:16:39.599Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T12:46:36.540Z",
+          "price": 74710.19,
+          "realizedPct": 0.91
         },
         {
           "key": "H4",
@@ -6245,7 +6245,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.513,
+        "mfePct": 0.91,
         "maePct": 0.5
       }
     },
@@ -6297,9 +6297,9 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-09T12:16:39.599Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T12:46:36.540Z",
+          "price": 1.1191,
+          "realizedPct": -0.054
         },
         {
           "key": "H4",
@@ -6388,9 +6388,9 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-09T12:16:39.599Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-09T12:46:36.540Z",
+          "price": 1.1191,
+          "realizedPct": -0.054
         },
         {
           "key": "H4",
