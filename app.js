@@ -1760,6 +1760,38 @@
     if (CRYPTO_ALL.indexOf(symbol) > -1) return window.LiveFeed.prices ? (window.LiveFeed.prices().crypto || {})[symbol] : null;
     return window.LiveFeed.priceFor ? window.LiveFeed.priceFor(symbol) : null;
   }
+  /* Real-history pivot source (XAU/USD only): fetch /api/candles?tf=… and use the
+   * PREVIOUS COMPLETED bar (the array's last bar is the in-progress one the
+   * live-tick merge keeps updating, so it is excluded). 2-min TTL cache.
+   * null = no source (non-worker host / no data) -> caller falls back. */
+  var PIVOT_TF_UP = { h1: "H1", h4: "H4", d1: "D1" };
+  var PIVOT_TF_MS = { H1: 3600000, H4: 14400000, D1: 86400000 };
+  var pivotHistCache = {};
+  function pivotRealOHLC(symbol, tf) {
+    if (symbol !== "XAU/USD" || !PIVOT_TF_UP[tf]) return Promise.resolve(null);
+    var tfKey = PIVOT_TF_UP[tf];
+    var hit = pivotHistCache[tfKey];
+    if (hit && Date.now() - hit.at < 120000) return Promise.resolve(hit.ohlc);
+    return fetch("/api/candles?tf=" + tfKey, { cache: "no-store" })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (doc) {
+        var bars = doc && doc.ok && Array.isArray(doc.bars) ? doc.bars : null;
+        var ohlc = null;
+        if (bars && bars.length) {
+          // The snapshot's last bar may be the still-forming one (the live-tick
+          // merge keeps updating it), so the PREVIOUS COMPLETED bar = the last
+          // bar whose bucket has fully elapsed. Robust to either snapshot lag.
+          var now = Date.now(), base = PIVOT_TF_MS[tfKey];
+          for (var i = bars.length - 1; i >= 0; i--) {
+            if (bars[i].t + base <= now) { ohlc = { h: bars[i].h, l: bars[i].l, c: bars[i].c }; break; }
+          }
+          if (!ohlc && bars.length >= 2) { var p2 = bars[bars.length - 2]; ohlc = { h: p2.h, l: p2.l, c: p2.c }; }
+        }
+        if (ohlc) pivotHistCache[tfKey] = { at: Date.now(), ohlc: ohlc };
+        return ohlc;
+      })
+      .catch(function () { return null; });
+  }
   function autoDetectOHLC(symbol) {
     if (!window.LiveFeed || !window.LiveFeed.history) return null;
     var hist = window.LiveFeed.history(symbol) || [];
@@ -1789,11 +1821,32 @@
     var saved = ((pivotData[pivotSymbol] || {})[pivotTf]);
     var src = saved;
     var auto = false;
+    var real = false, tick = false;
     if (!src && (pivotTf === "h1" || pivotTf === "h4" || pivotTf === "d1")) {
-      var det = autoDetectOHLC(pivotSymbol);
-      if (det) { src = det; auto = true; }
+      if (pivotSymbol === "XAU/USD") {
+        pivotRealOHLC(pivotSymbol, pivotTf).then(function (realOHLC) {
+          if (!realOHLC) {
+            var det2 = autoDetectOHLC(pivotSymbol);
+            if (det2) { realOHLC = det2; pivotAuto[key] = "tick"; }
+          } else { pivotAuto[key] = "real:" + PIVOT_TF_UP[pivotTf]; }
+          if (realOHLC) {
+            if (!$("#pv-high").value && realOHLC.h != null) $("#pv-high").value = round5(realOHLC.h);
+            if (!$("#pv-low").value && realOHLC.l != null) $("#pv-low").value = round5(realOHLC.l);
+            if (!$("#pv-close").value && realOHLC.c != null) $("#pv-close").value = round5(realOHLC.c);
+            renderPivot();
+          }
+        });
+      } else {
+        var det = autoDetectOHLC(pivotSymbol);
+        if (det) { src = det; tick = true; }
+      }
     }
-    pivotAuto[key] = auto;
+    if (!src) {
+      var need = (pivotSymbol === "XAU/USD" && (pivotTf === "h1" || pivotTf === "h4" || pivotTf === "d1"));
+      pivotAuto[key] = need ? "loading" : "";
+    } else {
+      pivotAuto[key] = tick ? "tick" : "";
+    }
     var d = src || {};
     if ($("#pv-high")) $("#pv-high").value = d.h != null ? round5(d.h) : "";
     if ($("#pv-low")) $("#pv-low").value = d.l != null ? round5(d.l) : "";
@@ -1807,11 +1860,17 @@
     var key = pivotSymbol + "|" + pivotTf;
     if (h == null || l == null || c == null) {
       var needAuto = (pivotTf === "w1" || pivotTf === "mn1");
-      box.innerHTML = '<div class="note">Enter High, Low and Close for ' + esc(pivotSymbol) + " (" + pivotTf.toUpperCase() + ")" + (needAuto ? " — no live weekly/monthly source, so this timeframe is always manual." : " — not enough live ticks yet to auto-detect; enter manually or wait a few seconds.") + "</div>";
+      var loading = (pivotAuto[key] === "loading");
+      box.innerHTML = '<div class="note">' + (loading ? "Loading " + esc(pivotSymbol) + " " + pivotTf.toUpperCase() + " history… (pivot = previous completed bar on this timeframe)" : "Enter High, Low and Close for " + esc(pivotSymbol) + " (" + pivotTf.toUpperCase() + ")" + (needAuto ? " — no live weekly/monthly source, so this timeframe is always manual." : " — no auto source available; enter manually.")) + "</div>";
       if (src) src.textContent = "";
       return;
     }
-    if (src) src.textContent = pivotAuto[key] ? "Auto-detected from live ticks collected this session (edit any field to override and save your own)." : "Using your saved values for " + pivotSymbol + " / " + pivotTf.toUpperCase() + ".";
+    if (src) {
+      var st = pivotAuto[key];
+      if (st && st.indexOf("real:") === 0) src.textContent = "Previous completed " + st.slice(5) + " bar for " + esc(pivotSymbol) + " (real Dukascopy history — the selected timeframe's previous close; edit any field to override).";
+      else if (st === "tick") src.textContent = "Auto-detected from live ticks collected this session (edit any field to override and save your own).";
+      else src.textContent = "Using your saved values for " + esc(pivotSymbol) + " / " + pivotTf.toUpperCase() + ".";
+    }
     var rows = pivotRows(h, l, c);
     box.innerHTML = '<div class="note" style="margin-bottom:4px">' + esc(pivotSymbol) + " — " + pivotTf.toUpperCase() + " pivot</div>" + rows.map(function (r) {
       var cls = r[0] === "Pivot" ? "acc" : r[0].charAt(0) === "R" ? "bad" : "good";
@@ -1865,6 +1924,7 @@
       '<polyline fill="none" stroke="' + color + '" stroke-width="2.6" points="' + poly + '"/>' + dots + "</svg>";
   }
   function renderCharts() {
+    if (!$("#chart1")) return; // snapshot charts removed (2026-11-09)
     buildChart($("#chart1"), T.chart1, "#e2b04a");
     buildChart($("#chart2"), T.chart2, "#6fd3c7");
     $("#c1-title").textContent = (T.chart1 || {}).label || "\u2014";

@@ -6,6 +6,7 @@ const path = require('path');
 const root = path.resolve(__dirname, '..');
 
 const app = fs.readFileSync(path.join(root, 'app.js'), 'utf8');
+const index = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 const sw = fs.readFileSync(path.join(root, 'sw.js'), 'utf8');
 const pwa = fs.readFileSync(path.join(root, 'pwa.js'), 'utf8');
 const worker = fs.readFileSync(path.join(root, 'worker', 'index.mjs'), 'utf8');
@@ -31,12 +32,14 @@ assert(app.includes('var today = calendarAlertRows("today");'), 'assistant today
 assert(app.includes('function hardRefreshShell()'), 'Reload must use the stale-shell recovery path');
 assert(app.includes('searchParams.set("_fresh"'), 'hard refresh must add a cache-busting query');
 assert(app.includes('navigator.serviceWorker.getRegistration()'), 'hard refresh must ask the service worker to update before navigation');
+assert(app.includes('pivotRealOHLC'), 'classic pivot must compute from the selected timeframe previous completed bar');
+assert(!index.includes('id="chart1"'), 'snapshot charts removed from the Charts tab');
 
-assert(sw.includes('const CACHE = "xaudesk-v12"'), 'service-worker cache version must be v12');
+assert(sw.includes('const CACHE = "xaudesk-v13"'), 'service-worker cache version must be v13');
 assert(sw.includes('"/lib/bbma-indicators.js"'), 'service worker must treat the indicators lib as volatile (indicator templates)');
 assert(sw.includes('"/index.html"') && sw.includes('"/pwa.js"'), 'service worker must network-first the HTML/PWA bootstrap');
 assert(sw.includes('"/bbma-news-symbol-advisor-ui.js"') && sw.includes('"/lib/bbma-news-symbol-advisor.js"'), 'service worker must treat the news-symbol-advisor JS as volatile (no stale cache for the recommendation card)');
-assert(pwa.includes('register("./sw.js?v=12", { updateViaCache: "none" })'), 'PWA must bypass stale HTTP cache when checking the service worker');
+assert(pwa.includes('register("./sw.js?v=13", { updateViaCache: "none" })'), 'PWA must bypass stale HTTP cache when checking the service worker');
 assert(pwa.includes('reg.update()'), 'PWA must actively check for a newer service worker');
 assert(pwa.includes('controllerchange'), 'PWA must react when a newer worker takes control');
 assert(sw.includes('contentTypeMismatch'), 'service worker must reject HTML returned for JS/JSON');

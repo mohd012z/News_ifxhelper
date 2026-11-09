@@ -636,7 +636,7 @@
 
       <section class="card" style="margin-top:10px" data-sec="charts">
         <div class="k">Pivot Levels</div>
-        <div class="note">Classic pivot formula (PP = (H+L+C)/3). <b>H1/H4/D1 auto-fill</b> from live ticks collected this session (high/low/last of what has streamed in) &mdash; edit any field to override. <b>W1/M1 have no live weekly/monthly source, so enter those manually.</b> Each symbol+timeframe combination is saved separately on this device.</div>
+        <div class="note">Classic pivot formula (PP = (H+L+C)/3). For <b>XAU/USD</b>, H/L/C auto-fill from the <b>PREVIOUS COMPLETED BAR on the selected timeframe</b> (H1 / H4 / D1) &mdash; switch the timeframe and the pivot recalculates against that TF's previous close. Edit any field to override. Other symbols auto-fill from live ticks collected this session, or enter manually. Each symbol+timeframe combination is saved separately on this device.</div>
         <div class="row-flex" style="margin-top:8px">
           <span class="note" style="margin:0">Symbol:</span>
           <div class="wl-chips" id="pivot-symbol-chips"></div>
@@ -658,27 +658,6 @@
         </div>
         <div class="note" id="pivot-source" style="margin-top:4px">&mdash;</div>
         <div class="ladder" id="pivot-ladder" style="margin-top:10px"></div>
-      </section>
-
-      <section class="grid2" data-sec="charts">
-        <div class="card" style="grid-column:1 / -1">
-          <div class="k">Now checking</div>
-          <div class="note" id="chart-context" style="margin-top:4px">&mdash;</div>
-        </div>
-        <div class="card chart-shell">
-          <div class="k" id="c1-title">&mdash;</div>
-          <div class="chart" id="chart1"></div>
-          <div class="legend" id="legend1"></div>
-          <div class="cursor"><span class="vx"></span><span class="hy"></span><span class="lb">x:0 y:0</span></div>
-          <div class="note" id="c1-note"></div>
-        </div>
-        <div class="card chart-shell">
-          <div class="k" id="c2-title">&mdash;</div>
-          <div class="chart" id="chart2"></div>
-          <div class="legend" id="legend2"></div>
-          <div class="cursor"><span class="vx"></span><span class="hy"></span><span class="lb">x:0 y:0</span></div>
-          <div class="note" id="c2-note"></div>
-        </div>
       </section>
 
       <section class="grid4" data-sec="charts">
