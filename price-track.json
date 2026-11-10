@@ -7539,33 +7539,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-10T07:17:47.655Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T07:46:47.660Z",
+          "price": 4125,
+          "realizedPct": -0.14
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-10T07:21:47.655Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T07:46:47.660Z",
+          "price": 4125,
+          "realizedPct": -0.14
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-10T07:31:47.655Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T07:46:47.660Z",
+          "price": 4125,
+          "realizedPct": -0.14
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-10T07:46:47.655Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T07:46:47.660Z",
+          "price": 4125,
+          "realizedPct": -0.14
         },
         {
           "key": "H1",
@@ -7607,7 +7607,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.14,
+        "maePct": -0.14
+      }
     },
     {
       "key": "news:crypto:Japanese Yen edges lower as US CPI inflation data looms",
@@ -7625,33 +7630,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-10T07:17:47.655Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T07:46:47.660Z",
+          "price": 74865.38,
+          "realizedPct": 0.32
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-10T07:21:47.655Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T07:46:47.660Z",
+          "price": 74865.38,
+          "realizedPct": 0.32
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-10T07:31:47.655Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T07:46:47.660Z",
+          "price": 74865.38,
+          "realizedPct": 0.32
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-10T07:46:47.655Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T07:46:47.660Z",
+          "price": 74865.38,
+          "realizedPct": 0.32
         },
         {
           "key": "H1",
@@ -7693,7 +7698,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.32,
+        "maePct": 0.32
+      }
     },
     {
       "key": "news:forex:Japanese Yen edges lower as US CPI inflation data looms",
@@ -7711,33 +7721,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-10T07:17:47.655Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T07:46:47.660Z",
+          "price": 1.1242,
+          "realizedPct": 0.062
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-10T07:21:47.655Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T07:46:47.660Z",
+          "price": 1.1242,
+          "realizedPct": 0.062
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-10T07:31:47.655Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T07:46:47.660Z",
+          "price": 1.1242,
+          "realizedPct": 0.062
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-10T07:46:47.655Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T07:46:47.660Z",
+          "price": 1.1242,
+          "realizedPct": 0.062
         },
         {
           "key": "H1",
@@ -7779,7 +7789,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.062,
+        "maePct": 0.062
+      }
     }
   ],
   "results": [
