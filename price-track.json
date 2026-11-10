@@ -6993,33 +6993,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-10T01:17:40.988Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T01:46:41.224Z",
+          "price": 4138.5,
+          "realizedPct": -0.075
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-10T01:21:40.988Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T01:46:41.224Z",
+          "price": 4138.5,
+          "realizedPct": -0.075
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-10T01:31:40.988Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T01:46:41.224Z",
+          "price": 4138.5,
+          "realizedPct": -0.075
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-10T01:46:40.988Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T01:46:41.224Z",
+          "price": 4138.5,
+          "realizedPct": -0.075
         },
         {
           "key": "H1",
@@ -7061,7 +7061,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.075,
+        "maePct": -0.075
+      }
     },
     {
       "key": "news:crypto:Gold declines below $4,150 as rising Fed hike expectations outweigh US-Iran deal hopes",
@@ -7079,33 +7084,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-10T01:17:40.988Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T01:46:41.224Z",
+          "price": 74903.39,
+          "realizedPct": -0.155
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-10T01:21:40.988Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T01:46:41.224Z",
+          "price": 74903.39,
+          "realizedPct": -0.155
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-10T01:31:40.988Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T01:46:41.224Z",
+          "price": 74903.39,
+          "realizedPct": -0.155
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-10T01:46:40.988Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T01:46:41.224Z",
+          "price": 74903.39,
+          "realizedPct": -0.155
         },
         {
           "key": "H1",
@@ -7147,7 +7152,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.155,
+        "maePct": -0.155
+      }
     },
     {
       "key": "news:forex:Gold declines below $4,150 as rising Fed hike expectations outweigh US-Iran deal hopes",
@@ -7165,33 +7175,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-10T01:17:40.988Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T01:46:41.224Z",
+          "price": 1.1225,
+          "realizedPct": -0.018
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-10T01:21:40.988Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T01:46:41.224Z",
+          "price": 1.1225,
+          "realizedPct": -0.018
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-10T01:31:40.988Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T01:46:41.224Z",
+          "price": 1.1225,
+          "realizedPct": -0.018
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-10T01:46:40.988Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T01:46:41.224Z",
+          "price": 1.1225,
+          "realizedPct": -0.018
         },
         {
           "key": "H1",
@@ -7233,7 +7243,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.018,
+        "maePct": -0.018
+      }
     }
   ],
   "results": [
