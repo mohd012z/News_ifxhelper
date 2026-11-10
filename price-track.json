@@ -7266,33 +7266,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-10T02:17:42.795Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T02:46:42.955Z",
+          "price": 4124.4,
+          "realizedPct": -0.138
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-10T02:21:42.795Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T02:46:42.955Z",
+          "price": 4124.4,
+          "realizedPct": -0.138
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-10T02:31:42.795Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T02:46:42.955Z",
+          "price": 4124.4,
+          "realizedPct": -0.138
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-10T02:46:42.795Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T02:46:42.956Z",
+          "price": 4124.4,
+          "realizedPct": -0.138
         },
         {
           "key": "H1",
@@ -7334,7 +7334,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.138,
+        "maePct": -0.138
+      }
     },
     {
       "key": "news:crypto:Japanese Yen weakens after dismal Household Spending data; hawkish BoJ limits losses",
@@ -7352,33 +7357,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-10T02:17:42.795Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T02:46:42.956Z",
+          "price": 74772.55,
+          "realizedPct": -0.133
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-10T02:21:42.795Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T02:46:42.956Z",
+          "price": 74772.55,
+          "realizedPct": -0.133
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-10T02:31:42.795Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T02:46:42.956Z",
+          "price": 74772.55,
+          "realizedPct": -0.133
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-10T02:46:42.795Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T02:46:42.956Z",
+          "price": 74772.55,
+          "realizedPct": -0.133
         },
         {
           "key": "H1",
@@ -7420,7 +7425,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.133,
+        "maePct": -0.133
+      }
     },
     {
       "key": "news:forex:Japanese Yen weakens after dismal Household Spending data; hawkish BoJ limits losses",
@@ -7438,33 +7448,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-10T02:17:42.795Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T02:46:42.956Z",
+          "price": 1.1222,
+          "realizedPct": -0.009
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-10T02:21:42.795Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T02:46:42.956Z",
+          "price": 1.1222,
+          "realizedPct": -0.009
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-10T02:31:42.795Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T02:46:42.956Z",
+          "price": 1.1222,
+          "realizedPct": -0.009
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-10T02:46:42.795Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T02:46:42.956Z",
+          "price": 1.1222,
+          "realizedPct": -0.009
         },
         {
           "key": "H1",
@@ -7506,7 +7516,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.009,
+        "maePct": -0.009
+      }
     }
   ],
   "results": [
