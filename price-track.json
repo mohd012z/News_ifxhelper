@@ -6760,9 +6760,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-10T02:16:37.229Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T02:16:42.794Z",
+          "price": 74872.25,
+          "realizedPct": -0.112
         },
         {
           "key": "D1",
@@ -6792,7 +6792,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.252,
-        "maePct": 0.172
+        "maePct": -0.112
       }
     },
     {
@@ -6851,9 +6851,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-10T02:16:37.229Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T02:16:42.794Z",
+          "price": 1.1223,
+          "realizedPct": -0.027
         },
         {
           "key": "D1",
@@ -7025,9 +7025,9 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-10T02:16:40.988Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T02:16:42.794Z",
+          "price": 4130.1,
+          "realizedPct": -0.278
         },
         {
           "key": "H4",
@@ -7065,7 +7065,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.075,
-        "maePct": -0.075
+        "maePct": -0.278
       }
     },
     {
@@ -7116,9 +7116,9 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-10T02:16:40.988Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T02:16:42.794Z",
+          "price": 74872.25,
+          "realizedPct": -0.197
         },
         {
           "key": "H4",
@@ -7156,7 +7156,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.155,
-        "maePct": -0.155
+        "maePct": -0.197
       }
     },
     {
@@ -7207,9 +7207,9 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-10T02:16:40.988Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T02:16:42.794Z",
+          "price": 1.1223,
+          "realizedPct": -0.036
         },
         {
           "key": "H4",
@@ -7247,8 +7247,266 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.018,
-        "maePct": -0.018
+        "maePct": -0.036
       }
+    },
+    {
+      "key": "news:gold:Japanese Yen weakens after dismal Household Spending data; hawkish BoJ limits losses",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Japanese Yen weakens after dismal Household Spending data; hawkish BoJ limits losses",
+      "url": "https://www.fxstreet.com/news/japanese-yen-weakens-after-dismal-household-spending-data-hawkish-boj-limits-losses-202611100122",
+      "impactScore": -0.36,
+      "priceSource": "yahoo:GC=F",
+      "priceSymbol": "GC=F",
+      "priceAtDetect": 4130.1,
+      "createdAt": "2026-11-10T02:16:42.795Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-10T02:17:42.795Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-10T02:21:42.795Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-10T02:31:42.795Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-10T02:46:42.795Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-10T03:16:42.795Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-10T06:16:42.795Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-11T02:16:42.795Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-17T02:16:42.795Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-10T02:16:42.795Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:crypto:Japanese Yen weakens after dismal Household Spending data; hawkish BoJ limits losses",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Japanese Yen weakens after dismal Household Spending data; hawkish BoJ limits losses",
+      "url": "https://www.fxstreet.com/news/japanese-yen-weakens-after-dismal-household-spending-data-hawkish-boj-limits-losses-202611100122",
+      "impactScore": -0.41,
+      "priceSource": "coinbase:BTC-USD",
+      "priceSymbol": "BTC-USD",
+      "priceAtDetect": 74872.25,
+      "createdAt": "2026-11-10T02:16:42.795Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-10T02:17:42.795Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-10T02:21:42.795Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-10T02:31:42.795Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-10T02:46:42.795Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-10T03:16:42.795Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-10T06:16:42.795Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-11T02:16:42.795Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-17T02:16:42.795Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-10T02:16:42.795Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:forex:Japanese Yen weakens after dismal Household Spending data; hawkish BoJ limits losses",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Japanese Yen weakens after dismal Household Spending data; hawkish BoJ limits losses",
+      "url": "https://www.fxstreet.com/news/japanese-yen-weakens-after-dismal-household-spending-data-hawkish-boj-limits-losses-202611100122",
+      "impactScore": -0.45,
+      "priceSource": "yahoo:EURUSD=X",
+      "priceSymbol": "EURUSD=X",
+      "priceAtDetect": 1.1223,
+      "createdAt": "2026-11-10T02:16:42.795Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-10T02:17:42.795Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-10T02:21:42.795Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-10T02:31:42.795Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-10T02:46:42.795Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-10T03:16:42.795Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-10T06:16:42.795Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-11T02:16:42.795Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-17T02:16:42.795Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-10T02:16:42.795Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
     }
   ],
   "results": [
