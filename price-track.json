@@ -7852,9 +7852,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-10T13:16:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T13:16:53.874Z",
+          "price": 4085.9,
+          "realizedPct": -0.584
         },
         {
           "key": "D1",
@@ -7884,7 +7884,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.363,
-        "maePct": -0.499
+        "maePct": -0.584
       }
     },
     {
@@ -7943,9 +7943,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-10T13:16:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T13:16:53.874Z",
+          "price": 4085.9,
+          "realizedPct": -0.584
         },
         {
           "key": "D1",
@@ -7975,7 +7975,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.363,
-        "maePct": -0.499
+        "maePct": -0.584
       }
     },
     {
@@ -8034,9 +8034,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-10T13:16:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T13:16:53.874Z",
+          "price": 4085.9,
+          "realizedPct": -0.584
         },
         {
           "key": "D1",
@@ -8066,7 +8066,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.363,
-        "maePct": -0.499
+        "maePct": -0.584
       }
     },
     {
@@ -8125,9 +8125,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-10T13:16:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T13:16:53.874Z",
+          "price": 74145.63,
+          "realizedPct": -0.22
         },
         {
           "key": "D1",
@@ -8157,7 +8157,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.13,
-        "maePct": -0.13
+        "maePct": -0.22
       }
     },
     {
@@ -8216,9 +8216,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-10T13:16:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T13:16:53.874Z",
+          "price": 74145.63,
+          "realizedPct": -0.22
         },
         {
           "key": "D1",
@@ -8248,7 +8248,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.13,
-        "maePct": -0.13
+        "maePct": -0.22
       }
     },
     {
@@ -8307,9 +8307,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-10T13:16:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T13:16:53.874Z",
+          "price": 74145.63,
+          "realizedPct": -0.22
         },
         {
           "key": "D1",
@@ -8339,7 +8339,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.13,
-        "maePct": -0.13
+        "maePct": -0.22
       }
     },
     {
@@ -8398,9 +8398,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-10T13:16:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T13:16:53.874Z",
+          "price": 74145.63,
+          "realizedPct": -0.22
         },
         {
           "key": "D1",
@@ -8430,7 +8430,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.13,
-        "maePct": -0.13
+        "maePct": -0.22
       }
     },
     {
@@ -8489,9 +8489,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-10T13:16:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T13:16:53.874Z",
+          "price": 1.1213,
+          "realizedPct": -0.196
         },
         {
           "key": "D1",
@@ -8521,7 +8521,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.045,
-        "maePct": -0.116
+        "maePct": -0.196
       }
     },
     {
@@ -8580,9 +8580,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-10T13:16:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T13:16:53.874Z",
+          "price": 1.1213,
+          "realizedPct": -0.196
         },
         {
           "key": "D1",
@@ -8612,7 +8612,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.045,
-        "maePct": -0.116
+        "maePct": -0.196
       }
     },
     {
@@ -8671,9 +8671,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-10T13:16:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T13:16:53.874Z",
+          "price": 1.1213,
+          "realizedPct": -0.196
         },
         {
           "key": "D1",
@@ -8703,7 +8703,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.045,
-        "maePct": -0.116
+        "maePct": -0.196
       }
     },
     {
@@ -8762,9 +8762,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-10T13:16:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T13:16:53.874Z",
+          "price": 1.1213,
+          "realizedPct": -0.196
         },
         {
           "key": "D1",
@@ -8794,7 +8794,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.045,
-        "maePct": -0.116
+        "maePct": -0.196
       }
     },
     {
@@ -11270,25 +11270,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-10T12:47:54.382Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T13:16:53.874Z",
+          "price": 4085.9,
+          "realizedPct": 0.059
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-10T12:51:54.382Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T13:16:53.874Z",
+          "price": 4085.9,
+          "realizedPct": 0.059
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-10T13:01:54.382Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T13:16:53.874Z",
+          "price": 4085.9,
+          "realizedPct": 0.059
         },
         {
           "key": "M30",
@@ -11338,7 +11338,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.059,
+        "maePct": 0.059
+      }
     },
     {
       "key": "news:gold:Nvidia couldn&#x2019;t derail the stock market&#x2019;s rally. Hot inflation might.",
@@ -11356,25 +11361,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-10T12:47:54.383Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T13:16:53.874Z",
+          "price": 4085.9,
+          "realizedPct": 0.059
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-10T12:51:54.383Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T13:16:53.874Z",
+          "price": 4085.9,
+          "realizedPct": 0.059
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-10T13:01:54.383Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T13:16:53.874Z",
+          "price": 4085.9,
+          "realizedPct": 0.059
         },
         {
           "key": "M30",
@@ -11424,7 +11429,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.059,
+        "maePct": 0.059
+      }
     },
     {
       "key": "news:crypto:US CPI data expected to show softer inflation as markets weigh December Fed hike",
@@ -11442,25 +11452,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-10T12:47:54.383Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T13:16:53.874Z",
+          "price": 74145.63,
+          "realizedPct": 0.002
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-10T12:51:54.383Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T13:16:53.874Z",
+          "price": 74145.63,
+          "realizedPct": 0.002
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-10T13:01:54.383Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T13:16:53.874Z",
+          "price": 74145.63,
+          "realizedPct": 0.002
         },
         {
           "key": "M30",
@@ -11510,7 +11520,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.002,
+        "maePct": 0.002
+      }
     },
     {
       "key": "news:crypto:Nvidia couldn&#x2019;t derail the stock market&#x2019;s rally. Hot inflation might.",
@@ -11528,25 +11543,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-10T12:47:54.383Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T13:16:53.874Z",
+          "price": 74145.63,
+          "realizedPct": 0.002
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-10T12:51:54.383Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T13:16:53.874Z",
+          "price": 74145.63,
+          "realizedPct": 0.002
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-10T13:01:54.383Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T13:16:53.874Z",
+          "price": 74145.63,
+          "realizedPct": 0.002
         },
         {
           "key": "M30",
@@ -11596,7 +11611,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.002,
+        "maePct": 0.002
+      }
     },
     {
       "key": "news:forex:US CPI data expected to show softer inflation as markets weigh December Fed hike",
@@ -11614,25 +11634,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-10T12:47:54.384Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T13:16:53.874Z",
+          "price": 1.1213,
+          "realizedPct": -0.036
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-10T12:51:54.384Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T13:16:53.874Z",
+          "price": 1.1213,
+          "realizedPct": -0.036
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-10T13:01:54.384Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T13:16:53.874Z",
+          "price": 1.1213,
+          "realizedPct": -0.036
         },
         {
           "key": "M30",
@@ -11682,7 +11702,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.036,
+        "maePct": -0.036
+      }
     },
     {
       "key": "news:forex:Nvidia couldn&#x2019;t derail the stock market&#x2019;s rally. Hot inflation might.",
@@ -11700,25 +11725,25 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-10T12:47:54.384Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T13:16:53.874Z",
+          "price": 1.1213,
+          "realizedPct": -0.036
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-10T12:51:54.384Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T13:16:53.874Z",
+          "price": 1.1213,
+          "realizedPct": -0.036
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-10T13:01:54.384Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T13:16:53.874Z",
+          "price": 1.1213,
+          "realizedPct": -0.036
         },
         {
           "key": "M30",
@@ -11768,7 +11793,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.036,
+        "maePct": -0.036
+      }
     }
   ],
   "results": [
