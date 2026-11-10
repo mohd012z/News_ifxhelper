@@ -952,6 +952,8 @@
     "remind:[USD] Core CPI m/m|2026-11-10:30",
     "remind:[USD] CPI m/m|2026-11-10:30",
     "remind:[USD] Core CPI m/m|2026-11-10:10",
-    "remind:[USD] CPI m/m|2026-11-10:10"
+    "remind:[USD] CPI m/m|2026-11-10:10",
+    "followup:[USD] Core CPI m/m|2026-11-10",
+    "followup:[USD] CPI m/m|2026-11-10"
   ]
 }
