@@ -5,7 +5,7 @@
  * Regenerate: node build-news.js (run on the same daily cron as build-atr.js).
  */
 window.NEWS_AUTO = {
-  "generatedAt": "2026-11-10 06:16:46Z",
+  "generatedAt": "2026-11-10 06:46:46Z",
   "note": "Auto-collected: economic calendar is real structured data; news rows are country/currency-aware and instrument-filtered; mixed observed-vs-policy direction becomes CONFLICT/NEUTRAL. impactPct is retained only for UI compatibility and is an impact score, not a calibrated return forecast. Treat auto:true rows as a first pass.",
   "incoming": [
     {
@@ -35,7 +35,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.925Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -66,7 +66,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -97,7 +97,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -128,7 +128,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -159,7 +159,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -190,7 +190,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -221,7 +221,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -252,7 +252,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -283,7 +283,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.443Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -314,7 +314,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.443Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -345,7 +345,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.443Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     }
@@ -378,7 +378,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.441Z",
+      "fetchedAt": "2026-11-10T06:46:19.925Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -409,7 +409,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.441Z",
+      "fetchedAt": "2026-11-10T06:46:19.925Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -440,7 +440,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.441Z",
+      "fetchedAt": "2026-11-10T06:46:19.925Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -471,7 +471,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.441Z",
+      "fetchedAt": "2026-11-10T06:46:19.925Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -502,7 +502,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.441Z",
+      "fetchedAt": "2026-11-10T06:46:19.925Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -533,7 +533,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.441Z",
+      "fetchedAt": "2026-11-10T06:46:19.925Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -564,7 +564,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.441Z",
+      "fetchedAt": "2026-11-10T06:46:19.925Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -595,7 +595,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.441Z",
+      "fetchedAt": "2026-11-10T06:46:19.925Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -626,7 +626,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.441Z",
+      "fetchedAt": "2026-11-10T06:46:19.925Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -657,7 +657,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.441Z",
+      "fetchedAt": "2026-11-10T06:46:19.925Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -688,7 +688,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.441Z",
+      "fetchedAt": "2026-11-10T06:46:19.925Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -719,7 +719,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.441Z",
+      "fetchedAt": "2026-11-10T06:46:19.925Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -750,7 +750,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.925Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -781,7 +781,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.925Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -812,7 +812,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.925Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -843,7 +843,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.925Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -874,7 +874,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.925Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -905,7 +905,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.925Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -936,7 +936,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.925Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -967,7 +967,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.925Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -998,7 +998,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.925Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1029,7 +1029,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.925Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1060,7 +1060,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.925Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1091,7 +1091,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.925Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1122,7 +1122,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.925Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1153,7 +1153,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.925Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1184,7 +1184,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1215,7 +1215,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1246,7 +1246,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1277,7 +1277,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1308,7 +1308,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1339,7 +1339,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1370,7 +1370,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1401,7 +1401,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1432,7 +1432,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1463,7 +1463,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1494,7 +1494,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1525,7 +1525,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1556,7 +1556,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1587,7 +1587,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1618,7 +1618,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1649,7 +1649,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1680,7 +1680,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1711,7 +1711,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1742,7 +1742,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1773,7 +1773,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1804,7 +1804,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1835,7 +1835,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1866,7 +1866,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1897,7 +1897,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1928,7 +1928,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1959,7 +1959,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1990,7 +1990,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2021,7 +2021,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2052,7 +2052,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2083,7 +2083,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2114,7 +2114,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2145,7 +2145,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2176,7 +2176,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2207,7 +2207,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2238,7 +2238,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2269,7 +2269,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2300,7 +2300,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2331,7 +2331,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2362,7 +2362,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2393,7 +2393,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2424,7 +2424,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2455,7 +2455,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2486,7 +2486,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2517,7 +2517,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2548,7 +2548,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2579,7 +2579,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2610,7 +2610,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2641,7 +2641,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2672,7 +2672,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2703,7 +2703,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2734,7 +2734,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2765,7 +2765,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2796,7 +2796,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2827,7 +2827,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2858,7 +2858,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.442Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2889,7 +2889,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.443Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2920,7 +2920,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.443Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2951,7 +2951,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.443Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2982,7 +2982,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.443Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -3013,7 +3013,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.443Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -3044,7 +3044,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.443Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -3075,7 +3075,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.443Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -3106,7 +3106,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.443Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -3137,7 +3137,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.443Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -3168,7 +3168,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.443Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -3199,7 +3199,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.443Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -3230,7 +3230,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.443Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -3261,7 +3261,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.443Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -3292,7 +3292,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.443Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -3323,7 +3323,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.443Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -3354,7 +3354,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.443Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -3385,7 +3385,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.443Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -3416,7 +3416,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.443Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -3447,7 +3447,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.443Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -3478,7 +3478,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.443Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -3509,7 +3509,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.443Z",
+      "fetchedAt": "2026-11-10T06:46:19.926Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -3540,7 +3540,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.443Z",
+      "fetchedAt": "2026-11-10T06:46:19.927Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -3571,7 +3571,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.443Z",
+      "fetchedAt": "2026-11-10T06:46:19.927Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -3602,7 +3602,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-10T06:16:19.443Z",
+      "fetchedAt": "2026-11-10T06:46:19.927Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     }
@@ -3773,6 +3773,58 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
+          "time": "Tue 10 Nov, 14:22 MYT",
+          "publishedAt": "2026-11-10T06:22:59.000Z",
+          "tf": "Intraday",
+          "title": "Gold slips as investors await U.S. inflation data for Fed rate clues",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "Investing.com - Commodities & Futures",
+          "url": "https://www.investing.com/news/commodities-news/gold-holds-near-4130-as-oil-retreat-eases-inflation-concerns-5013846",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 1,
+          "currencies": [],
+          "drivers": {
+            "gold": true,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Tue 10 Nov, 14:18 MYT",
+          "publishedAt": "2026-11-10T06:18:05.000Z",
+          "tf": "Intraday",
+          "title": "Myanmar lobbies US to invest in its rare earths sector, dominated by China",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "Investing.com - Commodities & Futures",
+          "url": "https://www.investing.com/news/commodities-news/myanmar-lobbies-us-to-invest-in-its-rare-earths-sector-dominated-by-china-5014199",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.5,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
           "time": "Tue 10 Nov, 13:19 MYT",
           "publishedAt": "2026-11-10T05:19:07.000Z",
           "tf": "Intraday",
@@ -3903,32 +3955,6 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Tue 10 Nov, 09:12 MYT",
-          "publishedAt": "2026-11-10T01:12:29.000Z",
-          "tf": "Intraday",
-          "title": "Gold holds near $4,130 as oil retreat eases inflation concerns",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "Investing.com - Commodities & Futures",
-          "url": "https://www.investing.com/news/commodities-news/gold-holds-near-4130-as-oil-retreat-eases-inflation-concerns-5013846",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 1,
-          "currencies": [],
-          "drivers": {
-            "gold": true,
-            "yields": false,
-            "usd": false,
-            "oil": true,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
           "time": "Tue 10 Nov, 08:12 MYT",
           "publishedAt": "2026-11-10T00:12:42.000Z",
           "tf": "Intraday",
@@ -3997,32 +4023,6 @@ window.NEWS_AUTO = {
             "gold": true,
             "yields": false,
             "usd": true,
-            "oil": true,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Tue 10 Nov, 05:48 MYT",
-          "publishedAt": "2026-11-09T21:48:34.000Z",
-          "tf": "Intraday",
-          "title": "Oil prices slide amid Trump’s restraint on Iran strikes, Qatar mediation efforts",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "Investing.com - Commodities & Futures",
-          "url": "https://www.investing.com/news/commodities-news/oil-prices-dip-as-trump-says-new-iran-attacks-unlikely-if-talks-progress-5010370",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.5,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
             "oil": true,
             "risk": false,
             "crypto": false
@@ -4978,6 +4978,58 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
+          "time": "Tue 10 Nov, 14:22 MYT",
+          "publishedAt": "2026-11-10T06:22:59.000Z",
+          "tf": "Intraday",
+          "title": "Gold slips as investors await U.S. inflation data for Fed rate clues",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "Investing.com - Commodities & Futures",
+          "url": "https://www.investing.com/news/commodities-news/gold-holds-near-4130-as-oil-retreat-eases-inflation-concerns-5013846",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.4,
+          "currencies": [],
+          "drivers": {
+            "gold": true,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Tue 10 Nov, 14:18 MYT",
+          "publishedAt": "2026-11-10T06:18:05.000Z",
+          "tf": "Intraday",
+          "title": "Myanmar lobbies US to invest in its rare earths sector, dominated by China",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "Investing.com - Commodities & Futures",
+          "url": "https://www.investing.com/news/commodities-news/myanmar-lobbies-us-to-invest-in-its-rare-earths-sector-dominated-by-china-5014199",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.4,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
           "time": "Tue 10 Nov, 13:19 MYT",
           "publishedAt": "2026-11-10T05:19:07.000Z",
           "tf": "Intraday",
@@ -5108,32 +5160,6 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Tue 10 Nov, 09:12 MYT",
-          "publishedAt": "2026-11-10T01:12:29.000Z",
-          "tf": "Intraday",
-          "title": "Gold holds near $4,130 as oil retreat eases inflation concerns",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "Investing.com - Commodities & Futures",
-          "url": "https://www.investing.com/news/commodities-news/gold-holds-near-4130-as-oil-retreat-eases-inflation-concerns-5013846",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.4,
-          "currencies": [],
-          "drivers": {
-            "gold": true,
-            "yields": false,
-            "usd": false,
-            "oil": true,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
           "time": "Tue 10 Nov, 08:12 MYT",
           "publishedAt": "2026-11-10T00:12:42.000Z",
           "tf": "Intraday",
@@ -5202,32 +5228,6 @@ window.NEWS_AUTO = {
             "gold": true,
             "yields": false,
             "usd": true,
-            "oil": true,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Tue 10 Nov, 05:48 MYT",
-          "publishedAt": "2026-11-09T21:48:34.000Z",
-          "tf": "Intraday",
-          "title": "Oil prices slide amid Trump’s restraint on Iran strikes, Qatar mediation efforts",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "Investing.com - Commodities & Futures",
-          "url": "https://www.investing.com/news/commodities-news/oil-prices-dip-as-trump-says-new-iran-attacks-unlikely-if-talks-progress-5010370",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.4,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
             "oil": true,
             "risk": false,
             "crypto": false
@@ -6183,6 +6183,58 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
+          "time": "Tue 10 Nov, 14:22 MYT",
+          "publishedAt": "2026-11-10T06:22:59.000Z",
+          "tf": "Intraday",
+          "title": "Gold slips as investors await U.S. inflation data for Fed rate clues",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "Investing.com - Commodities & Futures",
+          "url": "https://www.investing.com/news/commodities-news/gold-holds-near-4130-as-oil-retreat-eases-inflation-concerns-5013846",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.5,
+          "currencies": [],
+          "drivers": {
+            "gold": true,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Tue 10 Nov, 14:18 MYT",
+          "publishedAt": "2026-11-10T06:18:05.000Z",
+          "tf": "Intraday",
+          "title": "Myanmar lobbies US to invest in its rare earths sector, dominated by China",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "Investing.com - Commodities & Futures",
+          "url": "https://www.investing.com/news/commodities-news/myanmar-lobbies-us-to-invest-in-its-rare-earths-sector-dominated-by-china-5014199",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.5,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
           "time": "Tue 10 Nov, 13:19 MYT",
           "publishedAt": "2026-11-10T05:19:07.000Z",
           "tf": "Intraday",
@@ -6313,32 +6365,6 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Tue 10 Nov, 09:12 MYT",
-          "publishedAt": "2026-11-10T01:12:29.000Z",
-          "tf": "Intraday",
-          "title": "Gold holds near $4,130 as oil retreat eases inflation concerns",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "Investing.com - Commodities & Futures",
-          "url": "https://www.investing.com/news/commodities-news/gold-holds-near-4130-as-oil-retreat-eases-inflation-concerns-5013846",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.5,
-          "currencies": [],
-          "drivers": {
-            "gold": true,
-            "yields": false,
-            "usd": false,
-            "oil": true,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
           "time": "Tue 10 Nov, 08:12 MYT",
           "publishedAt": "2026-11-10T00:12:42.000Z",
           "tf": "Intraday",
@@ -6407,32 +6433,6 @@ window.NEWS_AUTO = {
             "gold": true,
             "yields": false,
             "usd": true,
-            "oil": true,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Tue 10 Nov, 05:48 MYT",
-          "publishedAt": "2026-11-09T21:48:34.000Z",
-          "tf": "Intraday",
-          "title": "Oil prices slide amid Trump’s restraint on Iran strikes, Qatar mediation efforts",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "Investing.com - Commodities & Futures",
-          "url": "https://www.investing.com/news/commodities-news/oil-prices-dip-as-trump-says-new-iran-attacks-unlikely-if-talks-progress-5010370",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.5,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
             "oil": true,
             "risk": false,
             "crypto": false
@@ -9036,22 +9036,22 @@ window.NEWS_AUTO = {
     ],
     "quoteSnapshots": {
       "gold": {
-        "price": 4130.5,
-        "marketAt": "2026-11-10T06:06:42.000Z",
+        "price": 4132.2,
+        "marketAt": "2026-11-10T06:36:41.000Z",
         "source": "yahoo:GC=F",
         "symbol": "GC=F",
         "priceKind": "FUTURES"
       },
       "crypto": {
-        "price": 74485.56,
-        "marketAt": "2026-11-10T06:16:44.860Z",
+        "price": 74574.04,
+        "marketAt": "2026-11-10T06:46:45.899Z",
         "source": "coinbase:BTC-USD",
         "symbol": "BTC-USD",
         "priceKind": "CRYPTO"
       },
       "forex": {
         "price": 1.1232,
-        "marketAt": "2026-11-10T06:16:31.000Z",
+        "marketAt": "2026-11-10T06:46:31.000Z",
         "source": "yahoo:EURUSD=X",
         "symbol": "EURUSD=X",
         "priceKind": "FOREX"
