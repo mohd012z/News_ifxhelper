@@ -8853,9 +8853,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-10T13:46:49.996Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T13:46:54.915Z",
+          "price": 4059.1,
+          "realizedPct": -0.877
         },
         {
           "key": "D1",
@@ -8885,7 +8885,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.137,
-        "maePct": -0.264
+        "maePct": -0.877
       }
     },
     {
@@ -8944,9 +8944,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-10T13:46:49.996Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T13:46:54.915Z",
+          "price": 4059.1,
+          "realizedPct": -0.877
         },
         {
           "key": "D1",
@@ -8976,7 +8976,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.137,
-        "maePct": -0.264
+        "maePct": -0.877
       }
     },
     {
@@ -9035,9 +9035,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-10T13:46:49.996Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T13:46:54.915Z",
+          "price": 4059.1,
+          "realizedPct": -0.877
         },
         {
           "key": "D1",
@@ -9067,7 +9067,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.137,
-        "maePct": -0.264
+        "maePct": -0.877
       }
     },
     {
@@ -9126,9 +9126,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-10T13:46:49.996Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T13:46:54.915Z",
+          "price": 73886.48,
+          "realizedPct": -0.697
         },
         {
           "key": "D1",
@@ -9158,7 +9158,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.26,
-        "maePct": -0.485
+        "maePct": -0.697
       }
     },
     {
@@ -9217,9 +9217,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-10T13:46:49.996Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T13:46:54.915Z",
+          "price": 73886.48,
+          "realizedPct": -0.697
         },
         {
           "key": "D1",
@@ -9249,7 +9249,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.26,
-        "maePct": -0.485
+        "maePct": -0.697
       }
     },
     {
@@ -9308,9 +9308,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-10T13:46:49.996Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T13:46:54.915Z",
+          "price": 73886.48,
+          "realizedPct": -0.697
         },
         {
           "key": "D1",
@@ -9340,7 +9340,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.26,
-        "maePct": -0.485
+        "maePct": -0.697
       }
     },
     {
@@ -9399,9 +9399,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-10T13:46:49.996Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T13:46:54.915Z",
+          "price": 1.1192,
+          "realizedPct": -0.338
         },
         {
           "key": "D1",
@@ -9431,7 +9431,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.036,
-        "maePct": -0.071
+        "maePct": -0.338
       }
     },
     {
@@ -9490,9 +9490,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-10T13:46:49.996Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T13:46:54.915Z",
+          "price": 1.1192,
+          "realizedPct": -0.338
         },
         {
           "key": "D1",
@@ -9522,7 +9522,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.036,
-        "maePct": -0.071
+        "maePct": -0.338
       }
     },
     {
@@ -9581,9 +9581,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-10T13:46:49.996Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T13:46:54.915Z",
+          "price": 1.1192,
+          "realizedPct": -0.338
         },
         {
           "key": "D1",
@@ -9613,7 +9613,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.036,
-        "maePct": -0.071
+        "maePct": -0.338
       }
     },
     {
@@ -11294,17 +11294,17 @@
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-10T13:16:54.382Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T13:46:54.915Z",
+          "price": 4059.1,
+          "realizedPct": -0.598
         },
         {
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-10T13:46:54.382Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T13:46:54.915Z",
+          "price": 4059.1,
+          "realizedPct": -0.598
         },
         {
           "key": "H4",
@@ -11342,7 +11342,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.059,
-        "maePct": 0.059
+        "maePct": -0.598
       }
     },
     {
@@ -11385,17 +11385,17 @@
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-10T13:16:54.383Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T13:46:54.915Z",
+          "price": 4059.1,
+          "realizedPct": -0.598
         },
         {
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-10T13:46:54.383Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T13:46:54.915Z",
+          "price": 4059.1,
+          "realizedPct": -0.598
         },
         {
           "key": "H4",
@@ -11433,7 +11433,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.059,
-        "maePct": 0.059
+        "maePct": -0.598
       }
     },
     {
@@ -11476,17 +11476,17 @@
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-10T13:16:54.383Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T13:46:54.915Z",
+          "price": 73886.48,
+          "realizedPct": -0.347
         },
         {
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-10T13:46:54.383Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T13:46:54.915Z",
+          "price": 73886.48,
+          "realizedPct": -0.347
         },
         {
           "key": "H4",
@@ -11524,7 +11524,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.002,
-        "maePct": 0.002
+        "maePct": -0.347
       }
     },
     {
@@ -11567,17 +11567,17 @@
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-10T13:16:54.383Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T13:46:54.915Z",
+          "price": 73886.48,
+          "realizedPct": -0.347
         },
         {
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-10T13:46:54.383Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T13:46:54.915Z",
+          "price": 73886.48,
+          "realizedPct": -0.347
         },
         {
           "key": "H4",
@@ -11615,7 +11615,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.002,
-        "maePct": 0.002
+        "maePct": -0.347
       }
     },
     {
@@ -11658,17 +11658,17 @@
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-10T13:16:54.384Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T13:46:54.915Z",
+          "price": 1.1192,
+          "realizedPct": -0.223
         },
         {
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-10T13:46:54.384Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T13:46:54.915Z",
+          "price": 1.1192,
+          "realizedPct": -0.223
         },
         {
           "key": "H4",
@@ -11706,7 +11706,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.036,
-        "maePct": -0.036
+        "maePct": -0.223
       }
     },
     {
@@ -11749,17 +11749,17 @@
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-10T13:16:54.384Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T13:46:54.915Z",
+          "price": 1.1192,
+          "realizedPct": -0.223
         },
         {
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-10T13:46:54.384Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T13:46:54.915Z",
+          "price": 1.1192,
+          "realizedPct": -0.223
         },
         {
           "key": "H4",
@@ -11797,8 +11797,524 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.036,
-        "maePct": -0.036
+        "maePct": -0.223
       }
+    },
+    {
+      "key": "news:gold:25 basis points is the unanimous call for December Fed hike – Reuters poll",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "25 basis points is the unanimous call for December Fed hike – Reuters poll",
+      "url": "https://www.fxstreet.com/news/25-basis-points-is-the-unanimous-call-for-december-fed-hike-reuters-poll-202611101326",
+      "impactScore": -0.08,
+      "priceSource": "yahoo:GC=F",
+      "priceSymbol": "GC=F",
+      "priceAtDetect": 4059.1,
+      "createdAt": "2026-11-10T13:46:54.916Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-10T13:47:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-10T13:51:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-10T14:01:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-10T14:16:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-10T14:46:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-10T17:46:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-11T13:46:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-17T13:46:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-10T13:46:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:gold:Australian Dollar slips toward 0.6900 as Fed rate hike expectations rise",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Australian Dollar slips toward 0.6900 as Fed rate hike expectations rise",
+      "url": "https://www.fxstreet.com/news/australian-dollar-slips-toward-06900-as-fed-rate-hike-expectations-rise-202611101255",
+      "impactScore": -0.12,
+      "priceSource": "yahoo:GC=F",
+      "priceSymbol": "GC=F",
+      "priceAtDetect": 4059.1,
+      "createdAt": "2026-11-10T13:46:54.916Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-10T13:47:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-10T13:51:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-10T14:01:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-10T14:16:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-10T14:46:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-10T17:46:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-11T13:46:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-17T13:46:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-10T13:46:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:crypto:25 basis points is the unanimous call for December Fed hike – Reuters poll",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "25 basis points is the unanimous call for December Fed hike – Reuters poll",
+      "url": "https://www.fxstreet.com/news/25-basis-points-is-the-unanimous-call-for-december-fed-hike-reuters-poll-202611101326",
+      "impactScore": -0.08,
+      "priceSource": "coinbase:BTC-USD",
+      "priceSymbol": "BTC-USD",
+      "priceAtDetect": 73886.48,
+      "createdAt": "2026-11-10T13:46:54.916Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-10T13:47:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-10T13:51:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-10T14:01:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-10T14:16:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-10T14:46:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-10T17:46:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-11T13:46:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-17T13:46:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-10T13:46:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:crypto:Australian Dollar slips toward 0.6900 as Fed rate hike expectations rise",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Australian Dollar slips toward 0.6900 as Fed rate hike expectations rise",
+      "url": "https://www.fxstreet.com/news/australian-dollar-slips-toward-06900-as-fed-rate-hike-expectations-rise-202611101255",
+      "impactScore": -0.14,
+      "priceSource": "coinbase:BTC-USD",
+      "priceSymbol": "BTC-USD",
+      "priceAtDetect": 73886.48,
+      "createdAt": "2026-11-10T13:46:54.916Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-10T13:47:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-10T13:51:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-10T14:01:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-10T14:16:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-10T14:46:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-10T17:46:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-11T13:46:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-17T13:46:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-10T13:46:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:forex:25 basis points is the unanimous call for December Fed hike – Reuters poll",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "25 basis points is the unanimous call for December Fed hike – Reuters poll",
+      "url": "https://www.fxstreet.com/news/25-basis-points-is-the-unanimous-call-for-december-fed-hike-reuters-poll-202611101326",
+      "impactScore": -0.08,
+      "priceSource": "yahoo:EURUSD=X",
+      "priceSymbol": "EURUSD=X",
+      "priceAtDetect": 1.1192,
+      "createdAt": "2026-11-10T13:46:54.916Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-10T13:47:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-10T13:51:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-10T14:01:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-10T14:16:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-10T14:46:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-10T17:46:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-11T13:46:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-17T13:46:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-10T13:46:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:forex:Australian Dollar slips toward 0.6900 as Fed rate hike expectations rise",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Australian Dollar slips toward 0.6900 as Fed rate hike expectations rise",
+      "url": "https://www.fxstreet.com/news/australian-dollar-slips-toward-06900-as-fed-rate-hike-expectations-rise-202611101255",
+      "impactScore": -0.15,
+      "priceSource": "yahoo:EURUSD=X",
+      "priceSymbol": "EURUSD=X",
+      "priceAtDetect": 1.1192,
+      "createdAt": "2026-11-10T13:46:54.916Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-10T13:47:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-10T13:51:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-10T14:01:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-10T14:16:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-10T14:46:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-10T17:46:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-11T13:46:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-17T13:46:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-10T13:46:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
     }
   ],
   "results": [
