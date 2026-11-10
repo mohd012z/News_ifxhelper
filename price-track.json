@@ -9664,9 +9664,9 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-10T11:46:51.412Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T11:46:52.473Z",
+          "price": 4081,
+          "realizedPct": -0.078
         },
         {
           "key": "H4",
@@ -9703,7 +9703,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": -0.174,
+        "mfePct": -0.078,
         "maePct": -0.174
       }
     },
@@ -9755,9 +9755,9 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-10T11:46:51.412Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T11:46:52.473Z",
+          "price": 74308.21,
+          "realizedPct": 0.356
         },
         {
           "key": "H4",
@@ -9794,7 +9794,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.342,
+        "mfePct": 0.356,
         "maePct": 0.342
       }
     },
@@ -9846,9 +9846,9 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-10T11:46:51.413Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T11:46:52.473Z",
+          "price": 1.122,
+          "realizedPct": -0.053
         },
         {
           "key": "H4",
@@ -9886,7 +9886,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0,
-        "maePct": 0
+        "maePct": -0.053
       }
     },
     {
@@ -9905,33 +9905,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-10T11:17:52.262Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T11:46:52.473Z",
+          "price": 4081,
+          "realizedPct": 0.096
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-10T11:21:52.262Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T11:46:52.473Z",
+          "price": 4081,
+          "realizedPct": 0.096
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-10T11:31:52.262Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T11:46:52.473Z",
+          "price": 4081,
+          "realizedPct": 0.096
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-10T11:46:52.262Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T11:46:52.473Z",
+          "price": 4081,
+          "realizedPct": 0.096
         },
         {
           "key": "H1",
@@ -9973,7 +9973,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.096,
+        "maePct": 0.096
+      }
     },
     {
       "key": "news:crypto:Gold slips as investors assess hawkish Fed comments, await U.S. inflation data",
@@ -9991,33 +9996,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-10T11:17:52.262Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T11:46:52.473Z",
+          "price": 74308.21,
+          "realizedPct": 0.014
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-10T11:21:52.262Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T11:46:52.473Z",
+          "price": 74308.21,
+          "realizedPct": 0.014
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-10T11:31:52.262Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T11:46:52.473Z",
+          "price": 74308.21,
+          "realizedPct": 0.014
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-10T11:46:52.262Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T11:46:52.473Z",
+          "price": 74308.21,
+          "realizedPct": 0.014
         },
         {
           "key": "H1",
@@ -10059,7 +10064,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.014,
+        "maePct": 0.014
+      }
     },
     {
       "key": "news:forex:Gold slips as investors assess hawkish Fed comments, await U.S. inflation data",
@@ -10077,33 +10087,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-10T11:17:52.262Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T11:46:52.473Z",
+          "price": 1.122,
+          "realizedPct": -0.053
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-10T11:21:52.262Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T11:46:52.473Z",
+          "price": 1.122,
+          "realizedPct": -0.053
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-10T11:31:52.262Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T11:46:52.473Z",
+          "price": 1.122,
+          "realizedPct": -0.053
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-10T11:46:52.262Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T11:46:52.473Z",
+          "price": 1.122,
+          "realizedPct": -0.053
         },
         {
           "key": "H1",
@@ -10141,6 +10151,1043 @@
           "key": "MN1",
           "minutes": 43200,
           "dueAt": "2026-12-10T11:16:52.262Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.053,
+        "maePct": -0.053
+      }
+    },
+    {
+      "key": "news:gold:Silver Price Forecast: XAG/USD plummets to near $52 as Fed’s Waller cautions larger rate hike",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Silver Price Forecast: XAG/USD plummets to near $52 as Fed’s Waller cautions larger rate hike",
+      "url": "https://www.fxstreet.com/news/silver-price-forecast-xag-usd-plummets-to-near-52-as-feds-waller-cautions-larger-rate-hike-202611101115",
+      "impactScore": -0.12,
+      "priceSource": "yahoo:GC=F",
+      "priceSymbol": "GC=F",
+      "priceAtDetect": 4081,
+      "createdAt": "2026-11-10T11:46:52.474Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-10T11:47:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-10T11:51:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-10T12:01:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-10T12:16:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-10T12:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-10T15:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-11T11:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-17T11:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-10T11:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:gold:US Dollar: Supported near term, softer later – ING",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "US Dollar: Supported near term, softer later – ING",
+      "url": "https://www.fxstreet.com/news/us-dollar-supported-near-term-softer-later-ing-202611101056",
+      "impactScore": -0.12,
+      "priceSource": "yahoo:GC=F",
+      "priceSymbol": "GC=F",
+      "priceAtDetect": 4081,
+      "createdAt": "2026-11-10T11:46:52.474Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-10T11:47:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-10T11:51:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-10T12:01:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-10T12:16:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-10T12:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-10T15:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-11T11:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-17T11:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-10T11:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:gold:Gold falls over 1% as hawkish Fed remarks weigh ahead of US CPI",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Gold falls over 1% as hawkish Fed remarks weigh ahead of US CPI",
+      "url": "https://www.fxstreet.com/news/gold-falls-over-1-as-hawkish-fed-remarks-weigh-ahead-of-us-cpi-202611101046",
+      "impactScore": -0.15,
+      "priceSource": "yahoo:GC=F",
+      "priceSymbol": "GC=F",
+      "priceAtDetect": 4081,
+      "createdAt": "2026-11-10T11:46:52.474Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-10T11:47:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-10T11:51:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-10T12:01:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-10T12:16:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-10T12:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-10T15:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-11T11:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-17T11:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-10T11:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:gold:Fed's Waller calls for higher interest rates to curb inflation",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Fed's Waller calls for higher interest rates to curb inflation",
+      "url": "https://www.fxstreet.com/news/feds-waller-calls-for-higher-interest-rates-to-curb-inflation-202611101043",
+      "impactScore": -0.08,
+      "priceSource": "yahoo:GC=F",
+      "priceSymbol": "GC=F",
+      "priceAtDetect": 4081,
+      "createdAt": "2026-11-10T11:46:52.474Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-10T11:47:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-10T11:51:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-10T12:01:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-10T12:16:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-10T12:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-10T15:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-11T11:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-17T11:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-10T11:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:crypto:Silver Price Forecast: XAG/USD plummets to near $52 as Fed’s Waller cautions larger rate hike",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Silver Price Forecast: XAG/USD plummets to near $52 as Fed’s Waller cautions larger rate hike",
+      "url": "https://www.fxstreet.com/news/silver-price-forecast-xag-usd-plummets-to-near-52-as-feds-waller-cautions-larger-rate-hike-202611101115",
+      "impactScore": -0.14,
+      "priceSource": "coinbase:BTC-USD",
+      "priceSymbol": "BTC-USD",
+      "priceAtDetect": 74308.21,
+      "createdAt": "2026-11-10T11:46:52.474Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-10T11:47:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-10T11:51:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-10T12:01:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-10T12:16:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-10T12:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-10T15:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-11T11:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-17T11:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-10T11:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:crypto:US Dollar: Supported near term, softer later – ING",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "US Dollar: Supported near term, softer later – ING",
+      "url": "https://www.fxstreet.com/news/us-dollar-supported-near-term-softer-later-ing-202611101056",
+      "impactScore": -0.14,
+      "priceSource": "coinbase:BTC-USD",
+      "priceSymbol": "BTC-USD",
+      "priceAtDetect": 74308.21,
+      "createdAt": "2026-11-10T11:46:52.474Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-10T11:47:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-10T11:51:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-10T12:01:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-10T12:16:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-10T12:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-10T15:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-11T11:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-17T11:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-10T11:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:crypto:Gold falls over 1% as hawkish Fed remarks weigh ahead of US CPI",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Gold falls over 1% as hawkish Fed remarks weigh ahead of US CPI",
+      "url": "https://www.fxstreet.com/news/gold-falls-over-1-as-hawkish-fed-remarks-weigh-ahead-of-us-cpi-202611101046",
+      "impactScore": -0.14,
+      "priceSource": "coinbase:BTC-USD",
+      "priceSymbol": "BTC-USD",
+      "priceAtDetect": 74308.21,
+      "createdAt": "2026-11-10T11:46:52.474Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-10T11:47:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-10T11:51:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-10T12:01:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-10T12:16:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-10T12:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-10T15:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-11T11:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-17T11:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-10T11:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:crypto:Fed's Waller calls for higher interest rates to curb inflation",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Fed's Waller calls for higher interest rates to curb inflation",
+      "url": "https://www.fxstreet.com/news/feds-waller-calls-for-higher-interest-rates-to-curb-inflation-202611101043",
+      "impactScore": -0.08,
+      "priceSource": "coinbase:BTC-USD",
+      "priceSymbol": "BTC-USD",
+      "priceAtDetect": 74308.21,
+      "createdAt": "2026-11-10T11:46:52.474Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-10T11:47:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-10T11:51:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-10T12:01:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-10T12:16:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-10T12:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-10T15:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-11T11:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-17T11:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-10T11:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:forex:Silver Price Forecast: XAG/USD plummets to near $52 as Fed’s Waller cautions larger rate hike",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Silver Price Forecast: XAG/USD plummets to near $52 as Fed’s Waller cautions larger rate hike",
+      "url": "https://www.fxstreet.com/news/silver-price-forecast-xag-usd-plummets-to-near-52-as-feds-waller-cautions-larger-rate-hike-202611101115",
+      "impactScore": -0.15,
+      "priceSource": "yahoo:EURUSD=X",
+      "priceSymbol": "EURUSD=X",
+      "priceAtDetect": 1.122,
+      "createdAt": "2026-11-10T11:46:52.474Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-10T11:47:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-10T11:51:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-10T12:01:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-10T12:16:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-10T12:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-10T15:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-11T11:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-17T11:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-10T11:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:forex:US Dollar: Supported near term, softer later – ING",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "US Dollar: Supported near term, softer later – ING",
+      "url": "https://www.fxstreet.com/news/us-dollar-supported-near-term-softer-later-ing-202611101056",
+      "impactScore": -0.15,
+      "priceSource": "yahoo:EURUSD=X",
+      "priceSymbol": "EURUSD=X",
+      "priceAtDetect": 1.122,
+      "createdAt": "2026-11-10T11:46:52.474Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-10T11:47:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-10T11:51:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-10T12:01:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-10T12:16:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-10T12:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-10T15:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-11T11:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-17T11:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-10T11:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:forex:Gold falls over 1% as hawkish Fed remarks weigh ahead of US CPI",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Gold falls over 1% as hawkish Fed remarks weigh ahead of US CPI",
+      "url": "https://www.fxstreet.com/news/gold-falls-over-1-as-hawkish-fed-remarks-weigh-ahead-of-us-cpi-202611101046",
+      "impactScore": -0.15,
+      "priceSource": "yahoo:EURUSD=X",
+      "priceSymbol": "EURUSD=X",
+      "priceAtDetect": 1.122,
+      "createdAt": "2026-11-10T11:46:52.474Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-10T11:47:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-10T11:51:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-10T12:01:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-10T12:16:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-10T12:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-10T15:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-11T11:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-17T11:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-10T11:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:forex:Fed's Waller calls for higher interest rates to curb inflation",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Fed's Waller calls for higher interest rates to curb inflation",
+      "url": "https://www.fxstreet.com/news/feds-waller-calls-for-higher-interest-rates-to-curb-inflation-202611101043",
+      "impactScore": -0.08,
+      "priceSource": "yahoo:EURUSD=X",
+      "priceSymbol": "EURUSD=X",
+      "priceAtDetect": 1.122,
+      "createdAt": "2026-11-10T11:46:52.474Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-10T11:47:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-10T11:51:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-10T12:01:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-10T12:16:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-10T12:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-10T15:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-11T11:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-17T11:46:52.474Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-10T11:46:52.474Z",
           "capturedAt": null,
           "price": null,
           "realizedPct": null
