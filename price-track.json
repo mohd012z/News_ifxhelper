@@ -10218,9 +10218,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-10T15:46:52.474Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.145Z",
+          "price": 4057.3,
+          "realizedPct": -0.581
         },
         {
           "key": "D1",
@@ -10250,7 +10250,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.071,
-        "maePct": 0.061
+        "maePct": -0.581
       }
     },
     {
@@ -10309,9 +10309,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-10T15:46:52.474Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.145Z",
+          "price": 4057.3,
+          "realizedPct": -0.581
         },
         {
           "key": "D1",
@@ -10341,7 +10341,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.071,
-        "maePct": 0.061
+        "maePct": -0.581
       }
     },
     {
@@ -10400,9 +10400,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-10T15:46:52.474Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.145Z",
+          "price": 4057.3,
+          "realizedPct": -0.581
         },
         {
           "key": "D1",
@@ -10432,7 +10432,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.071,
-        "maePct": 0.061
+        "maePct": -0.581
       }
     },
     {
@@ -10491,9 +10491,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-10T15:46:52.474Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.145Z",
+          "price": 4057.3,
+          "realizedPct": -0.581
         },
         {
           "key": "D1",
@@ -10523,7 +10523,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.071,
-        "maePct": 0.061
+        "maePct": -0.581
       }
     },
     {
@@ -10582,9 +10582,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-10T15:46:52.474Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.145Z",
+          "price": 73118.21,
+          "realizedPct": -1.601
         },
         {
           "key": "D1",
@@ -10614,7 +10614,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.062,
-        "maePct": -0.221
+        "maePct": -1.601
       }
     },
     {
@@ -10673,9 +10673,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-10T15:46:52.474Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.145Z",
+          "price": 73118.21,
+          "realizedPct": -1.601
         },
         {
           "key": "D1",
@@ -10705,7 +10705,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.062,
-        "maePct": -0.221
+        "maePct": -1.601
       }
     },
     {
@@ -10764,9 +10764,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-10T15:46:52.474Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.145Z",
+          "price": 73118.21,
+          "realizedPct": -1.601
         },
         {
           "key": "D1",
@@ -10796,7 +10796,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.062,
-        "maePct": -0.221
+        "maePct": -1.601
       }
     },
     {
@@ -10855,9 +10855,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-10T15:46:52.474Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.145Z",
+          "price": 73118.21,
+          "realizedPct": -1.601
         },
         {
           "key": "D1",
@@ -10887,7 +10887,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.062,
-        "maePct": -0.221
+        "maePct": -1.601
       }
     },
     {
@@ -10946,9 +10946,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-10T15:46:52.474Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.145Z",
+          "price": 1.1172,
+          "realizedPct": -0.428
         },
         {
           "key": "D1",
@@ -10978,7 +10978,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.018,
-        "maePct": -0.027
+        "maePct": -0.428
       }
     },
     {
@@ -11037,9 +11037,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-10T15:46:52.474Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.145Z",
+          "price": 1.1172,
+          "realizedPct": -0.428
         },
         {
           "key": "D1",
@@ -11069,7 +11069,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.018,
-        "maePct": -0.027
+        "maePct": -0.428
       }
     },
     {
@@ -11128,9 +11128,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-10T15:46:52.474Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.145Z",
+          "price": 1.1172,
+          "realizedPct": -0.428
         },
         {
           "key": "D1",
@@ -11160,7 +11160,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.018,
-        "maePct": -0.027
+        "maePct": -0.428
       }
     },
     {
@@ -11219,9 +11219,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-10T15:46:52.474Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.145Z",
+          "price": 1.1172,
+          "realizedPct": -0.428
         },
         {
           "key": "D1",
@@ -11251,7 +11251,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.018,
-        "maePct": -0.027
+        "maePct": -0.428
       }
     },
     {
@@ -12635,33 +12635,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-10T15:17:56.361Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.146Z",
+          "price": 4057.3,
+          "realizedPct": 0.062
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-10T15:21:56.361Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.146Z",
+          "price": 4057.3,
+          "realizedPct": 0.062
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-10T15:31:56.361Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.146Z",
+          "price": 4057.3,
+          "realizedPct": 0.062
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-10T15:46:56.361Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.146Z",
+          "price": 4057.3,
+          "realizedPct": 0.062
         },
         {
           "key": "H1",
@@ -12703,7 +12703,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.062,
+        "maePct": 0.062
+      }
     },
     {
       "key": "news:gold:Australian Dollar falls below 0.6900 as hotter US CPI fuel Fed rate hike bets",
@@ -12721,33 +12726,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-10T15:17:56.361Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.146Z",
+          "price": 4057.3,
+          "realizedPct": 0.062
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-10T15:21:56.361Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.146Z",
+          "price": 4057.3,
+          "realizedPct": 0.062
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-10T15:31:56.361Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.146Z",
+          "price": 4057.3,
+          "realizedPct": 0.062
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-10T15:46:56.361Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.146Z",
+          "price": 4057.3,
+          "realizedPct": 0.062
         },
         {
           "key": "H1",
@@ -12789,7 +12794,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.062,
+        "maePct": 0.062
+      }
     },
     {
       "key": "news:gold:Euro slips below 1.1200 as hotter US inflation fuels Fed rate hike bets",
@@ -12807,33 +12817,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-10T15:17:56.361Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.146Z",
+          "price": 4057.3,
+          "realizedPct": 0.062
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-10T15:21:56.361Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.146Z",
+          "price": 4057.3,
+          "realizedPct": 0.062
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-10T15:31:56.361Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.146Z",
+          "price": 4057.3,
+          "realizedPct": 0.062
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-10T15:46:56.361Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.146Z",
+          "price": 4057.3,
+          "realizedPct": 0.062
         },
         {
           "key": "H1",
@@ -12875,7 +12885,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.062,
+        "maePct": 0.062
+      }
     },
     {
       "key": "news:gold:Gold drops 2% as US CPI tops forecasts, strengthening December Fed rate hike bets",
@@ -12893,33 +12908,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-10T15:17:56.361Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.146Z",
+          "price": 4057.3,
+          "realizedPct": 0.062
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-10T15:21:56.361Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.146Z",
+          "price": 4057.3,
+          "realizedPct": 0.062
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-10T15:31:56.361Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.146Z",
+          "price": 4057.3,
+          "realizedPct": 0.062
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-10T15:46:56.361Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.146Z",
+          "price": 4057.3,
+          "realizedPct": 0.062
         },
         {
           "key": "H1",
@@ -12961,7 +12976,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.062,
+        "maePct": 0.062
+      }
     },
     {
       "key": "news:crypto:Gold slumps after firm U.S. inflation data, hawkish comments from Fed’s Waller",
@@ -12979,33 +12999,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-10T15:17:56.361Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.146Z",
+          "price": 73118.21,
+          "realizedPct": -1.522
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-10T15:21:56.361Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.146Z",
+          "price": 73118.21,
+          "realizedPct": -1.522
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-10T15:31:56.361Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.146Z",
+          "price": 73118.21,
+          "realizedPct": -1.522
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-10T15:46:56.361Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.146Z",
+          "price": 73118.21,
+          "realizedPct": -1.522
         },
         {
           "key": "H1",
@@ -13047,7 +13067,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -1.522,
+        "maePct": -1.522
+      }
     },
     {
       "key": "news:crypto:Australian Dollar falls below 0.6900 as hotter US CPI fuel Fed rate hike bets",
@@ -13065,33 +13090,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-10T15:17:56.361Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.146Z",
+          "price": 73118.21,
+          "realizedPct": -1.522
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-10T15:21:56.361Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.146Z",
+          "price": 73118.21,
+          "realizedPct": -1.522
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-10T15:31:56.361Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.146Z",
+          "price": 73118.21,
+          "realizedPct": -1.522
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-10T15:46:56.361Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.146Z",
+          "price": 73118.21,
+          "realizedPct": -1.522
         },
         {
           "key": "H1",
@@ -13133,7 +13158,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -1.522,
+        "maePct": -1.522
+      }
     },
     {
       "key": "news:crypto:Euro slips below 1.1200 as hotter US inflation fuels Fed rate hike bets",
@@ -13151,33 +13181,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-10T15:17:56.361Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.146Z",
+          "price": 73118.21,
+          "realizedPct": -1.522
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-10T15:21:56.361Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.146Z",
+          "price": 73118.21,
+          "realizedPct": -1.522
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-10T15:31:56.361Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.146Z",
+          "price": 73118.21,
+          "realizedPct": -1.522
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-10T15:46:56.361Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.146Z",
+          "price": 73118.21,
+          "realizedPct": -1.522
         },
         {
           "key": "H1",
@@ -13219,7 +13249,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -1.522,
+        "maePct": -1.522
+      }
     },
     {
       "key": "news:crypto:Gold drops 2% as US CPI tops forecasts, strengthening December Fed rate hike bets",
@@ -13237,33 +13272,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-10T15:17:56.361Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.146Z",
+          "price": 73118.21,
+          "realizedPct": -1.522
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-10T15:21:56.361Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.146Z",
+          "price": 73118.21,
+          "realizedPct": -1.522
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-10T15:31:56.361Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.146Z",
+          "price": 73118.21,
+          "realizedPct": -1.522
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-10T15:46:56.361Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.146Z",
+          "price": 73118.21,
+          "realizedPct": -1.522
         },
         {
           "key": "H1",
@@ -13305,7 +13340,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -1.522,
+        "maePct": -1.522
+      }
     },
     {
       "key": "news:forex:Gold slumps after firm U.S. inflation data, hawkish comments from Fed’s Waller",
@@ -13323,33 +13363,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-10T15:17:56.361Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.146Z",
+          "price": 1.1172,
+          "realizedPct": -0.089
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-10T15:21:56.361Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.146Z",
+          "price": 1.1172,
+          "realizedPct": -0.089
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-10T15:31:56.361Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.146Z",
+          "price": 1.1172,
+          "realizedPct": -0.089
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-10T15:46:56.361Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.146Z",
+          "price": 1.1172,
+          "realizedPct": -0.089
         },
         {
           "key": "H1",
@@ -13391,7 +13431,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.089,
+        "maePct": -0.089
+      }
     },
     {
       "key": "news:forex:Australian Dollar falls below 0.6900 as hotter US CPI fuel Fed rate hike bets",
@@ -13409,33 +13454,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-10T15:17:56.361Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.146Z",
+          "price": 1.1172,
+          "realizedPct": -0.089
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-10T15:21:56.361Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.146Z",
+          "price": 1.1172,
+          "realizedPct": -0.089
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-10T15:31:56.361Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.146Z",
+          "price": 1.1172,
+          "realizedPct": -0.089
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-10T15:46:56.361Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.146Z",
+          "price": 1.1172,
+          "realizedPct": -0.089
         },
         {
           "key": "H1",
@@ -13477,7 +13522,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.089,
+        "maePct": -0.089
+      }
     },
     {
       "key": "news:forex:Euro slips below 1.1200 as hotter US inflation fuels Fed rate hike bets",
@@ -13495,33 +13545,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-10T15:17:56.361Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.146Z",
+          "price": 1.1172,
+          "realizedPct": -0.089
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-10T15:21:56.361Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.146Z",
+          "price": 1.1172,
+          "realizedPct": -0.089
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-10T15:31:56.361Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.146Z",
+          "price": 1.1172,
+          "realizedPct": -0.089
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-10T15:46:56.361Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T15:46:58.146Z",
+          "price": 1.1172,
+          "realizedPct": -0.089
         },
         {
           "key": "H1",
@@ -13563,7 +13613,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.089,
+        "maePct": -0.089
+      }
     }
   ],
   "results": [
