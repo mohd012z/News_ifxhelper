@@ -5767,9 +5767,9 @@
           "key": "D1",
           "minutes": 1440,
           "dueAt": "2026-11-10T09:46:37.198Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T09:46:49.995Z",
+          "price": 4095,
+          "realizedPct": -0.244
         },
         {
           "key": "W1",
@@ -5791,7 +5791,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.709,
-        "maePct": 0.039
+        "maePct": -0.244
       }
     },
     {
@@ -5858,9 +5858,9 @@
           "key": "D1",
           "minutes": 1440,
           "dueAt": "2026-11-10T09:46:37.199Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T09:46:49.995Z",
+          "price": 74405.45,
+          "realizedPct": 0.317
         },
         {
           "key": "W1",
@@ -5949,9 +5949,9 @@
           "key": "D1",
           "minutes": 1440,
           "dueAt": "2026-11-10T09:46:37.199Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T09:46:49.995Z",
+          "price": 1.123,
+          "realizedPct": 0.34
         },
         {
           "key": "W1",
@@ -5972,7 +5972,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": 0.054,
+        "mfePct": 0.34,
         "maePct": 0.018
       }
     },
@@ -7812,33 +7812,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-10T09:17:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T09:46:49.995Z",
+          "price": 4095,
+          "realizedPct": -0.363
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-10T09:21:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T09:46:49.995Z",
+          "price": 4095,
+          "realizedPct": -0.363
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-10T09:31:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T09:46:49.995Z",
+          "price": 4095,
+          "realizedPct": -0.363
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-10T09:46:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T09:46:49.995Z",
+          "price": 4095,
+          "realizedPct": -0.363
         },
         {
           "key": "H1",
@@ -7880,7 +7880,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.363,
+        "maePct": -0.363
+      }
     },
     {
       "key": "news:gold:ECB’s Lane: Prudent to hike again as inflation seen over 4% by year-end",
@@ -7898,33 +7903,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-10T09:17:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T09:46:49.995Z",
+          "price": 4095,
+          "realizedPct": -0.363
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-10T09:21:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T09:46:49.995Z",
+          "price": 4095,
+          "realizedPct": -0.363
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-10T09:31:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T09:46:49.995Z",
+          "price": 4095,
+          "realizedPct": -0.363
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-10T09:46:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T09:46:49.995Z",
+          "price": 4095,
+          "realizedPct": -0.363
         },
         {
           "key": "H1",
@@ -7966,7 +7971,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.363,
+        "maePct": -0.363
+      }
     },
     {
       "key": "news:gold:US Dollar: Fed rhetoric and CPI expectations guide yields – Rabobank",
@@ -7984,33 +7994,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-10T09:17:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T09:46:49.995Z",
+          "price": 4095,
+          "realizedPct": -0.363
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-10T09:21:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T09:46:49.995Z",
+          "price": 4095,
+          "realizedPct": -0.363
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-10T09:31:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T09:46:49.995Z",
+          "price": 4095,
+          "realizedPct": -0.363
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-10T09:46:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T09:46:49.995Z",
+          "price": 4095,
+          "realizedPct": -0.363
         },
         {
           "key": "H1",
@@ -8052,7 +8062,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.363,
+        "maePct": -0.363
+      }
     },
     {
       "key": "news:crypto:BoE’s Lombardelli: Wouldn’t rule it out rate hike possibility in December",
@@ -8070,33 +8085,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-10T09:17:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T09:46:49.995Z",
+          "price": 74405.45,
+          "realizedPct": 0.13
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-10T09:21:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T09:46:49.995Z",
+          "price": 74405.45,
+          "realizedPct": 0.13
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-10T09:31:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T09:46:49.995Z",
+          "price": 74405.45,
+          "realizedPct": 0.13
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-10T09:46:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T09:46:49.995Z",
+          "price": 74405.45,
+          "realizedPct": 0.13
         },
         {
           "key": "H1",
@@ -8138,7 +8153,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.13,
+        "maePct": 0.13
+      }
     },
     {
       "key": "news:crypto:ECB’s Lane: Prudent to hike again as inflation seen over 4% by year-end",
@@ -8156,33 +8176,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-10T09:17:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T09:46:49.995Z",
+          "price": 74405.45,
+          "realizedPct": 0.13
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-10T09:21:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T09:46:49.995Z",
+          "price": 74405.45,
+          "realizedPct": 0.13
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-10T09:31:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T09:46:49.995Z",
+          "price": 74405.45,
+          "realizedPct": 0.13
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-10T09:46:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T09:46:49.995Z",
+          "price": 74405.45,
+          "realizedPct": 0.13
         },
         {
           "key": "H1",
@@ -8224,7 +8244,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.13,
+        "maePct": 0.13
+      }
     },
     {
       "key": "news:crypto:US Dollar: Fed rhetoric and CPI expectations guide yields – Rabobank",
@@ -8242,33 +8267,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-10T09:17:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T09:46:49.995Z",
+          "price": 74405.45,
+          "realizedPct": 0.13
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-10T09:21:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T09:46:49.995Z",
+          "price": 74405.45,
+          "realizedPct": 0.13
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-10T09:31:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T09:46:49.995Z",
+          "price": 74405.45,
+          "realizedPct": 0.13
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-10T09:46:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T09:46:49.995Z",
+          "price": 74405.45,
+          "realizedPct": 0.13
         },
         {
           "key": "H1",
@@ -8310,7 +8335,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.13,
+        "maePct": 0.13
+      }
     },
     {
       "key": "news:crypto:British Pound advances to mid-212.00s vs Yen as hawkish BoE meets weak Japanese data",
@@ -8328,33 +8358,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-10T09:17:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T09:46:49.995Z",
+          "price": 74405.45,
+          "realizedPct": 0.13
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-10T09:21:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T09:46:49.995Z",
+          "price": 74405.45,
+          "realizedPct": 0.13
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-10T09:31:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T09:46:49.995Z",
+          "price": 74405.45,
+          "realizedPct": 0.13
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-10T09:46:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T09:46:49.995Z",
+          "price": 74405.45,
+          "realizedPct": 0.13
         },
         {
           "key": "H1",
@@ -8396,7 +8426,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.13,
+        "maePct": 0.13
+      }
     },
     {
       "key": "news:forex:BoE’s Lombardelli: Wouldn’t rule it out rate hike possibility in December",
@@ -8414,33 +8449,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-10T09:17:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T09:46:49.995Z",
+          "price": 1.123,
+          "realizedPct": -0.045
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-10T09:21:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T09:46:49.995Z",
+          "price": 1.123,
+          "realizedPct": -0.045
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-10T09:31:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T09:46:49.995Z",
+          "price": 1.123,
+          "realizedPct": -0.045
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-10T09:46:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T09:46:49.995Z",
+          "price": 1.123,
+          "realizedPct": -0.045
         },
         {
           "key": "H1",
@@ -8482,7 +8517,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.045,
+        "maePct": -0.045
+      }
     },
     {
       "key": "news:forex:ECB’s Lane: Prudent to hike again as inflation seen over 4% by year-end",
@@ -8500,33 +8540,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-10T09:17:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T09:46:49.995Z",
+          "price": 1.123,
+          "realizedPct": -0.045
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-10T09:21:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T09:46:49.995Z",
+          "price": 1.123,
+          "realizedPct": -0.045
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-10T09:31:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T09:46:49.995Z",
+          "price": 1.123,
+          "realizedPct": -0.045
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-10T09:46:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T09:46:49.995Z",
+          "price": 1.123,
+          "realizedPct": -0.045
         },
         {
           "key": "H1",
@@ -8568,7 +8608,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.045,
+        "maePct": -0.045
+      }
     },
     {
       "key": "news:forex:US Dollar: Fed rhetoric and CPI expectations guide yields – Rabobank",
@@ -8586,33 +8631,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-10T09:17:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T09:46:49.995Z",
+          "price": 1.123,
+          "realizedPct": -0.045
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-10T09:21:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T09:46:49.995Z",
+          "price": 1.123,
+          "realizedPct": -0.045
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-10T09:31:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T09:46:49.995Z",
+          "price": 1.123,
+          "realizedPct": -0.045
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-10T09:46:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T09:46:49.995Z",
+          "price": 1.123,
+          "realizedPct": -0.045
         },
         {
           "key": "H1",
@@ -8654,7 +8699,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.045,
+        "maePct": -0.045
+      }
     },
     {
       "key": "news:forex:British Pound advances to mid-212.00s vs Yen as hawkish BoE meets weak Japanese data",
@@ -8672,33 +8722,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-10T09:17:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T09:46:49.995Z",
+          "price": 1.123,
+          "realizedPct": -0.045
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-10T09:21:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T09:46:49.995Z",
+          "price": 1.123,
+          "realizedPct": -0.045
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-10T09:31:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T09:46:49.995Z",
+          "price": 1.123,
+          "realizedPct": -0.045
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-10T09:46:49.359Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T09:46:49.995Z",
+          "price": 1.123,
+          "realizedPct": -0.045
         },
         {
           "key": "H1",
@@ -8736,6 +8786,785 @@
           "key": "MN1",
           "minutes": 43200,
           "dueAt": "2026-12-10T09:16:49.359Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.045,
+        "maePct": -0.045
+      }
+    },
+    {
+      "key": "news:gold:US CPI data set to ease in October as markets reassess Fed rate hike expectations",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "US CPI data set to ease in October as markets reassess Fed rate hike expectations",
+      "url": "https://www.fxstreet.com/news/us-cpi-data-set-to-ease-in-october-as-markets-reassess-fed-rate-hike-expectations-202611100930",
+      "impactScore": -0.12,
+      "priceSource": "yahoo:GC=F",
+      "priceSymbol": "GC=F",
+      "priceAtDetect": 4095,
+      "createdAt": "2026-11-10T09:46:49.996Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-10T09:47:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-10T09:51:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-10T10:01:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-10T10:16:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-10T10:46:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-10T13:46:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-11T09:46:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-17T09:46:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-10T09:46:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:gold:Fed's Waller: Further policy tightening will be needed",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Fed's Waller: Further policy tightening will be needed",
+      "url": "https://www.fxstreet.com/news/feds-waller-further-policy-tightening-will-be-needed-202611100908",
+      "impactScore": -0.08,
+      "priceSource": "yahoo:GC=F",
+      "priceSymbol": "GC=F",
+      "priceAtDetect": 4095,
+      "createdAt": "2026-11-10T09:46:49.996Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-10T09:47:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-10T09:51:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-10T10:01:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-10T10:16:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-10T10:46:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-10T13:46:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-11T09:46:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-17T09:46:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-10T09:46:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:gold:Fed&#x2019;s Waller puts half-point rate hike into the mix for December",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Fed&#x2019;s Waller puts half-point rate hike into the mix for December",
+      "url": "https://www.marketwatch.com/story/feds-waller-puts-half-point-rate-hike-into-the-mix-for-december-1bebdffc?mod=mw_rss_topstories",
+      "impactScore": -0.08,
+      "priceSource": "yahoo:GC=F",
+      "priceSymbol": "GC=F",
+      "priceAtDetect": 4095,
+      "createdAt": "2026-11-10T09:46:49.996Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-10T09:47:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-10T09:51:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-10T10:01:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-10T10:16:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-10T10:46:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-10T13:46:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-11T09:46:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-17T09:46:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-10T09:46:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:crypto:US CPI data set to ease in October as markets reassess Fed rate hike expectations",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "US CPI data set to ease in October as markets reassess Fed rate hike expectations",
+      "url": "https://www.fxstreet.com/news/us-cpi-data-set-to-ease-in-october-as-markets-reassess-fed-rate-hike-expectations-202611100930",
+      "impactScore": -0.14,
+      "priceSource": "coinbase:BTC-USD",
+      "priceSymbol": "BTC-USD",
+      "priceAtDetect": 74405.45,
+      "createdAt": "2026-11-10T09:46:49.996Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-10T09:47:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-10T09:51:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-10T10:01:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-10T10:16:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-10T10:46:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-10T13:46:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-11T09:46:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-17T09:46:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-10T09:46:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:crypto:Fed's Waller: Further policy tightening will be needed",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Fed's Waller: Further policy tightening will be needed",
+      "url": "https://www.fxstreet.com/news/feds-waller-further-policy-tightening-will-be-needed-202611100908",
+      "impactScore": -0.08,
+      "priceSource": "coinbase:BTC-USD",
+      "priceSymbol": "BTC-USD",
+      "priceAtDetect": 74405.45,
+      "createdAt": "2026-11-10T09:46:49.996Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-10T09:47:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-10T09:51:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-10T10:01:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-10T10:16:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-10T10:46:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-10T13:46:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-11T09:46:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-17T09:46:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-10T09:46:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:crypto:Fed&#x2019;s Waller puts half-point rate hike into the mix for December",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Fed&#x2019;s Waller puts half-point rate hike into the mix for December",
+      "url": "https://www.marketwatch.com/story/feds-waller-puts-half-point-rate-hike-into-the-mix-for-december-1bebdffc?mod=mw_rss_topstories",
+      "impactScore": -0.08,
+      "priceSource": "coinbase:BTC-USD",
+      "priceSymbol": "BTC-USD",
+      "priceAtDetect": 74405.45,
+      "createdAt": "2026-11-10T09:46:49.996Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-10T09:47:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-10T09:51:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-10T10:01:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-10T10:16:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-10T10:46:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-10T13:46:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-11T09:46:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-17T09:46:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-10T09:46:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:forex:US CPI data set to ease in October as markets reassess Fed rate hike expectations",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "US CPI data set to ease in October as markets reassess Fed rate hike expectations",
+      "url": "https://www.fxstreet.com/news/us-cpi-data-set-to-ease-in-october-as-markets-reassess-fed-rate-hike-expectations-202611100930",
+      "impactScore": -0.15,
+      "priceSource": "yahoo:EURUSD=X",
+      "priceSymbol": "EURUSD=X",
+      "priceAtDetect": 1.123,
+      "createdAt": "2026-11-10T09:46:49.996Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-10T09:47:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-10T09:51:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-10T10:01:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-10T10:16:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-10T10:46:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-10T13:46:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-11T09:46:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-17T09:46:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-10T09:46:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:forex:Fed's Waller: Further policy tightening will be needed",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Fed's Waller: Further policy tightening will be needed",
+      "url": "https://www.fxstreet.com/news/feds-waller-further-policy-tightening-will-be-needed-202611100908",
+      "impactScore": -0.08,
+      "priceSource": "yahoo:EURUSD=X",
+      "priceSymbol": "EURUSD=X",
+      "priceAtDetect": 1.123,
+      "createdAt": "2026-11-10T09:46:49.996Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-10T09:47:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-10T09:51:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-10T10:01:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-10T10:16:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-10T10:46:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-10T13:46:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-11T09:46:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-17T09:46:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-10T09:46:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:forex:Fed&#x2019;s Waller puts half-point rate hike into the mix for December",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Fed&#x2019;s Waller puts half-point rate hike into the mix for December",
+      "url": "https://www.marketwatch.com/story/feds-waller-puts-half-point-rate-hike-into-the-mix-for-december-1bebdffc?mod=mw_rss_topstories",
+      "impactScore": -0.08,
+      "priceSource": "yahoo:EURUSD=X",
+      "priceSymbol": "EURUSD=X",
+      "priceAtDetect": 1.123,
+      "createdAt": "2026-11-10T09:46:49.996Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-10T09:47:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-10T09:51:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-10T10:01:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-10T10:16:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-10T10:46:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-10T13:46:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-11T09:46:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-17T09:46:49.996Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-10T09:46:49.996Z",
           "capturedAt": null,
           "price": null,
           "realizedPct": null
