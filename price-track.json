@@ -8845,9 +8845,9 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-10T10:46:49.996Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T10:46:51.412Z",
+          "price": 4084.2,
+          "realizedPct": -0.264
         },
         {
           "key": "H4",
@@ -8885,7 +8885,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.137,
-        "maePct": -0.137
+        "maePct": -0.264
       }
     },
     {
@@ -8936,9 +8936,9 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-10T10:46:49.996Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T10:46:51.412Z",
+          "price": 4084.2,
+          "realizedPct": -0.264
         },
         {
           "key": "H4",
@@ -8976,7 +8976,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.137,
-        "maePct": -0.137
+        "maePct": -0.264
       }
     },
     {
@@ -9027,9 +9027,9 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-10T10:46:49.996Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T10:46:51.412Z",
+          "price": 4084.2,
+          "realizedPct": -0.264
         },
         {
           "key": "H4",
@@ -9067,7 +9067,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.137,
-        "maePct": -0.137
+        "maePct": -0.264
       }
     },
     {
@@ -9118,9 +9118,9 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-10T10:46:49.996Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T10:46:51.412Z",
+          "price": 74044.84,
+          "realizedPct": -0.485
         },
         {
           "key": "H4",
@@ -9158,7 +9158,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.26,
-        "maePct": -0.26
+        "maePct": -0.485
       }
     },
     {
@@ -9209,9 +9209,9 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-10T10:46:49.996Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T10:46:51.412Z",
+          "price": 74044.84,
+          "realizedPct": -0.485
         },
         {
           "key": "H4",
@@ -9249,7 +9249,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.26,
-        "maePct": -0.26
+        "maePct": -0.485
       }
     },
     {
@@ -9300,9 +9300,9 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-10T10:46:49.996Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T10:46:51.412Z",
+          "price": 74044.84,
+          "realizedPct": -0.485
         },
         {
           "key": "H4",
@@ -9340,7 +9340,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.26,
-        "maePct": -0.26
+        "maePct": -0.485
       }
     },
     {
@@ -9391,9 +9391,9 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-10T10:46:49.996Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T10:46:51.412Z",
+          "price": 1.1226,
+          "realizedPct": -0.036
         },
         {
           "key": "H4",
@@ -9430,7 +9430,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": -0.071,
+        "mfePct": -0.036,
         "maePct": -0.071
       }
     },
@@ -9482,9 +9482,9 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-10T10:46:49.996Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T10:46:51.412Z",
+          "price": 1.1226,
+          "realizedPct": -0.036
         },
         {
           "key": "H4",
@@ -9521,7 +9521,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": -0.071,
+        "mfePct": -0.036,
         "maePct": -0.071
       }
     },
@@ -9573,9 +9573,9 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-10T10:46:49.996Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T10:46:51.412Z",
+          "price": 1.1226,
+          "realizedPct": -0.036
         },
         {
           "key": "H4",
@@ -9612,9 +9612,267 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": -0.071,
+        "mfePct": -0.036,
         "maePct": -0.071
       }
+    },
+    {
+      "key": "news:gold:British Pound turns upside down against USD as Fed’s Waller warns of bigger rate hike",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "British Pound turns upside down against USD as Fed’s Waller warns of bigger rate hike",
+      "url": "https://www.fxstreet.com/news/british-pound-turns-upside-down-against-usd-as-feds-waller-warns-of-bigger-rate-hike-202611100938",
+      "impactScore": -0.12,
+      "priceSource": "yahoo:GC=F",
+      "priceSymbol": "GC=F",
+      "priceAtDetect": 4084.2,
+      "createdAt": "2026-11-10T10:46:51.412Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-10T10:47:51.412Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-10T10:51:51.412Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-10T11:01:51.412Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-10T11:16:51.412Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-10T11:46:51.412Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-10T14:46:51.412Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-11T10:46:51.412Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-17T10:46:51.412Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-10T10:46:51.412Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:crypto:British Pound turns upside down against USD as Fed’s Waller warns of bigger rate hike",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "British Pound turns upside down against USD as Fed’s Waller warns of bigger rate hike",
+      "url": "https://www.fxstreet.com/news/british-pound-turns-upside-down-against-usd-as-feds-waller-warns-of-bigger-rate-hike-202611100938",
+      "impactScore": -0.14,
+      "priceSource": "coinbase:BTC-USD",
+      "priceSymbol": "BTC-USD",
+      "priceAtDetect": 74044.84,
+      "createdAt": "2026-11-10T10:46:51.412Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-10T10:47:51.412Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-10T10:51:51.412Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-10T11:01:51.412Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-10T11:16:51.412Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-10T11:46:51.412Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-10T14:46:51.412Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-11T10:46:51.412Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-17T10:46:51.412Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-10T10:46:51.412Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:forex:British Pound turns upside down against USD as Fed’s Waller warns of bigger rate hike",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "British Pound turns upside down against USD as Fed’s Waller warns of bigger rate hike",
+      "url": "https://www.fxstreet.com/news/british-pound-turns-upside-down-against-usd-as-feds-waller-warns-of-bigger-rate-hike-202611100938",
+      "impactScore": -0.15,
+      "priceSource": "yahoo:EURUSD=X",
+      "priceSymbol": "EURUSD=X",
+      "priceAtDetect": 1.1226,
+      "createdAt": "2026-11-10T10:46:51.413Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-10T10:47:51.413Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-10T10:51:51.413Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-10T11:01:51.413Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-10T11:16:51.413Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-10T11:46:51.413Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-10T14:46:51.413Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-11T10:46:51.413Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-17T10:46:51.413Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-10T10:46:51.413Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
     }
   ],
   "results": [
