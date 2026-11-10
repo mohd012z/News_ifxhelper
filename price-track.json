@@ -11816,33 +11816,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-10T13:47:54.916Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T14:16:55.799Z",
+          "price": 4063.3,
+          "realizedPct": 0.103
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-10T13:51:54.916Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T14:16:55.799Z",
+          "price": 4063.3,
+          "realizedPct": 0.103
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-10T14:01:54.916Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T14:16:55.799Z",
+          "price": 4063.3,
+          "realizedPct": 0.103
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-10T14:16:54.916Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T14:16:55.799Z",
+          "price": 4063.3,
+          "realizedPct": 0.103
         },
         {
           "key": "H1",
@@ -11884,7 +11884,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.103,
+        "maePct": 0.103
+      }
     },
     {
       "key": "news:gold:Australian Dollar slips toward 0.6900 as Fed rate hike expectations rise",
@@ -11902,33 +11907,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-10T13:47:54.916Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T14:16:55.799Z",
+          "price": 4063.3,
+          "realizedPct": 0.103
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-10T13:51:54.916Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T14:16:55.799Z",
+          "price": 4063.3,
+          "realizedPct": 0.103
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-10T14:01:54.916Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T14:16:55.799Z",
+          "price": 4063.3,
+          "realizedPct": 0.103
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-10T14:16:54.916Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T14:16:55.799Z",
+          "price": 4063.3,
+          "realizedPct": 0.103
         },
         {
           "key": "H1",
@@ -11970,7 +11975,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0.103,
+        "maePct": 0.103
+      }
     },
     {
       "key": "news:crypto:25 basis points is the unanimous call for December Fed hike – Reuters poll",
@@ -11988,33 +11998,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-10T13:47:54.916Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T14:16:55.799Z",
+          "price": 73746,
+          "realizedPct": -0.19
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-10T13:51:54.916Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T14:16:55.799Z",
+          "price": 73746,
+          "realizedPct": -0.19
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-10T14:01:54.916Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T14:16:55.799Z",
+          "price": 73746,
+          "realizedPct": -0.19
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-10T14:16:54.916Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T14:16:55.799Z",
+          "price": 73746,
+          "realizedPct": -0.19
         },
         {
           "key": "H1",
@@ -12056,7 +12066,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.19,
+        "maePct": -0.19
+      }
     },
     {
       "key": "news:crypto:Australian Dollar slips toward 0.6900 as Fed rate hike expectations rise",
@@ -12074,33 +12089,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-10T13:47:54.916Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T14:16:55.799Z",
+          "price": 73746,
+          "realizedPct": -0.19
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-10T13:51:54.916Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T14:16:55.799Z",
+          "price": 73746,
+          "realizedPct": -0.19
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-10T14:01:54.916Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T14:16:55.799Z",
+          "price": 73746,
+          "realizedPct": -0.19
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-10T14:16:54.916Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T14:16:55.799Z",
+          "price": 73746,
+          "realizedPct": -0.19
         },
         {
           "key": "H1",
@@ -12142,7 +12157,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": -0.19,
+        "maePct": -0.19
+      }
     },
     {
       "key": "news:forex:25 basis points is the unanimous call for December Fed hike – Reuters poll",
@@ -12160,33 +12180,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-10T13:47:54.916Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T14:16:55.799Z",
+          "price": 1.1192,
+          "realizedPct": 0
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-10T13:51:54.916Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T14:16:55.799Z",
+          "price": 1.1192,
+          "realizedPct": 0
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-10T14:01:54.916Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T14:16:55.799Z",
+          "price": 1.1192,
+          "realizedPct": 0
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-10T14:16:54.916Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T14:16:55.799Z",
+          "price": 1.1192,
+          "realizedPct": 0
         },
         {
           "key": "H1",
@@ -12228,7 +12248,12 @@
           "price": null,
           "realizedPct": null
         }
-      ]
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0,
+        "maePct": 0
+      }
     },
     {
       "key": "news:forex:Australian Dollar slips toward 0.6900 as Fed rate hike expectations rise",
@@ -12246,33 +12271,33 @@
           "key": "M1",
           "minutes": 1,
           "dueAt": "2026-11-10T13:47:54.916Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T14:16:55.799Z",
+          "price": 1.1192,
+          "realizedPct": 0
         },
         {
           "key": "M5",
           "minutes": 5,
           "dueAt": "2026-11-10T13:51:54.916Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T14:16:55.799Z",
+          "price": 1.1192,
+          "realizedPct": 0
         },
         {
           "key": "M15",
           "minutes": 15,
           "dueAt": "2026-11-10T14:01:54.916Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T14:16:55.799Z",
+          "price": 1.1192,
+          "realizedPct": 0
         },
         {
           "key": "M30",
           "minutes": 30,
           "dueAt": "2026-11-10T14:16:54.916Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T14:16:55.799Z",
+          "price": 1.1192,
+          "realizedPct": 0
         },
         {
           "key": "H1",
@@ -12310,6 +12335,269 @@
           "key": "MN1",
           "minutes": 43200,
           "dueAt": "2026-12-10T13:46:54.916Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ],
+      "reaction": {
+        "state": "OBSERVING",
+        "mfePct": 0,
+        "maePct": 0
+      }
+    },
+    {
+      "key": "news:gold:Dollar steadies after losses as U.S. inflation data reinforces rate-hike bets",
+      "tabId": "gold",
+      "kind": "news",
+      "title": "Dollar steadies after losses as U.S. inflation data reinforces rate-hike bets",
+      "url": "https://www.investing.com/news/forex-news/asia-fx-subdued-dollar-holds-losses-ahead-of-us-inflation-data-5014050",
+      "impactScore": -0.12,
+      "priceSource": "yahoo:GC=F",
+      "priceSymbol": "GC=F",
+      "priceAtDetect": 4063.3,
+      "createdAt": "2026-11-10T14:16:55.799Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-10T14:17:55.799Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-10T14:21:55.799Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-10T14:31:55.799Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-10T14:46:55.799Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-10T15:16:55.799Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-10T18:16:55.799Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-11T14:16:55.799Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-17T14:16:55.799Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-10T14:16:55.799Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:crypto:Dollar steadies after losses as U.S. inflation data reinforces rate-hike bets",
+      "tabId": "crypto",
+      "kind": "news",
+      "title": "Dollar steadies after losses as U.S. inflation data reinforces rate-hike bets",
+      "url": "https://www.investing.com/news/forex-news/asia-fx-subdued-dollar-holds-losses-ahead-of-us-inflation-data-5014050",
+      "impactScore": -0.14,
+      "priceSource": "coinbase:BTC-USD",
+      "priceSymbol": "BTC-USD",
+      "priceAtDetect": 73746,
+      "createdAt": "2026-11-10T14:16:55.799Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-10T14:17:55.799Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-10T14:21:55.799Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-10T14:31:55.799Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-10T14:46:55.799Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-10T15:16:55.799Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-10T18:16:55.799Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-11T14:16:55.799Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-17T14:16:55.799Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-10T14:16:55.799Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        }
+      ]
+    },
+    {
+      "key": "news:forex:Dollar steadies after losses as U.S. inflation data reinforces rate-hike bets",
+      "tabId": "forex",
+      "kind": "news",
+      "title": "Dollar steadies after losses as U.S. inflation data reinforces rate-hike bets",
+      "url": "https://www.investing.com/news/forex-news/asia-fx-subdued-dollar-holds-losses-ahead-of-us-inflation-data-5014050",
+      "impactScore": -0.08,
+      "priceSource": "yahoo:EURUSD=X",
+      "priceSymbol": "EURUSD=X",
+      "priceAtDetect": 1.1192,
+      "createdAt": "2026-11-10T14:16:55.799Z",
+      "checkpoints": [
+        {
+          "key": "M1",
+          "minutes": 1,
+          "dueAt": "2026-11-10T14:17:55.799Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M5",
+          "minutes": 5,
+          "dueAt": "2026-11-10T14:21:55.799Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M15",
+          "minutes": 15,
+          "dueAt": "2026-11-10T14:31:55.799Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "M30",
+          "minutes": 30,
+          "dueAt": "2026-11-10T14:46:55.799Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H1",
+          "minutes": 60,
+          "dueAt": "2026-11-10T15:16:55.799Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "H4",
+          "minutes": 240,
+          "dueAt": "2026-11-10T18:16:55.799Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "D1",
+          "minutes": 1440,
+          "dueAt": "2026-11-11T14:16:55.799Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "W1",
+          "minutes": 10080,
+          "dueAt": "2026-11-17T14:16:55.799Z",
+          "capturedAt": null,
+          "price": null,
+          "realizedPct": null
+        },
+        {
+          "key": "MN1",
+          "minutes": 43200,
+          "dueAt": "2026-12-10T14:16:55.799Z",
           "capturedAt": null,
           "price": null,
           "realizedPct": null
