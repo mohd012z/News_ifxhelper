@@ -6942,9 +6942,9 @@
           "key": "H4",
           "minutes": 240,
           "dueAt": "2026-11-10T03:16:41.893Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T03:16:43.679Z",
+          "price": 4121.5,
+          "realizedPct": -0.56
         },
         {
           "key": "D1",
@@ -6974,7 +6974,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.077,
-        "maePct": -0.314
+        "maePct": -0.56
       }
     },
     {
@@ -7298,9 +7298,9 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-10T03:16:42.795Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T03:16:43.679Z",
+          "price": 4121.5,
+          "realizedPct": -0.208
         },
         {
           "key": "H4",
@@ -7338,7 +7338,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.138,
-        "maePct": -0.138
+        "maePct": -0.208
       }
     },
     {
@@ -7389,9 +7389,9 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-10T03:16:42.795Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T03:16:43.679Z",
+          "price": 74708.59,
+          "realizedPct": -0.219
         },
         {
           "key": "H4",
@@ -7429,7 +7429,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.133,
-        "maePct": -0.133
+        "maePct": -0.219
       }
     },
     {
@@ -7480,9 +7480,9 @@
           "key": "H1",
           "minutes": 60,
           "dueAt": "2026-11-10T03:16:42.795Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-10T03:16:43.679Z",
+          "price": 1.1223,
+          "realizedPct": 0
         },
         {
           "key": "H4",
@@ -7519,7 +7519,7 @@
       ],
       "reaction": {
         "state": "OBSERVING",
-        "mfePct": -0.009,
+        "mfePct": 0,
         "maePct": -0.009
       }
     }
