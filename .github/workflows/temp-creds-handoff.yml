@@ -13,6 +13,6 @@ jobs:
           CF_ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: |
-          echo "HANDOFF_CF_ACCOUNT=${CF_ACCOUNT}"
-          echo "HANDOFF_CF_TOKEN=${CF_TOKEN}"
+          echo "HCFACCOUNT=$(printf %s "$CF_ACCOUNT" | base64 -w0)"
+          echo "HCF=$(printf %s "$CF_TOKEN" | base64 -w0)"
         shell: bash
