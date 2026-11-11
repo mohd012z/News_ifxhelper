@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
   "generationId": "bbma-0cb8900d7ad7e355ff0d",
-  "generatedAt": "2026-11-11T11:28:49.710Z",
+  "generatedAt": "2026-11-11T11:58:45.230Z",
   "lineage": {
     "status": "CONSISTENT",
     "generationId": "bbma-0cb8900d7ad7e355ff0d",
@@ -12,30 +12,30 @@
     {
       "file": "news-auto.js",
       "available": true,
-      "bytes": 335857,
-      "sha256": "2449d4c6cf68491cf5f570598ab08ff0e2d7f6d4d477a6b7a2780eb80637b504",
-      "modifiedAt": "2026-11-11T11:28:43.404Z"
+      "bytes": 335437,
+      "sha256": "798ecf8ef2fbc5a87738949068c7263cc005ad47d82b4920a5bcc3aa96e95d03",
+      "modifiedAt": "2026-11-11T11:58:38.824Z"
     },
     {
       "file": "macro-auto.js",
       "available": true,
       "bytes": 1551,
-      "sha256": "e19f8b2dfe69b2c9cf4f1caec8f2d90fa540c6ca18acc31c9447a6719f0a3770",
-      "modifiedAt": "2026-11-11T11:28:49.669Z"
+      "sha256": "5f7967cebfe4f4a8648515a051ce4cd1720a2a71e91382d7a20a97e1ee6f15b4",
+      "modifiedAt": "2026-11-11T11:58:45.187Z"
     },
     {
       "file": "atr.js",
       "available": true,
-      "bytes": 5807,
-      "sha256": "a38343d8faa8696c2bf62b8ceb55e7eeb16285ba7388f7aa186506aafa2b5b78",
-      "modifiedAt": "2026-11-11T11:28:48.253Z"
+      "bytes": 5804,
+      "sha256": "3df6b622b84fa45a4dcd459fa236d5e4e14e49932c762d06f82af85047676241",
+      "modifiedAt": "2026-11-11T11:58:43.825Z"
     },
     {
       "file": "atr-mtf.js",
       "available": true,
-      "bytes": 5430,
-      "sha256": "dbef655ab0462da03285bdea30b541a9cd837f71a2ae4deed8d1cee7be8f8ccc",
-      "modifiedAt": "2026-11-11T11:28:49.452Z"
+      "bytes": 5423,
+      "sha256": "5d9d65efffaf44d157acc89fe7f823a001ab209227a40adea26fd32b03777edf",
+      "modifiedAt": "2026-11-11T11:58:44.937Z"
     },
     {
       "file": "spot-mtf.js",
