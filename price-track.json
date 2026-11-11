@@ -7314,9 +7314,9 @@
           "key": "D1",
           "minutes": 1440,
           "dueAt": "2026-11-11T02:16:42.795Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-11T02:30:21.460Z",
+          "price": 4049.4,
+          "realizedPct": -1.954
         },
         {
           "key": "W1",
@@ -7338,7 +7338,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.01,
-        "maePct": -0.208
+        "maePct": -1.954
       }
     },
     {
@@ -7405,9 +7405,9 @@
           "key": "D1",
           "minutes": 1440,
           "dueAt": "2026-11-11T02:16:42.795Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-11T02:30:21.460Z",
+          "price": 73176.97,
+          "realizedPct": -2.264
         },
         {
           "key": "W1",
@@ -7429,7 +7429,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": -0.133,
-        "maePct": -0.516
+        "maePct": -2.264
       }
     },
     {
@@ -7496,9 +7496,9 @@
           "key": "D1",
           "minutes": 1440,
           "dueAt": "2026-11-11T02:16:42.795Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-11T02:30:21.460Z",
+          "price": 1.1169,
+          "realizedPct": -0.481
         },
         {
           "key": "W1",
@@ -7520,7 +7520,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.08,
-        "maePct": -0.009
+        "maePct": -0.481
       }
     },
     {
