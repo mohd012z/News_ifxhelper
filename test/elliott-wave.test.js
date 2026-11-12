@@ -180,5 +180,25 @@ function near(name, got, want, tol) {
   assert(trC.ok === false, 'tradeable counter-degree is not ok');
 }
 
+// 8) Corrective (zigzag) forecast: A-B-C C-leg + A≈C projection + structural stop
+{
+  // A up 4000->4300, B down to 4150 (in progress): dir -1, C continues down
+  const z = { type: 'zigzag', dir: -1, pivots: [
+    { price: 4000, t: 0 }, { price: 4300, t: 1 }, { price: 4150, t: 2 }] };
+  const fc = E.forecast(z);
+  assert(fc, 'corrective count gets a forecast (was null before the fix)');
+  assert(Array.isArray(fc.path) && fc.path.length >= 2, 'corrective forecast has a path');
+  assert(fc.path[0].price === 4150, 'corrective path starts at B (current)');
+  assert(fc.scenarios.length === 2, 'corrective has 2 scenarios');
+  assert(fc.scenarios[0].t1 < 4150, 'down-zigzag C target is below B');
+  assert(fc.scenarios[0].stop === 4300, 'corrective invalidation at the A-extremum (structural)');
+  // up zigzag mirrors
+  const z2 = { type: 'zigzag', dir: 1, pivots: [
+    { price: 4300, t: 0 }, { price: 4000, t: 1 }, { price: 4150, t: 2 }] };
+  const fc2 = E.forecast(z2);
+  assert(fc2.scenarios[0].t1 > 4150, 'up-zigzag C target is above B');
+  assert(fc2.scenarios[0].stop === 4000, 'up-zigzag invalidation at the A-extremum');
+}
+
 console.log('\n' + (failures === 0 ? 'All elliott-wave tests passed' : failures + ' FAILURES'));
 process.exit(failures ? 1 : 0);

@@ -303,6 +303,7 @@
     return {
       update: function () { },
       priceValueBuilder: function () { return []; }, // SMC marks never force autoscale
+      zOrder: function () { return 'bottom'; }, // paint behind the candlesticks + BBMA lines so panning never hides the indicators
       isWhitespace: function () { return !smcState.on || !smcState.data; },
       defaultOptions: function () { return {}; },
       renderer: function () {
@@ -477,6 +478,7 @@
     return {
       update: function () { },
       priceValueBuilder: function () { return []; }, // read-only: never force autoscale
+      zOrder: function () { return 'bottom'; }, // behind candles + BBMA lines (panning never hides the indicators)
       // LWC 5.x skips the custom-series draw pass for whitespace data — an always-true
       // isWhitespace meant draw() was never called, so the overlay silently vanished.
       // Gate on the live toggle so the pass runs only while the layer is on.
@@ -590,7 +592,10 @@
                 for (i = 0; i < lines.length; i++) { var w = ctx.measureText(lines[i].t).width; if (w > bw) bw = w; }
                 bw = Math.min(bw + pad * 2, W - 8);
                 var bh = lines.length * lh + pad * 2;
-                var bx = Math.max(4, W - bw - 4), by = 4;
+                // top-LEFT: the top-right is where the live-price tag + premium
+                // annotations crowd; the far-left of the visible window is the
+                // least busy spot, so panning doesn't hide the scenario read.
+                var bx = 4, by = 4;
                 ctx.fillStyle = COLORS.ewBox;
                 ctx.fillRect(bx, by, bw, bh);
                 ctx.strokeStyle = COLORS.ewUpper; ctx.lineWidth = 1; ctx.strokeRect(bx, by, bw, bh);
