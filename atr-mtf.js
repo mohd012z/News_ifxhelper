@@ -4,7 +4,7 @@ window.ATR_MTF = {
   "instrument": "GC=F",
   "provider": "YAHOO_CHART",
   "source": "yahoo:GC=F",
-  "generatedAt": "2026-11-12T16:04:08.831Z",
+  "generatedAt": "2026-11-12T16:34:09.243Z",
   "timeframes": {
     "M1": {
       "tf": "M1",
@@ -14,14 +14,14 @@ window.ATR_MTF = {
       "source": "yahoo:GC=F",
       "state": "READY",
       "reason": null,
-      "atr": 2.910897,
-      "last": 3874.800049,
-      "asOf": "2026-11-12T15:55:06.000Z",
-      "closedBars": 5135,
+      "atr": 2.346017,
+      "last": 3880.199951,
+      "asOf": "2026-11-12T16:25:06.000Z",
+      "closedBars": 5165,
       "period": 14,
       "ageHours": 0.15,
       "evidence": {
-        "sourceCandles": 5135,
+        "sourceCandles": 5165,
         "rejected": 0,
         "duplicates": 0,
         "formingExcluded": 0
@@ -35,9 +35,9 @@ window.ATR_MTF = {
       "source": "yahoo:GC=F",
       "state": "READY",
       "reason": null,
-      "atr": 7.759094,
-      "last": 3874.800049,
-      "asOf": "2026-11-12T15:59:06.000Z",
+      "atr": 6.798527,
+      "last": 3880.199951,
+      "asOf": "2026-11-12T16:29:06.000Z",
       "closedBars": 6340,
       "period": 14,
       "ageHours": 0.08,
@@ -56,9 +56,9 @@ window.ATR_MTF = {
       "source": "yahoo:GC=F",
       "state": "READY",
       "reason": null,
-      "atr": 12.970339,
-      "last": 3872.800049,
-      "asOf": "2026-11-12T15:45:00.000Z",
+      "atr": 12.557072,
+      "last": 3881.399902,
+      "asOf": "2026-11-12T16:15:00.000Z",
       "closedBars": 2109,
       "period": 14,
       "ageHours": 0.32,
@@ -77,9 +77,9 @@ window.ATR_MTF = {
       "source": "yahoo:GC=F",
       "state": "READY",
       "reason": null,
-      "atr": 17.350366,
-      "last": 3864.600098,
-      "asOf": "2026-11-12T15:30:00.000Z",
+      "atr": 17.111054,
+      "last": 3874.5,
+      "asOf": "2026-11-12T16:00:00.000Z",
       "closedBars": 1052,
       "period": 14,
       "ageHours": 0.57,
@@ -99,16 +99,16 @@ window.ATR_MTF = {
       "state": "READY",
       "reason": null,
       "atr": 21.138523,
-      "last": 3875.199951,
+      "last": 3874.5,
       "asOf": "2026-11-12T16:00:00.000Z",
       "closedBars": 1495,
       "period": 14,
-      "ageHours": 0.07,
+      "ageHours": 0.57,
       "evidence": {
         "sourceCandles": 1495,
         "rejected": 0,
         "duplicates": 0,
-        "formingExcluded": 1
+        "formingExcluded": 2
       }
     },
     "H4": {
@@ -120,16 +120,16 @@ window.ATR_MTF = {
       "state": "READY",
       "reason": null,
       "atr": 40.769154,
-      "last": 3875.199951,
+      "last": 3874.5,
       "asOf": "2026-11-12T16:00:00.000Z",
       "closedBars": 329,
       "period": 14,
-      "ageHours": 0.07,
+      "ageHours": 0.57,
       "evidence": {
         "sourceCandles": 1495,
         "rejected": 0,
         "duplicates": 0,
-        "formingExcluded": 1
+        "formingExcluded": 2
       }
     },
     "D1": {
@@ -145,7 +145,7 @@ window.ATR_MTF = {
       "asOf": "2026-11-12T00:00:00.000Z",
       "closedBars": 1257,
       "period": 14,
-      "ageHours": 16.07,
+      "ageHours": 16.57,
       "evidence": {
         "sourceCandles": 1257,
         "rejected": 0,
@@ -166,7 +166,7 @@ window.ATR_MTF = {
       "asOf": "2026-11-09T00:00:00.000Z",
       "closedBars": 260,
       "period": 14,
-      "ageHours": 88.07,
+      "ageHours": 88.57,
       "evidence": {
         "sourceCandles": 1257,
         "rejected": 0,
@@ -187,7 +187,7 @@ window.ATR_MTF = {
       "asOf": "2026-11-01T00:00:00.000Z",
       "closedBars": 60,
       "period": 14,
-      "ageHours": 280.07,
+      "ageHours": 280.57,
       "evidence": {
         "sourceCandles": 1257,
         "rejected": 0,
@@ -203,7 +203,7 @@ window.ATR_MTF = {
   "feeds": {
     "1m": {
       "state": "OK",
-      "count": 5135,
+      "count": 5165,
       "provider": "YAHOO_CHART"
     },
     "5m": {
@@ -213,7 +213,7 @@ window.ATR_MTF = {
     },
     "1h": {
       "state": "OK",
-      "count": 1496,
+      "count": 1497,
       "provider": "YAHOO_CHART"
     },
     "1d": {
