@@ -200,5 +200,24 @@ function near(name, got, want, tol) {
   assert(fc2.scenarios[0].stop === 4000, 'up-zigzag invalidation at the A-extremum');
 }
 
+// 9) nextWave: fibo next-wave projection (W5 / ABC / C) + confluence pick
+{
+  const r4 = E.nextWave({ type: 'impulse', dir: 1, pivots: [
+    { price: 4000, t: 0 }, { price: 4500, t: 100 }, { price: 4191, t: 200 }, { price: 5009, t: 300 }] });
+  assert(r4 && r4.wave === 'W5' && r4.side === 'long', '4-pivot impulse -> next W5 long');
+  assert(r4.stop === 4191, 'W5 structural stop below the W4 extreme');
+  assert(r4.predict.price > 5009 && r4.predict.confluence >= 1, 'W5 prediction is a forward level w/ confluence');
+  const r5 = E.nextWave({ type: 'impulse', dir: 1, pivots: [
+    { price: 4000, t: 0 }, { price: 4500, t: 100 }, { price: 4191, t: 200 }, { price: 5009, t: 300 }, { price: 4700, t: 400 }] });
+  assert(r5.wave === 'ABC', 'completed 5-wave -> next ABC');
+  assert(r5.targets.some(t => t.wave === 'A' && t.price < 4700), 'ABC A retrace below W5');
+  assert(r5.targets.some(t => t.wave === 'C'), 'ABC C extension present');
+  const r3 = E.nextWave({ type: 'zigzag', dir: -1, pivots: [
+    { price: 4000, t: 0 }, { price: 4300, t: 100 }, { price: 4150, t: 200 }] });
+  assert(r3.wave === 'C' && r3.side === 'short' && r3.predict.price < 4150, 'corrective in progress -> C continuation down');
+  assert(E.nextWave({ type: 'impulse', dir: 1, pivots: [{ price: 4000, t: 0 }, { price: 4300, t: 100 }] }).wave === 'W2', '2-pivot -> W2 retrace');
+  assert(E.nextWave({ type: 'impulse', dir: 1, pivots: [{ price: 4000, t: 0 }] }) == null, '<2 pivots -> null');
+}
+
 console.log('\n' + (failures === 0 ? 'All elliott-wave tests passed' : failures + ' FAILURES'));
 process.exit(failures ? 1 : 0);

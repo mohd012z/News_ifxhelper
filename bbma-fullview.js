@@ -58,7 +58,7 @@
   var OVERLAY_FOR = { bbUpper: 'bb', bbMiddle: 'bb', bbLower: 'bb', ema50: 'ema50', lwmaH5: 'lwma', lwmaH10: 'lwma', lwmaL5: 'lwma', lwmaL10: 'lwma', ema200: 'ema200', sma20: 'sma20', vwap: 'vwap' };
   // Indicator presets ("templates"). Applying one sets the toggle set below.
   var TEMPLATES = {
-    'BBMA Oma': { bb: true, lwma: true, ema50: true, sd: true, vwap: false, ema200: false, sma20: false, rsi: false, macd: false, smc: false, ew: false },
+    'BBMA Oma': { bb: true, lwma: true, ema50: true, sd: true, vwap: false, ema200: false, sma20: false, rsi: false, macd: false, smc: false, ew: true },
     'TV Classic': { bb: true, lwma: false, ema50: true, sd: true, vwap: false, ema200: false, sma20: false, rsi: false, macd: false, smc: false, ew: false },
     'BB + VWAP': { bb: true, lwma: false, ema50: true, sd: false, vwap: true, ema200: false, sma20: false, rsi: false, macd: false, smc: false, ew: false },
     'Trend EMA': { bb: false, lwma: false, ema50: true, sd: false, vwap: false, ema200: true, sma20: true, rsi: false, macd: false, smc: false, ew: false },
@@ -147,7 +147,7 @@
     rsiLine: null, rsiOver: null, rsiUnder: null,
     macdHist: null, macdLine: null, macdSig: null, smcSeries: null, rsiPane: null, macdPane: null, ewSeries: null,
     tf: 'H1', tool: null, pending: null, fullscreen: false, indPanel: false, drawPanel: false,
-    ind: { bb: true, lwma: true, ema50: true, sd: true, vwap: false, ema200: false, sma20: false, rsi: false, macd: false, smc: false, ew: false },
+    ind: { bb: true, lwma: true, ema50: true, sd: true, vwap: false, ema200: false, sma20: false, rsi: false, macd: false, smc: false, ew: true },
     template: 'BBMA Oma',
     drawings: {},
     _bars: [], _zones: [], lastKey: null
@@ -437,6 +437,8 @@
   // Fail-closed if the EW engine is absent (window.BBMA_EW) — the chart renders as before.
   var EW_STORE = 'xaudesk-fullview-ewfp-v1';
   var ewState = { data: null, on: false };
+  // Prediction wave (fibo next-wave endpoint) is ON by default; can be toggled off.
+  var ewPredictOn = true;
   function ewFpGet(tf) {
     try { return (JSON.parse(sessionStorage.getItem(EW_STORE) || '{}') || {})[tf] || null; } catch (e) { return null; }
   }
@@ -469,10 +471,12 @@
     if (comp) { try { compete = EW.compete(a, comp, lastPrice); } catch (e) { compete = null; } }
     var channel = null;
     try { channel = EW.channel(a.count, bars[bars.length - 1]._ms); } catch (e) { channel = null; }
+    var nxt = null;
+    try { nxt = EW.nextWave ? EW.nextWave(a.count) : null; } catch (e) { nxt = null; }
     var revision = null;
     try { revision = EW.revisionDiff(ewFpGet(state.tf), a, new Date().toISOString().slice(0, 10)); } catch (e) { revision = null; }
     try { ewFpSet(state.tf, EW.countFingerprint(a)); } catch (e) { }
-    return { a: a, compete: compete, channel: channel, revision: revision, lastTime: bars[bars.length - 1]._ms, lastPrice: lastPrice };
+    return { a: a, compete: compete, channel: channel, revision: revision, nxt: nxt, lastTime: bars[bars.length - 1]._ms, lastPrice: lastPrice };
   }
   function makeEwView() {
     return {
@@ -570,6 +574,60 @@
                   ctx.restore();
                 }
               }
+              // (4b) PREDICTION WAVE — fibo next-wave projection (green).
+              // Dashed path from the last real pivot to the projected endpoint
+              // (nextWave.predict), a horizontal target line, and the structural
+              // invalidation line. Drawn only when the prediction toggle is on.
+              if (ewPredictOn && d.nxt && d.nxt.predict) {
+                var nx = d.nxt;
+                var yp = Y(nx.predict.price);
+                var ye = Y(nx.entry);
+                // Projected endpoint x: anchor a fixed pixel offset past the last
+                // real candle (a future time has no bar, so timeToCoordinate is null).
+                var xLastBar = (d.lastTime != null) ? X(d.lastTime) : null;
+                var xp = (xLastBar != null) ? Math.max(0, Math.min(W - 14, xLastBar + 72)) : (W - 14);
+                if (yp != null && ye != null) {
+                  ctx.save();
+                  // structural stop
+                  if (nx.stop != null) {
+                    var yns = Y(nx.stop);
+                    if (yns != null) {
+                      ctx.globalAlpha = 0.8; ctx.strokeStyle = nx.side === 'long' ? '#22c55e' : '#ef4444'; ctx.lineWidth = 1;
+                      if (ctx.setLineDash) ctx.setLineDash([4, 3]);
+                      ctx.beginPath(); ctx.moveTo(0, yns); ctx.lineTo(W, yns); ctx.stroke();
+                      if (ctx.setLineDash) ctx.setLineDash([]);
+                      ctx.globalAlpha = 1; ctx.fillStyle = nx.side === 'long' ? '#22c55e' : '#ef4444'; ctx.font = 'bold 10px sans-serif';
+                      var sls = 'ST ' + nx.stop.toFixed(2);
+                      HL(sls, 8, yns + (nx.side === 'long' ? 12 : -5)); ctx.fillText(sls, 8, yns + (nx.side === 'long' ? 12 : -5));
+                    }
+                  }
+                  // dashed path: last real pivot -> projected endpoint
+                  var lp = p[p.length - 1];
+                  ctx.globalAlpha = 0.9; ctx.strokeStyle = '#22c55e'; ctx.lineWidth = 2;
+                  if (ctx.setLineDash) ctx.setLineDash([7, 4]);
+                  var xl = X(lp.t), yl = Y(lp.price);
+                  if (xl != null && yl != null) { ctx.beginPath(); ctx.moveTo(xl, yl); ctx.lineTo(xp, yp); ctx.stroke(); }
+                  if (ctx.setLineDash) ctx.setLineDash([]);
+                  // target line + arrowhead + label
+                  ctx.globalAlpha = 0.85;
+                  ctx.beginPath(); ctx.moveTo(0, yp); ctx.lineTo(W, yp); ctx.stroke();
+                  ctx.globalAlpha = 1;
+                  ctx.beginPath(); ctx.moveTo(xp, yp);
+                  if (nx.side === 'long') { ctx.lineTo(xp - 7, yp + 8); ctx.lineTo(xp + 7, yp + 8); }
+                  else { ctx.lineTo(xp - 7, yp - 8); ctx.lineTo(xp + 7, yp - 8); }
+                  ctx.closePath(); ctx.fillStyle = '#22c55e'; ctx.fill();
+                  ctx.font = 'bold 11px sans-serif'; ctx.fillStyle = '#22c55e';
+                  var lbl = 'PREDICTED ' + nx.wave + ' ' + nx.side.toUpperCase() + ' ' + nx.predict.price.toFixed(2) + (nx.predict.rr != null ? '  ' + nx.predict.rr.toFixed(1) + ':1' : '');
+                  var lbx = Math.max(8, Math.min(xp + 10, W - ctx.measureText(lbl).width - 8));
+                  var lby = (nx.side === 'long') ? yp - 8 : yp + 18;
+                  HL(lbl, lbx, lby); ctx.fillText(lbl, lbx, lby);
+                  // fibo basis note under the main label
+                  ctx.font = '10px sans-serif'; ctx.fillStyle = '#86efac';
+                  var fn = 'fibo: ' + nx.predict.note;
+                  HL(fn, lbx, lby + (nx.side === 'long' ? -13 : 13)); ctx.fillText(fn, lbx, lby + (nx.side === 'long' ? -13 : 13));
+                  ctx.restore();
+                }
+              }
               // (5) scenario box — "Red or Blue?" two-scenario read (top-right, last N bars)
               if (sc0) {
                 var scen = (a.forecast && a.forecast.scenarios) || [sc0];
@@ -584,6 +642,7 @@
                   lines.push({ t: '\u25bc B  ' + (alt.side || '').toUpperCase() + '  E ' + (alt.entry != null ? alt.entry.toFixed(2) : '—') + '  SL ' + (alt.stop != null ? alt.stop.toFixed(2) : '—') + '  T ' + (alt.t1 != null ? alt.t1.toFixed(2) : '—') + (rrB != null ? '  ' + rrB + ':1' : ''), c: COLORS.ewScenB });
                 }
                 if (d.compete && d.compete.splitLevel != null) lines.push({ t: 'split ' + d.compete.splitLevel.toFixed(2) + (winner !== 'open' ? '  ·  ' + winner + ' active' : ''), c: COLORS.ewSplit });
+                if (ewPredictOn && d.nxt && d.nxt.predict) lines.push({ t: '\u25cf NEXT ' + d.nxt.wave + ' ' + (d.nxt.side || '').toUpperCase() + ' ' + d.nxt.predict.price.toFixed(2) + (d.nxt.predict.rr != null ? '  ' + d.nxt.predict.rr.toFixed(1) + ':1' : '') + (d.nxt.stop != null ? '  ST ' + d.nxt.stop.toFixed(2) : ''), c: '#22c55e' });
                 if (d.revision && d.revision.changed) lines.push({ t: d.revision.note, c: '#ffd166' });
                 if (d.revision && d.revision.question) lines.push({ t: 'Q: ' + d.revision.question, c: '#d7e2f4' });
                 var fs = 10, pad = 8, lh = 14;
@@ -815,12 +874,15 @@
     }
     refreshAnno();
     updateZoneCount();
-    // fitContent ONLY on structural changes (new TF / new data length). A live tick
-    // keeps the same length + last bar, so re-fitting would snap the view back and
-    // undo the user's pan/zoom between ticks.
-    var fitKey = bars.length + ':' + bars[bars.length - 1].time;
+    // Fit ONLY on structural changes (new TF / new data length). A live tick keeps
+    // the same length + last bar, so re-fitting would snap the view back and undo
+    // the user's pan/zoom between ticks. On a TF switch we zoom to the last N bars
+    // for that TF (higher TFs load up to 240 bars — showing all of them on a phone
+    // makes W1/MN1 candles look dense/"obvious"); the ⤢ Fit view button still
+    // reveals the full history.
+    var fitKey = state.tf + ':' + bars.length + ':' + bars[bars.length - 1].time;
     if (state.lastFitKey !== fitKey) {
-      try { state.chart.timeScale().fitContent(); } catch (e) { }
+      fitForTF(false);
       state.lastFitKey = fitKey;
     }
     state.lastKey = bars.length + ':' + bars[bars.length - 1].time + ':' + bars[bars.length - 1].close;
@@ -889,6 +951,10 @@
       ewEl.textContent = 'EW v2.9: ' + a.type + (a.dir === 1 ? ' \u25b2' : ' \u25bc') + (a.validation.valid ? ' \u00b7 valid' : ' \u00b7 in progress') +
         (sc ? ' \u00b7 ' + (sc.side || '') + ' SL ' + (sc.stop != null ? sc.stop.toFixed(1) : '\u2014') + ' T ' + (sc.t1 != null ? sc.t1.toFixed(1) : '\u2014') : '') +
         (split != null ? ' \u00b7 split ' + split.toFixed(1) : '');
+      var nx = ewState.data.nxt;
+      if (ewPredictOn && nx && nx.predict) {
+        ewEl.textContent += ' \u00b7 PREDICT ' + nx.wave + ' ' + (nx.side || '').toUpperCase() + ' ' + nx.predict.price.toFixed(1) + (nx.stop != null ? ' ST ' + nx.stop.toFixed(1) : '') + ' [' + nx.predict.note + ']';
+      }
     } else ewEl.textContent = '';
   }
 
@@ -1129,6 +1195,25 @@
     }
     buildToolbar();
   }
+  // Per-TF default zoom: higher TFs load up to 240 bars — showing all of them on a
+  // phone makes W1/MN1 look dense/"obvious". Show the last N bars per TF; the
+  // ⤢ Fit view button (and this helper's full=true) reveals the full history.
+  function fitForTF(full) {
+    try {
+      if (!state.chart || !state._bars.length) return;
+      var bars = state._bars;
+      var fitKey = state.tf + ':' + bars.length + ':' + bars[bars.length - 1].time;
+      if (state.lastFitKey === fitKey && !full) return;
+      var ts = state.chart.timeScale();
+      var def = { M5: 120, M15: 120, M30: 120, H1: 100, H4: 100, D1: 100, W1: 60, MN1: 48 }[state.tf] || bars.length;
+      if (!full && bars.length > def && def >= 5) {
+        ts.setVisibleLogicalRange({ from: Math.max(0, bars.length - def - 1), to: bars.length + 1 });
+      } else {
+        ts.fitContent();
+      }
+      state.lastFitKey = fitKey; // a Fit-button full view sticks until the data changes
+    } catch (e) { }
+  }
   function makeTFSelect(idPrefix) {
     var sel = document.createElement('select');
     sel.className = 'fv-sel';
@@ -1262,14 +1347,25 @@
     b.addEventListener('click', function () { toggleFullscreen(); });
     return b;
   }
+  function makePredictButton() {
+    var b = document.createElement('button');
+    b.textContent = ewPredictOn ? '\u25cf Predict' : '\u25cb Predict';
+    b.className = 'fv-btn tool' + (ewPredictOn ? ' on' : '');
+    b.title = 'Elliott Wave fibo next-wave prediction (on by default)';
+    b.addEventListener('click', function () {
+      ewPredictOn = !ewPredictOn;
+      buildToolbar();
+      feed();
+    });
+    return b;
+  }
   function makeFitButton() {
     var b = document.createElement('button');
     b.textContent = '⤢ Fit view';
     b.className = 'fv-btn tool';
     b.title = 'Re-fit the chart to all data (pan/zoom is otherwise preserved)';
     b.addEventListener('click', function () {
-      state.lastFitKey = null; // force a fit on the next feed even if data is unchanged
-      try { state.chart.timeScale().fitContent(); } catch (e) { }
+      fitForTF(true); // full view; sticks until the data/TF changes
       flashHint('view fitted to all data');
     });
     return b;
@@ -1291,6 +1387,7 @@
     var row2 = document.createElement('div');
     row2.className = 'fv-row';
     row2.appendChild(makeFitButton());
+    row2.appendChild(makePredictButton());
     row2.appendChild(makeFsButton());
     bar.appendChild(row2);
     if (state.indPanel) bar.appendChild(makeIndPanel());

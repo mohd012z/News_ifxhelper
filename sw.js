@@ -8,10 +8,15 @@
  *       re-claim. BBMA dashboard JS + candles snapshot marked volatile.
  * v15: 2026-11-12 - fullview layout (bigger chart, 2-row toolbar,
  *       Fit view), pan/zoom no longer culls the SMC/EW overlay (spread anchors).
+ * v16: 2026-11-12 - EW fibo PREDICTION WAVE (nextWave: W5/ABC/C endpoint +
+ *       structural stop), default ON with a Predict toggle; EW on by default in
+ *       the BBMA Oma template; per-TF default zoom (W1/MN1 density fix);
+ *       pan/zoom keeps SMC+EW overlay (spread anchors); bigger chart + realigned
+ *       two-row toolbar.
  * v14: 2026-11-12 - Elliott Wave v2.9 read-only overlay (lib/elliott-wave.js) +
  *       BBMA EW enhancer (lib/bbma-ew-enhance.js); both marked volatile; cache bump.
  */
-const CACHE = "xaudesk-v15";
+const CACHE = "xaudesk-v16";
 const VOLATILE = new Set([
   "/",
   "/index.html",

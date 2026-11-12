@@ -19,7 +19,7 @@
         try { sessionStorage.setItem("xau-sw-v6-reloaded", "1"); } catch (e) {}
         location.reload();
       });
-      navigator.serviceWorker.register("./sw.js?v=15", { updateViaCache: "none" }).then(function (reg) {
+      navigator.serviceWorker.register("./sw.js?v=16", { updateViaCache: "none" }).then(function (reg) {
         reg.update().catch(function () {});
         setInterval(function () { reg.update().catch(function () {}); }, 5 * 60 * 1000);
       }).catch(function () { /* offline mode unavailable */ });
