@@ -5,7 +5,7 @@
  * Regenerate: node build-news.js (run on the same daily cron as build-atr.js).
  */
 window.NEWS_AUTO = {
-  "generatedAt": "2026-11-12 14:04:03Z",
+  "generatedAt": "2026-11-12 14:34:05Z",
   "note": "Auto-collected: economic calendar is real structured data; news rows are country/currency-aware and instrument-filtered; mixed observed-vs-policy direction becomes CONFLICT/NEUTRAL. impactPct is retained only for UI compatibility and is an impact score, not a calibrated return forecast. Treat auto:true rows as a first pass.",
   "incoming": [
     {
@@ -35,7 +35,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.703Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -66,7 +66,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.703Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -97,7 +97,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.703Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -128,7 +128,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.703Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -159,7 +159,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -190,7 +190,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -221,7 +221,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -252,7 +252,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.947Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -283,7 +283,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.947Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -314,7 +314,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.947Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -345,7 +345,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.947Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     }
@@ -378,7 +378,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.945Z",
+      "fetchedAt": "2026-11-12T14:33:31.702Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -409,7 +409,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.945Z",
+      "fetchedAt": "2026-11-12T14:33:31.703Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -440,7 +440,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.945Z",
+      "fetchedAt": "2026-11-12T14:33:31.703Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -471,7 +471,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.945Z",
+      "fetchedAt": "2026-11-12T14:33:31.703Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -502,7 +502,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.945Z",
+      "fetchedAt": "2026-11-12T14:33:31.703Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -533,7 +533,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.945Z",
+      "fetchedAt": "2026-11-12T14:33:31.703Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -564,7 +564,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.945Z",
+      "fetchedAt": "2026-11-12T14:33:31.703Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -595,7 +595,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.945Z",
+      "fetchedAt": "2026-11-12T14:33:31.703Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -626,7 +626,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.703Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -657,7 +657,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.703Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -688,7 +688,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.703Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -719,7 +719,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.703Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -750,7 +750,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.703Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -781,7 +781,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.703Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -812,7 +812,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.703Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -843,7 +843,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.703Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -874,7 +874,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.703Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -905,7 +905,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.703Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -936,7 +936,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.703Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -967,7 +967,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.703Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -998,7 +998,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.703Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1029,7 +1029,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.703Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1060,7 +1060,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.703Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1091,7 +1091,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.703Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1122,7 +1122,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.703Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1153,7 +1153,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.703Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1184,7 +1184,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.703Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1215,7 +1215,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.703Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1246,7 +1246,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.703Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1277,7 +1277,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.703Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1308,7 +1308,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.703Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1339,7 +1339,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.703Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1370,7 +1370,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.703Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1401,7 +1401,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.703Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1432,7 +1432,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.703Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1463,7 +1463,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.703Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1494,7 +1494,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.703Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1525,7 +1525,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.703Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1556,7 +1556,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1587,7 +1587,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1618,7 +1618,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1649,7 +1649,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1680,7 +1680,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1711,7 +1711,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1742,7 +1742,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1773,7 +1773,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1804,7 +1804,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1835,7 +1835,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1866,7 +1866,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1897,7 +1897,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1928,7 +1928,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1959,7 +1959,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -1990,7 +1990,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2021,7 +2021,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2052,7 +2052,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2083,7 +2083,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2114,7 +2114,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2145,7 +2145,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2176,7 +2176,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2207,7 +2207,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2238,7 +2238,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.946Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2269,7 +2269,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.947Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2300,7 +2300,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.947Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2331,7 +2331,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.947Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2362,7 +2362,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.947Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2393,7 +2393,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.947Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2424,7 +2424,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.947Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2455,7 +2455,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.947Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2486,7 +2486,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.947Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2517,7 +2517,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.947Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2548,7 +2548,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.947Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2579,7 +2579,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.947Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2610,7 +2610,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.947Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2641,7 +2641,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.947Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2672,7 +2672,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.947Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2703,7 +2703,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.947Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2734,7 +2734,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.947Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2765,7 +2765,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.947Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2796,7 +2796,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.947Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2827,7 +2827,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.947Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2858,7 +2858,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.947Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2889,7 +2889,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.947Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2920,7 +2920,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.947Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2951,7 +2951,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.947Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -2982,7 +2982,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.947Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -3013,7 +3013,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.947Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -3044,7 +3044,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.947Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -3075,7 +3075,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.947Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -3106,7 +3106,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.947Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -3137,7 +3137,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.947Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -3168,7 +3168,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.947Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -3199,7 +3199,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.947Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -3230,7 +3230,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.947Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -3261,7 +3261,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.947Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -3292,7 +3292,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.947Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -3323,7 +3323,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.947Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -3354,7 +3354,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.947Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -3385,7 +3385,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.947Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -3416,7 +3416,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.947Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -3447,7 +3447,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.947Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -3478,7 +3478,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.947Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -3509,7 +3509,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.947Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -3540,7 +3540,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.947Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -3571,7 +3571,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.947Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -3602,7 +3602,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.947Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     },
@@ -3633,7 +3633,7 @@ window.NEWS_AUTO = {
       "sourceHorizon": "this-week",
       "source": "ForexFactory calendar JSON",
       "sourceClass": "CALENDAR_AGGREGATE_JSON",
-      "fetchedAt": "2026-11-12T14:03:30.947Z",
+      "fetchedAt": "2026-11-12T14:33:31.704Z",
       "url": "https://www.forexfactory.com/calendar",
       "auto": true
     }
@@ -3647,6 +3647,32 @@ window.NEWS_AUTO = {
   "byTab": {
     "gold": {
       "news": [
+        {
+          "time": "Thu 12 Nov, 22:21 MYT",
+          "publishedAt": "2026-11-12T14:21:37.000Z",
+          "tf": "Intraday",
+          "title": "Is dollar finally ready to break out? BCA weighs in",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "Investing.com - Forex News",
+          "url": "https://www.investing.com/news/forex-news/is-dollar-finally-ready-to-break-out-bca-weighs-in-5022178",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.8,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
         {
           "time": "Thu 12 Nov, 21:01 MYT",
           "publishedAt": "2026-11-12T13:01:31.000Z",
@@ -3882,26 +3908,24 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Wed 11 Nov, 19:25 MYT",
-          "publishedAt": "2026-11-11T11:25:47.000Z",
+          "time": "Thu 12 Nov, 22:01 MYT",
+          "publishedAt": "2026-11-12T14:01:01.000Z",
           "tf": "Intraday",
-          "title": "INR/USD hits 6-month high on strong inflows",
+          "title": "Oil prices rise as geopolitical risks offset rising crude output",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "Investing.com - Forex News",
-          "url": "https://www.investing.com/news/forex-news/inrusd-hits-6month-high-on-strong-inflows-93CH-5018390",
+          "source": "Investing.com - Commodities & Futures",
+          "url": "https://www.investing.com/news/commodities-news/oil-prices-drop-more-than-1-as-hopes-for-iran-ukraine-peace-talks-pressure-markets-5020171",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
-          "relevance": 0.8,
-          "currencies": [
-            "USD"
-          ],
+          "relevance": 0.6,
+          "currencies": [],
           "drivers": {
             "gold": false,
             "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
+            "usd": false,
+            "oil": true,
+            "risk": true,
             "crypto": false
           },
           "policySide": null,
@@ -3928,32 +3952,6 @@ window.NEWS_AUTO = {
             "usd": false,
             "oil": true,
             "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Thu 12 Nov, 20:42 MYT",
-          "publishedAt": "2026-11-12T12:42:23.000Z",
-          "tf": "Intraday",
-          "title": "Oil prices lower as rising crude output offset geopolitical risks",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "Investing.com - Commodities & Futures",
-          "url": "https://www.investing.com/news/commodities-news/oil-prices-drop-more-than-1-as-hopes-for-iran-ukraine-peace-talks-pressure-markets-5020171",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.6,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": true,
-            "risk": true,
             "crypto": false
           },
           "policySide": null,
@@ -4160,6 +4158,115 @@ window.NEWS_AUTO = {
             "gold": false,
             "yields": false,
             "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 12 Nov, 18:51 MYT",
+          "publishedAt": "2026-11-12T10:51:27.000Z",
+          "tf": "Intraday",
+          "title": "Gold drops over 2% as Trump plays down the need for an Iran deal",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/gold-falls-below-4-000-as-traders-weigh-a-half-point-fed-rate-hike-202611121051",
+          "impact": "bearish",
+          "signal": "SELL",
+          "decisionState": "CONFLICT",
+          "relevance": 1,
+          "currencies": [
+            "USD"
+          ],
+          "drivers": {
+            "gold": true,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": "hawkish",
+          "impactScore": -0.15,
+          "impactPct": -0.15,
+          "auto": true
+        },
+        {
+          "time": "Thu 12 Nov, 21:43 MYT",
+          "publishedAt": "2026-11-12T13:43:55.000Z",
+          "tf": "Intraday",
+          "title": "US President Donald Trump: “We don’t need a deal with Iran”",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/us-president-donald-trump-we-dont-need-a-deal-with-iran-truth-social-202611121343",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.5,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 12 Nov, 21:37 MYT",
+          "publishedAt": "2026-11-12T13:37:13.000Z",
+          "tf": "Intraday",
+          "title": "US Initial Jobless Claims rose to 200K last week",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/us-initial-jobless-claims-rose-to-200k-last-week-202611121337",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.5,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 12 Nov, 21:36 MYT",
+          "publishedAt": "2026-11-12T13:36:56.000Z",
+          "tf": "Intraday",
+          "title": "USD/JPY: Intervention risk caps upside – BBH",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/usd-jpy-intervention-risk-caps-upside-bbh-202611121336",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.8,
+          "currencies": [
+            "USD",
+            "JPY"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
             "oil": false,
             "risk": false,
             "crypto": false
@@ -4482,49 +4589,21 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Thu 12 Nov, 18:51 MYT",
-          "publishedAt": "2026-11-12T10:51:27.000Z",
+          "time": "Thu 12 Nov, 22:19 MYT",
+          "publishedAt": "2026-11-12T14:19:00.000Z",
           "tf": "Intraday",
-          "title": "Gold falls below $4,000 as traders weigh a half-point Fed rate hike",
+          "title": "Opening trading-card packs has become a $2 billion market",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/gold-falls-below-4-000-as-traders-weigh-a-half-point-fed-rate-hike-202611121051",
-          "impact": "bearish",
-          "signal": "SELL",
-          "decisionState": "CONFLICT",
-          "relevance": 1,
-          "currencies": [
-            "USD"
-          ],
-          "drivers": {
-            "gold": true,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": "hawkish",
-          "impactScore": -0.15,
-          "impactPct": -0.15,
-          "auto": true
-        },
-        {
-          "time": "Thu 12 Nov, 18:31 MYT",
-          "publishedAt": "2026-11-12T10:31:19.000Z",
-          "tf": "Intraday",
-          "title": "US 10-year yield: Up move eyes 5.36% – Societe Generale",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/us-10-year-yield-up-move-eyes-536-societe-generale-202611121031",
+          "source": "MarketWatch - Top Stories",
+          "url": "https://www.marketwatch.com/story/opening-trading-card-packs-has-become-a-2-billion-market-new-apps-are-trying-to-cash-in-b7ba11f5?mod=mw_rss_topstories",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
-          "relevance": 0.8,
+          "relevance": 0.5,
           "currencies": [],
           "drivers": {
             "gold": false,
-            "yields": true,
+            "yields": false,
             "usd": false,
             "oil": false,
             "risk": false,
@@ -4536,22 +4615,22 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Thu 12 Nov, 18:25 MYT",
-          "publishedAt": "2026-11-12T10:25:08.000Z",
+          "time": "Thu 12 Nov, 22:16 MYT",
+          "publishedAt": "2026-11-12T14:16:00.000Z",
           "tf": "Intraday",
-          "title": "US Dollar Index (DXY) trims gains after hitting 19-month highs at 103.08",
+          "title": "I inherited $1.4 million from my father. Am I wrong to ask my husband of 25 years for a postnuptial agreement?",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/us-dollar-index-dxy-trims-gains-after-hitting-19-month-highs-at-10308-202611121025",
+          "source": "MarketWatch - Top Stories",
+          "url": "https://www.marketwatch.com/story/i-inherited-1-4-million-from-my-father-am-i-wrong-to-ask-my-husband-of-25-years-for-a-postnuptial-agreement-b739c51d?mod=mw_rss_topstories",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
-          "relevance": 0.8,
+          "relevance": 0.5,
           "currencies": [],
           "drivers": {
             "gold": false,
             "yields": false,
-            "usd": true,
+            "usd": false,
             "oil": false,
             "risk": false,
             "crypto": false
@@ -4562,25 +4641,22 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Thu 12 Nov, 17:48 MYT",
-          "publishedAt": "2026-11-12T09:48:48.000Z",
+          "time": "Thu 12 Nov, 22:10 MYT",
+          "publishedAt": "2026-11-12T14:10:00.000Z",
           "tf": "Intraday",
-          "title": "USD/JPY: Intervention risk near 160 – Societe Generale",
+          "title": "Jensen Huang built Nvidia into a behemoth. His resignation puts the entire AI boom in jeopardy.",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/usd-jpy-intervention-risk-near-160-societe-generale-202611120948",
+          "source": "MarketWatch - Top Stories",
+          "url": "https://www.marketwatch.com/story/jensen-huang-built-nvidia-into-a-behemoth-his-scandal-puts-the-entire-ai-boom-in-jeopardy-c374b079?mod=mw_rss_topstories",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
-          "relevance": 0.8,
-          "currencies": [
-            "USD",
-            "JPY"
-          ],
+          "relevance": 0.5,
+          "currencies": [],
           "drivers": {
             "gold": false,
-            "yields": true,
-            "usd": true,
+            "yields": false,
+            "usd": false,
             "oil": false,
             "risk": false,
             "crypto": false
@@ -4672,36 +4748,10 @@ window.NEWS_AUTO = {
           "time": "Thu 12 Nov, 21:00 MYT",
           "publishedAt": "2026-11-12T13:00:00.000Z",
           "tf": "Intraday",
-          "title": "How the U.S. government&#x2019;s equity holdings have surged during Trump&#x2019;s second term &#x2014; in one chart",
+          "title": "How the U.S. government&#x2019;s ownership of companies has surged during Trump&#x2019;s second term &#x2014; in one chart",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
           "source": "MarketWatch - Top Stories",
           "url": "https://www.marketwatch.com/story/how-the-u-s-governments-equity-holdings-have-surged-during-trumps-second-term-in-one-chart-b598c369?mod=mw_rss_topstories",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.5,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Thu 12 Nov, 20:55 MYT",
-          "publishedAt": "2026-11-12T12:55:00.000Z",
-          "tf": "Intraday",
-          "title": "The &#x2018;bank of Nvidia&#x2019; is in jeopardy, threatening the entire AI boom",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "MarketWatch - Top Stories",
-          "url": "https://www.marketwatch.com/story/jensen-huang-built-nvidia-into-a-behemoth-his-scandal-puts-the-entire-ai-boom-in-jeopardy-c374b079?mod=mw_rss_topstories",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
@@ -4780,58 +4830,6 @@ window.NEWS_AUTO = {
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
           "source": "MarketWatch - Top Stories",
           "url": "https://www.marketwatch.com/story/heres-what-megaspeed-the-company-at-the-forefront-of-the-nvidia-scandal-is-now-saying-b73f8d0b?mod=mw_rss_topstories",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.5,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Thu 12 Nov, 18:15 MYT",
-          "publishedAt": "2026-11-12T10:15:00.000Z",
-          "tf": "Intraday",
-          "title": "I inherited $1.4 million from my father. Am I wrong to ask my husband of 25 years for a postnuptial agreement?",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "MarketWatch - Top Stories",
-          "url": "https://www.marketwatch.com/story/i-inherited-1-4-million-from-my-father-am-i-wrong-to-ask-my-husband-of-25-years-for-a-postnuptial-agreement-b739c51d?mod=mw_rss_topstories",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.5,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Thu 12 Nov, 18:07 MYT",
-          "publishedAt": "2026-11-12T10:07:00.000Z",
-          "tf": "Intraday",
-          "title": "Nvidia&#x2019;s stock drops as the board reportedly prepares to remove CEO Jensen Huang",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "MarketWatch - Top Stories",
-          "url": "https://www.marketwatch.com/story/nvidias-stock-drops-as-the-board-reportedly-prepares-to-remove-ceo-jensen-huang-9edee58d?mod=mw_rss_topstories",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
@@ -4960,6 +4958,32 @@ window.NEWS_AUTO = {
     "crypto": {
       "news": [
         {
+          "time": "Thu 12 Nov, 22:21 MYT",
+          "publishedAt": "2026-11-12T14:21:37.000Z",
+          "tf": "Intraday",
+          "title": "Is dollar finally ready to break out? BCA weighs in",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "Investing.com - Forex News",
+          "url": "https://www.investing.com/news/forex-news/is-dollar-finally-ready-to-break-out-bca-weighs-in-5022178",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.7,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
           "time": "Thu 12 Nov, 21:01 MYT",
           "publishedAt": "2026-11-12T13:01:31.000Z",
           "tf": "Intraday",
@@ -5194,26 +5218,24 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Wed 11 Nov, 19:25 MYT",
-          "publishedAt": "2026-11-11T11:25:47.000Z",
+          "time": "Thu 12 Nov, 22:01 MYT",
+          "publishedAt": "2026-11-12T14:01:01.000Z",
           "tf": "Intraday",
-          "title": "INR/USD hits 6-month high on strong inflows",
+          "title": "Oil prices rise as geopolitical risks offset rising crude output",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "Investing.com - Forex News",
-          "url": "https://www.investing.com/news/forex-news/inrusd-hits-6month-high-on-strong-inflows-93CH-5018390",
+          "source": "Investing.com - Commodities & Futures",
+          "url": "https://www.investing.com/news/commodities-news/oil-prices-drop-more-than-1-as-hopes-for-iran-ukraine-peace-talks-pressure-markets-5020171",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
           "relevance": 0.7,
-          "currencies": [
-            "USD"
-          ],
+          "currencies": [],
           "drivers": {
             "gold": false,
             "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
+            "usd": false,
+            "oil": true,
+            "risk": true,
             "crypto": false
           },
           "policySide": null,
@@ -5240,32 +5262,6 @@ window.NEWS_AUTO = {
             "usd": false,
             "oil": true,
             "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Thu 12 Nov, 20:42 MYT",
-          "publishedAt": "2026-11-12T12:42:23.000Z",
-          "tf": "Intraday",
-          "title": "Oil prices lower as rising crude output offset geopolitical risks",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "Investing.com - Commodities & Futures",
-          "url": "https://www.investing.com/news/commodities-news/oil-prices-drop-more-than-1-as-hopes-for-iran-ukraine-peace-talks-pressure-markets-5020171",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.7,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": true,
-            "risk": true,
             "crypto": false
           },
           "policySide": null,
@@ -5472,6 +5468,115 @@ window.NEWS_AUTO = {
             "gold": false,
             "yields": false,
             "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 12 Nov, 18:51 MYT",
+          "publishedAt": "2026-11-12T10:51:27.000Z",
+          "tf": "Intraday",
+          "title": "Gold drops over 2% as Trump plays down the need for an Iran deal",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/gold-falls-below-4-000-as-traders-weigh-a-half-point-fed-rate-hike-202611121051",
+          "impact": "bearish",
+          "signal": "SELL",
+          "decisionState": "CONFLICT",
+          "relevance": 0.7,
+          "currencies": [
+            "USD"
+          ],
+          "drivers": {
+            "gold": true,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": "hawkish",
+          "impactScore": -0.14,
+          "impactPct": -0.14,
+          "auto": true
+        },
+        {
+          "time": "Thu 12 Nov, 21:43 MYT",
+          "publishedAt": "2026-11-12T13:43:55.000Z",
+          "tf": "Intraday",
+          "title": "US President Donald Trump: “We don’t need a deal with Iran”",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/us-president-donald-trump-we-dont-need-a-deal-with-iran-truth-social-202611121343",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.4,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 12 Nov, 21:37 MYT",
+          "publishedAt": "2026-11-12T13:37:13.000Z",
+          "tf": "Intraday",
+          "title": "US Initial Jobless Claims rose to 200K last week",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/us-initial-jobless-claims-rose-to-200k-last-week-202611121337",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.4,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 12 Nov, 21:36 MYT",
+          "publishedAt": "2026-11-12T13:36:56.000Z",
+          "tf": "Intraday",
+          "title": "USD/JPY: Intervention risk caps upside – BBH",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/usd-jpy-intervention-risk-caps-upside-bbh-202611121336",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.7,
+          "currencies": [
+            "USD",
+            "JPY"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
             "oil": false,
             "risk": false,
             "crypto": false
@@ -5794,49 +5899,21 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Thu 12 Nov, 18:51 MYT",
-          "publishedAt": "2026-11-12T10:51:27.000Z",
+          "time": "Thu 12 Nov, 22:19 MYT",
+          "publishedAt": "2026-11-12T14:19:00.000Z",
           "tf": "Intraday",
-          "title": "Gold falls below $4,000 as traders weigh a half-point Fed rate hike",
+          "title": "Opening trading-card packs has become a $2 billion market",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/gold-falls-below-4-000-as-traders-weigh-a-half-point-fed-rate-hike-202611121051",
-          "impact": "bearish",
-          "signal": "SELL",
-          "decisionState": "CONFLICT",
-          "relevance": 0.7,
-          "currencies": [
-            "USD"
-          ],
-          "drivers": {
-            "gold": true,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": "hawkish",
-          "impactScore": -0.14,
-          "impactPct": -0.14,
-          "auto": true
-        },
-        {
-          "time": "Thu 12 Nov, 18:31 MYT",
-          "publishedAt": "2026-11-12T10:31:19.000Z",
-          "tf": "Intraday",
-          "title": "US 10-year yield: Up move eyes 5.36% – Societe Generale",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/us-10-year-yield-up-move-eyes-536-societe-generale-202611121031",
+          "source": "MarketWatch - Top Stories",
+          "url": "https://www.marketwatch.com/story/opening-trading-card-packs-has-become-a-2-billion-market-new-apps-are-trying-to-cash-in-b7ba11f5?mod=mw_rss_topstories",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
-          "relevance": 0.7,
+          "relevance": 0.4,
           "currencies": [],
           "drivers": {
             "gold": false,
-            "yields": true,
+            "yields": false,
             "usd": false,
             "oil": false,
             "risk": false,
@@ -5848,22 +5925,22 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Thu 12 Nov, 18:25 MYT",
-          "publishedAt": "2026-11-12T10:25:08.000Z",
+          "time": "Thu 12 Nov, 22:16 MYT",
+          "publishedAt": "2026-11-12T14:16:00.000Z",
           "tf": "Intraday",
-          "title": "US Dollar Index (DXY) trims gains after hitting 19-month highs at 103.08",
+          "title": "I inherited $1.4 million from my father. Am I wrong to ask my husband of 25 years for a postnuptial agreement?",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/us-dollar-index-dxy-trims-gains-after-hitting-19-month-highs-at-10308-202611121025",
+          "source": "MarketWatch - Top Stories",
+          "url": "https://www.marketwatch.com/story/i-inherited-1-4-million-from-my-father-am-i-wrong-to-ask-my-husband-of-25-years-for-a-postnuptial-agreement-b739c51d?mod=mw_rss_topstories",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
-          "relevance": 0.7,
+          "relevance": 0.4,
           "currencies": [],
           "drivers": {
             "gold": false,
             "yields": false,
-            "usd": true,
+            "usd": false,
             "oil": false,
             "risk": false,
             "crypto": false
@@ -5874,25 +5951,22 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Thu 12 Nov, 17:48 MYT",
-          "publishedAt": "2026-11-12T09:48:48.000Z",
+          "time": "Thu 12 Nov, 22:10 MYT",
+          "publishedAt": "2026-11-12T14:10:00.000Z",
           "tf": "Intraday",
-          "title": "USD/JPY: Intervention risk near 160 – Societe Generale",
+          "title": "Jensen Huang built Nvidia into a behemoth. His resignation puts the entire AI boom in jeopardy.",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/usd-jpy-intervention-risk-near-160-societe-generale-202611120948",
+          "source": "MarketWatch - Top Stories",
+          "url": "https://www.marketwatch.com/story/jensen-huang-built-nvidia-into-a-behemoth-his-scandal-puts-the-entire-ai-boom-in-jeopardy-c374b079?mod=mw_rss_topstories",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
-          "relevance": 0.7,
-          "currencies": [
-            "USD",
-            "JPY"
-          ],
+          "relevance": 0.4,
+          "currencies": [],
           "drivers": {
             "gold": false,
-            "yields": true,
-            "usd": true,
+            "yields": false,
+            "usd": false,
             "oil": false,
             "risk": false,
             "crypto": false
@@ -5984,36 +6058,10 @@ window.NEWS_AUTO = {
           "time": "Thu 12 Nov, 21:00 MYT",
           "publishedAt": "2026-11-12T13:00:00.000Z",
           "tf": "Intraday",
-          "title": "How the U.S. government&#x2019;s equity holdings have surged during Trump&#x2019;s second term &#x2014; in one chart",
+          "title": "How the U.S. government&#x2019;s ownership of companies has surged during Trump&#x2019;s second term &#x2014; in one chart",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
           "source": "MarketWatch - Top Stories",
           "url": "https://www.marketwatch.com/story/how-the-u-s-governments-equity-holdings-have-surged-during-trumps-second-term-in-one-chart-b598c369?mod=mw_rss_topstories",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.4,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Thu 12 Nov, 20:55 MYT",
-          "publishedAt": "2026-11-12T12:55:00.000Z",
-          "tf": "Intraday",
-          "title": "The &#x2018;bank of Nvidia&#x2019; is in jeopardy, threatening the entire AI boom",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "MarketWatch - Top Stories",
-          "url": "https://www.marketwatch.com/story/jensen-huang-built-nvidia-into-a-behemoth-his-scandal-puts-the-entire-ai-boom-in-jeopardy-c374b079?mod=mw_rss_topstories",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
@@ -6092,58 +6140,6 @@ window.NEWS_AUTO = {
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
           "source": "MarketWatch - Top Stories",
           "url": "https://www.marketwatch.com/story/heres-what-megaspeed-the-company-at-the-forefront-of-the-nvidia-scandal-is-now-saying-b73f8d0b?mod=mw_rss_topstories",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.4,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Thu 12 Nov, 18:15 MYT",
-          "publishedAt": "2026-11-12T10:15:00.000Z",
-          "tf": "Intraday",
-          "title": "I inherited $1.4 million from my father. Am I wrong to ask my husband of 25 years for a postnuptial agreement?",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "MarketWatch - Top Stories",
-          "url": "https://www.marketwatch.com/story/i-inherited-1-4-million-from-my-father-am-i-wrong-to-ask-my-husband-of-25-years-for-a-postnuptial-agreement-b739c51d?mod=mw_rss_topstories",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.4,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Thu 12 Nov, 18:07 MYT",
-          "publishedAt": "2026-11-12T10:07:00.000Z",
-          "tf": "Intraday",
-          "title": "Nvidia&#x2019;s stock drops as the board reportedly prepares to remove CEO Jensen Huang",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "MarketWatch - Top Stories",
-          "url": "https://www.marketwatch.com/story/nvidias-stock-drops-as-the-board-reportedly-prepares-to-remove-ceo-jensen-huang-9edee58d?mod=mw_rss_topstories",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
@@ -6272,6 +6268,32 @@ window.NEWS_AUTO = {
     "forex": {
       "news": [
         {
+          "time": "Thu 12 Nov, 22:21 MYT",
+          "publishedAt": "2026-11-12T14:21:37.000Z",
+          "tf": "Intraday",
+          "title": "Is dollar finally ready to break out? BCA weighs in",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "Investing.com - Forex News",
+          "url": "https://www.investing.com/news/forex-news/is-dollar-finally-ready-to-break-out-bca-weighs-in-5022178",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.5,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
           "time": "Thu 12 Nov, 21:01 MYT",
           "publishedAt": "2026-11-12T13:01:31.000Z",
           "tf": "Intraday",
@@ -6506,26 +6528,24 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Wed 11 Nov, 19:25 MYT",
-          "publishedAt": "2026-11-11T11:25:47.000Z",
+          "time": "Thu 12 Nov, 22:01 MYT",
+          "publishedAt": "2026-11-12T14:01:01.000Z",
           "tf": "Intraday",
-          "title": "INR/USD hits 6-month high on strong inflows",
+          "title": "Oil prices rise as geopolitical risks offset rising crude output",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "Investing.com - Forex News",
-          "url": "https://www.investing.com/news/forex-news/inrusd-hits-6month-high-on-strong-inflows-93CH-5018390",
+          "source": "Investing.com - Commodities & Futures",
+          "url": "https://www.investing.com/news/commodities-news/oil-prices-drop-more-than-1-as-hopes-for-iran-ukraine-peace-talks-pressure-markets-5020171",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
-          "relevance": 1,
-          "currencies": [
-            "USD"
-          ],
+          "relevance": 0.5,
+          "currencies": [],
           "drivers": {
             "gold": false,
             "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
+            "usd": false,
+            "oil": true,
+            "risk": true,
             "crypto": false
           },
           "policySide": null,
@@ -6552,32 +6572,6 @@ window.NEWS_AUTO = {
             "usd": false,
             "oil": true,
             "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Thu 12 Nov, 20:42 MYT",
-          "publishedAt": "2026-11-12T12:42:23.000Z",
-          "tf": "Intraday",
-          "title": "Oil prices lower as rising crude output offset geopolitical risks",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "Investing.com - Commodities & Futures",
-          "url": "https://www.investing.com/news/commodities-news/oil-prices-drop-more-than-1-as-hopes-for-iran-ukraine-peace-talks-pressure-markets-5020171",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.5,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": true,
-            "risk": true,
             "crypto": false
           },
           "policySide": null,
@@ -6784,6 +6778,115 @@ window.NEWS_AUTO = {
             "gold": false,
             "yields": false,
             "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 12 Nov, 18:51 MYT",
+          "publishedAt": "2026-11-12T10:51:27.000Z",
+          "tf": "Intraday",
+          "title": "Gold drops over 2% as Trump plays down the need for an Iran deal",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/gold-falls-below-4-000-as-traders-weigh-a-half-point-fed-rate-hike-202611121051",
+          "impact": "bearish",
+          "signal": "SELL",
+          "decisionState": "CONFLICT",
+          "relevance": 1,
+          "currencies": [
+            "USD"
+          ],
+          "drivers": {
+            "gold": true,
+            "yields": false,
+            "usd": true,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": "hawkish",
+          "impactScore": -0.15,
+          "impactPct": -0.15,
+          "auto": true
+        },
+        {
+          "time": "Thu 12 Nov, 21:43 MYT",
+          "publishedAt": "2026-11-12T13:43:55.000Z",
+          "tf": "Intraday",
+          "title": "US President Donald Trump: “We don’t need a deal with Iran”",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/us-president-donald-trump-we-dont-need-a-deal-with-iran-truth-social-202611121343",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.5,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 12 Nov, 21:37 MYT",
+          "publishedAt": "2026-11-12T13:37:13.000Z",
+          "tf": "Intraday",
+          "title": "US Initial Jobless Claims rose to 200K last week",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/us-initial-jobless-claims-rose-to-200k-last-week-202611121337",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 0.5,
+          "currencies": [],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": false,
+            "oil": false,
+            "risk": false,
+            "crypto": false
+          },
+          "policySide": null,
+          "impactScore": 0,
+          "impactPct": 0,
+          "auto": true
+        },
+        {
+          "time": "Thu 12 Nov, 21:36 MYT",
+          "publishedAt": "2026-11-12T13:36:56.000Z",
+          "tf": "Intraday",
+          "title": "USD/JPY: Intervention risk caps upside – BBH",
+          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
+          "source": "FXStreet - Forex & Markets News",
+          "url": "https://www.fxstreet.com/news/usd-jpy-intervention-risk-caps-upside-bbh-202611121336",
+          "impact": "neutral",
+          "signal": "NEUTRAL",
+          "decisionState": "NEUTRAL",
+          "relevance": 1,
+          "currencies": [
+            "USD",
+            "JPY"
+          ],
+          "drivers": {
+            "gold": false,
+            "yields": false,
+            "usd": true,
             "oil": false,
             "risk": false,
             "crypto": false
@@ -7106,41 +7209,13 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Thu 12 Nov, 18:51 MYT",
-          "publishedAt": "2026-11-12T10:51:27.000Z",
+          "time": "Thu 12 Nov, 22:19 MYT",
+          "publishedAt": "2026-11-12T14:19:00.000Z",
           "tf": "Intraday",
-          "title": "Gold falls below $4,000 as traders weigh a half-point Fed rate hike",
+          "title": "Opening trading-card packs has become a $2 billion market",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/gold-falls-below-4-000-as-traders-weigh-a-half-point-fed-rate-hike-202611121051",
-          "impact": "bearish",
-          "signal": "SELL",
-          "decisionState": "CONFLICT",
-          "relevance": 1,
-          "currencies": [
-            "USD"
-          ],
-          "drivers": {
-            "gold": true,
-            "yields": false,
-            "usd": true,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": "hawkish",
-          "impactScore": -0.15,
-          "impactPct": -0.15,
-          "auto": true
-        },
-        {
-          "time": "Thu 12 Nov, 18:31 MYT",
-          "publishedAt": "2026-11-12T10:31:19.000Z",
-          "tf": "Intraday",
-          "title": "US 10-year yield: Up move eyes 5.36% – Societe Generale",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/us-10-year-yield-up-move-eyes-536-societe-generale-202611121031",
+          "source": "MarketWatch - Top Stories",
+          "url": "https://www.marketwatch.com/story/opening-trading-card-packs-has-become-a-2-billion-market-new-apps-are-trying-to-cash-in-b7ba11f5?mod=mw_rss_topstories",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
@@ -7148,7 +7223,7 @@ window.NEWS_AUTO = {
           "currencies": [],
           "drivers": {
             "gold": false,
-            "yields": true,
+            "yields": false,
             "usd": false,
             "oil": false,
             "risk": false,
@@ -7160,13 +7235,13 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Thu 12 Nov, 18:25 MYT",
-          "publishedAt": "2026-11-12T10:25:08.000Z",
+          "time": "Thu 12 Nov, 22:16 MYT",
+          "publishedAt": "2026-11-12T14:16:00.000Z",
           "tf": "Intraday",
-          "title": "US Dollar Index (DXY) trims gains after hitting 19-month highs at 103.08",
+          "title": "I inherited $1.4 million from my father. Am I wrong to ask my husband of 25 years for a postnuptial agreement?",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/us-dollar-index-dxy-trims-gains-after-hitting-19-month-highs-at-10308-202611121025",
+          "source": "MarketWatch - Top Stories",
+          "url": "https://www.marketwatch.com/story/i-inherited-1-4-million-from-my-father-am-i-wrong-to-ask-my-husband-of-25-years-for-a-postnuptial-agreement-b739c51d?mod=mw_rss_topstories",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
@@ -7175,7 +7250,7 @@ window.NEWS_AUTO = {
           "drivers": {
             "gold": false,
             "yields": false,
-            "usd": true,
+            "usd": false,
             "oil": false,
             "risk": false,
             "crypto": false
@@ -7186,25 +7261,22 @@ window.NEWS_AUTO = {
           "auto": true
         },
         {
-          "time": "Thu 12 Nov, 17:48 MYT",
-          "publishedAt": "2026-11-12T09:48:48.000Z",
+          "time": "Thu 12 Nov, 22:10 MYT",
+          "publishedAt": "2026-11-12T14:10:00.000Z",
           "tf": "Intraday",
-          "title": "USD/JPY: Intervention risk near 160 – Societe Generale",
+          "title": "Jensen Huang built Nvidia into a behemoth. His resignation puts the entire AI boom in jeopardy.",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "FXStreet - Forex & Markets News",
-          "url": "https://www.fxstreet.com/news/usd-jpy-intervention-risk-near-160-societe-generale-202611120948",
+          "source": "MarketWatch - Top Stories",
+          "url": "https://www.marketwatch.com/story/jensen-huang-built-nvidia-into-a-behemoth-his-scandal-puts-the-entire-ai-boom-in-jeopardy-c374b079?mod=mw_rss_topstories",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
-          "relevance": 1,
-          "currencies": [
-            "USD",
-            "JPY"
-          ],
+          "relevance": 0.5,
+          "currencies": [],
           "drivers": {
             "gold": false,
-            "yields": true,
-            "usd": true,
+            "yields": false,
+            "usd": false,
             "oil": false,
             "risk": false,
             "crypto": false
@@ -7296,36 +7368,10 @@ window.NEWS_AUTO = {
           "time": "Thu 12 Nov, 21:00 MYT",
           "publishedAt": "2026-11-12T13:00:00.000Z",
           "tf": "Intraday",
-          "title": "How the U.S. government&#x2019;s equity holdings have surged during Trump&#x2019;s second term &#x2014; in one chart",
+          "title": "How the U.S. government&#x2019;s ownership of companies has surged during Trump&#x2019;s second term &#x2014; in one chart",
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
           "source": "MarketWatch - Top Stories",
           "url": "https://www.marketwatch.com/story/how-the-u-s-governments-equity-holdings-have-surged-during-trumps-second-term-in-one-chart-b598c369?mod=mw_rss_topstories",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.5,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Thu 12 Nov, 20:55 MYT",
-          "publishedAt": "2026-11-12T12:55:00.000Z",
-          "tf": "Intraday",
-          "title": "The &#x2018;bank of Nvidia&#x2019; is in jeopardy, threatening the entire AI boom",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "MarketWatch - Top Stories",
-          "url": "https://www.marketwatch.com/story/jensen-huang-built-nvidia-into-a-behemoth-his-scandal-puts-the-entire-ai-boom-in-jeopardy-c374b079?mod=mw_rss_topstories",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
@@ -7404,58 +7450,6 @@ window.NEWS_AUTO = {
           "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
           "source": "MarketWatch - Top Stories",
           "url": "https://www.marketwatch.com/story/heres-what-megaspeed-the-company-at-the-forefront-of-the-nvidia-scandal-is-now-saying-b73f8d0b?mod=mw_rss_topstories",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.5,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Thu 12 Nov, 18:15 MYT",
-          "publishedAt": "2026-11-12T10:15:00.000Z",
-          "tf": "Intraday",
-          "title": "I inherited $1.4 million from my father. Am I wrong to ask my husband of 25 years for a postnuptial agreement?",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "MarketWatch - Top Stories",
-          "url": "https://www.marketwatch.com/story/i-inherited-1-4-million-from-my-father-am-i-wrong-to-ask-my-husband-of-25-years-for-a-postnuptial-agreement-b739c51d?mod=mw_rss_topstories",
-          "impact": "neutral",
-          "signal": "NEUTRAL",
-          "decisionState": "NEUTRAL",
-          "relevance": 0.5,
-          "currencies": [],
-          "drivers": {
-            "gold": false,
-            "yields": false,
-            "usd": false,
-            "oil": false,
-            "risk": false,
-            "crypto": false
-          },
-          "policySide": null,
-          "impactScore": 0,
-          "impactPct": 0,
-          "auto": true
-        },
-        {
-          "time": "Thu 12 Nov, 18:07 MYT",
-          "publishedAt": "2026-11-12T10:07:00.000Z",
-          "tf": "Intraday",
-          "title": "Nvidia&#x2019;s stock drops as the board reportedly prepares to remove CEO Jensen Huang",
-          "summary": "Country/currency-aware classification. Direction requires instrument relevance and checks observed market reaction for conflicts.",
-          "source": "MarketWatch - Top Stories",
-          "url": "https://www.marketwatch.com/story/nvidias-stock-drops-as-the-board-reportedly-prepares-to-remove-ceo-jensen-huang-9edee58d?mod=mw_rss_topstories",
           "impact": "neutral",
           "signal": "NEUTRAL",
           "decisionState": "NEUTRAL",
@@ -9388,22 +9382,22 @@ window.NEWS_AUTO = {
     ],
     "quoteSnapshots": {
       "gold": {
-        "price": 3894.5,
-        "marketAt": "2026-11-12T13:54:00.000Z",
+        "price": 3906.8,
+        "marketAt": "2026-11-12T14:24:02.000Z",
         "source": "yahoo:GC=F",
         "symbol": "GC=F",
         "priceKind": "FUTURES"
       },
       "crypto": {
-        "price": 72346.85,
-        "marketAt": "2026-11-12T14:04:01.381Z",
+        "price": 71731.28,
+        "marketAt": "2026-11-12T14:34:04.642Z",
         "source": "coinbase:BTC-USD",
         "symbol": "BTC-USD",
         "priceKind": "CRYPTO"
       },
       "forex": {
-        "price": 1.1095,
-        "marketAt": "2026-11-12T14:03:33.000Z",
+        "price": 1.1094,
+        "marketAt": "2026-11-12T14:33:34.000Z",
         "source": "yahoo:EURUSD=X",
         "symbol": "EURUSD=X",
         "priceKind": "FOREX"
