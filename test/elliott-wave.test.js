@@ -221,10 +221,10 @@ function near(name, got, want, tol) {
   assert(r4z.wave === 'C' && r4z.retrace === false, 'C not yet at 1x A -> continue C (no retrace)');
   assert(Math.abs(r4z.targets.find(t => t.wave === 'C' && t.note.indexOf('1.0') >= 0).price - 4450) < 1, 'C = 1x A from end-B: 4150 + |4300-4000| = 4450');
   const r4d = E.nextWave({ type: 'zigzag', dir: 1, pivots: [
-    { price: 4000, t: 0 }, { price: 4300, t: 100 }, { price: 4150, t: 200 }, { price: 4500, t: 300 }] });
-  assert(r4d.wave === 'RETRACE_ABC' && r4d.retrace === true, 'C already past 1x A (4500 >= 4450) -> RETRACE_ABC');
-  assert(r4d.side === 'short' && r4d.stop > r4d.entry, 'post-C retrace is short w/ stop above entry (C extending voids it)');
-  assert(r4d.targets.some(t => t.wave === 'R' && t.note.indexOf('of C') >= 0), 'retrace targets are fibo of the C leg');
+    { price: 4000, t: 0 }, { price: 4300, t: 100 }, { price: 4150, t: 200 }, { price: 4500, t: 300 } ]}, 4400);
+  assert(r4d.wave === 'C_DONE' && r4d.retrace === true, 'C already past 1x A (4500 >= 4450) -> C_DONE (counter-C leg)');
+  assert(r4d.side === 'short' && r4d.stop > r4d.entry, 'post-C C_DONE is short w/ stop above entry (structural level)');
+  assert(r4d.targets.some(t => t.wave === 'S' && (t.note === 'B' || t.note.indexOf('past B') >= 0)), 'C_DONE targets are counter-C (B / new-A past B), on the far side of entry');
   assert(E.nextWave({ type: 'impulse', dir: 1, pivots: [{ price: 4000, t: 0 }, { price: 4300, t: 100 }] }).wave === 'W2', '2-pivot -> W2 retrace');
   assert(E.nextWave({ type: 'impulse', dir: 1, pivots: [{ price: 4000, t: 0 }] }) == null, '<2 pivots -> null');
 }

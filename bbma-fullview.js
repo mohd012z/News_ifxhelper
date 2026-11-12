@@ -472,7 +472,7 @@
     var channel = null;
     try { channel = EW.channel(a.count, bars[bars.length - 1]._ms); } catch (e) { channel = null; }
     var nxt = null;
-    try { nxt = EW.nextWave ? EW.nextWave(a.count) : null; } catch (e) { nxt = null; }
+    try { nxt = EW.nextWave ? EW.nextWave(a.count, lastPrice) : null; } catch (e) { nxt = null; }
     var revision = null;
     try { revision = EW.revisionDiff(ewFpGet(state.tf), a, new Date().toISOString().slice(0, 10)); } catch (e) { revision = null; }
     try { ewFpSet(state.tf, EW.countFingerprint(a)); } catch (e) { }
@@ -1277,7 +1277,11 @@
       var fitKey = state.tf + ':' + bars.length + ':' + bars[bars.length - 1].time;
       if (state.lastFitKey === fitKey && !full) return;
       var ts = state.chart.timeScale();
-      var def = { M5: 120, M15: 120, M30: 120, H1: 100, H4: 100, D1: 100, W1: 60, MN1: 48 }[state.tf] || bars.length;
+      // Recent-view default per TF. Long TFs load 140-240 bars spanning the entire
+      // 2023->2026 gold epic; showing most of that on a phone reads as "obvious" (one
+      // smooth arc). Default to a tighter recent window - the drama is the story, the
+      // recent window is the tradable view. Full history is one tap away (Fit view).
+      var def = { M5: 120, M15: 120, M30: 120, H1: 96, H4: 72, D1: 56, W1: 40, MN1: 36 }[state.tf] || bars.length;
       if (!full && bars.length > def && def >= 5) {
         ts.setVisibleLogicalRange({ from: Math.max(0, bars.length - def - 1), to: bars.length + 1 });
       } else {

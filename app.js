@@ -2122,11 +2122,13 @@
       });
     }
   }
-  /* XAU/USD live stream is OFF by default (Anam: it cluttered every tab). The chart's
-     real candles come from the worker's /api/candles, so turning the ticker off does
-     not stop the chart - it only stops the top-strip price + tape + hero live update.
-     Re-enable via the top-strip toggle, Start on the Live tab, or the desk assistant. */
-  var liveEnabled = false;
+  /* XAU/USD live stream is ON by default: it is the SINGLE source that keeps the
+     top-strip price (hero + tape) in sync with the chart's real candles. Leaving it
+     off made the header freeze on the stale snapshot ($4,281 from xauusd-data.js)
+     while the chart showed the live worker price ($3,891) -> "price is different".
+     The crypto/FX/Silver clutter Anam flagged is removed separately (tape shows
+     XAU/USD only). The top-strip toggle / Live tab can still turn it off. */
+  var liveEnabled = true;
   function setLiveOn(on) {
     liveEnabled = !!on;
     if (liveEnabled) { initLive(); }

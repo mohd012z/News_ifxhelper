@@ -19,11 +19,18 @@ function genBaseline(price,now){
   Object.keys(TFS).forEach(function(tf){
     frames[tf]=[];
     var stepMs=TFS[tf];
+    // Random-walk placeholder (NOT a sine wave - that read as "obvious"). Only
+    // visible for a split second before the worker's real Dukascopy history loads.
+    var vol=(tf==='D1'||tf==='H4'||tf==='W1'||tf==='MN1')?6:2.2;
+    var walk=price;
     for(var i=59;i>=0;i--){
       var ct=now-i*stepMs;
-      var dev=(Math.sin(i*0.35)+Math.cos(i*0.18))*(tf==='D1'||tf==='H4'?12:3.5);
-      var o=price+dev-0.4;
-      var c=price+dev+(i%2===0?0.9:-0.7);
+      // deterministic-ish walk seeded by i so re-renders don't jitter wildly
+      var r=(Math.sin(i*12.9898)*43758.5453); r=r-Math.floor(r); // 0..1
+      var drift=(r-0.5)*2*vol;
+      var o=walk+drift-0.4;
+      var c=walk+drift+(i%2===0?0.9:-0.7);
+      walk+=drift; // advance the walk so the series drifts like real price action
       var h=Math.max(o,c)+1.3;
       var l=Math.min(o,c)-1.2;
       var b=bucket(ct,stepMs);
