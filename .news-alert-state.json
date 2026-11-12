@@ -1002,6 +1002,7 @@
     "news:Swiss Franc holds gains against US Dollar despite hawkish Fed outlook",
     "remind:[GBP] GDP m/m|2026-11-12:30",
     "remind:[GBP] GDP m/m|2026-11-12:10",
-    "remind:[GBP] GDP m/m|2026-11-12:2"
+    "remind:[GBP] GDP m/m|2026-11-12:2",
+    "followup:[GBP] GDP m/m|2026-11-12"
   ]
 }
