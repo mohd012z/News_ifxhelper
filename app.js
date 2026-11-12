@@ -1123,7 +1123,7 @@
         var onlineNote = settings.aiMode && settings.aiMode !== "offline" && settings.aiKey
           ? " Online AI (" + (AI_PROVIDERS[settings.aiProvider] || {}).label + ") is on as " + (settings.aiMode === "always" ? "the primary answerer" : "a fallback when I can't match locally") + " — change this in Settings → Online AI."
           : " Fully offline right now — add your own API key in Settings → Online AI to enable online answers for open-ended questions.";
-        assistAddMsg("Hi" + (settings.profile ? " " + settings.profile : "") + " — I'm the desk assistant. I read this page's own loaded data first, always." + onlineNote + " Try \"advice\", \"predict gold\", \"why\", \"how to trade\", \"report\", \"pivot XAU/USD\", \"pips EUR/USD 1.1050 to 1.1100\", \"next event\", or tap the mic to talk.", "bot");
+        assistAddMsg("Hi" + (settings.profile ? " " + settings.profile : "") + " — I'm the desk assistant. Ask me to predict gold, check a pivot, or explain a setup. (Drag the bubble to move it.)", "bot");
       }
       if (input) input.focus();
     }
@@ -1986,7 +1986,7 @@
     $("#f4").textContent = "Snapshot built " + (D.updated || "\u2014") + "; live prices polled on a " + ((D.live || {}).intervalSec || 5) + "s interval.";
     $("#sources").textContent = "Sources: " + (D.sources || []).join(" \u00b7 ");
   }
-  function renderAll() { renderTop(); renderHero(); renderGauge(); renderAlerts(); renderTradeFocus(); renderIncoming(); renderWatchlist(); renderTfFilter(); renderNews(); renderSpeakers(); renderSources(); renderModel(); renderCross(); renderCurrencies(); renderPairs(); renderAnalysis(); renderLevels(); renderPressure(); renderCalendar(); renderCharts(); renderFlow(); renderLiveFilterGroups(); renderLiveDetail(); renderCurrencyStrength(); }
+  function renderAll() { renderTop(); renderHero(); renderGauge(); renderAlerts(); renderTradeFocus(); renderIncoming(); renderWatchlist(); renderTfFilter(); renderNews(); renderSpeakers(); renderSources(); renderModel(); renderCross(); renderCurrencies(); renderPairs(); renderAnalysis(); renderLevels(); renderPressure(); renderCalendar(); renderCharts(); renderFlow(); renderLiveFilterGroups(); renderLiveDetail(); renderCurrencyStrength(); renderTape(lastTick || {}); }
 
   /* ---------- live feed ---------- */
   function fmtClock(d) { return d ? d.toLocaleTimeString() : "\u2014"; }
@@ -2060,38 +2060,19 @@
   }
   function renderTape(p) {
     var tape = $("#live-tape"); if (!tape) return;
+    /* Top strip declutter (Anam 2026-11-12): show ONLY XAU/USD in the tape. The
+       crypto/FX watchlist rows and Silver repeat on every tab; the full lists still
+       live on the Live/Pairs tabs. The chart's live tick is unaffected. */
     var items = [];
-    /* priority 1: commodities, always shown */
-    COMMODITIES.forEach(function (c) {
-      var px = window.LiveFeed && window.LiveFeed.metal ? window.LiveFeed.metal(c.sym) : null;
-      if (px == null) return;
-      var key = "tape-" + c.sym;
-      if (firstPrices[key] == null) firstPrices[key] = px;
-      var pct = ((px - firstPrices[key]) / firstPrices[key]) * 100;
-      items.push({ k: c.sym, v: money(px), pct: pct, cls: "commodity" });
-    });
-    /* priority 2: crypto, as selected in the watchlist */
-    if (p && p.crypto) {
-      watchlist.crypto.forEach(function (c) {
-        if (!p.crypto[c]) return;
-        var key = "tape-" + c;
-        if (firstPrices[key] == null) firstPrices[key] = p.crypto[c];
-        var pct = ((p.crypto[c] - firstPrices[key]) / firstPrices[key]) * 100;
-        items.push({ k: c, v: money(p.crypto[c]), pct: pct, cls: "crypto" });
-      });
+    var xau = window.LiveFeed && window.LiveFeed.metal ? window.LiveFeed.metal("XAU/USD") : null;
+    if (xau == null) xau = T.price ? T.price.spot : null;
+    if (xau != null) {
+      var key = "tape-XAU/USD";
+      if (firstPrices[key] == null) firstPrices[key] = xau;
+      var pct = ((xau - firstPrices[key]) / firstPrices[key]) * 100;
+      items.push({ k: "XAU/USD", v: money(xau), pct: pct, cls: "commodity" });
     }
-    /* priority 3: FX pairs, as selected in the watchlist */
-    if (p && p.rates) {
-      watchlist.fx.forEach(function (pair) {
-        var px = window.LiveFeed && window.LiveFeed.priceFor ? window.LiveFeed.priceFor(pair) : null;
-        if (px == null) return;
-        var base = firstPrices[pair]; if (base == null) firstPrices[pair] = px;
-        if (base == null) base = px;
-        var pct = ((px - base) / base) * 100;
-        items.push({ k: pair, v: pairFmt(px), pct: pct, cls: "" });
-      });
-    }
-    if (!items.length) { tape.textContent = "Waiting for the first tick\u2026 (pick symbols in Watchlist)"; return; }
+    if (!items.length) { tape.textContent = "XAU/USD \u2014 live off. Tap the top-strip \u201cLive on\u201d toggle or the Live tab to stream."; return; }
     tape.innerHTML = items.map(function (i) {
       var cls = i.pct > 0 ? "good" : i.pct < 0 ? "bad" : "muted";
       return '<span class="ti ' + i.cls + '"><b>' + esc(i.k) + "</b><span>" + esc(i.v) + '</span><span class="' + cls + '">' + (i.pct > 0 ? "\u25b2 +" : i.pct < 0 ? "\u25bc " : "") + i.pct.toFixed(3) + "%</span></span>";
@@ -2141,9 +2122,28 @@
       });
     }
   }
+  /* XAU/USD live stream is OFF by default (Anam: it cluttered every tab). The chart's
+     real candles come from the worker's /api/candles, so turning the ticker off does
+     not stop the chart - it only stops the top-strip price + tape + hero live update.
+     Re-enable via the top-strip toggle, Start on the Live tab, or the desk assistant. */
+  var liveEnabled = false;
+  function setLiveOn(on) {
+    liveEnabled = !!on;
+    if (liveEnabled) { initLive(); }
+    else {
+      if (window.LiveFeed) { try { window.LiveFeed.stop(); window.LiveFeed.stopTwelveData(); } catch (e) {} }
+      liveState = { state: "idle", at: new Date(), ticks: liveState.ticks, error: "" };
+      setBadge();
+      var n = $("#live-note"); if (n) n.textContent = "Live off - snapshot values remain on screen. Start via the top-strip toggle or the Live tab.";
+    }
+    var tg = $("#live-toggle"); if (tg) { tg.textContent = liveEnabled ? "\u25cf Live on" : "\u25cb Live off"; tg.classList.toggle("on", liveEnabled); }
+  }
+  function liveToggle() { setLiveOn(!liveEnabled); }
+  window.liveToggle = liveToggle; // top-strip inline onclick
+  window.setLiveOn = setLiveOn; // desk-assistant / external
   function bindLiveControls() {
     var stop = $("#live-stop"); if (stop) stop.onclick = function () { if (window.LiveFeed) { window.LiveFeed.stop(); window.LiveFeed.stopTwelveData(); } liveState = { state: "idle", at: new Date(), ticks: liveState.ticks, error: "" }; setBadge(); var n = $("#live-note"); if (n) n.textContent = "Polling stopped. Snapshot values remain on screen."; };
-    var go = $("#live-go"); if (go) go.onclick = function () { initLive(); };
+    var go = $("#live-go"); if (go) go.onclick = function () { setLiveOn(true); };
     var wsBtn = $("#ws-go"); if (wsBtn) wsBtn.onclick = function () {
       var url = ($("#ws-url") || {}).value;
       if (!url) return;
@@ -2216,7 +2216,7 @@
       if (q.indexOf("theme light") > -1) setTheme("light");
       if (q.indexOf("filter ") > -1) applyFilter(q.split("filter ")[1].trim());
       if (q.indexOf("focus chart") > -1) { var c = $(".chart-shell"); if (c) c.click(); }
-      if (q.indexOf("live on") > -1) initLive();
+      if (q.indexOf("live on") > -1) setLiveOn(true);
       if (q.indexOf("live off") > -1) { if (window.LiveFeed) window.LiveFeed.stop(); }
       palette.classList.remove("open");
     }
@@ -2256,7 +2256,7 @@
     var rb = $("#refresh"); if (rb) rb.onclick = hardRefreshShell;
     ["c-open", "c-high", "c-low", "c-prev", "c-atr", "c-iv", "c-dte", "c-k"].forEach(function (id) { var el = $("#" + id); if (el) el.addEventListener("input", calc); });
     var wsu = $("#ws-url"); if (wsu && (D.live || {}).wsHint) wsu.value = D.live.wsHint;
-    initLive();
+    setLiveOn(liveEnabled); /* default OFF (Anam) - XAU/USD live stream */
     scheduleRemotePolling();
     scheduleLiveCalendarPolling();
     bindLiveCalendarWakeup();

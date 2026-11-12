@@ -31,6 +31,13 @@
     .brandbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
     .brand-mark{font-weight:800;letter-spacing:.14em;font-size:13px;font-family:"Sora",system-ui,sans-serif;white-space:nowrap}
     .inst{display:flex;gap:6px;flex-wrap:wrap}
+    /* Top strip declutter (Anam 2026-11-12): the instrument tab bar repeats on every tab and is redundant now that GOLD/XAU/USD is the only feed — hide it; use Settings/Analysis scope or the top toggle to switch context. */
+    .brandbar .inst{display:none !important}
+    #live-toggle{border:1px solid var(--line);background:var(--chip);color:var(--muted);border-radius:999px;padding:5px 10px;font-size:11px;font-weight:700;cursor:pointer;letter-spacing:.03em;white-space:nowrap}
+    #live-toggle.on{background:linear-gradient(120deg,color-mix(in srgb,var(--good) 25%,var(--panel)),var(--panel));color:var(--good);border-color:color-mix(in srgb,var(--good) 55%,var(--line))}
+    /* hero: drop the US-10Y card (m2); keep spot + DXY + Brent, DXY/Brent smaller */
+    .hero{grid-template-columns:1.4fr 1fr 1fr}
+    .hero .card:nth-child(3){display:none}
     .inst button{border:1px solid var(--line);background:var(--chip);color:var(--muted);text-align:left;padding:7px 11px;border-radius:999px;font-weight:700;font-size:11px;cursor:pointer;letter-spacing:.04em;white-space:nowrap}
     .inst button.active{background:linear-gradient(120deg,color-mix(in srgb,var(--accent) 22%,var(--panel)),var(--panel));color:var(--text);border-color:color-mix(in srgb,var(--accent) 55%,var(--line))}
     .inst button small{display:none}
@@ -51,6 +58,9 @@
     .tinput{padding:7px 10px;border-radius:8px;border:1px solid var(--line);background:var(--chip);color:var(--text);font:12px "JetBrains Mono",monospace;outline:none;min-width:280px;flex:1}
     .tinput:focus{border-color:var(--accent)}
     .hero{margin-top:12px;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:10px}
+    /* Top strip declutter (Anam 2026-11-12): drop US-10Y (3rd card) -> 3-col; shrink DXY+Brent */
+    .hero{grid-template-columns:1.4fr 1fr 1fr}
+    .hero .card:nth-child(3){display:none}
     .card{border:1px solid var(--line);background:linear-gradient(150deg,color-mix(in srgb,var(--panel) 97%,transparent),color-mix(in srgb,var(--panel2) 95%,transparent));border-radius:13px;padding:12px;position:relative;overflow:hidden}
     body.compact .card{padding:7px}
     body.compact section{margin-top:6px !important}
@@ -58,7 +68,10 @@
     body.compact table td,body.compact table th{padding:4px 6px}
     .k{font-size:10px;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);font-weight:600}
     .v{margin-top:5px;font-size:23px;font-weight:800;font-family:"JetBrains Mono",ui-monospace,monospace;line-height:1.15}
-    .v.sm{font-size:17px}
+    .v.sm{font-size:14px}
+    .hero .card .k{font-size:10px}
+    .hero .card:nth-child(2) .v.sm,.hero .card:nth-child(4) .v.sm{font-size:14px}
+    .hero .card:nth-child(2) .sub,.hero .card:nth-child(4) .sub{font-size:9.5px;line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
     .sub{margin-top:4px;font-size:11px;color:var(--muted)}
     .good{color:var(--good)} .bad{color:var(--bad)} .acc{color:var(--accent)} .muted{color:var(--muted)}
     .layout{display:grid;grid-template-columns:1.35fr 1fr;gap:10px;margin-top:10px}
@@ -215,7 +228,7 @@
     :root{ --sat:env(safe-area-inset-top,0px); --sab:env(safe-area-inset-bottom,0px); --sal:env(safe-area-inset-left,0px); --sar:env(safe-area-inset-right,0px); --bottomnav-h:58px; }
 
     /* ---------- Desk Assistant chat bubble ---------- */
-    .assist-fab{position:fixed;right:calc(16px + var(--sar));bottom:calc(var(--bottomnav-h) + 16px + var(--sab));z-index:42;width:52px;height:52px;border-radius:999px;border:1px solid var(--line);background:linear-gradient(135deg,var(--accent),var(--accent2));color:#0a0f15;font-size:22px;cursor:grab;box-shadow:0 8px 24px rgba(0,0,0,.35);touch-action:none;user-select:none}
+    .assist-fab{position:fixed;right:calc(12px + var(--sar));bottom:calc(var(--bottomnav-h) + 12px + var(--sab));z-index:42;width:40px;height:40px;border-radius:999px;border:1px solid var(--line);background:linear-gradient(135deg,var(--accent),var(--accent2));color:#0a0f15;font-size:17px;cursor:grab;box-shadow:0 6px 18px rgba(0,0,0,.35);touch-action:none;user-select:none;display:flex;align-items:center;justify-content:center}
     .assist-fab:active{cursor:grabbing}
     #assist-mic.go{background:var(--good);color:#04150c;border-color:var(--good)}
     .toast-wrap{position:fixed;top:calc(12px + var(--sat));right:calc(12px + var(--sar));z-index:50;display:flex;flex-direction:column;gap:8px;max-width:min(320px,calc(100vw - 24px))}
@@ -279,8 +292,8 @@
     .fv-btn:hover{border-color:#3b557e;color:#d7e2f4}
     .fv-btn.on{background:#1d3557;border-color:#3d7bd8;color:#eaf2ff}
     .fv-btn.tool.on{background:#4a3413;border-color:#ffb703;color:#ffd166}
-    .fv-chart-wrap{width:100%;height:560px;border:1px solid #18233a;border-radius:10px;overflow:hidden;background:#0b1220}
-    @media(min-width:900px){.fv-chart-wrap{height:720px}}
+    .fv-chart-wrap{width:100%;height:460px;border:1px solid #18233a;border-radius:10px;overflow:hidden;background:#0b1220;position:relative}
+    @media(min-width:900px){.fv-chart-wrap{height:760px}}
     .fv-chart{width:100%;height:100%}
     .fv-foot{display:flex;flex-wrap:wrap;gap:6px 10px;margin-top:8px;min-height:16px}
     .fv-foot .note{margin-top:0;font-size:10.5px;line-height:1.5;white-space:normal}
@@ -291,16 +304,22 @@
     .fv-btn.tpl{border-style:dashed}
     .fv-btn.tpl.on{background:#123a2b;border-color:#31df8b;color:#7cf0b6}
     .fv-btn.fs.on{background:#1a2a4a;border-color:#3d7bd8;color:#bcd4ff}
-    /* Fullscreen fallback (webviews without the Fullscreen API): fixed overlay */
-    .fv-fullscreen{position:fixed !important;inset:0 !important;z-index:9999;background:#070d18;padding:10px;margin:0;border-radius:0;overflow:auto;display:flex;flex-direction:column}
+    /* Fullscreen fallback (webviews without the Fullscreen API): fixed overlay.
+       `overflow:auto` on the wrap keeps the page scrollable — previously the
+       card-level fixed overlay + body overflow:hidden trapped the viewport so
+       the Charts tab could not scroll. */
+    .fv-fullscreen{position:fixed !important;inset:0 !important;z-index:9999;background:#070d18;padding:10px;margin:0;border-radius:0;display:flex;flex-direction:column}
     .fv-fullscreen .fv-chart-wrap{height:auto;flex:1 1 auto;min-height:0;position:relative;border:none}
     .fv-fullscreen .fv-chart{height:100%}
     .fv-fullscreen .k,.fv-fullscreen .note{display:none}
     .fv-fullscreen #fv-toolbar{display:none}
     .fv-card-hidden{display:none !important}
-    /* Floating control bar in fullscreen (top overlay over the chart) */
-    .fv-fs-bar{position:absolute;top:0;left:0;right:0;z-index:40;background:rgba(7,13,24,.88);backdrop-filter:blur(6px);padding:6px 8px;border-bottom:1px solid #24324f;display:none}
-    .fv-fullscreen .fv-fs-bar{display:block}
+    /* Controls bar OVERLAYS the top of the chart (always, not just fullscreen):
+       a compact translucent strip that floats on the chart so the plotting
+       area stays maximal. Ind/Draw panels drop down from it. */
+    .fv-fs-bar{position:absolute;top:0;left:0;right:0;z-index:40;background:linear-gradient(180deg,rgba(7,13,24,.92),rgba(7,13,24,.72));backdrop-filter:blur(6px);padding:6px 8px;border-bottom:1px solid #24324f;display:flex;flex-direction:column;gap:5px}
+    .fv-fs-bar .fv-row{width:100%}
+    .fv-fs-bar .fv-sel,.fv-fs-bar .fv-btn{background:rgba(18,27,46,.85)}
     /* Dropdown panels (Indicators / Draw) */
     .fv-panel{background:#0f1930;border:1px solid #24324f;border-radius:10px;padding:8px;margin-top:6px;max-height:52vh;overflow:auto}
     .fv-fs-bar .fv-panel{position:absolute;left:0;right:0;top:100%;margin-top:0;box-shadow:0 12px 30px rgba(0,0,0,.45)}
@@ -355,6 +374,7 @@
         <div class="status"><span class="dot"></span><span><b id="inst-label">&mdash;</b> &middot; <b id="session-label">&mdash;</b> &middot; data refreshed <b id="updated-label">&mdash;</b></span></div>
         <div class="controls">
           <div class="pill" id="live-pill" title="Live data connection status"><span class="dot"></span><b>IDLE</b></div>
+          <button id="live-toggle" onclick="liveToggle()" title="Toggle the XAU/USD live stream (off by default)">&#9675; Live off</button>
           <div class="controls-div"></div>
           <div class="seg" id="theme"><button data-theme="dark" class="active">Dark</button><button data-theme="light">Light</button></div>
           <button class="chip" id="voice-toggle" title="Read incoming alerts aloud">&#128264; Voice off</button>
@@ -859,6 +879,6 @@
   <script src="./bbma-news-symbol-advisor-ui.js"></script>
   <script src="./bbma-router-fix.js"></script>
   <script src="./bbma-link.js"></script>
-  <script src="./pwa.js?v=11" defer></script>
+  <script src="./pwa.js?v=12" defer></script>
 </body>
 </html>

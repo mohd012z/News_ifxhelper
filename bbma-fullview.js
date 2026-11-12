@@ -654,7 +654,10 @@
                 // top-LEFT: the top-right is where the live-price tag + premium
                 // annotations crowd; the far-left of the visible window is the
                 // least busy spot, so panning doesn't hide the scenario read.
-                var bx = 4, by = 4;
+                // Clear the floating control bar (now always over the chart top).
+                var _barH = 0;
+                try { var _bb = document.getElementById('fv-fs-bar'); if (_bb && _bb.offsetParent) _barH = _bb.offsetHeight + 6; } catch (e) { }
+                var bx = 4, by = _barH || 4;
                 ctx.fillStyle = COLORS.ewBox;
                 ctx.fillRect(bx, by, bw, bh);
                 ctx.strokeStyle = COLORS.ewUpper; ctx.lineWidth = 1; ctx.strokeRect(bx, by, bw, bh);
@@ -784,6 +787,7 @@
     // Oscillator sub-panes (RSI, MACD) are created lazily in syncOscPanes() so a
     // disabled indicator leaves NO empty pane behind.
     bindPointer();
+    bindVerticalScroll();
     return state.chart;
   }
 
@@ -1009,32 +1013,52 @@
     return { t: t, p: p };
   }
   function bindPointer() {
-    // LWC's own chart mouse handlers stopPropagation on click, so a listener on
-    // the container never fires. Use the DOCUMENT in capture phase and filter to
-    // clicks that land inside this chart's canvas.
+    // Drawing input: use LWC's OWN subscribeClick / subscribeDblClick. The old
+    // document-capture `click` listener never fired on touch — LWC preventDefault()s
+    // the touchend it consumes, so the browser synthesizes no `click` — and on
+    // desktop it raced the chart's own click handling. LWC's subscription fires
+    // for both mouse and touch and hands us {logical, time, point:{x,y}} in chart
+    // coordinates (point.y is relative to this chart's price pane, which is exactly
+    // what coordinateToPrice expects). This is the reliable fix for "draw not
+    // working / not working even on double-click".
     if (window.__fvBound) return;
     window.__fvBound = true;
-    document.addEventListener('click', function (ev) {
-      if (!state.tool || !state.container) return;
-      var el = ev.target;
-      if (!el || !/CANVAS/i.test(el.tagName)) return;
-      var host = state.container;
-      var node = el;
-      while (node && node !== host) node = node.parentElement;
-      if (node !== host) return; // canvas of a different chart (e.g. BBMA tab)
-      var rect = host.getBoundingClientRect();
-      handleToolClick(ev.clientX - rect.left, ev.clientY - rect.top, ev);
-    }, true);
-    document.addEventListener('dblclick', function (ev) {
-      if (!state.container) return;
-      var el = ev.target;
-      if (!el || !/CANVAS/i.test(el.tagName)) return;
-      var node = el;
-      while (node && node !== state.container) node = node.parentElement;
-      if (node !== state.container) return;
-      var rect = state.container.getBoundingClientRect();
-      deleteNearest(ev.clientX - rect.left, ev.clientY - rect.top);
-    }, true);
+    try {
+      state.chart.subscribeClick(function (param) {
+        if (!state.tool) return;
+        if (param && param.point) handleToolClick(param.point.x, param.point.y, param);
+      });
+      state.chart.subscribeDblClick(function (param) {
+        if (param && param.point) {
+          // A double-tap that is really "place point 1 + point 2" of a 2-click
+          // shape must not immediately delete the shape it just made.
+          if (state.lastDrawAt && (Date.now() - state.lastDrawAt < 400)) return;
+          deleteNearest(param.point.x, param.point.y);
+        }
+      });
+    } catch (e) {
+      // Fallback for any build without the subscribe API: document capture.
+      document.addEventListener('click', function (ev) {
+        if (!state.tool || !state.container) return;
+        var el = ev.target;
+        if (!el || !/CANVAS/i.test(el.tagName)) return;
+        var host = state.container, node = el;
+        while (node && node !== host) node = node.parentElement;
+        if (node !== host) return;
+        var rect = host.getBoundingClientRect();
+        handleToolClick(ev.clientX - rect.left, ev.clientY - rect.top, ev);
+      }, true);
+      document.addEventListener('dblclick', function (ev) {
+        if (!state.container) return;
+        var el = ev.target;
+        if (!el || !/CANVAS/i.test(el.tagName)) return;
+        var node = el;
+        while (node && node !== state.container) node = node.parentElement;
+        if (node !== state.container) return;
+        var rect = state.container.getBoundingClientRect();
+        deleteNearest(ev.clientX - rect.left, ev.clientY - rect.top);
+      }, true);
+    }
   }
   function handleToolClick(x, y, ev) {
     if (!state.tool || !state.chart) return;
@@ -1056,12 +1080,15 @@
     } else {
       if (!state.pending) {
         state.pending = { t1: pt.t, p1: +pt.p.toFixed(2) };
+        state.lastDrawAt = Date.now();
         flashHint('click again for point 2 (Esc cancels)');
       } else {
         state.pending.t2 = pt.t; state.pending.p2 = +pt.p.toFixed(2);
         state.pending.type = state.tool; state.pending.color = color;
         list.push(state.pending);
-        state.pending = null; state.tool = null; updateToolbar();
+        state.pending = null; state.tool = null; state.lastDrawAt = Date.now();
+        updateToolbar();
+        flashHint('drawn — double-tap an object to delete it');
       }
     }
     saveDrawings(); refreshAnno();
@@ -1105,6 +1132,51 @@
     var c = state.container;
     var sec = c && c.closest('[data-sec]');
     return sec || c;
+  }
+  // Mobile scroll fix: the chart canvas is `touch-action:none` (LWC needs it for
+  // pinch-zoom/pan), which makes the browser NOT synthesize vertical page-scroll on
+  // the chart. That's what made the Charts tab "not scrollable" on phones. This
+  // handler detects a DOMINANTLY-VERTICAL touch gesture on the canvas and forwards
+  // it to the page/`.main` scroller, while leaving horizontal drags to LWC's chart
+  // pan and pinches to LWC's zoom. Vertical two-finger still zooms.
+  function bindVerticalScroll() {
+    var wrap = state.container;
+    if (!wrap || wrap.__fvScrollBound) return;
+    wrap.__fvScrollBound = true;
+    var startY = 0, startX = 0, lastY = 0, scroller = null, locked = false, active = 0;
+    wrap.addEventListener('touchstart', function (e) {
+      active = e.touches.length;
+      if (active !== 1) { locked = false; scroller = null; return; }
+      startY = e.touches[0].clientY; startX = e.touches[0].clientX;
+      lastY = startY; locked = false; scroller = null;
+    }, { passive: true });
+    wrap.addEventListener('touchmove', function (e) {
+      if (e.touches.length !== 1) { locked = false; return; }
+      var y = e.touches[0].clientY, x = e.touches[0].clientX;
+      var dy = y - lastY, dx = x - startX;
+      // Decide the gesture axis once it's clear (≥8px) — first few px are noise.
+      if (!locked && (Math.abs(y - startY) > 8 || Math.abs(dx) > 8)) {
+        locked = true;
+        if (Math.abs(y - startY) > Math.abs(dx) * 1.1) {
+          // Vertical: find the nearest scrollable ancestor and start forwarding.
+          scroller = wrap;
+          while (scroller) {
+            var st = getComputedStyle(scroller);
+            if (/(auto|scroll)/.test(st.overflowY)) break;
+            scroller = scroller.parentElement;
+          }
+          if (!scroller) scroller = document.scrollingElement || document.documentElement;
+        }
+      }
+      lastY = y;
+      if (locked && scroller) {
+        e.preventDefault();
+        scroller.scrollTop += dy;
+      }
+    }, { passive: false });
+    var reset = function () { locked = false; scroller = null; active = 0; };
+    wrap.addEventListener('touchend', reset);
+    wrap.addEventListener('touchcancel', reset);
   }
   function fsSupported() {
     return !!(document.documentElement.requestFullscreen || document.webkitRequestFullscreen ||
@@ -1372,51 +1444,53 @@
   }
   function buildToolbar() {
     var bar = document.getElementById('fv-toolbar');
-    if (!bar) return;
-    bar.innerHTML = '';
-    // Row 1: data controls (TF + template + indicator set + drawing tools)
-    var row1 = document.createElement('div');
-    row1.className = 'fv-row';
-    row1.appendChild(makeTFSelect('card-'));
-    row1.appendChild(makePresetSelect('card-'));
-    row1.appendChild(makeIndButton());
-    row1.appendChild(makeDrawButton());
-    bar.appendChild(row1);
-    // Row 2: view controls (fit + fullscreen) — separated so the rows stay aligned
-    // and the primary data controls never wrap mid-group on a narrow phone.
-    var row2 = document.createElement('div');
-    row2.className = 'fv-row';
-    row2.appendChild(makeFitButton());
-    row2.appendChild(makePredictButton());
-    row2.appendChild(makeFsButton());
-    bar.appendChild(row2);
-    if (state.indPanel) bar.appendChild(makeIndPanel());
-    if (state.drawPanel) bar.appendChild(makeDrawPanel());
-    // Floating fullscreen control bar (reuses the same controls)
+    if (bar) bar.innerHTML = '';
     var fsbar = document.getElementById('fv-fs-bar');
     if (fsbar) {
       fsbar.innerHTML = '';
-      var frow = document.createElement('div');
-      frow.className = 'fv-row';
-      frow.appendChild(makeTFSelect('fs-'));
-      frow.appendChild(makePresetSelect('fs-'));
-      frow.appendChild(makeIndButton());
-      frow.appendChild(makeDrawButton());
-      var exitB = document.createElement('button');
-      exitB.textContent = '✕ Close';
-      exitB.className = 'fv-btn tool fs';
-      exitB.addEventListener('click', function () { exitFullscreen(); });
-      frow.appendChild(exitB);
-      fsbar.appendChild(frow);
+      // Row 1: data controls (TF + template + indicator set + drawing tools)
+      var row1 = document.createElement('div');
+      row1.className = 'fv-row';
+      row1.appendChild(makeTFSelect('card-'));
+      row1.appendChild(makePresetSelect('card-'));
+      row1.appendChild(makeIndButton());
+      row1.appendChild(makeDrawButton());
+      fsbar.appendChild(row1);
+      // Row 2: view controls (fit + predict + fullscreen / close)
+      var row2 = document.createElement('div');
+      row2.className = 'fv-row';
+      row2.appendChild(makeFitButton());
+      row2.appendChild(makePredictButton());
+      row2.appendChild(makeFsButton());
+      if (state.fullscreen) {
+        var exitB = document.createElement('button');
+        exitB.textContent = '✕ Close';
+        exitB.className = 'fv-btn tool';
+        exitB.addEventListener('click', function () { exitFullscreen(); });
+        row2.appendChild(exitB);
+      }
+      fsbar.appendChild(row2);
+      // Open dropdown panels render under the floating bar
       if (state.indPanel) fsbar.appendChild(makeIndPanel());
       if (state.drawPanel) fsbar.appendChild(makeDrawPanel());
+    }
+    // Fallback (no floating bar): keep controls in the card's in-flow toolbar.
+    if (!fsbar && bar) {
+      var r1 = document.createElement('div'); r1.className = 'fv-row';
+      r1.appendChild(makeTFSelect('card-')); r1.appendChild(makePresetSelect('card-'));
+      r1.appendChild(makeIndButton()); r1.appendChild(makeDrawButton()); bar.appendChild(r1);
+      var r2 = document.createElement('div'); r2.className = 'fv-row';
+      r2.appendChild(makeFitButton()); r2.appendChild(makePredictButton()); r2.appendChild(makeFsButton()); bar.appendChild(r2);
+      if (state.indPanel) bar.appendChild(makeIndPanel());
+      if (state.drawPanel) bar.appendChild(makeDrawPanel());
     }
     updateToolbar();
   }
   function updateToolbar() {
-    // Selects keep their value; only the count label + open-state need refresh.
-    var bar = document.getElementById('fv-toolbar');
-    if (bar) {
+    // The Ind / Draw / Fullscreen buttons live in the floating bar (#fv-fs-bar);
+    // refresh their labels + open-state there (and on the in-flow bar as fallback).
+    [document.getElementById('fv-fs-bar'), document.getElementById('fv-toolbar')].forEach(function (bar) {
+      if (!bar) return;
       var indBtnEl = bar.querySelector('[data-indpanel]');
       if (indBtnEl) {
         var nOn = Object.keys(state.ind).filter(function (k) { return state.ind[k]; }).length;
@@ -1430,12 +1504,7 @@
       }
       var fsb = bar.querySelector('[data-fs]');
       if (fsb) fsb.className = 'fv-btn tool fs' + ((state.fullscreen || fsEl()) ? ' on' : '');
-    }
-    var fsbar = document.getElementById('fv-fs-bar');
-    if (fsbar) {
-      var fsb2 = fsbar.querySelector('[data-fs]');
-      if (fsb2) fsb2.className = 'fv-btn tool fs' + ((state.fullscreen || fsEl()) ? ' on' : '');
-    }
+    });
   }
 
   document.addEventListener('keydown', function (e) {

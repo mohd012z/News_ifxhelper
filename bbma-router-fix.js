@@ -12,6 +12,17 @@ function activate(name){
     s.classList.toggle('hidden', !matches);
     s.style.display=matches?'':'none';
   });
+  // The hero spot-price card duplicates the live price tag already on the chart,
+  // so hide it on the Charts tab only (it stays on News/Analysis/etc. for context).
+  var hero=document.querySelector('.hero');
+  if(hero){
+    if(name==='charts'){hero.classList.add('hidden');hero.style.display='none';}
+    else if(!hero.classList.contains('hidden')||hero.style.display==='none'){
+      // only restore if it isn't being hidden by the normal 'all' toggle
+      hero.style.display='';
+      hero.classList.remove('hidden');
+    }
+  }
   var n=nav();
   if(n)Array.prototype.forEach.call(n.querySelectorAll('button'),function(b){
     b.classList.toggle('active',b.dataset.filter===name);
