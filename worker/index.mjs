@@ -1,6 +1,6 @@
 const RAW_BASE = "https://raw.githubusercontent.com/mohd012z/News_ifxhelper/main/";
 const FF_WEEK = "https://nfs.faireconomy.media/ff_calendar_thisweek.json";
-const WORKER_VERSION = "2026-11-12-fullview-v14";
+const WORKER_VERSION = "2026-11-12-fullview-v15";
 const YAHOO_BASE = "https://query1.finance.yahoo.com/v8/finance/chart/";
 const YAHOO_UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0 Safari/537.36";
 
