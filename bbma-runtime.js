@@ -251,7 +251,7 @@ function ingest(p,at){
   publish();
 }
 
-window.BBMARuntime={ingest:ingest,snapshot:function(){return window.BBMA_RUNTIME||null;},frames:frames,loadRealHistory:loadRealHistory,realTfs:realTfs};
+window.BBMARuntime={ingest:ingest,snapshot:function(){return window.BBMA_RUNTIME||null;},frames:frames,loadRealHistory:loadRealHistory,realTfs:realTfs,seedReal:function(tf,bars){var ok=seedFromReal(tf,bars);if(ok){try{publish();}catch(e){}}return ok;}};
 window.addEventListener('xau-live-tick',function(e){var d=e.detail||{};ingest(d.price,d.at);});
 
 setInterval(function(){

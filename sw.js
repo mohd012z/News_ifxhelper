@@ -6,8 +6,10 @@
  * any previously cached (possibly broken) bundle and re-fetch from the network.
  * v8: 2026-11-08 - Charts-tab fullview (bbma-fullview.js) added; stale-client
  *       re-claim. BBMA dashboard JS + candles snapshot marked volatile.
+ * v14: 2026-11-12 - Elliott Wave v2.9 read-only overlay (lib/elliott-wave.js) +
+ *       BBMA EW enhancer (lib/bbma-ew-enhance.js); both marked volatile; cache bump.
  */
-const CACHE = "xaudesk-v13";
+const CACHE = "xaudesk-v14";
 const VOLATILE = new Set([
   "/",
   "/index.html",
@@ -25,6 +27,7 @@ const VOLATILE = new Set([
   "/lib/bbma-supply-demand.js",
   "/lib/bbma-indicators.js",
   "/lib/bbma-smc.js",
+  "/lib/elliott-wave.js",
   "/candles-auto.json",
   "/bbma-runtime.js",
   "/bbma-chart-lwc.js",

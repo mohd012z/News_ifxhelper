@@ -42,6 +42,10 @@
     smcBOS: '#00e5ff', smcCHoCH: '#00e676',
     smcOBsupply: '#f23645', smcOBdemand: '#089981', smcFVGBull: '#089981', smcFVGBear: '#f23645',
     smcPrem: '#f23645', smcDisc: '#089981', smcEq: '#787b86', smcSweep: '#ffd166',
+    // Elliott Wave (lib/elliott-wave.js) — MotiveWave degree colors + EWSTRAT blue/red scenarios
+    ewBase: '#8aa2c8', ewUpper: '#5b6b8c', ewSplit: '#ffd166',
+    ewScenA: '#4da3ff', ewScenB: '#ff5d5d', ewStop: '#ff5d5d', ewTarget: '#31df8b',
+    ewBox: 'rgba(11,18,32,0.86)', ewBoxText: '#d7e2f4',
     trend: '#ffd166', hline: '#7aa2ff', rect: '#4cc9f0', text: '#f4f4f4'
   };
   var SD_PARAMS = { baseBars: 3, impulseMultiplier: 1.5, minImpulseBody: 0 };
@@ -54,14 +58,14 @@
   var OVERLAY_FOR = { bbUpper: 'bb', bbMiddle: 'bb', bbLower: 'bb', ema50: 'ema50', lwmaH5: 'lwma', lwmaH10: 'lwma', lwmaL5: 'lwma', lwmaL10: 'lwma', ema200: 'ema200', sma20: 'sma20', vwap: 'vwap' };
   // Indicator presets ("templates"). Applying one sets the toggle set below.
   var TEMPLATES = {
-    'BBMA Oma': { bb: true, lwma: true, ema50: true, sd: true, vwap: false, ema200: false, sma20: false, rsi: false, macd: false, smc: false },
-    'TV Classic': { bb: true, lwma: false, ema50: true, sd: true, vwap: false, ema200: false, sma20: false, rsi: false, macd: false, smc: false },
-    'BB + VWAP': { bb: true, lwma: false, ema50: true, sd: false, vwap: true, ema200: false, sma20: false, rsi: false, macd: false, smc: false },
-    'Trend EMA': { bb: false, lwma: false, ema50: true, sd: false, vwap: false, ema200: true, sma20: true, rsi: false, macd: false, smc: false },
-    'Momentum RSI': { bb: true, lwma: false, ema50: false, sd: false, vwap: false, ema200: false, sma20: false, rsi: true, macd: false, smc: false },
-    'MACD': { bb: true, lwma: false, ema50: false, sd: false, vwap: false, ema200: false, sma20: false, rsi: false, macd: true, smc: false },
-    'SMC': { bb: true, lwma: true, ema50: true, sd: false, vwap: false, ema200: false, sma20: false, rsi: false, macd: false, smc: true },
-    'Full': { bb: true, lwma: true, ema50: true, sd: true, vwap: true, ema200: true, sma20: true, rsi: true, macd: true, smc: true }
+    'BBMA Oma': { bb: true, lwma: true, ema50: true, sd: true, vwap: false, ema200: false, sma20: false, rsi: false, macd: false, smc: false, ew: false },
+    'TV Classic': { bb: true, lwma: false, ema50: true, sd: true, vwap: false, ema200: false, sma20: false, rsi: false, macd: false, smc: false, ew: false },
+    'BB + VWAP': { bb: true, lwma: false, ema50: true, sd: false, vwap: true, ema200: false, sma20: false, rsi: false, macd: false, smc: false, ew: false },
+    'Trend EMA': { bb: false, lwma: false, ema50: true, sd: false, vwap: false, ema200: true, sma20: true, rsi: false, macd: false, smc: false, ew: false },
+    'Momentum RSI': { bb: true, lwma: false, ema50: false, sd: false, vwap: false, ema200: false, sma20: false, rsi: true, macd: false, smc: false, ew: false },
+    'MACD': { bb: true, lwma: false, ema50: false, sd: false, vwap: false, ema200: false, sma20: false, rsi: false, macd: true, smc: false, ew: false },
+    'SMC': { bb: true, lwma: true, ema50: true, sd: false, vwap: false, ema200: false, sma20: false, rsi: false, macd: false, smc: true, ew: true },
+    'Full': { bb: true, lwma: true, ema50: true, sd: true, vwap: true, ema200: true, sma20: true, rsi: true, macd: true, smc: true, ew: true }
   };
 
   function lwc() {
@@ -141,9 +145,9 @@
     container: null, chart: null, candles: null, overlays: {},
     zoneSeries: null, annoSeries: null,
     rsiLine: null, rsiOver: null, rsiUnder: null,
-    macdHist: null, macdLine: null, macdSig: null, smcSeries: null, rsiPane: null, macdPane: null,
+    macdHist: null, macdLine: null, macdSig: null, smcSeries: null, rsiPane: null, macdPane: null, ewSeries: null,
     tf: 'H1', tool: null, pending: null, fullscreen: false, indPanel: false, drawPanel: false,
-    ind: { bb: true, lwma: true, ema50: true, sd: true, vwap: false, ema200: false, sma20: false, rsi: false, macd: false, smc: false },
+    ind: { bb: true, lwma: true, ema50: true, sd: true, vwap: false, ema200: false, sma20: false, rsi: false, macd: false, smc: false, ew: false },
     template: 'BBMA Oma',
     drawings: {},
     _bars: [], _zones: [], lastKey: null
@@ -299,7 +303,7 @@
     return {
       update: function () { },
       priceValueBuilder: function () { return []; }, // SMC marks never force autoscale
-      isWhitespace: function () { return true; },
+      isWhitespace: function () { return !smcState.on || !smcState.data; },
       defaultOptions: function () { return {}; },
       renderer: function () {
         return {
@@ -423,6 +427,193 @@
     };
   }
 
+  // ---- Elliott Wave v2.9 layer (lib/elliott-wave.js, E1 engine) ---------------------
+  // READ-ONLY auto-count: degree-colored wave labels (MotiveWave ladder), 0-2 channel,
+  // blue forecast path, the "Red or Blue?" competing count + split level, EWSTRAT
+  // terminal-extension targets, and a two-scenario box (entry / stop / target / R:R).
+  // Counts are computed from the same bars the candles use; no user drawing, no
+  // interaction — it mirrors the professional channels' published-scenario format.
+  // Fail-closed if the EW engine is absent (window.BBMA_EW) — the chart renders as before.
+  var EW_STORE = 'xaudesk-fullview-ewfp-v1';
+  var ewState = { data: null, on: false };
+  function ewFpGet(tf) {
+    try { return (JSON.parse(sessionStorage.getItem(EW_STORE) || '{}') || {})[tf] || null; } catch (e) { return null; }
+  }
+  function ewFpSet(tf, fp) {
+    try {
+      var all = JSON.parse(sessionStorage.getItem(EW_STORE) || '{}') || {};
+      all[tf] = fp;
+      sessionStorage.setItem(EW_STORE, JSON.stringify(all));
+    } catch (e) { }
+  }
+  function ewCompute(bars) {
+    var EW = window.BBMA_EW;
+    if (!EW || !bars || bars.length < 20) return null;
+    var src = bars.map(function (b) { return { t: b._ms, high: b.high, low: b.low }; });
+    var a;
+    try { a = EW.autoCount(src, 2); } catch (e) { return null; }
+    if (!a || !a.count || !a.count.pivots || a.count.pivots.length < 4) return null;
+    var p = a.count.pivots;
+    var lastPrice = bars[bars.length - 1].close;
+    // Competing ("Red or Blue?") count: a corrective zigzag of the same structure,
+    // opposite direction, A/B anchored on the first two pivots, C at the current price.
+    var comp = null;
+    if (p.length >= 3) {
+      comp = { type: 'zigzag', dir: -a.dir, pivots: [
+        { t: p[0].t, price: p[0].price }, { t: p[1].t, price: p[1].price },
+        { t: p[2].t, price: p[2].price }, { t: p[p.length - 1].t, price: lastPrice }] };
+      try { comp = { count: comp, dir: comp.dir, validation: EW.validate(comp), forecast: EW.forecast(comp) }; } catch (e) { comp = null; }
+    }
+    var compete = null;
+    if (comp) { try { compete = EW.compete(a, comp, lastPrice); } catch (e) { compete = null; } }
+    var channel = null;
+    try { channel = EW.channel(a.count, bars[bars.length - 1]._ms); } catch (e) { channel = null; }
+    var revision = null;
+    try { revision = EW.revisionDiff(ewFpGet(state.tf), a, new Date().toISOString().slice(0, 10)); } catch (e) { revision = null; }
+    try { ewFpSet(state.tf, EW.countFingerprint(a)); } catch (e) { }
+    return { a: a, compete: compete, channel: channel, revision: revision, lastTime: bars[bars.length - 1]._ms, lastPrice: lastPrice };
+  }
+  function makeEwView() {
+    return {
+      update: function () { },
+      priceValueBuilder: function () { return []; }, // read-only: never force autoscale
+      // LWC 5.x skips the custom-series draw pass for whitespace data — an always-true
+      // isWhitespace meant draw() was never called, so the overlay silently vanished.
+      // Gate on the live toggle so the pass runs only while the layer is on.
+      isWhitespace: function () { return !ewState.on || !ewState.data; },
+      defaultOptions: function () { return {}; },
+      renderer: function () {
+        return {
+          draw: function (target, priceConverter) {
+            var d = ewState.data;
+            if (!ewState.on || !d) return;
+            paintMedia(target, function (ctx, size) {
+              var EW = window.BBMA_EW;
+              if (!EW) return;
+              var W = size ? size.width : 0;
+              var ts = state.chart.timeScale();
+              var X = function (ms) { return ts.timeToCoordinate(Math.round(ms / 1000)); };
+              var Y = function (p) { return priceConverter ? priceConverter(p) : null; };
+              var xLast = (d.lastTime != null) ? X(d.lastTime) : null;
+              if (xLast == null) xLast = W;
+              var a = d.a, p = a.count.pivots, i, x, y;
+              var HL = function (s, hx, hy) { ctx.lineWidth = 3; ctx.strokeStyle = 'rgba(7,13,24,0.85)'; ctx.strokeText(s, hx, hy); };
+              // (1) degree-colored wave labels at each pivot (MotiveWave color ladder)
+              var degs;
+              try { degs = EW.degreeLabels(a.count); } catch (e) { degs = []; }
+              for (i = 0; i < p.length && i < degs.length; i++) {
+                x = X(p[i].t); y = Y(p[i].price);
+                if (x == null || y == null) continue;
+                ctx.save(); ctx.globalAlpha = 0.98; ctx.font = 'bold 11px sans-serif';
+                ctx.fillStyle = degs[i].color;
+                var up = (i > 0) ? p[i].price >= p[i - 1].price : true;
+                var tx = Math.max(2, Math.min(x - 6, W - 20));
+                var ty = up ? y - 8 : y + 16;
+                HL.call(ctx, String(degs[i].label), tx, ty);
+                ctx.fillText(String(degs[i].label), tx, ty);
+                ctx.restore();
+              }
+              // (2) 0-2 channel (base + parallel), gray, thin
+              if (d.channel && d.channel.base && d.channel.upper) {
+                var b0 = d.channel.base[0], b1 = d.channel.base[1], u0 = d.channel.upper[0], u1 = d.channel.upper[1];
+                var x0 = X(b0[0]), y0 = Y(b0[1]), x1 = X(b1[0]), y1 = Y(b1[1]), xu = X(u0[0]), yu = Y(u0[1]), x1u = X(u1[0]), y1u = Y(u1[1]);
+                ctx.save(); ctx.globalAlpha = 0.55; ctx.strokeStyle = COLORS.ewBase; ctx.lineWidth = 1;
+                if (ctx.setLineDash) ctx.setLineDash([3, 3]);
+                if (x0 != null && y0 != null && x1 != null && y1 != null) { ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x1, y1); ctx.stroke(); }
+                if (xu != null && yu != null && x1u != null && y1u != null) { ctx.beginPath(); ctx.moveTo(xu, yu); ctx.lineTo(x1u, y1u); ctx.stroke(); }
+                if (ctx.setLineDash) ctx.setLineDash([]);
+                ctx.restore();
+              }
+              // (3) blue forecast path (Primary scenario projection)
+              var path = (a.forecast && a.forecast.path) || null;
+              if (path && path.length > 1) {
+                ctx.save(); ctx.globalAlpha = 0.8; ctx.strokeStyle = COLORS.ewScenA; ctx.lineWidth = 1.5;
+                if (ctx.setLineDash) ctx.setLineDash([6, 4]);
+                ctx.beginPath();
+                var started = false;
+                for (i = 0; i < path.length; i++) {
+                  x = X(path[i].t); y = Y(path[i].price);
+                  if (x == null || y == null) continue;
+                  if (!started) { ctx.moveTo(x, y); started = true; } else ctx.lineTo(x, y);
+                }
+                ctx.stroke();
+                if (ctx.setLineDash) ctx.setLineDash([]);
+                ctx.restore();
+              }
+              // (4) competing levels: yellow split (the "Red or Blue" line) + red invalidation stop
+              var sc0 = (a.forecast && a.forecast.scenarios && a.forecast.scenarios[0]) || null;
+              if (d.compete && d.compete.splitLevel != null) {
+                var ys = Y(d.compete.splitLevel);
+                if (ys != null) {
+                  ctx.save(); ctx.globalAlpha = 0.9; ctx.strokeStyle = COLORS.ewSplit; ctx.lineWidth = 1.5;
+                  if (ctx.setLineDash) ctx.setLineDash([8, 4]);
+                  ctx.beginPath(); ctx.moveTo(0, ys); ctx.lineTo(W, ys); ctx.stroke();
+                  if (ctx.setLineDash) ctx.setLineDash([]);
+                  ctx.globalAlpha = 1; ctx.fillStyle = COLORS.ewSplit; ctx.font = 'bold 10px sans-serif';
+                  var st = 'SPLIT ' + d.compete.splitLevel.toFixed(2);
+                  HL(st, 8, ys - 5); ctx.fillText(st, 8, ys - 5);
+                  ctx.restore();
+                }
+              }
+              if (sc0 && sc0.stop != null) {
+                var yst = Y(sc0.stop);
+                if (yst != null) {
+                  ctx.save(); ctx.globalAlpha = 0.65; ctx.strokeStyle = COLORS.ewStop; ctx.lineWidth = 1;
+                  if (ctx.setLineDash) ctx.setLineDash([2, 3]);
+                  ctx.beginPath(); ctx.moveTo(0, yst); ctx.lineTo(W, yst); ctx.stroke();
+                  if (ctx.setLineDash) ctx.setLineDash([]);
+                  ctx.globalAlpha = 1; ctx.fillStyle = COLORS.ewStop; ctx.font = '10px sans-serif';
+                  var invt = 'INVA ' + sc0.stop.toFixed(2);
+                  HL(invt, 8, yst + 12); ctx.fillText(invt, 8, yst + 12);
+                  ctx.restore();
+                }
+              }
+              // (5) scenario box — "Red or Blue?" two-scenario read (top-right, last N bars)
+              if (sc0) {
+                var scen = (a.forecast && a.forecast.scenarios) || [sc0];
+                var alt = scen[1] || null;
+                var winner = (d.compete && d.compete.winner) || 'open';
+                var rrA = (sc0.t1 != null) ? EW.rr(sc0.entry, sc0.stop, sc0.t1) : null;
+                var lines = [];
+                lines.t1 = 'ELLIOTT WAVE · ' + a.type + (a.dir === 1 ? ' UP' : ' DOWN') + (a.validation.valid ? ' · VALID' : ' · in progress');
+                lines.push({ t: '\u25b2 A  ' + (sc0.side || '').toUpperCase() + '  E ' + (sc0.entry != null ? sc0.entry.toFixed(2) : '—') + '  SL ' + (sc0.stop != null ? sc0.stop.toFixed(2) : '—') + '  T ' + (sc0.t1 != null ? sc0.t1.toFixed(2) : '—') + (rrA != null ? '  ' + rrA + ':1' : ''), c: COLORS.ewScenA });
+                if (alt) {
+                  var rrB = (alt.t1 != null) ? EW.rr(alt.entry, alt.stop, alt.t1) : null;
+                  lines.push({ t: '\u25bc B  ' + (alt.side || '').toUpperCase() + '  E ' + (alt.entry != null ? alt.entry.toFixed(2) : '—') + '  SL ' + (alt.stop != null ? alt.stop.toFixed(2) : '—') + '  T ' + (alt.t1 != null ? alt.t1.toFixed(2) : '—') + (rrB != null ? '  ' + rrB + ':1' : ''), c: COLORS.ewScenB });
+                }
+                if (d.compete && d.compete.splitLevel != null) lines.push({ t: 'split ' + d.compete.splitLevel.toFixed(2) + (winner !== 'open' ? '  ·  ' + winner + ' active' : ''), c: COLORS.ewSplit });
+                if (d.revision && d.revision.changed) lines.push({ t: d.revision.note, c: '#ffd166' });
+                if (d.revision && d.revision.question) lines.push({ t: 'Q: ' + d.revision.question, c: '#d7e2f4' });
+                var fs = 10, pad = 8, lh = 14;
+                var bw = 0;
+                ctx.save(); ctx.font = fs + 'px sans-serif';
+                for (i = 0; i < lines.length; i++) { var w = ctx.measureText(lines[i].t).width; if (w > bw) bw = w; }
+                bw = Math.min(bw + pad * 2, W - 8);
+                var bh = lines.length * lh + pad * 2;
+                var bx = Math.max(4, W - bw - 4), by = 4;
+                ctx.fillStyle = COLORS.ewBox;
+                ctx.fillRect(bx, by, bw, bh);
+                ctx.strokeStyle = COLORS.ewUpper; ctx.lineWidth = 1; ctx.strokeRect(bx, by, bw, bh);
+                var yy = by + pad + fs;
+                // header
+                ctx.font = 'bold ' + fs + 'px sans-serif'; ctx.fillStyle = COLORS.ewBoxText;
+                ctx.fillText(lines.t1, bx + pad, yy);
+                yy += lh + 2;
+                ctx.font = fs + 'px sans-serif';
+                for (i = 0; i < lines.length; i++) {
+                  ctx.fillStyle = lines[i].c;
+                  ctx.fillText(lines[i].t, bx + pad, yy);
+                  yy += lh;
+                }
+                ctx.restore();
+              }
+            });
+          }
+        };
+      }
+    };
+  }
+
   // ---- oscillator sub-panes (dynamic) ---------------------------------------------
   // RSI and MACD live in real LWC sub-panes that are added when the indicator is
   // enabled and removed when it is disabled, so an off indicator leaves no empty
@@ -524,6 +715,7 @@
       try { state.zoneSeries = state.chart.addCustomSeries(makeZoneView(), { priceScaleId: 'right' }); } catch (e) { state.zoneSeries = null; }
       try { state.annoSeries = state.chart.addCustomSeries(makeAnnoView(), { priceScaleId: 'right' }); } catch (e) { state.annoSeries = null; }
       try { state.smcSeries = state.chart.addCustomSeries(makeSmcView(), { priceScaleId: 'right' }); } catch (e) { state.smcSeries = null; }
+      try { state.ewSeries = state.chart.addCustomSeries(makeEwView(), { priceScaleId: 'right' }); } catch (e) { state.ewSeries = null; }
     }
     // Oscillator sub-panes (RSI, MACD) are created lazily in syncOscPanes() so a
     // disabled indicator leaves NO empty pane behind.
@@ -592,6 +784,13 @@
       } catch (e) { smcState.data = null; }
       try { state.smcSeries.setData([{ time: bars[0].time, on: smcState.on }]); } catch (e) { }
     }
+    // Elliott Wave v2.9 read-only overlay (lib/elliott-wave.js) — fail-closed if the
+    // engine is absent; counts computed from the same bars the candles use.
+    ewState.on = !!state.ind.ew;
+    if (state.ewSeries) {
+      try { ewState.data = ewState.on && window.BBMA_EW ? ewCompute(bars) : null; } catch (e) { ewState.data = null; }
+      try { state.ewSeries.setData([{ time: bars[0].time, on: ewState.on }]); } catch (e) { }
+    }
     refreshAnno();
     updateZoneCount();
     try { state.chart.timeScale().fitContent(); } catch (e) { }
@@ -644,12 +843,24 @@
       el.textContent = 'S/D: ' + s + ' supply · ' + d + ' demand (unmitigated)';
     }
     var sm = document.getElementById('fv-smc-count');
-    if (!sm) return;
-    if (state.ind.smc && smcState.data) {
-      var d = smcState.data;
-      var t = d.struct.trend;
-      sm.textContent = 'SMC: ' + (t > 0 ? '\u25b2 up' : t < 0 ? '\u25bc down' : '\u2014 flat') + ' · ' + d.zones.length + ' OB/FVG · ' + d.struct.breaks.length + ' breaks' + (d.sweep ? ' · sweep ' + d.sweep.dir : '');
-    } else sm.textContent = '';
+    if (sm) {
+      if (state.ind.smc && smcState.data) {
+        var d = smcState.data;
+        var t = d.struct.trend;
+        sm.textContent = 'SMC: ' + (t > 0 ? '\u25b2 up' : t < 0 ? '\u25bc down' : '\u2014 flat') + ' · ' + d.zones.length + ' OB/FVG · ' + d.struct.breaks.length + ' breaks' + (d.sweep ? ' · sweep ' + d.sweep.dir : '');
+      } else sm.textContent = '';
+    }
+    // Elliott Wave v2.9 — count + split + scenario verdict (read-only overlay).
+    var ewEl = document.getElementById('fv-ew-count');
+    if (!ewEl) return;
+    if (state.ind.ew && ewState.data && ewState.data.a) {
+      var a = ewState.data.a;
+      var sc = (a.forecast && a.forecast.scenarios && a.forecast.scenarios[0]) || null;
+      var split = (ewState.data.compete && ewState.data.compete.splitLevel != null) ? ewState.data.compete.splitLevel : null;
+      ewEl.textContent = 'EW v2.9: ' + a.type + (a.dir === 1 ? ' \u25b2' : ' \u25bc') + (a.validation.valid ? ' \u00b7 valid' : ' \u00b7 in progress') +
+        (sc ? ' \u00b7 ' + (sc.side || '') + ' SL ' + (sc.stop != null ? sc.stop.toFixed(1) : '\u2014') + ' T ' + (sc.t1 != null ? sc.t1.toFixed(1) : '\u2014') : '') +
+        (split != null ? ' \u00b7 split ' + split.toFixed(1) : '');
+    } else ewEl.textContent = '';
   }
 
   // ---- live updates -----------------------------------------------------------------
@@ -866,14 +1077,14 @@
   // "Ind N" opens a checkbox panel — every indicator toggles on/off individually;
   // any individual change flips the preset select to Custom. "Draw" lists the
   // drawing tools. In fullscreen the same controls move to a floating top bar.
-  var IND_DEFS = [['bb', 'BB(20,2)'], ['lwma', 'LWMA H/L 5/10'], ['ema50', 'EMA50'], ['ema200', 'EMA200'], ['sma20', 'SMA20'], ['vwap', 'VWAP'], ['rsi', 'RSI14'], ['macd', 'MACD'], ['sd', 'S/D zones'], ['smc', 'SMC']];
+  var IND_DEFS = [['bb', 'BB(20,2)'], ['lwma', 'LWMA H/L 5/10'], ['ema50', 'EMA50'], ['ema200', 'EMA200'], ['sma20', 'SMA20'], ['vwap', 'VWAP'], ['rsi', 'RSI14'], ['macd', 'MACD'], ['sd', 'S/D zones'], ['smc', 'SMC'], ['ew', 'Elliott Wave']];
   var DRAW_DEFS = [['trend', 'Trendline'], ['hline', 'Horizontal line'], ['rect', 'Rectangle'], ['text', 'Text']];
 
   function onIndToggle(key) {
     state.ind[key] = !state.ind[key];
     state.template = ''; // a manual toggle overrides the active preset
     buildToolbar();
-    if (key === 'sd' || key === 'smc' || key === 'rsi' || key === 'macd') feed();
+    if (key === 'sd' || key === 'smc' || key === 'ew' || key === 'rsi' || key === 'macd') feed();
     else applyOverlays();
   }
   function onToolSelect(tool) {
@@ -924,7 +1135,7 @@
     sel.addEventListener('change', function () {
       state.template = sel.value;
       if (state.template === '') return; // Custom: keep the current manual set
-      state.ind = { bb: false, lwma: false, ema50: false, sd: false, vwap: false, ema200: false, sma20: false, rsi: false, macd: false, smc: false };
+      state.ind = { bb: false, lwma: false, ema50: false, sd: false, vwap: false, ema200: false, sma20: false, rsi: false, macd: false, smc: false, ew: false };
       Object.keys(TEMPLATES[state.template]).forEach(function (k) { state.ind[k] = TEMPLATES[state.template][k]; });
       buildToolbar();
       flashHint('template ' + state.template + ' applied');

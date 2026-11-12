@@ -26,3 +26,6 @@ www/
 # OS / editor cruft
 .DS_Store
 Thumbs.db
+
+# generated long-history for EW backtest research (scripts/fetch-ew-long-history.js)
+data/ew-long-history.json
