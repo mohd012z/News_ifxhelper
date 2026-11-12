@@ -215,6 +215,16 @@ function near(name, got, want, tol) {
   const r3 = E.nextWave({ type: 'zigzag', dir: -1, pivots: [
     { price: 4000, t: 0 }, { price: 4300, t: 100 }, { price: 4150, t: 200 }] });
   assert(r3.wave === 'C' && r3.side === 'short' && r3.predict.price < 4150, 'corrective in progress -> C continuation down');
+  assert(Math.abs(r3.targets.find(t => t.wave === 'C' && t.note.indexOf('1.0') >= 0).price - 3850) < 1, 'C anchored from END of B (p2=4150) not the C extreme: 4150 - |4300-4000| = 3850');
+  const r4z = E.nextWave({ type: 'zigzag', dir: 1, pivots: [
+    { price: 4000, t: 0 }, { price: 4300, t: 100 }, { price: 4150, t: 200 }, { price: 4250, t: 300 }] });
+  assert(r4z.wave === 'C' && r4z.retrace === false, 'C not yet at 1x A -> continue C (no retrace)');
+  assert(Math.abs(r4z.targets.find(t => t.wave === 'C' && t.note.indexOf('1.0') >= 0).price - 4450) < 1, 'C = 1x A from end-B: 4150 + |4300-4000| = 4450');
+  const r4d = E.nextWave({ type: 'zigzag', dir: 1, pivots: [
+    { price: 4000, t: 0 }, { price: 4300, t: 100 }, { price: 4150, t: 200 }, { price: 4500, t: 300 }] });
+  assert(r4d.wave === 'RETRACE_ABC' && r4d.retrace === true, 'C already past 1x A (4500 >= 4450) -> RETRACE_ABC');
+  assert(r4d.side === 'short' && r4d.stop > r4d.entry, 'post-C retrace is short w/ stop above entry (C extending voids it)');
+  assert(r4d.targets.some(t => t.wave === 'R' && t.note.indexOf('of C') >= 0), 'retrace targets are fibo of the C leg');
   assert(E.nextWave({ type: 'impulse', dir: 1, pivots: [{ price: 4000, t: 0 }, { price: 4300, t: 100 }] }).wave === 'W2', '2-pivot -> W2 retrace');
   assert(E.nextWave({ type: 'impulse', dir: 1, pivots: [{ price: 4000, t: 0 }] }) == null, '<2 pivots -> null');
 }
