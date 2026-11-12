@@ -4,7 +4,7 @@ window.ATR_MTF = {
   "instrument": "GC=F",
   "provider": "YAHOO_CHART",
   "source": "yahoo:GC=F",
-  "generatedAt": "2026-11-12T09:33:59.982Z",
+  "generatedAt": "2026-11-12T10:03:59.605Z",
   "timeframes": {
     "M1": {
       "tf": "M1",
@@ -14,14 +14,14 @@ window.ATR_MTF = {
       "source": "yahoo:GC=F",
       "state": "READY",
       "reason": null,
-      "atr": 2.273705,
-      "last": 3938.399902,
-      "asOf": "2026-11-12T09:24:56.000Z",
-      "closedBars": 4744,
+      "atr": 1.54854,
+      "last": 3948,
+      "asOf": "2026-11-12T09:54:57.000Z",
+      "closedBars": 4774,
       "period": 14,
       "ageHours": 0.15,
       "evidence": {
-        "sourceCandles": 4744,
+        "sourceCandles": 4774,
         "rejected": 0,
         "duplicates": 0,
         "formingExcluded": 0
@@ -35,9 +35,9 @@ window.ATR_MTF = {
       "source": "yahoo:GC=F",
       "state": "READY",
       "reason": null,
-      "atr": 5.282627,
-      "last": 3938.399902,
-      "asOf": "2026-11-12T09:28:56.000Z",
+      "atr": 4.677677,
+      "last": 3948,
+      "asOf": "2026-11-12T09:58:57.000Z",
       "closedBars": 6340,
       "period": 14,
       "ageHours": 0.08,
@@ -56,9 +56,9 @@ window.ATR_MTF = {
       "source": "yahoo:GC=F",
       "state": "READY",
       "reason": null,
-      "atr": 8.972089,
-      "last": 3933.899902,
-      "asOf": "2026-11-12T09:15:00.000Z",
+      "atr": 9.227968,
+      "last": 3946.399902,
+      "asOf": "2026-11-12T09:45:00.000Z",
       "closedBars": 2109,
       "period": 14,
       "ageHours": 0.32,
@@ -77,9 +77,9 @@ window.ATR_MTF = {
       "source": "yahoo:GC=F",
       "state": "READY",
       "reason": null,
-      "atr": 11.821254,
-      "last": 3933.800049,
-      "asOf": "2026-11-12T09:00:00.000Z",
+      "atr": 12.005443,
+      "last": 3943.100098,
+      "asOf": "2026-11-12T09:30:00.000Z",
       "closedBars": 1052,
       "period": 14,
       "ageHours": 0.57,
@@ -98,17 +98,17 @@ window.ATR_MTF = {
       "source": "yahoo:GC=F",
       "state": "READY",
       "reason": null,
-      "atr": 15.946947,
-      "last": 3933.800049,
-      "asOf": "2026-11-12T09:00:00.000Z",
+      "atr": 16.293597,
+      "last": 3948,
+      "asOf": "2026-11-12T10:00:00.000Z",
       "closedBars": 1495,
       "period": 14,
-      "ageHours": 0.57,
+      "ageHours": 0.07,
       "evidence": {
         "sourceCandles": 1495,
         "rejected": 0,
         "duplicates": 0,
-        "formingExcluded": 2
+        "formingExcluded": 1
       }
     },
     "H4": {
@@ -122,14 +122,14 @@ window.ATR_MTF = {
       "atr": 36.002088,
       "last": 3970.5,
       "asOf": "2026-11-12T08:00:00.000Z",
-      "closedBars": 329,
+      "closedBars": 328,
       "period": 14,
-      "ageHours": 1.57,
+      "ageHours": 2.07,
       "evidence": {
         "sourceCandles": 1495,
         "rejected": 0,
         "duplicates": 0,
-        "formingExcluded": 2
+        "formingExcluded": 1
       }
     },
     "D1": {
@@ -145,7 +145,7 @@ window.ATR_MTF = {
       "asOf": "2026-11-12T00:00:00.000Z",
       "closedBars": 1257,
       "period": 14,
-      "ageHours": 9.57,
+      "ageHours": 10.07,
       "evidence": {
         "sourceCandles": 1257,
         "rejected": 0,
@@ -166,7 +166,7 @@ window.ATR_MTF = {
       "asOf": "2026-11-09T00:00:00.000Z",
       "closedBars": 260,
       "period": 14,
-      "ageHours": 81.57,
+      "ageHours": 82.07,
       "evidence": {
         "sourceCandles": 1257,
         "rejected": 0,
@@ -187,7 +187,7 @@ window.ATR_MTF = {
       "asOf": "2026-11-01T00:00:00.000Z",
       "closedBars": 60,
       "period": 14,
-      "ageHours": 273.57,
+      "ageHours": 274.07,
       "evidence": {
         "sourceCandles": 1257,
         "rejected": 0,
@@ -203,7 +203,7 @@ window.ATR_MTF = {
   "feeds": {
     "1m": {
       "state": "OK",
-      "count": 4744,
+      "count": 4774,
       "provider": "YAHOO_CHART"
     },
     "5m": {
@@ -213,7 +213,7 @@ window.ATR_MTF = {
     },
     "1h": {
       "state": "OK",
-      "count": 1497,
+      "count": 1496,
       "provider": "YAHOO_CHART"
     },
     "1d": {
