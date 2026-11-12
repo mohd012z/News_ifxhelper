@@ -36,11 +36,11 @@ assert(app.includes('pivotRealOHLC'), 'classic pivot must compute from the selec
 assert(app.includes('w1: "W1", mn1: "MN1"'), 'classic pivot must cover W1/MN1 previous completed candles');
 assert(!index.includes('id="chart1"'), 'snapshot charts removed from the Charts tab');
 
-assert(sw.includes('const CACHE = "xaudesk-v14"'), 'service-worker cache version must be v14');
+assert(sw.includes('const CACHE = "xaudesk-v15"'), 'service-worker cache version must be v15');
 assert(sw.includes('"/lib/bbma-indicators.js"'), 'service worker must treat the indicators lib as volatile (indicator templates)');
 assert(sw.includes('"/index.html"') && sw.includes('"/pwa.js"'), 'service worker must network-first the HTML/PWA bootstrap');
 assert(sw.includes('"/bbma-news-symbol-advisor-ui.js"') && sw.includes('"/lib/bbma-news-symbol-advisor.js"'), 'service worker must treat the news-symbol-advisor JS as volatile (no stale cache for the recommendation card)');
-assert(pwa.includes('register("./sw.js?v=14", { updateViaCache: "none" })'), 'PWA must bypass stale HTTP cache when checking the service worker');
+assert(pwa.includes('register("./sw.js?v=15", { updateViaCache: "none" })'), 'PWA must bypass stale HTTP cache when checking the service worker');
 assert(pwa.includes('reg.update()'), 'PWA must actively check for a newer service worker');
 assert(pwa.includes('controllerchange'), 'PWA must react when a newer worker takes control');
 assert(sw.includes('contentTypeMismatch'), 'service worker must reject HTML returned for JS/JSON');

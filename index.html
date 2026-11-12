@@ -269,20 +269,24 @@
     }
     /* BBMA full chart (Charts tab) */
     .fv-toolbar{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
-    .fv-row{display:flex;flex-wrap:wrap;gap:4px}
-    .fv-sel{background:#121b2e;border:1px solid #24324f;color:#d7e2f4;border-radius:8px;padding:5px 8px;font-size:12px;font-weight:600;cursor:pointer}
+    .fv-row{display:flex;flex-wrap:wrap;gap:6px;align-items:center;width:100%}
+    .fv-sel{background:#121b2e;border:1px solid #24324f;color:#d7e2f4;border-radius:8px;padding:6px 10px;font-size:12px;font-weight:600;cursor:pointer;min-height:34px}
     .fv-sel:focus{outline:none;border-color:#3d7bd8}
     .fv-btn.ind{border-style:dashed}
     .fv-btn.ind.on{background:#123a2b;border-color:#31df8b;color:#7cf0b6}
     .fv-chips{margin-left:2px}
-    .fv-btn{background:#121b2e;border:1px solid #24324f;color:#9db2d4;border-radius:8px;padding:5px 9px;font-size:12px;cursor:pointer;font-weight:600;line-height:1.2}
+    .fv-btn{background:#121b2e;border:1px solid #24324f;color:#9db2d4;border-radius:8px;padding:6px 10px;font-size:12px;cursor:pointer;font-weight:600;line-height:1.2;min-height:34px}
     .fv-btn:hover{border-color:#3b557e;color:#d7e2f4}
     .fv-btn.on{background:#1d3557;border-color:#3d7bd8;color:#eaf2ff}
     .fv-btn.tool.on{background:#4a3413;border-color:#ffb703;color:#ffd166}
-    .fv-chart-wrap{width:100%;height:440px;border:1px solid #18233a;border-radius:10px;overflow:hidden;background:#0b1220}
-    @media(min-width:900px){.fv-chart-wrap{height:620px}}
+    .fv-chart-wrap{width:100%;height:560px;border:1px solid #18233a;border-radius:10px;overflow:hidden;background:#0b1220}
+    @media(min-width:900px){.fv-chart-wrap{height:720px}}
     .fv-chart{width:100%;height:100%}
-    .fv-foot{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-top:6px;min-height:16px}
+    .fv-foot{display:flex;flex-wrap:wrap;gap:6px 10px;margin-top:8px;min-height:16px}
+    .fv-foot .note{margin-top:0;font-size:10.5px;line-height:1.5;white-space:normal}
+    .fv-foot .note:empty{display:none}
+    .fv-foot #fv-ew-count{color:#8fd3ff;font-weight:600}
+    .fv-foot #fv-smc-count{color:#c9b0ff}
     .fv-sep{width:1px;align-self:stretch;background:#24324f;margin:0 2px}
     .fv-btn.tpl{border-style:dashed}
     .fv-btn.tpl.on{background:#123a2b;border-color:#31df8b;color:#7cf0b6}
@@ -625,13 +629,13 @@
 
       <section class="card" style="margin-top:10px" data-sec="charts">
         <div class="k">BBMA Full Chart &middot; XAU/USD</div>
-        <div class="note">Real Dukascopy history + live tick (all timeframes). Zoom: pinch / ctrl+wheel &middot; Pan: drag &middot; Draw: pick a tool, then click the chart (trend/rect = 2 clicks) &middot; Double-click deletes an object &middot; Esc cancels. S/D: red = unmitigated supply, green = unmitigated demand.</div>
+        <div class="note">Real Dukascopy history + live tick (all timeframes). Zoom: pinch / ctrl+wheel &middot; Pan: drag (view is preserved &mdash; use <b>Fit view</b> to re-fit) &middot; Draw: pick a tool, then click. S/D: red = unmitigated supply, green = unmitigated demand.</div>
         <div id="fv-toolbar" class="fv-toolbar" style="margin-top:8px"></div>
         <div class="fv-chart-wrap" style="margin-top:8px">
           <div id="fv-fs-bar" class="fv-fs-bar"></div>
           <div id="fv-chart" class="fv-chart"></div>
         </div>
-        <div class="fv-foot"><span class="note" id="fv-hint"></span><span class="note" id="fv-zone-count"></span><span class="note" id="fv-smc-count"></span><span class="note" id="fv-ew-count"></span></div>
+        <div class="fv-foot"><span class="note" id="fv-ew-count"></span><span class="note" id="fv-smc-count"></span><span class="note" id="fv-zone-count"></span><span class="note" id="fv-hint"></span></div>
       </section>
 
       <section class="card" style="margin-top:10px" data-sec="charts">
@@ -855,6 +859,6 @@
   <script src="./bbma-news-symbol-advisor-ui.js"></script>
   <script src="./bbma-router-fix.js"></script>
   <script src="./bbma-link.js"></script>
-  <script src="./pwa.js?v=9" defer></script>
+  <script src="./pwa.js?v=10" defer></script>
 </body>
 </html>

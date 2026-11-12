@@ -756,6 +756,23 @@
     try { return SD.activeBands(candles, SD_PARAMS); } catch (e) { return []; }
   }
 
+  // Custom-series anchor items: LWC culls a custom series when NONE of its data
+  // items are in the visible logical range. The EW/SMC renderers paint from a
+  // module-level holder (not per-item), so the data items exist only to keep the
+  // series "alive" across the pane. One anchor at bars[0] meant panning left (past
+  // the first bar) culled the whole overlay. Spread ~12 anchors across the full
+  // loaded range so at least one is always on-screen; `on:false` items are
+  // whitespace so they never force autoscale and the draw pass early-returns.
+  function overlayAnchors(bars, on) {
+    var out = [];
+    var n = bars.length;
+    if (!n) return out;
+    var step = Math.max(1, Math.floor(n / 12));
+    for (var i = 0; i < n; i += step) out.push({ time: bars[i].time, on: on });
+    if (out.length && out[out.length - 1].time !== bars[n - 1].time) out.push({ time: bars[n - 1].time, on: on });
+    return out;
+  }
+
   function feed() {
     var bars = barsFor(state.tf);
     if (!bars.length) {
@@ -787,18 +804,25 @@
           smcState.data = res;
         } else smcState.data = null;
       } catch (e) { smcState.data = null; }
-      try { state.smcSeries.setData([{ time: bars[0].time, on: smcState.on }]); } catch (e) { }
+      try { state.smcSeries.setData(overlayAnchors(bars, smcState.on)); } catch (e) { }
     }
     // Elliott Wave v2.9 read-only overlay (lib/elliott-wave.js) — fail-closed if the
     // engine is absent; counts computed from the same bars the candles use.
     ewState.on = !!state.ind.ew;
     if (state.ewSeries) {
       try { ewState.data = ewState.on && window.BBMA_EW ? ewCompute(bars) : null; } catch (e) { ewState.data = null; }
-      try { state.ewSeries.setData([{ time: bars[0].time, on: ewState.on }]); } catch (e) { }
+      try { state.ewSeries.setData(overlayAnchors(bars, ewState.on)); } catch (e) { }
     }
     refreshAnno();
     updateZoneCount();
-    try { state.chart.timeScale().fitContent(); } catch (e) { }
+    // fitContent ONLY on structural changes (new TF / new data length). A live tick
+    // keeps the same length + last bar, so re-fitting would snap the view back and
+    // undo the user's pan/zoom between ticks.
+    var fitKey = bars.length + ':' + bars[bars.length - 1].time;
+    if (state.lastFitKey !== fitKey) {
+      try { state.chart.timeScale().fitContent(); } catch (e) { }
+      state.lastFitKey = fitKey;
+    }
     state.lastKey = bars.length + ':' + bars[bars.length - 1].time + ':' + bars[bars.length - 1].close;
   }
   function setOverlayPts(key) {
@@ -1238,18 +1262,37 @@
     b.addEventListener('click', function () { toggleFullscreen(); });
     return b;
   }
+  function makeFitButton() {
+    var b = document.createElement('button');
+    b.textContent = '⤢ Fit view';
+    b.className = 'fv-btn tool';
+    b.title = 'Re-fit the chart to all data (pan/zoom is otherwise preserved)';
+    b.addEventListener('click', function () {
+      state.lastFitKey = null; // force a fit on the next feed even if data is unchanged
+      try { state.chart.timeScale().fitContent(); } catch (e) { }
+      flashHint('view fitted to all data');
+    });
+    return b;
+  }
   function buildToolbar() {
     var bar = document.getElementById('fv-toolbar');
     if (!bar) return;
     bar.innerHTML = '';
+    // Row 1: data controls (TF + template + indicator set + drawing tools)
     var row1 = document.createElement('div');
     row1.className = 'fv-row';
     row1.appendChild(makeTFSelect('card-'));
     row1.appendChild(makePresetSelect('card-'));
     row1.appendChild(makeIndButton());
     row1.appendChild(makeDrawButton());
-    row1.appendChild(makeFsButton());
     bar.appendChild(row1);
+    // Row 2: view controls (fit + fullscreen) — separated so the rows stay aligned
+    // and the primary data controls never wrap mid-group on a narrow phone.
+    var row2 = document.createElement('div');
+    row2.className = 'fv-row';
+    row2.appendChild(makeFitButton());
+    row2.appendChild(makeFsButton());
+    bar.appendChild(row2);
     if (state.indPanel) bar.appendChild(makeIndPanel());
     if (state.drawPanel) bar.appendChild(makeDrawPanel());
     // Floating fullscreen control bar (reuses the same controls)
