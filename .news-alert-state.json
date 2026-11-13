@@ -1047,6 +1047,8 @@
     "news:EUR/USD nears 19-month lows at 1.1045 ahead of the US PPI release",
     "news:NZD/USD Price Forecast: Bears gain momentum to test 19-month lows at 0.5527",
     "remind:[USD] Core PPI m/m|2026-11-13:10",
-    "remind:[USD] PPI m/m|2026-11-13:10"
+    "remind:[USD] PPI m/m|2026-11-13:10",
+    "followup:[USD] Core PPI m/m|2026-11-13",
+    "followup:[USD] PPI m/m|2026-11-13"
   ]
 }
