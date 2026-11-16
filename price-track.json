@@ -6958,9 +6958,9 @@
           "key": "W1",
           "minutes": 10080,
           "dueAt": "2026-11-16T23:16:41.893Z",
-          "capturedAt": null,
-          "price": null,
-          "realizedPct": null
+          "capturedAt": "2026-11-16T23:19:24.985Z",
+          "price": 3859.1,
+          "realizedPct": -6.891
         },
         {
           "key": "MN1",
@@ -6974,7 +6974,7 @@
       "reaction": {
         "state": "OBSERVING",
         "mfePct": 0.077,
-        "maePct": -2.461
+        "maePct": -6.891
       }
     },
     {
