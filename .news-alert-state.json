@@ -1081,6 +1081,9 @@
     "remind:[CAD] Trimmed CPI y/y|2026-11-16:10",
     "remind:[CAD] CPI m/m|2026-11-16:2",
     "remind:[CAD] Median CPI y/y|2026-11-16:2",
-    "remind:[CAD] Trimmed CPI y/y|2026-11-16:2"
+    "remind:[CAD] Trimmed CPI y/y|2026-11-16:2",
+    "followup:[CAD] CPI m/m|2026-11-16",
+    "followup:[CAD] Median CPI y/y|2026-11-16",
+    "followup:[CAD] Trimmed CPI y/y|2026-11-16"
   ]
 }
