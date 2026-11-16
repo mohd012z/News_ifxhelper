@@ -1075,6 +1075,9 @@
     "news:Canada CPI Preview: Inflation forecast to advance modestly in October",
     "remind:[CAD] CPI m/m|2026-11-16:30",
     "remind:[CAD] Median CPI y/y|2026-11-16:30",
-    "remind:[CAD] Trimmed CPI y/y|2026-11-16:30"
+    "remind:[CAD] Trimmed CPI y/y|2026-11-16:30",
+    "remind:[CAD] CPI m/m|2026-11-16:10",
+    "remind:[CAD] Median CPI y/y|2026-11-16:10",
+    "remind:[CAD] Trimmed CPI y/y|2026-11-16:10"
   ]
 }
