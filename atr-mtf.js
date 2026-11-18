@@ -4,7 +4,7 @@ window.ATR_MTF = {
   "instrument": "GC=F",
   "provider": "YAHOO_CHART",
   "source": "yahoo:GC=F",
-  "generatedAt": "2026-11-18T22:20:30.194Z",
+  "generatedAt": "2026-11-18T22:50:30.928Z",
   "timeframes": {
     "M1": {
       "tf": "M1",
@@ -19,7 +19,7 @@ window.ATR_MTF = {
       "asOf": "2026-11-18T15:43:53.000Z",
       "closedBars": 4771,
       "period": 14,
-      "ageHours": 6.61,
+      "ageHours": 7.11,
       "evidence": {
         "sourceCandles": 4771,
         "rejected": 0,
@@ -40,7 +40,7 @@ window.ATR_MTF = {
       "asOf": "2026-11-18T15:47:53.000Z",
       "closedBars": 6265,
       "period": 14,
-      "ageHours": 6.54,
+      "ageHours": 7.04,
       "evidence": {
         "sourceCandles": 6265,
         "rejected": 0,
@@ -61,7 +61,7 @@ window.ATR_MTF = {
       "asOf": "2026-11-18T15:30:00.000Z",
       "closedBars": 2085,
       "period": 14,
-      "ageHours": 6.84,
+      "ageHours": 7.34,
       "evidence": {
         "sourceCandles": 6265,
         "rejected": 0,
@@ -82,7 +82,7 @@ window.ATR_MTF = {
       "asOf": "2026-11-18T15:30:00.000Z",
       "closedBars": 1040,
       "period": 14,
-      "ageHours": 6.84,
+      "ageHours": 7.34,
       "evidence": {
         "sourceCandles": 6265,
         "rejected": 0,
@@ -103,7 +103,7 @@ window.ATR_MTF = {
       "asOf": "2026-11-18T16:42:53.000Z",
       "closedBars": 1489,
       "period": 14,
-      "ageHours": 5.63,
+      "ageHours": 6.13,
       "evidence": {
         "sourceCandles": 1489,
         "rejected": 0,
@@ -124,7 +124,7 @@ window.ATR_MTF = {
       "asOf": "2026-11-18T12:00:00.000Z",
       "closedBars": 327,
       "period": 14,
-      "ageHours": 10.34,
+      "ageHours": 10.84,
       "evidence": {
         "sourceCandles": 1489,
         "rejected": 0,
@@ -145,7 +145,7 @@ window.ATR_MTF = {
       "asOf": "2026-11-18T00:00:00.000Z",
       "closedBars": 1257,
       "period": 14,
-      "ageHours": 22.34,
+      "ageHours": 22.84,
       "evidence": {
         "sourceCandles": 1257,
         "rejected": 0,
@@ -166,7 +166,7 @@ window.ATR_MTF = {
       "asOf": "2026-11-16T00:00:00.000Z",
       "closedBars": 260,
       "period": 14,
-      "ageHours": 70.34,
+      "ageHours": 70.84,
       "evidence": {
         "sourceCandles": 1257,
         "rejected": 0,
@@ -187,7 +187,7 @@ window.ATR_MTF = {
       "asOf": "2026-11-01T00:00:00.000Z",
       "closedBars": 59,
       "period": 14,
-      "ageHours": 430.34,
+      "ageHours": 430.84,
       "evidence": {
         "sourceCandles": 1257,
         "rejected": 0,
