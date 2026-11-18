@@ -4,7 +4,7 @@ window.ATR_MTF = {
   "instrument": "GC=F",
   "provider": "YAHOO_CHART",
   "source": "yahoo:GC=F",
-  "generatedAt": "2026-11-18T10:50:18.340Z",
+  "generatedAt": "2026-11-18T11:20:18.845Z",
   "timeframes": {
     "M1": {
       "tf": "M1",
@@ -14,14 +14,14 @@ window.ATR_MTF = {
       "source": "yahoo:GC=F",
       "state": "READY",
       "reason": null,
-      "atr": 1.333015,
-      "last": 3772.600098,
-      "asOf": "2026-11-18T10:41:13.000Z",
-      "closedBars": 4469,
+      "atr": 1.620769,
+      "last": 3768.800049,
+      "asOf": "2026-11-18T11:11:13.000Z",
+      "closedBars": 4499,
       "period": 14,
       "ageHours": 0.15,
       "evidence": {
-        "sourceCandles": 4469,
+        "sourceCandles": 4499,
         "rejected": 0,
         "duplicates": 0,
         "formingExcluded": 0
@@ -35,14 +35,14 @@ window.ATR_MTF = {
       "source": "yahoo:GC=F",
       "state": "READY",
       "reason": null,
-      "atr": 3.684403,
-      "last": 3772.600098,
-      "asOf": "2026-11-18T10:45:13.000Z",
-      "closedBars": 6205,
+      "atr": 3.685278,
+      "last": 3768.100098,
+      "asOf": "2026-11-18T11:15:14.000Z",
+      "closedBars": 6211,
       "period": 14,
       "ageHours": 0.08,
       "evidence": {
-        "sourceCandles": 6205,
+        "sourceCandles": 6211,
         "rejected": 0,
         "duplicates": 0,
         "formingExcluded": 0
@@ -56,14 +56,14 @@ window.ATR_MTF = {
       "source": "yahoo:GC=F",
       "state": "READY",
       "reason": null,
-      "atr": 8.680407,
-      "last": 3772,
-      "asOf": "2026-11-18T10:30:00.000Z",
-      "closedBars": 2065,
+      "atr": 8.089735,
+      "last": 3775.399902,
+      "asOf": "2026-11-18T11:00:00.000Z",
+      "closedBars": 2067,
       "period": 14,
       "ageHours": 0.34,
       "evidence": {
-        "sourceCandles": 6205,
+        "sourceCandles": 6211,
         "rejected": 0,
         "duplicates": 0,
         "formingExcluded": 0
@@ -77,14 +77,14 @@ window.ATR_MTF = {
       "source": "yahoo:GC=F",
       "state": "READY",
       "reason": null,
-      "atr": 12.003539,
-      "last": 3772,
-      "asOf": "2026-11-18T10:30:00.000Z",
-      "closedBars": 1030,
+      "atr": 11.560432,
+      "last": 3775.399902,
+      "asOf": "2026-11-18T11:00:00.000Z",
+      "closedBars": 1031,
       "period": 14,
       "ageHours": 0.34,
       "evidence": {
-        "sourceCandles": 6205,
+        "sourceCandles": 6211,
         "rejected": 0,
         "duplicates": 0,
         "formingExcluded": 0
@@ -98,12 +98,12 @@ window.ATR_MTF = {
       "source": "yahoo:GC=F",
       "state": "READY",
       "reason": null,
-      "atr": 17.063118,
-      "last": 3781.199951,
-      "asOf": "2026-11-18T10:00:00.000Z",
+      "atr": 16.65147,
+      "last": 3775.399902,
+      "asOf": "2026-11-18T11:00:00.000Z",
       "closedBars": 1494,
       "period": 14,
-      "ageHours": 0.84,
+      "ageHours": 0.34,
       "evidence": {
         "sourceCandles": 1494,
         "rejected": 0,
@@ -124,7 +124,7 @@ window.ATR_MTF = {
       "asOf": "2026-11-18T08:00:00.000Z",
       "closedBars": 328,
       "period": 14,
-      "ageHours": 2.84,
+      "ageHours": 3.34,
       "evidence": {
         "sourceCandles": 1494,
         "rejected": 0,
@@ -145,7 +145,7 @@ window.ATR_MTF = {
       "asOf": "2026-11-18T00:00:00.000Z",
       "closedBars": 1257,
       "period": 14,
-      "ageHours": 10.84,
+      "ageHours": 11.34,
       "evidence": {
         "sourceCandles": 1257,
         "rejected": 0,
@@ -166,7 +166,7 @@ window.ATR_MTF = {
       "asOf": "2026-11-16T00:00:00.000Z",
       "closedBars": 260,
       "period": 14,
-      "ageHours": 58.84,
+      "ageHours": 59.34,
       "evidence": {
         "sourceCandles": 1257,
         "rejected": 0,
@@ -187,7 +187,7 @@ window.ATR_MTF = {
       "asOf": "2026-11-01T00:00:00.000Z",
       "closedBars": 59,
       "period": 14,
-      "ageHours": 418.84,
+      "ageHours": 419.34,
       "evidence": {
         "sourceCandles": 1257,
         "rejected": 0,
@@ -203,12 +203,12 @@ window.ATR_MTF = {
   "feeds": {
     "1m": {
       "state": "OK",
-      "count": 4469,
+      "count": 4499,
       "provider": "YAHOO_CHART"
     },
     "5m": {
       "state": "OK",
-      "count": 6205,
+      "count": 6211,
       "provider": "YAHOO_CHART"
     },
     "1h": {
