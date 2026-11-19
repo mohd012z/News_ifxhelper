@@ -4,7 +4,7 @@ window.ATR_MTF = {
   "instrument": "GC=F",
   "provider": "YAHOO_CHART",
   "source": "yahoo:GC=F",
-  "generatedAt": "2026-11-19T23:20:59.615Z",
+  "generatedAt": "2026-11-19T23:51:00.443Z",
   "timeframes": {
     "M1": {
       "tf": "M1",
@@ -14,14 +14,14 @@ window.ATR_MTF = {
       "source": "yahoo:GC=F",
       "state": "READY",
       "reason": null,
-      "atr": 3.080916,
-      "last": 3628.300049,
-      "asOf": "2026-11-19T23:11:50.000Z",
-      "closedBars": 5519,
+      "atr": 4.44166,
+      "last": 3602.800049,
+      "asOf": "2026-11-19T23:41:58.000Z",
+      "closedBars": 5549,
       "period": 14,
       "ageHours": 0.15,
       "evidence": {
-        "sourceCandles": 5519,
+        "sourceCandles": 5549,
         "rejected": 0,
         "duplicates": 0,
         "formingExcluded": 0
@@ -35,12 +35,12 @@ window.ATR_MTF = {
       "source": "yahoo:GC=F",
       "state": "READY",
       "reason": null,
-      "atr": 5.808394,
-      "last": 3628.300049,
-      "asOf": "2026-11-19T23:15:50.000Z",
+      "atr": 7.770909,
+      "last": 3602.800049,
+      "asOf": "2026-11-19T23:45:58.000Z",
       "closedBars": 6322,
       "period": 14,
-      "ageHours": 0.09,
+      "ageHours": 0.08,
       "evidence": {
         "sourceCandles": 6322,
         "rejected": 0,
@@ -54,14 +54,14 @@ window.ATR_MTF = {
       "instrument": "GC=F",
       "provider": "YAHOO_CHART",
       "source": "yahoo:GC=F",
-      "state": "UNAVAILABLE",
-      "reason": "STALE_CANDLES",
-      "atr": 10.590915,
-      "last": 3627.899902,
-      "asOf": "2026-11-19T22:00:00.000Z",
+      "state": "READY",
+      "reason": null,
+      "atr": 10.875856,
+      "last": 3626.800049,
+      "asOf": "2026-11-19T23:30:00.000Z",
       "closedBars": 2102,
       "period": 14,
-      "ageHours": 1.35,
+      "ageHours": 0.35,
       "evidence": {
         "sourceCandles": 6322,
         "rejected": 0,
@@ -77,12 +77,12 @@ window.ATR_MTF = {
       "source": "yahoo:GC=F",
       "state": "READY",
       "reason": null,
-      "atr": 14.654369,
-      "last": 3627.899902,
-      "asOf": "2026-11-19T22:00:00.000Z",
+      "atr": 14.693356,
+      "last": 3626.800049,
+      "asOf": "2026-11-19T23:30:00.000Z",
       "closedBars": 1048,
       "period": 14,
-      "ageHours": 1.35,
+      "ageHours": 0.35,
       "evidence": {
         "sourceCandles": 6322,
         "rejected": 0,
@@ -103,7 +103,7 @@ window.ATR_MTF = {
       "asOf": "2026-11-19T23:00:00.000Z",
       "closedBars": 1495,
       "period": 14,
-      "ageHours": 0.35,
+      "ageHours": 0.85,
       "evidence": {
         "sourceCandles": 1495,
         "rejected": 0,
@@ -124,7 +124,7 @@ window.ATR_MTF = {
       "asOf": "2026-11-19T20:00:00.000Z",
       "closedBars": 329,
       "period": 14,
-      "ageHours": 3.35,
+      "ageHours": 3.85,
       "evidence": {
         "sourceCandles": 1495,
         "rejected": 0,
@@ -145,7 +145,7 @@ window.ATR_MTF = {
       "asOf": "2026-11-19T00:00:00.000Z",
       "closedBars": 1257,
       "period": 14,
-      "ageHours": 23.35,
+      "ageHours": 23.85,
       "evidence": {
         "sourceCandles": 1257,
         "rejected": 0,
@@ -166,7 +166,7 @@ window.ATR_MTF = {
       "asOf": "2026-11-16T00:00:00.000Z",
       "closedBars": 260,
       "period": 14,
-      "ageHours": 95.35,
+      "ageHours": 95.85,
       "evidence": {
         "sourceCandles": 1257,
         "rejected": 0,
@@ -187,7 +187,7 @@ window.ATR_MTF = {
       "asOf": "2026-11-01T00:00:00.000Z",
       "closedBars": 59,
       "period": 14,
-      "ageHours": 455.35,
+      "ageHours": 455.85,
       "evidence": {
         "sourceCandles": 1257,
         "rejected": 0,
@@ -196,14 +196,14 @@ window.ATR_MTF = {
       }
     }
   },
-  "readyCount": 8,
+  "readyCount": 9,
   "total": 9,
-  "state": "PARTIAL",
+  "state": "READY",
   "note": "Completed OHLC candles; Wilder ATR14 by timeframe. No calibrated direction or executable XAU/USD spot quote.",
   "feeds": {
     "1m": {
       "state": "OK",
-      "count": 5519,
+      "count": 5549,
       "provider": "YAHOO_CHART"
     },
     "5m": {
