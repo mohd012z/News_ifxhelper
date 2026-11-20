@@ -4,11 +4,11 @@
  * Regenerate: node build-macro.js (run on the same cron as build-atr.js / build-news.js).
  */
 window.MACRO_AUTO = {
-  "generatedAt": "2026-11-20 09:08:26Z",
+  "generatedAt": "2026-11-20 09:38:28Z",
   "dxy": {
     "label": "DXY",
     "value": "103.87",
-    "delta": "-0.03%",
+    "delta": "-0.02%",
     "note": "Dollar softening"
   },
   "us10y": {
@@ -19,8 +19,8 @@ window.MACRO_AUTO = {
   },
   "brent": {
     "label": "Brent",
-    "value": "$88.43",
-    "delta": "-1.13%",
+    "value": "$88.41",
+    "delta": "-1.15%",
     "note": "Cooling inflation pressure"
   }
 };
