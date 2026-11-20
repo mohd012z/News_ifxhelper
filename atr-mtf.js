@@ -4,7 +4,7 @@ window.ATR_MTF = {
   "instrument": "GC=F",
   "provider": "YAHOO_CHART",
   "source": "yahoo:GC=F",
-  "generatedAt": "2026-11-20T04:08:21.166Z",
+  "generatedAt": "2026-11-20T04:38:21.885Z",
   "timeframes": {
     "M1": {
       "tf": "M1",
@@ -14,14 +14,14 @@ window.ATR_MTF = {
       "source": "yahoo:GC=F",
       "state": "READY",
       "reason": null,
-      "atr": 3.884466,
-      "last": 3550.300049,
-      "asOf": "2026-11-20T03:59:19.000Z",
-      "closedBars": 5807,
+      "atr": 3.044923,
+      "last": 3531.600098,
+      "asOf": "2026-11-20T04:29:18.000Z",
+      "closedBars": 5837,
       "period": 14,
       "ageHours": 0.15,
       "evidence": {
-        "sourceCandles": 5807,
+        "sourceCandles": 5837,
         "rejected": 0,
         "duplicates": 0,
         "formingExcluded": 0
@@ -35,9 +35,9 @@ window.ATR_MTF = {
       "source": "yahoo:GC=F",
       "state": "READY",
       "reason": null,
-      "atr": 11.008733,
-      "last": 3550.300049,
-      "asOf": "2026-11-20T04:03:19.000Z",
+      "atr": 10.085843,
+      "last": 3531.600098,
+      "asOf": "2026-11-20T04:33:18.000Z",
       "closedBars": 6322,
       "period": 14,
       "ageHours": 0.08,
@@ -56,9 +56,9 @@ window.ATR_MTF = {
       "source": "yahoo:GC=F",
       "state": "READY",
       "reason": null,
-      "atr": 20.638956,
-      "last": 3554.899902,
-      "asOf": "2026-11-20T03:45:00.000Z",
+      "atr": 19.389713,
+      "last": 3544.300049,
+      "asOf": "2026-11-20T04:15:00.000Z",
       "closedBars": 2102,
       "period": 14,
       "ageHours": 0.39,
@@ -77,9 +77,9 @@ window.ATR_MTF = {
       "source": "yahoo:GC=F",
       "state": "READY",
       "reason": null,
-      "atr": 22.516754,
-      "last": 3525.300049,
-      "asOf": "2026-11-20T03:30:00.000Z",
+      "atr": 23.401265,
+      "last": 3551,
+      "asOf": "2026-11-20T04:00:00.000Z",
       "closedBars": 1047,
       "period": 14,
       "ageHours": 0.64,
@@ -99,16 +99,16 @@ window.ATR_MTF = {
       "state": "READY",
       "reason": null,
       "atr": 26.338393,
-      "last": 3550.600098,
+      "last": 3551,
       "asOf": "2026-11-20T04:00:00.000Z",
       "closedBars": 1495,
       "period": 14,
-      "ageHours": 0.14,
+      "ageHours": 0.64,
       "evidence": {
         "sourceCandles": 1495,
         "rejected": 0,
         "duplicates": 0,
-        "formingExcluded": 1
+        "formingExcluded": 2
       }
     },
     "H4": {
@@ -120,16 +120,16 @@ window.ATR_MTF = {
       "state": "READY",
       "reason": null,
       "atr": 45.847065,
-      "last": 3550.600098,
+      "last": 3551,
       "asOf": "2026-11-20T04:00:00.000Z",
       "closedBars": 330,
       "period": 14,
-      "ageHours": 0.14,
+      "ageHours": 0.64,
       "evidence": {
         "sourceCandles": 1495,
         "rejected": 0,
         "duplicates": 0,
-        "formingExcluded": 1
+        "formingExcluded": 2
       }
     },
     "D1": {
@@ -145,7 +145,7 @@ window.ATR_MTF = {
       "asOf": "2026-11-20T00:00:00.000Z",
       "closedBars": 1258,
       "period": 14,
-      "ageHours": 4.14,
+      "ageHours": 4.64,
       "evidence": {
         "sourceCandles": 1258,
         "rejected": 0,
@@ -166,7 +166,7 @@ window.ATR_MTF = {
       "asOf": "2026-11-16T00:00:00.000Z",
       "closedBars": 260,
       "period": 14,
-      "ageHours": 100.14,
+      "ageHours": 100.64,
       "evidence": {
         "sourceCandles": 1258,
         "rejected": 0,
@@ -187,7 +187,7 @@ window.ATR_MTF = {
       "asOf": "2026-11-01T00:00:00.000Z",
       "closedBars": 59,
       "period": 14,
-      "ageHours": 460.14,
+      "ageHours": 460.64,
       "evidence": {
         "sourceCandles": 1258,
         "rejected": 0,
@@ -203,7 +203,7 @@ window.ATR_MTF = {
   "feeds": {
     "1m": {
       "state": "OK",
-      "count": 5807,
+      "count": 5837,
       "provider": "YAHOO_CHART"
     },
     "5m": {
@@ -213,7 +213,7 @@ window.ATR_MTF = {
     },
     "1h": {
       "state": "OK",
-      "count": 1496,
+      "count": 1497,
       "provider": "YAHOO_CHART"
     },
     "1d": {
