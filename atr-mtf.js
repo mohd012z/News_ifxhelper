@@ -4,7 +4,7 @@ window.ATR_MTF = {
   "instrument": "GC=F",
   "provider": "YAHOO_CHART",
   "source": "yahoo:GC=F",
-  "generatedAt": "2026-11-23T16:55:14.678Z",
+  "generatedAt": "2026-11-23T17:25:13.892Z",
   "timeframes": {
     "M1": {
       "tf": "M1",
@@ -14,14 +14,14 @@ window.ATR_MTF = {
       "source": "yahoo:GC=F",
       "state": "READY",
       "reason": null,
-      "atr": 2.70444,
-      "last": 3660.899902,
-      "asOf": "2026-11-23T16:46:13.000Z",
-      "closedBars": 4828,
+      "atr": 2.076478,
+      "last": 3667.199951,
+      "asOf": "2026-11-23T17:16:12.000Z",
+      "closedBars": 4858,
       "period": 14,
       "ageHours": 0.15,
       "evidence": {
-        "sourceCandles": 4828,
+        "sourceCandles": 4858,
         "rejected": 0,
         "duplicates": 0,
         "formingExcluded": 0
@@ -35,9 +35,9 @@ window.ATR_MTF = {
       "source": "yahoo:GC=F",
       "state": "READY",
       "reason": null,
-      "atr": 7.185055,
-      "last": 3660.899902,
-      "asOf": "2026-11-23T16:50:13.000Z",
+      "atr": 6.480797,
+      "last": 3667.199951,
+      "asOf": "2026-11-23T17:20:12.000Z",
       "closedBars": 5768,
       "period": 14,
       "ageHours": 0.08,
@@ -56,9 +56,9 @@ window.ATR_MTF = {
       "source": "yahoo:GC=F",
       "state": "READY",
       "reason": null,
-      "atr": 13.679723,
-      "last": 3662.699951,
-      "asOf": "2026-11-23T16:45:00.000Z",
+      "atr": 13.824352,
+      "last": 3666.199951,
+      "asOf": "2026-11-23T17:15:00.000Z",
       "closedBars": 1918,
       "period": 14,
       "ageHours": 0.17,
@@ -77,9 +77,9 @@ window.ATR_MTF = {
       "source": "yahoo:GC=F",
       "state": "READY",
       "reason": null,
-      "atr": 18.706327,
-      "last": 3675.100098,
-      "asOf": "2026-11-23T16:30:00.000Z",
+      "atr": 18.69874,
+      "last": 3672.600098,
+      "asOf": "2026-11-23T17:00:00.000Z",
       "closedBars": 955,
       "period": 14,
       "ageHours": 0.42,
@@ -98,14 +98,14 @@ window.ATR_MTF = {
       "source": "yahoo:GC=F",
       "state": "READY",
       "reason": null,
-      "atr": 26.162179,
-      "last": 3669.699951,
-      "asOf": "2026-11-23T16:00:00.000Z",
-      "closedBars": 1489,
+      "atr": 25.629162,
+      "last": 3672.600098,
+      "asOf": "2026-11-23T17:00:00.000Z",
+      "closedBars": 1490,
       "period": 14,
-      "ageHours": 0.92,
+      "ageHours": 0.42,
       "evidence": {
-        "sourceCandles": 1489,
+        "sourceCandles": 1490,
         "rejected": 0,
         "duplicates": 0,
         "formingExcluded": 2
@@ -124,9 +124,9 @@ window.ATR_MTF = {
       "asOf": "2026-11-23T16:00:00.000Z",
       "closedBars": 329,
       "period": 14,
-      "ageHours": 0.92,
+      "ageHours": 1.42,
       "evidence": {
-        "sourceCandles": 1489,
+        "sourceCandles": 1490,
         "rejected": 0,
         "duplicates": 0,
         "formingExcluded": 2
@@ -145,7 +145,7 @@ window.ATR_MTF = {
       "asOf": "2026-11-21T00:00:00.000Z",
       "closedBars": 1257,
       "period": 14,
-      "ageHours": 64.92,
+      "ageHours": 65.42,
       "evidence": {
         "sourceCandles": 1257,
         "rejected": 0,
@@ -166,7 +166,7 @@ window.ATR_MTF = {
       "asOf": "2026-11-23T00:00:00.000Z",
       "closedBars": 261,
       "period": 14,
-      "ageHours": 16.92,
+      "ageHours": 17.42,
       "evidence": {
         "sourceCandles": 1257,
         "rejected": 0,
@@ -187,7 +187,7 @@ window.ATR_MTF = {
       "asOf": "2026-11-01T00:00:00.000Z",
       "closedBars": 59,
       "period": 14,
-      "ageHours": 544.92,
+      "ageHours": 545.42,
       "evidence": {
         "sourceCandles": 1257,
         "rejected": 0,
@@ -203,7 +203,7 @@ window.ATR_MTF = {
   "feeds": {
     "1m": {
       "state": "OK",
-      "count": 4828,
+      "count": 4858,
       "provider": "YAHOO_CHART"
     },
     "5m": {
@@ -213,7 +213,7 @@ window.ATR_MTF = {
     },
     "1h": {
       "state": "OK",
-      "count": 1491,
+      "count": 1492,
       "provider": "YAHOO_CHART"
     },
     "1d": {
