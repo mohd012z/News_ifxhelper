@@ -3,7 +3,7 @@
  * R3/S3 = mean-reversion targets · R4/S4 = trend-day breakout. Research context only. */
 window.PIVOTS_AUTO = {
   "method": "camarilla",
-  "generatedAt": "2026-11-22 23:54:54Z",
+  "generatedAt": "2026-11-23 00:25:00Z",
   "session": "2026-11-20",
   "symbols": {
     "XAUUSD": {
@@ -348,20 +348,20 @@ window.PIVOTS_AUTO = {
       "label": "USD/IDR",
       "ticker": "USDIDR=X",
       "decimals": 0,
-      "session": "2026-11-20",
-      "h": 18302.5,
-      "l": 18164.69921875,
-      "c": 18254,
-      "range": 137.80078125,
-      "R1": 18266.63173828125,
-      "R2": 18279.2634765625,
-      "R3": 18291.89521484375,
-      "R4": 18329.7904296875,
-      "S1": 18241.36826171875,
-      "S2": 18228.7365234375,
-      "S3": 18216.10478515625,
-      "S4": 18178.2095703125,
-      "closePos": 0.65
+      "session": "2026-11-22",
+      "h": 18260,
+      "l": 18158,
+      "c": 18158,
+      "range": 102,
+      "R1": 18167.35,
+      "R2": 18176.7,
+      "R3": 18186.05,
+      "R4": 18214.1,
+      "S1": 18148.65,
+      "S2": 18139.3,
+      "S3": 18129.95,
+      "S4": 18101.9,
+      "closePos": 0
     },
     "USDTHB": {
       "ok": true,
