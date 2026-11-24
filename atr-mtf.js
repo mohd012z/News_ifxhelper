@@ -4,7 +4,7 @@ window.ATR_MTF = {
   "instrument": "GC=F",
   "provider": "YAHOO_CHART",
   "source": "yahoo:GC=F",
-  "generatedAt": "2026-11-24T19:20:06.170Z",
+  "generatedAt": "2026-11-24T19:50:03.392Z",
   "timeframes": {
     "M1": {
       "tf": "M1",
@@ -14,14 +14,14 @@ window.ATR_MTF = {
       "source": "yahoo:GC=F",
       "state": "READY",
       "reason": null,
-      "atr": 1.893795,
-      "last": 3558.300049,
-      "asOf": "2026-11-24T19:11:01.000Z",
-      "closedBars": 4963,
+      "atr": 1.659374,
+      "last": 3555.800049,
+      "asOf": "2026-11-24T19:40:46.000Z",
+      "closedBars": 4992,
       "period": 14,
       "ageHours": 0.15,
       "evidence": {
-        "sourceCandles": 4963,
+        "sourceCandles": 4992,
         "rejected": 0,
         "duplicates": 0,
         "formingExcluded": 0
@@ -35,14 +35,14 @@ window.ATR_MTF = {
       "source": "yahoo:GC=F",
       "state": "READY",
       "reason": null,
-      "atr": 4.540823,
-      "last": 3558.100098,
-      "asOf": "2026-11-24T19:15:06.000Z",
-      "closedBars": 6010,
+      "atr": 4.494446,
+      "last": 3555.800049,
+      "asOf": "2026-11-24T19:44:46.000Z",
+      "closedBars": 6015,
       "period": 14,
-      "ageHours": 0.08,
+      "ageHours": 0.09,
       "evidence": {
-        "sourceCandles": 6010,
+        "sourceCandles": 6015,
         "rejected": 0,
         "duplicates": 0,
         "formingExcluded": 0
@@ -56,14 +56,14 @@ window.ATR_MTF = {
       "source": "yahoo:GC=F",
       "state": "READY",
       "reason": null,
-      "atr": 10.525614,
-      "last": 3554.5,
-      "asOf": "2026-11-24T19:00:00.000Z",
-      "closedBars": 1998,
+      "atr": 10.197599,
+      "last": 3556.199951,
+      "asOf": "2026-11-24T19:30:00.000Z",
+      "closedBars": 2000,
       "period": 14,
-      "ageHours": 0.34,
+      "ageHours": 0.33,
       "evidence": {
-        "sourceCandles": 6010,
+        "sourceCandles": 6015,
         "rejected": 0,
         "duplicates": 0,
         "formingExcluded": 0
@@ -77,14 +77,14 @@ window.ATR_MTF = {
       "source": "yahoo:GC=F",
       "state": "READY",
       "reason": null,
-      "atr": 14.642373,
-      "last": 3554.5,
-      "asOf": "2026-11-24T19:00:00.000Z",
-      "closedBars": 995,
+      "atr": 14.339357,
+      "last": 3556.199951,
+      "asOf": "2026-11-24T19:30:00.000Z",
+      "closedBars": 996,
       "period": 14,
-      "ageHours": 0.34,
+      "ageHours": 0.33,
       "evidence": {
-        "sourceCandles": 6010,
+        "sourceCandles": 6015,
         "rejected": 0,
         "duplicates": 0,
         "formingExcluded": 0
@@ -103,7 +103,7 @@ window.ATR_MTF = {
       "asOf": "2026-11-24T19:00:00.000Z",
       "closedBars": 1495,
       "period": 14,
-      "ageHours": 0.34,
+      "ageHours": 0.83,
       "evidence": {
         "sourceCandles": 1495,
         "rejected": 0,
@@ -124,7 +124,7 @@ window.ATR_MTF = {
       "asOf": "2026-11-24T16:00:00.000Z",
       "closedBars": 329,
       "period": 14,
-      "ageHours": 3.34,
+      "ageHours": 3.83,
       "evidence": {
         "sourceCandles": 1495,
         "rejected": 0,
@@ -145,7 +145,7 @@ window.ATR_MTF = {
       "asOf": "2026-11-24T00:00:00.000Z",
       "closedBars": 1257,
       "period": 14,
-      "ageHours": 19.34,
+      "ageHours": 19.83,
       "evidence": {
         "sourceCandles": 1257,
         "rejected": 0,
@@ -166,7 +166,7 @@ window.ATR_MTF = {
       "asOf": "2026-11-23T00:00:00.000Z",
       "closedBars": 260,
       "period": 14,
-      "ageHours": 43.34,
+      "ageHours": 43.83,
       "evidence": {
         "sourceCandles": 1257,
         "rejected": 0,
@@ -187,7 +187,7 @@ window.ATR_MTF = {
       "asOf": "2026-11-01T00:00:00.000Z",
       "closedBars": 59,
       "period": 14,
-      "ageHours": 571.34,
+      "ageHours": 571.83,
       "evidence": {
         "sourceCandles": 1257,
         "rejected": 0,
@@ -203,12 +203,12 @@ window.ATR_MTF = {
   "feeds": {
     "1m": {
       "state": "OK",
-      "count": 4963,
+      "count": 4992,
       "provider": "YAHOO_CHART"
     },
     "5m": {
       "state": "OK",
-      "count": 6010,
+      "count": 6015,
       "provider": "YAHOO_CHART"
     },
     "1h": {
