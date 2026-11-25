@@ -1264,6 +1264,9 @@
     "remind:[AUD] Trimmed Mean CPI m/m|2026-11-25:30",
     "remind:[AUD] CPI m/m|2026-11-25:10",
     "remind:[AUD] CPI y/y|2026-11-25:10",
-    "remind:[AUD] Trimmed Mean CPI m/m|2026-11-25:10"
+    "remind:[AUD] Trimmed Mean CPI m/m|2026-11-25:10",
+    "remind:[AUD] CPI m/m|2026-11-25:2",
+    "remind:[AUD] CPI y/y|2026-11-25:2",
+    "remind:[AUD] Trimmed Mean CPI m/m|2026-11-25:2"
   ]
 }
