@@ -1258,6 +1258,9 @@
     "news:Silver Price Forecast: $40 support at risk as XAG/USD sinks",
     "news:Canadian Dollar advances as BoC Governor flags persistent inflation risks",
     "news:BoC’s Macklem signals rate hike risk as Oil shock fuels inflation",
-    "news:Gold slides despite weaker US Dollar as Fed hike bets dominate"
+    "news:Gold slides despite weaker US Dollar as Fed hike bets dominate",
+    "remind:[AUD] CPI m/m|2026-11-25:30",
+    "remind:[AUD] CPI y/y|2026-11-25:30",
+    "remind:[AUD] Trimmed Mean CPI m/m|2026-11-25:30"
   ]
 }
