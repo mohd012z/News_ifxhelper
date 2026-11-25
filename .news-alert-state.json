@@ -1288,6 +1288,7 @@
     "remind:[USD] Core PCE Price Index m/m|2026-11-25:10",
     "remind:[USD] Prelim GDP q/q|2026-11-25:10",
     "remind:[USD] Core PCE Price Index m/m|2026-11-25:2",
-    "remind:[USD] Prelim GDP q/q|2026-11-25:2"
+    "remind:[USD] Prelim GDP q/q|2026-11-25:2",
+    "followup:[USD] Prelim GDP q/q|2026-11-25"
   ]
 }
