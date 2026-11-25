@@ -4,7 +4,7 @@ window.ATR_MTF = {
   "instrument": "GC=F",
   "provider": "YAHOO_CHART",
   "source": "yahoo:GC=F",
-  "generatedAt": "2026-11-25T19:20:30.955Z",
+  "generatedAt": "2026-11-25T19:50:30.125Z",
   "timeframes": {
     "M1": {
       "tf": "M1",
@@ -14,14 +14,14 @@ window.ATR_MTF = {
       "source": "yahoo:GC=F",
       "state": "READY",
       "reason": null,
-      "atr": 4.046999,
-      "last": 3584.100098,
-      "asOf": "2026-11-25T19:11:28.000Z",
-      "closedBars": 4959,
+      "atr": 3.658351,
+      "last": 3576.600098,
+      "asOf": "2026-11-25T19:41:27.000Z",
+      "closedBars": 4989,
       "period": 14,
       "ageHours": 0.15,
       "evidence": {
-        "sourceCandles": 4959,
+        "sourceCandles": 4989,
         "rejected": 0,
         "duplicates": 0,
         "formingExcluded": 0
@@ -35,14 +35,14 @@ window.ATR_MTF = {
       "source": "yahoo:GC=F",
       "state": "READY",
       "reason": null,
-      "atr": 10.653333,
-      "last": 3584.100098,
-      "asOf": "2026-11-25T19:15:28.000Z",
-      "closedBars": 6286,
+      "atr": 9.702148,
+      "last": 3576.600098,
+      "asOf": "2026-11-25T19:45:27.000Z",
+      "closedBars": 6292,
       "period": 14,
       "ageHours": 0.08,
       "evidence": {
-        "sourceCandles": 6286,
+        "sourceCandles": 6292,
         "rejected": 0,
         "duplicates": 0,
         "formingExcluded": 0
@@ -56,14 +56,14 @@ window.ATR_MTF = {
       "source": "yahoo:GC=F",
       "state": "READY",
       "reason": null,
-      "atr": 19.210091,
-      "last": 3564.5,
-      "asOf": "2026-11-25T19:00:00.000Z",
-      "closedBars": 2090,
+      "atr": 18.830633,
+      "last": 3578.100098,
+      "asOf": "2026-11-25T19:30:00.000Z",
+      "closedBars": 2092,
       "period": 14,
       "ageHours": 0.34,
       "evidence": {
-        "sourceCandles": 6286,
+        "sourceCandles": 6292,
         "rejected": 0,
         "duplicates": 0,
         "formingExcluded": 0
@@ -77,14 +77,14 @@ window.ATR_MTF = {
       "source": "yahoo:GC=F",
       "state": "READY",
       "reason": null,
-      "atr": 25.220649,
-      "last": 3564.5,
-      "asOf": "2026-11-25T19:00:00.000Z",
-      "closedBars": 1041,
+      "atr": 25.083463,
+      "last": 3578.100098,
+      "asOf": "2026-11-25T19:30:00.000Z",
+      "closedBars": 1042,
       "period": 14,
       "ageHours": 0.34,
       "evidence": {
-        "sourceCandles": 6286,
+        "sourceCandles": 6292,
         "rejected": 0,
         "duplicates": 0,
         "formingExcluded": 0
@@ -103,7 +103,7 @@ window.ATR_MTF = {
       "asOf": "2026-11-25T19:00:00.000Z",
       "closedBars": 1495,
       "period": 14,
-      "ageHours": 0.34,
+      "ageHours": 0.84,
       "evidence": {
         "sourceCandles": 1495,
         "rejected": 0,
@@ -124,7 +124,7 @@ window.ATR_MTF = {
       "asOf": "2026-11-25T16:00:00.000Z",
       "closedBars": 329,
       "period": 14,
-      "ageHours": 3.34,
+      "ageHours": 3.84,
       "evidence": {
         "sourceCandles": 1495,
         "rejected": 0,
@@ -145,7 +145,7 @@ window.ATR_MTF = {
       "asOf": "2026-11-25T00:00:00.000Z",
       "closedBars": 1257,
       "period": 14,
-      "ageHours": 19.34,
+      "ageHours": 19.84,
       "evidence": {
         "sourceCandles": 1257,
         "rejected": 0,
@@ -166,7 +166,7 @@ window.ATR_MTF = {
       "asOf": "2026-11-23T00:00:00.000Z",
       "closedBars": 260,
       "period": 14,
-      "ageHours": 67.34,
+      "ageHours": 67.84,
       "evidence": {
         "sourceCandles": 1257,
         "rejected": 0,
@@ -187,7 +187,7 @@ window.ATR_MTF = {
       "asOf": "2026-11-01T00:00:00.000Z",
       "closedBars": 59,
       "period": 14,
-      "ageHours": 595.34,
+      "ageHours": 595.84,
       "evidence": {
         "sourceCandles": 1257,
         "rejected": 0,
@@ -203,12 +203,12 @@ window.ATR_MTF = {
   "feeds": {
     "1m": {
       "state": "OK",
-      "count": 4959,
+      "count": 4989,
       "provider": "YAHOO_CHART"
     },
     "5m": {
       "state": "OK",
-      "count": 6286,
+      "count": 6292,
       "provider": "YAHOO_CHART"
     },
     "1h": {
